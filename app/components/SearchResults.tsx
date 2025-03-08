@@ -1,15 +1,21 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FiChevronRight, FiChevronDown } from 'react-icons/fi';
+import { SearchResultsProps, SearchResult } from '@/types';
 
-export default function SearchResults({ results, loading, hasMore, onLoadMore }) {
-  const [expandedItems, setExpandedItems] = useState({});
-  const observerRef = useRef(null);
-  const loadMoreRef = useRef(null);
+export default function SearchResults({ 
+  results, 
+  loading, 
+  hasMore, 
+  onLoadMore 
+}: SearchResultsProps): JSX.Element {
+  const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({});
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
   // Toggle expanded state for a result item
-  const toggleExpand = (id) => {
+  const toggleExpand = (id: string): void => {
     setExpandedItems(prev => ({
       ...prev,
       [id]: !prev[id]
@@ -57,9 +63,9 @@ export default function SearchResults({ results, loading, hasMore, onLoadMore })
   }
 
   // Render highlighted text safely
-  const renderHighlight = (text) => {
+  const renderHighlight = (text: string[] | undefined): React.ReactNode => {
     if (!text) return null;
-    return text.map((highlight, i) => (
+    return text.map((highlight: string, i: number) => (
       <span 
         key={i} 
         dangerouslySetInnerHTML={{ __html: highlight }}
@@ -69,7 +75,7 @@ export default function SearchResults({ results, loading, hasMore, onLoadMore })
 
   return (
     <div className="space-y-6">
-      {results.map((result) => (
+      {results.map((result: SearchResult) => (
         <div key={result.id} className="card border-l-4 border-l-primary hover:shadow-lg transition-shadow duration-200">
           <div 
             className="flex items-start cursor-pointer" 

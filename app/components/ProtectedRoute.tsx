@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useAuth } from './AuthProvider';
 import { useRouter } from 'next/navigation';
+import { ProtectedRouteProps } from '@/types';
 
-export default function ProtectedRoute({ children }) {
+export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   const { user, loading } = useAuth();
   const router = useRouter();
 
@@ -24,5 +25,5 @@ export default function ProtectedRoute({ children }) {
   }
 
   // Only render children if user is authenticated
-  return user ? children : null;
+  return user ? <>{children}</> : null;
 }

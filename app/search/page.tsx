@@ -1,20 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import SearchForm from '@/app/components/SearchForm';
 import SearchResults from '@/app/components/SearchResults';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
+import { SearchResult } from '@/types';
 
-export default function SearchPage() {
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalResults, setTotalResults] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
-  const [hasMore, setHasMore] = useState(false);
+export default function SearchPage(): JSX.Element {
+  const [results, setResults] = useState<SearchResult[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalResults, setTotalResults] = useState<number>(0);
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const [hasMore, setHasMore] = useState<boolean>(false);
 
-  const performSearch = async (query, page = 1, append = false) => {
+  const performSearch = async (query: string, page: number = 1, append: boolean = false): Promise<void> => {
     setLoading(true);
     try {
       const response = await fetch(`/api/search?q=${encodeURIComponent(query)}&page=${page}&size=10`);
@@ -44,12 +45,12 @@ export default function SearchPage() {
     }
   };
 
-  const handleSearch = async (query) => {
+  const handleSearch = async (query: string): Promise<void> => {
     setSearchQuery(query);
     await performSearch(query);
   };
 
-  const handleLoadMore = async () => {
+  const handleLoadMore = async (): Promise<void> => {
     if (hasMore && !loading) {
       await performSearch(searchQuery, currentPage + 1, true);
     }

@@ -1,13 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import { SearchFormProps } from '@/types';
 
-export default function SearchForm({ onSearch }) {
-  const [query, setQuery] = useState('');
-  const [isSearching, setIsSearching] = useState(false);
+export default function SearchForm({ onSearch }: SearchFormProps): JSX.Element {
+  const [query, setQuery] = useState<string>('');
+  const [isSearching, setIsSearching] = useState<boolean>(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     
     if (!query.trim()) return;
@@ -28,7 +29,7 @@ export default function SearchForm({ onSearch }) {
         <input
           type="text"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
           placeholder="Search for knowledge..."
           className="input py-3 pl-4 pr-12 text-lg shadow-sm"
           disabled={isSearching}

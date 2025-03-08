@@ -1,11 +1,11 @@
 'use client';
 
+import React, { useEffect } from 'react';
 import { useAuth } from './AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
-import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function LoginForm() {
+export default function LoginForm(): JSX.Element {
   const { user, loading, signInWithGoogle } = useAuth();
   const router = useRouter();
 

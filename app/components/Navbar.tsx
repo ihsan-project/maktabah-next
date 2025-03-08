@@ -1,17 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from './AuthProvider';
 import MobileMenu from './MobileMenu';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FiMenu } from 'react-icons/fi';
 
-export default function Navbar() {
+export default function Navbar(): JSX.Element {
   const { user } = useAuth();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
-  const toggleMenu = () => {
+  const toggleMenu = (): void => {
     setIsMenuOpen(!isMenuOpen);
   };
 

@@ -1,17 +1,19 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { 
   onAuthStateChanged, 
   signInWithPopup, 
   GoogleAuthProvider, 
-  signOut 
+  signOut, 
+  User as FirebaseUser 
 } from 'firebase/auth';
 import { auth } from '@/firebaseConfig';
 import { useRouter } from 'next/navigation';
+import { AuthContextType, UserType } from '@/types';
 
 // Create Authentication Context
-const AuthContext = createContext({
+const AuthContext = createContext<AuthContextType>({
   user: null,
   loading: true,
   signInWithGoogle: async () => {},
@@ -21,21 +23,25 @@ const AuthContext = createContext({
 // Custom hook to use the Auth Context
 export const useAuth = () => useContext(AuthContext);
 
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
 // AuthProvider Component
-export default function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function AuthProvider({ children }: AuthProviderProps) {
+  const [user, setUser] = useState<UserType | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter();
 
   // Listen for authentication state changes
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser: FirebaseUser | null) => {
+      if (firebaseUser) {
         setUser({
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-          photoURL: user.photoURL,
+          uid: firebaseUser.uid,
+          email: firebaseUser.email,
+          displayName: firebaseUser.displayName,
+          photoURL: firebaseUser.photoURL,
         });
       } else {
         setUser(null);
@@ -47,7 +53,7 @@ export default function AuthProvider({ children }) {
   }, []);
 
   // Sign in with Google
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = async (): Promise<void> => {
     setLoading(true);
     try {
       const provider = new GoogleAuthProvider();
@@ -61,7 +67,7 @@ export default function AuthProvider({ children }) {
   };
 
   // Logout function
-  const logout = async () => {
+  const logout = async (): Promise<void> => {
     setLoading(true);
     try {
       await signOut(auth);
@@ -74,7 +80,7 @@ export default function AuthProvider({ children }) {
   };
 
   // Context provider values
-  const value = {
+  const value: AuthContextType = {
     user,
     loading,
     signInWithGoogle,

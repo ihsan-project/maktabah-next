@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useAuth } from './components/AuthProvider';
 import { useRouter } from 'next/navigation';
 
-export default function HomePage() {
+export default function HomePage(): JSX.Element {
   const { user, loading } = useAuth();
   const router = useRouter();
 

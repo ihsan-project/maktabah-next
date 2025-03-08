@@ -1,7 +1,7 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { searchDocuments } from '@/lib/elasticsearch';
 
-export async function GET(request) {
+export async function GET(request: NextRequest) {
   try {
     // Get query parameters
     const { searchParams } = new URL(request.url);

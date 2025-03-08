@@ -1,16 +1,18 @@
 'use client';
 
+import React, { useEffect } from 'react';
 import { useAuth } from './AuthProvider';
 import { FiX, FiLogOut, FiUser } from 'react-icons/fi';
-import { useEffect } from 'react';
+import { MobileMenuProps } from '@/types';
 
-export default function MobileMenu({ isOpen, onClose }) {
+export default function MobileMenu({ isOpen, onClose }: MobileMenuProps): JSX.Element {
   const { user, logout } = useAuth();
 
   // Close menu when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isOpen && !event.target.closest('.mobile-menu') && !event.target.closest('button')) {
+    const handleClickOutside = (event: MouseEvent): void => {
+      const target = event.target as HTMLElement;
+      if (isOpen && !target.closest('.mobile-menu') && !target.closest('button')) {
         onClose();
       }
     };
@@ -33,7 +35,7 @@ export default function MobileMenu({ isOpen, onClose }) {
     };
   }, [isOpen]);
 
-  const handleLogout = async () => {
+  const handleLogout = async (): Promise<void> => {
     await logout();
     onClose();
   };
@@ -68,7 +70,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                 {user.photoURL ? (
                   <img 
                     src={user.photoURL} 
-                    alt={user.displayName} 
+                    alt={user.displayName || 'User'} 
                     className="w-10 h-10 rounded-full"
                   />
                 ) : (

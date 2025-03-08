@@ -2,15 +2,21 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import AuthProvider from './components/AuthProvider';
 import Navbar from './components/Navbar';
+import type { Metadata } from 'next';
+import React from 'react';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Maktabah - Search for Knowledge',
   description: 'A search application for your research needs',
 };
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans`}>

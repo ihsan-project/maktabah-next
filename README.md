@@ -1,7 +1,8 @@
-# Maktabah - Search Application
+# Maktabah - TypeScript Search Application
 
-A search application built with Next.js and Firebase, featuring:
+A search application built with Next.js, TypeScript, and Firebase, featuring:
 
+- TypeScript for type safety
 - Google Authentication with Firebase
 - Mobile-friendly responsive design
 - ElasticSearch integration
@@ -74,6 +75,7 @@ npm run deploy
 
 ## Features
 
+- **Type Safety**: Full TypeScript implementation for better developer experience
 - **Authentication**: Google Sign-in with Firebase Authentication
 - **Search**: ElasticSearch integration with highlighting and pagination
 - **Responsive Design**: Mobile-friendly interface with sliding menu
@@ -81,7 +83,7 @@ npm run deploy
 
 ## Technology Stack
 
-- **Frontend**: Next.js, React, Tailwind CSS
+- **Frontend**: Next.js, React, TypeScript, Tailwind CSS
 - **Authentication**: Firebase Authentication
 - **Search**: ElasticSearch
 - **Hosting**: Firebase Hosting

@@ -1,11 +1,12 @@
 import { Client } from '@elastic/elasticsearch';
+import { SearchResponse } from '@/types';
 
 // Initialize ElasticSearch client
 const client = new Client({
-  node: process.env.ELASTICSEARCH_URL,
+  node: process.env.ELASTICSEARCH_URL as string,
   auth: {
-    username: process.env.ELASTICSEARCH_USERNAME,
-    password: process.env.ELASTICSEARCH_PASSWORD
+    username: process.env.ELASTICSEARCH_USERNAME as string,
+    password: process.env.ELASTICSEARCH_PASSWORD as string
   },
   tls: {
     rejectUnauthorized: false // Set to true in production
@@ -13,12 +14,16 @@ const client = new Client({
 });
 
 // Search function to query ElasticSearch
-export async function searchDocuments(query, page = 1, size = 10) {
+export async function searchDocuments(
+  query: string, 
+  page: number = 1, 
+  size: number = 10
+): Promise<SearchResponse> {
   try {
     const startIndex = (page - 1) * size;
     
     const response = await client.search({
-      index: process.env.ELASTICSEARCH_INDEX,
+      index: process.env.ELASTICSEARCH_INDEX as string,
       body: {
         from: startIndex,
         size: size,
@@ -39,12 +44,12 @@ export async function searchDocuments(query, page = 1, size = 10) {
     });
 
     const hits = response.hits.hits;
-    const total = response.hits.total.value;
+    const total = response.hits.total?.value || 0;
     
     const results = hits.map(hit => ({
       id: hit._id,
-      score: hit._score,
-      ...hit._source,
+      score: hit._score || 0,
+      ...hit._source as any,
       highlights: hit.highlight || {}
     }));
 
