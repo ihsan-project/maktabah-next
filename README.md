@@ -1,4 +1,27 @@
-# Maktabah - TypeScript Search Application
+## Project Architecture
+
+This project uses a hybrid architecture:
+
+1. **Frontend**: Static Next.js site deployed to Firebase Hosting
+2. **Backend API**: Firebase Cloud Functions providing the search API
+
+The API routes are completely removed from the Next.js build process and instead implemented as Firebase Functions. This allows for a clean separation of concerns and better deployment workflow.
+
+## Development Workflow
+
+During development, you can work with the full Next.js application:
+
+```bash
+npm run dev
+```
+
+When deploying, the API routes will be removed from the Next.js build and the static site will be generated:
+
+```bash
+npm run deploy
+```
+
+This ensures there's no conflict between the static site generation and dynamic API routes.# Maktabah - TypeScript Search Application
 
 A search application built with Next.js, TypeScript, and Firebase, featuring:
 
