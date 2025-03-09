@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { useAuth } from './AuthProvider';
 import { FiX, FiLogOut, FiUser } from 'react-icons/fi';
 import { MobileMenuProps } from '@/types';
+import { getProfileImageUrl, getUserInitials } from '@/lib/user-utils';
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps): JSX.Element {
   const { user, logout } = useAuth();
@@ -66,15 +67,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps): JSX.El
         {user && (
           <div className="p-4">
             <div className="flex items-center space-x-3 mb-6 pb-4 border-b border-gray-200">
-              <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center text-white">
-                {user.photoURL ? (
+              <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center text-white overflow-hidden">
+                {getProfileImageUrl(user.photoURL) ? (
                   <img 
-                    src={user.photoURL} 
+                    src={getProfileImageUrl(user.photoURL) as string} 
                     alt={user.displayName || 'User'} 
-                    className="w-10 h-10 rounded-full"
+                    className="w-full h-full object-cover"
                   />
                 ) : (
-                  <FiUser size={20} />
+                  <span className="text-base font-bold">{getUserInitials(user)}</span>
                 )}
               </div>
               <div>

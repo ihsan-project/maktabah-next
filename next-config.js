@@ -4,6 +4,14 @@ const nextConfig = {
   output: 'export', // Export static site for Firebase hosting
   images: {
     unoptimized: true, // For static export
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   // Add proper headers for Firebase hosting
   async headers() {

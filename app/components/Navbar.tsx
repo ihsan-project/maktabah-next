@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import { useAuth } from './AuthProvider';
 import MobileMenu from './MobileMenu';
 import Link from 'next/link';
-import Image from 'next/image';
-import { FiMenu } from 'react-icons/fi';
+import { FiMenu, FiUser } from 'react-icons/fi';
+import { getProfileImageUrl, getUserInitials } from '@/lib/user-utils';
 
 export default function Navbar(): JSX.Element {
   const { user } = useAuth();
@@ -28,16 +28,17 @@ export default function Navbar(): JSX.Element {
           {user && (
             <div className="hidden md:flex items-center space-x-4">
               <div className="flex items-center">
-                {user.photoURL && (
-                  <div className="relative w-8 h-8 mr-2 rounded-full overflow-hidden">
-                    <Image 
-                      src={user.photoURL} 
+                <div className="w-8 h-8 mr-2 rounded-full overflow-hidden bg-primary-light flex items-center justify-center text-white">
+                  {getProfileImageUrl(user.photoURL) ? (
+                    <img 
+                      src={getProfileImageUrl(user.photoURL) as string} 
                       alt={user.displayName || 'User'} 
-                      fill
-                      className="object-cover"
+                      className="w-full h-full object-cover"
                     />
-                  </div>
-                )}
+                  ) : (
+                    <span className="text-sm font-bold">{getUserInitials(user)}</span>
+                  )}
+                </div>}
                 <span className="text-sm">{user.displayName}</span>
               </div>
             </div>
