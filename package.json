@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && firebase deploy --only hosting"
+    "deploy": "next build && firebase deploy",
+    "deploy:hosting": "next build && firebase deploy --only hosting",
+    "deploy:functions": "firebase deploy --only functions",
+    "tailwind:watch": "tailwindcss -i ./app/globals.css -o ./app/output.css --watch"
   },
   "dependencies": {
     "@elastic/elasticsearch": "^8.10.0",

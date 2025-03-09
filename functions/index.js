@@ -1,25 +1,26 @@
 const functions = require('firebase-functions');
 const { Client } = require('@elastic/elasticsearch');
 
-// Initialize ElasticSearch client
-const client = new Client({
-  node: process.env.ELASTICSEARCH_URL,
-  auth: {
-    username: process.env.ELASTICSEARCH_USERNAME,
-    password: process.env.ELASTICSEARCH_PASSWORD
-  },
-  tls: {
-    rejectUnauthorized: false // Set to true in production
-  }
-});
-
 // Search function to query ElasticSearch
 async function searchDocuments(query, page = 1, size = 10) {
   try {
+    // Initialize ElasticSearch client with config values
+    const config = functions.config();
+    const client = new Client({
+      node: config.elasticsearch.url,
+      auth: {
+        username: config.elasticsearch.username,
+        password: config.elasticsearch.password
+      },
+      tls: {
+        rejectUnauthorized: false // Set to true in production
+      }
+    });
+    
     const startIndex = (page - 1) * size;
     
     const response = await client.search({
-      index: process.env.ELASTICSEARCH_INDEX,
+      index: config.elasticsearch.index,
       body: {
         from: startIndex,
         size: size,
