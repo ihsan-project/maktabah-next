@@ -44,7 +44,9 @@ export async function searchDocuments(
     });
 
     const hits = response.hits.hits;
-    const total = response.hits.total?.value || 0;
+    const total = typeof response.hits.total === 'number' 
+      ? response.hits.total 
+      : response.hits.total?.value || 0;
     
     const results = hits.map(hit => ({
       id: hit._id,
