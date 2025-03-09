@@ -50,7 +50,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deployment to Firebase Hosting
+## Deployment to Firebase Hosting and Functions
 
 1. Install Firebase CLI:
 ```bash
@@ -66,12 +66,23 @@ firebase login
 ```bash
 firebase init
 ```
-Select Hosting and follow the prompts.
+Select Hosting and Functions and follow the prompts.
 
-4. Deploy to Firebase:
+4. Set up Functions environment variables:
+```bash
+cd functions
+firebase functions:config:set elasticsearch.url="YOUR_ELASTICSEARCH_URL" \
+                          elasticsearch.username="YOUR_ELASTICSEARCH_USERNAME" \
+                          elasticsearch.password="YOUR_ELASTICSEARCH_PASSWORD" \
+                          elasticsearch.index="YOUR_ELASTICSEARCH_INDEX"
+```
+
+5. Deploy to Firebase:
 ```bash
 npm run deploy
 ```
+
+This will deploy both the static site to Firebase Hosting and the API endpoints to Firebase Functions.
 
 ## Features
 

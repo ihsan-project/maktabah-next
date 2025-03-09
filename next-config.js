@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    forceSwcTransforms: true,
+  },
   reactStrictMode: true,
   output: 'export', // Export static site for Firebase hosting
   images: {
@@ -26,6 +29,20 @@ const nextConfig = {
         ],
       },
     ];
+  },
+  // Exclude API routes from static generation
+  trailingSlash: false,
+  distDir: '.next',
+  // Exclude /api routes from static export
+  exportPathMap: async function (defaultPathMap) {
+    // Filter out API routes
+    const filteredPaths = {};
+    for (const [path, config] of Object.entries(defaultPathMap)) {
+      if (!path.startsWith('/api')) {
+        filteredPaths[path] = config;
+      }
+    }
+    return filteredPaths;
   },
 }
 

@@ -18,7 +18,12 @@ export default function SearchPage(): JSX.Element {
   const performSearch = async (query: string, page: number = 1, append: boolean = false): Promise<void> => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/search?q=${encodeURIComponent(query)}&page=${page}&size=10`);
+      // Use the deployed function URL in production or the relative path in development
+      const apiUrl = process.env.NODE_ENV === 'production'
+        ? `https://${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}.web.app/api/search?q=${encodeURIComponent(query)}&page=${page}&size=10`
+        : `/api/search?q=${encodeURIComponent(query)}&page=${page}&size=10`;
+      
+      const response = await fetch(apiUrl);
       
       if (!response.ok) {
         throw new Error('Search request failed');
