@@ -38,7 +38,7 @@ export default function Navbar(): JSX.Element {
                   ) : (
                     <span className="text-sm font-bold">{getUserInitials(user)}</span>
                   )}
-                </div>}
+                </div>
                 <span className="text-sm">{user.displayName}</span>
               </div>
             </div>
