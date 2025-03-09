@@ -3,17 +3,17 @@
 import React, { useEffect } from 'react';
 import { useAuth } from './AuthProvider';
 import { FiX, FiLogOut, FiUser } from 'react-icons/fi';
-import { MobileMenuProps } from '@/types';
+import { SideMenuProps } from '@/types';
 import { getProfileImageUrl, getUserInitials } from '@/lib/user-utils';
 
-export default function MobileMenu({ isOpen, onClose }: MobileMenuProps): JSX.Element {
+export default function SideMenu({ isOpen, onClose }: SideMenuProps): JSX.Element {
   const { user, logout } = useAuth();
 
   // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent): void => {
       const target = event.target as HTMLElement;
-      if (isOpen && !target.closest('.mobile-menu') && !target.closest('button')) {
+      if (isOpen && !target.closest('.side-menu') && !target.closest('button')) {
         onClose();
       }
     };
@@ -48,7 +48,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps): JSX.El
       }`}
     >
       <div
-        className={`mobile-menu fixed right-0 top-0 h-full w-64 bg-white transform transition-transform duration-300 ease-in-out ${
+        className={`side-menu fixed right-0 top-0 h-full w-64 bg-white transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

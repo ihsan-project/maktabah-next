@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import { useAuth } from './AuthProvider';
-import MobileMenu from './MobileMenu';
+import SideMenu from './SideMenu';
 import Link from 'next/link';
-import { FiMenu, FiUser } from 'react-icons/fi';
+import { FiMenu } from 'react-icons/fi';
 import { getProfileImageUrl, getUserInitials } from '@/lib/user-utils';
 
 export default function Navbar(): JSX.Element {
@@ -24,11 +24,20 @@ export default function Navbar(): JSX.Element {
             Maktabah
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop & Mobile Menu Button */}
           {user && (
-            <div className="hidden md:flex items-center space-x-4">
-              <div className="flex items-center">
-                <div className="w-8 h-8 mr-2 rounded-full overflow-hidden bg-primary-light flex items-center justify-center text-white">
+            <div className="flex items-center">
+              {/* Desktop User Info */}
+              <div className="hidden md:flex items-center mr-4">
+                <span className="text-sm">{user.displayName}</span>
+              </div>
+              
+              {/* Menu Toggle Button - Works for both desktop and mobile */}
+              <button 
+                className="flex items-center focus:outline-none" 
+                onClick={toggleMenu}
+              >
+                <div className="w-8 h-8 rounded-full overflow-hidden bg-primary-light flex items-center justify-center text-white">
                   {getProfileImageUrl(user.photoURL) ? (
                     <img 
                       src={getProfileImageUrl(user.photoURL) as string} 
@@ -39,25 +48,14 @@ export default function Navbar(): JSX.Element {
                     <span className="text-sm font-bold">{getUserInitials(user)}</span>
                   )}
                 </div>
-                <span className="text-sm">{user.displayName}</span>
-              </div>
+              </button>
             </div>
-          )}
-
-          {/* Mobile Menu Button */}
-          {user && (
-            <button 
-              className="md:hidden flex items-center text-white focus:outline-none" 
-              onClick={toggleMenu}
-            >
-              <FiMenu className="h-6 w-6" />
-            </button>
           )}
         </div>
       </div>
 
-      {/* Mobile Menu Slider */}
-      <MobileMenu isOpen={isMenuOpen} onClose={toggleMenu} />
+      {/* Side Menu - Used for both mobile and desktop */}
+      <SideMenu isOpen={isMenuOpen} onClose={toggleMenu} />
     </header>
   );
 }
