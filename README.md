@@ -1,4 +1,63 @@
-# Maktabah - TypeScript Search Application
+## Firebase Functions Configuration for ElasticSearch
+
+To configure the ElasticSearch integration with Firebase Functions, you'll need to set up environment variables for your functions. Follow these steps:
+
+### Setting Up ElasticSearch Configuration
+
+1. Make sure you have the Firebase CLI installed and logged in:
+```bash
+npm install -g firebase-tools
+firebase login
+```
+
+2. Configure the ElasticSearch environment variables for your Firebase Functions:
+```bash
+firebase functions:config:set elasticsearch.url="https://your-elasticsearch-instance.com" \
+                          elasticsearch.username="your_username" \
+                          elasticsearch.password="your_password" \
+                          elasticsearch.index="your_index_name"
+```
+
+3. Verify your configuration:
+```bash
+firebase functions:config:get
+```
+
+4. Deploy your functions to apply the new configuration:
+```bash
+npm run deploy:functions
+```
+
+### Accessing Configuration in Functions
+
+The ElasticSearch configuration is accessed in your function code using:
+
+```javascript
+const config = functions.config();
+const elasticsearchConfig = {
+  node: config.elasticsearch.url,
+  auth: {
+    username: config.elasticsearch.username,
+    password: config.elasticsearch.password
+  }
+};
+```
+
+### Local Development
+
+For local development with Firebase Functions, you can create a `.runtimeconfig.json` file in your functions directory:
+
+1. Export your current config to a local file:
+```bash
+firebase functions:config:get > .runtimeconfig.json
+```
+
+2. Start the Firebase emulator:
+```bash
+firebase emulators:start
+```
+
+This allows you to test your functions locally with the same configuration as production.# Maktabah - TypeScript Search Application
 
 A search application built with Next.js, TypeScript, and Firebase, featuring:
 
@@ -30,12 +89,6 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project-id.appspot.com
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
 NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your-measurement-id
-
-# ElasticSearch Configuration
-ELASTICSEARCH_URL=your-elasticsearch-url
-ELASTICSEARCH_USERNAME=your-elasticsearch-username
-ELASTICSEARCH_PASSWORD=your-elasticsearch-password
-ELASTICSEARCH_INDEX=your-elasticsearch-index
 ```
 
 ### Installation
@@ -50,7 +103,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deployment to Firebase Hosting
+## Deployment to Firebase Hosting and Functions
 
 1. Install Firebase CLI:
 ```bash
@@ -66,12 +119,23 @@ firebase login
 ```bash
 firebase init
 ```
-Select Hosting and follow the prompts.
+Select Hosting and Functions and follow the prompts.
 
-4. Deploy to Firebase:
+4. Set up Functions environment variables:
+```bash
+cd functions
+firebase functions:config:set elasticsearch.url="YOUR_ELASTICSEARCH_URL" \
+                          elasticsearch.username="YOUR_ELASTICSEARCH_USERNAME" \
+                          elasticsearch.password="YOUR_ELASTICSEARCH_PASSWORD" \
+                          elasticsearch.index="YOUR_ELASTICSEARCH_INDEX"
+```
+
+5. Deploy to Firebase:
 ```bash
 npm run deploy
 ```
+
+This will deploy both the static site to Firebase Hosting and the API endpoints to Firebase Functions.
 
 ## Features
 

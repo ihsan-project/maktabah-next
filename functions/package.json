@@ -1,0 +1,21 @@
+{
+    "name": "maktabah-functions",
+    "version": "1.0.0",
+    "description": "Cloud Functions for Maktabah",
+    "main": "index.js",
+    "scripts": {
+        "serve": "firebase emulators:start --only functions",
+        "shell": "firebase functions:shell",
+        "start": "npm run shell",
+        "deploy": "firebase deploy --only functions",
+        "logs": "firebase functions:log"
+    },
+    "engines": {
+        "node": "20"
+    },
+    "dependencies": {
+        "@elastic/elasticsearch": "^8.10.0",
+        "firebase-admin": "^11.11.0",
+        "firebase-functions": "^6.3.2"
+    }
+}
