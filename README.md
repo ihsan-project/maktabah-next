@@ -1,27 +1,63 @@
-## Project Architecture
+## Firebase Functions Configuration for ElasticSearch
 
-This project uses a hybrid architecture:
+To configure the ElasticSearch integration with Firebase Functions, you'll need to set up environment variables for your functions. Follow these steps:
 
-1. **Frontend**: Static Next.js site deployed to Firebase Hosting
-2. **Backend API**: Firebase Cloud Functions providing the search API
+### Setting Up ElasticSearch Configuration
 
-The API routes are completely removed from the Next.js build process and instead implemented as Firebase Functions. This allows for a clean separation of concerns and better deployment workflow.
-
-## Development Workflow
-
-During development, you can work with the full Next.js application:
-
+1. Make sure you have the Firebase CLI installed and logged in:
 ```bash
-npm run dev
+npm install -g firebase-tools
+firebase login
 ```
 
-When deploying, the API routes will be removed from the Next.js build and the static site will be generated:
-
+2. Configure the ElasticSearch environment variables for your Firebase Functions:
 ```bash
-npm run deploy
+firebase functions:config:set elasticsearch.url="https://your-elasticsearch-instance.com" \
+                          elasticsearch.username="your_username" \
+                          elasticsearch.password="your_password" \
+                          elasticsearch.index="your_index_name"
 ```
 
-This ensures there's no conflict between the static site generation and dynamic API routes.# Maktabah - TypeScript Search Application
+3. Verify your configuration:
+```bash
+firebase functions:config:get
+```
+
+4. Deploy your functions to apply the new configuration:
+```bash
+npm run deploy:functions
+```
+
+### Accessing Configuration in Functions
+
+The ElasticSearch configuration is accessed in your function code using:
+
+```javascript
+const config = functions.config();
+const elasticsearchConfig = {
+  node: config.elasticsearch.url,
+  auth: {
+    username: config.elasticsearch.username,
+    password: config.elasticsearch.password
+  }
+};
+```
+
+### Local Development
+
+For local development with Firebase Functions, you can create a `.runtimeconfig.json` file in your functions directory:
+
+1. Export your current config to a local file:
+```bash
+firebase functions:config:get > .runtimeconfig.json
+```
+
+2. Start the Firebase emulator:
+```bash
+firebase emulators:start
+```
+
+This allows you to test your functions locally with the same configuration as production.# Maktabah - TypeScript Search Application
 
 A search application built with Next.js, TypeScript, and Firebase, featuring:
 
@@ -53,12 +89,6 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project-id.appspot.com
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
 NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your-measurement-id
-
-# ElasticSearch Configuration
-ELASTICSEARCH_URL=your-elasticsearch-url
-ELASTICSEARCH_USERNAME=your-elasticsearch-username
-ELASTICSEARCH_PASSWORD=your-elasticsearch-password
-ELASTICSEARCH_INDEX=your-elasticsearch-index
 ```
 
 ### Installation
