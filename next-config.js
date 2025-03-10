@@ -16,18 +16,7 @@ const nextConfig = {
       },
     ],
   },
-  // Exclude API routes from static generation
-  trailingSlash: false,
   distDir: '.next',
-  
-  // This is the key part - exclude API routes from the export
-  exportPathMap: async function() {
-    return {
-      '/': { page: '/' },
-      '/auth/login': { page: '/auth/login' },
-      '/search': { page: '/search' }
-    };
-  },
 }
 
 module.exports = nextConfig
