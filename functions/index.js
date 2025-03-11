@@ -1,17 +1,25 @@
 const functions = require('firebase-functions');
 const { Client } = require('@elastic/elasticsearch');
 
+// Helper function to ensure API key is properly formatted
+function getApiKeyAuth(apiKey) {
+  // If the API key already contains a colon, it's likely in "id:api_key" format
+  // and might need base64 encoding if not already encoded
+  if (apiKey.includes(':') && !apiKey.match(/^[A-Za-z0-9+/=]+$/)) {
+    return { apiKey: Buffer.from(apiKey).toString('base64') };
+  }
+  
+  // Otherwise, assume it's already in the correct format
+  return { apiKey };
+}
+
 // Search function to query ElasticSearch
 async function searchDocuments(query, page = 1, size = 10) {
   try {
-    // Initialize ElasticSearch client with config values
-    const config = functions.config();
+    // Initialize ElasticSearch client with API key authentication using process.env
     const client = new Client({
-      node: config.elasticsearch.url,
-      auth: {
-        username: config.elasticsearch.username,
-        password: config.elasticsearch.password
-      },
+      node: process.env.ELASTICSEARCH_URL,
+      auth: getApiKeyAuth(process.env.ELASTICSEARCH_APIKEY),
       tls: {
         rejectUnauthorized: false // Set to true in production
       }
@@ -19,8 +27,11 @@ async function searchDocuments(query, page = 1, size = 10) {
     
     const startIndex = (page - 1) * size;
     
+    // Hardcoded index name
+    const elasticsearchIndex = 'maktabah';
+    
     const response = await client.search({
-      index: config.elasticsearch.index,
+      index: elasticsearchIndex,
       body: {
         from: startIndex,
         size: size,
