@@ -16,11 +16,10 @@ function getApiKeyAuth(apiKey) {
 // Search function to query ElasticSearch
 async function searchDocuments(query, page = 1, size = 10) {
   try {
-    // Initialize ElasticSearch client with API key authentication
-    const config = functions.config();
+    // Initialize ElasticSearch client with API key authentication using process.env
     const client = new Client({
-      node: config.elasticsearch.url,
-      auth: getApiKeyAuth(config.elasticsearch.apikey),
+      node: process.env.ELASTICSEARCH_URL,
+      auth: getApiKeyAuth(process.env.ELASTICSEARCH_APIKEY),
       tls: {
         rejectUnauthorized: false // Set to true in production
       }
@@ -28,8 +27,11 @@ async function searchDocuments(query, page = 1, size = 10) {
     
     const startIndex = (page - 1) * size;
     
+    // Hardcoded index name
+    const elasticsearchIndex = 'maktabah';
+    
     const response = await client.search({
-      index: config.elasticsearch.index,
+      index: elasticsearchIndex,
       body: {
         from: startIndex,
         size: size,

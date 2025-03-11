@@ -30,80 +30,37 @@ firebase login
    - Create a new API key with appropriate permissions for your index
    - Make sure to save the generated API key as it will only be shown once
 
-3. Configure the ElasticSearch environment variables for your Firebase Functions:
+3. Set secrets for ElasticSearch authentication:
 ```bash
-firebase functions:config:set elasticsearch.url="https://your-elasticsearch-instance.com" \
-                          elasticsearch.apikey="your_elasticsearch_api_key" \
-                          elasticsearch.index="your_index_name"
+firebase functions:secrets:set ELASTICSEARCH_URL
+# Enter your Elasticsearch URL when prompted
+
+firebase functions:secrets:set ELASTICSEARCH_APIKEY
+# Enter your Elasticsearch API key when prompted
 ```
 
-4. Verify your configuration:
-```bash
-firebase functions:config:get
-```
+Note: The index name "maktabah" is currently hardcoded in the application.
+
+4. Update your functions/.env file to include these variables for local development.
 
 5. Deploy your functions to apply the new configuration:
 ```bash
 npm run deploy:functions
 ```
 
-### Accessing Configuration in Functions
-
-The ElasticSearch configuration is accessed in your function code using:
-
-```javascript
-const config = functions.config();
-const elasticsearchConfig = {
-  node: config.elasticsearch.url,
-  auth: {
-    apiKey: config.elasticsearch.apikey
-  }
-};
-```
-
-### Encoding API Keys (Alternative Method)
-
-If your Elasticsearch service provides the API key in a base64 encoded format (id:api_key), you can use it directly:
-
-```javascript
-const client = new Client({
-  node: config.elasticsearch.url,
-  auth: {
-    apiKey: config.elasticsearch.apikey // Already base64 encoded
-  }
-});
-```
-
-If you have the id and api_key separately and need to encode them:
-
-```javascript
-const apiKeyId = 'your_api_key_id';
-const apiKeySecret = 'your_api_key_secret';
-const apiKey = Buffer.from(`${apiKeyId}:${apiKeySecret}`).toString('base64');
-
-const client = new Client({
-  node: config.elasticsearch.url,
-  auth: {
-    apiKey: apiKey
-  }
-});
-```
-
 ### Local Development
 
-For local development with Firebase Functions, you can create a `.runtimeconfig.json` file in your functions directory:
+For local development with Firebase Functions v2, create a .env file in your functions directory for secrets:
 
-1. Export your current config to a local file:
-```bash
-firebase functions:config:get > .runtimeconfig.json
+```
+ELASTICSEARCH_URL=https://your-elasticsearch-instance.com
+ELASTICSEARCH_APIKEY=your_elasticsearch_api_key
 ```
 
-2. Start the Firebase emulator:
+Then start the Firebase emulator:
 ```bash
 firebase emulators:start
 ```
-
-This allows you to test your functions locally with the same configuration as production.
 
 ### Security Best Practices
 
