@@ -1,6 +1,6 @@
 ## Firebase Functions Configuration for ElasticSearch
 
-To configure the ElasticSearch integration with Firebase Functions, you'll need to set up environment variables for your functions. Follow these steps:
+To configure the ElasticSearch integration with Firebase Functions using API key authentication, follow these steps:
 
 ### Setting Up ElasticSearch Configuration
 
@@ -10,20 +10,39 @@ npm install -g firebase-tools
 firebase login
 ```
 
-2. Configure the ElasticSearch environment variables for your Firebase Functions:
+2. Create an API key in your Elasticsearch cluster:
+   - Log into your Elasticsearch instance or cloud provider dashboard
+   - Navigate to Security## Firebase Functions Configuration for ElasticSearch
+
+To configure the ElasticSearch integration with Firebase Functions using API key authentication, follow these steps:
+
+### Setting Up ElasticSearch Configuration
+
+1. Make sure you have the Firebase CLI installed and logged in:
+```bash
+npm install -g firebase-tools
+firebase login
+```
+
+2. Create an API key in your Elasticsearch cluster:
+   - Log into your Elasticsearch instance or cloud provider dashboard
+   - Navigate to Security → API Keys section
+   - Create a new API key with appropriate permissions for your index
+   - Make sure to save the generated API key as it will only be shown once
+
+3. Configure the ElasticSearch environment variables for your Firebase Functions:
 ```bash
 firebase functions:config:set elasticsearch.url="https://your-elasticsearch-instance.com" \
-                          elasticsearch.username="your_username" \
-                          elasticsearch.password="your_password" \
+                          elasticsearch.apikey="your_elasticsearch_api_key" \
                           elasticsearch.index="your_index_name"
 ```
 
-3. Verify your configuration:
+4. Verify your configuration:
 ```bash
 firebase functions:config:get
 ```
 
-4. Deploy your functions to apply the new configuration:
+5. Deploy your functions to apply the new configuration:
 ```bash
 npm run deploy:functions
 ```
@@ -37,10 +56,37 @@ const config = functions.config();
 const elasticsearchConfig = {
   node: config.elasticsearch.url,
   auth: {
-    username: config.elasticsearch.username,
-    password: config.elasticsearch.password
+    apiKey: config.elasticsearch.apikey
   }
 };
+```
+
+### Encoding API Keys (Alternative Method)
+
+If your Elasticsearch service provides the API key in a base64 encoded format (id:api_key), you can use it directly:
+
+```javascript
+const client = new Client({
+  node: config.elasticsearch.url,
+  auth: {
+    apiKey: config.elasticsearch.apikey // Already base64 encoded
+  }
+});
+```
+
+If you have the id and api_key separately and need to encode them:
+
+```javascript
+const apiKeyId = 'your_api_key_id';
+const apiKeySecret = 'your_api_key_secret';
+const apiKey = Buffer.from(`${apiKeyId}:${apiKeySecret}`).toString('base64');
+
+const client = new Client({
+  node: config.elasticsearch.url,
+  auth: {
+    apiKey: apiKey
+  }
+});
 ```
 
 ### Local Development
@@ -57,7 +103,15 @@ firebase functions:config:get > .runtimeconfig.json
 firebase emulators:start
 ```
 
-This allows you to test your functions locally with the same configuration as production.# Maktabah - TypeScript Search Application
+This allows you to test your functions locally with the same configuration as production.
+
+### Security Best Practices
+
+1. Create API keys with the minimum required permissions
+2. Set an expiration date on your API keys when possible
+3. Rotate your API keys periodically
+4. Monitor API key usage through Elasticsearch's audit logs
+5. Never commit API keys to your source code repository# Maktabah - TypeScript Search Application
 
 A search application built with Next.js, TypeScript, and Firebase, featuring:
 
@@ -89,6 +143,12 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project-id.appspot.com
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
 NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your-measurement-id
+
+# ElasticSearch Configuration
+ELASTICSEARCH_URL=your-elasticsearch-url
+ELASTICSEARCH_USERNAME=your-elasticsearch-username
+ELASTICSEARCH_PASSWORD=your-elasticsearch-password
+ELASTICSEARCH_INDEX=your-elasticsearch-index
 ```
 
 ### Installation
