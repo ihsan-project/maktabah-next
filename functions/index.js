@@ -14,7 +14,7 @@ function getApiKeyAuth(apiKey) {
 }
 
 // Search function to query ElasticSearch
-async function searchDocuments(query, page = 1, size = 10) {
+async function searchDocuments(query, page = 1, size = 10, translator = null, chapter = null) {
   try {
     // Initialize ElasticSearch client with API key authentication using process.env
     const client = new Client({
@@ -30,24 +30,88 @@ async function searchDocuments(query, page = 1, size = 10) {
     // Hardcoded index name
     const elasticsearchIndex = 'maktabah';
     
+    // Build the search query based on the mapping
+    const searchQuery = {
+      bool: {
+        should: [
+          // Search in the main text field with the base analyzer
+          { 
+            match: { 
+              text: {
+                query: query,
+                boost: 1.0
+              }
+            }
+          },
+          // Search in the text.stem field for stemmed matches
+          { 
+            match: { 
+              "text.stem": {
+                query: query,
+                boost: 1.2 // Give stemmed matches a higher boost
+              }
+            }
+          },
+          // Use the joined field for phrase-like queries and typo tolerance
+          { 
+            match: { 
+              "text.joined": {
+                query: query,
+                boost: 1.5 // Higher boost for phrase matches
+              }
+            }
+          },
+          // Use prefix field for better search-as-you-type experience
+          {
+            match: {
+              "text.prefix": {
+                query: query,
+                boost: 0.8 // Lower boost for prefix matches
+              }
+            }
+          }
+        ],
+        minimum_should_match: 1,
+        filter: [] // Will add filters here if needed
+      }
+    };
+    
+    // Add translator filter if specified
+    if (translator) {
+      searchQuery.bool.filter.push({
+        term: { "translator.enum": translator }
+      });
+    }
+    
+    // Add chapter filter if specified
+    if (chapter) {
+      searchQuery.bool.filter.push({
+        term: { chapter: parseInt(chapter, 10) }
+      });
+    }
+    
+    // Perform the search
     const response = await client.search({
       index: elasticsearchIndex,
       body: {
         from: startIndex,
         size: size,
-        query: {
-          multi_match: {
-            query: query,
-            fields: ['title^2', 'content', 'author', 'tags'],
-            fuzziness: 'AUTO'
-          }
-        },
+        query: searchQuery,
         highlight: {
           fields: {
-            title: {},
-            content: {}
+            text: {
+              pre_tags: ["<em>"],
+              post_tags: ["</em>"],
+              fragment_size: 150,
+              number_of_fragments: 3
+            }
           }
-        }
+        },
+        sort: [
+          { _score: { order: "desc" } },
+          { chapter: { order: "asc" } },
+          { verse: { order: "asc" } }
+        ]
       }
     });
 
@@ -60,7 +124,7 @@ async function searchDocuments(query, page = 1, size = 10) {
       id: hit._id,
       score: hit._score || 0,
       ...hit._source,
-      highlights: hit.highlight || {}
+      highlights: hit.highlight?.text || []
     }));
 
     return {
@@ -96,6 +160,8 @@ exports.nextApiHandler = functions.https.onRequest(async (req, res) => {
         const query = req.query.q;
         const page = parseInt(req.query.page || '1', 10);
         const size = parseInt(req.query.size || '10', 10);
+        const translator = req.query.translator || null;
+        const chapter = req.query.chapter || null;
 
         // Validate the query
         if (!query) {
@@ -104,7 +170,7 @@ exports.nextApiHandler = functions.https.onRequest(async (req, res) => {
         }
 
         // Search documents
-        const searchResults = await searchDocuments(query, page, size);
+        const searchResults = await searchDocuments(query, page, size, translator, chapter);
         res.json(searchResults);
         return;
       }
