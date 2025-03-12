@@ -1,0 +1,23 @@
+{
+  "name": "quran-elasticsearch-loader",
+  "version": "1.0.0",
+  "description": "Tool to load Quran translations from XML files into Elasticsearch",
+  "main": "load-quran-to-elasticsearch.js",
+  "scripts": {
+    "load": "node load-quran-to-elasticsearch.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "quran",
+    "elasticsearch",
+    "xml"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.10.0",
+    "@xmldom/xmldom": "^0.8.10",
+    "dotenv": "^16.3.1",
+    "xpath": "^0.0.33"
+  }
+}
