@@ -15,13 +15,25 @@ export default function SearchPage(): JSX.Element {
   const [totalPages, setTotalPages] = useState<number>(0);
   const [hasMore, setHasMore] = useState<boolean>(false);
 
+  // Get the appropriate API URL based on environment
+  const getApiUrl = (query: string, page: number): string => {
+    // Check if we're in development mode and running locally
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    
+    // Use Firebase emulator URL in development, API route in production
+    const baseUrl = isDevelopment
+      ? 'http://127.0.0.1:5001/maktabah-8ac04/us-central1/nextApiHandler/api/search'
+      : `/api/search`;
+    
+    return `${baseUrl}?q=${encodeURIComponent(query)}&page=${page}&size=10`;
+  };
+
   const performSearch = async (query: string, page: number = 1, append: boolean = false): Promise<void> => {
     setLoading(true);
     try {
-      // Use the deployed function URL in production or the relative path in development
-      const apiUrl = process.env.NODE_ENV === 'production'
-        ? `https://${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}.web.app/api/search?q=${encodeURIComponent(query)}&page=${page}&size=10`
-        : `/api/search?q=${encodeURIComponent(query)}&page=${page}&size=10`;
+      console.log('mmi: 1');
+      const apiUrl = getApiUrl(query, page);
+      console.log('Searching using API URL:', apiUrl); // Debug log
       
       const response = await fetch(apiUrl);
       

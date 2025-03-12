@@ -16,16 +16,13 @@ export interface AuthContextType {
 // Search-related types
 export interface SearchResult {
   id: string;
-  title: string;
-  content: string;
-  author?: string;
-  date?: string;
-  tags?: string[];
   score: number;
-  highlights?: {
-    title?: string[];
-    content?: string[];
-  };
+  chapter: number;
+  verse: number;
+  text: string;
+  translator: string;
+  chapter_name?: string;
+  highlights?: string[];
 }
 
 export interface SearchResponse {
