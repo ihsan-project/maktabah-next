@@ -41,16 +41,14 @@ firebase functions:secrets:set ELASTICSEARCH_APIKEY
 
 Note: The index name "maktabah" is currently hardcoded in the application.
 
-4. Update your functions/.env file to include these variables for local development.
-
-5. Deploy your functions to apply the new configuration:
+4. Deploy your functions to apply the new configuration:
 ```bash
 npm run deploy:functions
 ```
 
 ### Local Development
 
-For local development with Firebase Functions v2, create a .env file in your functions directory for secrets:
+For local development with Firebase Functions v2, add following to .env.local:
 
 ```
 ELASTICSEARCH_URL=https://your-elasticsearch-instance.com
