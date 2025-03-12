@@ -64,13 +64,8 @@ export default function SearchResults({
 
   // Render highlighted text safely
   const renderHighlight = (text: string[] | undefined): React.ReactNode => {
-    if (!text) return null;
-    return text.map((highlight: string, i: number) => (
-      <span 
-        key={i} 
-        dangerouslySetInnerHTML={{ __html: highlight }}
-      />
-    ));
+    if (!text || text.length === 0) return null;
+    return <div dangerouslySetInnerHTML={{ __html: text[0] }} />;
   };
 
   return (
@@ -78,38 +73,27 @@ export default function SearchResults({
       {results.map((result: SearchResult) => (
         <div key={result.id} className="card border-l-4 border-l-primary hover:shadow-lg transition-shadow duration-200">
           <div 
-            className="flex items-start cursor-pointer" 
+            className="flex flex-col cursor-pointer" 
             onClick={() => toggleExpand(result.id)}
           >
-            <div className="flex-1">
-              <h3 className="text-lg font-medium text-primary mb-1">
-                {result.highlights?.title ? (
-                  renderHighlight(result.highlights.title)
-                ) : (
-                  result.title
-                )}
-              </h3>
-              <p className="text-sm text-gray-500 mb-2">
-                {result.author && <span>By {result.author} | </span>}
-                {result.date && <span>{new Date(result.date).toLocaleDateString()}</span>}
-              </p>
-              <div className="text-gray-700">
-                {expandedItems[result.id] ? (
-                  <div className="mt-2">
-                    {result.content}
-                  </div>
-                ) : (
-                  <p className="line-clamp-2">
-                    {result.highlights?.content ? (
-                      renderHighlight(result.highlights.content)
-                    ) : (
-                      result.content
-                    )}
-                  </p>
-                )}
+            <div className="flex justify-between items-center mb-2">
+              <div className="font-medium text-primary">
+                {result.chapter}:{result.verse}
+              </div>
+              <div className="text-xs text-gray-500">
+                {result.translator}
               </div>
             </div>
-            <div className="ml-4 mt-1 text-gray-400">
+            
+            <div className="text-gray-700">
+              {result.highlights && result.highlights.length > 0 ? (
+                renderHighlight(result.highlights)
+              ) : (
+                <div>{result.text}</div>
+              )}
+            </div>
+            
+            <div className="flex justify-end mt-2 text-gray-400">
               {expandedItems[result.id] ? (
                 <FiChevronDown size={20} />
               ) : (
