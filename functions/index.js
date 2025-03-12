@@ -131,13 +131,9 @@ async function searchDocuments(query, page = 1, size = 10, translator = null, ch
 }
 
 // Create a function to handle API requests with environment variables configuration
-exports.nextApiHandler = functions.runWith({
-  // Set the secrets required for this function
-  secrets: ['ELASTICSEARCH_URL', 'ELASTICSEARCH_APIKEY'],
-  // Optional: Set memory, timeout, etc.
-  memory: '256MB',
-  timeoutSeconds: 60
-}).https.onRequest(async (req, res) => {
+exports.nextApiHandler = functions.https.onRequest(
+  { secrets: ['ELASTICSEARCH_URL', 'ELASTICSEARCH_APIKEY'] },
+  async (req, res) => {
   // Set CORS headers
   res.set('Access-Control-Allow-Origin', '*');
   res.set('Access-Control-Allow-Methods', 'GET, POST');
