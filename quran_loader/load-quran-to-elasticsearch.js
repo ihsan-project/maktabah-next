@@ -3,21 +3,22 @@
 const fs = require('fs');
 const path = require('path');
 const { Client } = require('@elastic/elasticsearch');
-const { parseSQL } = require('./advanced-sql-parser');
+const { DOMParser } = require('@xmldom/xmldom');
+const xpath = require('xpath');
 require('dotenv').config();
 
 // Parse command line arguments
 const args = process.argv.slice(2);
 if (args.length < 1) {
-  console.error('Usage: node load-quran-to-elasticsearch.js <sql-dump-file> --translator="Translator Name"');
+  console.error('Usage: node load-quran-to-elasticsearch.js <xml-file> --translator="Translator Name"');
   process.exit(1);
 }
 
-const sqlDumpFile = args[0];
+const xmlFile = args[0];
 const translatorArg = args.find(arg => arg.startsWith('--translator='));
 const translator = translatorArg 
   ? translatorArg.split('=')[1].replace(/"/g, '') 
-  : path.basename(sqlDumpFile, path.extname(sqlDumpFile));
+  : path.basename(xmlFile, path.extname(xmlFile));
 
 // Initialize Elasticsearch client
 const elasticClient = new Client({
@@ -33,7 +34,60 @@ const elasticClient = new Client({
 // Index name - should match what's used in your application
 const INDEX_NAME = 'maktabah';
 
-// Function to create Elasticsearch index with appropriate mappings
+/**
+ * Parse XML file and extract verse data
+ * @param {string} filePath Path to the XML file
+ * @param {string} translator Name of the translator
+ * @returns {Array} Array of verse objects
+ */
+function parseXML(filePath, translator) {
+  console.log(`Parsing XML file: ${filePath}`);
+  
+  try {
+    // Read and parse XML
+    const xmlContent = fs.readFileSync(filePath, 'utf8');
+    const doc = new DOMParser().parseFromString(xmlContent, 'text/xml');
+    
+    // Extract all suras
+    const suras = xpath.select('//sura', doc);
+    const verses = [];
+    
+    // Process each sura
+    suras.forEach(sura => {
+      const suraIndex = parseInt(sura.getAttribute('index'));
+      const suraName = sura.getAttribute('name') || '';
+      
+      // Extract all ayas in this sura
+      const ayas = xpath.select('./aya', sura);
+      
+      // Process each aya
+      ayas.forEach(aya => {
+        const ayaIndex = parseInt(aya.getAttribute('index'));
+        const text = aya.getAttribute('text') || '';
+        
+        if (suraIndex && ayaIndex && text) {
+          verses.push({
+            chapter: suraIndex,
+            verse: ayaIndex,
+            text: text,
+            translator: translator,
+            chapter_name: suraName
+          });
+        }
+      });
+    });
+    
+    console.log(`Extracted ${verses.length} verses from ${suras.length} suras`);
+    return verses;
+  } catch (error) {
+    console.error('Error parsing XML file:', error);
+    return [];
+  }
+}
+
+/**
+ * Create Elasticsearch index with appropriate mappings
+ */
 async function createIndex() {
   try {
     const indexExists = await elasticClient.indices.exists({ index: INDEX_NAME });
@@ -90,7 +144,8 @@ async function createIndex() {
                   }
                 }
               },
-              translator: { type: "keyword" }
+              translator: { type: "keyword" },
+              chapter_name: { type: "keyword" }
             }
           }
         }
@@ -106,7 +161,10 @@ async function createIndex() {
   }
 }
 
-// Function to index data to Elasticsearch in batches
+/**
+ * Index data to Elasticsearch in batches
+ * @param {Array} verses Array of verse objects
+ */
 async function indexData(verses) {
   if (verses.length === 0) {
     console.log('No verses to index');
@@ -123,7 +181,7 @@ async function indexData(verses) {
     
     for (let i = 0; i < verses.length; i += BATCH_SIZE) {
       const batch = verses.slice(i, i + BATCH_SIZE);
-      console.log(`Processing batch ${i/BATCH_SIZE + 1} of ${Math.ceil(verses.length/BATCH_SIZE)}`);
+      console.log(`Processing batch ${Math.floor(i/BATCH_SIZE) + 1} of ${Math.ceil(verses.length/BATCH_SIZE)}`);
       
       // Prepare bulk operations
       const operations = [];
@@ -163,7 +221,10 @@ async function indexData(verses) {
   }
 }
 
-// Function to test the search after indexing
+/**
+ * Test the search after indexing
+ * @param {string} translator Translator name to search within
+ */
 async function testSearch(translator) {
   try {
     console.log('\nTesting search functionality...');
@@ -187,7 +248,11 @@ async function testSearch(translator) {
     });
     
     const hits = result.hits.hits;
-    console.log(`Found ${result.hits.total.value} matches for "${searchTerm}" by ${translator}. Sample results:`);
+    const totalHits = typeof result.hits.total === 'number' 
+      ? result.hits.total 
+      : result.hits.total?.value || 0;
+      
+    console.log(`Found ${totalHits} matches for "${searchTerm}" by ${translator}. Sample results:`);
     
     hits.forEach((hit, i) => {
       console.log(`\n[${i+1}] Chapter ${hit._source.chapter}, Verse ${hit._source.verse}:`);
@@ -198,22 +263,24 @@ async function testSearch(translator) {
   }
 }
 
-// Main function
+/**
+ * Main function
+ */
 async function main() {
   try {
     console.log(`Starting import process for ${translator}'s translation`);
     
     // Check if file exists
-    if (!fs.existsSync(sqlDumpFile)) {
-      console.error(`SQL dump file not found: ${sqlDumpFile}`);
+    if (!fs.existsSync(xmlFile)) {
+      console.error(`XML file not found: ${xmlFile}`);
       process.exit(1);
     }
     
     // Create index with mappings
     await createIndex();
     
-    // Parse SQL and extract verses
-    const verses = parseSQL(sqlDumpFile, translator);
+    // Parse XML and extract verses
+    const verses = parseXML(xmlFile, translator);
     
     if (verses.length > 0) {
       // Index data to Elasticsearch
@@ -224,7 +291,7 @@ async function main() {
       
       console.log('\nImport completed successfully!');
     } else {
-      console.error('No verses extracted from the SQL dump');
+      console.error('No verses extracted from the XML file');
     }
   } catch (error) {
     console.error('Error in main process:', error);
