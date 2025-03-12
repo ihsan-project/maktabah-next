@@ -2,16 +2,16 @@ const functions = require('firebase-functions');
 const { Client } = require('@elastic/elasticsearch');
 
 // Search function to query ElasticSearch
-async function searchDocuments(query, page = 1, size = 10, translator = null, chapter = null) {
+async function searchDocuments(query, page = 1, size = 10, translator = null, chapter = null, env) {
   try {
-    // Initialize ElasticSearch client with API key authentication using process.env
+    // Initialize ElasticSearch client with environment variables
     const client = new Client({
-      node: process.env.ELASTICSEARCH_URL,
+      node: env.ELASTICSEARCH_URL,
       auth: {
-        apiKey: process.env.ELASTICSEARCH_APIKEY
+        apiKey: env.ELASTICSEARCH_APIKEY
       },
       tls: {
-        rejectUnauthorized: false // Set to true in production
+        rejectUnauthorized: env.NODE_ENV === 'production'
       }
     });
     
@@ -130,8 +130,14 @@ async function searchDocuments(query, page = 1, size = 10, translator = null, ch
   }
 }
 
-// Create a function to handle API requests
-exports.nextApiHandler = functions.https.onRequest(async (req, res) => {
+// Create a function to handle API requests with environment variables configuration
+exports.nextApiHandler = functions.runWith({
+  // Set the secrets required for this function
+  secrets: ['ELASTICSEARCH_URL', 'ELASTICSEARCH_APIKEY'],
+  // Optional: Set memory, timeout, etc.
+  memory: '256MB',
+  timeoutSeconds: 60
+}).https.onRequest(async (req, res) => {
   // Set CORS headers
   res.set('Access-Control-Allow-Origin', '*');
   res.set('Access-Control-Allow-Methods', 'GET, POST');
@@ -159,8 +165,15 @@ exports.nextApiHandler = functions.https.onRequest(async (req, res) => {
           return;
         }
 
-        // Search documents
-        const searchResults = await searchDocuments(query, page, size, translator, chapter);
+        // Access environment variables via process.env now that they're available
+        const envVars = {
+          ELASTICSEARCH_URL: process.env.ELASTICSEARCH_URL,
+          ELASTICSEARCH_APIKEY: process.env.ELASTICSEARCH_APIKEY,
+          NODE_ENV: process.env.NODE_ENV || 'development'
+        };
+
+        // Search documents with environment variables
+        const searchResults = await searchDocuments(query, page, size, translator, chapter, envVars);
         res.json(searchResults);
         return;
       }
