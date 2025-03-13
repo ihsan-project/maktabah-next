@@ -49,18 +49,19 @@ NODE_ENV=development
 
 ## Usage
 
-Run the script with the XML file path and author name:
+Run the script with the XML file path, author name, and optional dataset ID:
 
 ```bash
-node load-quran-to-elasticsearch.js path/to/quran.xml --author="Author Name"
+node load-quran-to-elasticsearch.js path/to/quran.xml --author="Author Name" --id="unique-identifier"
 ```
 
 If you don't specify an author, the filename (without extension) will be used as the author name.
+If you don't specify an ID, one will be automatically generated based on the author name and timestamp.
 
 ### Example
 
 ```bash
-node load-quran-to-elasticsearch.js data/ahmed_ali.xml --author="Ahmed Ali"
+node load-quran-to-elasticsearch.js data/ahmed_ali.xml --author="Ahmed Ali" --id="ahmed-ali-v1"
 ```
 
 ## Elasticsearch Mapping

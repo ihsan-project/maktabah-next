@@ -22,6 +22,7 @@ export interface SearchResult {
   text: string;
   author: string;
   chapter_name?: string;
+  book_id?: string;
   highlights?: string[];
 }
 
