@@ -32,7 +32,7 @@ const elasticClient = new Client({
 });
 
 // Index name - should match what's used in your application
-const INDEX_NAME = 'maktabah';
+const INDEX_NAME = 'kitaab';
 
 /**
  * Parse XML file and extract verse data

@@ -18,7 +18,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
     const startIndex = (page - 1) * size;
     
     // Hardcoded index name
-    const elasticsearchIndex = 'maktabah';
+    const elasticsearchIndex = 'kitaab';
     
     // Build the search query based on the mapping
     const searchQuery = {

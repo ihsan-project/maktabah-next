@@ -65,7 +65,7 @@ node load-quran-to-elasticsearch.js data/ahmed_ali.xml --author="Ahmed Ali"
 
 ## Elasticsearch Mapping
 
-The script creates an Elasticsearch index with the following features:
+The script creates an Elasticsearch index named `kitaab` with the following features:
 
 - Dual analyzers for both Arabic and English text
 - Proper field mappings for efficient search
