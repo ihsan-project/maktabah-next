@@ -63,46 +63,66 @@ export default function SearchResults({
   }
 
   // Render highlighted text safely
-  const renderHighlight = (text: string[] | undefined): React.ReactNode => {
-    if (!text || text.length === 0) return null;
-    return <div dangerouslySetInnerHTML={{ __html: text[0] }} />;
+  const renderHighlight = (text: string): React.ReactNode => {
+    return <div dangerouslySetInnerHTML={{ __html: text }} />;
   };
 
   return (
     <div className="space-y-6">
-      {results.map((result: SearchResult) => (
-        <div key={result.id} className="card border-l-4 border-l-primary hover:shadow-lg transition-shadow duration-200">
-          <div 
-            className="flex flex-col cursor-pointer" 
-            onClick={() => toggleExpand(result.id)}
-          >
-            <div className="flex justify-between items-center mb-2">
-              <div className="font-medium text-primary">
-                {result.chapter}:{result.verse}
+      {results.map((result: SearchResult) => {
+        // Check if there are highlights available
+        const highlights = result.highlights || [];
+        const hasHighlights = highlights.length > 0;
+        const isExpanded = expandedItems[result.id] || false;
+        
+        return (
+          <div key={result.id} className="card border-l-4 border-l-primary hover:shadow-lg transition-shadow duration-200">
+            <div 
+              className="flex flex-col cursor-pointer" 
+              onClick={() => toggleExpand(result.id)}
+            >
+              <div className="flex justify-between items-center mb-2">
+                <div className="font-medium text-primary">
+                  {result.chapter}:{result.verse}
+                </div>
+                <div className="text-xs text-gray-500">
+                  {result.author}
+                </div>
               </div>
-              <div className="text-xs text-gray-500">
-                {result.author}
+              
+              <div className="text-gray-700">
+                {hasHighlights ? (
+                  <>
+                    {/* Always show the first highlight */}
+                    {renderHighlight(highlights[0])}
+                    
+                    {/* Show additional highlights only when expanded */}
+                    {isExpanded && highlights.length > 1 && (
+                      <div className="mt-4 pt-4 border-t border-gray-100">
+                        {highlights.slice(1).map((highlight, index) => (
+                          <div key={index} className="mt-2 pl-3 border-l-2 border-primary-light">
+                            {renderHighlight(highlight)}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <div>{result.text}</div>
+                )}
               </div>
-            </div>
-            
-            <div className="text-gray-700">
-              {result.highlights && result.highlights.length > 0 ? (
-                renderHighlight(result.highlights)
-              ) : (
-                <div>{result.text}</div>
-              )}
-            </div>
-            
-            <div className="flex justify-end mt-2 text-gray-400">
-              {expandedItems[result.id] ? (
-                <FiChevronDown size={20} />
-              ) : (
-                <FiChevronRight size={20} />
-              )}
+              
+              <div className="flex justify-end mt-2 text-gray-400">
+                {isExpanded ? (
+                  <FiChevronDown size={20} />
+                ) : (
+                  <FiChevronRight size={20} />
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
       
       {hasMore && (
         <div 
