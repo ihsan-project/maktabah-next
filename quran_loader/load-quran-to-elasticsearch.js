@@ -10,14 +10,14 @@ require('dotenv').config();
 // Parse command line arguments
 const args = process.argv.slice(2);
 if (args.length < 1) {
-  console.error('Usage: node load-quran-to-elasticsearch.js <xml-file> --translator="Translator Name"');
+  console.error('Usage: node load-quran-to-elasticsearch.js <xml-file> --author="Author Name"');
   process.exit(1);
 }
 
 const xmlFile = args[0];
-const translatorArg = args.find(arg => arg.startsWith('--translator='));
-const translator = translatorArg 
-  ? translatorArg.split('=')[1].replace(/"/g, '') 
+const authorArg = args.find(arg => arg.startsWith('--author='));
+const author = authorArg 
+  ? authorArg.split('=')[1].replace(/"/g, '') 
   : path.basename(xmlFile, path.extname(xmlFile));
 
 // Initialize Elasticsearch client
@@ -37,10 +37,10 @@ const INDEX_NAME = 'maktabah';
 /**
  * Parse XML file and extract verse data
  * @param {string} filePath Path to the XML file
- * @param {string} translator Name of the translator
+ * @param {string} author Name of the author
  * @returns {Array} Array of verse objects
  */
-function parseXML(filePath, translator) {
+function parseXML(filePath, author) {
   console.log(`Parsing XML file: ${filePath}`);
   
   try {
@@ -70,7 +70,7 @@ function parseXML(filePath, translator) {
             chapter: suraIndex,
             verse: ayaIndex,
             text: text,
-            translator: translator,
+            author: author,
             chapter_name: suraName
           });
         }
@@ -144,7 +144,7 @@ async function createIndex() {
                   }
                 }
               },
-              translator: { type: "keyword" },
+              author: { type: "keyword" },
               chapter_name: { type: "keyword" }
             }
           }
@@ -187,8 +187,8 @@ async function indexData(verses) {
       const operations = [];
       
       for (const verse of batch) {
-        // Create a unique ID for each verse using chapter, verse, and translator
-        const id = `${verse.chapter}_${verse.verse}_${verse.translator.replace(/\s+/g, '_')}`;
+        // Create a unique ID for each verse using chapter, verse, and author
+        const id = `${verse.chapter}_${verse.verse}_${verse.author.replace(/\s+/g, '_')}`;
         
         operations.push({ index: { _index: INDEX_NAME, _id: id } });
         operations.push(verse);
@@ -223,9 +223,9 @@ async function indexData(verses) {
 
 /**
  * Test the search after indexing
- * @param {string} translator Translator name to search within
+ * @param {string} author Author name to search within
  */
-async function testSearch(translator) {
+async function testSearch(author) {
   try {
     console.log('\nTesting search functionality...');
     
@@ -239,7 +239,7 @@ async function testSearch(translator) {
           bool: {
             must: [
               { match: { text: searchTerm } },
-              { term: { translator: translator } }
+              { term: { author: author } }
             ]
           }
         },
@@ -252,7 +252,7 @@ async function testSearch(translator) {
       ? result.hits.total 
       : result.hits.total?.value || 0;
       
-    console.log(`Found ${totalHits} matches for "${searchTerm}" by ${translator}. Sample results:`);
+    console.log(`Found ${totalHits} matches for "${searchTerm}" by ${author}. Sample results:`);
     
     hits.forEach((hit, i) => {
       console.log(`\n[${i+1}] Chapter ${hit._source.chapter}, Verse ${hit._source.verse}:`);
@@ -268,7 +268,7 @@ async function testSearch(translator) {
  */
 async function main() {
   try {
-    console.log(`Starting import process for ${translator}'s translation`);
+    console.log(`Starting import process for ${author}'s translation`);
     
     // Check if file exists
     if (!fs.existsSync(xmlFile)) {
@@ -280,14 +280,14 @@ async function main() {
     await createIndex();
     
     // Parse XML and extract verses
-    const verses = parseXML(xmlFile, translator);
+    const verses = parseXML(xmlFile, author);
     
     if (verses.length > 0) {
       // Index data to Elasticsearch
       await indexData(verses);
       
       // Test search functionality
-      await testSearch(translator);
+      await testSearch(author);
       
       console.log('\nImport completed successfully!');
     } else {

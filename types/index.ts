@@ -20,7 +20,7 @@ export interface SearchResult {
   chapter: number;
   verse: number;
   text: string;
-  translator: string;
+  author: string;
   chapter_name?: string;
   highlights?: string[];
 }

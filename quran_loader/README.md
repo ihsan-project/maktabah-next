@@ -49,18 +49,18 @@ NODE_ENV=development
 
 ## Usage
 
-Run the script with the XML file path and translator name:
+Run the script with the XML file path and author name:
 
 ```bash
-node load-quran-to-elasticsearch.js path/to/quran.xml --translator="Translator Name"
+node load-quran-to-elasticsearch.js path/to/quran.xml --author="Author Name"
 ```
 
-If you don't specify a translator, the filename (without extension) will be used as the translator name.
+If you don't specify an author, the filename (without extension) will be used as the author name.
 
 ### Example
 
 ```bash
-node load-quran-to-elasticsearch.js data/ahmed_ali.xml --translator="Ahmed Ali"
+node load-quran-to-elasticsearch.js data/ahmed_ali.xml --author="Ahmed Ali"
 ```
 
 ## Elasticsearch Mapping

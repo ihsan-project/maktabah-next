@@ -2,16 +2,16 @@ const functions = require('firebase-functions');
 const { Client } = require('@elastic/elasticsearch');
 
 // Search function to query ElasticSearch
-async function searchDocuments(query, page = 1, size = 10, translator = null, chapter = null, env) {
+async function searchDocuments(query, page = 1, size = 10, author = null, chapter = null) {
   try {
-    // Initialize ElasticSearch client with environment variables
+    // Initialize ElasticSearch client with API key authentication using process.env
     const client = new Client({
-      node: env.ELASTICSEARCH_URL,
+      node: process.env.ELASTICSEARCH_URL,
       auth: {
-        apiKey: env.ELASTICSEARCH_APIKEY
+        apiKey: process.env.ELASTICSEARCH_APIKEY
       },
       tls: {
-        rejectUnauthorized: env.NODE_ENV === 'production'
+        rejectUnauthorized: false // Set to true in production
       }
     });
     
@@ -66,10 +66,10 @@ async function searchDocuments(query, page = 1, size = 10, translator = null, ch
       }
     };
     
-    // Add translator filter if specified
-    if (translator) {
+    // Add author filter if specified
+    if (author) {
       searchQuery.bool.filter.push({
-        term: { "translator.enum": translator }
+        term: { "author.enum": author }
       });
     }
     
@@ -130,7 +130,7 @@ async function searchDocuments(query, page = 1, size = 10, translator = null, ch
   }
 }
 
-// Create a function to handle API requests with environment variables configuration
+// Create a function to handle API requests
 exports.nextApiHandler = functions.https.onRequest(
   { secrets: ['ELASTICSEARCH_URL', 'ELASTICSEARCH_APIKEY'] },
   async (req, res) => {
@@ -152,7 +152,7 @@ exports.nextApiHandler = functions.https.onRequest(
         const query = req.query.q;
         const page = parseInt(req.query.page || '1', 10);
         const size = parseInt(req.query.size || '10', 10);
-        const translator = req.query.translator || null;
+        const author = req.query.author || null;
         const chapter = req.query.chapter || null;
 
         // Validate the query
@@ -161,15 +161,8 @@ exports.nextApiHandler = functions.https.onRequest(
           return;
         }
 
-        // Access environment variables via process.env now that they're available
-        const envVars = {
-          ELASTICSEARCH_URL: process.env.ELASTICSEARCH_URL,
-          ELASTICSEARCH_APIKEY: process.env.ELASTICSEARCH_APIKEY,
-          NODE_ENV: process.env.NODE_ENV || 'development'
-        };
-
-        // Search documents with environment variables
-        const searchResults = await searchDocuments(query, page, size, translator, chapter, envVars);
+        // Search documents
+        const searchResults = await searchDocuments(query, page, size, author, chapter);
         res.json(searchResults);
         return;
       }
