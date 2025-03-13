@@ -93,18 +93,11 @@ export default function SearchResults({
               <div className="text-gray-700">
                 {hasHighlights ? (
                   <>
-                    {/* Always show the first highlight */}
-                    {renderHighlight(highlights[0])}
-                    
-                    {/* Show additional highlights only when expanded */}
-                    {isExpanded && highlights.length > 1 && (
-                      <div className="mt-4 pt-4 border-t border-gray-100">
-                        {highlights.slice(1).map((highlight, index) => (
-                          <div key={index} className="mt-2 pl-3 border-l-2 border-primary-light">
-                            {renderHighlight(highlight)}
-                          </div>
-                        ))}
-                      </div>
+                    {/* Show first highlight when collapsed, full text when expanded */}
+                    {isExpanded ? (
+                      <div className="mt-2">{result.text}</div>
+                    ) : (
+                      renderHighlight(highlights[0])
                     )}
                   </>
                 ) : (
