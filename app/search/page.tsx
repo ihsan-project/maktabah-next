@@ -31,7 +31,6 @@ export default function SearchPage(): JSX.Element {
   const performSearch = async (query: string, page: number = 1, append: boolean = false): Promise<void> => {
     setLoading(true);
     try {
-      console.log('mmi: 1');
       const apiUrl = getApiUrl(query, page);
       console.log('Searching using API URL:', apiUrl); // Debug log
       

@@ -81,7 +81,7 @@ export default function SearchResults({
                 {result.chapter}:{result.verse}
               </div>
               <div className="text-xs text-gray-500">
-                {result.translator}
+                {result.author}
               </div>
             </div>
             
