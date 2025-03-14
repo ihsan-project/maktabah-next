@@ -93,22 +93,47 @@ export default function SearchResults({
               <div className="text-gray-700">
                 {hasHighlights ? (
                   <>
-                    {/* Always show the first highlight */}
-                    {renderHighlight(highlights[0])}
-                    
-                    {/* Show additional highlights only when expanded */}
-                    {isExpanded && highlights.length > 1 && (
-                      <div className="mt-4 pt-4 border-t border-gray-100">
-                        {highlights.slice(1).map((highlight, index) => (
-                          <div key={index} className="mt-2 pl-3 border-l-2 border-primary-light">
-                            {renderHighlight(highlight)}
-                          </div>
-                        ))}
+                    {/* Show first highlight when collapsed, full text when expanded */}
+                    {isExpanded ? (
+                      <div className="mt-2">
+                        <div className="mb-4">{result.text}</div>
+                        {result.book_id && (
+                          <a 
+                            href={`https://tanzil.net/#trans/${result.book_id}/${result.chapter}:${result.verse}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            tanzil.net
+                          </a>
+                        )}
                       </div>
+                    ) : (
+                      renderHighlight(highlights[0])
                     )}
                   </>
                 ) : (
-                  <div>{result.text}</div>
+                  <div>
+                    {isExpanded ? (
+                      <div>
+                        <div className="mb-4">{result.text}</div>
+                        {result.book_id && (
+                          <a 
+                            href={`https://tanzil.net/#trans/${result.book_id}/${result.chapter}:${result.verse}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            tanzil.net
+                          </a>
+                        )}
+                      </div>
+                    ) : (
+                      result.text
+                    )}
+                  </div>
                 )}
               </div>
               

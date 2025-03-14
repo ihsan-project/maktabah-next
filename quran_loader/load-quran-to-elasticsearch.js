@@ -10,7 +10,7 @@ require('dotenv').config();
 // Parse command line arguments
 const args = process.argv.slice(2);
 if (args.length < 1) {
-  console.error('Usage: node load-quran-to-elasticsearch.js <xml-file> --author="Author Name"');
+  console.error('Usage: node load-quran-to-elasticsearch.js <xml-file> --author="Author Name" --id="unique-identifier"');
   process.exit(1);
 }
 
@@ -19,6 +19,12 @@ const authorArg = args.find(arg => arg.startsWith('--author='));
 const author = authorArg 
   ? authorArg.split('=')[1].replace(/"/g, '') 
   : path.basename(xmlFile, path.extname(xmlFile));
+
+// Parse ID parameter - optional unique identifier for this dataset
+const idArg = args.find(arg => arg.startsWith('--id='));
+const bookId = idArg
+  ? idArg.split('=')[1].replace(/"/g, '')
+  : `${author.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}`;
 
 // Initialize Elasticsearch client
 const elasticClient = new Client({
@@ -40,7 +46,7 @@ const INDEX_NAME = 'kitaab';
  * @param {string} author Name of the author
  * @returns {Array} Array of verse objects
  */
-function parseXML(filePath, author) {
+function parseXML(filePath, author, bookId) {
   console.log(`Parsing XML file: ${filePath}`);
   
   try {
@@ -71,7 +77,8 @@ function parseXML(filePath, author) {
             verse: ayaIndex,
             text: text,
             author: author,
-            chapter_name: suraName
+            chapter_name: suraName,
+            book_id: bookId
           });
         }
       });
@@ -95,7 +102,7 @@ async function createIndex() {
     if (!indexExists) {
       console.log(`Creating index: ${INDEX_NAME}`);
       
-      await elasticClient.indices.create({
+                await elasticClient.indices.create({
         index: INDEX_NAME,
         body: {
           settings: {
@@ -145,7 +152,11 @@ async function createIndex() {
                 }
               },
               author: { type: "keyword" },
-              chapter_name: { type: "keyword" }
+              chapter_name: { type: "keyword" },
+              book_id: { 
+                type: "keyword",
+                index: false // Not searchable, just returned as metadata
+              }
             }
           }
         }
@@ -224,8 +235,9 @@ async function indexData(verses) {
 /**
  * Test the search after indexing
  * @param {string} author Author name to search within
+ * @param {string} bookId ID used for tracking
  */
-async function testSearch(author) {
+async function testSearch(author, bookId) {
   try {
     console.log('\nTesting search functionality...');
     
@@ -252,10 +264,11 @@ async function testSearch(author) {
       ? result.hits.total 
       : result.hits.total?.value || 0;
       
-    console.log(`Found ${totalHits} matches for "${searchTerm}" by ${author}. Sample results:`);
+    console.log(`Found ${totalHits} matches for "${searchTerm}" by ${author} (Book ID: ${bookId}). Sample results:`);
     
     hits.forEach((hit, i) => {
       console.log(`\n[${i+1}] Chapter ${hit._source.chapter}, Verse ${hit._source.verse}:`);
+      console.log(`Book ID: ${hit._source.book_id}`);
       console.log(`${hit._source.text.substring(0, 150)}${hit._source.text.length > 150 ? '...' : ''}`);
     });
   } catch (error) {
@@ -268,7 +281,7 @@ async function testSearch(author) {
  */
 async function main() {
   try {
-    console.log(`Starting import process for ${author}'s translation`);
+    console.log(`Starting import process for ${author}'s translation (Book ID: ${bookId})`);
     
     // Check if file exists
     if (!fs.existsSync(xmlFile)) {
@@ -280,14 +293,14 @@ async function main() {
     await createIndex();
     
     // Parse XML and extract verses
-    const verses = parseXML(xmlFile, author);
+    const verses = parseXML(xmlFile, author, bookId);
     
     if (verses.length > 0) {
       // Index data to Elasticsearch
       await indexData(verses);
       
       // Test search functionality
-      await testSearch(author);
+      await testSearch(author, bookId);
       
       console.log('\nImport completed successfully!');
     } else {
