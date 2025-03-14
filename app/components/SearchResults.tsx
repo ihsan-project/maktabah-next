@@ -95,13 +95,45 @@ export default function SearchResults({
                   <>
                     {/* Show first highlight when collapsed, full text when expanded */}
                     {isExpanded ? (
-                      <div className="mt-2">{result.text}</div>
+                      <div className="mt-2">
+                        <div className="mb-4">{result.text}</div>
+                        {result.book_id && (
+                          <a 
+                            href={`https://tanzil.net/#trans/${result.book_id}/${result.chapter}:${result.verse}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            tanzil.net
+                          </a>
+                        )}
+                      </div>
                     ) : (
                       renderHighlight(highlights[0])
                     )}
                   </>
                 ) : (
-                  <div>{result.text}</div>
+                  <div>
+                    {isExpanded ? (
+                      <div>
+                        <div className="mb-4">{result.text}</div>
+                        {result.book_id && (
+                          <a 
+                            href={`https://tanzil.net/#trans/${result.book_id}/${result.chapter}:${result.verse}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            tanzil.net
+                          </a>
+                        )}
+                      </div>
+                    ) : (
+                      result.text
+                    )}
+                  </div>
                 )}
               </div>
               
