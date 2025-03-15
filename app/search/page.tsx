@@ -5,6 +5,7 @@ import SearchForm from '@/app/components/SearchForm';
 import SearchResults from '@/app/components/SearchResults';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
 import { SearchResult } from '@/types';
+import MixpanelTracking from '@/lib/mixpanel';
 
 export default function SearchPage(): JSX.Element {
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -63,12 +64,27 @@ export default function SearchPage(): JSX.Element {
 
   const handleSearch = async (query: string): Promise<void> => {
     setSearchQuery(query);
+    
+    // Track search event
+    MixpanelTracking.track('Search', {
+      query: query,
+      page: 1
+    });
+    
     await performSearch(query);
   };
 
   const handleLoadMore = async (): Promise<void> => {
     if (hasMore && !loading) {
-      await performSearch(searchQuery, currentPage + 1, true);
+      const nextPage = currentPage + 1;
+      
+      // Track pagination event
+      MixpanelTracking.track('Load More Results', {
+        query: searchQuery,
+        page: nextPage
+      });
+      
+      await performSearch(searchQuery, nextPage, true);
     }
   };
 

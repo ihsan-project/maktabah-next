@@ -4,24 +4,25 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "rm -rf .next out && rm -rf app/api",
     "build": "next build",
+    "build:firebase": "next build && cp -r .next functions/",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "npm run prebuild && next build && firebase deploy",
-    "deploy:hosting": "npm run prebuild && next build && firebase deploy --only hosting",
-    "deploy:functions": "firebase deploy --only functions",
-    "tailwind:watch": "tailwindcss -i ./app/globals.css -o ./app/output.css --watch"
+    "deploy": "npm run build:firebase && firebase deploy",
+    "deploy:hosting": "npm run build:firebase && firebase deploy --only hosting",
+    "deploy:functions": "npm run build:firebase && firebase deploy --only functions"
   },
   "dependencies": {
     "@elastic/elasticsearch": "^8.10.0",
     "firebase": "^10.6.0",
+    "mixpanel-browser": "^2.47.0",
     "next": "^14.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0"
   },
   "devDependencies": {
+    "@types/mixpanel-browser": "^2.38.1",
     "@types/node": "^20.9.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",

@@ -11,6 +11,7 @@ import {
 import { auth } from '@/firebaseConfig';
 import { useRouter } from 'next/navigation';
 import { AuthContextType, UserType } from '@/types';
+import MixpanelTracking from '@/lib/mixpanel';
 
 // Create Authentication Context
 const AuthContext = createContext<AuthContextType>({
@@ -37,14 +38,27 @@ export default function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser: FirebaseUser | null) => {
       if (firebaseUser) {
-        setUser({
+        const userData = {
           uid: firebaseUser.uid,
           email: firebaseUser.email,
           displayName: firebaseUser.displayName,
           photoURL: firebaseUser.photoURL,
-        });
+        };
+        
+        setUser(userData);
+        
+        // Set Mixpanel user identity
+        if (firebaseUser.email) {
+          MixpanelTracking.identify(firebaseUser.email, {
+            $name: firebaseUser.displayName,
+            $email: firebaseUser.email,
+            userId: firebaseUser.uid,
+          });
+        }
       } else {
         setUser(null);
+        // Reset Mixpanel identity on logout
+        MixpanelTracking.reset();
       }
       setLoading(false);
     });
@@ -57,7 +71,14 @@ export default function AuthProvider({ children }: AuthProviderProps) {
     setLoading(true);
     try {
       const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, provider);
+      
+      // Track login event
+      MixpanelTracking.track('User Login', {
+        method: 'Google',
+        userId: result.user.uid,
+      });
+      
       router.push('/search');
     } catch (error) {
       console.error('Error signing in with Google:', error);
@@ -70,6 +91,13 @@ export default function AuthProvider({ children }: AuthProviderProps) {
   const logout = async (): Promise<void> => {
     setLoading(true);
     try {
+      // Track logout event
+      if (user) {
+        MixpanelTracking.track('User Logout', {
+          userId: user.uid,
+        });
+      }
+      
       await signOut(auth);
       router.push('/auth/login');
     } catch (error) {
