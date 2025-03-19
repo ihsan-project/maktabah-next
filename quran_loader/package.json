@@ -4,7 +4,8 @@
   "description": "Tool to load Quran translations from XML files into Elasticsearch",
   "main": "load-quran-to-elasticsearch.js",
   "scripts": {
-    "load": "node load-quran-to-elasticsearch.js",
+    "load-elastic": "node load-quran-to-elasticsearch.js",
+    "load-storage": "node load-quran-to-storage.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
