@@ -17,8 +17,10 @@
   "license": "ISC",
   "dependencies": {
     "@elastic/elasticsearch": "^8.10.0",
+    "@google-cloud/storage": "^7.15.2",
     "@xmldom/xmldom": "^0.8.10",
     "dotenv": "^16.3.1",
+    "firebase-admin": "^13.2.0",
     "xpath": "^0.0.33"
   }
 }
