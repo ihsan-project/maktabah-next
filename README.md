@@ -150,6 +150,11 @@ firebase functions:config:set elasticsearch.url="YOUR_ELASTICSEARCH_URL" \
 npm run deploy
 ```
 
+6. Setup the rules for Storage
+```bash
+firebase deploy --only storage
+```
+
 This will deploy both the static site to Firebase Hosting and the API endpoints to Firebase Functions.
 
 ## Features

@@ -1,0 +1,18 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Allow authenticated users to read Quran data files
+    match /{bookId}/{allPaths=**} {
+      // Allow read access to authenticated users
+      allow read: if request.auth != null;
+      
+      // Only allow write access through admin SDK/server
+      allow write: if false;
+    }
+    
+    // Default rule - deny everything else
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
