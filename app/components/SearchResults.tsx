@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FiChevronRight, FiChevronDown } from 'react-icons/fi';
 import { SearchResultsProps, SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
+import { fetchVerse } from '@/lib/fetchVerse';
 
 export default function SearchResults({ 
   results, 
@@ -78,6 +79,11 @@ export default function SearchResults({
   const renderHighlight = (text: string): React.ReactNode => {
     return <div dangerouslySetInnerHTML={{ __html: text }} />;
   };
+
+  console.log("mmi: verse", results[0].verse)
+  fetchVerse(results[0].book_id || '', results[0].chapter, results[0].verse).then((result) => {
+    console.log("mmi: storage", result)
+  })
 
   return (
     <div className="space-y-6">
