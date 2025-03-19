@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FiChevronRight, FiChevronDown } from 'react-icons/fi';
 import { SearchResultsProps, SearchResult } from '@/types';
+import MixpanelTracking from '@/lib/mixpanel';
 
 export default function SearchResults({ 
   results, 
@@ -15,11 +16,22 @@ export default function SearchResults({
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
   // Toggle expanded state for a result item
-  const toggleExpand = (id: string): void => {
+  const toggleExpand = (id: string, result: SearchResult): void => {
+    const newState = !expandedItems[id];
+    
     setExpandedItems(prev => ({
       ...prev,
-      [id]: !prev[id]
+      [id]: newState
     }));
+    
+    // Track expand/collapse event
+    MixpanelTracking.track(newState ? 'Expand Result' : 'Collapse Result', {
+      resultId: id,
+      chapter: result.chapter,
+      verse: result.verse,
+      author: result.author,
+      book_id: result.book_id
+    });
   };
 
   // Set up intersection observer for infinite scrolling
@@ -79,7 +91,7 @@ export default function SearchResults({
           <div key={result.id} className="card border-l-4 border-l-primary hover:shadow-lg transition-shadow duration-200">
             <div 
               className="flex flex-col cursor-pointer" 
-              onClick={() => toggleExpand(result.id)}
+              onClick={() => toggleExpand(result.id, result)}
             >
               <div className="flex justify-between items-center mb-2">
                 <div className="font-medium text-primary">
@@ -103,7 +115,16 @@ export default function SearchResults({
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-block px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark"
-                            onClick={(e) => e.stopPropagation()}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              // Track tanzil.net link click
+                              MixpanelTracking.track('Tanzil Link Click', {
+                                chapter: result.chapter,
+                                verse: result.verse,
+                                author: result.author,
+                                book_id: result.book_id
+                              });
+                            }}
                           >
                             tanzil.net
                           </a>
