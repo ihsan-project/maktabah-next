@@ -94,7 +94,7 @@ After uploading, verses can be accessed using these patterns:
 ## Example
 
 ```bash
-node load-quran-to-storage.js quran.xml --id="ahmed-ali" --author="Ahmed Ali" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.ahmedali.xml --id="en.ahmedali" --author="Ahmed Ali" --service-account="./serviceAccount.json"
 ```
 
 This will:
