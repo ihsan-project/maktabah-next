@@ -83,6 +83,8 @@ export default function SearchResults({
   console.log("mmi: verse", results[0].verse)
   fetchVerse('en.ahmedali', results[0].chapter, results[0].verse).then((result) => {
     console.log("mmi: storage", result)
+  }).catch((error) => {
+    console.log("mmi: failed", error)
   })
 
   return (

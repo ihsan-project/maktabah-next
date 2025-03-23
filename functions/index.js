@@ -8,6 +8,14 @@ if (!admin.apps.length) {
   admin.initializeApp();
 }
 
+// Helper function to ensure API key is properly formatted
+function getApiKeyAuth(apiKey) {
+  if (apiKey.includes(':') && !apiKey.match(/^[A-Za-z0-9+/=]+$/)) {
+    return { apiKey: Buffer.from(apiKey).toString('base64') };
+  }
+  return { apiKey };
+}
+
 // Search function to query ElasticSearch
 async function searchDocuments(query, page = 1, size = 10, author = null, chapter = null) {
   try {
@@ -189,16 +197,21 @@ exports.nextApiHandler = functions.https.onRequest(
  * This avoids CORS issues by serving the files through your own domain
  */
 exports.proxyStorage = functions.https.onRequest(async (req, res) => {
+  logger.info("mmi: 1")
   // Enable CORS
   res.set('Access-Control-Allow-Origin', '*');
   res.set('Access-Control-Allow-Methods', 'GET');
   res.set('Access-Control-Allow-Headers', 'Content-Type');
+  
+  logger.info("mmi: 2")
   
   // Handle preflight request
   if (req.method === 'OPTIONS') {
     res.status(204).send('');
     return;
   }
+
+  logger.info("mmi: 3")
   
   // Only allow GET requests
   if (req.method !== 'GET') {
@@ -206,9 +219,10 @@ exports.proxyStorage = functions.https.onRequest(async (req, res) => {
     return;
   }
   
-  // Extract the file path from the request URL
-  // The path should be /storage/{bookId}/{chapter}/{verse}.json
-  const path = req.path.replace(/^\/storage\//, '');
+  // We need to extract just the /{bookId}/{chapter}/{verse}.json part
+  const path = req.path.replace(/^\/api\/storage\//, '');
+
+  logger.info("mmi: 4", path)
   
   if (!path) {
     res.status(400).send('Invalid path');
@@ -216,9 +230,11 @@ exports.proxyStorage = functions.https.onRequest(async (req, res) => {
   }
   
   try {
-    // Get the file from Firebase Storage
-    const bucket = admin.storage().bucket();
+    // Get the file from Firebase Storage with explicit bucket name
+    const bucket = admin.storage().bucket('maktabah-8ac04.firebasestorage.app');
+    logger.info("mmi: 5")
     const file = bucket.file(path);
+    logger.info("mmi: 6")
     
     // Check if the file exists
     const [exists] = await file.exists();

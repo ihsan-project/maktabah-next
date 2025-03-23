@@ -17,7 +17,7 @@ export async function fetchVerse(bookId: string, chapter: number, verse: number)
     const isDevelopment = process.env.NODE_ENV === 'development';
     
     // Create the API path portion
-    const apiPath = `storage/${bookId}/${chapter}/${verse}.json`;
+    const apiPath = `api/storage/${bookId}/${chapter}/${verse}.json`;
     
     // Use emulator URL in development, relative path in production
     const versePath = isDevelopment
@@ -51,7 +51,7 @@ export async function fetchChapter(bookId: string, chapter: number) {
     const isDevelopment = process.env.NODE_ENV === 'development';
     
     // Create the API path portion
-    const apiPath = `storage/${bookId}/${chapter}/chapter.json`;
+    const apiPath = `api/storage/${bookId}/${chapter}/chapter.json`;
     
     // Use emulator URL in development, relative path in production
     const chapterPath = isDevelopment
@@ -84,7 +84,7 @@ export async function fetchBookMetadata(bookId: string) {
     const isDevelopment = process.env.NODE_ENV === 'development';
     
     // Create the API path portion
-    const apiPath = `storage/${bookId}/book.json`;
+    const apiPath = `api/storage/${bookId}/book.json`;
     
     // Use emulator URL in development, relative path in production
     const bookPath = isDevelopment
