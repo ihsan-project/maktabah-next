@@ -1,4 +1,5 @@
 const functions = require('firebase-functions');
+const logger = require('firebase-functions/logger');
 const { Client } = require('@elastic/elasticsearch');
 const admin = require('firebase-admin');
 
@@ -131,7 +132,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       totalPages: Math.ceil(total / size)
     };
   } catch (error) {
-    console.error('Error searching documents:', error);
+    logger.error('Error searching documents:', error);
     throw new Error('Failed to search documents');
   }
 }
@@ -177,7 +178,7 @@ exports.nextApiHandler = functions.https.onRequest(
       // Handle 404 for any other API routes
       res.status(404).json({ error: 'API endpoint not found' });
     } catch (error) {
-      console.error('API error:', error);
+      logger.error('API error:', error);
       res.status(500).json({ error: 'Internal server error' });
     }
   }
@@ -234,7 +235,7 @@ exports.proxyStorage = functions.https.onRequest(async (req, res) => {
     res.set('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour
     res.send(fileContent);
   } catch (error) {
-    console.error('Error proxying file from Storage:', error);
+    logger.error('Error proxying file from Storage:', error);
     res.status(500).send('Error fetching file');
   }
 });
