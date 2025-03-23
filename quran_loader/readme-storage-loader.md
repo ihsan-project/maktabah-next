@@ -94,7 +94,21 @@ After uploading, verses can be accessed using these patterns:
 ## Example
 
 ```bash
-node load-quran-to-storage.js translations/en.ahmedali.xml --id="en.ahmedali" --author="Ahmed Ali" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.ahmedali.xml --author="Ahmed Ali" --id="en.ahmedali" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.ahmedraza.xml --author="Ahmed Raza Khan" --id="en.ahmedraza" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.arberry.xml --author="Arberry" --id="en.arberry" --id="en.ahmedraza" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.daryabadi.xml --author="Daryabadi" --id="en.daryabadi"  --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.hilali.xml --author="Hilali & Khan" --id="en.hilali" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.itani.xml --author="Itani" --id="en.itani" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.maududi.xml --author="Maududi" --id="en.maududi" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.mubarakpuri.xml --author="Mubarakpuri" --id="en.mubarakpuri" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.pickthall.xml --author="Pickthall" --id="en.pickthall" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.qarai.xml --author="Qarai" --id="en.qarai" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.qaribullah.xml --author="Qaribullah & Darwish" --id="en.qaribullah" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.sahih.xml --author="Saheeh International" --id="en.sahih" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.sarwar.xml --author="Sarwar" --id="en.sarwar" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.shakir.xml --author="Shakir" --id="en.shakir" --service-account="./serviceAccount.json"
+node load-quran-to-storage.js translations/en.wahiduddin.xml --author="Wahiduddin Khan" --id="en.wahiduddin" --service-account="./serviceAccount.json"
 ```
 
 This will:
