@@ -13,8 +13,16 @@
  */
 export async function fetchVerse(bookId: string, chapter: number, verse: number) {
   try {
-    // Create the path for the verse JSON file through the proxy
-    const versePath = `/storage/${bookId}/${chapter}/${verse}.json`;
+    // Determine if in development environment
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    
+    // Create the API path portion
+    const apiPath = `storage/${bookId}/${chapter}/${verse}.json`;
+    
+    // Use emulator URL in development, relative path in production
+    const versePath = isDevelopment
+      ? `http://127.0.0.1:5001/maktabah-8ac04/us-central1/proxyStorage/${apiPath}`
+      : `/${apiPath}`;
     
     // Fetch the JSON data
     const response = await fetch(versePath);
@@ -39,8 +47,16 @@ export async function fetchVerse(bookId: string, chapter: number, verse: number)
  */
 export async function fetchChapter(bookId: string, chapter: number) {
   try {
-    // Create the path for the chapter JSON file through the proxy
-    const chapterPath = `/storage/${bookId}/${chapter}/chapter.json`;
+    // Determine if in development environment
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    
+    // Create the API path portion
+    const apiPath = `storage/${bookId}/${chapter}/chapter.json`;
+    
+    // Use emulator URL in development, relative path in production
+    const chapterPath = isDevelopment
+      ? `http://127.0.0.1:5001/maktabah-8ac04/us-central1/proxyStorage/${apiPath}`
+      : `/${apiPath}`;
     
     // Fetch the JSON data
     const response = await fetch(chapterPath);
@@ -64,8 +80,16 @@ export async function fetchChapter(bookId: string, chapter: number) {
  */
 export async function fetchBookMetadata(bookId: string) {
   try {
-    // Create the path for the book JSON file through the proxy
-    const bookPath = `/storage/${bookId}/book.json`;
+    // Determine if in development environment
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    
+    // Create the API path portion
+    const apiPath = `storage/${bookId}/book.json`;
+    
+    // Use emulator URL in development, relative path in production
+    const bookPath = isDevelopment
+      ? `http://127.0.0.1:5001/maktabah-8ac04/us-central1/proxyStorage/${apiPath}`
+      : `/${apiPath}`;
     
     // Fetch the JSON data
     const response = await fetch(bookPath);
