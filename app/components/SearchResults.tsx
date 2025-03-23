@@ -81,7 +81,7 @@ export default function SearchResults({
   };
 
   console.log("mmi: verse", results[0].verse)
-  fetchVerse(results[0].book_id || '', results[0].chapter, results[0].verse).then((result) => {
+  fetchVerse('en.ahmedali', results[0].chapter, results[0].verse).then((result) => {
     console.log("mmi: storage", result)
   })
 

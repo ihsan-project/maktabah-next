@@ -1,15 +1,10 @@
 /**
- * Utility to fetch verses from Firebase Storage
+ * Utility to fetch verses from Firebase Storage via proxy function
+ * This approach avoids CORS issues by accessing files through your own domain
  */
 
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { firebaseApp } from '@/firebaseConfig';
-
-// Initialize Firebase Storage
-const storage = getStorage(firebaseApp);
-
 /**
- * Fetch a specific verse from Firebase Storage
+ * Fetch a specific verse using the Firebase function proxy
  * 
  * @param bookId The book identifier
  * @param chapter The chapter number
@@ -18,15 +13,11 @@ const storage = getStorage(firebaseApp);
  */
 export async function fetchVerse(bookId: string, chapter: number, verse: number) {
   try {
-    // Create a reference to the verse JSON file
-    const versePath = `${bookId}/${chapter}/${verse}.json`;
-    const verseRef = ref(storage, versePath);
-    
-    // Get download URL for the file
-    const url = await getDownloadURL(verseRef);
+    // Create the path for the verse JSON file through the proxy
+    const versePath = `/storage/${bookId}/${chapter}/${verse}.json`;
     
     // Fetch the JSON data
-    const response = await fetch(url);
+    const response = await fetch(versePath);
     if (!response.ok) {
       throw new Error(`Error fetching verse: ${response.statusText}`);
     }
@@ -40,7 +31,7 @@ export async function fetchVerse(bookId: string, chapter: number, verse: number)
 }
 
 /**
- * Fetch all verses in a chapter from Firebase Storage
+ * Fetch all verses in a chapter using the Firebase function proxy
  * 
  * @param bookId The book identifier
  * @param chapter The chapter number
@@ -48,15 +39,11 @@ export async function fetchVerse(bookId: string, chapter: number, verse: number)
  */
 export async function fetchChapter(bookId: string, chapter: number) {
   try {
-    // Create a reference to the chapter JSON file
-    const chapterPath = `${bookId}/${chapter}/chapter.json`;
-    const chapterRef = ref(storage, chapterPath);
-    
-    // Get download URL for the file
-    const url = await getDownloadURL(chapterRef);
+    // Create the path for the chapter JSON file through the proxy
+    const chapterPath = `/storage/${bookId}/${chapter}/chapter.json`;
     
     // Fetch the JSON data
-    const response = await fetch(url);
+    const response = await fetch(chapterPath);
     if (!response.ok) {
       throw new Error(`Error fetching chapter: ${response.statusText}`);
     }
@@ -70,22 +57,18 @@ export async function fetchChapter(bookId: string, chapter: number) {
 }
 
 /**
- * Fetch book metadata from Firebase Storage
+ * Fetch book metadata using the Firebase function proxy
  * 
  * @param bookId The book identifier
  * @returns Promise with book metadata
  */
 export async function fetchBookMetadata(bookId: string) {
   try {
-    // Create a reference to the book JSON file
-    const bookPath = `${bookId}/book.json`;
-    const bookRef = ref(storage, bookPath);
-    
-    // Get download URL for the file
-    const url = await getDownloadURL(bookRef);
+    // Create the path for the book JSON file through the proxy
+    const bookPath = `/storage/${bookId}/book.json`;
     
     // Fetch the JSON data
-    const response = await fetch(url);
+    const response = await fetch(bookPath);
     if (!response.ok) {
       throw new Error(`Error fetching book metadata: ${response.statusText}`);
     }
