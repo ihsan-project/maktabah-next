@@ -91,8 +91,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
     const response = await client.search({
       index: elasticsearchIndex,
       body: {
-        from: startIndex,
-        size: size,
+        size: 0, // Returning only aggregation results: https://www.elastic.co/guide/en/elasticsearch/reference/current/returning-only-agg-results.html
         query: searchQuery,
         highlight: {
           fields: {
@@ -130,11 +129,9 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       }
     });
 
-    logger.info(`mmi: 1 ${JSON.stringify(response)}`)
-
     // Aggregated buckets for unique chapter/verse
     const buckets = response.aggregations.unique_chapter_verse.buckets;
-    const hits = buckets.map(bucket => bucket.top_hit.hits.hits[0]);
+    const hits = buckets.map(bucket => bucket.top_hit.hits.hits[0]); // top_hit should have just one result
     const total = buckets.length;
     
     const results = hits.map(hit => ({
@@ -149,7 +146,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       total,
       page,
       size,
-      totalPages: Math.ceil(total / size)
+      totalPages: 1 // Prevent UI from paging
     };
   } catch (error) {
     logger.error('Error searching documents:', error);
