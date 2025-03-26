@@ -101,16 +101,18 @@ function convertBukhariToXmlFiles(inputFilePath, outputDir) {
       let xmlOutput = '<?xml version="1.0" encoding="UTF-8"?>\n';
       xmlOutput += `<hadith name="Sahih Bukhari Vol ${parseInt(volume)}">\n`;
       
-      // Add books and verses
+      // Add chapters (previously called books) and verses
       for (const book in volumeData[volume]) {
-        xmlOutput += ` <book index="${parseInt(book)}">\n`;
+        // Changed from "book" to "chapter" in the XML tag
+        xmlOutput += ` <chapter index="${parseInt(book)}">\n`;
         
         // Add verses
         for (const verseData of volumeData[volume][book]) {
           xmlOutput += `  <verse index="${verseData.verse}" text="${escapeXml(verseData.text)}"/>\n`;
         }
         
-        xmlOutput += ` </book>\n`;
+        // Changed from "book" to "chapter" in the closing XML tag
+        xmlOutput += ` </chapter>\n`;
       }
       
       // Close the root element

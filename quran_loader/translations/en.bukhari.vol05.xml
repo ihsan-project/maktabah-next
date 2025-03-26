@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <hadith name="Sahih Bukhari Vol 5">
- <book index="57">
+ <chapter index="57">
   <verse index="1" text="Narrated Abu Said Al-Khudri:"/>
   <verse index="1" text="&quot;Allah&apos;s Apostle said, &quot;A time will come upon the people, when a group of people will wage a holy war and it will be said, &apos;Is there amongst you anyone who has accompanied Allah&apos;s Apostle?&apos; They will say, &apos;Yes.&apos; And so victory will be bestowed on them. Then a time will come upon the people when a group of people will wage a holy war, and it will be said, &quot;Is there amongst you a none who has accompanied the companions of Allah&apos;s Apostle?&apos; They will say, &apos;Yes.&apos; And so victory will be bestowed on them. Then a time will come upon the people when a group of people will wage a holy war, and it will be said, &quot;Is there amongst you anyone who has been in the company of the companions of the companions of Allah&apos;s Apostle ?&apos; They will say, &apos;Yes.&apos; And victory will be bestowed on them.&quot;"/>
   <verse index="2" text="Narrated Imran bin Husain:"/>
@@ -257,8 +257,8 @@
   <verse index="118" text="When Allah&apos;s Apostle was in his fatal illness, he started visiting his wives and saying, &quot;Where will I be tomorrow?&quot; He was anxious to be in &apos;Aisha&apos;s home. &apos;Aisha said, &quot;So when it was my day, the Prophet became silent (no longer asked the question).&quot;"/>
   <verse index="119" text="Narrated Hisham&apos;s father:"/>
   <verse index="119" text="The people used to send presents to the Prophet on the day of &apos;Aisha&apos;s turn. &apos;Aisha said, &quot;My companions (i.e. the other wives of the Prophet) gathered in the house of Um Salama and said, &quot;0 Um Salama! By Allah, the people choose to send presents on the day of &apos;Aisha&apos;s turn and we too, love the good (i.e. presents etc.) as &apos;Aisha does. You should tell Allah&apos;s Apostle to tell the people to send their presents to him wherever he may be, or wherever his turn may be.&quot; Um Salama said that to the Prophet and he turned away from her, and when the Prophet returned to her (i.e. Um Salama), she repeated the same, and the Prophet again turned away, and when she told him the same for the third time, the Prophet said, &quot;O Um Salama! Don&apos;t trouble me by harming &apos;Aisha, for by Allah, the Divine Inspiration never came to me while I was under the blanket of any woman amongst you except her.&quot;"/>
- </book>
- <book index="58">
+ </chapter>
+ <chapter index="58">
   <verse index="120" text="Narrated Ghailan bin Jarir:"/>
   <verse index="120" text="I asked Anas, &quot;Tell me about the name &apos;Al-Ansar.; Did you call yourselves by it or did Allah call you by it?&quot; He said, &quot;Allah called us by it.&quot; We used to visit Anas (at Basra) and he used to narrate to us the virtues and deeds of the Ansar, and he used to address me or a person from the tribe of Al-Azd and say, &quot;Your tribe did so-and-so on such-and-such a day.&quot;"/>
   <verse index="121" text="Narrated &apos;Aisha:"/>
@@ -624,8 +624,8 @@
   <verse index="283" text="I am from Ram-Hurmuz (i.e. a Persian town)."/>
   <verse index="284" text="Narrated Salman:"/>
   <verse index="284" text="The interval between Jesus and Muhammad was six hundred years."/>
- </book>
- <book index="59">
+ </chapter>
+ <chapter index="59">
   <verse index="285" text="Narrated Abu Ishaq:"/>
   <verse index="285" text="Once, while I was sitting beside Zaid bin Al-Arqam, he was asked, &quot;How many Ghazwat did the Prophet undertake?&quot; Zaid replied, &quot;Nineteen.&quot; They said, &quot;In how many Ghazwat did you join him?&quot; He replied, &quot;Seventeen.&quot; I asked, &quot;Which of these was the first?&quot; He replied, &quot;Al-&apos;Ashira or Al-&apos;Ashiru.&quot;"/>
   <verse index="286" text="Narrated &apos;Abdullah bin Mas&apos;ud:"/>
@@ -1620,5 +1620,5 @@
   <verse index="748" text="I fought fifteen Ghazawat in the company of the Prophet."/>
   <verse index="749" text="Narrated Buraida:"/>
   <verse index="749" text="That he fought sixteen Ghazawat with Allah&apos;s Apostle."/>
- </book>
+ </chapter>
 </hadith>
