@@ -8,14 +8,6 @@ if (!admin.apps.length) {
   admin.initializeApp();
 }
 
-// Helper function to ensure API key is properly formatted
-function getApiKeyAuth(apiKey) {
-  if (apiKey.includes(':') && !apiKey.match(/^[A-Za-z0-9+/=]+$/)) {
-    return { apiKey: Buffer.from(apiKey).toString('base64') };
-  }
-  return { apiKey };
-}
-
 // Search function to query ElasticSearch
 async function searchDocuments(query, page = 1, size = 10, author = null, chapter = null) {
   try {
@@ -99,8 +91,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
     const response = await client.search({
       index: elasticsearchIndex,
       body: {
-        from: startIndex,
-        size: size,
+        size: 0, // Returning only aggregation results: https://www.elastic.co/guide/en/elasticsearch/reference/current/returning-only-agg-results.html
         query: searchQuery,
         highlight: {
           fields: {
@@ -116,14 +107,32 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
           { _score: { order: "desc" } },
           { chapter: { order: "asc" } },
           { verse: { order: "asc" } }
-        ]
+        ],
+        aggs: {
+          unique_chapter_verse: {
+            terms: {
+              // Create a composite key using chapter and verse
+              script: {
+                source: "doc['chapter'].value + '_' + doc['verse'].value"
+              },
+              size: 10000 // Adjust based on expected number of unique combinations
+            },
+            aggs: {
+              top_hit: {
+                top_hits: {
+                  size: 1
+                }
+              }
+            }
+          }
+        }
       }
     });
 
-    const hits = response.hits.hits;
-    const total = typeof response.hits.total === 'number' 
-      ? response.hits.total 
-      : response.hits.total?.value || 0;
+    // Aggregated buckets for unique chapter/verse
+    const buckets = response.aggregations.unique_chapter_verse.buckets;
+    const hits = buckets.map(bucket => bucket.top_hit.hits.hits[0]); // top_hit should have just one result
+    const total = buckets.length;
     
     const results = hits.map(hit => ({
       id: hit._id,
@@ -137,7 +146,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       total,
       page,
       size,
-      totalPages: Math.ceil(total / size)
+      totalPages: 1 // Prevent UI from paging
     };
   } catch (error) {
     logger.error('Error searching documents:', error);
