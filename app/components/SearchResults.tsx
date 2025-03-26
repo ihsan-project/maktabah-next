@@ -75,17 +75,9 @@ export default function SearchResults({
     );
   }
 
-  // Render highlighted text safely
-  const renderHighlight = (text: string): React.ReactNode => {
-    return <div dangerouslySetInnerHTML={{ __html: text }} />;
-  };
-
   return (
     <div className="space-y-6">
       {results.map((result: SearchResult) => {
-        // Check if there are highlights available
-        const highlights = result.highlights || [];
-        const hasHighlights = highlights.length > 0;
         const isExpanded = expandedItems[result.id] || false;
         
         return (
@@ -104,19 +96,10 @@ export default function SearchResults({
               </div>
               
               <div className="text-gray-700">
-                {hasHighlights ? (
-                  <>
-                    {/* Show first highlight when collapsed, translations when expanded */}
-                    {isExpanded ? (
-                      <ExpandedSearchResult result={result} />
-                    ) : renderHighlight(highlights[0])}
-                  </>
+                {isExpanded ? (
+                  <ExpandedSearchResult result={result} />
                 ) : (
-                  <div>
-                    {isExpanded ? (
-                      <ExpandedSearchResult result={result} />
-                    ) : result.text}
-                  </div>
+                  <p>{result.text}</p>
                 )}
               </div>
               
