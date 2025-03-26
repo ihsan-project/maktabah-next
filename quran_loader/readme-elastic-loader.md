@@ -61,22 +61,24 @@ If you don't specify an ID, one will be automatically generated based on the aut
 ### Example
 
 ```bash
-node load-quran-to-elasticsearch.js translations/en.ahmedali.xml --author="Ahmed Ali" --id="en.ahmedali"
-node load-quran-to-elasticsearch.js translations/en.ahmedraza.xml --author="Ahmed Raza Khan" --id="en.ahmedraza"
-node load-quran-to-elasticsearch.js translations/en.arberry.xml --author="Arberry" --id="en.arberry"
-node load-quran-to-elasticsearch.js translations/en.daryabadi.xml --author="Daryabadi" --id="en.daryabadi"
-node load-quran-to-elasticsearch.js translations/en.hilali.xml --author="Hilali & Khan" --id="en.hilali"
-node load-quran-to-elasticsearch.js translations/en.itani.xml --author="Itani" --id="en.itani"
-node load-quran-to-elasticsearch.js translations/en.maududi.xml --author="Maududi" --id="en.maududi"
-node load-quran-to-elasticsearch.js translations/en.mubarakpuri.xml --author="Mubarakpuri" --id="en.mubarakpuri"
-node load-quran-to-elasticsearch.js translations/en.pickthall.xml --author="Pickthall" --id="en.pickthall"
-node load-quran-to-elasticsearch.js translations/en.qarai.xml --author="Qarai" --id="en.qarai"
-node load-quran-to-elasticsearch.js translations/en.qaribullah.xml --author="Qaribullah & Darwish" --id="en.qaribullah"
-node load-quran-to-elasticsearch.js translations/en.sahih.xml --author="Saheeh International" --id="en.sahih"
-node load-quran-to-elasticsearch.js translations/en.sarwar.xml --author="Sarwar" --id="en.sarwar"
-node load-quran-to-elasticsearch.js translations/en.shakir.xml --author="Shakir" --id="en.shakir"
-node load-quran-to-elasticsearch.js translations/en.wahiduddin.xml --author="Wahiduddin Khan" --id="en.wahiduddin"
-node load-quran-to-elasticsearch.js translations/en.yusufali.xml --author="Yusuf Ali" --id="en.yusufali"
+node load-quran-to-elasticsearch.js translations/en.ahmedali.xml --author="Ahmed Ali" --id="en.ahmedali" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.ahmedraza.xml --author="Ahmed Raza Khan" --id="en.ahmedraza" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.arberry.xml --author="Arberry" --id="en.arberry" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.daryabadi.xml --author="Daryabadi" --id="en.daryabadi" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.hilali.xml --author="Hilali & Khan" --id="en.hilali" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.itani.xml --author="Itani" --id="en.itani" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.maududi.xml --author="Maududi" --id="en.maududi" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.mubarakpuri.xml --author="Mubarakpuri" --id="en.mubarakpuri" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.pickthall.xml --author="Pickthall" --id="en.pickthall" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.qarai.xml --author="Qarai" --id="en.qarai" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.qaribullah.xml --author="Qaribullah & Darwish" --id="en.qaribullah" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.sahih.xml --author="Saheeh International" --id="en.sahih" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.sarwar.xml --author="Sarwar" --id="en.sarwar" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.shakir.xml --author="Shakir" --id="en.shakir" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.wahiduddin.xml --author="Wahiduddin Khan" --id="en.wahiduddin" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.yusufali.xml --author="Yusuf Ali" --id="en.yusufali" --title="quran"
+
+node load-quran-to-elasticsearch.js translations/en.bukhari.vol01.xml --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol01" --title="bukhari"
 ```
 
 ## Elasticsearch Mapping
