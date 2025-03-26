@@ -8,6 +8,10 @@
     ],
     "rewrites": [
       {
+        "source": "/api/storage/**",
+        "function": "proxyStorage"
+      },
+      {
         "source": "/api/**",
         "function": "nextApiHandler"
       },
@@ -39,5 +43,8 @@
   },
   "functions": {
     "source": "functions"
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }

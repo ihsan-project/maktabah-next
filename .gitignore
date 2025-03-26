@@ -167,3 +167,5 @@ next-env.d.ts
 # firebase
 .firebase/
 firebase-debug.log
+
+/quran_loader/serviceAccount.json

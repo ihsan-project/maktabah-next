@@ -4,7 +4,8 @@
   "description": "Tool to load Quran translations from XML files into Elasticsearch",
   "main": "load-quran-to-elasticsearch.js",
   "scripts": {
-    "load": "node load-quran-to-elasticsearch.js",
+    "load-elastic": "node load-quran-to-elasticsearch.js",
+    "load-storage": "node load-quran-to-storage.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,8 +17,10 @@
   "license": "ISC",
   "dependencies": {
     "@elastic/elasticsearch": "^8.10.0",
+    "@google-cloud/storage": "^7.15.2",
     "@xmldom/xmldom": "^0.8.10",
     "dotenv": "^16.3.1",
+    "firebase-admin": "^13.2.0",
     "xpath": "^0.0.33"
   }
 }
