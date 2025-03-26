@@ -93,16 +93,6 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       body: {
         size: 0, // Returning only aggregation results: https://www.elastic.co/guide/en/elasticsearch/reference/current/returning-only-agg-results.html
         query: searchQuery,
-        highlight: {
-          fields: {
-            text: {
-              pre_tags: ["<em>"],
-              post_tags: ["</em>"],
-              fragment_size: 150,
-              number_of_fragments: 3
-            }
-          }
-        },
         sort: [
           { _score: { order: "desc" } },
           { chapter: { order: "asc" } },
@@ -138,7 +128,6 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       id: hit._id,
       score: hit._score || 0,
       ...hit._source,
-      highlights: hit.highlight?.text || []
     }));
 
     return {
