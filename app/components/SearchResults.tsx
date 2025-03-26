@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FiChevronRight, FiChevronDown } from 'react-icons/fi';
 import { SearchResultsProps, SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
-import { fetchVerse } from '@/lib/fetchVerse';
+import ExpandedSearchResult from './ExpandedSearchResult';
 
 export default function SearchResults({ 
   results, 
@@ -106,55 +106,16 @@ export default function SearchResults({
               <div className="text-gray-700">
                 {hasHighlights ? (
                   <>
-                    {/* Show first highlight when collapsed, full text when expanded */}
+                    {/* Show first highlight when collapsed, translations when expanded */}
                     {isExpanded ? (
-                      <div className="mt-2">
-                        <div className="mb-4">{result.text}</div>
-                        {result.book_id && (
-                          <a 
-                            href={`https://tanzil.net/#trans/${result.book_id}/${result.chapter}:${result.verse}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              // Track tanzil.net link click
-                              MixpanelTracking.track('Tanzil Link Click', {
-                                chapter: result.chapter,
-                                verse: result.verse,
-                                author: result.author,
-                                book_id: result.book_id
-                              });
-                            }}
-                          >
-                            tanzil.net
-                          </a>
-                        )}
-                      </div>
-                    ) : (
-                      renderHighlight(highlights[0])
-                    )}
+                      <ExpandedSearchResult result={result} />
+                    ) : renderHighlight(highlights[0])}
                   </>
                 ) : (
                   <div>
                     {isExpanded ? (
-                      <div>
-                        <div className="mb-4">{result.text}</div>
-                        {result.book_id && (
-                          <a 
-                            href={`https://tanzil.net/#trans/${result.book_id}/${result.chapter}:${result.verse}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            tanzil.net
-                          </a>
-                        )}
-                      </div>
-                    ) : (
-                      result.text
-                    )}
+                      <ExpandedSearchResult result={result} />
+                    ) : result.text}
                   </div>
                 )}
               </div>
