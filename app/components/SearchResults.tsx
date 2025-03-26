@@ -80,13 +80,6 @@ export default function SearchResults({
     return <div dangerouslySetInnerHTML={{ __html: text }} />;
   };
 
-  console.log("mmi: verse", results[0].verse)
-  fetchVerse('en.ahmedali', results[0].chapter, results[0].verse).then((result) => {
-    console.log("mmi: storage", result)
-  }).catch((error) => {
-    console.log("mmi: failed", error)
-  })
-
   return (
     <div className="space-y-6">
       {results.map((result: SearchResult) => {
