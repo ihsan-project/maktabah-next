@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FiChevronRight, FiChevronDown } from 'react-icons/fi';
 import { SearchResultsProps, SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
-import { fetchVerse } from '@/lib/fetchVerse';
+import ExpandedSearchResult from './ExpandedSearchResult';
 
 export default function SearchResults({ 
   results, 
@@ -75,24 +75,9 @@ export default function SearchResults({
     );
   }
 
-  // Render highlighted text safely
-  const renderHighlight = (text: string): React.ReactNode => {
-    return <div dangerouslySetInnerHTML={{ __html: text }} />;
-  };
-
-  console.log("mmi: verse", results[0].verse)
-  fetchVerse('en.ahmedali', results[0].chapter, results[0].verse).then((result) => {
-    console.log("mmi: storage", result)
-  }).catch((error) => {
-    console.log("mmi: failed", error)
-  })
-
   return (
     <div className="space-y-6">
       {results.map((result: SearchResult) => {
-        // Check if there are highlights available
-        const highlights = result.highlights || [];
-        const hasHighlights = highlights.length > 0;
         const isExpanded = expandedItems[result.id] || false;
         
         return (
@@ -111,58 +96,10 @@ export default function SearchResults({
               </div>
               
               <div className="text-gray-700">
-                {hasHighlights ? (
-                  <>
-                    {/* Show first highlight when collapsed, full text when expanded */}
-                    {isExpanded ? (
-                      <div className="mt-2">
-                        <div className="mb-4">{result.text}</div>
-                        {result.book_id && (
-                          <a 
-                            href={`https://tanzil.net/#trans/${result.book_id}/${result.chapter}:${result.verse}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              // Track tanzil.net link click
-                              MixpanelTracking.track('Tanzil Link Click', {
-                                chapter: result.chapter,
-                                verse: result.verse,
-                                author: result.author,
-                                book_id: result.book_id
-                              });
-                            }}
-                          >
-                            tanzil.net
-                          </a>
-                        )}
-                      </div>
-                    ) : (
-                      renderHighlight(highlights[0])
-                    )}
-                  </>
+                {isExpanded ? (
+                  <ExpandedSearchResult result={result} />
                 ) : (
-                  <div>
-                    {isExpanded ? (
-                      <div>
-                        <div className="mb-4">{result.text}</div>
-                        {result.book_id && (
-                          <a 
-                            href={`https://tanzil.net/#trans/${result.book_id}/${result.chapter}:${result.verse}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            tanzil.net
-                          </a>
-                        )}
-                      </div>
-                    ) : (
-                      result.text
-                    )}
-                  </div>
+                  <p>{result.text}</p>
                 )}
               </div>
               
