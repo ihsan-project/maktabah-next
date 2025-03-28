@@ -79,6 +79,14 @@ node load-quran-to-elasticsearch.js translations/en.wahiduddin.xml --author="Wah
 node load-quran-to-elasticsearch.js translations/en.yusufali.xml --author="Yusuf Ali" --id="en.yusufali" --title="quran"
 
 node load-quran-to-elasticsearch.js translations/en.bukhari.vol01.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol01"  --volume=1
+node load-quran-to-elasticsearch.js translations/en.bukhari.vol02.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol02"  --volume=1
+node load-quran-to-elasticsearch.js translations/en.bukhari.vol03.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol03"  --volume=1
+node load-quran-to-elasticsearch.js translations/en.bukhari.vol04.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol04"  --volume=1
+node load-quran-to-elasticsearch.js translations/en.bukhari.vol05.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol05"  --volume=1
+node load-quran-to-elasticsearch.js translations/en.bukhari.vol06.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol06"  --volume=1
+node load-quran-to-elasticsearch.js translations/en.bukhari.vol07.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol07"  --volume=1
+node load-quran-to-elasticsearch.js translations/en.bukhari.vol08.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol08"  --volume=1
+node load-quran-to-elasticsearch.js translations/en.bukhari.vol09.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol09"  --volume=1
 ```
 
 ## Elasticsearch Mapping
