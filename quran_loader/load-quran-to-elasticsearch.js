@@ -10,7 +10,7 @@ require('dotenv').config();
 // Parse command line arguments
 const args = process.argv.slice(2);
 if (args.length < 1) {
-  console.error('Usage: node load-quran-to-elasticsearch.js <xml-file> --author="Author Name" --id="unique-identifier"');
+  console.error('Usage: node load-quran-to-elasticsearch.js <xml-file> --author="Author Name" --id="unique-identifier" [--title="quran|bukhari"] [--volume=1]');
   process.exit(1);
 }
 
@@ -25,6 +25,21 @@ const idArg = args.find(arg => arg.startsWith('--id='));
 const bookId = idArg
   ? idArg.split('=')[1].replace(/"/g, '')
   : `${author.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}`;
+
+// Parse title parameter - determine the title of the work (Quran or Bukhari, etc.)
+const titleArg = args.find(arg => arg.startsWith('--title='));
+const title = titleArg
+  ? titleArg.split('=')[1].replace(/"/g, '')
+  : 'auto'; // Auto-detect content type
+
+// Parse volume parameter - optional volume number for multi-volume works
+const volumeArg = args.find(arg => arg.startsWith('--volume='));
+const volume = volumeArg
+  ? parseInt(volumeArg.split('=')[1], 10)
+  : null; // No volume by default
+
+// Determine content type based on title or auto-detect
+const contentType = title !== 'auto' ? 'auto' : 'auto';
 
 // Initialize Elasticsearch client
 const elasticClient = new Client({
@@ -41,13 +56,44 @@ const elasticClient = new Client({
 const INDEX_NAME = 'kitaab';
 
 /**
- * Parse XML file and extract verse data
+ * Detect content type (Quran or Hadith) based on XML content
+ * @param {string} filePath Path to the XML file
+ * @returns {string} 'quran' or 'hadith'
+ */
+function detectContentType(filePath) {
+  try {
+    const xmlContent = fs.readFileSync(filePath, 'utf8');
+    const doc = new DOMParser().parseFromString(xmlContent, 'text/xml');
+    
+    // Check for sura elements (Quran)
+    const suras = xpath.select('//sura', doc);
+    if (suras.length > 0) {
+      return 'quran';
+    }
+    
+    // Check for hadith elements
+    const hadith = xpath.select('//hadith', doc);
+    if (hadith.length > 0) {
+      return 'hadith';
+    }
+    
+    console.warn('Unable to detect content type from XML. Defaulting to "quran"');
+    return 'quran';
+  } catch (error) {
+    console.error('Error detecting content type:', error);
+    return 'quran'; // Default to quran in case of error
+  }
+}
+
+/**
+ * Parse Quran XML file and extract verse data
  * @param {string} filePath Path to the XML file
  * @param {string} author Name of the author
+ * @param {string} bookId Book identifier
  * @returns {Array} Array of verse objects
  */
-function parseXML(filePath, author, bookId) {
-  console.log(`Parsing XML file: ${filePath}`);
+function parseQuranXML(filePath, author, bookId) {
+  console.log(`Parsing Quran XML file: ${filePath}`);
   
   try {
     // Read and parse XML
@@ -78,7 +124,9 @@ function parseXML(filePath, author, bookId) {
             text: text,
             author: author,
             chapter_name: suraName,
-            book_id: bookId
+            book_id: bookId,
+            title: title === 'auto' ? 'quran' : title,
+            volume: volume
           });
         }
       });
@@ -87,7 +135,80 @@ function parseXML(filePath, author, bookId) {
     console.log(`Extracted ${verses.length} verses from ${suras.length} suras`);
     return verses;
   } catch (error) {
-    console.error('Error parsing XML file:', error);
+    console.error('Error parsing Quran XML file:', error);
+    return [];
+  }
+}
+
+/**
+ * Parse Hadith XML file and extract verse data
+ * @param {string} filePath Path to the XML file
+ * @param {string} author Name of the author
+ * @param {string} bookId Book identifier
+ * @returns {Array} Array of verse objects
+ */
+function parseHadithXML(filePath, author, bookId) {
+  console.log(`Parsing Hadith XML file: ${filePath}`);
+  
+  try {
+    // Read and parse XML
+    const xmlContent = fs.readFileSync(filePath, 'utf8');
+    const doc = new DOMParser().parseFromString(xmlContent, 'text/xml');
+    
+    // Extract hadith element and its name
+    const hadithElement = xpath.select('//hadith', doc)[0];
+    const hadithName = hadithElement ? hadithElement.getAttribute('name') || '' : '';
+    
+    // Extract all chapters
+    const chapters = xpath.select('//chapter', doc);
+    
+    // Temporary storage to merge verses with the same index
+    const verseMap = new Map(); // key: "chapter_verse", value: {chapter, verse, text}
+    
+    // Process each chapter
+    chapters.forEach(chapter => {
+      const chapterIndex = parseInt(chapter.getAttribute('index'));
+      
+      // Extract all verses in this chapter
+      const verses = xpath.select('./verse', chapter);
+      
+      // Process each verse
+      verses.forEach(verse => {
+        const verseIndex = parseInt(verse.getAttribute('index'));
+        const text = verse.getAttribute('text') || '';
+        
+        if (chapterIndex && verseIndex) {
+          // Create a unique key for this chapter-verse combination
+          const key = `${chapterIndex}_${verseIndex}`;
+          
+          // Initialize or update verse in the map
+          if (!verseMap.has(key)) {
+            verseMap.set(key, {
+              chapter: chapterIndex,
+              verse: verseIndex,
+              text: text,
+              chapter_name: hadithName,
+              author: author,
+              book_id: bookId,
+              title: title === 'auto' ? 'bukhari' : title,
+              volume: volume
+            });
+          } else {
+            // Concatenate text to existing verse with newline separator
+            const existingVerse = verseMap.get(key);
+            existingVerse.text = existingVerse.text + '\n' + text;
+          }
+        }
+      });
+    });
+    
+    // Convert the map to array
+    const result = Array.from(verseMap.values());
+    
+    console.log(`Extracted ${result.length} merged verses from ${chapters.length} chapters`);
+    return result;
+  } catch (error) {
+    console.error('Error parsing Hadith XML file:', error);
     return [];
   }
 }
@@ -102,7 +223,7 @@ async function createIndex() {
     if (!indexExists) {
       console.log(`Creating index: ${INDEX_NAME}`);
       
-                await elasticClient.indices.create({
+      await elasticClient.indices.create({
         index: INDEX_NAME,
         body: {
           settings: {
@@ -156,7 +277,9 @@ async function createIndex() {
               book_id: { 
                 type: "keyword",
                 index: false // Not searchable, just returned as metadata
-              }
+              },
+              title: { type: "keyword" }, // Added to store the work title (Quran, Bukhari, etc.)
+              volume: { type: "integer" }  // Added to store the volume number
             }
           }
         }
@@ -198,8 +321,11 @@ async function indexData(verses) {
       const operations = [];
       
       for (const verse of batch) {
-        // Create a unique ID for each verse using chapter, verse, and author
-        const id = `${verse.chapter}_${verse.verse}_${verse.author.replace(/\s+/g, '_')}`;
+        // Create a unique ID for each verse using chapter, verse, author, and volume if available
+        let id = `${verse.chapter}_${verse.verse}_${verse.author.replace(/\s+/g, '_')}`;
+        if (verse.volume !== null) {
+          id += `_vol${verse.volume}`;
+        }
         
         operations.push({ index: { _index: INDEX_NAME, _id: id } });
         operations.push(verse);
@@ -236,23 +362,34 @@ async function indexData(verses) {
  * Test the search after indexing
  * @param {string} author Author name to search within
  * @param {string} bookId ID used for tracking
+ * @param {string} contentType 'quran' or 'hadith'
  */
-async function testSearch(author, bookId) {
+async function testSearch(author, bookId, contentType) {
   try {
     console.log('\nTesting search functionality...');
     
-    // Search for a common term
-    const searchTerm = 'Allah';
+    // Search for a common term based on content type
+    const searchTerm = contentType === 'hadith' ? 'Narrated' : 'Allah';
+    const titleValue = title === 'auto' ? (contentType === 'quran' ? 'quran' : 'bukhari') : title;
+    
+    // Build query based on whether volume is specified
+    const must = [
+      { match: { text: searchTerm } },
+      { term: { author: author } },
+      { term: { title: titleValue } }
+    ];
+    
+    // Add volume filter if provided
+    if (volume !== null) {
+      must.push({ term: { volume: volume } });
+    }
     
     const result = await elasticClient.search({
       index: INDEX_NAME,
       body: {
         query: {
           bool: {
-            must: [
-              { match: { text: searchTerm } },
-              { term: { author: author } }
-            ]
+            must: must
           }
         },
         size: 5
@@ -263,13 +400,18 @@ async function testSearch(author, bookId) {
     const totalHits = typeof result.hits.total === 'number' 
       ? result.hits.total 
       : result.hits.total?.value || 0;
-      
-    console.log(`Found ${totalHits} matches for "${searchTerm}" by ${author} (Book ID: ${bookId}). Sample results:`);
+    
+    const volumeInfo = volume !== null ? `, Volume: ${volume}` : '';
+    console.log(`Found ${totalHits} matches for "${searchTerm}" by ${author} (Book ID: ${bookId}, Title: ${titleValue}${volumeInfo}). Sample results:`);
     
     hits.forEach((hit, i) => {
       console.log(`\n[${i+1}] Chapter ${hit._source.chapter}, Verse ${hit._source.verse}:`);
       console.log(`Book ID: ${hit._source.book_id}`);
-      console.log(`${hit._source.text.substring(0, 150)}${hit._source.text.length > 150 ? '...' : ''}`);
+      // Truncate text for display
+      const previewText = hit._source.text.length > 150 
+        ? `${hit._source.text.substring(0, 150)}...` 
+        : hit._source.text;
+      console.log(previewText);
     });
   } catch (error) {
     console.error('Error testing search:', error);
@@ -282,6 +424,9 @@ async function testSearch(author, bookId) {
 async function main() {
   try {
     console.log(`Starting import process for ${author}'s translation (Book ID: ${bookId})`);
+    if (volume !== null) {
+      console.log(`Volume: ${volume}`);
+    }
     
     // Check if file exists
     if (!fs.existsSync(xmlFile)) {
@@ -289,18 +434,31 @@ async function main() {
       process.exit(1);
     }
     
+    // Determine content type (Quran or Hadith)
+    let detectedType = detectContentType(xmlFile);
+    console.log(`Content type: ${detectedType}`);
+    console.log(`Title: ${title === 'auto' ? (detectedType === 'quran' ? 'quran' : 'bukhari') : title}`);
+    
     // Create index with mappings
     await createIndex();
     
-    // Parse XML and extract verses
-    const verses = parseXML(xmlFile, author, bookId);
+    // Parse XML and extract verses based on content type
+    let verses = [];
+    if (detectedType === 'quran') {
+      verses = parseQuranXML(xmlFile, author, bookId);
+    } else if (detectedType === 'hadith') {
+      verses = parseHadithXML(xmlFile, author, bookId);
+    } else {
+      console.error(`Unknown content type: ${detectedType}`);
+      process.exit(1);
+    }
     
     if (verses.length > 0) {
       // Index data to Elasticsearch
       await indexData(verses);
       
       // Test search functionality
-      await testSearch(author, bookId);
+      await testSearch(author, bookId, detectedType);
       
       console.log('\nImport completed successfully!');
     } else {

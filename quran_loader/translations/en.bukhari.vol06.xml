@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <hadith name="Sahih Bukhari Vol 6">
- <book index="60">
+ <chapter index="60">
   <verse index="1" text="Narrated Abu Said bin Al-Mu&apos;alla:"/>
   <verse index="1" text="While I was praying in the Mosque, Allah&apos;s Apostle called me but I did not respond to him. Later I said, &quot;O Allah&apos;s Apostle! I was praying.&quot; He said, &quot;Didn&apos;t Allah say&apos;--&quot;Give your response to Allah (by obeying Him) and to His Apostle when he calls you.&quot; (8.24)"/>
   <verse index="1" text="He then said to me, &quot;I will teach you a Sura which is the greatest Sura in the Qur&apos;an, before you leave the Mosque.&quot; Then he got hold of my hand, and when he intended to leave (the Mosque), I said to him, &quot;Didn&apos;t you say to me, &apos;I will teach you a Sura which is the greatest Sura in the Quran?&apos; He said, &quot;Al-Hamdu-Lillah Rabbi-l-Alamin (i.e. Praise be to Allah, the Lord of the worlds) which is Al-Sab&apos;a Al-Mathani (i.e. seven repeatedly recited Verses) and the Grand Qur&apos;an which has been given to me.&quot;"/>
@@ -1202,8 +1202,8 @@
   <verse index="500" text="I asked Ubai bin Ka&apos;b regarding the two Muwwidhat (Surats of taking refuge with Allah). He said, &quot;I asked the Prophet about them, He said, &apos;These two Surats have been recited to me and I have recited them (and are present in the Quran).&apos; So, we say as Allah&apos;s Apostle said (i.e., they are part of the Quran&quot;"/>
   <verse index="501" text="Narrated Zirr bin Hubaish:"/>
   <verse index="501" text="I asked Ubai bin Ka&apos;b, &quot;O Abu AlMundhir! Your brother, Ibn Mas&apos;ud said so-and-so (i.e., the two Mu&apos;awwidh-at do not belong to the Quran).&quot; Ubai said, &quot;I asked Allah&apos;s Apostle about them, and he said, &apos;They have been revealed to me, and I have recited them (as a part of the Quran),&quot; So Ubai added, &quot;So we say as Allah&apos;s Apostle has said.&quot;"/>
- </book>
- <book index="61">
+ </chapter>
+ <chapter index="61">
   <verse index="502" text="Narrated &apos;Aisha and Ibn &apos;Abbas:"/>
   <verse index="502" text="The Prophet remained in Mecca for ten years, during which the Qur&apos;an used to be revealed to him; and he stayed in Medina for ten years."/>
   <verse index="503" text="Narrated Abu &apos;Uthman:"/>
@@ -1375,5 +1375,5 @@
   <verse index="581" text="The Prophet said, &quot;Recite (and study) the Quran as long as you agree about its interpretation, but when you have any difference of opinion (as regards its interpretation and meaning) then you should stop reciting it (for the time being)&apos;"/>
   <verse index="582" text="Narrated Abdullah:"/>
   <verse index="582" text="That he heard a man reciting a Quranic Verse which he had heard the Prophet reciting in a different way. So he took that man to the Prophet (and told him the story). The Prophet said, &quot;Both of you are reciting in a correct way, so carry on reciting.&quot; The Prophet further added, &quot;The nations which were before you were destroyed (by Allah) because they differed.&quot;"/>
- </book>
+ </chapter>
 </hadith>
