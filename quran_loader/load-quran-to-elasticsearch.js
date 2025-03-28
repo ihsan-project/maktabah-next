@@ -10,7 +10,7 @@ require('dotenv').config();
 // Parse command line arguments
 const args = process.argv.slice(2);
 if (args.length < 1) {
-  console.error('Usage: node load-quran-to-elasticsearch.js <xml-file> --author="Author Name" --id="unique-identifier" [--title="quran|bukhari"]');
+  console.error('Usage: node load-quran-to-elasticsearch.js <xml-file> --author="Author Name" --id="unique-identifier" [--title="quran|bukhari"] [--volume=1]');
   process.exit(1);
 }
 
@@ -31,6 +31,12 @@ const titleArg = args.find(arg => arg.startsWith('--title='));
 const title = titleArg
   ? titleArg.split('=')[1].replace(/"/g, '')
   : 'auto'; // Auto-detect content type
+
+// Parse volume parameter - optional volume number for multi-volume works
+const volumeArg = args.find(arg => arg.startsWith('--volume='));
+const volume = volumeArg
+  ? parseInt(volumeArg.split('=')[1], 10)
+  : null; // No volume by default
 
 // Determine content type based on title or auto-detect
 const contentType = title !== 'auto' ? 'auto' : 'auto';
@@ -119,7 +125,8 @@ function parseQuranXML(filePath, author, bookId) {
             author: author,
             chapter_name: suraName,
             book_id: bookId,
-            title: title === 'auto' ? 'quran' : title
+            title: title === 'auto' ? 'quran' : title,
+            volume: volume
           });
         }
       });
@@ -183,7 +190,8 @@ function parseHadithXML(filePath, author, bookId) {
               chapter_name: hadithName,
               author: author,
               book_id: bookId,
-              title: title === 'auto' ? 'bukhari' : title
+              title: title === 'auto' ? 'bukhari' : title,
+              volume: volume
             });
           } else {
             // Add text to existing verse with newline separator
@@ -275,7 +283,8 @@ async function createIndex() {
                 type: "keyword",
                 index: false // Not searchable, just returned as metadata
               },
-              title: { type: "keyword" } // Added to store the work title (Quran, Bukhari, etc.)
+              title: { type: "keyword" }, // Added to store the work title (Quran, Bukhari, etc.)
+              volume: { type: "integer" }  // Added to store the volume number
             }
           }
         }
@@ -317,8 +326,11 @@ async function indexData(verses) {
       const operations = [];
       
       for (const verse of batch) {
-        // Create a unique ID for each verse using chapter, verse, and author
-        const id = `${verse.chapter}_${verse.verse}_${verse.author.replace(/\s+/g, '_')}`;
+        // Create a unique ID for each verse using chapter, verse, author, and volume if available
+        let id = `${verse.chapter}_${verse.verse}_${verse.author.replace(/\s+/g, '_')}`;
+        if (verse.volume !== null) {
+          id += `_vol${verse.volume}`;
+        }
         
         operations.push({ index: { _index: INDEX_NAME, _id: id } });
         operations.push(verse);
@@ -365,16 +377,24 @@ async function testSearch(author, bookId, contentType) {
     const searchTerm = contentType === 'hadith' ? 'Narrated' : 'Allah';
     const titleValue = title === 'auto' ? (contentType === 'quran' ? 'quran' : 'bukhari') : title;
     
+    // Build query based on whether volume is specified
+    const must = [
+      { match: { text: searchTerm } },
+      { term: { author: author } },
+      { term: { title: titleValue } }
+    ];
+    
+    // Add volume filter if provided
+    if (volume !== null) {
+      must.push({ term: { volume: volume } });
+    }
+    
     const result = await elasticClient.search({
       index: INDEX_NAME,
       body: {
         query: {
           bool: {
-            must: [
-              { match: { text: searchTerm } },
-              { term: { author: author } },
-              { term: { title: titleValue } }
-            ]
+            must: must
           }
         },
         size: 5
@@ -385,8 +405,9 @@ async function testSearch(author, bookId, contentType) {
     const totalHits = typeof result.hits.total === 'number' 
       ? result.hits.total 
       : result.hits.total?.value || 0;
-      
-    console.log(`Found ${totalHits} matches for "${searchTerm}" by ${author} (Book ID: ${bookId}, Title: ${titleValue}). Sample results:`);
+    
+    const volumeInfo = volume !== null ? `, Volume: ${volume}` : '';
+    console.log(`Found ${totalHits} matches for "${searchTerm}" by ${author} (Book ID: ${bookId}, Title: ${titleValue}${volumeInfo}). Sample results:`);
     
     hits.forEach((hit, i) => {
       console.log(`\n[${i+1}] Chapter ${hit._source.chapter}, Verse ${hit._source.verse}:`);
@@ -408,6 +429,9 @@ async function testSearch(author, bookId, contentType) {
 async function main() {
   try {
     console.log(`Starting import process for ${author}'s translation (Book ID: ${bookId})`);
+    if (volume !== null) {
+      console.log(`Volume: ${volume}`);
+    }
     
     // Check if file exists
     if (!fs.existsSync(xmlFile)) {

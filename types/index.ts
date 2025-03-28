@@ -24,6 +24,7 @@ export interface SearchResult {
   chapter_name?: string;
   book_id?: string;
   title?: string; // Added title field
+  volume?: number; // Added volume field
 }
 
 export interface SearchResponse {

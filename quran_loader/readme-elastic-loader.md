@@ -78,7 +78,7 @@ node load-quran-to-elasticsearch.js translations/en.shakir.xml --author="Shakir"
 node load-quran-to-elasticsearch.js translations/en.wahiduddin.xml --author="Wahiduddin Khan" --id="en.wahiduddin" --title="quran"
 node load-quran-to-elasticsearch.js translations/en.yusufali.xml --author="Yusuf Ali" --id="en.yusufali" --title="quran"
 
-node load-quran-to-elasticsearch.js translations/en.bukhari.vol01.xml --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol01" --title="bukhari"
+node load-quran-to-elasticsearch.js translations/en.bukhari.vol01.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol01"  --volume=1
 ```
 
 ## Elasticsearch Mapping
