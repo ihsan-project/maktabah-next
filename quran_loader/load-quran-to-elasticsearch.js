@@ -163,7 +163,7 @@ function parseHadithXML(filePath, author, bookId) {
     const chapters = xpath.select('//chapter', doc);
     
     // Temporary storage to merge verses with the same index
-    const verseMap = new Map(); // key: "chapter_verse", value: {chapter, verse, texts[]}
+    const verseMap = new Map(); // key: "chapter_verse", value: {chapter, verse, text}
     
     // Process each chapter
     chapters.forEach(chapter => {
@@ -186,7 +186,7 @@ function parseHadithXML(filePath, author, bookId) {
             verseMap.set(key, {
               chapter: chapterIndex,
               verse: verseIndex,
-              texts: [text],
+              text: text,
               chapter_name: hadithName,
               author: author,
               book_id: bookId,
@@ -194,21 +194,16 @@ function parseHadithXML(filePath, author, bookId) {
               volume: volume
             });
           } else {
-            // Add text to existing verse with newline separator
-            verseMap.get(key).texts.push(text);
+            // Concatenate text to existing verse with newline separator
+            const existingVerse = verseMap.get(key);
+            existingVerse.text = existingVerse.text + '\n' + text;
           }
         }
       });
     });
     
-    // Convert the map to array and join texts with newlines
-    const result = Array.from(verseMap.values()).map(item => {
-      return {
-        ...item,
-        text: item.texts.join('\n'),
-        texts: undefined // Remove the temporary array
-      };
-    });
+    // Convert the map to array
+    const result = Array.from(verseMap.values());
     
     console.log(`Extracted ${result.length} merged verses from ${chapters.length} chapters`);
     return result;

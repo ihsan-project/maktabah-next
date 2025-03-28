@@ -6,6 +6,19 @@ import { SearchResultsProps, SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
 import ExpandedSearchResult from './ExpandedSearchResult';
 
+// Helper function to render text with newlines
+const TextWithLineBreaks = ({ text }: { text: string }) => {
+  return (
+    <>
+      {text.split('\n').map((line, index) => (
+        <div key={index} className={index > 0 ? "mt-2" : ""}>
+          {line}
+        </div>
+      ))}
+    </>
+  );
+};
+
 export default function SearchResults({ 
   results, 
   loading, 
@@ -32,7 +45,8 @@ export default function SearchResults({
       verse: result.verse,
       author: result.author,
       book_id: result.book_id,
-      title: result.title
+      title: result.title,
+      volume: result.volume
     });
   };
 
@@ -107,6 +121,7 @@ export default function SearchResults({
                   {result.title === 'bukhari' && (
                     <span className="px-2 py-0.5 mr-2 rounded-full bg-[#8C6564] text-white">
                       Bukhari
+                      {result.volume && ` Vol ${result.volume}`}
                     </span>
                   )}
                   {result.author}
@@ -117,7 +132,7 @@ export default function SearchResults({
                 {isExpanded ? (
                   <>
                     <div className="mb-4">
-                      <p>{result.text}</p>
+                      <TextWithLineBreaks text={result.text} />
                     </div>
                     
                     {result.title === 'bukhari' && result.volume && (
@@ -149,7 +164,9 @@ export default function SearchResults({
                     )}
                   </>
                 ) : (
-                  <p>{result.text}</p>
+                  <p>
+                    <TextWithLineBreaks text={result.text} />
+                  </p>
                 )}
               </div>
               
