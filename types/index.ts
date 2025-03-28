@@ -23,6 +23,7 @@ export interface SearchResult {
   author: string;
   chapter_name?: string;
   book_id?: string;
+  title?: string; // Added title field
 }
 
 export interface SearchResponse {
