@@ -130,33 +130,33 @@ export default function SearchResults({
               
               <div className="text-gray-700">
                 {isExpanded ? (
-                  <>
-                    <div className="mb-4">
-                      <TextWithLineBreaks text={result.text} />
-                    </div>
-                    
+                  <>                    
                     {result.title === 'bukhari' && result.volume && (
-                      <div className="mt-2 mb-2">
-                        <a 
-                          href={`https://quranx.com/hadith/Bukhari/USC-MSA/Volume-${result.volume}/Book-${result.chapter}/Hadith-${result.verse}/`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-block px-4 py-2 bg-[#8C6564] text-white rounded text-sm hover:bg-opacity-80 transition-colors"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            // Track quranx.com link click
-                            MixpanelTracking.track('QuranX Link Click', {
-                              chapter: result.chapter,
-                              verse: result.verse,
-                              author: result.author,
-                              book_id: result.book_id,
-                              volume: result.volume
-                            });
-                          }}
-                        >
-                          View on QuranX.com
-                        </a>
-                      </div>
+                      <>
+                        <div className="mb-4">
+                          <TextWithLineBreaks text={result.text} />
+                        </div>
+                        <div className="mt-2 mb-2">
+                          <a
+                            href={`https://quranx.com/hadith/Bukhari/USC-MSA/Volume-${result.volume}/Book-${result.chapter}/Hadith-${result.verse}/`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-4 py-2 bg-[#8C6564] text-white rounded text-sm hover:bg-opacity-80 transition-colors"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              // Track quranx.com link click
+                              MixpanelTracking.track('QuranX Link Click', {
+                                chapter: result.chapter,
+                                verse: result.verse,
+                                author: result.author,
+                                book_id: result.book_id,
+                                volume: result.volume
+                              });
+                            } }
+                          >
+                            View on QuranX.com
+                          </a>
+                        </div></>
                     )}
                     
                     {result.title !== 'bukhari' && (
