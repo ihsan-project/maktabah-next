@@ -8,10 +8,10 @@ if (!admin.apps.length) {
   admin.initializeApp();
 }
 
-// Search function to query ElasticSearch
+// Search function to query ElasticSearch with terms aggregation partitioning
 async function searchDocuments(query, page = 1, size = 10, author = null, chapter = null) {
   try {
-    // Initialize ElasticSearch client with API key authentication using process.env
+    // Initialize ElasticSearch client with API key authentication
     const client = new Client({
       node: process.env.ELASTICSEARCH_URL,
       auth: {
@@ -21,8 +21,6 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
         rejectUnauthorized: false // Set to true in production
       }
     });
-    
-    const startIndex = (page - 1) * size;
     
     // Hardcoded index name
     const elasticsearchIndex = 'kitaab';
@@ -40,30 +38,12 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
               }
             }
           },
-          // Search in the text.stem field for stemmed matches
+          // Search in the text.arabic field for Arabic matches
           { 
             match: { 
-              "text.stem": {
+              "text.arabic": {
                 query: query,
-                boost: 1.2 // Give stemmed matches a higher boost
-              }
-            }
-          },
-          // Use the joined field for phrase-like queries and typo tolerance
-          { 
-            match: { 
-              "text.joined": {
-                query: query,
-                boost: 1.5 // Higher boost for phrase matches
-              }
-            }
-          },
-          // Use prefix field for better search-as-you-type experience
-          {
-            match: {
-              "text.prefix": {
-                query: query,
-                boost: 0.8 // Lower boost for prefix matches
+                boost: 1.2
               }
             }
           }
@@ -76,7 +56,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
     // Add author filter if specified
     if (author) {
       searchQuery.bool.filter.push({
-        term: { "author.enum": author }
+        term: { "author": author }
       });
     }
     
@@ -87,30 +67,39 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       });
     }
     
-    // Perform the search
+    // Calculate from and size for pagination
+    const from = (page - 1) * size;
+    
+    // First, get all matching documents with their chapter-verse combinations
+    // This approach finds all matching documents and groups them by chapter-verse
     const response = await client.search({
       index: elasticsearchIndex,
       body: {
-        size: 0, // Returning only aggregation results: https://www.elastic.co/guide/en/elasticsearch/reference/current/returning-only-agg-results.html
+        size: 0, // We don't need the documents at this stage, just the aggregation
         query: searchQuery,
-        sort: [
-          { _score: { order: "desc" } },
-          { chapter: { order: "asc" } },
-          { verse: { order: "asc" } }
-        ],
         aggs: {
-          unique_chapter_verse: {
+          chapters: {
             terms: {
-              // Create a composite key using chapter and verse
-              script: {
-                source: "doc['chapter'].value + '_' + doc['verse'].value"
-              },
-              size: 10000 // Adjust based on expected number of unique combinations
+              field: "chapter",
+              size: 1000, // Get all chapters (max 114 for Quran)
+              order: { _key: "asc" }
             },
             aggs: {
-              top_hit: {
-                top_hits: {
-                  size: 1
+              verses: {
+                terms: {
+                  field: "verse",
+                  size: 1000, // Reasonable number for verses
+                  order: { _key: "asc" }
+                },
+                aggs: {
+                  top_hit: {
+                    top_hits: {
+                      size: 1,
+                      sort: [
+                        { _score: { order: "desc" } }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -118,24 +107,38 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
         }
       }
     });
-
-    // Aggregated buckets for unique chapter/verse
-    const buckets = response.aggregations.unique_chapter_verse.buckets;
-    const hits = buckets.map(bucket => bucket.top_hit.hits.hits[0]); // top_hit should have just one result
-    const total = buckets.length;
     
-    const results = hits.map(hit => ({
-      id: hit._id,
-      score: hit._score || 0,
-      ...hit._source,
-    }));
-
+    // Process the nested aggregation results
+    const chapterBuckets = response.aggregations.chapters.buckets || [];
+    
+    // Flatten the structure to get a single array of verse results
+    let allResults = [];
+    
+    chapterBuckets.forEach(chapterBucket => {
+      const verseBuckets = chapterBucket.verses.buckets || [];
+      
+      verseBuckets.forEach(verseBucket => {
+        const topHit = verseBucket.top_hit.hits.hits[0];
+        
+        allResults.push({
+          id: topHit._id,
+          score: topHit._score || 0,
+          ...topHit._source
+        });
+      });
+    });
+    
+    // Apply pagination to the flattened results
+    const totalResults = allResults.length;
+    const paginatedResults = allResults.slice(from, from + size);
+    
     return {
-      results,
-      total,
+      results: paginatedResults,
+      total: totalResults,
       page,
       size,
-      totalPages: 1 // Prevent UI from paging
+      totalPages: Math.ceil(totalResults / size),
+      hasMore: from + size < totalResults
     };
   } catch (error) {
     logger.error('Error searching documents:', error);
