@@ -46,28 +46,18 @@ export default function TranslationView({
 
   if (loading) {
     return (
-      <div className="py-2">
-        <div className="flex items-center space-x-2">
-          <h4 className="font-medium text-primary-dark">{authorName}:</h4>
-          <div className="h-4 w-4 border-t-2 border-b-2 border-primary animate-spin rounded-full"></div>
-        </div>
+      <div className="flex items-center space-x-2">
+        <div className="h-4 w-4 border-t-2 border-b-2 border-primary animate-spin rounded-full"></div>
+        <span className="text-gray-500">Loading translation...</span>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="border-b pb-2 last:border-b-0">
-        <h4 className="font-medium text-primary-dark mb-1">{authorName}:</h4>
-        <p className="text-gray-500 italic">Translation not available</p>
-      </div>
+      <p className="text-gray-500 italic">Translation not available</p>
     );
   }
 
-  return (
-    <div className="border-b pb-2 last:border-b-0">
-      <h4 className="font-medium text-primary-dark mb-1">{authorName}:</h4>
-      <p>{text}</p>
-    </div>
-  );
+  return <p>{text}</p>;
 }
