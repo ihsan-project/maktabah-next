@@ -106,37 +106,37 @@ export default function SearchForm({ onSearch }: SearchFormProps): JSX.Element {
                   <h4 className="font-medium text-primary-dark">Basic Search</h4>
                   <ul className="list-disc ml-5 text-gray-600 space-y-1">
                     <li>Type words or phrases naturally</li>
-                    <li>Results include exact and similar words</li>
+                    <li>Multiple words will match any of them</li>
                     <li>Example: <span className="font-mono bg-gray-100 px-1">mercy forgiveness</span></li>
                   </ul>
                 </div>
                 
                 <div>
-                  <h4 className="font-medium text-primary-dark">Exact Phrases</h4>
+                  <h4 className="font-medium text-primary-dark">Word Variations</h4>
                   <ul className="list-disc ml-5 text-gray-600 space-y-1">
-                    <li>Put quotes around exact phrases</li>
-                    <li>Example: <span className="font-mono bg-gray-100 px-1">"path of Allah"</span></li>
+                    <li>Search finds different forms of words</li>
+                    <li>Example: <span className="font-mono bg-gray-100 px-1">believe</span> finds "belief", "believer", etc.</li>
                   </ul>
                 </div>
                 
                 <div>
-                  <h4 className="font-medium text-primary-dark">Required Terms</h4>
+                  <h4 className="font-medium text-primary-dark">Partial Words</h4>
                   <ul className="list-disc ml-5 text-gray-600 space-y-1">
-                    <li>Add + before a word to require it</li>
-                    <li>Example: <span className="font-mono bg-gray-100 px-1">+faith hope</span></li>
+                    <li>Type beginnings of words to find matches</li>
+                    <li>Example: <span className="font-mono bg-gray-100 px-1">righ</span> finds "right", "righteous"</li>
                   </ul>
                 </div>
                 
                 <div>
-                  <h4 className="font-medium text-primary-dark">Excluded Terms</h4>
+                  <h4 className="font-medium text-primary-dark">Key Concepts</h4>
                   <ul className="list-disc ml-5 text-gray-600 space-y-1">
-                    <li>Add - before a word to exclude it</li>
-                    <li>Example: <span className="font-mono bg-gray-100 px-1">light -darkness</span></li>
+                    <li>Use specific theological terms</li>
+                    <li>Example: <span className="font-mono bg-gray-100 px-1">taqwa ihsan</span></li>
                   </ul>
                 </div>
               </div>
               
-              <p className="text-gray-500 italic">Tip: Use simple, clear terms for better results. The search is optimized to find variations of words (e.g., "believe" will also find "belief" and "believer").</p>
+              <p className="text-gray-500 italic">Tip: Keep searches simple and focused. The search engine intelligently finds word matches, similar meanings, and partial word matches based on context.</p>
             </div>
           </div>
         )}
