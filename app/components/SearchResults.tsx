@@ -5,19 +5,7 @@ import { FiChevronRight, FiChevronDown } from 'react-icons/fi';
 import { SearchResultsProps, SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
 import ExpandedSearchResult from './ExpandedSearchResult';
-
-// Helper function to render text with newlines
-const TextWithLineBreaks = ({ text }: { text: string }) => {
-  return (
-    <>
-      {text.split('\n').map((line, index) => (
-        <div key={index} className={index > 0 ? "mt-2" : ""}>
-          {line}
-        </div>
-      ))}
-    </>
-  );
-};
+import TextWithLineBreaks from './TextWithLineBreaks';
 
 export default function SearchResults({ 
   results, 
@@ -44,9 +32,7 @@ export default function SearchResults({
       chapter: result.chapter,
       verse: result.verse,
       author: result.author,
-      book_id: result.book_id,
-      title: result.title,
-      volume: result.volume
+      book_id: result.book_id
     });
   };
 
@@ -90,25 +76,13 @@ export default function SearchResults({
     );
   }
 
-  // Get border color based on title
-  const getBorderColor = (title?: string): string => {
-    if (title === 'bukhari') {
-      return 'border-l-[#8C6564]'; // Burgundy/maroon color for Bukhari
-    }
-    return 'border-l-primary'; // Default green for Quran
-  };
-
   return (
     <div className="space-y-6">
       {results.map((result: SearchResult) => {
         const isExpanded = expandedItems[result.id] || false;
-        const borderColor = getBorderColor(result.title);
         
         return (
-          <div 
-            key={result.id} 
-            className={`card border-l-4 ${borderColor} hover:shadow-lg transition-shadow duration-200`}
-          >
+          <div key={result.id} className="card border-l-4 border-l-primary hover:shadow-lg transition-shadow duration-200">
             <div 
               className="flex flex-col cursor-pointer" 
               onClick={() => toggleExpand(result.id, result)}
@@ -117,56 +91,16 @@ export default function SearchResults({
                 <div className="font-medium text-primary">
                   {result.chapter}:{result.verse}
                 </div>
-                <div className="flex items-center text-xs text-gray-500">
-                  {result.title === 'bukhari' && (
-                    <span className="px-2 py-0.5 mr-2 rounded-full bg-[#8C6564] text-white">
-                      Bukhari
-                      {result.volume && ` Vol ${result.volume}`}
-                    </span>
-                  )}
+                <div className="text-xs text-gray-500">
                   {result.author}
                 </div>
               </div>
               
               <div className="text-gray-700">
                 {isExpanded ? (
-                  <>
-                    <div className="mb-4">
-                      <TextWithLineBreaks text={result.text} />
-                    </div>
-                    
-                    {result.title === 'bukhari' && result.volume && (
-                      <div className="mt-2 mb-2">
-                        <a 
-                          href={`https://quranx.com/hadith/Bukhari/USC-MSA/Volume-${result.volume}/Book-${result.chapter}/Hadith-${result.verse}/`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-block px-4 py-2 bg-[#8C6564] text-white rounded text-sm hover:bg-opacity-80 transition-colors"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            // Track quranx.com link click
-                            MixpanelTracking.track('QuranX Link Click', {
-                              chapter: result.chapter,
-                              verse: result.verse,
-                              author: result.author,
-                              book_id: result.book_id,
-                              volume: result.volume
-                            });
-                          }}
-                        >
-                          View on QuranX.com
-                        </a>
-                      </div>
-                    )}
-                    
-                    {result.title !== 'bukhari' && (
-                      <ExpandedSearchResult result={result} />
-                    )}
-                  </>
+                  <ExpandedSearchResult result={result} />
                 ) : (
-                  <p>
-                    <TextWithLineBreaks text={result.text} />
-                  </p>
+                  <TextWithLineBreaks text={result.text} />
                 )}
               </div>
               
