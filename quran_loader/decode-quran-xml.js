@@ -7,7 +7,7 @@ const xpath = require('xpath');
 const he = require('he'); // HTML entity decoder
 
 /**
- * Decode HTML entities in Quran XML files
+ * Decode HTML entities in Quran XML files and strip HTML tags
  * @param {string} inputFilePath - Path to the input XML file
  * @param {string} outputFilePath - Path to the output XML file (optional)
  */
@@ -17,7 +17,7 @@ function decodeQuranXml(inputFilePath, outputFilePath) {
     if (!outputFilePath) {
       const fileDir = path.dirname(inputFilePath);
       const fileName = path.basename(inputFilePath, path.extname(inputFilePath));
-      outputFilePath = path.join(fileDir, `${fileName}.decoded${path.extname(inputFilePath)}`);
+      outputFilePath = path.join(fileDir, `${fileName}.clean${path.extname(inputFilePath)}`);
     }
 
     console.log(`Reading file: ${inputFilePath}`);
@@ -28,7 +28,7 @@ function decodeQuranXml(inputFilePath, outputFilePath) {
     
     // Extract all ayas
     const ayas = xpath.select('//aya', doc);
-    let decodeCount = 0;
+    let modifiedCount = 0;
     
     console.log(`Found ${ayas.length} verses to process`);
     
@@ -37,15 +37,16 @@ function decodeQuranXml(inputFilePath, outputFilePath) {
       const text = aya.getAttribute('text');
       
       if (text) {
-        // Decode HTML entities
+        // First decode HTML entities
         const decodedText = he.decode(text);
         
+        // Then strip out all HTML tags
+        const strippedText = decodedText.replace(/<\/?[^>]+(>|$)/g, '');
+        
         // Only update if there's a change
-        console.log("mmi: text", text)
-        console.log("mmi: decodedText", decodedText)
-        if (decodedText !== text) {
-          decodeCount++;
-          aya.setAttribute('text', decodedText);
+        if (strippedText !== text) {
+          modifiedCount++;
+          aya.setAttribute('text', strippedText);
         }
       }
     });
@@ -57,12 +58,12 @@ function decodeQuranXml(inputFilePath, outputFilePath) {
     // Write the output to a file
     fs.writeFileSync(outputFilePath, outputXml, 'utf8');
     
-    console.log(`Processed ${decodeCount} verses with HTML entities`);
+    console.log(`Processed ${modifiedCount} verses with HTML tags or entities`);
     console.log(`Output saved to: ${outputFilePath}`);
     
     return {
       success: true,
-      decodeCount,
+      modifiedCount,
       outputFilePath
     };
   } catch (error) {

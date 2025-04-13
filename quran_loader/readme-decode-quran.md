@@ -33,7 +33,7 @@ Run the script with the path to your XML file:
 node decode-quran-xml.js path/to/quran.xml [output-path.xml]
 ```
 
-The second parameter (output path) is optional. If not provided, the script will create a new file with ".decoded" added to the original filename.
+The second parameter (output path) is optional. If not provided, the script will create a new file with ".clean" added to the original filename.
 
 ### Example
 
@@ -41,7 +41,7 @@ The second parameter (output path) is optional. If not provided, the script will
 node decode-quran-xml.js translations/en.transliteration.xml
 ```
 
-This will create a new file `translations/en.transliteration.decoded.xml` with decoded HTML entities.
+This will create a new file `translations/en.transliteration.clean.xml` with clean HTML entities.
 
 ## How It Works
 
