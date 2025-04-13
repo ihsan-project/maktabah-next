@@ -77,6 +77,7 @@ node load-quran-to-elasticsearch.js translations/en.sarwar.xml --author="Sarwar"
 node load-quran-to-elasticsearch.js translations/en.shakir.xml --author="Shakir" --id="en.shakir" --title="quran"
 node load-quran-to-elasticsearch.js translations/en.wahiduddin.xml --author="Wahiduddin Khan" --id="en.wahiduddin" --title="quran"
 node load-quran-to-elasticsearch.js translations/en.yusufali.xml --author="Yusuf Ali" --id="en.yusufali" --title="quran"
+node load-quran-to-elasticsearch.js translations/en.transliteration.clean.xml --author="Transliteration" --id="en.transliteration" --title="quran"
 
 node load-quran-to-elasticsearch.js translations/en.bukhari.vol01.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol01"  --volume=1
 node load-quran-to-elasticsearch.js translations/en.bukhari.vol02.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol02"  --volume=2
