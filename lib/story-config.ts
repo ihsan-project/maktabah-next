@@ -23,22 +23,22 @@ export const STORY_METADATA: Record<string, {
   'abraham': {
     title: 'The Story of Abraham (Ibrahim) in Islamic Texts',
     description: 'Discover verses about Prophet Abraham (Ibrahim) from various Islamic texts and translations of the Quran.',
-    keywords: ['Abraham', 'Ibrahim', 'Prophet', 'Islam', 'Quran', 'Ka\'bah', 'Mecca']
+    keywords: ['Abraham', 'Ibrahim']
   },
   'moses': {
     title: 'The Story of Moses (Musa) in Islamic Texts',
     description: 'Explore verses about Prophet Moses (Musa) from various Islamic texts and translations of the Quran.',
-    keywords: ['Moses', 'Musa', 'Prophet', 'Islam', 'Quran', 'Pharaoh', 'Egypt']
+    keywords: ['Moses', 'Musa', 'Pharaoh', 'Egypt']
   },
   'jesus': {
     title: 'The Story of Jesus (Isa) in Islamic Texts',
     description: 'Read verses about Prophet Jesus (Isa) from various Islamic texts and translations of the Quran.',
-    keywords: ['Jesus', 'Isa', 'Prophet', 'Islam', 'Quran', 'Mary', 'Miracles']
+    keywords: ['Jesus', 'Isa', 'Mary']
   },
   'muhammad': {
     title: 'The Story of Muhammad in Islamic Texts',
     description: 'Learn about Prophet Muhammad from various Islamic texts and translations of the Quran.',
-    keywords: ['Muhammad', 'Prophet', 'Islam', 'Quran', 'Messenger', 'Revelation']
+    keywords: ['Muhammad', 'Islam', 'Quran', 'Messenger']
   }
 };
 
