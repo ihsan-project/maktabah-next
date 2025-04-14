@@ -4,9 +4,9 @@ import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
 import { parseStringPromise } from 'xml2js';
-import { FcGoogle } from 'react-icons/fc';
 import { ALLOWED_STORIES, getStoryMetadata } from '@/lib/story-config';
 import type { Metadata } from 'next';
+import StoryClient from './page.client';
 
 // Types for the story data
 interface StoryVerse {
@@ -130,17 +130,8 @@ export default async function StoryPage({ params }: StoryPageProps) {
         A collection of {versesCount} Islamic verses about {name}
       </p>
       
-      {/* Login promotion section */}
-      <div className="mb-8 p-6 bg-primary-light bg-opacity-10 rounded-lg text-center">
-        <h2 className="text-xl font-semibold text-primary mb-2">Discover More Islamic Knowledge</h2>
-        <p className="mb-4">
-          Sign in to search the full collection of Islamic texts and create your own stories.
-        </p>
-        <Link href="/" className="inline-flex items-center gap-2 py-3 px-6 bg-white text-gray-700 rounded-md shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-300">
-          <FcGoogle className="text-xl" />
-          <span>Sign in with Google</span>
-        </Link>
-      </div>
+      {/* Stories content with client component for tracking */}
+      <StoryClient name={name} />
       
       {/* Story content */}
       <div className="space-y-6">
