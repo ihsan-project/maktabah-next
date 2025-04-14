@@ -99,7 +99,7 @@ export default function AuthProvider({ children }: AuthProviderProps) {
       }
       
       await signOut(auth);
-      router.push('/auth/login');
+      router.push('/'); // Redirect to home page instead of login
     } catch (error) {
       console.error('Error logging out:', error);
     } finally {

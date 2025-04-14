@@ -20,7 +20,7 @@ export default function Navbar(): JSX.Element {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href={user ? '/search' : '/'} className="font-bold text-xl">
+          <Link href="/" className="font-bold text-xl">
             Maktabah
           </Link>
 

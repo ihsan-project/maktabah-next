@@ -136,7 +136,7 @@ export default async function StoryPage({ params }: StoryPageProps) {
         <p className="mb-4">
           Sign in to search the full collection of Islamic texts and create your own stories.
         </p>
-        <Link href="/auth/login" className="inline-flex items-center gap-2 py-3 px-6 bg-white text-gray-700 rounded-md shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-300">
+        <Link href="/" className="inline-flex items-center gap-2 py-3 px-6 bg-white text-gray-700 rounded-md shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-300">
           <FcGoogle className="text-xl" />
           <span>Sign in with Google</span>
         </Link>
@@ -170,7 +170,7 @@ export default async function StoryPage({ params }: StoryPageProps) {
       <div className="mt-12 text-center">
         <p className="mb-4">Want to explore more Islamic texts?</p>
         <Link 
-          href="/auth/login" 
+          href="/" 
           className="btn btn-primary inline-block"
         >
           Sign in and start searching
