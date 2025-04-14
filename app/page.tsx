@@ -3,24 +3,21 @@
 import React, { useEffect } from 'react';
 import { useAuth } from './components/AuthProvider';
 import { useRouter } from 'next/navigation';
+import HomeContent from './components/HomeContent';
 
 export default function HomePage(): JSX.Element {
   const { user, loading } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (!loading) {
-      if (user) {
-        router.push('/search');
-      } else {
-        router.push('/auth/login');
-      }
+    if (!loading && user) {
+      router.push('/search');
     }
   }, [user, loading, router]);
 
   return (
-    <div className="flex items-center justify-center min-h-[60vh]">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+    <div className="flex flex-col items-center">
+      <HomeContent />
     </div>
   );
 }
