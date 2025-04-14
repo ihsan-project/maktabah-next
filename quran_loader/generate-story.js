@@ -3,6 +3,8 @@
 const { Client } = require('@elastic/elasticsearch');
 const fs = require('fs');
 const path = require('path');
+const { DOMParser } = require('@xmldom/xmldom');
+const xpath = require('xpath');
 require('dotenv').config();
 
 // Parse command line arguments
@@ -30,6 +32,131 @@ const outputArg = args.find(arg => arg.startsWith('--output='));
 const outputFile = outputArg
   ? outputArg.split('=')[1].replace(/"/g, '')
   : `story-${Date.now()}.xml`;
+
+// Ordered list of translations to include
+const BOOK_IDS = [
+  'en.ahmedali',
+  'en.ahmedraza',
+  'en.arberry', 
+  'en.daryabadi',
+  'en.hilali',
+  'en.itani',
+  'en.maududi',
+  'en.mubarakpuri',
+  'en.pickthall',
+  'en.qarai',
+  'en.qaribullah',
+  'en.sahih',
+  'en.sarwar',
+  'en.shakir',
+  'en.wahiduddin',
+  'en.yusufali'
+];
+
+// Map of translator IDs to readable names
+const AUTHOR_NAMES = {
+  'en.ahmedali': 'Ahmed Ali',
+  'en.ahmedraza': 'Ahmed Raza Khan',
+  'en.arberry': 'Arberry',
+  'en.daryabadi': 'Daryabadi',
+  'en.hilali': 'Hilali & Khan',
+  'en.itani': 'Itani',
+  'en.maududi': 'Maududi',
+  'en.mubarakpuri': 'Mubarakpuri',
+  'en.pickthall': 'Pickthall',
+  'en.qarai': 'Qarai',
+  'en.qaribullah': 'Qaribullah & Darwish',
+  'en.sahih': 'Saheeh International',
+  'en.sarwar': 'Sarwar',
+  'en.shakir': 'Shakir',
+  'en.wahiduddin': 'Wahiduddin Khan',
+  'en.yusufali': 'Yusuf Ali'
+};
+
+// Cache for all translations
+const translationsCache = {};
+
+/**
+ * Preload all translation XML files from the translations directory
+ * This will create a nested structure: translationsCache[bookId][chapter][verse] = text
+ */
+async function preloadTranslations() {
+  console.log('Preloading translations from XML files...');
+  
+  const translationsDir = path.join(__dirname, 'translations');
+  
+  // Ensure the translations directory exists
+  if (!fs.existsSync(translationsDir)) {
+    console.warn(`Translations directory not found: ${translationsDir}`);
+    return;
+  }
+  
+  // Process each book ID in our list
+  for (const bookId of BOOK_IDS) {
+    try {
+      // Look for the XML file in the translations directory
+      const xmlPath = path.join(translationsDir, `${bookId}.xml`);
+      
+      if (!fs.existsSync(xmlPath)) {
+        console.warn(`Translation file not found: ${xmlPath}`);
+        continue;
+      }
+      
+      console.log(`Loading translation: ${bookId} (${AUTHOR_NAMES[bookId] || bookId})`);
+      
+      // Initialize the cache for this book ID
+      translationsCache[bookId] = {};
+      
+      // Read and parse the XML file
+      const xmlContent = fs.readFileSync(xmlPath, 'utf8');
+      const doc = new DOMParser().parseFromString(xmlContent, 'text/xml');
+      
+      // Extract all suras (chapters)
+      const suras = xpath.select('//sura', doc);
+      
+      // Process each sura
+      suras.forEach(sura => {
+        const suraIndex = parseInt(sura.getAttribute('index'));
+        const suraName = sura.getAttribute('name') || '';
+        
+        // Initialize the cache for this chapter
+        translationsCache[bookId][suraIndex] = {
+          name: suraName,
+          verses: {}
+        };
+        
+        // Extract all ayas (verses) in this sura
+        const ayas = xpath.select('./aya', sura);
+        
+        // Process each aya
+        ayas.forEach(aya => {
+          const ayaIndex = parseInt(aya.getAttribute('index'));
+          const text = aya.getAttribute('text') || '';
+          
+          // Store in cache
+          translationsCache[bookId][suraIndex].verses[ayaIndex] = text;
+        });
+      });
+      
+      // Report summary
+      const totalChapters = Object.keys(translationsCache[bookId]).length;
+      let totalVerses = 0;
+      
+      Object.keys(translationsCache[bookId]).forEach(chapterKey => {
+        totalVerses += Object.keys(translationsCache[bookId][chapterKey].verses).length;
+      });
+      
+      console.log(`  Loaded ${totalChapters} chapters and ${totalVerses} verses for ${bookId}`);
+      
+    } catch (error) {
+      console.error(`Error loading translation ${bookId}:`, error);
+    }
+  }
+  
+  // Report overall summary
+  const loadedTranslations = Object.keys(translationsCache).length;
+  console.log(`\nLoaded ${loadedTranslations} translations out of ${BOOK_IDS.length} configured`);
+}
 
 /**
  * Search function to query ElasticSearch
@@ -177,7 +304,7 @@ function escapeXml(unsafe) {
 }
 
 /**
- * Generate XML from search results
+ * Generate XML from search results, including all translations
  * @param {Array} results Search results array
  * @param {string} searchQuery The original search query
  * @param {string} outputFile Path to save the XML file
@@ -197,11 +324,37 @@ function generateXml(results, searchQuery, outputFile) {
   xml += '  <verses>\n';
   
   results.forEach((result) => {
-    xml += `    <verse chapter="${result.chapter}" verse="${result.verse}" author="${escapeXml(result.author)}">\n`;
+    const chapter = result.chapter;
+    const verse = result.verse;
+    
+    xml += `    <verse chapter="${chapter}" verse="${verse}" author="${escapeXml(result.author)}">\n`;
     xml += `      <chapter_name>${escapeXml(result.chapter_name || '')}</chapter_name>\n`;
     xml += `      <book_id>${escapeXml(result.book_id || '')}</book_id>\n`;
     xml += `      <score>${result.score}</score>\n`;
     xml += `      <text>${escapeXml(result.text)}</text>\n`;
+    
+    // Add all available translations for this verse
+    xml += '      <translations>\n';
+    
+    BOOK_IDS.forEach(bookId => {
+      const authorName = AUTHOR_NAMES[bookId] || bookId;
+      
+      // Check if we have this translation in our cache
+      if (
+        translationsCache[bookId] && 
+        translationsCache[bookId][chapter] && 
+        translationsCache[bookId][chapter].verses &&
+        translationsCache[bookId][chapter].verses[verse]
+      ) {
+        const translatedText = translationsCache[bookId][chapter].verses[verse];
+        xml += `        <translation book_id="${escapeXml(bookId)}" author="${escapeXml(authorName)}">${escapeXml(translatedText)}</translation>\n`;
+      } else {
+        // Include an empty placeholder to maintain consistent structure
+        xml += `        <translation book_id="${escapeXml(bookId)}" author="${escapeXml(authorName)}" available="false" />\n`;
+      }
+    });
+    
+    xml += '      </translations>\n';
     xml += '    </verse>\n';
   });
   
@@ -220,6 +373,9 @@ async function main() {
   try {
     console.log(`Generating story from search term: "${query}"`);
     
+    // Preload all translations first
+    await preloadTranslations();
+    
     // Search documents
     const searchResults = await searchDocuments(query, author, chapter);
     
@@ -235,6 +391,7 @@ async function main() {
     if (chapter) console.log(`- Chapter filter: ${chapter}`);
     console.log(`- Verses included: ${searchResults.total}`);
     console.log(`- Output file: ${outputFile}`);
+    console.log(`- Translations included: ${Object.keys(translationsCache).length}`);
     
   } catch (error) {
     console.error('Error:', error.message);
