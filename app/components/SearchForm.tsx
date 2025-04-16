@@ -4,8 +4,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FiSearch, FiHelpCircle, FiX } from 'react-icons/fi';
 import { SearchFormProps } from '@/types';
 
-export default function SearchForm({ onSearch }: SearchFormProps): JSX.Element {
-  const [query, setQuery] = useState<string>('');
+// Update the SearchFormProps interface in /types/index.ts
+interface UpdatedSearchFormProps extends SearchFormProps {
+  initialQuery?: string;
+}
+
+export default function SearchForm({ onSearch, initialQuery = '' }: UpdatedSearchFormProps): JSX.Element {
+  const [query, setQuery] = useState<string>(initialQuery);
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [showTips, setShowTips] = useState<boolean>(false);
   const tooltipRef = useRef<HTMLDivElement>(null);
@@ -24,6 +29,13 @@ export default function SearchForm({ onSearch }: SearchFormProps): JSX.Element {
     } finally {
       setIsSearching(false);
     }
+  };
+
+  const handleClearInput = (): void => {
+    setQuery('');
+    // If the input is cleared and Enter is pressed, 
+    // this will trigger a search with an empty string
+    // which can be handled in the parent component
   };
 
   // Close tooltip when clicking outside
@@ -58,10 +70,24 @@ export default function SearchForm({ onSearch }: SearchFormProps): JSX.Element {
               className="input py-3 pl-4 pr-12 text-lg shadow-sm w-full"
               disabled={isSearching}
             />
+            
+            {/* Clear input button - only shown when there's text */}
+            {query && (
+              <button
+                type="button"
+                onClick={handleClearInput}
+                className="absolute right-12 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
+                aria-label="Clear search"
+              >
+                <FiX size={20} />
+              </button>
+            )}
+            
             <button
               type="submit"
-              disabled={isSearching}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-primary focus:outline-none"
+              disabled={isSearching || !query.trim()}
+              className={`absolute right-3 top-1/2 transform -translate-y-1/2 ${query.trim() ? 'text-primary' : 'text-gray-400'} hover:text-primary-dark focus:outline-none`}
+              aria-label="Search"
             >
               {isSearching ? (
                 <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-primary"></div>

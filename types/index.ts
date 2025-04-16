@@ -38,6 +38,7 @@ export interface SearchResponse {
 // Component props
 export interface SearchFormProps {
   onSearch: (query: string) => Promise<void>;
+  initialQuery?: string;
 }
 
 export interface SearchResultsProps {
@@ -54,4 +55,9 @@ export interface SideMenuProps {
 
 export interface ProtectedRouteProps {
   children: React.ReactNode;
+}
+
+// Props for our new StoriesList component
+export interface StoriesListProps {
+  source?: string; // To track where the click came from
 }
