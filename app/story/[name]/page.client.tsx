@@ -4,12 +4,15 @@ import React from 'react';
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
 import MixpanelTracking from '@/lib/mixpanel';
+import { useAuth } from '@/app/components/AuthProvider';
 
 interface StoryClientProps {
   name: string;
 }
 
 export default function StoryClient({ name }: StoryClientProps) {
+  // Get authentication state from AuthProvider
+  const { user, loading } = useAuth();
   
   const trackSignIn = (location: string) => {
     MixpanelTracking.track('Click Sign In', {
@@ -18,6 +21,11 @@ export default function StoryClient({ name }: StoryClientProps) {
       location: location
     });
   };
+  
+  // If the user is logged in or still loading authentication state, don't show login prompts
+  if (user || loading) {
+    return null;
+  }
   
   return (
     <>

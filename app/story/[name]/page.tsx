@@ -1,6 +1,5 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
 import { parseStringPromise } from 'xml2js';
@@ -117,12 +116,9 @@ export default async function StoryPage({ params }: StoryPageProps) {
   if (!storyData) {
     notFound();
   }
-
-  // Get metadata from our config
-  const metadata = getStoryMetadata(name);
   
   // Extract metadata and verses from the story data
-  const title = metadata?.title || `Story about ${name}`;
+  const title = storyData.metadata?.[0]?.title?.[0] || `Story about ${name}`;
   const versesCount = storyData.metadata?.[0]?.verses_count?.[0] || '0';
   const verses = storyData.verses?.[0]?.verse || [];
   
@@ -133,7 +129,7 @@ export default async function StoryPage({ params }: StoryPageProps) {
         A collection of {versesCount} Islamic verses about {name}
       </p>
       
-      {/* Stories content with client component for tracking */}
+      {/* Client component that handles auth state and adds sign-in prompts if needed */}
       <StoryClient name={name} />
       
       {/* Story content */}
@@ -160,16 +156,8 @@ export default async function StoryPage({ params }: StoryPageProps) {
         ))}
       </div>
       
-      {/* Footer with login promotion */}
-      <div className="mt-12 text-center">
-        <p className="mb-4">Want to explore more Islamic texts?</p>
-        <Link 
-          href="/" 
-          className="btn btn-primary inline-block"
-        >
-          Sign in and start searching
-        </Link>
-      </div>
+      {/* The login prompt footer is now handled by the StoryClient component */}
+      {/* It will only be displayed if the user is not logged in */}
     </div>
   );
 }
