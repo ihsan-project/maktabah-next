@@ -117,9 +117,12 @@ export default async function StoryPage({ params }: StoryPageProps) {
   if (!storyData) {
     notFound();
   }
+
+  // Get metadata from our config
+  const metadata = getStoryMetadata(name);
   
   // Extract metadata and verses from the story data
-  const title = storyData.metadata?.[0]?.title?.[0] || `Story about ${name}`;
+  const title = metadata?.title || `Story about ${name}`;
   const versesCount = storyData.metadata?.[0]?.verses_count?.[0] || '0';
   const verses = storyData.verses?.[0]?.verse || [];
   

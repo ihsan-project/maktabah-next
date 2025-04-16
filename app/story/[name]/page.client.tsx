@@ -36,18 +36,6 @@ export default function StoryClient({ name }: StoryClientProps) {
           <span>Sign in with Google</span>
         </Link>
       </div>
-      
-      {/* Footer with login promotion - placed at the end of the story page */}
-      <div className="mt-12 text-center">
-        <p className="mb-4">Want to explore more Islamic texts?</p>
-        <Link 
-          href="/" 
-          className="btn btn-primary inline-block"
-          onClick={() => trackSignIn('footer')}
-        >
-          Sign in and start searching
-        </Link>
-      </div>
     </>
   );
 }
