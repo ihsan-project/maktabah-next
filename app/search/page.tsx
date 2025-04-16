@@ -144,7 +144,7 @@ export default function SearchPage(): JSX.Element {
         
         {/* Show stories list if no search or empty results */}
         {showStoriesList && (
-          <div className={`mt-12 ${results.length === 0 && searchQuery ? 'pt-8 border-t border-gray-200' : ''}`}>
+          <div className={`mt-12 ${results.length === 0 && searchQuery ? 'pt-8 border-t border-gray-200' : ''} flex justify-center`}>
             <StoriesList source="search_page" />
           </div>
         )}
