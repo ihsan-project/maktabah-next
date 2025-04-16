@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import SearchForm from '@/app/components/SearchForm';
 import SearchResults from '@/app/components/SearchResults';
+import StoriesList from '@/app/components/StoriesList';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
 import { SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
@@ -88,6 +89,21 @@ export default function SearchPage(): JSX.Element {
     }
   };
 
+  const handleClearSearch = (): void => {
+    setSearchQuery('');
+    setResults([]);
+    setTotalResults(0);
+    setHasMore(false);
+    
+    // Track clear search event
+    MixpanelTracking.track('Clear Search', {
+      previous_query: searchQuery
+    });
+  };
+
+  // Determine if we should show the stories list
+  const showStoriesList = !searchQuery || (searchQuery && results.length === 0 && !loading);
+
   return (
     <ProtectedRoute>
       <div className="py-8">
@@ -96,7 +112,7 @@ export default function SearchPage(): JSX.Element {
         <SearchForm onSearch={handleSearch} />
         
         {searchQuery && (
-          <div className="mb-4">
+          <div className="mb-4 flex justify-between items-center">
             <p className="text-gray-600">
               {totalResults > 0 ? (
                 <>Found {totalResults} results for "{searchQuery}"</>
@@ -106,6 +122,16 @@ export default function SearchPage(): JSX.Element {
                 <>No results found for "{searchQuery}"</>
               )}
             </p>
+            
+            {/* Clear search button */}
+            {(totalResults > 0 || (!loading && results.length === 0)) && (
+              <button
+                onClick={handleClearSearch}
+                className="text-sm text-primary hover:text-primary-dark focus:outline-none"
+              >
+                Clear search
+              </button>
+            )}
           </div>
         )}
         
@@ -115,6 +141,13 @@ export default function SearchPage(): JSX.Element {
           hasMore={hasMore}
           onLoadMore={handleLoadMore}
         />
+        
+        {/* Show stories list if no search or empty results */}
+        {showStoriesList && (
+          <div className={`mt-12 ${results.length === 0 && searchQuery ? 'pt-8 border-t border-gray-200' : ''} flex justify-center`}>
+            <StoriesList source="search_page" />
+          </div>
+        )}
       </div>
     </ProtectedRoute>
   );

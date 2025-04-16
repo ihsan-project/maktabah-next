@@ -4,12 +4,15 @@ import React from 'react';
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
 import MixpanelTracking from '@/lib/mixpanel';
+import { useAuth } from '@/app/components/AuthProvider';
 
 interface StoryClientProps {
   name: string;
 }
 
 export default function StoryClient({ name }: StoryClientProps) {
+  // Get authentication state from AuthProvider
+  const { user, loading } = useAuth();
   
   const trackSignIn = (location: string) => {
     MixpanelTracking.track('Click Sign In', {
@@ -18,6 +21,11 @@ export default function StoryClient({ name }: StoryClientProps) {
       location: location
     });
   };
+  
+  // If the user is logged in or still loading authentication state, don't show login prompts
+  if (user || loading) {
+    return null;
+  }
   
   return (
     <>
@@ -34,18 +42,6 @@ export default function StoryClient({ name }: StoryClientProps) {
         >
           <FcGoogle className="text-xl" />
           <span>Sign in with Google</span>
-        </Link>
-      </div>
-      
-      {/* Footer with login promotion - placed at the end of the story page */}
-      <div className="mt-12 text-center">
-        <p className="mb-4">Want to explore more Islamic texts?</p>
-        <Link 
-          href="/" 
-          className="btn btn-primary inline-block"
-          onClick={() => trackSignIn('footer')}
-        >
-          Sign in and start searching
         </Link>
       </div>
     </>
