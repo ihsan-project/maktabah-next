@@ -9,7 +9,7 @@ import { parseStringPromise } from 'xml2js';
 import { ALLOWED_STORIES, getStoryMetadata } from '@/lib/story-config';
 import type { Metadata } from 'next';
 import StoryClient from './page.client';
-import ExpandableStoryVerse from '@/app/components/ExpandableStoryVerse';
+import StoryContent from '@/app/components/StoryContent';
 
 // Types for the story data
 interface StoryVerse {
@@ -54,6 +54,10 @@ function processVerse(verse: StoryVerse) {
     _text: trans._ || ''
   })) || [];
   
+  const isBukhari = verse.book_id?.[0]?.includes('bukhari') || false;
+  const volumeMatch = verse.book_id?.[0]?.match(/vol(\d+)/);
+  const volume = isBukhari && volumeMatch ? parseInt(volumeMatch[1]) : undefined;
+  
   return {
     chapter: verse.$.chapter,
     verse: verse.$.verse,
@@ -63,8 +67,8 @@ function processVerse(verse: StoryVerse) {
     score: verse.score?.[0] || '',
     text: verse.text?.[0] || '',
     translations,
-    title: verse.book_id?.[0]?.includes('bukhari') ? 'bukhari' : 'quran',
-    volume: verse.book_id?.[0]?.includes('bukhari') ? parseInt(verse.book_id?.[0]?.match(/vol(\d+)/)?.[1] || '0') : undefined
+    title: isBukhari ? 'bukhari' : 'quran',
+    volume
   };
 }
 
@@ -165,14 +169,10 @@ export default async function StoryPage({ params }: StoryPageProps) {
       {/* Stories content with client component for tracking */}
       <StoryClient name={name} />
       
-      {/* Story content with expandable verses */}
-      <div className="space-y-6">
-        {processedVerses.map((verse, index) => (
-          <ExpandableStoryVerse key={index} verse={verse} storyName={name} />
-        ))}
-      </div>
+      {/* Story content with expandable verses - using client component */}
+      <StoryContent verses={processedVerses} storyName={name} />
       
-      {/* Footer with login promotion */}
+      {/* Footer - keeping this static in server component */}
       <div className="mt-12 text-center">
         <p className="mb-4">Want to explore more Islamic texts?</p>
         <Link 
