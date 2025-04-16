@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -7,16 +9,29 @@ import { parseStringPromise } from 'xml2js';
 import { ALLOWED_STORIES, getStoryMetadata } from '@/lib/story-config';
 import type { Metadata } from 'next';
 import StoryClient from './page.client';
+import ExpandableStoryVerse from '@/app/components/ExpandableStoryVerse';
 
 // Types for the story data
 interface StoryVerse {
-  chapter: string;
-  verse: string;
-  author: string;
+  $: {
+    chapter: string;
+    verse: string;
+    author: string;
+  };
   chapter_name: string[];
   book_id: string[];
   score: string[];
   text: string[];
+  translations?: {
+    translation: Array<{
+      $: {
+        book_id: string;
+        author: string;
+        available?: string;
+      };
+      _?: string; // Text content for translations that are available
+    }>;
+  }[];
 }
 
 interface StoryData {
@@ -25,18 +40,32 @@ interface StoryData {
     verses_count: string[];
   }[];
   verses: {
-    verse: {
-      $: {
-        chapter: string;
-        verse: string;
-        author: string;
-      };
-      chapter_name: string[];
-      book_id: string[];
-      score: string[];
-      text: string[];
-    }[];
+    verse: StoryVerse[];
   }[];
+}
+
+// Process a verse from XML format to component format
+function processVerse(verse: StoryVerse) {
+  // Process translations if they exist
+  const translations = verse.translations?.[0]?.translation?.map(trans => ({
+    book_id: trans.$.book_id,
+    author: trans.$.author,
+    available: trans.$.available || 'true',
+    _text: trans._ || ''
+  })) || [];
+  
+  return {
+    chapter: verse.$.chapter,
+    verse: verse.$.verse,
+    author: verse.$.author,
+    chapter_name: verse.chapter_name?.[0] || '',
+    book_id: verse.book_id?.[0] || '',
+    score: verse.score?.[0] || '',
+    text: verse.text?.[0] || '',
+    translations,
+    title: verse.book_id?.[0]?.includes('bukhari') ? 'bukhari' : 'quran',
+    volume: verse.book_id?.[0]?.includes('bukhari') ? parseInt(verse.book_id?.[0]?.match(/vol(\d+)/)?.[1] || '0') : undefined
+  };
 }
 
 // Server-side function to fetch and parse the XML file
@@ -121,7 +150,10 @@ export default async function StoryPage({ params }: StoryPageProps) {
   // Extract metadata and verses from the story data
   const title = storyData.metadata?.[0]?.title?.[0] || `Story about ${name}`;
   const versesCount = storyData.metadata?.[0]?.verses_count?.[0] || '0';
-  const verses = storyData.verses?.[0]?.verse || [];
+  const rawVerses = storyData.verses?.[0]?.verse || [];
+  
+  // Process verses for the component
+  const processedVerses = rawVerses.map(processVerse);
   
   return (
     <div className="py-8">
@@ -133,27 +165,10 @@ export default async function StoryPage({ params }: StoryPageProps) {
       {/* Stories content with client component for tracking */}
       <StoryClient name={name} />
       
-      {/* Story content */}
+      {/* Story content with expandable verses */}
       <div className="space-y-6">
-        {verses.map((verse, index) => (
-          <div key={index} className="card border-l-4 border-l-primary">
-            <div className="flex justify-between items-center mb-2">
-              <div className="font-medium text-primary">
-                {verse.$.chapter}:{verse.$.verse}
-              </div>
-              <div className="text-xs text-gray-500">
-                {verse.$.author}
-              </div>
-            </div>
-            <div className="text-gray-700">
-              <p>{verse.text[0]}</p>
-            </div>
-            {verse.chapter_name?.[0] && (
-              <div className="mt-2 text-sm text-gray-500">
-                From: {verse.chapter_name[0]}
-              </div>
-            )}
-          </div>
+        {processedVerses.map((verse, index) => (
+          <ExpandableStoryVerse key={index} verse={verse} storyName={name} />
         ))}
       </div>
       
