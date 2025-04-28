@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchForm from '@/app/components/SearchForm';
 import SearchResults from '@/app/components/SearchResults';
-import StoriesList from '@/app/components/StoriesList';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
 import { SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
@@ -89,65 +88,40 @@ export default function SearchPage(): JSX.Element {
     }
   };
 
-  const handleClearSearch = (): void => {
-    setSearchQuery('');
-    setResults([]);
-    setTotalResults(0);
-    setHasMore(false);
-    
-    // Track clear search event
-    MixpanelTracking.track('Clear Search', {
-      previous_query: searchQuery
-    });
-  };
-
-  // Determine if we should show the stories list
-  const showStoriesList = !searchQuery || (searchQuery && results.length === 0 && !loading);
-
   return (
     <ProtectedRoute>
-      <div className="py-8">
-        <h1 className="text-3xl font-bold text-center text-primary mb-6">Maktabah Search</h1>
+      <div className="pb-8">
+        <h1 className="text-3xl font-bold text-center text-primary mb-6 pt-8">Maktabah Search</h1>
         
-        <SearchForm onSearch={handleSearch} />
-        
-        {searchQuery && (
-          <div className="mb-4 flex justify-between items-center">
-            <p className="text-gray-600">
-              {totalResults > 0 ? (
-                <>Found {totalResults} results for "{searchQuery}"</>
-              ) : loading ? (
-                <>Searching for "{searchQuery}"...</>
-              ) : (
-                <>No results found for "{searchQuery}"</>
-              )}
-            </p>
-            
-            {/* Clear search button */}
-            {(totalResults > 0 || (!loading && results.length === 0)) && (
-              <button
-                onClick={handleClearSearch}
-                className="text-sm text-primary hover:text-primary-dark focus:outline-none"
-              >
-                Clear search
-              </button>
-            )}
+        {/* Sticky Search Form Container */}
+        <div className="sticky top-0 z-10 bg-secondary py-4 shadow-md">
+          <div className="container mx-auto px-4">
+            <SearchForm onSearch={handleSearch} />
           </div>
-        )}
+        </div>
         
-        <SearchResults 
-          results={results} 
-          loading={loading} 
-          hasMore={hasMore}
-          onLoadMore={handleLoadMore}
-        />
-        
-        {/* Show stories list if no search or empty results */}
-        {showStoriesList && (
-          <div className={`mt-12 ${results.length === 0 && searchQuery ? 'pt-8 border-t border-gray-200' : ''} flex justify-center`}>
-            <StoriesList source="search_page" />
-          </div>
-        )}
+        {/* Results section with search info */}
+        <div className="mt-4 container mx-auto px-4">
+          {searchQuery && (
+            <div className="mb-4">
+              <p className="text-gray-600">
+                {totalResults > 0 ? (
+                  <>Found {totalResults} results for "{searchQuery}"</>
+                ) : loading ? (
+                  <>Searching for "{searchQuery}"...</>
+                ) : (
+                  <>No results found for "{searchQuery}"</>
+                )}
+              </p>
+            </div>
+          )}
+          <SearchResults 
+            results={results} 
+            loading={loading} 
+            hasMore={hasMore}
+            onLoadMore={handleLoadMore}
+          />
+        </div>
       </div>
     </ProtectedRoute>
   );
