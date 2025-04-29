@@ -9,7 +9,7 @@ if (!admin.apps.length) {
 }
 
 // Search function to query ElasticSearch with terms aggregation partitioning
-async function searchDocuments(query, page = 1, size = 10, author = null, chapter = null, title = null) {
+async function searchDocuments(query, page = 1, size = 10, author = null, chapter = null, titles = null) {
   try {
     // Initialize ElasticSearch client with API key authentication
     const client = new Client({
@@ -67,11 +67,20 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       });
     }
     
-    // Add title filter if specified
-    if (title) {
-      searchQuery.bool.filter.push({
-        term: { title: title }
-      });
+    // Add title filters if specified
+    logger.debug("mmi: butt", titles)
+    if (titles) {
+      logger.debug("mmi: monkey")
+      // Handle both array and single value
+      const titleArray = Array.isArray(titles) ? titles : [titles];
+      
+      if (titleArray.length > 0) {
+        searchQuery.bool.filter.push({
+          terms: { 
+            title: titleArray 
+          }
+        });
+      }
     }
     
     // Calculate from and size for pagination
@@ -177,7 +186,9 @@ exports.nextApiHandler = functions.https.onRequest(
           const size = parseInt(req.query.size || '10', 10);
           const author = req.query.author || null;
           const chapter = req.query.chapter || null;
-          const title = req.query.title || null; // Add title filter parameter
+          logger.debug(`mmi: req.query[title[]]: ${req.query['title[]']}`)
+          logger.debug(`mmi: req.query[title]: ${req.query['title']}`)
+          const titles = req.query['title'] || null; // Handle array of title filters
       
           // Validate the query
           if (!query) {
@@ -185,8 +196,8 @@ exports.nextApiHandler = functions.https.onRequest(
             return;
           }
       
-          // Search documents with the new title parameter
-          const searchResults = await searchDocuments(query, page, size, author, chapter, title);
+          // Search documents with the new title parameter(s)
+          const searchResults = await searchDocuments(query, page, size, author, chapter, titles);
           res.json(searchResults);
           return;
         }

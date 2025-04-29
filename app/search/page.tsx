@@ -16,10 +16,12 @@ export default function SearchPage(): JSX.Element {
   const [totalResults, setTotalResults] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [hasMore, setHasMore] = useState<boolean>(false);
-  const [selectedBooks, setSelectedBooks] = useState<string[]>([]);
+  
+  // Initialize with both book types selected
+  const [selectedBooks, setSelectedBooks] = useState<string[]>(['quran', 'bukhari']);
 
   // Get the appropriate API URL based on environment
-  const getApiUrl = (query: string, page: number, bookFilter?: string): string => {
+  const getApiUrl = (query: string, page: number, bookFilters?: string[]): string => {
     // Check if we're in development mode and running locally
     const isDevelopment = process.env.NODE_ENV === 'development';
     
@@ -30,9 +32,11 @@ export default function SearchPage(): JSX.Element {
     
     let url = `${baseUrl}?q=${encodeURIComponent(query)}&page=${page}&size=10`;
     
-    // Add book filter if provided
-    if (bookFilter) {
-      url += `&title=${encodeURIComponent(bookFilter)}`;
+    // Add book filters if provided
+    if (bookFilters && bookFilters.length > 0) {
+      bookFilters.forEach(book => {
+        url += `&title[]=${encodeURIComponent(book)}`;
+      });
     }
     
     return url;
@@ -41,9 +45,8 @@ export default function SearchPage(): JSX.Element {
   const performSearch = async (query: string, page: number = 1, append: boolean = false): Promise<void> => {
     setLoading(true);
     try {
-      // Get the current book filter if any
-      const bookFilter = selectedBooks.length > 0 ? selectedBooks[0] : '';
-      const apiUrl = getApiUrl(query, page, bookFilter);
+      // Pass the full array of selected books
+      const apiUrl = getApiUrl(query, page, selectedBooks);
       console.log('Searching using API URL:', apiUrl); // Debug log
       
       const response = await fetch(apiUrl);
@@ -80,7 +83,7 @@ export default function SearchPage(): JSX.Element {
     MixpanelTracking.track('Search', {
       query: query,
       page: 1,
-      bookFilter: selectedBooks.length > 0 ? selectedBooks[0] : 'all'
+      bookFilters: selectedBooks
     });
     
     await performSearch(query);
@@ -93,7 +96,7 @@ export default function SearchPage(): JSX.Element {
     if (searchQuery) {
       // Track filter change event
       MixpanelTracking.track('Change Book Filter', {
-        filter: books.length > 0 ? books[0] : 'all',
+        filters: books,
         query: searchQuery
       });
       
@@ -123,16 +126,16 @@ export default function SearchPage(): JSX.Element {
         {/* Sticky Search Form Container */}
         <div className="sticky top-0 z-10 bg-secondary py-4 shadow-md">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row gap-4 items-center">
-              <div className="w-full md:w-1/4">
-                <BookFilter 
-                  selectedBooks={selectedBooks} 
-                  onChange={handleBookFilterChange} 
-                />
-              </div>
-              <div className="w-full md:w-3/4">
+            <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+              <div className="w-full">
                 <SearchForm onSearch={handleSearch} />
               </div>
+            </div>
+            <div className="mt-3">
+              <BookFilter 
+                selectedBooks={selectedBooks} 
+                onChange={handleBookFilterChange} 
+              />
             </div>
           </div>
         </div>
