@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import SearchForm from '@/app/components/SearchForm';
 import SearchResults from '@/app/components/SearchResults';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
+import BookFilter from '@/app/components/BookFilter';
 import { SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
 
@@ -15,9 +16,10 @@ export default function SearchPage(): JSX.Element {
   const [totalResults, setTotalResults] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [hasMore, setHasMore] = useState<boolean>(false);
+  const [selectedBooks, setSelectedBooks] = useState<string[]>([]);
 
   // Get the appropriate API URL based on environment
-  const getApiUrl = (query: string, page: number): string => {
+  const getApiUrl = (query: string, page: number, bookFilter?: string): string => {
     // Check if we're in development mode and running locally
     const isDevelopment = process.env.NODE_ENV === 'development';
     
@@ -26,13 +28,22 @@ export default function SearchPage(): JSX.Element {
       ? 'http://127.0.0.1:5001/maktabah-8ac04/us-central1/nextApiHandler/api/search'
       : `/api/search`;
     
-    return `${baseUrl}?q=${encodeURIComponent(query)}&page=${page}&size=10`;
+    let url = `${baseUrl}?q=${encodeURIComponent(query)}&page=${page}&size=10`;
+    
+    // Add book filter if provided
+    if (bookFilter) {
+      url += `&title=${encodeURIComponent(bookFilter)}`;
+    }
+    
+    return url;
   };
 
   const performSearch = async (query: string, page: number = 1, append: boolean = false): Promise<void> => {
     setLoading(true);
     try {
-      const apiUrl = getApiUrl(query, page);
+      // Get the current book filter if any
+      const bookFilter = selectedBooks.length > 0 ? selectedBooks[0] : '';
+      const apiUrl = getApiUrl(query, page, bookFilter);
       console.log('Searching using API URL:', apiUrl); // Debug log
       
       const response = await fetch(apiUrl);
@@ -68,10 +79,26 @@ export default function SearchPage(): JSX.Element {
     // Track search event
     MixpanelTracking.track('Search', {
       query: query,
-      page: 1
+      page: 1,
+      bookFilter: selectedBooks.length > 0 ? selectedBooks[0] : 'all'
     });
     
     await performSearch(query);
+  };
+  
+  const handleBookFilterChange = (books: string[]): void => {
+    setSelectedBooks(books);
+    
+    // If there's already a search query, update results with the new filter
+    if (searchQuery) {
+      // Track filter change event
+      MixpanelTracking.track('Change Book Filter', {
+        filter: books.length > 0 ? books[0] : 'all',
+        query: searchQuery
+      });
+      
+      performSearch(searchQuery, 1, false);
+    }
   };
 
   const handleLoadMore = async (): Promise<void> => {
@@ -96,7 +123,17 @@ export default function SearchPage(): JSX.Element {
         {/* Sticky Search Form Container */}
         <div className="sticky top-0 z-10 bg-secondary py-4 shadow-md">
           <div className="container mx-auto px-4">
-            <SearchForm onSearch={handleSearch} />
+            <div className="flex flex-col md:flex-row gap-4 items-center">
+              <div className="w-full md:w-1/4">
+                <BookFilter 
+                  selectedBooks={selectedBooks} 
+                  onChange={handleBookFilterChange} 
+                />
+              </div>
+              <div className="w-full md:w-3/4">
+                <SearchForm onSearch={handleSearch} />
+              </div>
+            </div>
           </div>
         </div>
         
