@@ -91,17 +91,6 @@ export default function SearchPage(): JSX.Element {
   
   const handleBookFilterChange = (books: string[]): void => {
     setSelectedBooks(books);
-    
-    // If there's already a search query, update results with the new filter
-    if (searchQuery) {
-      // Track filter change event
-      MixpanelTracking.track('Change Book Filter', {
-        filters: books,
-        query: searchQuery
-      });
-      
-      performSearch(searchQuery, 1, false);
-    }
   };
 
   const handleLoadMore = async (): Promise<void> => {
