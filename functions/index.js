@@ -9,7 +9,7 @@ if (!admin.apps.length) {
 }
 
 // Search function to query ElasticSearch with terms aggregation partitioning
-async function searchDocuments(query, page = 1, size = 10, author = null, chapter = null) {
+async function searchDocuments(query, page = 1, size = 10, author = null, chapter = null, titles = null) {
   try {
     // Initialize ElasticSearch client with API key authentication
     const client = new Client({
@@ -65,6 +65,22 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       searchQuery.bool.filter.push({
         term: { chapter: parseInt(chapter, 10) }
       });
+    }
+    
+    // Add title filters if specified
+    logger.debug("mmi: butt", titles)
+    if (titles) {
+      logger.debug("mmi: monkey")
+      // Handle both array and single value
+      const titleArray = Array.isArray(titles) ? titles : [titles];
+      
+      if (titleArray.length > 0) {
+        searchQuery.bool.filter.push({
+          terms: { 
+            title: titleArray 
+          }
+        });
+      }
     }
     
     // Calculate from and size for pagination
@@ -170,15 +186,18 @@ exports.nextApiHandler = functions.https.onRequest(
           const size = parseInt(req.query.size || '10', 10);
           const author = req.query.author || null;
           const chapter = req.query.chapter || null;
-
+          logger.debug(`mmi: req.query[title[]]: ${req.query['title[]']}`)
+          logger.debug(`mmi: req.query[title]: ${req.query['title']}`)
+          const titles = req.query['title'] || null; // Handle array of title filters
+      
           // Validate the query
           if (!query) {
             res.status(400).json({ error: 'Missing search query parameter (q)' });
             return;
           }
-
-          // Search documents
-          const searchResults = await searchDocuments(query, page, size, author, chapter);
+      
+          // Search documents with the new title parameter(s)
+          const searchResults = await searchDocuments(query, page, size, author, chapter, titles);
           res.json(searchResults);
           return;
         }
