@@ -67,7 +67,7 @@ export default function SearchForm({ onSearch, initialQuery = '' }: UpdatedSearc
               value={query}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
               placeholder="Search for knowledge..."
-              className="input py-3 pl-4 pr-12 text-lg shadow-sm w-full"
+              className="input py-3 pl-4 pr-16 text-lg shadow-sm w-full"
               disabled={isSearching}
             />
             
@@ -76,7 +76,7 @@ export default function SearchForm({ onSearch, initialQuery = '' }: UpdatedSearc
               <button
                 type="button"
                 onClick={handleClearInput}
-                className="absolute right-12 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
+                className="absolute right-12 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none p-2"
                 aria-label="Clear search"
               >
                 <FiX size={20} />
@@ -101,7 +101,7 @@ export default function SearchForm({ onSearch, initialQuery = '' }: UpdatedSearc
             type="button"
             ref={helpIconRef}
             onClick={() => setShowTips(!showTips)}
-            className="ml-2 text-gray-500 hover:text-primary focus:outline-none transition-colors duration-200"
+            className="ml-4 text-gray-500 hover:text-primary focus:outline-none transition-colors duration-200 p-2"
             aria-label="Search tips"
           >
             <FiHelpCircle size={24} />
@@ -118,7 +118,7 @@ export default function SearchForm({ onSearch, initialQuery = '' }: UpdatedSearc
               <h3 className="font-bold text-primary text-lg">Search Tips</h3>
               <button 
                 onClick={() => setShowTips(false)}
-                className="text-gray-400 hover:text-gray-600 focus:outline-none"
+                className="text-gray-400 hover:text-gray-600 focus:outline-none p-2"
               >
                 <FiX size={20} />
               </button>
