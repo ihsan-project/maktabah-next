@@ -11,7 +11,7 @@ interface BookFilterProps {
 export default function BookFilter({ selectedBooks, onChange }: BookFilterProps): JSX.Element {
   const bookOptions = [
     { id: 'quran', label: 'Quran' },
-    { id: 'bukhari', label: 'Sahih Bukhari' }
+    { id: 'bukhari', label: 'Bukhari' }
   ];
   
   // Track which checkbox was last selected to prevent deselecting all
@@ -43,27 +43,24 @@ export default function BookFilter({ selectedBooks, onChange }: BookFilterProps)
   };
 
   return (
-    <div className="flex space-x-4 items-center">
-      <span className="text-gray-700 font-medium">Filter:</span>
-      <div className="flex space-x-2">
-        {bookOptions.map(book => (
-          <div key={book.id} className="relative">
-            <button
-              type="button"
-              onClick={() => handleChange(book.id)}
-              className={`px-3 py-2 rounded-md border font-medium flex items-center ${
-                selectedBooks.includes(book.id)
-                  ? 'bg-primary text-white border-primary'
-                  : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
-              }`}
-              aria-pressed={selectedBooks.includes(book.id)}
-            >
-              <span className="mr-2">{book.label}</span>
-              {selectedBooks.includes(book.id) && <FiCheck size={16} />}
-            </button>
-          </div>
-        ))}
-      </div>
+    <div className="flex space-x-2">
+      {bookOptions.map(book => (
+        <div key={book.id} className="relative">
+          <button
+            type="button"
+            onClick={() => handleChange(book.id)}
+            className={`px-3 py-2 rounded-md border font-medium flex items-center ${
+              selectedBooks.includes(book.id)
+                ? 'bg-primary text-white border-primary'
+                : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+            }`}
+            aria-pressed={selectedBooks.includes(book.id)}
+          >
+            <span className="mr-2">{book.label}</span>
+            {selectedBooks.includes(book.id) && <FiCheck size={16} />}
+          </button>
+        </div>
+      ))}
     </div>
   );
 }

@@ -88,10 +88,6 @@ export default function SearchPage(): JSX.Element {
     
     await performSearch(query);
   };
-  
-  const handleBookFilterChange = (books: string[]): void => {
-    setSelectedBooks(books);
-  };
 
   const handleLoadMore = async (): Promise<void> => {
     if (hasMore && !loading) {
@@ -115,16 +111,16 @@ export default function SearchPage(): JSX.Element {
         {/* Sticky Search Form Container */}
         <div className="sticky top-0 z-10 bg-secondary py-4 shadow-md">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+            <div className="flex flex-wrap md:flex-nowrap gap-4 items-center">
+              <div className="order-1 md:order-none w-full md:w-auto">
+                <BookFilter 
+                  selectedBooks={selectedBooks} 
+                  onChange={setSelectedBooks} 
+                />
+              </div>
               <div className="w-full">
                 <SearchForm onSearch={handleSearch} />
               </div>
-            </div>
-            <div className="mt-3">
-              <BookFilter 
-                selectedBooks={selectedBooks} 
-                onChange={handleBookFilterChange} 
-              />
             </div>
           </div>
         </div>
