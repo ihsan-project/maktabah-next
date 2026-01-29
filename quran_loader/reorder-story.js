@@ -131,24 +131,33 @@ async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
 
 /**
  * Find matching verses in the XML data
+ * Returns { verses, usedIndices }
  */
 async function findMatchingVerses(xmlVerses, chapter, verseNumbers, type, fetchMissing = false) {
   const matchedVerses = [];
+  const usedIndices = [];
   const isQuran = type.toLowerCase() === 'quran';
   
   for (const verseNum of verseNumbers) {
-    const match = xmlVerses.find(v => {
+    let matchIndex = -1;
+    const match = xmlVerses.find((v, idx) => {
       const xmlChapter = parseInt(v.$.chapter);
       const xmlVerse = parseInt(v.$.verse);
       const xmlIsQuran = isQuranVerse(v);
       
-      return xmlChapter === chapter && 
-             xmlVerse === verseNum && 
-             xmlIsQuran === isQuran;
+      const isMatch = xmlChapter === chapter && 
+                      xmlVerse === verseNum && 
+                      xmlIsQuran === isQuran;
+      
+      if (isMatch) {
+        matchIndex = idx;
+      }
+      return isMatch;
     });
     
     if (match) {
       matchedVerses.push(match);
+      usedIndices.push(matchIndex);
     } else {
       // Try to fetch from Elasticsearch if flag is enabled
       if (fetchMissing) {
@@ -158,6 +167,7 @@ async function findMatchingVerses(xmlVerses, chapter, verseNumbers, type, fetchM
         if (fetchedVerse) {
           matchedVerses.push(fetchedVerse);
           console.log(`  ✓ Successfully fetched verse`);
+          // Don't add to usedIndices since it's not from source XML
         } else {
           console.warn(`  ✗ Could not fetch verse from Elasticsearch - Chapter ${chapter}, Verse ${verseNum}, Type: ${type}`);
         }
@@ -167,7 +177,7 @@ async function findMatchingVerses(xmlVerses, chapter, verseNumbers, type, fetchM
     }
   }
   
-  return matchedVerses;
+  return { verses: matchedVerses, usedIndices };
 }
 
 /**
@@ -237,6 +247,9 @@ async function main() {
   // Get all verses from XML
   const allXmlVerses = xmlData.story.verses[0].verse;
   
+  // Track which verses from source XML are used
+  const usedVerseIndices = new Set();
+  
   // Build new ordered verses with sections
   const reorderedVerses = [];
   let currentSection = null;
@@ -261,12 +274,15 @@ async function main() {
     
     // Parse verse range and find matching verses
     const verseNumbers = parseVerseRange(verseRange);
-    const matchedVerses = await findMatchingVerses(allXmlVerses, chapter, verseNumbers, type, fetchMissing);
+    const result = await findMatchingVerses(allXmlVerses, chapter, verseNumbers, type, fetchMissing);
+    
+    // Track used indices
+    result.usedIndices.forEach(idx => usedVerseIndices.add(idx));
     
     // Add matched verses
-    reorderedVerses.push(...matchedVerses);
+    reorderedVerses.push(...result.verses);
     
-    console.log(`Order ${order}: Found ${matchedVerses.length}/${verseNumbers.length} verses for Chapter ${chapter}, Verses ${verseRange}, Type: ${type}`);
+    console.log(`Order ${order}: Found ${result.verses.length}/${verseNumbers.length} verses for Chapter ${chapter}, Verses ${verseRange}, Type: ${type}`);
   }
   
   // Count actual verses (excluding section markers)
@@ -303,6 +319,61 @@ async function main() {
   
   console.log(`\nSuccess! Reordered XML written to: ${outputXmlPath}`);
   console.log(`Total verses in output: ${actualVerseCount}`);
+  
+  // Report unused verses from source XML
+  const unusedVerses = [];
+  allXmlVerses.forEach((verse, idx) => {
+    if (!usedVerseIndices.has(idx)) {
+      unusedVerses.push({
+        chapter: verse.$.chapter,
+        verse: verse.$.verse,
+        author: verse.$.author,
+        type: isQuranVerse(verse) ? 'quran' : 'hadith',
+        text: verse.text[0].substring(0, 80) + (verse.text[0].length > 80 ? '...' : '')
+      });
+    }
+  });
+  
+  if (unusedVerses.length > 0) {
+    console.log(`\n${'='.repeat(80)}`);
+    console.log(`UNUSED VERSES FROM SOURCE XML`);
+    console.log(`${'='.repeat(80)}`);
+    console.log(`Total unused: ${unusedVerses.length} out of ${allXmlVerses.length} verses\n`);
+    
+    // Group by type
+    const unusedQuran = unusedVerses.filter(v => v.type === 'quran');
+    const unusedHadith = unusedVerses.filter(v => v.type === 'hadith');
+    
+    if (unusedQuran.length > 0) {
+      console.log(`Unused Quran verses (${unusedQuran.length}):`);
+      unusedQuran
+        .sort((a, b) => {
+          const chapterDiff = parseInt(a.chapter) - parseInt(b.chapter);
+          return chapterDiff !== 0 ? chapterDiff : parseInt(a.verse) - parseInt(b.verse);
+        })
+        .forEach(v => {
+          console.log(`  ${v.chapter}:${v.verse} (${v.author}) - ${v.text}`);
+        });
+      console.log('');
+    }
+    
+    if (unusedHadith.length > 0) {
+      console.log(`Unused Hadith verses (${unusedHadith.length}):`);
+      unusedHadith
+        .sort((a, b) => {
+          const chapterDiff = parseInt(a.chapter) - parseInt(b.chapter);
+          return chapterDiff !== 0 ? chapterDiff : parseInt(a.verse) - parseInt(b.verse);
+        })
+        .forEach(v => {
+          console.log(`  ${v.chapter}:${v.verse} (${v.author}) - ${v.text}`);
+        });
+      console.log('');
+    }
+    
+    console.log(`${'='.repeat(80)}`);
+  } else {
+    console.log(`\nAll verses from source XML were used in the output!`);
+  }
 }
 
 // Run the script

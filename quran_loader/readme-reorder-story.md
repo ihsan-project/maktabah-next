@@ -125,9 +125,42 @@ The output XML will:
 - Include updated metadata showing when it was reordered and from which CSV
 - Have the same XML structure as the original file
 
+### Unused Verses Report
+
+After generating the output file, the script provides a detailed report of all verses from the source XML that were **not** included in the reordered output. This helps you:
+- Identify verses you might have missed in your CSV
+- Understand what content was excluded from the original story
+- Decide if you want to add any of these verses to your reordered story
+
+The report shows:
+- Total number of unused verses vs total verses in source
+- Separate lists for Quran and Hadith verses
+- Each verse with chapter:verse reference, author, and first 80 characters of text
+- Sorted by chapter and verse number for easy reference
+
+Example output:
+```
+================================================================================
+UNUSED VERSES FROM SOURCE XML
+================================================================================
+Total unused: 45 out of 230 verses
+
+Unused Quran verses (42):
+  2:133 (Hilali & Khan) - "Or were you witnesses when death approached Ya'qub (Jacob)? When he sai..."
+  3:84 (Hilali & Khan) - "Say (O Muhammad): \"We believe in Allah and in what has been sent down..."
+  ...
+
+Unused Hadith verses (3):
+  93:573 (Bukhari) - "Narrated Ibn 'Abbas: The Prophet said, 'If anyone of you, when having..."
+  ...
+
+================================================================================
+```
+
 ## Notes
 
 - **Auto-fetch is enabled by default**: Missing verses are automatically fetched from Elasticsearch
+- **Unused verses report**: At the end of execution, the script shows which verses from the source XML weren't included in the output
 - The script preserves all verse attributes and content from the original XML
 - Verse type matching is based on the `chapter_name` field (empty = Quran, has value = Hadith)
 - If a verse cannot be found (even after fetching), a warning is printed but the script continues
