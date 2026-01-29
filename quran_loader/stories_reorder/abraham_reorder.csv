@@ -1,28 +1,101 @@
 order,section,chapter,verse_range,type
 1,Abraham's Background & Early Life,21,51-67,quran
 2,Abraham's Background & Early Life,6,74-79,quran
-3,Abraham's Background & Early Life,19,41-48,quran
-4,Abraham's Background & Early Life,26,69-89,quran
-5,Breaking the Idols & Persecution,21,51-67,quran
-6,Breaking the Idols & Persecution,37,83-98,quran
-7,Breaking the Idols & Persecution,29,16-24,quran
-8,Breaking the Idols & Persecution,60,4,quran
-9,Migration & Journey,29,26,quran
-10,Migration & Journey,21,71,quran
-11,Migration & Journey,2,124-132,quran
-12,Migration & Journey,14,35-41,quran
-13,The Visitors & Good News,11,69-76,quran
-14,The Visitors & Good News,15,51-60,quran
-15,The Visitors & Good News,51,24-30,quran
-16,The Visitors & Good News,11,71-73,quran
-17,Intercession for Lot's People,11,74-76,quran
-18,Intercession for Lot's People,29,31-32,quran
-19,The Sacrifice,37,99-111,quran
-20,Abraham's Legacy & Character,16,120-123,quran
-21,Abraham's Legacy & Character,3,95-97,quran
-22,Abraham's Legacy & Character,4,125,quran
-23,Abraham's Legacy & Character,2,135-141,quran
-24,Abraham's Legacy & Character,3,65-68,quran
-25,Hadith References,93,608,hadith
-26,Hadith References,55,116-117,hadith
-27,Hadith References,60,3,hadith
+3,Abraham's Background & Early Life,6,80,quran
+4,Abraham's Background & Early Life,6,83,quran
+5,Abraham's Background & Early Life,19,41-48,quran
+6,Abraham's Background & Early Life,26,69-89,quran
+7,Abraham's Background & Early Life,43,26,quran
+8,Breaking the Idols & Persecution,21,51-67,quran
+9,Breaking the Idols & Persecution,21,69,quran
+10,Breaking the Idols & Persecution,21,70,quran
+11,Breaking the Idols & Persecution,37,83-98,quran
+12,Breaking the Idols & Persecution,29,16-24,quran
+13,Breaking the Idols & Persecution,29,25,quran
+14,Breaking the Idols & Persecution,60,4,quran
+15,Breaking the Idols & Persecution,43,28,quran
+16,Breaking the Idols & Persecution,60,87,hadith
+17,Debate with the King,2,258,quran
+18,Migration & Journey,29,26,quran
+19,Migration & Journey,21,71,quran
+20,Migration & Journey,19,49,quran
+21,Building the Kaaba,2,124-132,quran
+22,Building the Kaaba,22,26,quran
+23,Building the Kaaba,22,27,quran
+24,Building the Kaaba,14,35-41,quran
+25,The Visitors & Good News,11,69-76,quran
+26,The Visitors & Good News,15,51-60,quran
+27,The Visitors & Good News,51,24-30,quran
+28,The Visitors & Good News,51,31,quran
+29,The Visitors & Good News,11,71-73,quran
+30,The Visitors & Good News,37,112,quran
+31,Intercession for Lot's People,11,74-76,quran
+32,Intercession for Lot's People,29,31-32,quran
+33,Abraham's Offspring & Blessings,29,27,quran
+34,Abraham's Offspring & Blessings,6,84,quran
+35,Abraham's Offspring & Blessings,57,26,quran
+36,The Sacrifice,37,99-111,quran
+37,Abraham's Prayers & Tests,2,260,quran
+38,Abraham's Prayers & Tests,9,114,quran
+39,Abraham's Legacy & Character,16,120-123,quran
+40,Abraham's Legacy & Character,3,33,quran
+41,Abraham's Legacy & Character,3,95-97,quran
+42,Abraham's Legacy & Character,4,125,quran
+43,Abraham's Legacy & Character,2,135-141,quran
+44,Abraham's Legacy & Character,3,65-68,quran
+45,Abraham's Legacy & Character,3,84,quran
+46,Abraham's Legacy & Character,4,54,quran
+47,Abraham's Legacy & Character,33,7,quran
+48,Abraham's Legacy & Character,38,45,quran
+49,Abraham's Legacy & Character,42,13,quran
+50,Abraham's Legacy & Character,53,37,quran
+51,Abraham's Legacy & Character,87,19,quran
+52,Abraham's Legacy & Character,90,3,quran
+53,Following Abraham's Religion,2,144,quran
+54,Following Abraham's Religion,4,163,quran
+55,Following Abraham's Religion,6,161,quran
+56,Following Abraham's Religion,9,70,quran
+57,Following Abraham's Religion,22,43,quran
+58,Following Abraham's Religion,22,78,quran
+59,Following Abraham's Religion,42,15,quran
+60,Later Generations,2,133,quran
+61,Later Generations,2,134,quran
+62,Later Generations,12,6,quran
+63,Later Generations,12,38,quran
+64,Later Generations,19,58,quran
+65,Hadith - Abraham's Character,60,3,hadith
+66,Hadith - Abraham's Character,62,21,hadith
+67,Hadith - Abraham with Sara,34,420,hadith
+68,Hadith - Abraham with Sara,47,803,hadith
+69,Hadith - Abraham with Sara,85,82,hadith
+70,Hadith - Abraham Circumcision,74,313,hadith
+71,Hadith - Three Statements,55,591,hadith
+72,Hadith - Three Statements,60,61,hadith
+73,Hadith - On Day of Resurrection,55,656,hadith
+74,Hadith - On Day of Resurrection,60,264,hadith
+75,Hadith - On Day of Resurrection,76,533,hadith
+76,Hadith - Meeting His Father,60,291,hadith
+77,Hadith - Meeting His Father,60,292,hadith
+78,Hadith - Ascension & Heavens,93,608,hadith
+79,Hadith - Ascension & Heavens,55,607,hadith
+80,Hadith - Ascension & Heavens,55,647,hadith
+81,Hadith - Ascension & Heavens,55,648,hadith
+82,Hadith - Intercession Chain,55,116-117,hadith
+83,Hadith - Intercession Chain,93,601,hadith
+84,Hadith - Intercession Chain,93,532,hadith
+85,Hadith - Intercession Chain,76,570,hadith
+86,Hadith - Intercession Chain,93,507,hadith
+87,Hadith - Honorable Lineage,55,596,hadith
+88,Hadith - Honorable Lineage,60,210,hadith
+89,Hadith - Honorable Lineage,60,211,hadith
+90,Hadith - Prayers on Prophet's Family,60,320,hadith
+91,Hadith - Prayers on Prophet's Family,60,321,hadith
+92,Hadith - Prayers on Prophet's Family,60,322,hadith
+93,Hadith - Prayers on Prophet's Family,55,589,hadith
+94,Hadith - Prayers on Prophet's Family,75,369,hadith
+95,Hadith - Prayers on Prophet's Family,75,371,hadith
+96,Hadith - Station at Mecca,12,754,hadith
+97,Hadith - Station at Mecca,34,339,hadith
+98,Hadith - Best Generations,48,820,hadith
+99,Hadith - Best Generations,57,3,hadith
+100,Hadith - Best Generations,78,652,hadith
