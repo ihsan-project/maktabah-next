@@ -18,24 +18,40 @@ cd quran_loader
 npm install
 ```
 
+## Configuration
+
+**Important:** By default, the script will fetch missing verses from Elasticsearch. To use this feature, create a `.env` file in the `quran_loader` directory:
+
+```env
+ELASTICSEARCH_URL=https://your-elasticsearch-instance.com
+ELASTICSEARCH_APIKEY=your_elasticsearch_api_key
+NODE_ENV=development
+```
+
+If you don't want to fetch missing verses, use the `--no-fetch-missing` flag (see examples below).
+
 ## Usage
 
-### Command Line
-
 ```bash
-node reorder-story.js <input-xml> <reorder-csv> <output-xml>
+node reorder-story.js <input-xml> <reorder-csv> <output-xml> [--no-fetch-missing]
 ```
 
 ### Using npm script
 
 ```bash
-npm run reorder <input-xml> <reorder-csv> <output-xml>
+npm run reorder <input-xml> <reorder-csv> <output-xml> [--no-fetch-missing]
 ```
 
-### Example
+### Examples
 
+**Default usage** (automatically fetches missing verses from Elasticsearch):
 ```bash
-node reorder-story.js ../public/stories/abraham.xml ../docs/abraham_reorder.csv ../public/stories/abraham_reordered.xml
+node reorder-story.js ../public/stories/abraham.xml ./stories_reorder/abraham_reorder.csv ../public/stories/abraham_reordered.xml
+```
+
+**Without auto-fetch** (only use verses from source XML):
+```bash
+node reorder-story.js ../public/stories/abraham.xml ./stories_reorder/abraham_reorder.csv ../public/stories/abraham_reordered.xml --no-fetch-missing
 ```
 
 ## CSV Format
@@ -63,12 +79,37 @@ order,section,chapter,verse_range,type
 7,Hadith References,55,116-117,hadith
 ```
 
+## Fetching Missing Verses
+
+**By default**, the script automatically fetches verses that aren't in the source XML file from Elasticsearch.
+
+### How it works:
+1. Script first tries to find the verse in the source XML
+2. If not found (and auto-fetch is enabled by default):
+   - Queries Elasticsearch for that specific verse
+   - Matches by chapter, verse number, and type (Quran vs Hadith)
+   - Adds the fetched verse to the output
+3. If verse still can't be found, logs a warning and continues
+
+### Benefits:
+- Your CSV can include verses that weren't in the original search results
+- Get a complete story without having to regenerate the entire source XML
+- Include specific verses that might not match the original search query
+
+### Requirements:
+- Elasticsearch credentials must be configured in `.env` (see Configuration section)
+- The 'kitaab' index must be accessible and populated
+
+### To disable:
+Use the `--no-fetch-missing` flag if you only want verses from the source XML
+
 ## How It Works
 
 1. **Parse Input**: Reads the original XML story file and the CSV specification
 2. **Match Verses**: For each row in the CSV:
    - Parses the verse range (e.g., "51-67" becomes verses 51, 52, ..., 67)
    - Finds matching verses in the XML by chapter, verse number, and type
+   - If `--fetch-missing` is enabled and verse not found, fetches from Elasticsearch
    - Type matching:
      - `type: quran` → matches verses where `chapter_name` is empty
      - `type: hadith` → matches verses where `chapter_name` has a value
@@ -86,11 +127,13 @@ The output XML will:
 
 ## Notes
 
+- **Auto-fetch is enabled by default**: Missing verses are automatically fetched from Elasticsearch
 - The script preserves all verse attributes and content from the original XML
 - Verse type matching is based on the `chapter_name` field (empty = Quran, has value = Hadith)
-- If a verse cannot be found, a warning is printed but the script continues
+- If a verse cannot be found (even after fetching), a warning is printed but the script continues
 - The generated timestamp is updated to reflect when the reordering was done
 - Section information from the CSV is preserved in metadata but not as XML elements (you can modify the script to add section tags if needed)
+- Use `--no-fetch-missing` if you want to disable auto-fetching and only use verses from the source XML
 
 ## Troubleshooting
 
@@ -101,12 +144,21 @@ If you see warnings like:
 Warning: Could not find verse - Chapter 21, Verse 55, Type: quran
 ```
 
-This means the verse specified in the CSV doesn't exist in the source XML. Check:
-1. The chapter and verse numbers are correct
-2. The type matches the verse type in the XML:
+This means the verse couldn't be found in the source XML or in Elasticsearch (auto-fetch is enabled by default).
+
+**Possible causes:**
+1. The verse doesn't exist in Elasticsearch's 'kitaab' index
+2. The chapter and verse numbers in the CSV are incorrect
+3. The type doesn't match:
    - For Quran verses: use `type: quran`
    - For Hadith verses: use `type: hadith`
-3. The verse actually exists in the original XML file
+4. Elasticsearch credentials are missing or incorrect
+
+**To debug:**
+1. Check that your `.env` file has valid Elasticsearch credentials
+2. Verify the verse exists in your Elasticsearch index
+3. Double-check the chapter and verse numbers in your CSV
+4. If you only want to use verses from the source XML (no fetching), run with `--no-fetch-missing`
 
 ### Type matching
 
@@ -115,4 +167,24 @@ The script determines verse type based on the `chapter_name` field in the XML:
 - **Hadith verses**: `chapter_name` contains the hadith book name (e.g., "Sahih Bukhari")
 
 If you're getting "could not find" warnings, open the source XML and check the `chapter_name` field for that verse to determine the correct type.
+
+### Elasticsearch connection issues
+
+If you see errors like:
+```
+Error: Elasticsearch credentials not found in .env file
+```
+
+Make sure you have a `.env` file in the `quran_loader` directory with:
+```env
+ELASTICSEARCH_URL=https://your-elasticsearch-instance.com
+ELASTICSEARCH_APIKEY=your_elasticsearch_api_key
+NODE_ENV=development
+```
+
+If you see "Could not fetch verse from Elasticsearch" warnings:
+1. Check that your Elasticsearch credentials are correct
+2. Verify the 'kitaab' index exists and is populated
+3. Ensure you have network access to the Elasticsearch instance
+4. Check that the verse actually exists in the Elasticsearch index
 

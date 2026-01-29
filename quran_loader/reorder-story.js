@@ -4,16 +4,22 @@
  * Script to reorder story XML based on a CSV specification
  * 
  * Usage:
- *   node reorder-story.js <input-xml> <reorder-csv> <output-xml>
+ *   node reorder-story.js <input-xml> <reorder-csv> <output-xml> [--no-fetch-missing]
  * 
  * Example:
  *   node reorder-story.js ../public/stories/abraham.xml ../docs/abraham_reorder.csv ../public/stories/abraham_reordered.xml
+ *   node reorder-story.js ../public/stories/abraham.xml ../docs/abraham_reorder.csv ../public/stories/abraham_reordered.xml --no-fetch-missing
+ * 
+ * Note: Fetching missing verses from Elasticsearch is enabled by default.
+ *       Use --no-fetch-missing to disable this behavior.
  */
 
 const fs = require('fs');
 const path = require('path');
 const xml2js = require('xml2js');
 const { parse } = require('csv-parse/sync');
+const { Client } = require('@elastic/elasticsearch');
+require('dotenv').config();
 
 /**
  * Parse verse range string (e.g., "51-67" or "4" or "116-117")
@@ -44,9 +50,89 @@ function isQuranVerse(verse) {
 }
 
 /**
+ * Fetch a specific verse from Elasticsearch
+ */
+async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
+  try {
+    const client = new Client({
+      node: process.env.ELASTICSEARCH_URL,
+      auth: process.env.ELASTICSEARCH_APIKEY 
+        ? { apiKey: process.env.ELASTICSEARCH_APIKEY } 
+        : undefined,
+      tls: {
+        rejectUnauthorized: process.env.NODE_ENV === 'production'
+      }
+    });
+    
+    const elasticsearchIndex = 'kitaab';
+    
+    // Build query to find specific verse
+    // Fetch all verses with this chapter and verse number, then filter by type
+    const searchQuery = {
+      bool: {
+        must: [
+          { term: { chapter: chapter } },
+          { term: { verse: verseNum } }
+        ]
+      }
+    };
+    
+    const response = await client.search({
+      index: elasticsearchIndex,
+      body: {
+        query: searchQuery,
+        size: 100 // Get multiple results in case there are different translations
+      }
+    });
+    
+    if (response.hits.hits.length > 0) {
+      console.log(`    Found ${response.hits.hits.length} result(s) in Elasticsearch for Chapter ${chapter}, Verse ${verseNum}`);
+      
+      // Filter results by type (quran vs hadith) in JavaScript
+      const matchingHit = response.hits.hits.find(hit => {
+        const source = hit._source;
+        const hasChapterName = source.chapter_name && source.chapter_name.trim() !== '';
+        
+        // For Quran: chapter_name should be empty or not exist
+        // For Hadith: chapter_name should have a value
+        return isQuran ? !hasChapterName : hasChapterName;
+      });
+      
+      if (matchingHit) {
+        const source = matchingHit._source;
+        
+        // Convert to XML format matching the existing structure
+        return {
+          $: {
+            chapter: String(source.chapter),
+            verse: String(source.verse),
+            author: source.author
+          },
+          chapter_name: [source.chapter_name || ''],
+          book_id: [source.book_id || ''],
+          score: [String(source.score || matchingHit._score || 0)],
+          text: [source.text]
+        };
+      } else {
+        // Debug: show what we found but couldn't match
+        const typeFound = response.hits.hits[0]._source.chapter_name ? 'hadith' : 'quran';
+        console.log(`    Found verse but wrong type (found: ${typeFound}, wanted: ${isQuran ? 'quran' : 'hadith'})`);
+      }
+    } else {
+      console.log(`    No results found in Elasticsearch for Chapter ${chapter}, Verse ${verseNum}`);
+    }
+    
+    return null;
+  } catch (error) {
+    console.error(`Error fetching verse from Elasticsearch: ${error.message}`);
+    return null;
+  }
+}
+
+/**
  * Find matching verses in the XML data
  */
-function findMatchingVerses(xmlVerses, chapter, verseNumbers, type) {
+async function findMatchingVerses(xmlVerses, chapter, verseNumbers, type, fetchMissing = false) {
   const matchedVerses = [];
   const isQuran = type.toLowerCase() === 'quran';
   
@@ -64,7 +150,20 @@ function findMatchingVerses(xmlVerses, chapter, verseNumbers, type) {
     if (match) {
       matchedVerses.push(match);
     } else {
-      console.warn(`Warning: Could not find verse - Chapter ${chapter}, Verse ${verseNum}, Type: ${type}`);
+      // Try to fetch from Elasticsearch if flag is enabled
+      if (fetchMissing) {
+        console.log(`  Fetching from Elasticsearch: Chapter ${chapter}, Verse ${verseNum}, Type: ${type}`);
+        const fetchedVerse = await fetchVerseFromElasticsearch(chapter, verseNum, isQuran);
+        
+        if (fetchedVerse) {
+          matchedVerses.push(fetchedVerse);
+          console.log(`  ✓ Successfully fetched verse`);
+        } else {
+          console.warn(`  ✗ Could not fetch verse from Elasticsearch - Chapter ${chapter}, Verse ${verseNum}, Type: ${type}`);
+        }
+      } else {
+        console.warn(`Warning: Could not find verse - Chapter ${chapter}, Verse ${verseNum}, Type: ${type}`);
+      }
     }
   }
   
@@ -79,12 +178,32 @@ async function main() {
   const args = process.argv.slice(2);
   
   if (args.length < 3) {
-    console.error('Usage: node reorder-story.js <input-xml> <reorder-csv> <output-xml>');
+    console.error('Usage: node reorder-story.js <input-xml> <reorder-csv> <output-xml> [--no-fetch-missing]');
     console.error('Example: node reorder-story.js ../public/stories/abraham.xml ../docs/abraham_reorder.csv ../public/stories/abraham_reordered.xml');
+    console.error('         node reorder-story.js ../public/stories/abraham.xml ../docs/abraham_reorder.csv ../public/stories/abraham_reordered.xml --no-fetch-missing');
+    console.error('');
+    console.error('Note: Fetching missing verses from Elasticsearch is enabled by default.');
+    console.error('      Use --no-fetch-missing to disable this behavior.');
     process.exit(1);
   }
   
-  const [inputXmlPath, reorderCsvPath, outputXmlPath] = args;
+  const [inputXmlPath, reorderCsvPath, outputXmlPath] = args.slice(0, 3);
+  // Default to true, disable only if --no-fetch-missing is specified
+  const fetchMissing = !args.includes('--no-fetch-missing');
+  
+  if (fetchMissing) {
+    console.log('Fetch missing verses from Elasticsearch: ENABLED (default)');
+    
+    // Check if Elasticsearch credentials are configured
+    if (!process.env.ELASTICSEARCH_URL || !process.env.ELASTICSEARCH_APIKEY) {
+      console.error('Error: Elasticsearch credentials not found in .env file');
+      console.error('Please ensure ELASTICSEARCH_URL and ELASTICSEARCH_APIKEY are set');
+      console.error('Or use --no-fetch-missing to skip fetching missing verses');
+      process.exit(1);
+    }
+  } else {
+    console.log('Fetch missing verses from Elasticsearch: DISABLED');
+  }
   
   // Check if files exist
   if (!fs.existsSync(inputXmlPath)) {
@@ -142,7 +261,7 @@ async function main() {
     
     // Parse verse range and find matching verses
     const verseNumbers = parseVerseRange(verseRange);
-    const matchedVerses = findMatchingVerses(allXmlVerses, chapter, verseNumbers, type);
+    const matchedVerses = await findMatchingVerses(allXmlVerses, chapter, verseNumbers, type, fetchMissing);
     
     // Add matched verses
     reorderedVerses.push(...matchedVerses);
