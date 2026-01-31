@@ -8,33 +8,34 @@ import type { Metadata } from 'next';
 import StoryClient from './page.client';
 
 // Types for the story data
+interface Translation {
+  $: {
+    author: string;
+  };
+  text: string[];
+}
+
 interface StoryVerse {
-  chapter: string;
-  verse: string;
-  author: string;
+  $: {
+    chapter: string;
+    verse: string;
+  };
   chapter_name: string[];
   book_id: string[];
   score: string[];
-  text: string[];
+  translations: {
+    translation: Translation[];
+  }[];
 }
 
 interface StoryData {
   metadata: {
     title: string[];
     verses_count: string[];
+    translations_count?: string[];
   }[];
   verses: {
-    verse: {
-      $: {
-        chapter: string;
-        verse: string;
-        author: string;
-      };
-      chapter_name: string[];
-      book_id: string[];
-      score: string[];
-      text: string[];
-    }[];
+    verse: StoryVerse[];
   }[];
 }
 
@@ -120,41 +121,35 @@ export default async function StoryPage({ params }: StoryPageProps) {
   // Extract metadata and verses from the story data
   const title = storyData.metadata?.[0]?.title?.[0] || `Story about ${name}`;
   const versesCount = storyData.metadata?.[0]?.verses_count?.[0] || '0';
+  const translationsCount = storyData.metadata?.[0]?.translations_count?.[0];
   const verses = storyData.verses?.[0]?.verse || [];
+  
+  // Process verses to extract translations
+  const processedVerses = verses.map((verse, index) => {
+    const translations = verse.translations?.[0]?.translation || [];
+    return {
+      key: index,
+      chapter: verse.$.chapter,
+      verse: verse.$.verse,
+      chapterName: verse.chapter_name?.[0] || '',
+      bookId: verse.book_id?.[0] || '',
+      score: verse.score?.[0] || '0',
+      translations: translations.map(t => ({
+        author: t.$.author,
+        text: t.text[0]
+      }))
+    };
+  });
   
   return (
     <div className="py-8">
       <h1 className="text-3xl font-bold text-center text-primary mb-2">{title}</h1>
       <p className="text-center text-gray-600 mb-6">
-        A collection of {versesCount} Islamic verses about {name}
+        A collection of {versesCount} verses{translationsCount ? ` with ${translationsCount} translations` : ''} about {name}
       </p>
       
       {/* Client component that handles auth state and adds sign-in prompts if needed */}
-      <StoryClient name={name} />
-      
-      {/* Story content */}
-      <div className="space-y-6">
-        {verses.map((verse, index) => (
-          <div key={index} className="card border-l-4 border-l-primary">
-            <div className="flex justify-between items-center mb-2">
-              <div className="font-medium text-primary">
-                {verse.$.chapter}:{verse.$.verse}
-              </div>
-              <div className="text-xs text-gray-500">
-                {verse.$.author}
-              </div>
-            </div>
-            <div className="text-gray-700">
-              <p>{verse.text[0]}</p>
-            </div>
-            {verse.chapter_name?.[0] && (
-              <div className="mt-2 text-sm text-gray-500">
-                From: {verse.chapter_name[0]}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+      <StoryClient name={name} verses={processedVerses} />
       
       {/* The login prompt footer is now handled by the StoryClient component */}
       {/* It will only be displayed if the user is not logged in */}
