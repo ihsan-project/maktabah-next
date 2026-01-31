@@ -40,7 +40,7 @@ NODE_ENV=development
 
 ## Usage
 
-`node generate-story.js "abraham, ibrahim" --output=abraham.xml`
-`node generate-story.js "moses, musa, pharaoh', egypt" --output=moses.xml`
-`node generate-story.js "jesus, isa, mary" --output=jesus.xml`
-`node generate-story.js "muhammad, islam, quran, messenger" --output=muhammad.xml`
+`node generate-story.js "abraham, ibrahim" --output=../public/stories/abraham.xml`
+`node generate-story.js "moses, musa, pharaoh', egypt" --output=../public/stories/moses.xml`
+`node generate-story.js "jesus, isa, mary" --output=../public/stories/jesus.xml`
+`node generate-story.js "muhammad, islam, quran, messenger" --output=../public/stories/muhammad.xml`
