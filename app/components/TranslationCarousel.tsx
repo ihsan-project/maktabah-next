@@ -153,7 +153,7 @@ export default function TranslationCarousel({
           {canScrollLeft && (
             <button
               onClick={scrollLeft}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all z-10 border border-gray-200"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 bg-white/70 rounded-full p-2 shadow-lg hover:shadow-xl hover:bg-white/90 transition-all z-10 border border-gray-200/50"
               aria-label="Scroll left"
             >
               <FiChevronLeft size={20} className="text-primary" />
@@ -163,7 +163,7 @@ export default function TranslationCarousel({
           {canScrollRight && (
             <button
               onClick={scrollRight}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all z-10 border border-gray-200"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 bg-white/70 rounded-full p-2 shadow-lg hover:shadow-xl hover:bg-white/90 transition-all z-10 border border-gray-200/50"
               aria-label="Scroll right"
             >
               <FiChevronRight size={20} className="text-primary" />
