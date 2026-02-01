@@ -112,12 +112,13 @@ async function searchDocuments(query, author = null, chapter = null) {
       index: elasticsearchIndex,
       body: {
         from: 0,
-        size: 1000, // Get up to 1000 results (adjust as needed)
+        size: 10000, // Get up to 10000 results to capture all translations
         query: searchQuery,
         sort: [
           { _score: { order: "desc" } },
           { chapter: { order: "asc" } },
-          { verse: { order: "asc" } }
+          { verse: { order: "asc" } },
+          { author: { order: "asc" } }
         ],
         aggs: {
           unique_chapter_verse: {
@@ -129,9 +130,12 @@ async function searchDocuments(query, author = null, chapter = null) {
               size: 10000 // Adjust based on expected number of unique combinations
             },
             aggs: {
-              top_hit: {
+              all_translations: {
                 top_hits: {
-                  size: 1
+                  size: 100, // Get all translations (up to 100 per verse)
+                  sort: [
+                    { author: { order: "asc" } }
+                  ]
                 }
               }
             }
@@ -140,16 +144,49 @@ async function searchDocuments(query, author = null, chapter = null) {
       }
     });
     
-    // Aggregated buckets for unique chapter/verse combinations
+    // Aggregated buckets for unique chapter/verse combinations with all translations
     const buckets = response.aggregations.unique_chapter_verse.buckets;
-    const hits = buckets.map(bucket => bucket.top_hit.hits.hits[0]);
-    const total = buckets.length;
     
-    const results = hits.map(hit => ({
-      id: hit._id,
-      score: hit._score || 0,
-      ...hit._source,
-    }));
+    // Group results by chapter and verse, with all translations
+    const verseGroups = buckets.map(bucket => {
+      const allTranslations = bucket.all_translations.hits.hits.map(hit => ({
+        id: hit._id,
+        score: hit._score || 0,
+        ...hit._source,
+      }));
+      
+      // Group translations by title (quran vs hadith) to avoid mixing different text types
+      const translationsByTitle = allTranslations.reduce((acc, trans) => {
+        const title = trans.title || 'quran';
+        if (!acc[title]) acc[title] = [];
+        acc[title].push(trans);
+        return acc;
+      }, {});
+      
+      // Use the dominant type (most translations) to handle chapter/verse collisions
+      // This ensures we don't mix Quran verses with Hadith entries that share the same coordinates
+      const dominantTitle = Object.keys(translationsByTitle).sort((a, b) => 
+        translationsByTitle[b].length - translationsByTitle[a].length
+      )[0];
+      
+      const translations = translationsByTitle[dominantTitle];
+      
+      // Extract chapter and verse from the first translation of the dominant type
+      const firstTranslation = translations[0];
+      
+      return {
+        chapter: firstTranslation.chapter,
+        verse: firstTranslation.verse,
+        chapter_name: firstTranslation.chapter_name || '',
+        book_id: firstTranslation.book_id || '',
+        title: firstTranslation.title || 'quran',
+        score: firstTranslation.score,
+        translations: translations
+      };
+    });
+    
+    const total = buckets.length;
+    const results = verseGroups;
 
     return {
       results,
@@ -178,7 +215,7 @@ function escapeXml(unsafe) {
 
 /**
  * Generate XML from search results
- * @param {Array} results Search results array
+ * @param {Array} results Search results array (grouped by chapter/verse with translations)
  * @param {string} searchQuery The original search query
  * @param {string} outputFile Path to save the XML file
  */
@@ -187,21 +224,35 @@ function generateXml(results, searchQuery, outputFile) {
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += `<story query="${escapeXml(searchQuery)}" generated="${new Date().toISOString()}">\n`;
   
+  // Count total translations across all verses
+  const totalTranslations = results.reduce((sum, verse) => sum + verse.translations.length, 0);
+  
   // Add metadata
   xml += '  <metadata>\n';
   xml += `    <title>Story generated from search: "${escapeXml(searchQuery)}"</title>\n`;
   xml += `    <verses_count>${results.length}</verses_count>\n`;
+  xml += `    <translations_count>${totalTranslations}</translations_count>\n`;
   xml += '  </metadata>\n\n';
   
   // Add the verses
   xml += '  <verses>\n';
   
-  results.forEach((result) => {
-    xml += `    <verse chapter="${result.chapter}" verse="${result.verse}" author="${escapeXml(result.author)}">\n`;
-    xml += `      <chapter_name>${escapeXml(result.chapter_name || '')}</chapter_name>\n`;
-    xml += `      <book_id>${escapeXml(result.book_id || '')}</book_id>\n`;
-    xml += `      <score>${result.score}</score>\n`;
-    xml += `      <text>${escapeXml(result.text)}</text>\n`;
+  results.forEach((verseGroup) => {
+    xml += `    <verse chapter="${verseGroup.chapter}" verse="${verseGroup.verse}">\n`;
+    xml += `      <chapter_name>${escapeXml(verseGroup.chapter_name)}</chapter_name>\n`;
+    xml += `      <book_id>${escapeXml(verseGroup.book_id)}</book_id>\n`;
+    xml += `      <title>${escapeXml(verseGroup.title || 'quran')}</title>\n`;
+    xml += `      <score>${verseGroup.score}</score>\n`;
+    xml += '      <translations>\n';
+    
+    // Add all translations for this verse
+    verseGroup.translations.forEach((translation) => {
+      xml += `        <translation author="${escapeXml(translation.author)}">\n`;
+      xml += `          <text>${escapeXml(translation.text)}</text>\n`;
+      xml += '        </translation>\n';
+    });
+    
+    xml += '      </translations>\n';
     xml += '    </verse>\n';
   });
   
@@ -228,12 +279,16 @@ async function main() {
     // Generate XML with the results
     generateXml(searchResults.results, query, outputFile);
     
+    // Calculate total translations
+    const totalTranslations = searchResults.results.reduce((sum, verse) => sum + verse.translations.length, 0);
+    
     // Display summary
     console.log(`\nStory generation summary:`);
     console.log(`- Search term: "${query}"`);
     if (author) console.log(`- Author filter: ${author}`);
     if (chapter) console.log(`- Chapter filter: ${chapter}`);
     console.log(`- Verses included: ${searchResults.total}`);
+    console.log(`- Total translations: ${totalTranslations}`);
     console.log(`- Output file: ${outputFile}`);
     
   } catch (error) {
