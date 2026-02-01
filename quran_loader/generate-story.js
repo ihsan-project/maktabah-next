@@ -149,13 +149,29 @@ async function searchDocuments(query, author = null, chapter = null) {
     
     // Group results by chapter and verse, with all translations
     const verseGroups = buckets.map(bucket => {
-      const translations = bucket.all_translations.hits.hits.map(hit => ({
+      const allTranslations = bucket.all_translations.hits.hits.map(hit => ({
         id: hit._id,
         score: hit._score || 0,
         ...hit._source,
       }));
       
-      // Extract chapter and verse from the first translation
+      // Group translations by title (quran vs hadith) to avoid mixing different text types
+      const translationsByTitle = allTranslations.reduce((acc, trans) => {
+        const title = trans.title || 'quran';
+        if (!acc[title]) acc[title] = [];
+        acc[title].push(trans);
+        return acc;
+      }, {});
+      
+      // Use the dominant type (most translations) to handle chapter/verse collisions
+      // This ensures we don't mix Quran verses with Hadith entries that share the same coordinates
+      const dominantTitle = Object.keys(translationsByTitle).sort((a, b) => 
+        translationsByTitle[b].length - translationsByTitle[a].length
+      )[0];
+      
+      const translations = translationsByTitle[dominantTitle];
+      
+      // Extract chapter and verse from the first translation of the dominant type
       const firstTranslation = translations[0];
       
       return {
@@ -163,6 +179,7 @@ async function searchDocuments(query, author = null, chapter = null) {
         verse: firstTranslation.verse,
         chapter_name: firstTranslation.chapter_name || '',
         book_id: firstTranslation.book_id || '',
+        title: firstTranslation.title || 'quran',
         score: firstTranslation.score,
         translations: translations
       };
@@ -224,6 +241,7 @@ function generateXml(results, searchQuery, outputFile) {
     xml += `    <verse chapter="${verseGroup.chapter}" verse="${verseGroup.verse}">\n`;
     xml += `      <chapter_name>${escapeXml(verseGroup.chapter_name)}</chapter_name>\n`;
     xml += `      <book_id>${escapeXml(verseGroup.book_id)}</book_id>\n`;
+    xml += `      <title>${escapeXml(verseGroup.title || 'quran')}</title>\n`;
     xml += `      <score>${verseGroup.score}</score>\n`;
     xml += '      <translations>\n';
     
