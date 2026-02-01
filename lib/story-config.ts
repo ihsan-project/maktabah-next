@@ -7,10 +7,13 @@
 
 // Allowlist of story names that can be accessed
 export const ALLOWED_STORIES = [
+  'muhammad', // Story about Muhammad
+  'khadija', // Story about Khadija
   'abraham',  // Story about Abraham/Ibrahim
   'moses',    // Story about Moses/Musa
   'jesus',    // Story about Jesus/Isa
-  'muhammad', // Story about Muhammad
+  'noah', // Story about Noah/Nuh
+  'adam', // Story about Adam
   // Add more stories here as XML files are created
 ];
 
@@ -39,6 +42,21 @@ export const STORY_METADATA: Record<string, {
     title: 'The Story of Muhammad in Islamic Texts',
     description: 'Learn about Prophet Muhammad from various Islamic texts and translations of the Quran.',
     keywords: ['Muhammad', 'Islam', 'Quran', 'Messenger']
+  },
+  'khadija': {
+    title: 'The Story of Khadija (the first wife of the Prophet) in Islamic Texts',
+    description: 'Learn about Khadija from various Islamic texts and translations.',
+    keywords: ['Khadija']
+  },
+  'noah': {
+    title: 'The Story of Noah (Nuh) in Islamic Texts',
+    description: 'Learn about Prophet Noah from various Islamic texts and translations of the Quran.',
+    keywords: ['Noah', 'Nuh', 'Ark']
+  },
+  'adam': {
+    title: 'The Story of Adam in Islamic Texts',
+    description: 'Learn about Prophet Adam from various Islamic texts and translations of the Quran.',
+    keywords: ['Adam']
   }
 };
 
