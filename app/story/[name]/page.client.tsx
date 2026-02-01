@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
-import { FiChevronRight, FiChevronDown } from 'react-icons/fi';
 import MixpanelTracking from '@/lib/mixpanel';
 import { useAuth } from '@/app/components/AuthProvider';
+import TranslatorSelector from '@/app/components/TranslatorSelector';
+import TranslationCarousel from '@/app/components/TranslationCarousel';
 
 interface Translation {
   author: string;
@@ -27,28 +28,17 @@ interface StoryClientProps {
   verses: ProcessedVerse[];
 }
 
-// Helper function to render text with newlines
-const TextWithLineBreaks = ({ text }: { text: string }) => {
-  return (
-    <>
-      {text.split('\n').map((line, index) => (
-        <div key={index} className={index > 0 ? "mt-2" : ""}>
-          {line}
-        </div>
-      ))}
-    </>
-  );
-};
-
 export default function StoryClient({ name, verses }: StoryClientProps) {
   // Get authentication state from AuthProvider
   const { user, loading } = useAuth();
   
-  // State to track expanded verses
-  const [expandedVerses, setExpandedVerses] = useState<Record<number, boolean>>({});
+  // State for selected translators
+  const [selectedTranslators, setSelectedTranslators] = useState<string[]>([]);
   
-  // State to track expanded translations within each verse
-  const [expandedTranslations, setExpandedTranslations] = useState<Record<string, boolean>>({});
+  // Extract all available translators from the first verse
+  const availableTranslators = verses.length > 0 
+    ? verses[0].translations.map(t => t.author)
+    : [];
   
   const trackSignIn = (location: string) => {
     MixpanelTracking.track('Click Sign In', {
@@ -58,20 +48,9 @@ export default function StoryClient({ name, verses }: StoryClientProps) {
     });
   };
   
-  const toggleVerse = (verseKey: number) => {
-    setExpandedVerses(prev => ({
-      ...prev,
-      [verseKey]: !prev[verseKey]
-    }));
-  };
-  
-  const toggleTranslation = (verseKey: number, author: string) => {
-    const key = `${verseKey}-${author}`;
-    setExpandedTranslations(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }));
-  };
+  const handleTranslatorSelectionChange = useCallback((selected: string[]) => {
+    setSelectedTranslators(selected);
+  }, []);
   
   return (
     <>
@@ -93,111 +72,55 @@ export default function StoryClient({ name, verses }: StoryClientProps) {
         </div>
       )}
       
-      {/* Story verses */}
-      <div className="space-y-6">
+      {/* Translator Selector */}
+      <TranslatorSelector
+        availableTranslators={availableTranslators}
+        onSelectionChange={handleTranslatorSelectionChange}
+      />
+      
+      {/* Story verses - paragraph-style layout */}
+      <div className="space-y-2">
         {verses.map((verse) => {
-          const isExpanded = expandedVerses[verse.key] || false;
-          const firstTranslation = verse.translations[0];
+          // Filter translations based on selected translators
+          const filteredTranslations = verse.translations.filter(t => 
+            selectedTranslators.includes(t.author)
+          );
           
           return (
-            <div 
-              key={verse.key} 
-              className="card border-l-4 border-l-primary hover:shadow-lg transition-shadow duration-200"
-            >
-              <div 
-                className="cursor-pointer"
-                onClick={() => toggleVerse(verse.key)}
-              >
-                <div className="flex justify-between items-center mb-2">
-                  <div className="font-medium text-primary">
-                    {verse.chapter}:{verse.verse}
-                  </div>
-                  <div className="text-xs text-gray-500">
-                    {firstTranslation?.author}
-                  </div>
-                </div>
-                
-                <div className="text-gray-700">
-                  {firstTranslation && (
-                    <p>
-                      <TextWithLineBreaks text={firstTranslation.text} />
-                    </p>
-                  )}
-                </div>
-                
+            <div key={verse.key} className="mb-3">
+              {/* Verse reference as inline element */}
+              <div className="flex items-start gap-2 mb-1">
+                <span className="text-primary font-semibold text-sm whitespace-nowrap">
+                  {verse.chapter}:{verse.verse}
+                </span>
                 {verse.chapterName && (
-                  <div className="mt-2 text-sm text-gray-500">
-                    From: {verse.chapterName}
-                  </div>
+                  <span className="text-gray-500 text-xs italic">
+                    ({verse.chapterName})
+                  </span>
                 )}
-                
-                <div className="flex justify-end mt-2 text-gray-400">
-                  {isExpanded ? (
-                    <FiChevronDown size={20} />
-                  ) : (
-                    <FiChevronRight size={20} />
-                  )}
-                </div>
+                <a 
+                  href={`https://tanzil.net/#trans/${verse.bookId}/${verse.chapter}:${verse.verse}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-primary hover:underline ml-auto"
+                  onClick={() => {
+                    MixpanelTracking.track('Tanzil Link Click', {
+                      chapter: verse.chapter,
+                      verse: verse.verse,
+                      source: 'story_page',
+                      story_name: name
+                    });
+                  }}
+                >
+                  View on tanzil.net
+                </a>
               </div>
               
-              {/* Expanded translations view */}
-              {isExpanded && verse.translations.length > 1 && (
-                <div className="mt-4 pt-4 border-t">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-medium text-lg text-primary">All Translations</h3>
-                    <a 
-                      href={`https://tanzil.net/#trans/${verse.bookId}/${verse.chapter}:${verse.verse}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        MixpanelTracking.track('Tanzil Link Click', {
-                          chapter: verse.chapter,
-                          verse: verse.verse,
-                          source: 'story_page',
-                          story_name: name
-                        });
-                      }}
-                    >
-                      View on tanzil.net
-                    </a>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    {verse.translations.map((translation, idx) => {
-                      const translationKey = `${verse.key}-${translation.author}`;
-                      const isTranslationExpanded = expandedTranslations[translationKey] || idx === 0;
-                      
-                      return (
-                        <div 
-                          key={idx} 
-                          className="border rounded-md overflow-hidden"
-                        >
-                          <div 
-                            className="flex justify-between items-center p-3 bg-gray-50 cursor-pointer hover:bg-gray-100"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              toggleTranslation(verse.key, translation.author);
-                            }}
-                          >
-                            <h4 className="font-medium">{translation.author}</h4>
-                            <span className="text-gray-500">
-                              {isTranslationExpanded ? '▼' : '▶'}
-                            </span>
-                          </div>
-                          
-                          {isTranslationExpanded && (
-                            <div className="p-3 border-t text-gray-700">
-                              <TextWithLineBreaks text={translation.text} />
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
+              {/* Translation Carousel */}
+              <TranslationCarousel
+                translations={filteredTranslations}
+                verseRef={`${verse.chapter}:${verse.verse}`}
+              />
             </div>
           );
         })}

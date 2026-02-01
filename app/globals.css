@@ -37,3 +37,26 @@ body {
     @apply bg-white rounded-lg shadow-md p-6;
   }
 }
+
+@layer utilities {
+  /* Hide scrollbar while preserving scroll functionality */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Carousel container with scroll snap */
+  .carousel-container {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Carousel card snap alignment */
+  .carousel-card {
+    scroll-snap-align: start;
+  }
+}
