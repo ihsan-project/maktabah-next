@@ -55,7 +55,8 @@ export default function TranslationCarousel({
     if (!scrollContainerRef.current) return;
     
     const { scrollLeft, clientWidth } = scrollContainerRef.current;
-    const cardWidth = clientWidth >= 768 ? clientWidth / 2 : clientWidth;
+    // Desktop (lg): 3 cards, Mobile (sm): 2 cards
+    const cardWidth = clientWidth >= 1024 ? clientWidth / 3 : clientWidth / 2;
     const index = Math.round(scrollLeft / cardWidth);
     setCurrentIndex(index);
   };
@@ -69,7 +70,8 @@ export default function TranslationCarousel({
     if (!scrollContainerRef.current) return;
     
     const { clientWidth } = scrollContainerRef.current;
-    const cardWidth = clientWidth >= 768 ? clientWidth / 2 : clientWidth;
+    // Desktop (lg): 3 cards, Mobile (sm): 2 cards
+    const cardWidth = clientWidth >= 1024 ? clientWidth / 3 : clientWidth / 2;
     const scrollLeft = index * cardWidth;
     
     scrollContainerRef.current.scrollTo({
@@ -112,7 +114,7 @@ export default function TranslationCarousel({
         {translations.map((translation, index) => (
           <div
             key={index}
-            className="carousel-card snap-start flex-shrink-0 w-full md:w-1/2 bg-white rounded-lg shadow-md p-4 border border-gray-200"
+            className="carousel-card snap-start flex-shrink-0 w-1/2 lg:w-1/3 bg-white rounded-lg shadow-md p-4 border border-gray-200"
           >
             <div className="flex justify-between items-start mb-3 gap-2">
               <div className="flex flex-col gap-1">
