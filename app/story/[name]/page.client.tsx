@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
 import MixpanelTracking from '@/lib/mixpanel';
@@ -28,12 +28,25 @@ interface StoryClientProps {
   verses: ProcessedVerse[];
 }
 
+// Configuration for virtual scrolling
+const INITIAL_VERSES = 20; // Initial verses to load
+const VERSES_BUFFER = 10; // Verses to keep before/after visible area
+const LOAD_MORE_THRESHOLD = 5; // Trigger load when this many verses from bottom
+
 export default function StoryClient({ name, verses }: StoryClientProps) {
   // Get authentication state from AuthProvider
   const { user, loading } = useAuth();
   
   // State for selected translators
   const [selectedTranslators, setSelectedTranslators] = useState<string[]>([]);
+  
+  // State for virtual scrolling - track which range of verses to render
+  const [visibleRange, setVisibleRange] = useState({ start: 0, end: INITIAL_VERSES });
+  
+  // Refs for intersection observer
+  const topSentinelRef = useRef<HTMLDivElement>(null);
+  const bottomSentinelRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   
   // Extract all unique translators from ALL verses (not just the first one)
   // This is important because stories can contain both Quran and Hadith with different translator names
@@ -58,6 +71,97 @@ export default function StoryClient({ name, verses }: StoryClientProps) {
   const handleTranslatorSelectionChange = useCallback((selected: string[]) => {
     setSelectedTranslators(selected);
   }, []);
+  
+  // Function to extend the visible range downward
+  const loadMoreVerses = useCallback(() => {
+    setVisibleRange(prev => {
+      const newEnd = Math.min(prev.end + INITIAL_VERSES, verses.length);
+      // Keep only a window of verses to limit DOM size
+      const maxWindow = 50; // Keep max 50 verses in DOM
+      const newStart = Math.max(0, newEnd - maxWindow);
+      
+      if (newEnd > prev.end) {
+        MixpanelTracking.track('Load More Verses', {
+          story_name: name,
+          previous_end: prev.end,
+          new_end: newEnd,
+          total_verses: verses.length
+        });
+      }
+      
+      return { start: newStart, end: newEnd };
+    });
+  }, [verses.length, name]);
+  
+  // Function to extend the visible range upward (when scrolling back up)
+  const loadPreviousVerses = useCallback(() => {
+    setVisibleRange(prev => {
+      if (prev.start === 0) return prev; // Already at the top
+      
+      const newStart = Math.max(0, prev.start - INITIAL_VERSES);
+      // Keep only a window of verses to limit DOM size
+      const maxWindow = 50; // Keep max 50 verses in DOM
+      const newEnd = Math.min(verses.length, newStart + maxWindow);
+      
+      return { start: newStart, end: newEnd };
+    });
+  }, [verses.length]);
+  
+  // Set up intersection observer for infinite scroll (bottom)
+  useEffect(() => {
+    const bottomSentinel = bottomSentinelRef.current;
+    if (!bottomSentinel) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && visibleRange.end < verses.length) {
+          loadMoreVerses();
+        }
+      },
+      {
+        root: null,
+        rootMargin: '200px', // Start loading 200px before reaching the sentinel
+        threshold: 0.1
+      }
+    );
+    
+    observer.observe(bottomSentinel);
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, [visibleRange.end, verses.length, loadMoreVerses]);
+  
+  // Set up intersection observer for loading previous verses (top)
+  useEffect(() => {
+    const topSentinel = topSentinelRef.current;
+    if (!topSentinel || visibleRange.start === 0) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && visibleRange.start > 0) {
+          loadPreviousVerses();
+        }
+      },
+      {
+        root: null,
+        rootMargin: '200px',
+        threshold: 0.1
+      }
+    );
+    
+    observer.observe(topSentinel);
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, [visibleRange.start, loadPreviousVerses]);
+  
+  // Get the verses to display (within the visible range)
+  const displayedVerses = verses.slice(visibleRange.start, visibleRange.end);
+  const hasMoreVerses = visibleRange.end < verses.length;
   
   return (
     <>
@@ -85,9 +189,20 @@ export default function StoryClient({ name, verses }: StoryClientProps) {
         onSelectionChange={handleTranslatorSelectionChange}
       />
       
-      {/* Story verses - paragraph-style layout */}
-      <div className="space-y-2">
-        {verses.map((verse) => {
+      {/* Story verses - paragraph-style layout with virtual scrolling */}
+      <div ref={containerRef} className="space-y-2">
+        {/* Top sentinel for detecting scroll up */}
+        <div ref={topSentinelRef} style={{ height: '1px' }} />
+        
+        {/* Info about scrolled past verses */}
+        {visibleRange.start > 0 && (
+          <div className="py-4 text-center text-sm text-gray-500 bg-gray-50 rounded">
+            ↑ Scroll up to load verses 1-{visibleRange.start}
+          </div>
+        )}
+        
+        {/* Rendered verses */}
+        {displayedVerses.map((verse, index) => {
           // Filter translations based on selected translators
           const filteredTranslations = verse.translations.filter(t => 
             selectedTranslators.includes(t.author)
@@ -113,6 +228,27 @@ export default function StoryClient({ name, verses }: StoryClientProps) {
             </div>
           );
         })}
+        
+        {/* Bottom sentinel for detecting when to load more */}
+        {hasMoreVerses && (
+          <>
+            <div ref={bottomSentinelRef} style={{ height: '1px' }} />
+            <div className="py-4 text-center">
+              <div className="text-sm text-gray-500">
+                Loading more verses... ({visibleRange.end} of {verses.length})
+              </div>
+            </div>
+          </>
+        )}
+        
+        {/* All verses loaded message */}
+        {!hasMoreVerses && verses.length > INITIAL_VERSES && (
+          <div className="mt-8 text-center">
+            <p className="text-gray-600">
+              You've reached the end of the story ({verses.length} verses)
+            </p>
+          </div>
+        )}
       </div>
     </>
   );
