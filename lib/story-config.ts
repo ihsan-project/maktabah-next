@@ -51,6 +51,11 @@ export const STORY_METADATA: Record<string, {
     title: 'The Story of Adam in Islamic Texts',
     description: 'Learn about Prophet Adam from various Islamic texts and translations of the Quran.',
     keywords: ['Adam']
+  },
+  'yusuf': {
+    title: 'The Story of Joseph (Yusuf) in Islamic Texts',
+    description: 'Learn about Prophet Joseph (Yusuf) from various Islamic texts and translations of the Quran.',
+    keywords: ['Joseph', 'Yusuf']
   }
 };
 

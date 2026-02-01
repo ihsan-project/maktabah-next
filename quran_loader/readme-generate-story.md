@@ -64,7 +64,7 @@ node generate-story.js "muhammad, islam, quran, messenger" --output=../public/st
 node generate-story.js "noah, nuh, ark" --output=../public/stories/noah.xml
 node generate-story.js "khadija, khadijah, khadeejah" --output=../public/stories/khadija.xml
 node generate-story.js "adam" --output=../public/stories/adam.xml
-node generate-story.js "aisha" --output=../public/stories/aisha.xml
+node generate-story.js "joseph, yusuf" --output=../public/stories/yusuf.xml
 ```
 
 ## Output Format
