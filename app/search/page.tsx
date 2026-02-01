@@ -5,7 +5,6 @@ import SearchForm from '@/app/components/SearchForm';
 import SearchResults from '@/app/components/SearchResults';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
 import BookFilter from '@/app/components/BookFilter';
-import StoriesList from '@/app/components/StoriesList';
 import { SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
 
@@ -147,11 +146,6 @@ export default function SearchPage(): JSX.Element {
             hasMore={hasMore}
             onLoadMore={handleLoadMore}
           />
-          
-          {/* Stories section - always shown below search results */}
-          <div className="mt-12 flex justify-center">
-            <StoriesList source="search_page" />
-          </div>
         </div>
       </div>
     </ProtectedRoute>
