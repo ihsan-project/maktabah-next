@@ -60,11 +60,11 @@ node generate-story.js "prayer" --author="Sahih International" --output=prayer_s
 ```bash
 node generate-story.js "moses, musa, pharaoh, egypt" --output=../public/stories/moses.xml
 node generate-story.js "jesus, isa, mary" --output=../public/stories/jesus.xml
-node generate-story.js "muhammad, islam, quran, messenger" --output=../public/stories/muhammad.xml
 node generate-story.js "noah, nuh, ark" --output=../public/stories/noah.xml
 node generate-story.js "khadija, khadijah, khadeejah" --output=../public/stories/khadija.xml
 node generate-story.js "adam" --output=../public/stories/adam.xml
 node generate-story.js "joseph, yusuf" --output=../public/stories/yusuf.xml
+node generate-story.js "david, dawud" --output=../public/stories/dawud.xml
 ```
 
 ## Output Format
