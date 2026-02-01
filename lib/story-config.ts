@@ -7,7 +7,6 @@
 
 // Allowlist of story names that can be accessed
 export const ALLOWED_STORIES = [
-  'muhammad', // Story about Muhammad
   'khadija', // Story about Khadija
   'abraham',  // Story about Abraham/Ibrahim
   'moses',    // Story about Moses/Musa
@@ -37,11 +36,6 @@ export const STORY_METADATA: Record<string, {
     title: 'The Story of Jesus (Isa) in Islamic Texts',
     description: 'Read verses about Prophet Jesus (Isa) from various Islamic texts and translations of the Quran.',
     keywords: ['Jesus', 'Isa', 'Mary']
-  },
-  'muhammad': {
-    title: 'The Story of Muhammad in Islamic Texts',
-    description: 'Learn about Prophet Muhammad from various Islamic texts and translations of the Quran.',
-    keywords: ['Muhammad', 'Islam', 'Quran', 'Messenger']
   },
   'khadija': {
     title: 'The Story of Khadija (the first wife of the Prophet) in Islamic Texts',
