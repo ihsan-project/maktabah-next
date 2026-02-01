@@ -11,6 +11,9 @@ interface Translation {
 interface TranslationCarouselProps {
   translations: Translation[];
   verseRef: string; // e.g., "19:51" for display
+  chapterName?: string;
+  tanzilUrl: string;
+  onTanzilClick: () => void;
 }
 
 // Helper function to render text with newlines
@@ -28,7 +31,10 @@ const TextWithLineBreaks = ({ text }: { text: string }) => {
 
 export default function TranslationCarousel({ 
   translations, 
-  verseRef 
+  verseRef,
+  chapterName,
+  tanzilUrl,
+  onTanzilClick
 }: TranslationCarouselProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -108,13 +114,31 @@ export default function TranslationCarousel({
             key={index}
             className="carousel-card snap-start flex-shrink-0 w-full md:w-1/2 bg-white rounded-lg shadow-md p-4 border border-gray-200"
           >
-            <div className="flex justify-between items-center mb-3">
-              <h4 className="font-semibold text-primary text-sm">
-                {translation.author}
-              </h4>
-              <span className="text-xs text-gray-500">
-                {verseRef}
-              </span>
+            <div className="flex justify-between items-start mb-3 gap-2">
+              <div className="flex flex-col gap-1">
+                <h4 className="font-semibold text-primary text-sm">
+                  {translation.author}
+                </h4>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-xs font-medium text-primary">
+                    {verseRef}
+                  </span>
+                  {chapterName && (
+                    <span className="text-xs text-gray-500 italic">
+                      ({chapterName})
+                    </span>
+                  )}
+                </div>
+              </div>
+              <a 
+                href={tanzilUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-primary hover:underline whitespace-nowrap flex-shrink-0"
+                onClick={onTanzilClick}
+              >
+                tanzil.net
+              </a>
             </div>
             <div className="text-gray-700 text-sm leading-relaxed">
               <TextWithLineBreaks text={translation.text} />

@@ -35,10 +35,17 @@ export default function StoryClient({ name, verses }: StoryClientProps) {
   // State for selected translators
   const [selectedTranslators, setSelectedTranslators] = useState<string[]>([]);
   
-  // Extract all available translators from the first verse
-  const availableTranslators = verses.length > 0 
-    ? verses[0].translations.map(t => t.author)
-    : [];
+  // Extract all unique translators from ALL verses (not just the first one)
+  // This is important because stories can contain both Quran and Hadith with different translator names
+  const availableTranslators = React.useMemo(() => {
+    const translatorSet = new Set<string>();
+    verses.forEach(verse => {
+      verse.translations.forEach(t => {
+        translatorSet.add(t.author);
+      });
+    });
+    return Array.from(translatorSet).sort();
+  }, [verses]);
   
   const trackSignIn = (location: string) => {
     MixpanelTracking.track('Click Sign In', {
@@ -87,39 +94,21 @@ export default function StoryClient({ name, verses }: StoryClientProps) {
           );
           
           return (
-            <div key={verse.key} className="mb-3">
-              {/* Verse reference as inline element */}
-              <div className="flex items-start gap-2 mb-1">
-                <span className="text-primary font-semibold text-sm whitespace-nowrap">
-                  {verse.chapter}:{verse.verse}
-                </span>
-                {verse.chapterName && (
-                  <span className="text-gray-500 text-xs italic">
-                    ({verse.chapterName})
-                  </span>
-                )}
-                <a 
-                  href={`https://tanzil.net/#trans/${verse.bookId}/${verse.chapter}:${verse.verse}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-primary hover:underline ml-auto"
-                  onClick={() => {
-                    MixpanelTracking.track('Tanzil Link Click', {
-                      chapter: verse.chapter,
-                      verse: verse.verse,
-                      source: 'story_page',
-                      story_name: name
-                    });
-                  }}
-                >
-                  View on tanzil.net
-                </a>
-              </div>
-              
+            <div key={verse.key} className="mb-2">
               {/* Translation Carousel */}
               <TranslationCarousel
                 translations={filteredTranslations}
                 verseRef={`${verse.chapter}:${verse.verse}`}
+                chapterName={verse.chapterName}
+                tanzilUrl={`https://tanzil.net/#trans/${verse.bookId}/${verse.chapter}:${verse.verse}`}
+                onTanzilClick={() => {
+                  MixpanelTracking.track('Tanzil Link Click', {
+                    chapter: verse.chapter,
+                    verse: verse.verse,
+                    source: 'story_page',
+                    story_name: name
+                  });
+                }}
               />
             </div>
           );
