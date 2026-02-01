@@ -9,6 +9,19 @@ Takes an existing story XML file (generated from search results) and reorders th
 - Section groupings
 - Which verses to include (by chapter, verse range, and author)
 
+## AI prompt
+
+```
+Using the given xml file, give me a csv of columns: 
+- order
+- section
+- chapter
+- verse_range
+- type, (quran or hadith)
+example row: (11,Breaking the Idols & Persecution,37,83-98,quran)
+with a more narrative flow to reorder to
+```
+
 ## Installation
 
 First, install the required dependencies:

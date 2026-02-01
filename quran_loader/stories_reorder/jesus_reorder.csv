@@ -1,0 +1,114 @@
+order,section,chapter,verse_range,type
+1,Mary's Family & Upbringing,3,36,quran
+2,Mary's Family & Upbringing,3,37,quran
+3,Mary's Family & Upbringing,3,42-44,quran
+4,Mary's Family & Upbringing,66,12,quran
+5,Mary's Family & Upbringing,21,91,quran
+6,Mary's Family & Upbringing,23,50,quran
+7,The Annunciation to Zachariah,3,39,quran
+8,The Annunciation to Mary,3,45-48,quran
+9,The Annunciation to Mary,19,16-20,quran
+10,The Birth of Jesus,19,24-30,quran
+11,The Birth of Jesus,19,34-37,quran
+12,The Birth of Jesus,3,59,quran
+13,The Birth of Jesus,19,35,quran
+14,Jesus' Mission & Miracles,3,49,quran
+15,Jesus' Mission & Miracles,5,110,quran
+16,Jesus' Mission & Miracles,5,46,quran
+17,Jesus' Mission & Miracles,61,6,quran
+18,Jesus' Mission & Miracles,43,63,quran
+19,Jesus' Mission & Miracles,57,27,quran
+20,The Disciples,3,52-53,quran
+21,The Disciples,5,111-112,quran
+22,The Disciples,61,14,quran
+23,The Table from Heaven,5,114,quran
+24,Plots Against Jesus & His Raising,3,54-55,quran
+25,Plots Against Jesus & His Raising,4,157-159,quran
+26,Jesus' True Nature & Servanthood,5,75,quran
+27,Jesus' True Nature & Servanthood,4,171-172,quran
+28,Jesus' True Nature & Servanthood,43,57-59,quran
+29,Jesus' True Nature & Servanthood,3,62,quran
+30,Jesus' True Nature & Servanthood,19,36,quran
+31,Refuting Claims of Divinity,5,17,quran
+32,Refuting Claims of Divinity,5,72,quran
+33,Refuting Claims of Divinity,9,30-31,quran
+34,Refuting Claims of Divinity,21,26,quran
+35,Refuting Claims of Divinity,4,156,quran
+36,Refuting Claims of Divinity,5,116,quran
+37,Refuting Claims of Divinity,5,78,quran
+38,Refuting Claims of Divinity,43,65,quran
+39,Those Who Worship Others Beside God,17,56-57,quran
+40,Those Who Worship Others Beside God,39,45,quran
+41,Those Who Worship Others Beside God,18,102,quran
+42,Those Who Worship Others Beside God,25,17,quran
+43,Those Who Worship Others Beside God,21,101,quran
+44,Jesus & the Second Coming,43,61,quran
+45,Jesus & the Second Coming,4,159,quran
+46,Jesus in the Line of Prophets,2,87,quran
+47,Jesus in the Line of Prophets,2,253,quran
+48,Jesus in the Line of Prophets,4,163,quran
+49,Jesus in the Line of Prophets,6,85,quran
+50,Jesus in the Line of Prophets,33,7,quran
+51,Jesus in the Line of Prophets,42,13,quran
+52,Believing in All Prophets,2,136,quran
+53,Believing in All Prophets,3,84,quran
+54,Believing in All Prophets,4,150,quran
+55,Believing in All Prophets,29,27,quran
+56,Believing in All Prophets,3,3,quran
+57,Believing in All Prophets,2,4,quran
+58,Believing in All Prophets,3,61,quran
+59,Call to the People of the Book,57,28,quran
+60,Call to the People of the Book,7,158,quran
+61,Hadith - Blessed Birth & Protection from Satan,55,641,hadith
+62,Hadith - Blessed Birth & Protection from Satan,54,506,hadith
+63,Hadith - Blessed Birth & Protection from Satan,60,71,hadith
+64,Hadith - Mary's Virtue & Status,55,623,hadith
+65,Hadith - Mary's Virtue & Status,55,642,hadith
+66,Hadith - Mary's Virtue & Status,58,163,hadith
+67,Hadith - Mary's Virtue & Status,57,113,hadith
+68,Hadith - Mary's Virtue & Status,65,329,hadith
+69,Hadith - Mary's Virtue & Status,55,643,hadith
+70,Hadith - Speaking in the Cradle,55,645,hadith
+71,Hadith - Jesus' Character & Teachings,55,653,hadith
+72,Hadith - Jesus' Character & Teachings,55,654,hadith
+73,Hadith - Nearest to Jesus,55,651,hadith
+74,Hadith - Nearest to Jesus,55,652,hadith
+75,Hadith - Physical Description of Jesus,55,648,hadith
+76,Hadith - Physical Description of Jesus,72,789,hadith
+77,Hadith - Physical Description of Jesus,87,128,hadith
+78,Hadith - Physical Description of Jesus,87,153,hadith
+79,Hadith - Physical Description of Jesus,88,242,hadith
+80,Hadith - Physical Description of Jesus,55,650,hadith
+81,Hadith - Physical Description of Jesus,55,649,hadith
+82,Hadith - Ascension & Meeting Jesus in Heaven,8,345,hadith
+83,Hadith - Ascension & Meeting Jesus in Heaven,54,429,hadith
+84,Hadith - Ascension & Meeting Jesus in Heaven,55,640,hadith
+85,Hadith - Ascension & Meeting Jesus in Heaven,58,227,hadith
+86,Hadith - Ascension & Meeting Jesus in Heaven,54,462,hadith
+87,Hadith - Ascension & Meeting Jesus in Heaven,55,607,hadith
+88,Hadith - Ascension & Meeting Jesus in Heaven,55,647,hadith
+89,Hadith - Ascension & Meeting Jesus in Heaven,55,608,hadith
+90,Hadith - Jesus' Second Coming,34,425,hadith
+91,Hadith - Jesus' Second Coming,43,656,hadith
+92,Hadith - Jesus' Second Coming,55,657,hadith
+93,Hadith - Jesus' Second Coming,55,658,hadith
+94,Hadith - Belief in Jesus & Reward,55,644,hadith
+95,Hadith - Belief in Jesus & Reward,3,97,hadith
+96,Hadith - Belief in Jesus & Reward,55,655,hadith
+97,Hadith - Interval Between Jesus & Muhammad,58,284,hadith
+98,Hadith - Those Who Worship Others Beside God,60,238,hadith
+99,Hadith - Those Who Worship Others Beside God,60,239,hadith
+100,Hadith - Abraham & Mary in the Kaaba,55,570,hadith
+101,Hadith - Intercession on Day of Resurrection,60,3,hadith
+102,Hadith - Intercession on Day of Resurrection,76,570,hadith
+103,Hadith - Intercession on Day of Resurrection,93,507,hadith
+104,Hadith - Intercession on Day of Resurrection,93,601,hadith
+105,Hadith - Day of Resurrection Gathering,55,568,hadith
+106,Hadith - Day of Resurrection Gathering,55,656,hadith
+107,Hadith - Day of Resurrection Gathering,60,149,hadith
+108,Hadith - Day of Resurrection Gathering,60,150,hadith
+109,Hadith - Day of Resurrection Gathering,60,264,hadith
+110,Hadith - Day of Resurrection Gathering,76,533,hadith
+111,Hadith - Seeing God on Day of Resurrection,60,105,hadith
+112,Hadith - Seeing God on Day of Resurrection,93,532,hadith
+113,Hadith - Marrying People of the Book,63,209,hadith
