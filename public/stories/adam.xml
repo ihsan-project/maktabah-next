@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<story query="adam" generated="2026-02-01T01:03:18.637Z">
+<story query="adam" generated="2026-02-01T01:57:17.735Z">
   <metadata>
     <title>Story generated from search: "adam"</title>
     <verses_count>106</verses_count>
-    <translations_count>482</translations_count>
-    <reordered>2026-02-01T01:03:18.637Z</reordered>
+    <translations_count>860</translations_count>
+    <reordered>2026-02-01T01:57:17.736Z</reordered>
     <reorder_source>adam_reorder.csv</reorder_source>
   </metadata>
   <verses>
@@ -95,6 +95,9 @@
         <translation author="Pickthall">
           <text>These are they unto whom Allah showed favour from among the prophets, of the seed of Adam and of those whom We carried (in the ship) with Noah, and of the seed of Abraham and Israel, and from among those whom We guided and chose. When the revelations of the Beneficent were recited unto them, they fell down, adoring and weeping.</text>
         </translation>
+        <translation author="Qarai">
+          <text>They are the ones whom Allah has blessed from among the prophets of Adam’s progeny, and from [the progeny of] those We carried with Noah, and from among the progeny of Abraham and Israel, and from among those that We guided and chose. When the signs of the All-beneficent were recited to them, they would fall down weeping in prostration.</text>
+        </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>These are whom Allah has blessed among the Prophets from among the seed of Adam and of those whom We bore with Noah; the descendants ofAbraham, of Israel, and of those whom We have guided and chose. For when the verses of the Merciful were recited to them, they fell down prostrate, weeping.</text>
         </translation>
@@ -120,14 +123,50 @@
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>I had no knowledge of the higher Assembly when they discussed it among themselves.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>I had no knowledge of the High Council when they disputed.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>I had no knowledge of the chiefs on high when they disputed;</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>"I had no knowledge of the chiefs (angels) on high when they were disputing and discussing (about the creation of Adam).</text>
+        </translation>
+        <translation author="Itani">
+          <text>I have no knowledge of the Highest Assembly as they dispute.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>(Tell them): “I had no knowledge of the High Council when they were disputing.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"I had no knowledge of the chiefs (angels) on high when they were disputing and discussing."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>I had no knowledge of the Highest Chiefs when they disputed;</text>
+        </translation>
+        <translation author="Qarai">
+          <text>I have no knowledge of the Supernal Elite when they contend.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>I had no knowledge of the High Assembly's dispute.</text>
         </translation>
         <translation author="Saheeh International">
           <text>I had no knowledge of the exalted assembly [of angels] when they were disputing [the creation of Adam].</text>
         </translation>
         <translation author="Sarwar">
           <text>I have no knowledge of the dispute among the angels (concerning their attitude towards Adam).</text>
+        </translation>
+        <translation author="Shakir">
+          <text>I had no knowledge of the exalted chiefs when they contended:</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>I had no knowledge of the Exalted Assembly when they argued [against the creation of man]:</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"No knowledge have I of the Chiefs on high, when they discuss (matters) among themselves.</text>
         </translation>
       </translations>
     </verse>
@@ -136,11 +175,50 @@
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>But when your Lord said to the angels: "I am verily going to create a human being from fermented clay dried tingling hard;</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And when thy Lord said to the angels, 'See, I am creating a mortal of a clay of mud moulded.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And recall what time thy Lord said unto the angels: verily I am about to createa man from ringing clay of loam moulded.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>And (remember) when your Lord said to the angels: "I am going to create a man (Adam) from sounding clay of altered black smooth mud.</text>
         </translation>
+        <translation author="Itani">
+          <text>Your Lord said to the angels, “I am creating a human being from clay, from molded mud.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Recall when your Lord said to the angels: "I will indeed bring into being a human being out of dry ringing clay wrought from black mud.</text>
+        </translation>
         <translation author="Mubarakpuri">
           <text>And (remember) when your Lord said to the angels: "I am going to create a man (Adam) from dried (sounding) clay of altered mud. "</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And (remember) when thy Lord said unto the angels: Lo! I am creating a mortal out of potter's clay of black mud altered,</text>
+        </translation>
+        <translation author="Qarai">
+          <text>When your Lord said to the angels, ‘Indeed I am going to create a human out of a dry clay [drawn] from an aging mud.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>When your Lord said to the angels: 'See, I am creating a mortal from clay of molded mud.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And [mention, O Muhammad], when your Lord said to the angels, "I will create a human being out of clay from an altered black mud.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>When your Lord said to the angels, "I will create the human being out of pure mud-moulded clay.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And when your Lord said to the angels: Surely I am going to create a mortal of the essence of black mud fashioned in shape.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Your Lord said to the angels, "I am about to bring into being a man wrought from mud.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Behold! thy Lord said to the angels: "I am about to create man, from sounding clay from mud moulded into shape;</text>
         </translation>
       </translations>
     </verse>
@@ -149,11 +227,50 @@
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>And when I have fashioned him and breathed into him of My spirit, bow before him in homage;"</text>
+        </translation>
+        <translation author="Arberry">
+          <text>When I have shaped him, and breathed My spirit in him, fall you down, bowing before him!'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then when I have formed him and breathed into him of My Spirit fall down unto him prostrate.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>"So, when I have fashioned him completely and breathed into him (Adam) the soul which I created for him, then fall (you) down prostrating yourselves unto him."</text>
         </translation>
+        <translation author="Itani">
+          <text>“When I have formed him, and breathed into him of My spirit, fall down prostrating before him.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>When I have completed shaping him and have breathed into him of My Spirit, then fall you down before him in prostration."</text>
+        </translation>
         <translation author="Mubarakpuri">
           <text>"So, when I have fashioned him completely and breathed into him (Adam) of My spirit (the soul which I created for him,) then fall down, prostrating yourselves before him."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>So, when I have made him and have breathed into him of My Spirit, do ye fall down, prostrating yourselves unto him.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>So when I have proportioned him and breathed into him of My spirit, then fall down in prostration before him.’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>When I have shaped him and ran My created soul in him fall down prostrating towards him'.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And when I have proportioned him and breathed into him of My [created] soul, then fall down to him in prostration."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>When it is properly shaped and I have blown My Spirit into it, you should then bow down in prostration".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>So when I have made him complete and breathed into him of My spirit, fall down making obeisance to him.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>When I have formed him and breathed My spirit into him, fall down in prostration before him,"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"When I have fashioned him (in due proportion) and breathed into him of My spirit, fall ye down in obeisance unto him."</text>
         </translation>
       </translations>
     </verse>
@@ -162,8 +279,50 @@
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>We created man from the finest extract of clay,</text>
+        </translation>
+        <translation author="Arberry">
+          <text>We created man of an extraction of clay,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And assuredly We created man of an extract of clay.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>And indeed We created man (Adam) out of an extract of clay (water and earth).</text>
+        </translation>
+        <translation author="Itani">
+          <text>We created man from an extract of clay.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>We created man out of the extract of clay,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And indeed We created man out of an extract of Tin.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Verily We created man from a product of wet earth;</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Certainly We created man from an extract of clay.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>We created the human from an essence of clay:</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And certainly did We create man from an extract of clay.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>We have created the human being from an extract of clay</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And certainly We created man of an extract of clay,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>We created man from an essence of clay,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Man We did create from a quintessence (of clay);</text>
         </translation>
       </translations>
     </verse>
@@ -172,8 +331,50 @@
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>He created man of fermented clay dried tinkling hard like earthen ware,</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He created man of a clay like the potter's,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He created man of clay like, Unto pottery.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>He created man (Adam) from sounding clay like the clay of pottery.</text>
+        </translation>
+        <translation author="Itani">
+          <text>He created man from hard clay, like bricks.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>He has created man from dry, rotten clay like the potter's,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He created man from sounding clay like the clay of pottery.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He created man of clay like the potter's,</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He created man out of dry clay, like the potter’s,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He created the human from clay, like earthenware</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He created man from clay like [that of] pottery.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He created the human being from clay like that used for pottery</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He created man from dry clay like earthen vessels,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He has created man, from dry ringing clay, like the potter"s,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He created man from sounding clay like unto pottery,</text>
         </translation>
       </translations>
     </verse>
@@ -182,8 +383,50 @@
       <book_id>en.sarwar</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>The angels bowed in homage in a body</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Then the angels bowed themselves all together,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>So the angels prostrated themselves, all of them together.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>So, the angels prostrated themselves, all of them together.</text>
+        </translation>
+        <translation author="Itani">
+          <text>So the angels prostrated themselves, all together.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>So, the angels - all of them - fell down in prostration,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>So the angels prostrated themselves, all of them together.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>So the angels fell prostrate, all of them together</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Thereat the angels prostrated, all of them together,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>All the angels prostrated themselves,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So the angels prostrated - all of them entirely,</text>
+        </translation>
         <translation author="Sarwar">
           <text>All the angels prostrated before Adam</text>
+        </translation>
+        <translation author="Shakir">
+          <text>So the angels made obeisance, all of them together,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>then the angels all prostrated themselves together.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>So the angels prostrated themselves, all of them together:</text>
         </translation>
       </translations>
     </verse>
@@ -192,8 +435,50 @@
       <book_id>en.maududi</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>Then the angels bowed before him in a body,</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Then the angels bowed themselves all together,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>The angels prostrated themselves, all of them.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>So the angels prostrated themselves, all of them:</text>
+        </translation>
+        <translation author="Itani">
+          <text>So the angels fell prostrate, all of them.</text>
+        </translation>
         <translation author="Maududi">
           <text>Then the angels, all of them, prostrated themselves before Adam</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>So, the angels prostrated themselves, all of them,</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>The angels fell down prostrate, every one,</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Thereat the angels prostrated, all of them together,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>So all the angels prostrated themselves</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So the angels prostrated - all of them entirely.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>all the angel then prostrated themselves</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And the angels did obeisance, all of them,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Thereupon the angels prostrated themselves, all of them together,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>So the angels prostrated themselves, all of them together:</text>
         </translation>
       </translations>
     </verse>
@@ -612,14 +897,47 @@ The Prophet said, "Allah created Adam in his complete shape and form (directly),
         <translation author="Ahmed Ali">
           <text>"What prevented you" (said God), "from bowing (before Adam) at My bidding?" "I am better than him," said he. "You created me from fire, and him from clay."</text>
         </translation>
+        <translation author="Arberry">
+          <text>Said He, 'What prevented thee to bow thyself, when I commanded thee?' Said he, 'I am better than he; Thou createdst me of fire, and him Thou createdst of clay.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Allah said: what prevented thee, that thou shouldst not prostrate thyself, when I bade thee? He said. I am better than he; me Thou createdest me from fire, and him Thou createdest from clay.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>(Allah) said: "What prevented you (O Iblis) that you did not prostrate, when I commanded you?" Iblis said: "I am better than him (Adam), You created me from fire, and him You created from clay."</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “What prevented you from bowing down when I have commanded you?” He said, “I am better than he; You created me from fire, and You created him from mud.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Allah said: 'What prevented you from prostrating, when I commanded you to do so?' He said: 'I am better than he. You created me from fire, and him You created from clay.'</text>
         </translation>
         <translation author="Mubarakpuri">
           <text>(Allah) said: "What prevented you (O Iblis) that you did not prostrate, when I commanded you" Iblis said: "I am better than him (Adam), You created me from fire, and him You created from clay."</text>
         </translation>
+        <translation author="Pickthall">
+          <text>He said: What hindered thee that thou didst not fall prostrate when I bade thee? (Iblis) said: I am better than him. Thou createdst me of fire while him Thou didst create of mud.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Said He, ‘What prevented you from prostrating, when I commanded you? ’‘I am better than him,’ he said. ‘You created me from fire and You created him from clay.’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He (Allah) asked: 'What prevented you to prostrate, when I commanded you' 'I am better than he' he replied. 'You created me of fire and You created him of clay'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>[Allah] said, "What prevented you from prostrating when I commanded you?" [Satan] said, "I am better than him. You created me from fire and created him from clay."</text>
+        </translation>
         <translation author="Sarwar">
           <text>God asked, "What made you disobey Me?" Satan replied, "I am better than Adam, for You have created me out of fire and Adam out of clay."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: What hindered you so that you did not prostrate when I commanded you? He said: I am better than he: Thou hast created me of fire, while him Thou didst create of dust.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>God asked, "What prevented you from prostrating yourself when I commanded you to?" He replied, "I am better than he is; You created me from fire, while You created him from clay."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>(Allah) said: "What prevented thee from prostrating when I commanded thee?" He said: "I am better than he: Thou didst create me from fire, and him from clay."</text>
         </translation>
       </translations>
     </verse>
@@ -628,8 +946,50 @@ The Prophet said, "Allah created Adam in his complete shape and form (directly),
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>Said (God): "O Iblis, what hindered you from adoring what I created by My own authority? Are you too proud, or too high and mighty?"</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Said He, 'Iblis, what prevented thee to bow thyself before that I created with My own hands? Hast thou waxed proud, or art thou of the lofty ones?'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Allah said: O Iblis! what preventeth thee from prostrating thyself before that which have created with both my hands? Becomest thou stiff-necked, or art thou of the exalted ones?</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>(Allah) said: "O Iblis (Satan)! What prevents you from prostrating yourself to one whom I have created with Both My Hands. Are you too proud (to fall prostrate to Adam) or are you one of the high exalted?"</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “O Satan, what prevented you from prostrating before what I created with My Own hands? Are you too proud, or were you one of the exalted?”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>The Lord said: “O Iblis, what prevented you from prostrating yourself before him whom I created of My Two Hands. Are you waxing proud, or fancy yourself to be too exalted?”</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>(Allah) said: "O Iblis! What prevents you from prostrating yourself to one whom I have created with Both My Hands. Are you too proud or are you one of the high exalted"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: O Iblis! What hindereth thee from falling prostrate before that which I have created with both My hands? Art thou too proud or art thou of the high exalted?</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘O Iblis! What keeps you from prostrating before that which I have created with My [own] two hands? Are you arrogant, or are you one of the exalted ones?’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He (Allah) said: 'iblis, what prevented you from prostrating yourself towards that which I have created with My Hands? Have you become too proud, or areyou among the grand'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>[Allah] said, "O Iblees, what prevented you from prostrating to that which I created with My hands? Were you arrogant [then], or were you [already] among the haughty?"</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>The Lord said, "Iblis, what prevented you from prostrating before what I have created with My own hands? Was it because of your pride or are you truly exalted?"</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: O Iblis! what prevented you that you should do obeisance to him whom I created with My two hands? Are you proud or are you of the exalted ones?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>God said, "Satan, what prevented you from prostrating yourself to what I created with My own Hands? Were you overcome by arrogance, or are you of those who think [only] of themselves as exalted?"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>(Allah) said: "O Iblis! What prevents thee from prostrating thyself to one whom I have created with my hands? Art thou haughty? Or art thou one of the high (and mighty) ones?"</text>
         </translation>
       </translations>
     </verse>
@@ -638,8 +998,53 @@ The Prophet said, "Allah created Adam in his complete shape and form (directly),
       <book_id>en.ahmedraza</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>(And) said: "Look! This is what you have honoured above me! If You defer (my term) till the Day of Resurrection, I will bring his progeny into complete subjugation, barring a few."</text>
+        </translation>
         <translation author="Ahmed Raza Khan">
           <text>He said, “Behold this* – the one whom You have honoured above me – if You give me respite till the Day of Resurrection, I will surely crush his descendants, except a few.” (* Prophet Adam.)</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He said, 'What thinkest Thou? This whom Thou hast honoured above me -- if Thou deferrest me to the Day of Resurrection I shall assuredly master his seed, save a few.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>lblis said; bethinkest Thou: This one whom Thou hast honoured above me- if Thou deferrest me till the Day of Judgment, shall surely seize his progeny save a few.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>[Iblis (Satan)] said: "See? This one whom You have honoured above me, if You give me respite (keep me alive) to the Day of Resurrection, I will surely seize and mislead his offspring (by sending them astray) all but a few!"</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “Do You see this one whom You have honored more than me? If You reprieve me until the Day of Resurrection, I will bring his descendants under my sway, except for a few.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>He then continued: "Look! This is he whom You have exalted above me! If you will grant me respite till the Day of Resurrection I shall uproot the whole of his progeny except only a few."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "See this one whom You have honored above me, if You give me respite to the Day of Resurrection, I will surely, seize and mislead his offspring, all but a few!"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: Seest Thou this (creature) whom Thou hast honoured above me, if Thou give me grace until the Day of Resurrection I verily will seize his seed, save but a few.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Said he, ‘Do You see this one whom You have honoured above me? If You respite me until the Day of Resurrection, I will surely lay my yoke on his progeny, [all] except a few.’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>What do You think' he said: 'This whom You have honored above me, if You defer me until the Day of Resurrection, I will root out all but a few of his seed (by misleading them)'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>[Iblees] said, "Do You see this one whom You have honored above me? If You delay me until the Day of Resurrection, I will surely destroy his descendants, except for a few."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He continued, "Remember, this one whom you have honored more than me I shall bring him and most of his offspring under my sway if you will give me respite until the Day of Judgment."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: Tell me, is this he whom Thou hast honored above me? If Thou shouldst respite me to the day of resurrection, I will most certainly cause his progeny to perish except a few.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>and [further] said, "Do you see this being whom You have exalted above me? If You reprieve me until the Day of Resurrection, I will bring all but a few of his descendents under my sway."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "Seest Thou? this is the one whom Thou hast honoured above me! If Thou wilt but respite me to the Day of Judgment, I will surely bring his descendants under my sway - all but a few!"</text>
         </translation>
       </translations>
     </verse>
@@ -648,8 +1053,50 @@ The Prophet said, "Allah created Adam in his complete shape and form (directly),
       <book_id>en.sarwar</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>He said: "By Your authority, I will lead them astray,</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Said he, 'Now, by Thy glory, I shall pervert them all together,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: by Thy majesty, then, I shall surely seduce them, all.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>[Iblis (Satan)] said: "By Your Might, then I will surely mislead them all,</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “By Your majesty, I will seduce them all.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>(Iblis) said: “By Your glory, I shall mislead them all</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>[Iblis] said: "By Your might, then I will surely mislead them all,"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: Then, by Thy might, I surely will beguile them every one,</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘By Your might, I will surely pervert them,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He (satan) said: 'I swear by Your Might, that I will seduce all of them</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>[Iblees] said, "By your might, I will surely mislead them all</text>
+        </translation>
         <translation author="Sarwar">
           <text>He said, "By Your Glory, I shall seduce all of them (children of Adam).</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: Then by Thy Might I will surely make them live an evil life, all,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He said, "By Your Honour, I will lead all of them astray,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>(Iblis) said: "Then, by Thy power, I will put them all in the wrong,-</text>
         </translation>
       </translations>
     </verse>
@@ -713,8 +1160,50 @@ The Prophet said, "Allah created Adam in his complete shape and form (directly),
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>The soul and how it was integrated</text>
+        </translation>
+        <translation author="Arberry">
+          <text>By the soul, and That which shaped it</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>By the soul and Him Who propertioned it,</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>And by Nafs (Adam or a person or a soul, etc.), and Him Who perfected him in proportion;</text>
+        </translation>
+        <translation author="Itani">
+          <text>And the soul and He who proportioned it.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and by the soul and by Him Who perfectly proportioned it,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>By Nafs, and Ma Sawwaha (Who apportioned it).</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And a soul and Him Who perfected it</text>
+        </translation>
+        <translation author="Qarai">
+          <text>by the soul and Him who fashioned it,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>by the soul and Who shaped it</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And [by] the soul and He who proportioned it</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>and by the soul and that (Power) which designed it</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And the soul and Him Who made it perfect,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>by the soul and how He formed it,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>By the Soul, and the proportion and order given to it;</text>
         </translation>
       </translations>
     </verse>
@@ -723,8 +1212,50 @@ The Prophet said, "Allah created Adam in his complete shape and form (directly),
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>And the parent and the offspring,</text>
+        </translation>
+        <translation author="Arberry">
+          <text>by the begetter, and that he begot,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And by the begetter and that which he begat,</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>And by the begetter (i.e. Adam) and that which he begot (i.e. his progeny);</text>
+        </translation>
+        <translation author="Itani">
+          <text>And by a father and what he fathered.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and I swear by the parent and his offspring:</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And by the begetter and that which he begot.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And the begetter and that which he begat,</text>
+        </translation>
+        <translation author="Qarai">
+          <text>[and] by the father and him whom he begot:</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And by the giver of birth, and whom he fathered,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And [by] the father and that which was born [of him],</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>or by the great father and his wonderful son (Abraham and Ishmael)</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And the begetter and whom he begot.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>and by parent and offspring,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And (the mystic ties of) parent and child;-</text>
         </translation>
       </translations>
     </verse>
@@ -1063,8 +1594,50 @@ The Prophet said, "Allah created Adam in his complete shape and form (directly),
       <book_id>en.sarwar</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>But Satan tempted them and had them banished from the (happy) state they were in. And We said: "Go, one the antagonist of the other, and live on the earth for a time ordained, and fend for yourselves."</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Then Satan caused them to slip therefrom and brought them out of that they were in; and We said, 'Get you all down, each of you an enemy of each; and in the earth a sojourn shall be yours, and enjoyment for a time.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then the Satan caused the twain to slip on account thereof, and drave them forth from that which the twain were in. And We said: get ye down, one of you an enemy unto anot her, and for you on the earth shall be a resting-place and enjoyment for a season.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Then the Shaitan (Satan) made them slip therefrom (the Paradise), and got them out from that in which they were. We said: "Get you down, all, with enmity between yourselves. On earth will be a dwelling place for you and an enjoyment for a time."</text>
+        </translation>
+        <translation author="Itani">
+          <text>But Satan caused them to slip from it, and caused them to depart the state they were in. We said, “Go down, some of you enemies of one another. And you will have residence on earth, and enjoyment for a while.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>After a time Satan tempted them with that tree to disobey. Our Command and brought them out of the state they were in, and We decreed, "Now, go down all of you from here; you are enemies of one another. Henceforth you shall dwell and provide for yourselves on the Earth for a specified period."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Then the Shaytan made them slip therefrom (the Paradise), and got them out from that in which they were. We said: "Get you down, all, with enmity between yourselves. On earth will be a dwelling place for you and an enjoyment for a time."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>But Satan caused them to deflect therefrom and expelled them from the (happy) state in which they were; and We said: Fall down, one of you a foe unto the other! There shall be for you on earth a habitation and provision for a time.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Then Satan caused them to stumble from it, and he dislodged them from what [state] they were in; and We said, ‘Get down, being enemies of one another! On the earth shall be your abode and sustenance for a time.’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>But satan made them slip therefrom and caused them to depart from that in which they had been. 'Go down,' We said, 'be enemies to each other. The earth will provide your dwelling place an enjoyment for a while'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>But Satan caused them to slip out of it and removed them from that [condition] in which they had been. And We said, "Go down, [all of you], as enemies to one another, and you will have upon the earth a place of settlement and provision for a time."</text>
+        </translation>
         <translation author="Sarwar">
           <text>Satan made Adam and his spouse err and caused them to abandon the state in which they had been living. Then We said, "Descend, you are each other's enemies! The earth will be a dwelling place for you and it will provide you with sustenance for an appointed time.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>But the Shaitan made them both fall from it, and caused them to depart from that (state) in which they were; and We said: Get forth, some of you being the enemies of others, and there is for you in the earth an abode and a provision for a time.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>But Satan caused them both to slip through this and thus brought about the loss of their former state. We said, "Go down from here as enemies to each other; and on earth you shall have your abode and your livelihood for a while!"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Then did Satan make them slip from the (garden), and get them out of the state (of felicity) in which they had been. We said: "Get ye down, all (ye people), with enmity between yourselves. On earth will be your dwelling-place and your means of livelihood - for a time."</text>
         </translation>
       </translations>
     </verse>
@@ -1073,8 +1646,50 @@ The Prophet said, "Allah created Adam in his complete shape and form (directly),
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>"Go," said God, "one the antagonist of the other, and live on the earth for a time ordained, and fend for yourselves.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Said He, 'Get you down, each of you an enemy to each. In the earth a sojourn shall be yours, and enjoyment for a time.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Allah said: get ye down, one of you an enemy unto anot her; and for you on the earth there shall be a habitation and provision for a season.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>(Allah) said: "Get down, one of you an enemy to the other [i.e. Adam, Hawwa (Eve), and Shaitan (Satan), etc.]. On earth will be a dwelling-place for you and an enjoyment, - for a time."</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “Fall, some of you enemies to one another. On earth you will have residence and livelihood for a while.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Allah said: 'Go down; you are enemies one of the other. For you there is dwelling and provision on the earth for a while.'</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>(Allah) said: "Get down, one of you an enemy to the other. On earth will be a dwelling place for you and an enjoyment for a time."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: Go down (from hence), one of you a foe unto the other. There will be for you on earth a habitation and provision for a while.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘Get down, being enemies of one another! On the earth shall be your abode and sustenance for a time.’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He said: 'Descend, each of you an enemy to each other. The earth will be a dwelling place for you and an enjoyment for a time.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>[Allah] said, "Descend, being to one another enemies. And for you on the earth is a place of settlement and enjoyment for a time."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>The Lord told them to leave the garden as each other's enemies and go to earth to dwell and benefit from the means therein for an appointed time.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: Get forth, some of you, the enemies of others, and there is for you in the earth an abode and a provision for a time.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He said, "Go down from here as enemies to each other. For a while, there is an abode for you and a provision on earth.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>(Allah) said: "Get ye down. With enmity between yourselves. On earth will be your dwelling-place and your means of livelihood,- for a time."</text>
         </translation>
       </translations>
     </verse>
@@ -1428,6 +2043,9 @@ The Prophet said, "Allah created Adam in his complete shape and form (directly),
         <translation author="Hilali &amp; Khan">
           <text>And (O Muhammad SAW) recite to them (the Jews) the story of the two sons of Adam [Habil (Abel) and Qabil (Cain)] in truth; when each offered a sacrifice (to Allah), it was accepted from the one but not from the other. The latter said to the former: "I will surely kill you." The former said: "Verily, Allah accepts only from those who are Al-Muttaqun (the pious - see V. 2:2)."</text>
         </translation>
+        <translation author="Itani">
+          <text>And relate to them the true story of Adam's two sons: when they offered an offering, and it was accepted from one of them, but it was not accepted from the other. He Said, “I will kill you.” He Said, “God accepts only from the righteous.”</text>
+        </translation>
         <translation author="Maududi">
           <text>Narrate to them in all truth the story of the two sons of Adam. When they made an offering and it was accepted from one of them and was not accepted from the other, the latter said: 'I will surely kill you.' Thereupon the former said: 'Allah accepts offerings only from the God-fearing.</text>
         </translation>
@@ -1436,6 +2054,15 @@ The Prophet said, "Allah created Adam in his complete shape and form (directly),
         </translation>
         <translation author="Pickthall">
           <text>But recite unto them with truth the tale of the two sons of Adam, how they offered each a sacrifice, and it was accepted from the one of them and it was not accepted from the other. (The one) said: I will surely kill thee. (The other) answered: Allah accepteth only from those who ward off (evil).</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Relate to them truly the account of Adam’s two sons. When the two of them offered an offering, it was accepted from one of them and not accepted from the other. [One of them] said, ‘Surely I will kill you.’ [The other one] said, ‘Allah accepts only from the Godwary.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Recite to them in all truth the news of Adam's two sons; how they each made an offering, and how the offering of the one was accepted while that of the other was not. He said: 'I will surely kill you' (The other) said: 'Allah accepts only from the righteous.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And recite to them the story of Adam's two sons, in truth, when they both offered a sacrifice [to Allah], and it was accepted from one of them but was not accepted from the other. Said [the latter], "I will surely kill you." Said [the former], "Indeed, Allah only accepts from the righteous [who fear Him].</text>
         </translation>
         <translation author="Sarwar">
           <text>(Muhammad) tell them the true story of the two sons of Adam (Abel and Cain). Each one of them offered a sacrifice. God accepted the sacrifice of one of them (Abel) but not that of the other (Cain) who then said to his brother, "I shall certainly kill you." (Abel) replied, "God only accepts the offerings of the pious ones.</text>
@@ -1519,6 +2146,9 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
         <translation author="Qarai">
           <text>When your Lord took from the Children of Adam, from their loins, their descendants and made them bear witness over themselves, [He said to them,] ‘Am I not your Lord?’ They said, ‘Yes indeed! We bear witness.’ [This,] lest you should say on the Day of Resurrection, ‘Indeed we were unaware of this,’</text>
         </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>When your Lord brought forth descendants from the loins of Adam's children, and made them testify concerning themselves (He said): 'Am I not your Lord.' They replied: 'We bear witness (that You are)' Lest you should say on the Day of Resurrection: 'We had no knowledge of this'</text>
+        </translation>
         <translation author="Saheeh International">
           <text>And [mention] when your Lord took from the children of Adam - from their loins - their descendants and made them testify of themselves, [saying to them], "Am I not your Lord?" They said, "Yes, we have testified." [This] - lest you should say on the day of Resurrection, "Indeed, we were of this unaware."</text>
         </translation>
@@ -1541,8 +2171,50 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>O MEN, FEAR your Lord who created you from a single cell, and from it created its mate, and from the two of them dispersed men and women (male and female) in multitudes. So fear God in whose name you ask of one another (the bond of) relationships. God surely keeps watch over you.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Mankind, fear your Lord, who created you of a single soul, and from it created its mate, and from the pair of them scattered abroad many men and women; and fear God by whom you demand one of another, and the wombs; surely God ever watches over you.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>O ye mankind! fear your Lord; Who created you of a single soul and He created the reef the spouse thereof, and of the twain He spread abroad men manifold and women. And fear Allah by Whom ye importune one anot her, and the wombs. Verily Allah is ever over you a Watcher.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>O mankind! Be dutiful to your Lord, Who created you from a single person (Adam), and from him (Adam) He created his wife [Hawwa (Eve)], and from them both He created many men and women and fear Allah through Whom you demand your mutual (rights), and (do not cut the relations of) the wombs (kinship). Surely, Allah is Ever an All-Watcher over you.</text>
+        </translation>
+        <translation author="Itani">
+          <text>O people! Fear your Lord, who created you from a single soul, and created from it its mate, and propagated from them many men and women. And revere God whom you ask about, and the parents. Surely, God is Watchful over you.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>O men! Fear your Lord Who created you from a single being and out of it created its mate; and out of the two spread many men and women. Fear Allah in Whose name you plead for rights, and heed the ties of kinship. Surely, Allah is ever watchful over you.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>O mankind! Have Taqwa of your Lord, Who created you from a single person, and from him He created his mate, and from them both He created many men and women, and have Taqwa of Allah through Whom you demand your mutual (rights), and revere the wombs. Surely, Allah is always watching over you.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>O mankind! Be careful of your duty to your Lord Who created you from a single soul and from it created its mate and from them twain hath spread abroad a multitude of men and women. Be careful of your duty toward Allah in Whom ye claim (your rights) of one another, and toward the wombs (that bare you). Lo! Allah hath been a watcher over you.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>O mankind! Be wary of your Lord who created you from a single soul, and created its mate from it, and from the two of them scattered numerous men and women. Be wary of Allah, in whose Name you adjure one another and [of severing ties with] blood relations. Indeed Allah is watchful over you.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>O people, fear your Lord, who created you from a single soul. From it He created its spouse, and from both of them scattered many men and women. Fear Allah, by whom you ask one another, and (fear) the wombs (lest you sever its relationship). Allah is ever watching over you.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>O mankind, fear your Lord, who created you from one soul and created from it its mate and dispersed from both of them many men and women. And fear Allah, through whom you ask one another, and the wombs. Indeed Allah is ever, over you, an Observer.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>People, have fear of your Lord who has created you from a single soul. From it He created your spouse and through them He populated the land with many men and women. Have fear of the One by whose Name you swear to settle your differences and have respect for your relatives. God certainly keeps watch over you.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>O people! be careful of (your duty to) your Lord, Who created you from a single being and created its mate of the same (kind) and spread from these two, many men and women; and be careful of (your duty to) Allah, by Whom you demand one of another (your rights), and (to) the ties of relationship; surely Allah ever watches over you.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>O mankind! Fear your Lord, who created you from a single soul. He created its mate from it and from the two of them spread countless men and women [throughout the earth]. Fear God, in whose name you appeal to one another, and be mindful of your obligations in respect of ties of kinship. God is always watching over you.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>O mankind! reverence your Guardian-Lord, who created you from a single person, created, of like nature, His mate, and from them twain scattered (like seeds) countless men and women;- reverence Allah, through whom ye demand your mutual (rights), and (reverence) the wombs (That bore you): for Allah ever watches over you.</text>
         </translation>
       </translations>
     </verse>
@@ -1551,8 +2223,50 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>It is He who produced you from a single cell, and appointed a place of sojourning, (the womb of the mother), and a place of depositing, (the grave). How clear have We made Our signs for those who understand.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>It is He who produced you from one living soul, and then a lodging-place, and then a repository. We have distinguished the signs for a people who understand.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And it is He who hath produced you from one person, and thenceforth provided for you an abode and a depository. Surely We have expounded the signs unto a people who understand.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>It is He Who has created you from a single person (Adam), and has given you a place of residing (on the earth or in your mother's wombs) and a place of storage [in the earth (in your graves) or in your father's loins]. Indeed, We have explained in detail Our revelations (this Quran) for people who understand.</text>
+        </translation>
+        <translation author="Itani">
+          <text>And it is He who produced you from a single person, then a repository, then a depository. We have detailed the revelations for people who understand.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>It is He Who created you out of a single being, and appointed for each of you a time-limit and a resting place. We have indeed spelled out Our signs for those who can understand.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>It is He Who has created you from a single person, and has given you a place of residing and a place of storage. Indeed, We have explained in detail Our revelations for people who understand.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And He it is Who hath produced you from a single being, and (hath given you) a habitation and a repository. We have detailed Our revelations for a people who have understanding.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>It is He who created you from a single soul, then there is the [enduring] abode and the place of temporary lodging. We have certainly elaborated the signs for a people who understand.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>It is He who originated you from one soul, then a lodging (place), and then a repository. We have made plain the verses to a nation that understands.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And it is He who produced you from one soul and [gave you] a place of dwelling and of storage. We have detailed the signs for a people who understand.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>It is He who has created you from a single soul. Some of you are settled (on earth) and some are still in the depository system of (their parents). We have shown the evidence (of Our existence) to the people who understand.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And He it is Who has brought you into being from a single soul, then there is (for you) a resting-place and a depository; indeed We have made plain the communications for a people who understand.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>It is He who first produced you from a single soul, then gave you a place to stay [in life] and a resting place [after death]. We have made Our revelations clear to those who are men of understanding.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>It is He Who hath produced you from a single person: here is a place of sojourn and a place of departure: We detail Our signs for people who understand.</text>
         </translation>
       </translations>
     </verse>
@@ -1561,8 +2275,50 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>It is He who created you from a single cell, and from it created its mate, that you may live as companions. When the man covered the woman she conceived a light burden and carried it about. And when she was heavy (with child) they prayed together to their Lord: "If You bestow a healthy son on us we shall truly be grateful."</text>
+        </translation>
+        <translation author="Arberry">
+          <text>It is He who created you out of one living soul, and made of him his spouse that he might rest in her. Then, when he covered her, she bore a light burden and passed by with it; but when it became heavy they cried to God their Lord, 'If Thou givest us a righteous son, we indeed shall be of the thankful.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He it is who created you from a single soul, and He created therefrom his spouse that he might find repose in her. Then when he covereth her she beareth a light burthen and fareth about there with; then when she groweth heavy the twain call upon Allah their Lord: if Thou vouchsafest us a goodly Child, we shall surely be of the thankful.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>It is He Who has created you from a single person (Adam), and (then) He has created from him his wife [Hawwa (Eve)], in order that he might enjoy the pleasure of living with her. When he had sexual relation with her, she became pregnant and she carried it about lightly. Then when it became heavy, they both invoked Allah, their Lord (saying): "If You give us a Salih (good in every aspect) child, we shall indeed be among the grateful."</text>
+        </translation>
+        <translation author="Itani">
+          <text>It is He who created you from a single person, and made from it its mate, that he may find comfort with her. Then, when he has covered her, she conceives a light load, and she carries it around. But when she has grown heavy, they pray to God their Lord, “if You give us a good child, we will be among the thankful.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>It is He - Allah -Who created you from a single being, and out of it He made its mate, that he may find comfort in her. And when he covers her, she bears a light burden and goes about with it. Then, when she grows heavy, they pray to their Lord: 'If You bestow upon us a healthy child, we will surely give thanks.'</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>It is He Who has created you from a single person, and (then) He has created from him his wife, in order that he might enjoy the pleasure of living with her. When he covered [had sexual relation with] her, she became pregnant and she carried it about (lightly). Then when it became heavy, they both invoked Allah, their Lord (saying): "If You give us a Salih (good in every aspect) child, we shall indeed be among the grateful."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He it is Who did create you from a single soul, and therefrom did make his mate that he might take rest in her. And when he covered her she bore a light burden, and she passed (unnoticed) with it, but when it became heavy they cried unto Allah, their Lord, saying: If thou givest unto us aright we shall be of the thankful.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>It is He who created you from a single soul, and made from it its mate, that he might find comfort with her. So when he had covered her, she bore a light burden and passed [some time] with it. When she had grown heavy, they both invoked Allah, their Lord: ‘If You give us a healthy [child], we will be surely grateful.’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>It is He who created you from a soul. From it He created its mate, so that he might reside with her. And when he had covered her, she conceived, and for a time her burden was light. She carried it with ease, but when it grew heavy, they both supplicated to Allah, their Lord: 'Grant us a goodly child and we will be among the thankful'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>It is He who created you from one soul and created from it its mate that he might dwell in security with her. And when he covers her, she carries a light burden and continues therein. And when it becomes heavy, they both invoke Allah, their Lord, "If You should give us a good [child], we will surely be among the grateful."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>It is God Who created you from a single soul and out of it made its spouse to bring it comfort. When he (man) engaged in carnal relations with her, she conceived a light burden which she had to carry. When the baby grew in her womb, they (husband and wife) both prayed to their Lord, "If You grant us a healthy son we shall certainly give you thanks."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He it is Who created you from a single being, and of the same (kind) did He make his mate, that he might incline to her; so when he covers her she bears a light burden, then moves about with it; but when it grows heavy, they both call upon Allah, their Lord: If Thou givest us a good one, we shall certainly be of the grateful ones.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>It was He who created you from a single soul, and from it made its mate so that he may find comfort in her. Once he has covered her, she conceives and goes about with a light burden. When it grows  heavy, they both call to God, their Lord, "If You bestow on us a healthy child, we will surely be grateful,"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>It is He Who created you from a single person, and made his mate of like nature, in order that he might dwell with her (in love). When they are united, she bears a light burden and carries it about (unnoticed). When she grows heavy, they both pray to Allah their Lord, (saying): "If Thou givest us a goodly child, we vow we shall (ever) be grateful."</text>
         </translation>
       </translations>
     </verse>
@@ -1571,8 +2327,50 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>He created you from a single cell, then from it created its mate; arid provided eight varieties of cattle for you. He formed you in the mother's womb, formation after formation in three (veils of) darkness. He is God your Lord. His is the kingdom. There is no god other than He. How then can you turn away?</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He created you of a single soul, then from it He appointed its mate; and He sent down to you of the cattle eight couples. He creates you in your mothers' wombs creation after creation in threefold shadows. That then is God, your Lord; to Him belongs the Kingdom; there is no god but He; so how are you turned about?</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He created you Of a Single soul, and made his spouse therefrom; and of the cattle He sent down Unto you eight pairs. He createth you in the bellies of your mothers, one creation after creation, in a threefold darkness. Such is Allah, your Lord. His is the dominion, there is no god but He. Whither then turn ye away?</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>He created you (all) from a single person (Adam); then made from him his wife [Hawwa' (Eve)]. And He has sent down for you of cattle eight pairs (of the sheep, two, male and female; of the goats, two, male and female; of the oxen, two, male and female; and of the camels, two, male and female). He creates you in the wombs of your mothers, creation after creation in three veils of darkness, such is Allah your Lord. His is the kingdom, La ilaha illa Huwa (none has the right to be worshipped but He). How then are you turned away?</text>
+        </translation>
+        <translation author="Itani">
+          <text>He created you from one person, then made from it its mate, and brought down livestock for you—eight kinds in pairs. He creates you in the wombs of your mothers, in successive formations, in a triple darkness. Such is God, your Lord. His is the kingdom. There is no god but He. So what made you deviate?</text>
+        </translation>
+        <translation author="Maududi">
+          <text>He it is Who created you from a single being, and He it is Who made from it its mate. He it is Who created for you eight heads of cattle in pairs. He creates you in your mothers' wombs, giving you one form after another in threefold depths of darkness. That, then, is Allah, your Lord. His is the kingdom. There is no god but He. So, whence are you being turned astray?</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He created you (all) from a single person; then made from him his wife. And He has sent down for you of An`am eight pairs. He creates you in the wombs of your mothers, creation after creation in three veils of darkness. Such is Allah your Lord. His is the kingdom. La ilaha illa Huwa. How then are you turned away</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He created you from one being, then from that (being) He made its mate; and He hath provided for you of cattle eight kinds. He created you in the wombs of your mothers, creation after creation, in a threefold gloom. Such is Allah, your Lord. His is the Sovereignty. There is no Allah save Him. How then are ye turned away?</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He created you from a single soul, then made from it its mate, and He has sent down for you eight mates of the cattle. He creates you in the wombs of your mothers, creation after creation, in a threefold darkness. That is Allah, your Lord! To Him belongs all sovereignty. There is no god except Him. Then where are you being led away?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He created you from a single soul, then from it He created its spouse. And He sent down to you eight pairs of the cattle. He creates you in your mothers' womb, creation after creation, in three (stages of) darkness. Such then is Allah, your Lord. For Him is the Kingdom. There is no god except Him. How, then, can you turn away?</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He created you from one soul. Then He made from it its mate, and He produced for you from the grazing livestock eight mates. He creates you in the wombs of your mothers, creation after creation, within three darknesses. That is Allah, your Lord; to Him belongs dominion. There is no deity except Him, so how are you averted?</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He has created you from a single soul. Out of this He created your spouse. He sent you eight pairs of cattle. He creates you for a second time in the wombs of your mothers behind three curtains of darkness. He is your Lord to whom belongs the Kingdom. He is the only Lord. Where then will you turn away?</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He has created you from a single being, then made its mate of the same (kind), and He has made for you eight of the cattle in pairs. He creates you in the wombs of your mothers-- a creation after a creation-- in triple darkness; that is Allah your Lord, His is the kingdom; there is no god but He; whence are you then turned away?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He created you from a single soul, then produced its spouse from it, and He has provided for you eight heads of cattle in pairs. He creates you stage by stage in your mothers' wombs in a threefold darkness. Such is God, your Lord. Sovereignty is His. There is no god but Him. So what has made you turn away?</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He created you (all) from a single person: then created, of like nature, his mate; and he sent down for you eight head of cattle in pairs: He makes you, in the wombs of your mothers, in stages, one after another, in three veils of darkness. such is Allah, your Lord and Cherisher: to Him belongs (all) dominion. There is no god but He: then how are ye turned away (from your true Centre)?</text>
         </translation>
       </translations>
     </verse>
@@ -1581,8 +2379,50 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>If you have any doubt, O men, about being raised to life again, (remember) that We created you from dust, then a drop of semen, then an embryo, then a chewed up lump of flesh shaped and shapeless, that We may reveal (the various steps) to you. We keep what We please in the womb for a certain time, then you come out as a child, then reach the prime of age. Some of you die, some reach the age of dotage when they forget what they knew, having known it once. You see the earth all withered, then We send down rain upon it, and it bestirs itself, swells, and brings forth every kind of beauteous verdure.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>O men, if you are in doubt as to the Uprising, surely We created you of dust then of a sperm-drop, then of a blood clot, then of a lump of flesh, formed and unformed that We may make clear to you. And We establish in the wombs what We will, till a stated term, then We deliver you as infants, then that you may come of age; and some of you die, and some of you are kept back unto the vilest state of life, that after knowing somewhat, they may know nothing. And thou beholdest the earth blackened, then, when We send down water upon it, it quivers, and swells, and puts forth herbs of every joyous kind.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>O Mankind! if ye be in doubt respecting the Resurrection, then We have created you of the dust, then of a drop, then of clot, then of a piece of flesh, formed and unformed, that We might manifest unto you Our power. And We settle in the wombs that which We will until a term determined. Then We bring you forth as babes, then We let you reach your maturity. And of you is he who dieth, and of you is he who is brought back to the most abject age, so that after knowing he knoweth not aught. Andthou beholdest the earth withered up, and when We send down thereon water, it stirreth and swelleth, and it groweth every luxuriant kind of growth.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>O mankind! If you are in doubt about the Resurrection, then verily! We have created you (i.e. Adam) from dust, then from a Nutfah (mixed drops of male and female sexual discharge i.e. offspring of Adam), then from a clot (a piece of thick coagulated blood) then from a little lump of flesh, some formed and some unformed (miscarriage), that We may make (it) clear to you (i.e. to show you Our Power and Ability to do what We will). And We cause whom We will to remain in the wombs for an appointed term, then We bring you out as infants, then (give you growth) that you may reach your age of full strength. And among you there is he who dies (young), and among you there is he who is brought back to the miserable old age, so that he knows nothing after having known. And you see the earth barren, but when We send down water (rain) on it, it is stirred (to life), it swells and puts forth every lovely kind (of growth).</text>
+        </translation>
+        <translation author="Itani">
+          <text>O people! If you are in doubt about the Resurrection—We created you from dust, then from a small drop, then from a clinging clot, then from a lump of flesh, partly developed and partly undeveloped. In order to clarify things for you. And We settle in the wombs whatever We will for a designated term, and then We bring you out as infants, until you reach your full strength. And some of you will pass away, and some of you will be returned to the vilest age, so that he may not know, after having known. And you see the earth still; but when We send down water on it, it vibrates, and swells, and grows all kinds of lovely pairs.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>O mankind! If you have any doubt concerning Resurrection, then know that it is surely We Who created you from dust, then from a drop of sperm, then from a clot of blood, then from a little lump of flesh, some of it shapely and other shapeless. (We are rehearsing this) that We may make the reality clear to you. We cause (the drop of sperm) that We please to remain in the wombs till an appointed time. We bring you forth as infants (and nurture you) that you may come of age. Among you is he that dies (at a young age) and he who is kept back to the most abject age so that after once having known, he reaches a stage when he knows nothing. You see the earth dry and barren and then no sooner than We send down water upon it, it begins to quiver and swell and brings forth every kind of beauteous vegetation.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>O mankind! If you are in doubt about the Resurrection, then verily, We have created you from dust, then from a Nutfah, then from a clot then from a little lump of flesh -- some formed and some unformed -- that We may make (it) clear to you. And We cause whom We will to remain in the wombs for an appointed term, then We bring you out as infants, then (give you growth) that you may reach your age of full strength. And among you there is he who dies (young), and among you there is he who is brought back to the miserable old age, so that he knows nothing after having known. And you see the earth Hamidatan, but when We send down water on it, it is stirred (to life), and it swells and puts forth every lovely kind (of growth).</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>O mankind! if ye are in doubt concerning the Resurrection, then lo! We have created you from dust, then from a drop of seed, then from a clot, then from a little lump of flesh shapely and shapeless, that We may make (it) clear for you. And We cause what We will to remain in the wombs for an appointed time, and afterward We bring you forth as infants, then (give you growth) that ye attain your full strength. And among you there is he who dieth (young), and among you there is he who is brought back to the most abject time of life, so that, after knowledge, he knoweth naught. And thou (Muhammad) seest the earth barren, but when We send down water thereon, it doth thrill and swell and put forth every lovely kind (of growth).</text>
+        </translation>
+        <translation author="Qarai">
+          <text>O people! If you are in doubt about the resurrection, [consider that] We created you from dust, then from a drop of [seminal] fluid, then from a clinging mass, then from a fleshy tissue, partly formed and partly unformed, so that We may manifest [Our power] to you. We lodge in the wombs whatever [fetus] We wish for a specified term, then We bring you forth as infants, then [We rear you] so that you may come of age. [Then] there are some of you who are taken away, and there are some of you who are relegated to the nethermost age, such that he knows nothing after [having possessed] some knowledge. And you see the earth torpid, yet when We send down water upon it, it stirs and swells, and grows every delightful kind [of plant].</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>O people, if you are in doubt about the Resurrection, remember that We first created you from dust, then, from a sperm drop, then from a clot, and then from a bitesize tissue formed and unformed, so that We might clarify for you. We establish in the wombs whatever We will for an appointed term, and then We bring you forth as infants, then you come of age. Some of you die, and some of you are kept back to the vilest state of life, after knowing somewhat, they know nothing. And you see the earth dry; but no sooner do We send down rain upon it than it begins to quiver and swell, putting forth every fine variety (of herbage).</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>O People, if you should be in doubt about the Resurrection, then [consider that] indeed, We created you from dust, then from a sperm-drop, then from a clinging clot, and then from a lump of flesh, formed and unformed - that We may show you. And We settle in the wombs whom We will for a specified term, then We bring you out as a child, and then [We develop you] that you may reach your [time of] maturity. And among you is he who is taken in [early] death, and among you is he who is returned to the most decrepit [old] age so that he knows, after [once having] knowledge, nothing. And you see the earth barren, but when We send down upon it rain, it quivers and swells and grows [something] of every beautiful kind.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>People, if you have doubts about the Resurrection, you must know that We created you from clay that was turned into a living germ. This was developed into a clot of blood, which was made into a well formed and partly shapeless lump of flesh. This is how We show you that resurrection is not more difficult for Us than your creation. We cause whatever We want to stay in the womb for an appointed time, We then take you out of the womb as a baby, so that you may grow up and receive strength. Some of you may then die and others may grow to a very old age and lose your memory. You may see the earth as a barren land, but when we send rain, it starts to stir and swell and produce various pairs of attractive herbs.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>O people! if you are in doubt about the raising, then surely We created you from dust, then from a small seed, then from a clot, then from a lump of flesh, complete in make and incomplete, that We may make clear to you; and We cause what We please to stay in the wombs till an appointed time, then We bring you forth as babies, then that you may attain your maturity; and of you is he who is caused to die, and of you is he who is brought back to the worst part of life, so that after having knowledge he does not know anything; and you see the earth sterile land, but when We send down on it the water, it stirs and swells and brings forth of every kind a beautiful herbage.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>O people! If you are in doubt about the Resurrection, remember that We first created you from dust, then from a sperm drop, then from clotted blood, then a lump of flesh, both shaped and unshaped, so that We might manifest to you [Our power]. We cause what We will to stay in the womb for an appointed time, then We bring you forth as infants and then We cause you to grow and reach full growth. Then, some of you will pass away early in life, while some of you will reach extreme old age in which they will know nothing of what they once knew. You see the earth, dead and barren, but no sooner do We send down rain upon it than it begins to stir and swell, and produce every kind of luxuriant vegetation:</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>O mankind! if ye have a doubt about the Resurrection, (consider) that We created you out of dust, then out of sperm, then out of a leech-like clot, then out of a morsel of flesh, partly formed and partly unformed, in order that We may manifest (our power) to you; and We cause whom We will to rest in the wombs for an appointed term, then do We bring you out as babes, then (foster you) that ye may reach your age of full strength; and some of you are called to die, and some are sent back to the feeblest old age, so that they know nothing after having known (much), and (further), thou seest the earth barren and lifeless, but when We pour down rain on it, it is stirred (to life), it swells, and it puts forth every kind of beautiful growth (in pairs).</text>
         </translation>
       </translations>
     </verse>
@@ -1591,8 +2431,50 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>Among His signs is that He created you from the earth, and you are now human beings dispersed everywhere.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And of His signs is that He created you of dust; then lo, you are mortals, all scattered abroad.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And of His signs is, that he created you of dust, then lo! ye are humankind spreading yourselves.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>And among His Signs is this, that He created you (Adam) from dust, and then [Hawwa' (Eve) from Adam's rib, and then his offspring from the semen, and], - behold you are human beings scattered!</text>
+        </translation>
+        <translation author="Itani">
+          <text>And of His signs is that He created you from dust; and behold, you become humans spreading out.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>And of His Signs is that He created you from dust and behold, you became human beings, and are multiplying around (the earth).</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And among His signs is this that He created you from dust, and then -- behold you are human beings scattered!</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And of His signs is this: He created you of dust, and behold you human beings, ranging widely!</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Of His signs is that He created you from dust, then, behold, you are humans scattering [all over]!</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And of His signs is that He created you from dust and you became humans scattered throughout the earth.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And of His signs is that He created you from dust; then, suddenly you were human beings dispersing [throughout the earth].</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Some evidence of His existence are His creating you from clay and from that you became human beings scattered all around;</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And one of His signs is that He created you from dust, then lo! you are mortals (who) scatter.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>One of His signs is that He created you from dust and, behold, you became human beings and multiplied yourselves throughout the earth.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Among His Signs in this, that He created you from dust; and then,- behold, ye are men scattered (far and wide)!</text>
         </translation>
       </translations>
     </verse>
@@ -1601,8 +2483,50 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>It is God who created you from dust, then from a sperm, then formed you into pairs. Neither does a female conceive nor gives birth without His knowledge; nor do the old grow older or become younger in years but in accordance with the law (of nature). Indeed the law of God works inevitably.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>God created you of dust then of a sperm-drop, then He made you pairs. No female bears or brings forth, save with His knowledge; and none is given long life who is given long life neither is any diminished in his life, but it is in a Book. Surely that is easy for God.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And Allah created you of dust, then of a seed; then He made you pairs. No female beareth or bringeth forth but with His knowledge. And no aged man growth old, nor is aught diminished of his life, but it is in a Book; verily for Allah that is easy.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>And Allah did create you (Adam) from dust, then from Nutfah (male and female discharge semen drops i.e. Adam's offspring), then He made you pairs (male and female). And no female conceives or gives birth, but with His Knowledge. And no aged man is granted a length of life, nor is a part cut off from his life (or another man's life), but is in a Book (AlLauh AlMahfuz) Surely, that is easy for Allah.</text>
+        </translation>
+        <translation author="Itani">
+          <text>God created you from dust, then from a small drop; then He made you pairs. No female conceives, or delivers, except with His knowledge. No living thing advances in years, or its life is shortened, except it be in a Record. That is surely easy for God.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Allah created you from dust, then from a drop of sperm, then He made you into pairs. No female conceives, nor delivers (a child) except with His knowledge. None is given a long life nor is any diminished in his life but it is written in a Book. Surely that is quite easy for Allah.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And Allah did create you from dust, then from Nutfah, then He made you pairs. And no female conceives or gives birth but with His knowledge. And no aged man is granted a length of life nor is a part cut off from his life, but is in a Book. Surely, that is easy for Allah.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Allah created you from dust, then from a little fluid, then He made you pairs (the male and female). No female beareth or bringeth forth save with His knowledge. And no-one groweth old who groweth old, nor is aught lessened of his life, but it is recorded in a Book, Lo! that is easy for Allah.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Allah created you from dust, then from a drop of [seminal] fluid, then He made you mates. No female conceives or delivers except with His knowledge, and no elderly person advances in years, nor is anything diminished of his life, but it is [recorded] in a Book. That is indeed easy for Allah.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Allah created you from dust, then from a (sperm) drop. Then he made you pairs. No female conceives or is delivered except by His Knowledge. He whose life is long, whatsoever is increased or decreased of his age is in a Clear Book. Surely, that is easy for Allah.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And Allah created you from dust, then from a sperm-drop; then He made you mates. And no female conceives nor does she give birth except with His knowledge. And no aged person is granted [additional] life nor is his lifespan lessened but that it is in a register. Indeed, that for Allah is easy.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>God created you from clay which He then turned into a living germ and made you into pairs. No female conceives or delivers without His knowledge. No one grows older nor can anything be reduced from one's life without having its record in the Book. This is not at all difficult for God.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And Allah created you of dust, then of the life-germ, then He made you pairs; and no female bears, nor does she bring forth, except with His knowledge; and no one whose life is lengthened has his life lengthened, nor is aught diminished of one's life, but it is all in a book; surely this is easy to Allah.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>God has created you from dust, then from a drop of semen and then divided you into pairs; no female conceives or gives birth without His knowledge; and no one's life is prolonged or shortened, but it is recorded in a Book. That surely is easy for God.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And Allah did create you from dust; then from a sperm-drop; then He made you in pairs. And no female conceives, or lays down (her load), but with His knowledge. Nor is a man long-lived granted length of days, nor is a part cut off from his life, but is in a Decree (ordained). All this is easy to Allah.</text>
         </translation>
       </translations>
     </verse>
@@ -1611,8 +2535,50 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>It is He who created you from dust, then a drop of semen, then the embryo; afterwards He brings you forth as a child; then you attain the age of manhood, and then reach old age. But some of you die before you reach the appointed term that you may haply understand.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>It is He who created you of dust then of a sperm-drop, then of a blood-clot, then He delivers you as infants, then that you may come of age, then that you may be old men -- though some of you there are who die before it -- and that you may reach a stated term; haply you will understand.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He it is Who created you of dust, and thereafter of a drop, and thereafter of a clot, and thereafter He bringeth you forth as an infant, and thereafter He ordaineth that ye attain your full strength and thereafter that ye become old men-though some of you die before-and that ye attain the appointed term, and that haply ye may reflect.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>He, it is Who has created you (Adam) from dust, then from a Nutfah [mixed semen drops of male and female discharge (i.e. Adam's offspring)] then from a clot (a piece of coagulated blood), then brings you forth as children, then (makes you grow) to reach the age of full strength, and afterwards to be old (men and women), though some among you die before, and that you reach an appointed term, in order that you may understand.</text>
+        </translation>
+        <translation author="Itani">
+          <text>It is He who created you from dust, then from a seed, then from an embryo, then He brings you out as an infant, then He lets you reach your maturity, then you become elderly—although some of you die sooner—so that you may reach a predetermined age, so that you may understand.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>He it is Who created you from dust, then from a sperm-drop, then from a clot; then He brings you out as an infant, then causes you to grow into full maturity, and then causes you to grow further so that you may reach old age, while some of you He recalls earlier. All this is in order that you may reach an appointed term and that you may understand (the Truth).</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>It is He, Who has created you from dust, then from a Nutfah then from a clot (a piece of coagulated blood), then brings you forth as an infant, then (makes you grow) to reach the age of full strength, and afterwards to be old -- though some among you die before -- and that you reach an appointed term in order that you may understand.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He it is Who created you from dust, then from a drop (of seed) then from a clot, then bringeth you forth as a child, then (ordaineth) that ye attain full strength and afterward that ye become old men - though some among you die before - and that ye reach an appointed term, that haply ye may understand.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>It is He who created you from dust, then from a drop of [seminal] fluid, then from a clinging mass, then He brings you forth as infants, then [He nurtures you] so that you may come of age, and then that you may become aged—though there are some of you who die earlier—and complete a specified term, and so that you may exercise your reason.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>It is He who created you from dust, then from a (sperm) drop, and then a (blood) clot. He then brings you forth as an infant, then you reach your strength, after which you come of age though some of you die before it and that you reach an appointed term, in order that you understand.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>It is He who created you from dust, then from a sperm-drop, then from a clinging clot; then He brings you out as a child; then [He develops you] that you reach your [time of] maturity, then [further] that you become elders. And among you is he who is taken in death before [that], so that you reach a specified term; and perhaps you will use reason.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>It is He Who created you from clay, turning it into a living germ, then into a clot of blood, and then brings you forth as a child. He then made you grow into manhood and become old. He causes some of you to live for the appointed time and some of you to die before so that perhaps you may have understanding.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He it is Who created you from dust, then from a small lifegerm, then from a clot, then He brings you forth as a child, then that you may attain your maturity, then that you may be old-- and of you there are some who are caused to die before-- and that you may reach an appointed term, and that you may understand.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>It is He who created you from dust, then from a drop of fluid, then from a tiny, clinging form, then He brought you forth as infants, then He allowed you to reach maturity, then He let you grow old, though some of you die sooner, and reach your appointed term so that you may reflect.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>It is He Who has created you from dust then from a sperm-drop, then from a leech-like clot; then does he get you out (into the light) as a child: then lets you (grow and) reach your age of full strength; then lets you become old,- though of you there are some who die before;- and lets you reach a Term appointed; in order that ye may learn wisdom.</text>
         </translation>
       </translations>
     </verse>
@@ -1621,8 +2587,50 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>Disputing with him, his companion said: "Do you disbelieve in Him who created you from dust, then a drop of semen, then formed you into a man?</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Said his fellow, as he was conversing with him, 'What, disbelievest thou in Him who created thee of dust, then of a sperm-drop, then shaped thee as a man?</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>His fellow said unto him, while he spake with him: hast thou disbelieved in Him Who created thee of dust, then of a sperm, and formed thee a man?</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>His companion said to him, during the talk with him: "Do you disbelieve in Him Who created you out of dust (i.e. your father Adam), then out of Nutfah (mixed semen drops of male and female discharge), then fashioned you into a man?</text>
+        </translation>
+        <translation author="Itani">
+          <text>His friend said to him, as he conversed with him, “Are you being ungrateful to Him who created you from dust, then from a sperm-drop, then evolved you into a man?</text>
+        </translation>
+        <translation author="Maududi">
+          <text>While conversing with him his neighbour exclaimed: "Do you deny Him Who created you out of dust, then out of a drop of sperm, and then fashioned you into a complete man?</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>His companion said to him during his discussion: "Do you disbelieve in Him Who created you out of dust, then out of Nutfah, then fashioned you into a man"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>His comrade, when he (thus) spake with him, exclaimed: Disbelievest thou in Him Who created thee of dust, then of a drop (of seed), and then fashioned thee a man?</text>
+        </translation>
+        <translation author="Qarai">
+          <text>His companion said to him, as he conversed with him: ‘Do you disbelieve in Him who created you from dust, then from a drop of [seminal] fluid, then fashioned you as a man?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>His companion said, during his conversation with him: 'What, do you disbelieve in Him who created you from dust, then from a spermdrop, and then fashioned you into a man!</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>His companion said to him while he was conversing with him, "Have you disbelieved in He who created you from dust and then from a sperm-drop and then proportioned you [as] a man?</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>His friend said to him, "How can you disbelieve in the One who turned clay into sperm out of which He created you?</text>
+        </translation>
+        <translation author="Shakir">
+          <text>His companion said to him while disputing with him: Do you disbelieve in Him Who created you from dust, then from a small seed, then He made you a perfect man?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>His companion replied, in the course of their discussion, "Do you deny Him who created you from dust, from a small drop of fluid, then formed you into a man?</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>His companion said to him, in the course of the argument with him: "Dost thou deny Him Who created thee out of dust, then out of a sperm-drop, then fashioned thee into a man?</text>
         </translation>
       </translations>
     </verse>
@@ -1631,8 +2639,50 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>Then We placed him as a sperm in a firmly established lodging;</text>
+        </translation>
+        <translation author="Arberry">
+          <text>then We set him, a drop, in a receptacle secure,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Thereafter We made him of a Sperm In a receptacle safe.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>Thereafter We made him (the offspring of Adam) as a Nutfah (mixed drops of the male and female sexual discharge) (and lodged it) in a safe lodging (womb of the woman).</text>
+        </translation>
+        <translation author="Itani">
+          <text>Then We made him a seed, in a secure repository.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>then We made him into a drop of life-germ, then We placed it in a safe depository,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Thereafter We made him a Nutfah in a safe lodging.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Then placed him as a drop (of seed) in a safe lodging;</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Then We made him a drop of [seminal] fluid [lodged] in a secure abode.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>then We made him, a drop, in a secure receptacle (the womb).</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Then We placed him as a sperm-drop in a firm lodging.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>which was then turned into a living germ and placed in safe depository.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Then We made him a small seed in a firm resting-place,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>then We placed him as a drop of fluid in a safe place,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Then We placed him as (a drop of) sperm in a place of rest, firmly fixed;</text>
         </translation>
       </translations>
     </verse>
@@ -1641,8 +2691,50 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>You have known the first creation, then why do you not reflect?</text>
+        </translation>
+        <translation author="Arberry">
+          <text>You have known the first growth; so why will you not remember?</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And assuredly ye have fully known the first Production Wherefore heed ye not?</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>And indeed, you have already known the first form of creation (i.e. the creation of Adam), why then do you not remember or take heed?</text>
+        </translation>
+        <translation author="Itani">
+          <text>You have known the first formation; if only you would remember.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>You are well aware of the first creation; then, do you learn no lesson from it?</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And indeed, you have already known the first form of creation, why then do you not remember</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And verily ye know the first creation. Why, then, do ye not reflect?</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Certainly you have known the first genesis, then why do you not take admonition?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>You have surely known of the first creation. Why then, will you not remember!</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And you have already known the first creation, so will you not remember?</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>You certainly knew about (your) first development. Why do you not take heed?</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And certainly you know the first growth, why do you not then mind?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>You have certainly known the first creation. Why, then, do you not take heed?</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And ye certainly know already the first form of creation: why then do ye not celebrate His praises?</text>
         </translation>
       </translations>
     </verse>
@@ -1651,11 +2743,50 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>As for those who avoid the greater sins and shameful acts, except minor trespasses, your Lord's forgiveness surely has great amplitude. He is fully knowledgeable of you as He produced you from the earth, and since you were a foetus in your mother's womb. So do not assert your goodness; he is better who takes heed and preserves himself.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Those who avoid the heinous sins and indecencies, save lesser offences surely thy Lord is wide in His forgiveness. Very well He knows you, when He produced you from the earth, and when you were yet unborn in your mothers' wombs; therefore hold not yourselves purified; God knows very well him who is godfearing.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>They are those who avoid enormities of sin and abominations save the minor offences. Verily thy Lord is of vast for giveness: He is Best Knower of you when He produced you out Of the earth, and when ye were embryos in the bellies of your mothers. So justify not yourselves; He is the Best Knower of him who feareth Him.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>Those who avoid great sins (see the Quran, Verses: 6:152, 153) and Al-Fawahish (illegal sexual intercourse, etc.) except the small faults, verily, your Lord is of vast forgiveness. He knows you well when He created you from the earth (Adam), and when you were fetuses in your mothers' wombs. So ascribe not purity to yourselves. He knows best him who fears Allah and keep his duty to Him [i.e. those who are Al-Muttaqun (pious - see V. 2:2)].</text>
         </translation>
+        <translation author="Itani">
+          <text>Those who avoid gross sins and indecencies—except for minor lapses—your Lord is of Vast Forgiveness. He knows you well, ever since He created you from the earth, and ever since you were embryos in your mothers’ wombs. So do not acclaim your own virtue; He is fully aware of the righteous.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>on those who avoid grave sins and shameful deeds, even if they may sometimes stumble into lesser offences. Surely your Lord is abounding in His Forgiveness. Very well is He aware of you since He produced you from the earth, and while you were still in your mothers' wombs and not yet born. So do not boastfully claim yourselves to be purified. He fully knows those that are truly Godfearing.</text>
+        </translation>
         <translation author="Mubarakpuri">
           <text>Those who avoid great sins and Al-Fawahish (immoral sins) except Al-Lamam -- verily, your Lord is of vast forgiveness. He knows you well when He created you from the earth (Adam), and when you were fetuses in your mothers' wombs. So, ascribe not purity to yourselves. He knows best him who has Taqwa.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Those who avoid enormities of sin and abominations, save the unwilled offences - (for them) lo! thy Lord is of vast mercy. He is Best Aware of you (from the time) when He created you from the earth, and when ye were hidden in the bellies of your mothers. Therefor ascribe not purity unto yourselves. He is Best Aware of him who wardeth off (evil).</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Those who avoid major sins and indecencies, apart from [minor and occasional] lapses. Indeed your Lord is expansive in [His] forgiveness. He knows you best since [the time] He produced you from the earth and since you were foetuses in the bellies of your mothers. So do not flaunt your piety: He knows best those who are Godwary.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>those who avoid the major sin and indecencies except the small sins, indeed your Lord is of immense forgiveness and He is more knowledgeable of you when He created you from the earth and when you were still unborn in your mothers' wombs. Do not praise yourself. Allah knows the cautious.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Those who avoid the major sins and immoralities, only [committing] slight ones. Indeed, your Lord is vast in forgiveness. He was most knowing of you when He produced you from the earth and when you were fetuses in the wombs of your mothers. So do not claim yourselves to be pure; He is most knowing of who fears Him.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Those who stay away from grave sins and indecency (should know that) for their trivial sins your Lord's forgiveness is vast. He knows best about you. When He created you from the earth and when you were embryos in your mother's wombs. Do not consider yourselves very great. God knows best who is the most righteous person.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Those who keep aloof from the great sins and the indecencies but the passing idea; surely your Lord is liberal in forgiving. He knows you best when He brings you forth from the earth and when you are embryos in the wombs of your mothers; therefore do not attribute purity to your souls; He knows him best who guards (against evil).</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>As for those who refrain from committing grave sins and indecent acts, though they may commit minor offences, your Lord is unstinting in His forgiveness. He knows you when He brings you out of the earth, and when you were embryos in the wombs of your mothers; so do not make claims to be pure. He knows best who is truly righteous.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Those who avoid great sins and shameful deeds, only (falling into) small faults,- verily thy Lord is ample in forgiveness. He knows you well when He brings you out of the earth, And when ye are hidden in your mothers' wombs. Therefore justify not yourselves: He knows best who it is that guards against evil.</text>
         </translation>
       </translations>
     </verse>
@@ -1669,6 +2800,9 @@ The Prophet said, "None is killed unjustly, but the first son of Adam will have 
         </translation>
         <translation author="Ahmed Raza Khan">
           <text>The example of Eisa with Allah is like that of Adam; He created him (Adam) from clay and then said to him, “Be” – and it thereupon happens!</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Truly, the likeness of Jesus, in God's sight, is as Adam's likeness; He created him of dust, then said He unto him, 'Be,' and he was.</text>
         </translation>
         <translation author="Daryabadi">
           <text>Verily the likeness of 'lsa with Allah is as the likeness of Adam: him He created out of dust, thereafter He said unto him: Be, and lo! he becometh.</text>

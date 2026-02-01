@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<story query="noah, nuh, ark" generated="2026-02-01T00:43:52.169Z">
+<story query="noah, nuh, ark" generated="2026-02-01T01:58:16.288Z">
   <metadata>
     <title>Story generated from search: "noah, nuh, ark"</title>
     <verses_count>98</verses_count>
-    <translations_count>843</translations_count>
-    <reordered>2026-02-01T00:43:52.169Z</reordered>
+    <translations_count>1261</translations_count>
+    <reordered>2026-02-01T01:58:16.290Z</reordered>
     <reorder_source>noah_reorder.csv</reorder_source>
   </metadata>
   <verses>
@@ -432,14 +432,50 @@
       <book_id>en.maududi</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>He said: "O my people, I warn you clearly</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He said, 'O my people, I am unto you a clear warner,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: O my people! verily I am Unto you a warner manifest.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>He said: "O my people! Verily, I am a plain warner to you,</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “O my people, I am to you a clear warner.</text>
+        </translation>
         <translation author="Maududi">
           <text>Noah said: “My people, I have certainly been sent as a clear warner to you,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "O my people! Verily, I am a plain warner to you,"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: O my people! Lo! I am a plain warner unto you</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘O my people! Indeed, I am a manifest warner to you.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He said: 'My nation, I am a clear warner for you.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He said, "O my people, indeed I am to you a clear warner,</text>
         </translation>
         <translation author="Sarwar">
           <text>Noah said, "My people, I am warning you plainly.</text>
         </translation>
+        <translation author="Shakir">
+          <text>He said: O my people! Surely I am a plain warner to you:</text>
+        </translation>
         <translation author="Wahiduddin Khan">
           <text>[Noah] said, "My people! I am but a plain warner to you,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "O my People! I am to you a Warner, clear and open:</text>
         </translation>
       </translations>
     </verse>
@@ -552,8 +588,50 @@
       <book_id>en.sarwar</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>Do not worship anyone but God; for I fear the punishment of a dreadful day for you."</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Serve you none but God. I fear for you the chastisement of a painful day.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>That ye shall worship none except Allah; verily I fear for you the torment of a Day afflictive.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"That you worship none but Allah, surely, I fear for you the torment of a painful Day."</text>
+        </translation>
+        <translation author="Itani">
+          <text>“That you shall worship none but God. I fear for you the agony of a painful Day.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>that you may worship none but Allah or else I fear for you the chastisement of a Grievous Day.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"That you worship none but Allah; surely, I fear for you the torment of a painful Day."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>That ye serve none, save Allah. Lo! I fear for you the retribution of a painful Day.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Worship none but Allah. Indeed I fear for you the punishment of a painful day.’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Worship none except Allah. I fear for you the punishment of a painful Day'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>That you not worship except Allah. Indeed, I fear for you the punishment of a painful day."</text>
+        </translation>
         <translation author="Sarwar">
           <text>that they should not worship anyone besides God. (Noah warned them), "I am afraid that you will suffer the most painful torment".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>That you shall not serve any but Allah, surely I fear for you the punishment of a painful day.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>worship none but God. I fear lest punishment befall you on a woeful Day."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"That ye serve none but Allah: Verily I do fear for you the penalty of a grievous day."</text>
         </translation>
       </translations>
     </verse>
@@ -666,8 +744,50 @@
       <book_id>en.sarwar</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>He said: "O Lord, I called my people night and day,</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He said; 'My Lord, I have called my people by night and by day,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: my Lord! verily have called my people night and day.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>He said: "O my Lord! Verily, I have called my people night and day (i.e. secretly and openly to accept the doctrine of Islamic Monotheism).</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “My Lord, I have called my people night and day.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>He said: “My Lord, I called my people by night and by day,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: O my Lord! Verily, I have called to my people night and day,</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: My Lord! Lo! I have called unto my people night and day</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘My Lord! Indeed, I have summoned my people night and day</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>'My Lord' said he, 'night and day I have called my nation,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He said, "My Lord, indeed I invited my people [to truth] night and day.</text>
+        </translation>
         <translation author="Sarwar">
           <text>Noah said, "My Lord, I have been preaching to my people, night and day,</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: O my Lord! surely I have called my people by night and by day!</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He said, "My Lord! I have called my people night and day</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "O my Lord! I have called to my People night and day:</text>
         </translation>
       </translations>
     </verse>
@@ -676,11 +796,50 @@
       <book_id>en.maududi</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>He said: "O my people, think. If I have a clear proof from my Lord, and He has bestowed on me His grace, though unknown to you, can we force it upon you when you are averse?</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He said, 'O my people, what think you? If I stand upon a clear sign from my Lord, and He has given me mercy from Him, and it has been obscured for you, shall we compel you to it while you are averse to it?</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: bethink ye, O my people! if I rested upon an evidence from my Lord, and a mercy hath come unto me from Him, and that hath been obscured unto you, Shall we make you adhere to it while ye are averse thereto?</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>He said: "O my people! Tell me, if I have a clear proof from my Lord, and a Mercy (Prophethood, etc.) has come to me from Him, but that (Mercy) has been obscured from your sight. Shall we compel you to accept it (Islamic Monotheism) when you have a strong hatred for it?</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “O my people, Have you considered? If I stand on clear evidence from my Lord, and He has given me a mercy from Himself, but you were blind to it, can we compel you to accept it, even though you dislike it?”</text>
+        </translation>
         <translation author="Maududi">
           <text>Noah said: 'My people! If I base myself on a clear evidence from my Lord, and I have also been blessed by His mercy to which you have been blind, how can we force it upon you despite your aversion to it?</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "O my people! Tell me, if I have a clear proof from my Lord, and a mercy (prophethood) has come to me from Him, but that (mercy) has been obscured from your sight. Shall we compel you (to accept) it when you have a strong hatred for it</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: O my people! Bethink you, if I rely on a clear proof from my Lord and there hath come unto me a mercy from His presence, and it hath been made obscure to you, can we compel you to accept it when ye are averse thereto?</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘O my people! Tell me, should I stand on a manifest proof from my Lord, and He has granted me His own mercy—though it should be invisible to you—shall we force it upon you while you are averse to it?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He said: 'What do you think my nation! If I have a clear proof from my Lord and He has given me mercy from Him, though it is hidden from you, can wecompel you to accept it when you hate it?</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He said, "O my people have you considered: if I should be upon clear evidence from my Lord while He has given me mercy from Himself but it has been made unapparent to you, should we force it upon you while you are averse to it?</text>
+        </translation>
         <translation author="Sarwar">
           <text>Noah replied, "My people do you think - that if my Lord has sent me a miracle and granted me mercy but your ignorance has obscured them from your sight - we can force you to believe when you do not want to?</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: O my people! tell me if I have with me clear proof from my Lord, and He has granted me mercy from Himself and it has been made obscure to you; shall we constrain you to (accept) it while you are averse from it?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He said, "O my people, tell me: if I have clear evidence from my Lord and He has favoured me with grace from Himself, which you have been unable to recognize, can we force it on you against your will?</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "O my people! See ye if (it be that) I have a Clear Sign from my Lord, and that He hath sent Mercy unto me from His own presence, but that the Mercy hath been obscured from your sight? shall we compel you to accept it when ye are averse to it?</text>
         </translation>
       </translations>
     </verse>
@@ -689,11 +848,35 @@
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>"I have not gone astray, O my people," he said, "but have been sent by my Lord, the creator of all the worlds.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Said he, 'My people, there is no error in me; but I am a Messenger from the Lord of all Being.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: O my people! not with me is the error, but I am an apostle from the Lord of the worlds.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>[Nuh (Noah)] said: "O my people! There is no error in me, but I am a Messenger from the Lord of the 'Alamin (mankind, jinns and all that exists)!</text>
         </translation>
+        <translation author="Itani">
+          <text>He said, “O my people, I am not in error, but I am a messenger from the Lord of the Worlds.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>He said: 'O my people! There is no error in me, but I am a Messenger from the Lord of the universe.</text>
+        </translation>
         <translation author="Mubarakpuri">
           <text>[Nuh] said: "O my people! There is no error in me, but I am a Messenger from the Lord of all that exists!</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: O my people! There is no error in me, but I am a messenger from the Lord of the Worlds.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘O my people, I am not in error. Rather, I am an apostle from the Lord of all the worlds.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>'I am not in error, my nation' he replied. 'I am a Messenger from the Lord of the Worlds</text>
         </translation>
         <translation author="Saheeh International">
           <text>[Noah] said, "O my people, there is not error in me, but I am a messenger from the Lord of the worlds."</text>
@@ -701,8 +884,14 @@
         <translation author="Sarwar">
           <text>(Noah) said, "My people, I am not in any error, rather I am a Messenger from the Lord of the Universe,</text>
         </translation>
+        <translation author="Shakir">
+          <text>He said: O my people! there is no error in me, but I am an apostle from the Lord of the worlds.</text>
+        </translation>
         <translation author="Wahiduddin Khan">
           <text>Said [Noah], "O my people! I am not in error. Indeed, I am a messenger from the Lord of the Worlds,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "O my people! No wandering is there in my (mind): on the contrary I am a messenger from the Lord and Cherisher of the worlds!</text>
         </translation>
       </translations>
     </verse>
@@ -711,11 +900,50 @@
       <book_id>en.maududi</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>He said: "It is not for me to know what they were doing.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He said, 'What knowledge have I of that they have been doing?</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: I have no knowledge of that which they have been Working.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>He said: "And what knowledge have I of what they used to do?</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “What do I know about what they do?</text>
+        </translation>
         <translation author="Maududi">
           <text>Noah said: "What knowledge do I have about their deeds?</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "And what knowledge have I of what they used to do"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: And what knowledge have I of what they may have been doing (in the past)?</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘What do I know as to what they used to do?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He said: 'I have no knowledge of what they have done.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He said, "And what is my knowledge of what they used to do?</text>
+        </translation>
         <translation author="Sarwar">
           <text>(Noah) said, "I have no knowledge of their deeds.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: And what knowledge have I of what they do?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He said, "What knowledge do I have of their doings?</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "And what do I know as to what they do?</text>
         </translation>
       </translations>
     </verse>
@@ -782,6 +1010,9 @@
         <translation author="Arberry">
           <text>The people of Noah cried lies to the Envoys</text>
         </translation>
+        <translation author="Daryabadi">
+          <text>And Nuh's people belied the sent ones.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>The people of Nuh (Noah) belied the Messengers.</text>
         </translation>
@@ -793,6 +1024,9 @@
         </translation>
         <translation author="Mubarakpuri">
           <text>The people of Nuh denied the Messengers.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Noah's folk denied the messengers (of Allah),</text>
         </translation>
         <translation author="Qarai">
           <text>The people of Noah impugned the apostles</text>
@@ -889,6 +1123,9 @@
         <translation author="Itani">
           <text>Before them the people of Noah disbelieved. They rejected Our servant, and said, “Crazy,” and he was rebuked.</text>
         </translation>
+        <translation author="Maududi">
+          <text>Before them Noah's people also gave the lie (to his Message). They rejected Our servant as a liar, saying: “He is a madman”; and he was rebuffed.</text>
+        </translation>
         <translation author="Mubarakpuri">
           <text>The people of Nuh denied (their Messenger) before them. They rejected Our servant and said: "A madman!" Wazdujir.</text>
         </translation>
@@ -928,6 +1165,9 @@
         </translation>
         <translation author="Arberry">
           <text>They said, 'If thou givest not over, Noah, thou shalt assuredly be one of the stoned.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>They said: if thou desistest not, thou shalt surely be of those stoned.</text>
         </translation>
         <translation author="Hilali &amp; Khan">
           <text>They said: "If you cease not, O Nuh (Noah)! You will surely be among those stoned (to death)."</text>
@@ -1024,8 +1264,50 @@
       <book_id>en.qaribullah</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>And they misled many. So do not give the evil-doers increase but in error.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And they have led many astray. Increase Thou not the evildoers save in error!'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And surely they have misled many. And increase Thou these wrong-doers in naught save error.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And indeed they have led many astray. And (O Allah): 'Grant no increase to the Zalimun (polytheists, wrong-doers, and disbelievers, etc.) save error."</text>
+        </translation>
+        <translation author="Itani">
+          <text>They have misled many, so do not increase the wrongdoers except in confusion.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>They have misled many. So do not enable these evildoers to increase in anything except straying (from the Right Way).”</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And indeed they have led many astray. And (O Allah): `Grant no increase to the wrongdoers save error."'</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And they have led many astray, and Thou increasest the wrong-doers in naught save error.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>and already they have led many astray. Do not increase the wrongdoers in anything but error.’</text>
+        </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>And they have led many astray. (Noah supplicated saying): 'Allah, do not increase the harmdoers except in error'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And already they have misled many. And, [my Lord], do not increase the wrongdoers except in error."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>They have misled many and the unjust will achieve nothing but more error".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And indeed they have led astray many, and do not increase the unjust in aught but error.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>They have led many astray; so lead the wrongdoers to further error."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"They have already misled many; and grant Thou no increase to the wrong-doers but in straying (from their mark)."</text>
         </translation>
       </translations>
     </verse>
@@ -1034,6 +1316,9 @@
       <book_id>en.arberry</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>God advances the example of Noah's wife and the wife of Lot for those who do not believe. They were married to Our two pious devotees, but they were unfaithful to them, and even (the apostles) could not avail them in the least against God; and it was said to them: "Enter Hell with those (who are condemned) to enter it."</text>
+        </translation>
         <translation author="Arberry">
           <text>God has struck a similitude for the unbelievers -- the wife of Noah, and the wife of Lot; for they were under two of Our righteous servants, but they betrayed them, so they availed them nothing whatsoever against God; so it was said, 'Enter, you two, the Fire with those who enter.'</text>
         </translation>
@@ -1146,11 +1431,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.maududi</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>He replied: "Only God will bring it on you if He please, and you cannot prevail against Him.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He said, 'God will bring you it if He will; you cannot frustrate Him.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: only Allah will bring it on you if He will, and ye shall not escape.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>He said: "Only Allah will bring it (the punishment) on you, if He will, and then you will escape not.</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “It is God who will bring it upon you, if He wills, and you will not be able to escape.”</text>
+        </translation>
         <translation author="Maududi">
           <text>Noah said: 'Only Allah will bring it upon you if He so wills, and you will be utterly unable to frustrate that.</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "Only Allah will bring it (the punishment) on you, if He wills, and then you will escape not.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: Only Allah will bring it upon you if He will, and ye can by no means escape.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘Allah will indeed bring it on you if He wishes, and you cannot frustrate [Him].</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He replied: 'Allah will bring it (down) upon you if He will; you will never frustrate Him.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He said, "Allah will only bring it to you if He wills, and you will not cause [Him] failure.</text>
+        </translation>
         <translation author="Sarwar">
           <text>(Noah) replied, "God will bring torment down on you whenever He wants and you will not be able to make His (plans) fail.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: Allah only will bring it to you if He please, and you will not escape:</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He said, "It is God who will bring it down upon you, if He wishes, and you will not be able to escape.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "Truly, Allah will bring it on you if He wills,- and then, ye will not be able to frustrate it!</text>
         </translation>
       </translations>
     </verse>
@@ -1214,14 +1538,29 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Ahmed Ali">
           <text>"O my Lord," prayed (Noah), "help me against them, for they accuse me of lies."</text>
         </translation>
+        <translation author="Arberry">
+          <text>He said, 'O my Lord, help me, for that they cry me lies.'</text>
+        </translation>
         <translation author="Daryabadi">
           <text>Nuh said: my Lord! vindicate me, for they belie me.</text>
         </translation>
         <translation author="Hilali &amp; Khan">
           <text>[Nuh (Noah)] said: "O my Lord! Help me because they deny me."</text>
         </translation>
+        <translation author="Itani">
+          <text>He said, “My Lord, help me, for they have rejected me.”</text>
+        </translation>
         <translation author="Maududi">
           <text>Noah said: "My Lord! Come to my help at their accusation that I am lying."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "O my Lord! Help me because they deny me."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: My Lord! Help me because they deny me.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘My Lord! Help me, for they impugn me.’</text>
         </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>He (Noah) said: 'Lord, help me, for they belie me'</text>
@@ -1231,6 +1570,9 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         </translation>
         <translation author="Sarwar">
           <text>Noah prayed, "Lord, help me; they have called me a liar".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: O my Lord! help me against their calling me a liar.</text>
         </translation>
         <translation author="Wahiduddin Khan">
           <text>Noah said, "My Lord, help me! for they have rejected me,"</text>
@@ -1245,8 +1587,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.sarwar</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>So he prayed to his Lord: "I am helpless, deliver me."</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And so he called unto his Lord, saying, 'I am vanquished; do Thou succour me!'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Thereupon he prayed Unto his Lord: verily am overcome, so vindicate me.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Then he invoked his Lord (saying): "I have been overcome, so help (me)!"</text>
+        </translation>
+        <translation author="Itani">
+          <text>So he appealed to his Lord, “I am overwhelmed, so help me.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Then he called upon His Lord: “Verily I am vanquished; so come You to my aid.”</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Then he invoked his Lord (saying): "I have been overcome, so help (me)!"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>So he cried unto his Lord, saying: I am vanquished, so give help.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Thereat he invoked his Lord, [saying,] ‘I have been overcome, so help [me].’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Then he supplicated to his Lord, (saying): 'I am overcome, help me'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So he invoked his Lord, "Indeed, I am overpowered, so help."</text>
+        </translation>
         <translation author="Sarwar">
           <text>Noah prayed, "Lord, help me; I am defeated".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Therefore he called upon his Lord: I am overcome, come Thou then to help.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>so he cried out to his Lord, saying, "I am overcome, so help me!"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Then he called on his Lord: "I am one overcome: do Thou then help (me)!"</text>
         </translation>
       </translations>
     </verse>
@@ -1255,11 +1639,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.sarwar</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>He prayed: "O Lord, verily my people accuse me of lies.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He said, 'My Lord, my people have cried me lies,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: my Lord! verily my people have belied me.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>He said: "My Lord! Verily, my people have belied me.</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “My Lord, my people have denied me.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>He said: "My Lord! My people have branded me a liar.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "My Lord! Verily, my people have denied me."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: My Lord! Lo! my own folk deny me.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘My Lord! Indeed my people have impugned me.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He said: 'My Lord, my nation have belied me.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He said, "My Lord, indeed my people have denied me.</text>
+        </translation>
         <translation author="Sarwar">
           <text>Then Noah said, "Lord, my people have rejected me.</text>
         </translation>
+        <translation author="Shakir">
+          <text>He said: My Lord! Surely my people give me the lie!</text>
+        </translation>
         <translation author="Wahiduddin Khan">
           <text>Noah said, "My Lord, my people have rejected me,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "O my Lord! truly my people have rejected me.</text>
         </translation>
       </translations>
     </verse>
@@ -1329,17 +1752,29 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Daryabadi">
           <text>And make thou the ark under Our eyes and Our Revelation; and address Me not regarding those that have done wrong; verily they are to be drowned.</text>
         </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And construct the ship under Our Eyes and with Our Inspiration, and address Me not on behalf of those who did wrong; they are surely to be drowned."</text>
+        </translation>
         <translation author="Itani">
           <text>“And build the Ark, under Our eyes, and with Our inspiration, and do not address Me regarding those who did wrong; they are to be drowned.”</text>
         </translation>
         <translation author="Maududi">
           <text>and build the Ark under Our eyes and Our direction. And do not supplicate Me concerning those who have engaged in wrong-doing. They are doomed to be drowned.</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>"And construct the ship under Our Eyes and with Our revelation, and address Me not on behalf of those who did wrong; they are surely to be drowned."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Build the ship under Our eyes and by Our inspiration, and speak not unto Me on behalf of those who do wrong. Lo! they will be drowned.</text>
+        </translation>
         <translation author="Qarai">
           <text>Build the ark before Our eyes and by Our revelation, and do not plead with Me for those who are wrongdoers: they shall indeed be drowned.’</text>
         </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>Build the Ark with Our seeing (and protection), and as We reveal. Do not speak to Me concerning the evildoers; they shall be drowned'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And construct the ship under Our observation and Our inspiration and do not address Me concerning those who have wronged; indeed, they are [to be] drowned."</text>
         </translation>
         <translation author="Sarwar">
           <text>but to build the Ark under the supervision and guidance of his Lord. He was also told not to address any words to Him concerning the unjust for they were all to be drowned.</text>
@@ -1369,17 +1804,29 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Daryabadi">
           <text>And he was making the ark; and whenever the chiefs of his people passed by him, they scoffed at him. He said: if ye scoff at us, verily we also scoff at you even as ye scoff at us.</text>
         </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And as he was constructing the ship, whenever the chiefs of his people passed by him, they made a mockery of him. He said: "If you mock at us, so do we mock at you likewise for your mocking.</text>
+        </translation>
         <translation author="Itani">
           <text>As he was building the ark, whenever some of his people passed by him, they ridiculed him. He said, “If you ridicule us, we will ridicule you, just as you ridicule.”</text>
         </translation>
         <translation author="Maududi">
           <text>As Noah was building the Ark, whenever the leading men of his nation passed by him, they would scoff at him. He said: 'If you scoff at us, we too scoff at you in like manner.</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>And as he was constructing the ship, whenever the chiefs of his people passed by him, they mocked at him. He said: "If you mock at us, so do we mock at you likewise for your mocking."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And he was building the ship, and every time that chieftains of his people passed him, they made mock of him. He said: Though ye make mock of Us, yet We mock at you even as ye mock;</text>
+        </translation>
         <translation author="Qarai">
           <text>As he was building the ark, whenever the elders of his people passed by him, they would ridicule him. He said, ‘If you ridicule us [today], we shall ridicule you [tomorrow] just as you ridicule us [now].</text>
         </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>Whenever an assembly of his nation passed by him as he was building the Ark, they mocked him. Whereupon he said: 'If you mock us, we shall indeedmock you, just as you mock.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And he constructed the ship, and whenever an assembly of the eminent of his people passed by him, they ridiculed him. He said, "If you ridicule us, then we will ridicule you just as you ridicule.</text>
         </translation>
         <translation author="Sarwar">
           <text>(Noah) started to build the Ark but whenever some of his people passed by, they would mock him. He in return would reply, "Mock us, but just as you mock us, we, too, will mock you.</text>
@@ -1409,17 +1856,29 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Daryabadi">
           <text>Then We revealed unto him, saying: build the ark under Our eyes and Our Revelation; then when Our command cometh and the oven boileth over, make way therein of every pair two, and thy household save him thereof against whom there hath already gone forth the word; and address me not in respect of those who have done wrong; verily they are to be drowned.</text>
         </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>So We inspired him (saying): "Construct the ship under Our Eyes and under Our Revelation (guidance). Then, when Our Command comes, and the oven gushes forth water, take on board of each kind two (male and female), and your family, except those thereof against whom the Word has already gone forth. And address Me not in favour of those who have done wrong. Verily, they are to be drowned.</text>
+        </translation>
         <translation author="Itani">
           <text>So We inspired him: “Build the Ark under Our observation and by Our inspiration. And when Our decree comes to pass, and the oven boils over, load into it two pairs of every kind, together with your family, except those of them against whom the word has already been pronounced. And do not speak to me concerning those who did wrong; for they are to be drowned.”</text>
         </translation>
         <translation author="Maududi">
           <text>Thereupon We revealed to him, saying: "Build the Ark under Our eyes and according to Our revelation. And when Our command comes to pass and the oven boils over, take on board a pair each from every species, and also take your household except those of them against whom sentence has already been passed and do not plead to Me on behalf of the wrong-doers. They are doomed to be drowned.</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>So, We revealed to him: "Construct the ship under Our Eyes and under Our revelation. Then, when Our command comes, and (water) gushes forth from the oven, take on board of each kind two, and your family, except those thereof against whom the Word has already gone forth. And address Me not in favor of those who have done wrong. Verily, they are to be drowned."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Then We inspired in him, saying: Make the ship under Our eyes and Our inspiration. Then, when Our command cometh and the oven gusheth water, introduce therein of every (kind) two spouses, and thy household save him thereof against whom the Word hath already gone forth. And plead not with Me on behalf of those who have done wrong. Lo! they will be drowned.</text>
+        </translation>
         <translation author="Qarai">
           <text>So We revealed to him: ‘Build the ark before Our eyes and by Our revelation. When Our edict comes and the oven gushes [a stream of water], bring into it a pair of every kind [of animal], and your family, except those of them against whom the decree has gone beforehand, and do not plead with Me for those who are wrongdoers: they shall indeed be drowned.’</text>
         </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>We said to him: 'Make the Ark under Our Eye, and Our Revelation, and then when Our command comes and the oven gushes water, take onboard a pair from every kind and your family, except him against whom the decision has already been passed. Do not address Me concerning those who have done evil; they shall be drowned.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So We inspired to him, "Construct the ship under Our observation, and Our inspiration, and when Our command comes and the oven overflows, put into the ship from each [creature] two mates and your family, except those for whom the decree [of destruction] has proceeded. And do not address Me concerning those who have wronged; indeed, they are to be drowned.</text>
         </translation>
         <translation author="Sarwar">
           <text>We inspired him, saying, "Build the Ark before Our eyes and by the instruction of Our revelation. When our decree comes to pass and water comes forth from the Oven, embark in the Ark with a pair of every kind of animals and your family except those already doomed (to perish). Do not plead with Me for the unjust; they will be drowned."</text>
@@ -1443,17 +1902,47 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Ahmed Ali">
           <text>When Our command was issued and the waters gushed forth from the source, We said: "Take into (the ark) a pair of every species, and members of your family other than those against whom the sentence has been passed already, and those who come to believe." But only a few believed in him.</text>
         </translation>
+        <translation author="Arberry">
+          <text>Until, when Our command came, and the Oven boiled, We said, 'Embark in it two of every kind, and thy family -- except for him against whom the word has already been spoken and whosoever believes.' And there believed not with him except a few.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Thus were they employed until when Our decree came and the oven boiled over, We said: carry thereon of every kind two, and thy household except him thereof against whom the word hath already gone forth, and whosoever hath believed. And there had not believed with him save a few.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>(So it was) till then there came Our Command and the oven gushed forth (water like fountains from the earth). We said: "Embark therein, of each kind two (male and female), and your family, except him against whom the Word has already gone forth, and those who believe. And none believed with him, except a few."</text>
+        </translation>
+        <translation author="Itani">
+          <text>Until, when Our command came, and the volcano erupted, We said, “Board into it a pair of every kind, and your family—except those against whom the sentence has already been passed—and those who have believed.” But those who believed with him were only a few.</text>
+        </translation>
         <translation author="Maududi">
           <text>Thus it was until Our command came to pass and the oven boiled over. We said: 'Take into the Ark a pair of every species; and take your own family except those who have already been declared (as unworthy); and also take everyone who believes. But those who, along with him, had believed were indeed just a few.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>(So it was) till when Our command came and the oven gushed forth (water like fountains from the earth). We said: "Embark therein, of each kind two (male and female), and your family -- except him against whom the Word has already gone forth -- and those who believe. And none believed with him, except a few."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>(Thus it was) till, when Our commandment came to pass and the oven gushed forth water, We said: Load therein two of every kind, a pair (the male and female), and thy household, save him against whom the word hath gone forth already, and those who believe. And but a few were they who believed with him.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>When Our edict came and the oven gushed [a stream of water], We said, ‘Carry in it a pair of every kind [of animal], along with your family—except those [of them] against whom the edict has already been given—and those who have faith.’ And none believed with him except a few.</text>
         </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>And when Our command came and the oven gushed (forth with water), We said (to Noah): 'Take on board (the Ark) a pair from every species and yourfamily, except he of whom the word has already been spoken, and those who believe. And none except a few believed with him.</text>
         </translation>
+        <translation author="Saheeh International">
+          <text>[So it was], until when Our command came and the oven overflowed, We said, "Load upon the ship of each [creature] two mates and your family, except those about whom the word has preceded, and [include] whoever has believed." But none had believed with him, except a few.</text>
+        </translation>
         <translation author="Sarwar">
           <text>When at last Our decree was fulfilled, water gushed forth from the Oven (in Noah's house). We told him to carry in the Ark a pair (male and female) from every species, his family - except those who were destined to perish - and the believers. No one believed in him, except a few.</text>
         </translation>
+        <translation author="Shakir">
+          <text>Until when Our command came and water came forth from the valley, We said: Carry in it two of all things, a pair, and your own family-- except those against whom the word has already gone forth, and those who believe. And there believed not with him but a few.</text>
+        </translation>
         <translation author="Wahiduddin Khan">
           <text>When Our command came, and water gushed forth in torrents, We said to Noah, "Take into the Ark a pair from every species, and your own family -- except those on whom the sentence has already been passed, and all the true believers." But only a few believed along with him.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>At length, behold! there came Our command, and the fountains of the earth gushed forth! We said: "Embark therein, of each kind two, male and female, and your family - except those against whom the word has already gone forth,- and the Believers." but only a few believed with him.</text>
         </translation>
       </translations>
     </verse>
@@ -1465,11 +1954,29 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Ahmed Ali">
           <text>And (Noah) said: "Embark. In the name of God be its course and mooring. My Lord is surely forgiving and kind."</text>
         </translation>
+        <translation author="Arberry">
+          <text>He said, 'Embark in it! In God's Name shall be its course and its berthing. Surely my Lord is All-forgiving, All-compassionate.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And he said: embark therein; in the name of Allah be its course and its anchorage, verily my Lord is Forgiving, Merciful.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>And he [Nuh (Noah)] said: "Embark therein, in the Name of Allah will be its moving course and its resting anchorage. Surely, my Lord is Oft-Forgiving, Most Merciful." (Tafsir At-Tabari, Vol. 12, Page 43)</text>
         </translation>
+        <translation author="Itani">
+          <text>He said, “Embark in it. In the name of God shall be its sailing and its anchorage. My Lord is indeed Forgiving and Merciful.”</text>
+        </translation>
         <translation author="Maududi">
           <text>Noah said: ' Embark in it. In the name of Allah is its sailing and its anchorage. My Lord is Ever Forgiving, Most Merciful.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And he said: "Embark therein: in the Name of Allah will be its (moving) course and its (resting) anchorage. Surely, my Lord is Oft-Forgiving, Most Merciful."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And he said: Embark therein! In the name of Allah be its course and its mooring. Lo! my Lord is Forgiving, Merciful.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘Board it: In the Name of Allah it shall set sail and cast anchor. Indeed my Lord is all-forgiving, all-merciful.’</text>
         </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>He (Noah) said: 'Embark. In the Name of Allah will be its course and berthing. Indeed, my Lord is Forgiving, the Most Merciful'</text>
@@ -1479,6 +1986,9 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         </translation>
         <translation author="Sarwar">
           <text>(Noah) said, "Embark in it. It will sail in the name of God, in His Name it will sail and in His Name it will cast anchor. My Lord is All-forgiving and All-merciful".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And he said: Embark in it, in the name of Allah be its sailing and its anchoring; most surely my Lord is Forgiving, Merciful.</text>
         </translation>
         <translation author="Wahiduddin Khan">
           <text>Noah said, "Embark on it. In the name of God, it shall set sail and cast anchor. Truly, my Lord is forgiving and merciful."</text>
@@ -1502,17 +2012,29 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Daryabadi">
           <text>And when thou art settled, thou and those with thee, in the ark, say thou: praise unto Allah who hath delivered us from the wrong doing people.</text>
         </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And when you have embarked on the ship, you and whoever is with you, then say: "All the praises and thanks be to Allah, Who has saved us from the people who are Zalimun (i.e. oppressors, wrong-doers, polytheists, those who join others in worship with Allah, etc.).</text>
+        </translation>
         <translation author="Itani">
           <text>Then, when you and those with you are settled in the Ark, say, “Praise be to God, who has saved us from the wrongdoing people.”</text>
         </translation>
         <translation author="Maududi">
           <text>And then when you and those accompanying you are firmly seated in the Ark, say: "Thanks be to Allah Who has delivered us from the wrong-doing people."</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>"And when you have embarked on the ship, you and whoever is with you, then say: `All the praise be to Allah, Who has saved us from the people who are wrongdoers."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And when thou art on board the ship, thou and whoso is with thee, then say: Praise be to Allah Who hath saved us from the wrongdoing folk!</text>
+        </translation>
         <translation author="Qarai">
           <text>‘When you, and those who are with you, are settled in the ark, say, ‘‘All praise belongs to Allah, who has delivered us from the wrongdoing lot.’’</text>
         </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>And when you and all those with you are seated in the Ark, say: 'Praise be to Allah who has saved us from the harmdoing nation'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And when you have boarded the ship, you and those with you, then say, 'Praise to Allah who has saved us from the wrongdoing people.'</text>
         </translation>
         <translation author="Sarwar">
           <text>When all of you settle in the Ark, say, "Only God Who has saved us from the unjust people deserves all praise".</text>
@@ -1588,11 +2110,17 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Ahmed Ali">
           <text>"I shall go up a mountain," he said, "which will keep me from the water." "There is no getting away," said Noah, "from the decree of God today, except for those on whom be His mercy." And a wave came between them, and he was among those who were drowned.</text>
         </translation>
+        <translation author="Arberry">
+          <text>He said, 'I will take refuge in a mountain, that shall defend me from the water.' Said he, 'Today there is no defender from God's command but for him on whom He has mercy.' And the waves came between them, and he was among the drowned.</text>
+        </translation>
         <translation author="Daryabadi">
           <text>He said: I shall betake me to a mountain which will defend me from the water. Nuh said: there is no defender to-day from the decree of Allah save for one on whom He hath mercy. And a wave intervened betwixt the twain; so he was of the drowned.</text>
         </translation>
         <translation author="Hilali &amp; Khan">
           <text>The son replied: "I will betake myself to a mountain, it will save me from the water." Nuh (Noah) said: "This day there is no saviourfrom the Decree of Allah except him on whom He has mercy." And a wave came in between them, so he (the son) was among the drowned.</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “I will take refuge on a mountain—it will protect me from the water.” He said, “There is no protection from God’s decree today, except for him on whom He has mercy.” And the waves surged between them, and he was among the drowned.</text>
         </translation>
         <translation author="Maududi">
           <text>The son replied: 'I will go to a mountain for refuge and it will save me from the water.' Noah said: 'None can save anyone today from the command of Allah except those on whom He may have mercy.' Thereupon a wave swept in between the two and he was drowned.</text>
@@ -1602,6 +2130,9 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         </translation>
         <translation author="Pickthall">
           <text>He said: I shall betake me to some mountain that will save me from the water. (Noah) said: This day there is none that saveth from the commandment of Allah save him on whom He hath had mercy. And the wave came in between them, so he was among the drowned.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘I shall take refuge on a mountain; it will protect me from the flood.’ He said, ‘There is none today who can protect from Allah’s edict, except someone upon whom He has mercy.’ Then the waves came between them, and he was among those who were drowned.</text>
         </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>But he replied: 'I shall seek refuge on a mountain, which will protect me from the water' He (Noah) said: 'Today, there is no defender from the command of Allah, except those to whom He has mercy' And the waves came between them, and he was drowned.</text>
@@ -1628,11 +2159,44 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.maududi</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>But We bore him on a (vessel made) of planks and oakum,</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And We bore him upon a well-planked vessel well-caulked</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And We bare him on a thing of planks and nails.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And We carried him on a (ship) made of planks and nails,</text>
+        </translation>
+        <translation author="Itani">
+          <text>And We carried him on a craft of planks and nails.</text>
+        </translation>
         <translation author="Maududi">
           <text>And We bore Noah on the vessel built of planks and nails,</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>And We carried him on a (ship) made of planks and nails (Dusur)</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And We carried him upon a thing of planks and nails,</text>
+        </translation>
+        <translation author="Qarai">
+          <text>We bore him on a vessel made of planks and nails,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>We carried him in a well built, watertight vessel made from planks (of wood)</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And We carried him on a [construction of] planks and nails,</text>
+        </translation>
         <translation author="Sarwar">
           <text>We carried him, (Noah), on a vessel built with boards fixed together with nails,</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And We bore him on that which was made of planks and nails</text>
         </translation>
         <translation author="Wahiduddin Khan">
           <text>We bore him on an [ark] which, made of planks and nails,</text>
@@ -1650,14 +2214,26 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Ahmed Ali">
           <text>When the water rose in flood, We bore you in the ark,</text>
         </translation>
+        <translation author="Arberry">
+          <text>Lo, when the waters rose, We bore you in the running ship</text>
+        </translation>
         <translation author="Daryabadi">
           <text>Verily We! when the water rose, We bare you upon the traversing ark.</text>
         </translation>
         <translation author="Hilali &amp; Khan">
           <text>Verily! When the water rose beyond its limits [Nuh's (Noah) Flood], We carried you (mankind) in the floating [ship that was constructed by Nuh (Noah)].</text>
         </translation>
+        <translation author="Itani">
+          <text>When the waters overflowed, We carried you in the cruising ship.</text>
+        </translation>
         <translation author="Maududi">
           <text>Verily when the water rose to great heights, We bore you upon a floating vessel (i.e. the Ark)</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Verily, when the water rose beyond its limits, We carried you in the ship.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Lo! when the waters rose, We carried you upon the ship</text>
         </translation>
         <translation author="Qarai">
           <text>Indeed when the Flood rose high, We carried you in a floating ark,</text>
@@ -1665,8 +2241,14 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Qaribullah &amp; Darwish">
           <text>And when the waters rose (high) We carried you in the sailing (Ark),</text>
         </translation>
+        <translation author="Saheeh International">
+          <text>Indeed, when the water overflowed, We carried your ancestors in the sailing ship</text>
+        </translation>
         <translation author="Sarwar">
           <text>When the flood rose high and covered the whole land, We carried you in the Ark.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Surely We bore you up in the ship when the water rose high,</text>
         </translation>
         <translation author="Wahiduddin Khan">
           <text>But We bore you away in the Ark, when the waters rose high,</text>
@@ -1684,17 +2266,41 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Ahmed Ali">
           <text>That We bore their progeny in the laden ark is a sign for them;</text>
         </translation>
+        <translation author="Arberry">
+          <text>And a sign for them is that We carried their seed in the laden ship,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And a sign Unto them is that We bear their offspring in a laden ship.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>And an Ayah (sign) for them is that We bore their offspring in the laden ship [of Nuh (Noah)].</text>
         </translation>
         <translation author="Itani">
           <text>Another sign for them is that We carried their offspring in the laden Ark.</text>
         </translation>
+        <translation author="Maududi">
+          <text>Another Sign for them is that We carried all their offspring in the laden vessel</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And an Ayah for them is that We bore their offspring in the laden ship.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And a token unto them is that We bear their offspring in the laden ship,</text>
+        </translation>
+        <translation author="Qarai">
+          <text>A sign for them is that We carried their progeny in the laden ship,</text>
+        </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>And a sign for them is that We carried their offspring in the laden Ark (of Noah).</text>
         </translation>
+        <translation author="Saheeh International">
+          <text>And a sign for them is that We carried their forefathers in a laden ship.</text>
+        </translation>
         <translation author="Sarwar">
           <text>how We carried them and their offspring inside the laden Ark</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And a sign to them is that We bear their offspring in the laden ship.</text>
         </translation>
         <translation author="Wahiduddin Khan">
           <text>Another sign for them is that We carried their offspring in the laden Ark.</text>
@@ -1715,14 +2321,32 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Arberry">
           <text>And it was said, 'Earth, swallow thy waters; and, heaven, abate!' And the waters subsided, the affair was accomplished, and the Ark settled on El-Judi, and it was said: 'Away with the people of the evildoers!'</text>
         </translation>
+        <translation author="Daryabadi">
+          <text>And it was said: O earth! swallow up thy water, and cease, O heaven! And the water abated; and fulfilled was the decree. And it rested upon the Judi; and it was said: away with the wrong-doing people!</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>And it was said: "O earth! Swallow up your water, and O sky! Withhold (your rain)." And the water was diminished (made to subside) and the Decree (of Allah) was fulfilled (i.e. the destruction of the people of Nuh (Noah). And it (the ship) rested on Mount Judi, and it was said: "Away with the people who are Zalimun (polytheists and wrong-doing)!"</text>
+        </translation>
+        <translation author="Itani">
+          <text>And it was said, “O earth, swallow your waters,” and “O heaven, clear up.” And the waters receded, and the event was concluded, and it settled on Judi, and it was proclaimed: “Away with the wicked people.”</text>
         </translation>
         <translation author="Maududi">
           <text>And the command was given: 'Earth! Swallow up your water'; and: 'Heaven! Abate!' So the water subsided, the command was fulfilled, and the Ark settled on Mount Judi, and it was said: 'Away with the wrong-doing folk!'</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>And it was said: "O earth! Swallow up your water, and O sky! Withhold (your rain)." And the water was made to subside and the decree was fulfilled. And it rested on (Mount) Judi, and it was said: "Away with the people who are wrongdoing!"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And it was said: O earth! Swallow thy water and, O sky! be cleared of clouds! And the water was made to subside. And the commandment was fulfilled. And it (the ship) came to rest upon (the mount) Al-Judi and it was said: A far removal for wrongdoing folk!</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Then it was said, ‘O earth, swallow your water! O sky, leave off!’ The waters receded; the edict was carried out, and it settled on [Mount] Judi. Then it was said, ‘Away with the wrongdoing lot!’</text>
+        </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>And it was said: 'Earth, swallow up your waters. Heaven, cease' The water subsided and the matter was accomplished. And the Ark came to rest upon (the mountain of) AlJudi, and it was said: 'Be gone, evildoing nation'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And it was said, "O earth, swallow your water, and O sky, withhold [your rain]." And the water subsided, and the matter was accomplished, and the ship came to rest on the [mountain of] Judiyy. And it was said, "Away with the wrongdoing people."</text>
         </translation>
         <translation author="Sarwar">
           <text>Then the earth was told to swallow-up its water and the sky was ordered to stop raining. The water abated and God's command had been fulfilled. The Ark came to rest on Mount Judi. A voice said, "The unjust people are far away from the mercy of God."</text>
@@ -1743,8 +2367,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.sarwar</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>And say: 'O Lord, disembark me in a welcome place; You are the best of deliverers.'</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And say, "'O my Lord, do Thou harbour me in a blessed harbour, for Thou art the best of harbourers."</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And say thou, my Lord! cause me to land at a landing blest, and thou art the Best of these who bring to land.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And say: "My Lord! Cause me to land at a blessed landing-place, for You are the Best of those who bring to land."</text>
+        </translation>
+        <translation author="Itani">
+          <text>And say, “My Lord, land me with a blessed landing, as you are the best of transporters.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>And say: "My Lord! Make my landing a blessed landing, for You are the Best of those Who can cause people to land in safety."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And say: `My Lord! Cause me to land at a blessed landing place, for You are the Best of those who bring to land."'</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And say: My Lord! Cause me to land at a blessed landing-place, for Thou art Best of all who bring to land.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>And say, ‘‘My Lord! Land me with a blessed landing, for You are the best of those who bring ashore.’’ ’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And say: 'Lord, let me land a blessed landing. You are the Best of harborers'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And say, 'My Lord, let me land at a blessed landing place, and You are the best to accommodate [us].' "</text>
+        </translation>
         <translation author="Sarwar">
           <text>Say, "Lord, grant us a blessed landing from the Ark; You are the One who provides the safest landing".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And say: O my Lord! cause me to disembark a blessed alighting, and Thou art the best to cause to alight.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>and say, 'My Lord, let me land with Your blessing in a blessed landing place. You alone can provide the best landings.'"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And say: "O my Lord! enable me to disembark with thy blessing: for Thou art the Best to enable (us) to disembark."</text>
         </translation>
       </translations>
     </verse>
@@ -1890,6 +2556,9 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Saheeh International">
           <text>He said, "O Noah, indeed he is not of your family; indeed, he is [one whose] work was other than righteous, so ask Me not for that about which you have no knowledge. Indeed, I advise you, lest you be among the ignorant."</text>
         </translation>
+        <translation author="Sarwar">
+          <text>His Lord replied, "He is not one of your family. He is a man of unrighteous deeds. Do not ask me about that which you have no knowledge. I advise you not to become an ignorant person."</text>
+        </translation>
         <translation author="Shakir">
           <text>He said: O Nuh! surely he is not of your family; surely he is (the doer of) other than good deeds, therefore ask not of Me that of which you have no knowledge; surely I admonish you lest you may be of the ignorant</text>
         </translation>
@@ -1909,11 +2578,17 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Ahmed Ali">
           <text>"Preserve me, O Lord," said (Noah), "from asking You that of which I have no knowledge. If You do not forgive me and have mercy on me I shall be among those who perish."</text>
         </translation>
+        <translation author="Arberry">
+          <text>He said, 'My Lord, I take refuge with Thee, lest I should ask of Thee that whereof I have no knowledge; for if Thou forgivest me not, and hast not mercy on me, I shall be among the losers.'</text>
+        </translation>
         <translation author="Daryabadi">
           <text>Nuh said: my Lord! verily take refuge with Thee lest I may ask Thee that whereof I have no knowledge. And if Thou forgivest me not and hast not mercy on me, I shall be of the losers.</text>
         </translation>
         <translation author="Hilali &amp; Khan">
           <text>Nuh (Noah) said: "O my Lord! I seek refuge with You from asking You that of which I have no knowledge. And unless You forgive me and have Mercy on me, I would indeed be one of the losers."</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “O My Lord, I seek refuge with You, from asking You about what I have no knowledge of. Unless You forgive me, and have mercy on me, I will be one of the losers.”</text>
         </translation>
         <translation author="Maududi">
           <text>Noah said: 'My Lord! I take refuge with You that I should ask you for that concerning which I have no knowledge. And if You do not forgive me and do not show mercy to me, I shall be among the losers.</text>
@@ -1921,11 +2596,26 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Mubarakpuri">
           <text>Nuh said: "O my Lord! I seek refuge with You from asking You that of which I have no knowledge. And unless You forgive me and have mercy on me, I would indeed be one of the losers."</text>
         </translation>
+        <translation author="Pickthall">
+          <text>He said: My Lord! Lo! in Thee do I seek refuge (from the sin) that I should ask of Thee that whereof I have no knowledge. Unless Thou forgive me and have mercy on me I shall be among the lost.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He said, ‘My Lord! I seek Your protection lest I should ask You something of which I have no knowledge. If You do not forgive me and have mercy upon me I shall be among the losers.’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He said: 'My Lord, I seek refuge with You from asking You of that which I have no knowledge. If You do not forgive me and have mercy on me, I shall be among the losers'</text>
+        </translation>
         <translation author="Saheeh International">
           <text>[Noah] said, "My Lord, I seek refuge in You from asking that of which I have no knowledge. And unless You forgive me and have mercy upon me, I will be among the losers."</text>
         </translation>
         <translation author="Sarwar">
           <text>Noah said, "Lord, I ask You to prevent me from asking You ignorant questions and beg you for pardon and mercy or else I shall certainly be lost".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: My Lord! I seek refuge in Thee from asking Thee that of which I have no knowledge; and if Thou shouldst not forgive me and have mercy on me, I should be of the losers.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He said, "My Lord, I take refuge with You from asking You something of which I have no knowledge. If You do not forgive me and show me mercy, I shall be one of the losers."</text>
         </translation>
         <translation author="Yusuf Ali">
           <text>Noah said: "O my Lord! I do seek refuge with Thee, lest I ask Thee for that of which I have no knowledge. And unless thou forgive me and have Mercy on me, I should indeed be lost!"</text>
@@ -1946,17 +2636,29 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Daryabadi">
           <text>Then they belied him; there upon We delivered him and those with him in the ark, and drowned those who belied Our signs; verily they were a people blind.</text>
         </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>But they belied him, so We saved him and those along with him in the ship, and We drowned those who belied Our Ayat (proofs, evidences, verses, lessons, signs, revelations, etc.). They were indeed a blind people.</text>
+        </translation>
         <translation author="Itani">
           <text>But they called him a liar. So We saved him and those with him in the Ark, and We drowned those who rejected Our revelations. They were blind people.</text>
         </translation>
         <translation author="Maududi">
           <text>But they charged him with falsehood. Thereupon We delivered Noah and those who were with him in the Ark, and caused those who rejected Our signs as false to be drowned. Surely they were a blind folk.</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>But they belied him, so We saved him and those along with him in the Fulk, and We drowned those who belied Our Ayat. They were indeed a blind people.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>But they denied him, so We saved him and those with him in the ship, and We drowned those who denied Our tokens. Lo! they were blind folk.</text>
+        </translation>
         <translation author="Qarai">
           <text>But they denied him. So We delivered him and those who were with him in the ark, and We drowned those who denied Our signs. Indeed, they were a blind lot.</text>
         </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>(But) they belied him, so We saved him and those who were with him in the Ark, and We drowned those who belied Our verses. Surely, they were a blind nation.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>But they denied him, so We saved him and those who were with him in the ship. And We drowned those who denied Our signs. Indeed, they were a blind people.</text>
         </translation>
         <translation author="Sarwar">
           <text>They accused him of telling lies. So We saved him and his companions in an ark and drowned those who called Our revelations mere lies. They were, no doubt, a blind people.</text>
@@ -1986,17 +2688,29 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Daryabadi">
           <text>So they belied him; then We delivered him and those with him in the ark, and We made them successors, while We drowned those who belied Our signs. Behold then what like hath been the end of those who were warned.</text>
         </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>They denied him, but We delivered him, and those with him in the ship, and We made them generations replacing one after another, while We drowned those who belied Our Ayat (proofs, evidences, lessons, signs, revelations, etc.). Then see what was the end of those who were warned.</text>
+        </translation>
         <translation author="Itani">
           <text>But they denounced him, so We saved him and those with him in the Ark, and We made them successors, and We drowned those who rejected Our signs. So consider the fate of those who were warned.</text>
         </translation>
         <translation author="Maududi">
           <text>But they rejected Noah, calling him a liar. So We saved him and those who were with him in the Ark, and made them successors (to the authority in the land), and drowned all those who had rejected Our signs as false. Consider, then, the fate of those who had been warned (and still did not believe).</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>They denied him, but We delivered him, and those with him in the ship, and We made them generations, replacing one after another, while We drowned those who belied Our Ayat. Then see what was the end of those who were warned.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>But they denied him, so We saved him and those with him in the ship, and made them viceroys (in the earth), while We drowned those who denied Our revelations. See then the nature of the consequence for those who had been warned.</text>
+        </translation>
         <translation author="Qarai">
           <text>But they impugned him. So We delivered him and those who were with him in the ark and We made them the successors, and We drowned those who denied Our signs. So observe how was the fate of those who were warned!</text>
         </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>But they belied him. Therefore We saved him and those who were with him in the Ark, and We made them caliphs, and We drowned those who belied Our verses. See what was the end of those who were warned!</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And they denied him, so We saved him and those with him in the ship and made them successors, and We drowned those who denied Our signs. Then see how was the end of those who were warned.</text>
         </translation>
         <translation author="Sarwar">
           <text>They rejected Noah. Then We saved him and his people in the Ark to make them the successors of the rest. The others, who had called Our revelations lies, were drowned. Consider the fate of those who (rejected) Our warnings!</text>
@@ -2020,8 +2734,14 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Ahmed Ali">
           <text>So We delivered him and those with him in the loaded ark,</text>
         </translation>
+        <translation author="Arberry">
+          <text>So We delivered him, and those with him, in the laden ship,</text>
+        </translation>
         <translation author="Daryabadi">
           <text>Wherefore We delivered him and those with him in the laden ark.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And We saved him and those with him in the laden ship.</text>
         </translation>
         <translation author="Itani">
           <text>So We delivered him and those with him in the laden Ark.</text>
@@ -2029,8 +2749,20 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Maududi">
           <text>Thereafter We rescued him and those who were with him in the laden Ark</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>And We saved him and those with him in the laden ship.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And We saved him and those with him in the laden ship.</text>
+        </translation>
         <translation author="Qarai">
           <text>Thereupon We delivered him and those who were with him in the laden ark.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>We saved him and those who were with him in the laden ship,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So We saved him and those with him in the laden ship.</text>
         </translation>
         <translation author="Sarwar">
           <text>We saved him and those who were with him in a fully laden Ark,</text>
@@ -2054,8 +2786,14 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Ahmed Ali">
           <text>But We saved him and those with him in the ark, and made it a sign for the creatures of the world.</text>
         </translation>
+        <translation author="Arberry">
+          <text>Yet We delivered him, and those who were in the ship, and appointed it for a sign unto all beings.</text>
+        </translation>
         <translation author="Daryabadi">
           <text>Then We delivered him and those in the ark, and made it a sign unto the worlds.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Then We saved him and those with him in the ship, and made it (the ship) as an Ayah (a lesson, a warning, etc.) for the 'Alamin (mankind, jinns and all that exists).</text>
         </translation>
         <translation author="Itani">
           <text>But We saved him, together with the company of the Ark, and We made it a sign for all peoples.</text>
@@ -2063,11 +2801,20 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Maududi">
           <text>Then We rescued Noah together with the people in the Ark and made it (that is, the Ark) a lesson for all people.</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>Then We saved him and the Companions of the Boat, and made it an Ayah for all people.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And We rescued him and those with him in the ship, and made of it a portent for the peoples.</text>
+        </translation>
         <translation author="Qarai">
           <text>Then We delivered him and those who were in the Ark, and made it a sign for all the nations.</text>
         </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>But We saved him and all who were in the Ark, and made (the event) a sign to the worlds.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>But We saved him and the companions of the ship, and We made it a sign for the worlds.</text>
         </translation>
         <translation author="Sarwar">
           <text>We saved Noah and the people in the Ark and made (their case) a miracle for the world.</text>
@@ -2158,6 +2905,15 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Maududi">
           <text>The same was the case with the people of Noah when they charged the Messenger with imposture: We drowned them and made them a sign of warning for entire mankind, and We have prepared a painful chastisement for the unjust.</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>And Nuh's people, when they denied the Messengers, We drowned them, and We made them as a sign for mankind. And We have prepared a painful torment for the wrongdoers.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And Noah's folk, when they denied the messengers, We drowned them and made of them a portent for mankind. We have prepared a painful doom for evil-doers.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>And Noah’s people, We drowned them when they impugned the apostles, and We made them a sign for mankind, and We have prepared for the wrongdoers a painful punishment.</text>
+        </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>The nation of Noah, We drowned them when they belied their Messenger, and made of them a sign to the nation. For the harmdoers We have prepared a painful punishment</text>
         </translation>
@@ -2183,8 +2939,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.sarwar</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>Afterwards We drowned the others.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Then afterwards We drowned the rest.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then We drowned the others.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Then We drowned the other (disbelievers and polytheists, etc.).</text>
+        </translation>
+        <translation author="Itani">
+          <text>Then We drowned the others.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Thereafter We caused the others to be drowned.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Then We drowned the others.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Then We did drown the others.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Then We drowned the rest.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Afterwards We drowned the others.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Then We drowned the disbelievers.</text>
+        </translation>
         <translation author="Sarwar">
           <text>We drowned all the others (besides Noah and his people).</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Then We drowned the others</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>We drowned the rest.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Then the rest we overwhelmed in the Flood.</text>
         </translation>
       </translations>
     </verse>
@@ -2297,11 +3095,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.maududi</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>And We left it as a sign. Is there anyone who will be warned?</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And We left it for a sign. Is there any that will remember?</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And assuredly We left it for a sign. Is there then anyone who would be admonished?</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And indeed, We have left this as a sign, then is there any that will remember (or receive admonition)?</text>
+        </translation>
+        <translation author="Itani">
+          <text>And We left it as a sign. Is there anyone who would take heed?</text>
+        </translation>
         <translation author="Maududi">
           <text>And We left the Ark as a Sign. Is there, then, any who will take heed?</text>
         </translation>
+        <translation author="Mubarakpuri">
+          <text>And indeed, We have left this as a sign. Then is there any that will remember</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And verily We left it as a token; but is there any that remembereth?</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Certainly We have left it as a sign; so is there anyone who will be admonished?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>We have left it as a sign. Is there any that will remember?</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And We left it as a sign, so is there any who will remember?</text>
+        </translation>
         <translation author="Sarwar">
           <text>We made (the story of Noah) as evidence of the Truth. However, is there anyone who would take heed?</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And certainly We left it as a sign, but is there anyone who</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>We have left this as a sign: but will anyone take heed?</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And We have left this as a Sign (for all time): then is there any that will receive admonition?</text>
         </translation>
       </translations>
     </verse>
@@ -2310,8 +3147,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>There were surely signs in this; We will surely put you to the test.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Surely in that are signs, and surely We put to the test.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Verily in that are signs; verily We have ever been provers.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>Verily, in this [what We did as regards drowning of the people of Nuh (Noah)], there are indeed Ayat (proofs, evidences, lessons, signs, etc. for men to understand), for sure We are ever putting (men) to the test.</text>
+        </translation>
+        <translation author="Itani">
+          <text>Surely in that are signs. We are always testing.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>There are great Signs in this story; and surely We do put people to test.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Verily, in this, there are indeed Ayat, for sure We are ever putting (men) to the test.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Lo! herein verily are portents, for lo! We are ever putting (mankind) to the test.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>There are indeed signs in this; and indeed, We have been testing.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Surely, in that are signs, and surely We will put (nations) to the test.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Indeed in that are signs, and indeed, We are ever testing [Our servants].</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>In this story there is enough evidence (of the Truth); thus do We try (mankind)</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Most surely there are signs in this, and most surely We are ever trying (men).</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Surely there are clear signs in that. In this way We put people to the test.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Verily in this there are Signs (for men to understand); (thus) do We try (men).</text>
         </translation>
       </translations>
     </verse>
@@ -2372,17 +3251,26 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.arberry</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>Their prophet said to them: "The sign of his kingship will be that you will come to have a heart full of peace and tranquility from your Lord and the legacy left by Moses' and Aaron's family supported by angels. This shall be a token for you if you really believe."</text>
+        </translation>
         <translation author="Arberry">
           <text>And their Prophet said to them, 'The sign of his kingship is that the Ark will come to you, in it a Shechina from your Lord, and a remnant of what the folk of Moses and Aaron's folk left behind, the angels bearing it. Surely in that shall be a sign for you, if you are believers.'</text>
         </translation>
         <translation author="Daryabadi">
           <text>And their prophet said unto them: verily the sign of his dominion is that there shall come unto you the ark wherein is tranquillity from your Lord and the relic of that which the household of Musa and the household of Harun had left, the angels bearing it; verily, herein is a sign for you if ye are believers.</text>
         </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And their Prophet (Samuel) said to them: Verily! The sign of His Kingdom is that there shall come to you At-Tabut (a wooden box), wherein is Sakinah (peace and reassurance) from your Lord and a remnant of that which Musa (Moses) and Harun (Aaron) left behind, carried by the angels. Verily, in this is a sign for you if you are indeed believers.</text>
+        </translation>
         <translation author="Itani">
           <text>And their prophet said to them, “The proof of his kingship is that the Ark will be restored to you, bringing tranquility from your Lord, and relics left by the family of Moses and the family of Aaron. It will be carried by the angels. In that is a sign for you, if you are believers.”</text>
         </translation>
         <translation author="Maududi">
           <text>Their Prophet further informed them, "The sign of his appointment as king from Allah is that during his reign you will get back the Ark, wherein are the means of your peace of mind from your Lord, and which contains the sacred relics of the family of Moses and Aaron, and which is being borne at this time by the angels. Herein is a great Sign for you, if you are true believers."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And their Prophet said to them: "Verily! The sign of His kingdom is that there shall come to you At-Tabut, wherein is Sakinah (peace and reassurance) from your Lord and a remnant of that which Musa (Moses) and Harun (Aaron) left behind, carried by the angels. Verily, in this is a sign for you if you are indeed believers.</text>
         </translation>
         <translation author="Pickthall">
           <text>And their Prophet said unto them: Lo! the token of his kingdom is that there shall come unto you the ark wherein is peace of reassurance from your Lord, and a remnant of that which the house of Moses and the house of Aaron left behind, the angels bearing it. Lo! herein shall be a token for you if (in truth) ye are believers.</text>
@@ -2393,8 +3281,14 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Qaribullah &amp; Darwish">
           <text>Their Prophet said to them: 'The sign of his kingship is the coming of the Ark to you, therein shall be tranquility from your Lord, and a remnant which the House of Moses and the House of Aaron left behind. It will be borne by the angels. That will be a sign for you if you are believers'</text>
         </translation>
+        <translation author="Saheeh International">
+          <text>And their prophet said to them, "Indeed, a sign of his kingship is that the chest will come to you in which is assurance from your Lord and a remnant of what the family of Moses and the family of Aaron had left, carried by the angels. Indeed in that is a sign for you, if you are believers."</text>
+        </translation>
         <translation author="Sarwar">
           <text>Their Prophet further told them, "As the evidence of his authority, he will bring to you the Ark which will be a comfort to you from your Lord and a legacy of the household of Moses and Aaron. It will be carried by the angels. This is the evidence for you if you have faith."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And the prophet said to them: Surely the sign of His kingdom is, that there shall come to you the chest in which there is tranquillity from your Lord and residue of the relics of what the children of Musa and the children of Haroun have left, the angels bearing it; most surely there is a sign in this for those who believe.</text>
         </translation>
         <translation author="Wahiduddin Khan">
           <text>Their prophet also said to them, "The sign of his kingship is that the Ark [of the Covenant] shall come to you. Therein shall be tranquillity from your Lord, and the relics which the House of Moses and the House of Aaron left behind. It will be borne by the angels. There is a sign in this for you, if you believe."</text>
@@ -2513,11 +3407,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>Surely he was among Our faithful creatures.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>he was among Our believing servants.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Verily he was of Our bondmen believing.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>Verily, he [Nuh (Noah)] was one of Our believing slaves.</text>
         </translation>
+        <translation author="Itani">
+          <text>He was one of Our believing servants.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Surely he was one of Our truly believing servants.</text>
+        </translation>
         <translation author="Mubarakpuri">
           <text>Verily, he [Nuh] was one of Our believing servants.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Lo! he is one of Our believing slaves.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>He is indeed one of Our faithful servants.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>he was one of Our believing worshipers.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Indeed, he was of Our believing servants.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He was one of Our believing servants.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Surely he was of Our believing servants.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>he was truly one of Our faithful servants.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>For he was one of our believing Servants.</text>
         </translation>
       </translations>
     </verse>
@@ -2526,11 +3459,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>And Abraham indeed was of his inducement,</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Of his party was also Abraham;</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And verily of his sect was Ibrahim.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>And, verily, among those who followed his [Nuh's (Noah)] way (Islamic Monotheism) was Ibrahim (Abraham).</text>
         </translation>
+        <translation author="Itani">
+          <text>Of his kind was Abraham.</text>
+        </translation>
         <translation author="Maududi">
           <text>Abraham was on the self-same way (as Noah).</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And verily, among those who followed his way was Ibrahim.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And lo! of his persuasion verily was Abraham</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Indeed Abraham was among his followers,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Of his party was Abraham.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And indeed, among his kind was Abraham,</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Abraham was one of his followers.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And most surely Ibrahim followed his way.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Abraham was of the same faith:</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Verily among those who followed his Way was Abraham.</text>
         </translation>
       </translations>
     </verse>
@@ -2539,8 +3511,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.sarwar</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>After them We raised a new generation.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Thereafter, after them, We produced another generation,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then, after them We brought forth anot her generation.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Then, after them, We created another generation.</text>
+        </translation>
+        <translation author="Itani">
+          <text>Then, after them, We established another generation.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Then, after them, We brought forth another generation;</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Then, after them, We created another generation.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Then, after them, We brought forth another generation;</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Then after them We brought forth another generation,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Then We produced after them another generation</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Then We produced after them a generation of others.</text>
+        </translation>
         <translation author="Sarwar">
           <text>We brought another generation into existence after the people of Noah.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Then We raised up after them another generation.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Then We raised another generation after them,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Then We raised after them another generation.</text>
         </translation>
       </translations>
     </verse>
@@ -2549,8 +3563,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.sarwar</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>Afterwards We sent many messengers who brought clear proofs to their peoples. But they were not prepared to believe what they had once denied. That is how We seal the hearts of the iniquitous.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Then We sent forth, after him, Messengers to their people, and they brought them the clear signs; but they were not men to believe in that they had cried lies to before. So We seal the hearts of the transgressors.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then, We raised after him other apostles to their people, and they brought them evidences, but they were not such as to believe that which they had belied afore. Thus We seal the hearts of the transgressors.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Then after him We sent Messengers to their people, they brought them clear proofs, but they would not believe what they had already rejected beforehand. Thus We seal the hearts of the transgressors (those who disbelieve in the Oneness of Allah and disobey Him).</text>
+        </translation>
+        <translation author="Itani">
+          <text>Then, after him, We sent messengers to their people. They came to them with the clear proofs, but they would not believe in anything they had already rejected. Thus We set a seal on the hearts of the hostile.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Then We sent forth after him other Messengers, each one to his people. They brought to them clear signs, but they were not such as to believe in what they had rejected earlier as false. Thus do We seal the hearts of those who transgress.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Then after him We sent Messengers to their people. They brought them clear proofs, but they would not believe what they had already rejected beforehand. Thus We seal the hearts of the transgressors.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Then, after him, We sent messengers unto their folk, and they brought them clear proofs. But they were not ready to believe in that which they before denied. Thus print We on the hearts of the transgressors.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Then after him We sent [other] apostles to their people. They brought them manifest proofs, but they would not believe something they had denied before. Thus do We seal the hearts of the transgressors.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>After him We sent Messengers to their nation. They brought them clear signs, but they were not of those to believe because they had belied it previously. SoWe seal the hearts of the evildoers.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Then We sent after him messengers to their peoples, and they came to them with clear proofs. But they were not to believe in that which they had denied before. Thus We seal over the hearts of the transgressors</text>
+        </translation>
         <translation author="Sarwar">
           <text>After (Noah) We sent other Messengers to their people with clear authoritative evidence proving their prophetic claims). But how could the people believe what they had previously called lies? Thus do We seal the hearts of the transgressors.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Then did We raise up after him apostles to their people, so they came to them with clear arguments, but they would not believe in what they had rejected before; thus it is that We set seals upon the hearts of those who exceed the limits.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>After him We sent other messengers to their respective peoples, and they brought them clear proofs. But they would not believe in the truth, because they had rejected it before. Thus We seal up the hearts of the transgressors.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Then after him We sent (many) messengers to their peoples: they brought them Clear Signs, but they would not believe what they had already rejected beforehand. Thus do We seal the hearts of the transgressors.</text>
         </translation>
       </translations>
     </verse>
@@ -2574,6 +3630,9 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Itani">
           <text>How many generations have We destroyed after Noah? Your Lord is sufficient as Knower and Beholder of the sins of his servants.</text>
         </translation>
+        <translation author="Maududi">
+          <text>Many a generation has been destroyed by Our command since Noah's time. Your Lord is well aware and fully observant of the sins of His servants.</text>
+        </translation>
         <translation author="Mubarakpuri">
           <text>And how many generations have We destroyed after Nuh! And sufficient is your Lord as All-Knower and Seer of the sins of His servants.</text>
         </translation>
@@ -2594,6 +3653,9 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         </translation>
         <translation author="Shakir">
           <text>And how many of the generations did We destroy after Nuh! and your Lord is sufficient as Knowing and Seeing with regard to His servants' faults.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>How many generations have We destroyed since Noah's time. Your Lord is well aware of the sins of His servants and observes them all.</text>
         </translation>
         <translation author="Yusuf Ali">
           <text>How many generations have We destroyed after Noah? and enough is thy Lord to note and see the sins of His servants.</text>
@@ -2696,6 +3758,9 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Shakir">
           <text>Has not the account reached you of those before you, of the people of Nuh and Ad and Samood, and those after them? None knows them but Allah. Their apostles come to them with clear arguments, but they thrust their hands into their mouths and said: Surely we deny that with which you are sent, and most surely we are in serious doubt as to that to which you invite us.</text>
         </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Has not news come to you concerning those who preceded you, such as Noah's people, and the 'Ad and Thamud, as well as those who came after them? Only God knows who they were. The messengers came to them with clear signs, but they put their hands to their mouths saying, "We deny the message you have been sent with. We have grave doubts about what you are inviting us to do."</text>
+        </translation>
         <translation author="Yusuf Ali">
           <text>Has not the story reached you, (O people!), of those who (went) before you? - of the people of Noah, and 'Ad, and Thamud? - And of those who (came) after them? None knows them but Allah. To them came messengers with Clear (Signs); but they put their hands up to their mouths, and said: "We do deny (the mission) on which ye have been sent, and we are really in suspicious (disquieting) doubt as to that to which ye invite us."</text>
         </translation>
@@ -2720,6 +3785,9 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         </translation>
         <translation author="Itani">
           <text>If they deny you—before them the people of Noah, and Aad, and Thamood also denied.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>(O Prophet), if they give the lie to you, then before them the people of 'Ad and Thamud, also gave the lie (to the Prophets),</text>
         </translation>
         <translation author="Mubarakpuri">
           <text>And if they deny you, so did deny before them the people of Nuh, `Ad and Thamud.</text>
@@ -2810,6 +3878,9 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Ahmed Ali">
           <text>Like the people of Noah, 'Ad and Thamud, and those that came after them. God does not want to be unjust to His creatures.</text>
         </translation>
+        <translation author="Arberry">
+          <text>the like of the case of Noah's people, Ad, Thamood, and those after them; and God desires not wrong for His servants.'</text>
+        </translation>
         <translation author="Daryabadi">
           <text>Like the wont of the people of Nuh and A'ad and Thamud and those after them, and God intendeth not any wrong Unto His bondmen.</text>
         </translation>
@@ -2824,6 +3895,9 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         </translation>
         <translation author="Mubarakpuri">
           <text>"Like the end of the people of Nuh, and `Ad, and Thamud and those who came after them. And Allah wills no injustice for (His) servants."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>A plight like that of Noah's folk, and A'ad and Thamud, and those after them, and Allah willeth no injustice for (His) slaves.</text>
         </translation>
         <translation author="Qarai">
           <text>like the case of the people of Noah, of Ad and Thamud, and those who came after them, and Allah does not desire any wrong for [His] servants.</text>
@@ -2877,6 +3951,9 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Pickthall">
           <text>The folk of Noah before them denied (their messenger) and (so did the tribe of) A'ad, and Pharaoh firmly planted,</text>
         </translation>
+        <translation author="Qarai">
+          <text>Before them Noah’s people impugned [their apostle] and [so did the people of] ‘Ad, and Pharaoh, the Impaler [of his victims],</text>
+        </translation>
         <translation author="Qaribullah &amp; Darwish">
           <text>Before them the nations of Noah, Aad and Pharaoh, and he of the tentpegs belied,</text>
         </translation>
@@ -2917,6 +3994,9 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Itani">
           <text>Before them the people of Noah denied the truth, and so did the dwellers of Russ, and Thamood.</text>
         </translation>
+        <translation author="Maududi">
+          <text>In the past Noah's people, and the people of Rass and Thamud gave the lie (to Messengers),</text>
+        </translation>
         <translation author="Mubarakpuri">
           <text>Denied before them the people of Nuh, and the Dwellers of Rass, and Thamud,</text>
         </translation>
@@ -2951,8 +4031,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>Are the unbelievers among you any better than they? Or is there immunity for you in the Scriptures?</text>
+        </translation>
+        <translation author="Arberry">
+          <text>What, are your unbelievers better than those? Or have you an immunity in the Scrolls?</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Are your infidels better than these? Or is there an immunity for you in the Writs?</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>Are your disbelievers (O Quraish!) better than these [nations of Nuh (Noah), Lout (Lot), Salih (Saleh), and the people of Fir'aun (Pharaoh), etc., who were destroyed)? Or have you an immunity (against Our Torment) in the Divine Scriptures?</text>
+        </translation>
+        <translation author="Itani">
+          <text>Are your unbelievers better than all those? Or do you have immunity in the scriptures?</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Are your unbelievers (of Makkah) any better than they? Or have you been granted any immunity in the Scriptures?</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Are your disbelievers better than these Or have you immunity in the Divine Scriptures</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Are your disbelievers better than those, or have ye some immunity in the scriptures?</text>
+        </translation>
+        <translation author="Qarai">
+          <text>Are your faithless better than those? Have you [been granted] [some sort of] immunity in the scriptures?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>What then, are your unbelievers better than those? Or do you have an immunity (written) in the Scrolls?</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Are your disbelievers better than those [former ones], or have you immunity in the scripture?</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Are you disbelievers mightier than those of the nations which We destroyed before or have you received amnesty through the ancient Scriptures?</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Are the unbelievers of yours better than these, or is there an exemption for you in the scriptures?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Are your people who deny the truth better than those? Or have you been given immunity in the Scriptures?</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Are your Unbelievers, (O Quraish), better than they? Or have ye an immunity in the Sacred Books?</text>
         </translation>
       </translations>
     </verse>
@@ -3013,8 +4135,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.hilali</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>And We seized all of them for their crimes. Against some We sent a violent wind hurling stones, and some We seized with a mighty blast, and some We submerged under the earth, and some We drowned. It was not for God to wrong them, they wronged themselves.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Each We seized for his sin; and of them against some We loosed a squall of pebbles and some were seized by the Cry, and some We made the earth to swallow, and some We drowned; God would never wrong them, but they wronged themselves.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Wherefore each We laid hold of for his sin. Of them were some on whom We sent a violent wind; and of them were some - who were overtaken by a shout; and of them were some - with whom We sank the earth; and of them were some - whom We drowned. Allah was not such as to wrong them, but themselves they were wont to wrong.</text>
+        </translation>
         <translation author="Hilali &amp; Khan">
           <text>So We punished each (of them) for his sins, of them were some on whom We sent Hasiban (a violent wind with shower of stones) [as the people of Lout (Lot)], and of them were some who were overtaken by As-Saihah [torment - awful cry, etc. (as Thamud or Shu'aib's people)], and of them were some whom We caused the earth to swallow [as Qarun (Korah)], and of them were some whom We drowned [as the people of Nuh (Noah), or Fir'aun (Pharaoh) and his people]. It was not Allah Who wronged them, but they wronged themselves.</text>
+        </translation>
+        <translation author="Itani">
+          <text>Each We seized by his sin. Against some We sent a sandstorm. Some were struck by the Blast. Some We caused the ground to cave in beneath them. And some We drowned. It was not God who wronged them, but it was they who wronged their own selves.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>So We seized each for their sin. We let loose upon some a violent tornado with showers of stones; some were overtaken by a mighty Cry; some were caused to be swallowed up by the earth, and some We drowned. Allah would not wrong them, but it is they who wronged themselves.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>So, We punished each for his sins, of them were some on whom We sent a Hasib, and of them were some who were overtaken by As-Sayhah, and of them were some whom We caused the earth to swallow, and of them were some whom We drowned. It was not Allah Who wronged them, but they wronged themselves.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>So We took each one in his sin; of them was he on whom We sent a hurricane, and of them was he who was overtaken by the (Awful) Cry, and of them was he whom We caused the earth to swallow, and of them was he whom We drowned. It was not for Allah to wrong them, but they wronged themselves.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>So We seized each [of them] for his sin: among them were those upon whom We unleashed a rain of stones, and among them were those who were seized by the Cry, and among them were those whom We caused the earth to swallow, and among them were those whom We drowned. It was not Allah who wronged them, but it was they who used to wrong themselves.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Each of them We seized for his sin. On some We loosed a squall of pebbles, and others were seized by the Cry. Some We caused to be swallowed up by the earth, and some We drowned. Allah would never wrong them but they wronged themselves.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So each We seized for his sin; and among them were those upon whom We sent a storm of stones, and among them were those who were seized by the blast [from the sky], and among them were those whom We caused the earth to swallow, and among them were those whom We drowned. And Allah would not have wronged them, but it was they who were wronging themselves.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>We punished all of these people because of their sin. Some of them were struck by a violent sand-storm, some by a blast of sound, others were swallowed up by the earth, and some were drowned (in the sea). God did not do injustice to them, but they had wronged themselves.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>So each We punished for his sin; of them was he on whom We sent down a violent storm, and of them was he whom the rumbling overtook, and of them was he whom We made to be swallowed up by the earth, and of them was he whom We drowned; and it did not beseem Allah that He should be unjust to them, but they were unjust to their own souls.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>So We seized each one for his sins; some We struck with a violent storm; some of them were overcome by a sudden blast, some were swallowed up by the earth and some We drowned. God did not wrong them: they wronged themselves.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Each one of them We seized for his crime: of them, against some We sent a violent tornado (with showers of stones); some were caught by a (mighty) Blast; some We caused the earth to swallow up; and some We drowned (in the waters): It was not Allah Who injured (or oppressed) them:" They injured (and oppressed) their own souls.</text>
         </translation>
       </translations>
     </verse>
@@ -3044,14 +4208,26 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Mubarakpuri">
           <text>"Do you wonder that there has come to you a Reminder (and an advice) from your Lord through a man from among you to warn you And remember that He made you successors (generations after generations) after the people of Nuh and increased you amply in stature. So remember the graces (bestowed upon you) from Allah so that you may be successful."</text>
         </translation>
+        <translation author="Pickthall">
+          <text>Marvel ye that there should come unto you a Reminder from your Lord by means of a man among you, that he may warn you? Remember how He made you viceroys after Noah's folk, and gave you growth of stature. Remember (all) the bounties of your Lord, that haply ye may be successful.</text>
+        </translation>
         <translation author="Qarai">
           <text>Do you consider it odd that there should come to you a reminder from your Lord through a man from among yourselves, so that he may warn you? Remember when He made you successors after the people of Noah, and increased you vastly in creation. So remember Allah’s bounties so that you may be felicitous.’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Do you wonder that a remembrance should come to you from your Lord to a man from yourselves in order that he may warn you? Remember, that He has made you the heirs of Noah's nation and increased you in broad stature, remember the favors of Allah in order that you prosper'</text>
         </translation>
         <translation author="Saheeh International">
           <text>Then do you wonder that there has come to you a reminder from your Lord through a man from among you, that he may warn you? And remember when He made you successors after the people of Noah and increased you in stature extensively. So remember the favors of Allah that you might succeed.</text>
         </translation>
         <translation author="Sarwar">
           <text>Does it seem strange to you that a reminder from your Lord should be sent to a man among you so that He may warn you? Recall when God appointed you as successors of the people of Noah and increased your power over other people. Give thanks to God for His blessings so that perhaps you will have everlasting happiness."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>What! do you wonder that a reminder has come to you from your Lord through a man from among you that he might warn you? And remember when He made you successors after Nuh's people and increased you in excellence in respect of make; therefore remember the benefits of Allah, that you may be successful.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Do you find it strange that a Message should come from your Lord, through one of your own men, to warn you? Remember how He made you successors of Noah's people, and increased you greatly in stature. Remember the favours of God, so that you may prosper."</text>
         </translation>
         <translation author="Yusuf Ali">
           <text>"Do ye wonder that there hath come to you a message from your Lord through a man of your own people, to warn you? call in remembrance that He made you inheritors after the people of Noah, and gave you a stature tall among the nations. Call in remembrance the benefits (ye have received) from Allah: that so ye may prosper."</text>
@@ -3066,6 +4242,48 @@ All the idols which were worshipped by the people of Noah were worshipped by the
         <translation author="Ahmed Ali">
           <text>We shall only be guilty of blaspheming God if we accept your way after the people of Noah, and gave you a greater increase in your stature. So think of the favours of God; you may haply be blessed."</text>
         </translation>
+        <translation author="Arberry">
+          <text>We should have forged against God a lie if we returned into your creed; after God delivered us from it. It is not for us to return into it, unless God our Lord so will. Our Lord embraces all things in His knowledge. In God we have put our trust. Our Lord, give true deliverance between us and our people; Thou art the best of deliverers.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>We must have been fabricating a lie against Allah if we returned to your faith after Allah hath delivered us therefrom. And it is not for us to return thereunto except that Allah our Lord so willed; everything our Lord comprehendeth in His knowledge; in Allah we place our trust. O our Lord! decide Thou between us and our people with truth, Thou art the Best of the deciders.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"We should have invented a lie against Allah if we returned to your religion, after Allah has rescued us from it. And it is not for us to return to it unless Allah, our Lord, should will. Our Lord comprehends all things in His Knowledge. In Allah (Alone) we put our trust. Our Lord! Judge between us and our people in truth, for You are the Best of those who give judgment."</text>
+        </translation>
+        <translation author="Itani">
+          <text>“We would be fabricating falsehood against God, if we were to return to your religion, after God has saved us from it. It is not for us to return to it, unless God, our Lord, wills. Our Lord embraces all things in knowledge. In God we place our trust. Our Lord, decide between us and our people in truth, for You are the Best of Deciders.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>If we return to your faith after Allah has delivered us from it we would be fabricating a lie against Allah. nor can we return to it again unless it be by, the will of Allah, our Lord. Our Lord has knowledge of all things, and in Allah we put our trust. Our Lord! Judge rightly between us and our people, for You are the best of those who judge.'</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"We should have invented a lie against Allah if we returned to your religion, after Allah has rescued us from it. And it is not for us to return to it unless Allah, our Lord, should will. Our Lord comprehends all things in His knowledge. In Allah (Alone) we put our trust. Our Lord! Judge between us and our people in truth, for You are the best of those who give judgment."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>We should have invented a lie against Allah if we returned to your religion after Allah hath rescued us from it. It is not for us to return to it unless Allah our Lord should (so) will. Our Lord comprehendeth all things in knowledge. In Allah do we put our trust. Our Lord! Decide with truth between us and our folk, for Thou art the best of those who make decision.</text>
+        </translation>
+        <translation author="Qarai">
+          <text>We would be fabricating a lie against Allah should we revert to your creed after Allah had delivered us from it. It does not behoove us to return to it, unless Allah, our Lord, should wish so. Our Lord embraces all things in [His] knowledge. In Allah we have put our trust.’ ‘Our Lord! Judge justly between us and our people, and You are the best of judges!’</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>We would have invented lies about Allah if we returned to your creed from which Allah has saved us, it is not for us that we return into it again except if Allah, our Lord wills. For our Lord has embraced everything with knowledge, and in Allah we have put our trust. Our Lord, open between us and our nation with truth, You are the Best of openers'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>We would have invented against Allah a lie if we returned to your religion after Allah had saved us from it. And it is not for us to return to it except that Allah, our Lord, should will. Our Lord has encompassed all things in knowledge. Upon Allah we have relied. Our Lord, decide between us and our people in truth, and You are the best of those who give decision."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>We would certainly be inventing falsehoods against God if we were to accept your way of life, when God has already saved us from it. We do not have to accept it unless God, our Lord, wills it. Our Lord's knowledge covers all things. We trust in Him and ask Him to judge among us and our people, for He is the best Judge."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Indeed we shall have forged a lie against Allah If we go back to your religion after Allah has delivered us from It, and it befits us not that we should go back to it, except if Allah our Lord please: Our Lord comprehends all things in His knowledge; in Allah do we trust: Our Lord! decide between us and our people with truth; and Thou art the best of deciders.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>We would be inventing lies against God if we returned to your faith after God has delivered us from it. It is not for us to return to it unless God our Lord so willed. Our Lord encompasses all things in His knowledge. We have put our trust in God. Our Lord, expose the truth [and judge] between us and our people, You are the best judge."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"We should indeed invent a lie against Allah, if we returned to your ways after Allah hath rescued us therefrom; nor could we by any manner of means return thereto unless it be as in the will and plan of Allah, Our Lord. Our Lord can reach out to the utmost recesses of things by His knowledge. In the Allah is our trust. our Lord! decide Thou between us and our people in truth, for Thou art the best to decide."</text>
+        </translation>
       </translations>
     </verse>
     <verse chapter="20" verse="39">
@@ -3073,14 +4291,50 @@ All the idols which were worshipped by the people of Noah were worshipped by the
       <book_id>en.arberry</book_id>
       <score>0</score>
       <translations>
+        <translation author="Ahmed Ali">
+          <text>'Put him in a wooden box and cast it in the river. The river will cast it on the bank. An enemy of Ours, and his, will retrieve it.' We bestowed Our love on you that you may be reared under Our eyes.</text>
+        </translation>
         <translation author="Arberry">
           <text>"Cast him into the ark, and cast him into the river, and let the river throw him up on the shore. An enemy of Mine and his shall take him." And I loaded on thee love from Me, and to be formed in My sight,</text>
         </translation>
         <translation author="Daryabadi">
           <text>Saying! cast him in the ark, and cast him into the river, and the river will throw him on the bank, and then an enemy of Mine and an enemy of his will take him up. And I cast on thee love from Me in order that thou mayest be formed under Mine eye.</text>
         </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"Saying: 'Put him (the child) into the Tabut (a box or a case or a chest) and put it into the river (Nile), then the river shall cast it up on the bank, and there, an enemy of Mine and an enemy of his shall take him.' And I endued you with love from Me, in order that you may be brought up under My Eye,</text>
+        </translation>
+        <translation author="Itani">
+          <text>`Put him in the chest; then cast him into the river. The river will wash him to shore, where an enemy of Mine and an enemy of his will pick him up. And I have bestowed upon you love from Me, so that you may be reared before My eye.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>'Put the baby into a chest and then throw him in the river. The river will throw him up on the shore, and then an enemy of Mine and an enemy of his will take him.' And I spread My love over you in order that you might be reared in My sight.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"Saying: `Put him (the child) into the Tabut and put it into the river; then the river shall cast it up on the bank, and there, an enemy of Mine and an enemy of his shall take him.' And I endued you with love from Me, in order that you may be brought up under My Eye."</text>
+        </translation>
         <translation author="Pickthall">
           <text>Saying: Throw him into the ark, and throw it into the river, then the river shall throw it on to the bank, and there an enemy to Me and an enemy to him shall take him. And I endued thee with love from Me that thou mightest be trained according to My will,</text>
+        </translation>
+        <translation author="Qarai">
+          <text>“Put him in the casket, and cast it into the river. Then the river will cast it on the bank, and he shall be picked up by an enemy of Mine and an enemy of his.” And I made you endearing, and that you might be reared under My [watchful] eyes.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>saying: "Put him in the box and cast it into the river. The river will cast him on to the bank, and he shall be taken up by an enemy of Mine and an enemy of his." I lavished My Love on you, and to be formed in My Sight.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>[Saying], 'Cast him into the chest and cast it into the river, and the river will throw it onto the bank; there will take him an enemy to Me and an enemy to him.' And I bestowed upon you love from Me that you would be brought up under My eye.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>to lace her child in a chest and throw it into the sea which would hurl it towards the shore. Then an enemy of Mine who was also the enemy of the child would pick it up from there. I made you attractive and loveable so that you would be reared before My own eyes.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Saying: Put him into a chest, then cast it down into the river, then the river shall throw him on the shore; there shall take him up one who is an enemy to Me and enemy to him, and I cast down upon you love from Me, and that you might be brought up before My eyes;</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>"'Put him into a chest, then cast it into the river. The river will cast it on to the bank, and there he shall be taken up by an enemy of Mine and his.' I showered My love on you so that you might be reared under My watchful eye.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"'Throw (the child) into the chest, and throw (the chest) into the river: the river will cast him up on the bank, and he will be taken up by one who is an enemy to Me and an enemy to him': But I cast (the garment of) love over thee from Me: and (this) in order that thou mayest be reared under Mine eye.</text>
         </translation>
       </translations>
     </verse>

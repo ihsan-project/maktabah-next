@@ -50,6 +50,27 @@ function isQuranVerse(verse) {
 }
 
 /**
+ * List of expected Quran translation authors
+ */
+const EXPECTED_QURAN_AUTHORS = [
+  'Ahmed Ali',
+  'Arberry',
+  'Daryabadi',
+  'Hilali & Khan',
+  'Itani',
+  'Maududi',
+  'Mubarakpuri',
+  'Pickthall',
+  'Qarai',
+  'Qaribullah & Darwish',
+  'Saheeh International',
+  'Sarwar',
+  'Shakir',
+  'Wahiduddin Khan',
+  'Yusuf Ali'
+];
+
+/**
  * Fetch a specific verse from Elasticsearch with all translations
  */
 async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
@@ -138,6 +159,70 @@ async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
   } catch (error) {
     console.error(`Error fetching verse from Elasticsearch: ${error.message}`);
     return null;
+  }
+}
+
+/**
+ * Backfill missing translations for a Quran verse
+ */
+async function backfillMissingTranslations(verse, fetchFromElasticsearch = true) {
+  // Only process Quran verses
+  if (!isQuranVerse(verse)) {
+    return verse;
+  }
+  
+  const chapter = parseInt(verse.$.chapter);
+  const verseNum = parseInt(verse.$.verse);
+  
+  // Get existing translations
+  const existingTranslations = verse.translations?.[0]?.translation || [];
+  const existingAuthors = new Set(existingTranslations.map(t => t.$.author));
+  
+  // Find missing authors
+  const missingAuthors = EXPECTED_QURAN_AUTHORS.filter(author => !existingAuthors.has(author));
+  
+  if (missingAuthors.length === 0) {
+    return verse; // All translations present
+  }
+  
+  console.log(`  Verse ${chapter}:${verseNum} missing ${missingAuthors.length} translations: ${missingAuthors.join(', ')}`);
+  
+  if (!fetchFromElasticsearch) {
+    console.log(`  Skipping backfill (Elasticsearch fetch disabled)`);
+    return verse;
+  }
+  
+  // Fetch complete verse from Elasticsearch
+  const fetchedVerse = await fetchVerseFromElasticsearch(chapter, verseNum, true);
+  
+  if (!fetchedVerse) {
+    console.log(`  ✗ Could not fetch verse from Elasticsearch`);
+    return verse;
+  }
+  
+  // Extract translations from fetched verse
+  const fetchedTranslations = fetchedVerse.translations?.[0]?.translation || [];
+  const newTranslations = fetchedTranslations.filter(t => missingAuthors.includes(t.$.author));
+  
+  if (newTranslations.length > 0) {
+    console.log(`  ✓ Added ${newTranslations.length} missing translations`);
+    
+    // Merge existing and new translations
+    const allTranslations = [...existingTranslations, ...newTranslations];
+    
+    // Sort translations by author name for consistency
+    allTranslations.sort((a, b) => a.$.author.localeCompare(b.$.author));
+    
+    // Update verse with complete translations
+    return {
+      ...verse,
+      translations: [{
+        translation: allTranslations
+      }]
+    };
+  } else {
+    console.log(`  ✗ Fetched verse didn't contain missing translations`);
+    return verse;
   }
 }
 
@@ -300,7 +385,70 @@ async function main() {
   // Count actual verses (excluding section markers)
   const actualVerseCount = reorderedVerses.filter(v => v.verse || v.$).length;
   
-  // Count total translations
+  // ============================================================================
+  // PHASE: Validate and backfill missing translations for Quran verses
+  // ============================================================================
+  console.log(`\n${'='.repeat(80)}`);
+  console.log('VALIDATING TRANSLATIONS FOR QURAN VERSES');
+  console.log(`${'='.repeat(80)}`);
+  
+  let versesWithMissingTranslations = 0;
+  let totalMissingTranslations = 0;
+  let totalBackfilled = 0;
+  
+  for (let i = 0; i < reorderedVerses.length; i++) {
+    const verse = reorderedVerses[i];
+    
+    // Skip section markers
+    if (!verse.$ && !verse.verse) {
+      continue;
+    }
+    
+    // Only check Quran verses
+    if (!isQuranVerse(verse)) {
+      continue;
+    }
+    
+    const chapter = verse.$.chapter;
+    const verseNum = verse.$.verse;
+    const existingTranslations = verse.translations?.[0]?.translation || [];
+    const existingAuthors = new Set(existingTranslations.map(t => t.$.author));
+    const missingAuthors = EXPECTED_QURAN_AUTHORS.filter(author => !existingAuthors.has(author));
+    
+    if (missingAuthors.length > 0) {
+      versesWithMissingTranslations++;
+      totalMissingTranslations += missingAuthors.length;
+      
+      console.log(`\nVerse ${chapter}:${verseNum}:`);
+      console.log(`  Has ${existingTranslations.length}/${EXPECTED_QURAN_AUTHORS.length} translations`);
+      
+      // Backfill if enabled
+      if (fetchMissing) {
+        const updatedVerse = await backfillMissingTranslations(verse, fetchMissing);
+        const newTranslationsCount = updatedVerse.translations?.[0]?.translation?.length || 0;
+        const addedCount = newTranslationsCount - existingTranslations.length;
+        
+        if (addedCount > 0) {
+          totalBackfilled += addedCount;
+          reorderedVerses[i] = updatedVerse;
+        }
+      } else {
+        console.log(`  Missing: ${missingAuthors.join(', ')}`);
+      }
+    }
+  }
+  
+  console.log(`\n${'-'.repeat(80)}`);
+  console.log(`Summary:`);
+  console.log(`  Quran verses with missing translations: ${versesWithMissingTranslations}`);
+  console.log(`  Total missing translations: ${totalMissingTranslations}`);
+  if (fetchMissing) {
+    console.log(`  Total translations backfilled: ${totalBackfilled}`);
+    console.log(`  Remaining missing: ${totalMissingTranslations - totalBackfilled}`);
+  }
+  console.log(`${'='.repeat(80)}\n`);
+  
+  // Count total translations (after backfill)
   const totalTranslations = reorderedVerses.reduce((sum, verse) => {
     if (verse.translations?.[0]?.translation) {
       return sum + verse.translations[0].translation.length;
