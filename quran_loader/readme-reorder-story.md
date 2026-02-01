@@ -121,9 +121,32 @@ Use the `--no-fetch-missing` flag if you only want verses from the source XML
 
 The output XML will:
 - Contain verses in the order specified by the CSV
-- Preserve all original verse data (text, metadata, scores, etc.)
+- Preserve all original verse data (translations, metadata, scores, etc.)
 - Include updated metadata showing when it was reordered and from which CSV
 - Have the same XML structure as the original file
+
+### XML Format with Multiple Translations
+
+The script now supports the new XML format where each verse includes all available translations:
+
+```xml
+<verse chapter="11" verse="69">
+  <chapter_name></chapter_name>
+  <book_id>en.ahmedali</book_id>
+  <score>0</score>
+  <translations>
+    <translation author="Ahmed Ali">
+      <text>Our angels came to Abraham...</text>
+    </translation>
+    <translation author="Yusuf Ali">
+      <text>There came Our messengers to Abraham...</text>
+    </translation>
+    <!-- More translations -->
+  </translations>
+</verse>
+```
+
+When fetching missing verses from Elasticsearch, the script automatically retrieves **all available translations** for that verse and includes them in the output.
 
 ### Unused Verses Report
 
@@ -135,7 +158,7 @@ After generating the output file, the script provides a detailed report of all v
 The report shows:
 - Total number of unused verses vs total verses in source
 - Separate lists for Quran and Hadith verses
-- Each verse with chapter:verse reference, author, and first 80 characters of text
+- Each verse with chapter:verse reference, author (from first translation), translation count, and first 80 characters of text
 - Sorted by chapter and verse number for easy reference
 
 Example output:
@@ -146,12 +169,12 @@ UNUSED VERSES FROM SOURCE XML
 Total unused: 45 out of 230 verses
 
 Unused Quran verses (42):
-  2:133 (Hilali & Khan) - "Or were you witnesses when death approached Ya'qub (Jacob)? When he sai..."
-  3:84 (Hilali & Khan) - "Say (O Muhammad): \"We believe in Allah and in what has been sent down..."
+  2:133 (Hilali & Khan) [16 translations] - "Or were you witnesses when death approached Ya'qub (Jacob)? When he sai..."
+  3:84 (Hilali & Khan) [16 translations] - "Say (O Muhammad): \"We believe in Allah and in what has been sent down..."
   ...
 
 Unused Hadith verses (3):
-  93:573 (Bukhari) - "Narrated Ibn 'Abbas: The Prophet said, 'If anyone of you, when having..."
+  93:573 (Bukhari) [1 translations] - "Narrated Ibn 'Abbas: The Prophet said, 'If anyone of you, when having..."
   ...
 
 ================================================================================
@@ -159,12 +182,14 @@ Unused Hadith verses (3):
 
 ## Notes
 
-- **Auto-fetch is enabled by default**: Missing verses are automatically fetched from Elasticsearch
+- **Auto-fetch is enabled by default**: Missing verses are automatically fetched from Elasticsearch with all their translations
+- **Multiple translations**: Each verse includes all available translations from Elasticsearch
 - **Unused verses report**: At the end of execution, the script shows which verses from the source XML weren't included in the output
-- The script preserves all verse attributes and content from the original XML
+- The script preserves all verse attributes and content (including all translations) from the original XML
 - Verse type matching is based on the `chapter_name` field (empty = Quran, has value = Hadith)
 - If a verse cannot be found (even after fetching), a warning is printed but the script continues
 - The generated timestamp is updated to reflect when the reordering was done
+- The output metadata includes both `verses_count` and `translations_count` for tracking
 - Section information from the CSV is preserved in metadata but not as XML elements (you can modify the script to add section tags if needed)
 - Use `--no-fetch-missing` if you want to disable auto-fetching and only use verses from the source XML
 

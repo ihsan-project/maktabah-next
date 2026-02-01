@@ -50,7 +50,7 @@ function isQuranVerse(verse) {
 }
 
 /**
- * Fetch a specific verse from Elasticsearch
+ * Fetch a specific verse from Elasticsearch with all translations
  */
 async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
   try {
@@ -81,7 +81,10 @@ async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
       index: elasticsearchIndex,
       body: {
         query: searchQuery,
-        size: 100 // Get multiple results in case there are different translations
+        size: 100, // Get multiple results to capture all translations
+        sort: [
+          { author: { order: "asc" } }
+        ]
       }
     });
     
@@ -89,7 +92,7 @@ async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
       console.log(`    Found ${response.hits.hits.length} result(s) in Elasticsearch for Chapter ${chapter}, Verse ${verseNum}`);
       
       // Filter results by type (quran vs hadith) in JavaScript
-      const matchingHit = response.hits.hits.find(hit => {
+      const matchingHits = response.hits.hits.filter(hit => {
         const source = hit._source;
         const hasChapterName = source.chapter_name && source.chapter_name.trim() !== '';
         
@@ -98,20 +101,29 @@ async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
         return isQuran ? !hasChapterName : hasChapterName;
       });
       
-      if (matchingHit) {
-        const source = matchingHit._source;
+      if (matchingHits.length > 0) {
+        const firstSource = matchingHits[0]._source;
         
-        // Convert to XML format matching the existing structure
+        // Convert all translations to the new XML format
+        const translations = matchingHits.map(hit => ({
+          $: {
+            author: hit._source.author
+          },
+          text: [hit._source.text]
+        }));
+        
+        // Return verse in new format with all translations
         return {
           $: {
-            chapter: String(source.chapter),
-            verse: String(source.verse),
-            author: source.author
+            chapter: String(firstSource.chapter),
+            verse: String(firstSource.verse)
           },
-          chapter_name: [source.chapter_name || ''],
-          book_id: [source.book_id || ''],
-          score: [String(source.score || matchingHit._score || 0)],
-          text: [source.text]
+          chapter_name: [firstSource.chapter_name || ''],
+          book_id: [firstSource.book_id || ''],
+          score: [String(firstSource.score || matchingHits[0]._score || 0)],
+          translations: [{
+            translation: translations
+          }]
         };
       } else {
         // Debug: show what we found but couldn't match
@@ -288,6 +300,14 @@ async function main() {
   // Count actual verses (excluding section markers)
   const actualVerseCount = reorderedVerses.filter(v => v.verse || v.$).length;
   
+  // Count total translations
+  const totalTranslations = reorderedVerses.reduce((sum, verse) => {
+    if (verse.translations?.[0]?.translation) {
+      return sum + verse.translations[0].translation.length;
+    }
+    return sum;
+  }, 0);
+  
   // Create new XML structure
   const newXmlData = {
     story: {
@@ -298,6 +318,7 @@ async function main() {
       metadata: [{
         title: [xmlData.story.metadata[0].title[0]],
         verses_count: [actualVerseCount.toString()],
+        translations_count: [totalTranslations.toString()],
         reordered: [new Date().toISOString()],
         reorder_source: [path.basename(reorderCsvPath)]
       }],
@@ -319,17 +340,24 @@ async function main() {
   
   console.log(`\nSuccess! Reordered XML written to: ${outputXmlPath}`);
   console.log(`Total verses in output: ${actualVerseCount}`);
+  console.log(`Total translations in output: ${totalTranslations}`);
   
   // Report unused verses from source XML
   const unusedVerses = [];
   allXmlVerses.forEach((verse, idx) => {
     if (!usedVerseIndices.has(idx)) {
+      // Get first translation for preview
+      const firstTranslation = verse.translations?.[0]?.translation?.[0];
+      const author = firstTranslation?.$?.author || 'Unknown';
+      const text = firstTranslation?.text?.[0] || '';
+      
       unusedVerses.push({
         chapter: verse.$.chapter,
         verse: verse.$.verse,
-        author: verse.$.author,
+        author: author,
         type: isQuranVerse(verse) ? 'quran' : 'hadith',
-        text: verse.text[0].substring(0, 80) + (verse.text[0].length > 80 ? '...' : '')
+        text: text.substring(0, 80) + (text.length > 80 ? '...' : ''),
+        translationCount: verse.translations?.[0]?.translation?.length || 0
       });
     }
   });
@@ -352,7 +380,8 @@ async function main() {
           return chapterDiff !== 0 ? chapterDiff : parseInt(a.verse) - parseInt(b.verse);
         })
         .forEach(v => {
-          console.log(`  ${v.chapter}:${v.verse} (${v.author}) - ${v.text}`);
+          const translationInfo = v.translationCount > 0 ? ` [${v.translationCount} translations]` : '';
+          console.log(`  ${v.chapter}:${v.verse} (${v.author})${translationInfo} - ${v.text}`);
         });
       console.log('');
     }
@@ -365,7 +394,8 @@ async function main() {
           return chapterDiff !== 0 ? chapterDiff : parseInt(a.verse) - parseInt(b.verse);
         })
         .forEach(v => {
-          console.log(`  ${v.chapter}:${v.verse} (${v.author}) - ${v.text}`);
+          const translationInfo = v.translationCount > 0 ? ` [${v.translationCount} translations]` : '';
+          console.log(`  ${v.chapter}:${v.verse} (${v.author})${translationInfo} - ${v.text}`);
         });
       console.log('');
     }
