@@ -13,6 +13,8 @@ export const ALLOWED_STORIES = [
   'jesus',    // Story about Jesus/Isa
   'noah', // Story about Noah/Nuh
   'adam', // Story about Adam
+  'yusuf', // Story about Joseph/Yusuf
+  'dawud', // Story about David/Dawud
   // Add more stories here as XML files are created
 ];
 
@@ -57,10 +59,10 @@ export const STORY_METADATA: Record<string, {
     description: 'Learn about Prophet Joseph (Yusuf) from various Islamic texts and translations of the Quran.',
     keywords: ['Joseph', 'Yusuf']
   },
-  'yunus': {
-    title: 'The Story of Jonah (Yunus) in Islamic Texts',
-    description: 'Learn about Prophet Jonah (Yunus) from various Islamic texts and translations of the Quran.',
-    keywords: ['Jonah', 'Yunus']
+  'dawud': {
+    title: 'The Story of David (Dawud) in Islamic Texts',
+    description: 'Learn about Prophet David (Dawud) from various Islamic texts and translations of the Quran.',
+    keywords: ['David', 'Dawud']
   }
 };
 
