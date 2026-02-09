@@ -127,10 +127,7 @@ export default function SearchResults({
                     const bookmarked = isBookmarked(verseId);
                     if (bookmarked) {
                       const bookmark = bookmarks.find(b => b.verseId === verseId);
-                      const hasNotes = bookmark?.notesDelta && 
-                        bookmark.notesDelta.ops && 
-                        bookmark.notesDelta.ops.length > 0 &&
-                        bookmark.notesDelta.ops.some((op: any) => op.insert && op.insert.trim() !== '');
+                      const hasNotes = bookmark?.notesHtml && bookmark.notesHtml.trim().length > 0;
                       return <NoteIcon verseId={verseId} hasNotes={!!hasNotes} />;
                     }
                     return null;

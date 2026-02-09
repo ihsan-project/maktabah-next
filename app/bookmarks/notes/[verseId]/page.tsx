@@ -16,7 +16,7 @@ function NotesPageContent(): JSX.Element {
   const { bookmarks, updateBookmarkNotes, loading } = useBookmarks();
   
   const [bookmark, setBookmark] = useState<Bookmark | null>(null);
-  const [notesDelta, setNotesDelta] = useState<any>(null);
+  const [notesHtml, setNotesHtml] = useState<string>('');
   const [isSaving, setIsSaving] = useState(false);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
 
@@ -31,7 +31,7 @@ function NotesPageContent(): JSX.Element {
       const foundBookmark = bookmarks.find(b => b.verseId === verseId);
       if (foundBookmark) {
         setBookmark(foundBookmark);
-        setNotesDelta(foundBookmark.notesDelta || { ops: [{ insert: '\n' }] });
+        setNotesHtml(foundBookmark.notesHtml || '');
       } else {
         // Bookmark not found, redirect to bookmarks page
         router.push('/bookmarks');
@@ -39,8 +39,8 @@ function NotesPageContent(): JSX.Element {
     }
   }, [bookmarks, loading, verseId, router]);
 
-  const handleNotesChange = (delta: any) => {
-    setNotesDelta(delta);
+  const handleNotesChange = (html: string) => {
+    setNotesHtml(html);
     setHasUnsavedChanges(true);
   };
 
@@ -49,7 +49,7 @@ function NotesPageContent(): JSX.Element {
 
     setIsSaving(true);
     try {
-      await updateBookmarkNotes(verseId, notesDelta);
+      await updateBookmarkNotes(verseId, notesHtml);
       setHasUnsavedChanges(false);
       
       // Track save event
@@ -142,7 +142,7 @@ function NotesPageContent(): JSX.Element {
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Your Notes</h2>
           <QuillEditor
-            value={notesDelta}
+            value={notesHtml}
             onChange={handleNotesChange}
             placeholder="Take notes about this verse..."
           />

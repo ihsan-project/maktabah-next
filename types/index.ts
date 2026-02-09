@@ -64,14 +64,14 @@ export interface StoriesListProps {
 
 // Bookmark-related types
 export interface BookmarkMetadata {
-  notesDelta: any; // Quill Delta format
+  notesHtml: string; // Rich text HTML from Quill
   tags: string[];
   priority: number;
 }
 
 export interface Bookmark extends SearchResult {
   verseId: string;
-  notesDelta: any; // Quill Delta format
+  notesHtml: string; // Rich text HTML from Quill
   tags: string[];
   priority: number;
   editCount: number; // Track number of edits
@@ -86,6 +86,6 @@ export interface UseBookmarksReturn {
   addBookmark: (result: SearchResult, metadata?: Partial<BookmarkMetadata>) => Promise<void>;
   removeBookmark: (verseId: string) => Promise<void>;
   updateBookmarkMetadata: (verseId: string, metadata: Partial<BookmarkMetadata>) => Promise<void>;
-  updateBookmarkNotes: (verseId: string, notesDelta: any) => Promise<void>;
+  updateBookmarkNotes: (verseId: string, notesHtml: string) => Promise<void>;
   loading: boolean;
 }

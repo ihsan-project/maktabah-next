@@ -122,7 +122,7 @@ export function useBookmarks(): UseBookmarksReturn {
     const bookmark: Omit<Bookmark, 'id'> = {
       ...result,
       verseId,
-      notesDelta: metadata?.notesDelta || null,
+      notesHtml: metadata?.notesHtml || '',
       tags: metadata?.tags || [],
       priority: metadata?.priority || 0,
       editCount: 0,
@@ -185,7 +185,7 @@ export function useBookmarks(): UseBookmarksReturn {
   };
 
   /**
-   * Update bookmark metadata (notesDelta, tags, priority)
+   * Update bookmark metadata (notesHtml, tags, priority)
    */
   const updateBookmarkMetadata = async (
     verseId: string, 
@@ -219,7 +219,7 @@ export function useBookmarks(): UseBookmarksReturn {
    */
   const updateBookmarkNotes = async (
     verseId: string,
-    notesDelta: any
+    notesHtml: string
   ): Promise<void> => {
     if (!user) {
       console.error('User must be logged in to update bookmark notes');
@@ -229,7 +229,7 @@ export function useBookmarks(): UseBookmarksReturn {
     try {
       const bookmarkRef = doc(db, 'users', user.uid, 'bookmarks', verseId);
       await updateDoc(bookmarkRef, {
-        notesDelta,
+        notesHtml,
         editCount: increment(1),
         updatedAt: Timestamp.now()
       });

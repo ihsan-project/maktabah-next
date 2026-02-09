@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
 
@@ -8,20 +8,18 @@ import 'react-quill/dist/quill.snow.css';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 interface QuillEditorProps {
-  value: any; // Quill Delta object
-  onChange: (delta: any) => void;
+  value: string; // HTML string
+  onChange: (html: string) => void;
   placeholder?: string;
 }
 
 /**
  * Quill WYSIWYG editor component for taking notes
- * Stores content in Delta format for optimal Firestore storage
+ * Stores content as HTML in Firestore
  */
 export default function QuillEditor({ value, onChange, placeholder = 'Take notes here...' }: QuillEditorProps): JSX.Element {
-  const quillRef = useRef<any>(null);
-
-  // Toolbar configuration
-  const modules = {
+  // Toolbar configuration - memoized to prevent recreation
+  const modules = useMemo(() => ({
     toolbar: [
       [{ 'header': [1, 2, 3, false] }],
       ['bold', 'italic', 'underline', 'strike'],
@@ -31,7 +29,7 @@ export default function QuillEditor({ value, onChange, placeholder = 'Take notes
       ['link'],
       ['clean']
     ]
-  };
+  }), []);
 
   const formats = [
     'header',
@@ -42,36 +40,12 @@ export default function QuillEditor({ value, onChange, placeholder = 'Take notes
     'link'
   ];
 
-  // Handle changes and convert to Delta format
-  const handleChange = (content: string, delta: any, source: string, editor: any) => {
-    if (source === 'user') {
-      // Get Delta from editor
-      const currentDelta = editor.getContents();
-      onChange(currentDelta);
-    }
-  };
-
-  // Initialize editor with existing Delta
-  useEffect(() => {
-    if (quillRef.current && value) {
-      const editor = quillRef.current.getEditor();
-      if (editor) {
-        try {
-          // Set contents from Delta
-          editor.setContents(value);
-        } catch (error) {
-          console.error('Error setting Quill contents:', error);
-        }
-      }
-    }
-  }, []); // Only run once on mount
-
   return (
     <div className="quill-editor-wrapper">
       <ReactQuill
-        ref={quillRef}
         theme="snow"
-        onChange={handleChange}
+        value={value}
+        onChange={onChange}
         modules={modules}
         formats={formats}
         placeholder={placeholder}
