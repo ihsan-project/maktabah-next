@@ -64,16 +64,17 @@ export interface StoriesListProps {
 
 // Bookmark-related types
 export interface BookmarkMetadata {
-  notes: string;
+  notesDelta: any; // Quill Delta format
   tags: string[];
   priority: number;
 }
 
 export interface Bookmark extends SearchResult {
   verseId: string;
-  notes: string;
+  notesDelta: any; // Quill Delta format
   tags: string[];
   priority: number;
+  editCount: number; // Track number of edits
   createdAt: any; // Firestore Timestamp
   updatedAt: any; // Firestore Timestamp
 }
@@ -85,5 +86,6 @@ export interface UseBookmarksReturn {
   addBookmark: (result: SearchResult, metadata?: Partial<BookmarkMetadata>) => Promise<void>;
   removeBookmark: (verseId: string) => Promise<void>;
   updateBookmarkMetadata: (verseId: string, metadata: Partial<BookmarkMetadata>) => Promise<void>;
+  updateBookmarkNotes: (verseId: string, notesDelta: any) => Promise<void>;
   loading: boolean;
 }

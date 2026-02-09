@@ -60,3 +60,23 @@ body {
     scroll-snap-align: start;
   }
 }
+
+/* Quill Editor Styles */
+.quill-editor-wrapper .ql-container {
+  min-height: 300px;
+  font-size: 16px;
+}
+
+.quill-editor-wrapper .ql-editor {
+  min-height: 300px;
+}
+
+.quill-editor-wrapper .ql-toolbar {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.quill-editor-wrapper .ql-container {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
