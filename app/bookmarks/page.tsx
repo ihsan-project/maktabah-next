@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
 import SearchResults from '@/app/components/SearchResults';
 import { useBookmarks } from '@/lib/bookmarks';
@@ -9,14 +9,22 @@ import MixpanelTracking from '@/lib/mixpanel';
 
 function BookmarksPageContent(): JSX.Element {
   const { bookmarks, loading } = useBookmarks();
+  const hasTrackedCount = useRef(false);
 
-  // Track page view
+  // Track page view once on mount
   useEffect(() => {
     MixpanelTracking.trackPageView('Bookmarks Page');
-    MixpanelTracking.track('Bookmarks Page Viewed', {
-      bookmarkCount: bookmarks.length
-    });
-  }, [bookmarks.length]);
+  }, []);
+
+  // Track bookmark count once after initial load completes
+  useEffect(() => {
+    if (!loading && !hasTrackedCount.current) {
+      MixpanelTracking.track('Bookmarks Page Viewed', {
+        bookmarkCount: bookmarks.length
+      });
+      hasTrackedCount.current = true;
+    }
+  }, [loading, bookmarks.length]);
 
   // Convert bookmarks to SearchResult format
   const searchResults: SearchResult[] = useMemo(() => {
