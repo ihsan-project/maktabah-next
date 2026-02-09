@@ -183,9 +183,9 @@ export default function SearchResults({
                     )}
                   </>
                 ) : (
-                  <p>
+                  <div>
                     <TextWithLineBreaks text={result.text} />
-                  </p>
+                  </div>
                 )}
               </div>
               
