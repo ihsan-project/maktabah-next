@@ -5,6 +5,7 @@ import { FiChevronRight, FiChevronDown } from 'react-icons/fi';
 import { SearchResultsProps, SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
 import ExpandedSearchResult from './ExpandedSearchResult';
+import BookmarkButton from './BookmarkButton';
 
 // Helper function to render text with newlines
 const TextWithLineBreaks = ({ text }: { text: string }) => {
@@ -117,14 +118,17 @@ export default function SearchResults({
                 <div className="font-medium text-primary">
                   {result.chapter}:{result.verse}
                 </div>
-                <div className="flex items-center text-xs text-gray-500">
-                  {result.title === 'bukhari' && (
-                    <span className="px-2 py-0.5 mr-2 rounded-full bg-[#8C6564] text-white">
-                      Bukhari
-                      {result.volume && ` Vol ${result.volume}`}
-                    </span>
-                  )}
-                  {result.author}
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center text-xs text-gray-500">
+                    {result.title === 'bukhari' && (
+                      <span className="px-2 py-0.5 mr-2 rounded-full bg-[#8C6564] text-white">
+                        Bukhari
+                        {result.volume && ` Vol ${result.volume}`}
+                      </span>
+                    )}
+                    {result.author}
+                  </div>
+                  <BookmarkButton result={result} />
                 </div>
               </div>
               
