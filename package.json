@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "functions": "cd functions && npm run serve",
     "build:firebase": "next build && cp -r .next functions/",
     "start": "next start",
     "lint": "next lint",

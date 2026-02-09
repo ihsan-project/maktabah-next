@@ -61,3 +61,29 @@ export interface ProtectedRouteProps {
 export interface StoriesListProps {
   source?: string; // To track where the click came from
 }
+
+// Bookmark-related types
+export interface BookmarkMetadata {
+  notes: string;
+  tags: string[];
+  priority: number;
+}
+
+export interface Bookmark extends SearchResult {
+  verseId: string;
+  notes: string;
+  tags: string[];
+  priority: number;
+  createdAt: any; // Firestore Timestamp
+  updatedAt: any; // Firestore Timestamp
+}
+
+export interface UseBookmarksReturn {
+  bookmarks: Bookmark[];
+  bookmarkedVerses: Set<string>;
+  isBookmarked: (verseId: string) => boolean;
+  addBookmark: (result: SearchResult, metadata?: Partial<BookmarkMetadata>) => Promise<void>;
+  removeBookmark: (verseId: string) => Promise<void>;
+  updateBookmarkMetadata: (verseId: string, metadata: Partial<BookmarkMetadata>) => Promise<void>;
+  loading: boolean;
+}

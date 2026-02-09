@@ -93,6 +93,14 @@ export default function Navbar(): JSX.Element {
               >
                 Stories
               </Link>
+              <Link 
+                href="/bookmarks" 
+                className={`text-sm font-medium hover:text-primary-light transition-colors ${
+                  pathname === '/bookmarks' ? 'border-b-2 border-white pb-1' : ''
+                }`}
+              >
+                Bookmarks
+              </Link>
             </nav>
           )}
         </div>

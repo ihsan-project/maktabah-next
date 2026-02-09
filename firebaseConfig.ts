@@ -1,6 +1,7 @@
 // Firebase configuration for client-side usage
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
 import { getAuth, Auth } from 'firebase/auth';
+import { getFirestore, Firestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -24,4 +25,7 @@ if (!getApps().length) {
 // Initialize Firebase Authentication
 const auth: Auth = getAuth(firebaseApp);
 
-export { auth, firebaseApp };
+// Initialize Firestore
+const db: Firestore = getFirestore(firebaseApp);
+
+export { auth, firebaseApp, db };
