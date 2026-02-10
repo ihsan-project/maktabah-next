@@ -6,6 +6,10 @@ import { SearchResultsProps, SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
 import ExpandedSearchResult from './ExpandedSearchResult';
 import BookmarkButton from './BookmarkButton';
+import NoteIcon from './NoteIcon';
+import NotesModal from './NotesModal';
+import { useBookmarks, generateVerseId } from '@/lib/bookmarks';
+import { Bookmark } from '@/types';
 
 // Helper function to render text with newlines
 const TextWithLineBreaks = ({ text }: { text: string }) => {
@@ -27,8 +31,18 @@ export default function SearchResults({
   onLoadMore 
 }: SearchResultsProps): JSX.Element {
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({});
+  const [openNotesModal, setOpenNotesModal] = useState<Bookmark | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
+  const { bookmarks, isBookmarked } = useBookmarks();
+
+  // Handle opening notes modal
+  const handleOpenNotes = (verseId: string) => {
+    const bookmark = bookmarks.find(b => b.verseId === verseId);
+    if (bookmark) {
+      setOpenNotesModal(bookmark);
+    }
+  };
 
   // Toggle expanded state for a result item
   const toggleExpand = (id: string, result: SearchResult): void => {
@@ -115,8 +129,25 @@ export default function SearchResults({
               onClick={() => toggleExpand(result.id, result)}
             >
               <div className="flex justify-between items-center mb-2">
-                <div className="font-medium text-primary">
-                  {result.chapter}:{result.verse}
+                <div className="flex items-center gap-2">
+                  <div className="font-medium text-primary">
+                    {result.chapter}:{result.verse}
+                  </div>
+                  {(() => {
+                    const verseId = generateVerseId(result);
+                    const bookmarked = isBookmarked(verseId);
+                    if (bookmarked) {
+                      const bookmark = bookmarks.find(b => b.verseId === verseId);
+                      const hasNotes = bookmark?.notesHtml && bookmark.notesHtml.trim().length > 0;
+                      return (
+                        <NoteIcon 
+                          hasNotes={!!hasNotes}
+                          onClick={() => handleOpenNotes(verseId)}
+                        />
+                      );
+                    }
+                    return null;
+                  })()}
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="flex items-center text-xs text-gray-500">
@@ -168,9 +199,9 @@ export default function SearchResults({
                     )}
                   </>
                 ) : (
-                  <p>
+                  <div>
                     <TextWithLineBreaks text={result.text} />
-                  </p>
+                  </div>
                 )}
               </div>
               
@@ -197,6 +228,15 @@ export default function SearchResults({
             <p className="text-gray-500">Loading more results...</p>
           )}
         </div>
+      )}
+
+      {/* Notes Modal */}
+      {openNotesModal && (
+        <NotesModal
+          bookmark={openNotesModal}
+          isOpen={!!openNotesModal}
+          onClose={() => setOpenNotesModal(null)}
+        />
       )}
     </div>
   );

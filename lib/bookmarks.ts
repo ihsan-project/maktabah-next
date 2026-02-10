@@ -9,7 +9,8 @@ import {
   onSnapshot, 
   query,
   Timestamp,
-  updateDoc
+  updateDoc,
+  increment
 } from 'firebase/firestore';
 import { db } from '@/firebaseConfig';
 import { useAuth } from '@/app/components/AuthProvider';
@@ -65,11 +66,11 @@ export function useBookmarks(): UseBookmarksReturn {
           verseIds.add(data.verseId);
         });
 
-        // Sort by creation date (newest first)
+        // Sort by edit count (most edited first)
         bookmarksData.sort((a, b) => {
-          const aTime = a.createdAt?.toMillis?.() || 0;
-          const bTime = b.createdAt?.toMillis?.() || 0;
-          return bTime - aTime;
+          const aCount = a.editCount || 0;
+          const bCount = b.editCount || 0;
+          return bCount - aCount;
         });
 
         setBookmarks(bookmarksData);
@@ -121,9 +122,10 @@ export function useBookmarks(): UseBookmarksReturn {
     const bookmark: Omit<Bookmark, 'id'> = {
       ...result,
       verseId,
-      notes: metadata?.notes || '',
+      notesHtml: metadata?.notesHtml || '',
       tags: metadata?.tags || [],
       priority: metadata?.priority || 0,
+      editCount: 0,
       createdAt: Timestamp.now(),
       updatedAt: Timestamp.now()
     };
@@ -183,7 +185,7 @@ export function useBookmarks(): UseBookmarksReturn {
   };
 
   /**
-   * Update bookmark metadata (notes, tags, priority)
+   * Update bookmark metadata (notesHtml, tags, priority)
    */
   const updateBookmarkMetadata = async (
     verseId: string, 
@@ -212,6 +214,36 @@ export function useBookmarks(): UseBookmarksReturn {
     }
   };
 
+  /**
+   * Update bookmark notes and increment edit count
+   */
+  const updateBookmarkNotes = async (
+    verseId: string,
+    notesHtml: string
+  ): Promise<void> => {
+    if (!user) {
+      console.error('User must be logged in to update bookmark notes');
+      return;
+    }
+
+    try {
+      const bookmarkRef = doc(db, 'users', user.uid, 'bookmarks', verseId);
+      await updateDoc(bookmarkRef, {
+        notesHtml,
+        editCount: increment(1),
+        updatedAt: Timestamp.now()
+      });
+
+      // Track Mixpanel event
+      MixpanelTracking.track('Bookmark Notes Updated', {
+        verseId
+      });
+    } catch (error) {
+      console.error('Error updating bookmark notes:', error);
+      throw error;
+    }
+  };
+
   return {
     bookmarks,
     bookmarkedVerses,
@@ -219,6 +251,7 @@ export function useBookmarks(): UseBookmarksReturn {
     addBookmark,
     removeBookmark,
     updateBookmarkMetadata,
+    updateBookmarkNotes,
     loading
   };
 }

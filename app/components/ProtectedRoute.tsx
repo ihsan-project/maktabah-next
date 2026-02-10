@@ -11,7 +11,7 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/'); // Redirect to home page instead of login
+      router.push('/');
     }
   }, [user, loading, router]);
 
