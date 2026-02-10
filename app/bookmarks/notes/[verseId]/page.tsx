@@ -26,15 +26,23 @@ export default function NotesPage(): JSX.Element {
 
   // Find the bookmark
   useEffect(() => {
-    if (!loading && bookmarks.length > 0) {
+    if (!loading) {
       const foundBookmark = bookmarks.find(b => b.verseId === verseId);
       if (foundBookmark) {
         setBookmark(foundBookmark);
         setNotesHtml(foundBookmark.notesHtml || '');
-      } else {
-        // Bookmark not found, redirect to bookmarks page
-        router.push('/bookmarks');
+      } else if (bookmarks.length > 0) {
+        // Bookmarks loaded but this one not found, redirect to bookmarks page
+        // Wait a bit to ensure it's not a timing issue
+        const timer = setTimeout(() => {
+          const recheck = bookmarks.find(b => b.verseId === verseId);
+          if (!recheck) {
+            router.push('/bookmarks');
+          }
+        }, 500);
+        return () => clearTimeout(timer);
       }
+      // If bookmarks.length === 0, still loading, don't redirect yet
     }
   }, [bookmarks, loading, verseId, router]);
 

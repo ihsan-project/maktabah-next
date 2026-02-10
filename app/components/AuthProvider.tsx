@@ -36,15 +36,33 @@ export default function AuthProvider({ children }: AuthProviderProps) {
 
   // Listen for authentication state changes
   useEffect(() => {
-    // Use authStateReady() to wait for Firebase to fully determine the
-    // initial auth state (including checking persisted credentials in IndexedDB).
-    // Without this, onAuthStateChanged can fire with null prematurely before
-    // the persisted session is restored, causing false redirects.
-    auth.authStateReady().then(() => {
-      setLoading(false);
-    });
+    let isMounted = true;
+    let authCheckComplete = false;
+
+    // Use authStateReady() to ensure Firebase has checked persisted credentials
+    // before making any auth decisions
+    const initAuth = async () => {
+      try {
+        await auth.authStateReady();
+        
+        // Only update loading state if component is still mounted
+        if (isMounted && !authCheckComplete) {
+          authCheckComplete = true;
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error('Error checking auth state:', error);
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    initAuth();
 
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser: FirebaseUser | null) => {
+      if (!isMounted) return;
+
       if (firebaseUser) {
         const userData = {
           uid: firebaseUser.uid,
@@ -68,12 +86,12 @@ export default function AuthProvider({ children }: AuthProviderProps) {
         // Reset Mixpanel identity on logout
         MixpanelTracking.reset();
       }
-      // Note: We intentionally do NOT call setLoading(false) here.
-      // The initial loading state is managed by authStateReady() above,
-      // which waits for the full persistence check to complete.
     });
 
-    return () => unsubscribe();
+    return () => {
+      isMounted = false;
+      unsubscribe();
+    };
   }, []);
 
   // Sign in with Google
