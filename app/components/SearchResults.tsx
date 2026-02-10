@@ -7,7 +7,9 @@ import MixpanelTracking from '@/lib/mixpanel';
 import ExpandedSearchResult from './ExpandedSearchResult';
 import BookmarkButton from './BookmarkButton';
 import NoteIcon from './NoteIcon';
+import NotesModal from './NotesModal';
 import { useBookmarks, generateVerseId } from '@/lib/bookmarks';
+import { Bookmark } from '@/types';
 
 // Helper function to render text with newlines
 const TextWithLineBreaks = ({ text }: { text: string }) => {
@@ -29,9 +31,18 @@ export default function SearchResults({
   onLoadMore 
 }: SearchResultsProps): JSX.Element {
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({});
+  const [openNotesModal, setOpenNotesModal] = useState<Bookmark | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
   const { bookmarks, isBookmarked } = useBookmarks();
+
+  // Handle opening notes modal
+  const handleOpenNotes = (verseId: string) => {
+    const bookmark = bookmarks.find(b => b.verseId === verseId);
+    if (bookmark) {
+      setOpenNotesModal(bookmark);
+    }
+  };
 
   // Toggle expanded state for a result item
   const toggleExpand = (id: string, result: SearchResult): void => {
@@ -128,7 +139,12 @@ export default function SearchResults({
                     if (bookmarked) {
                       const bookmark = bookmarks.find(b => b.verseId === verseId);
                       const hasNotes = bookmark?.notesHtml && bookmark.notesHtml.trim().length > 0;
-                      return <NoteIcon verseId={verseId} hasNotes={!!hasNotes} />;
+                      return (
+                        <NoteIcon 
+                          hasNotes={!!hasNotes}
+                          onClick={() => handleOpenNotes(verseId)}
+                        />
+                      );
                     }
                     return null;
                   })()}
@@ -212,6 +228,15 @@ export default function SearchResults({
             <p className="text-gray-500">Loading more results...</p>
           )}
         </div>
+      )}
+
+      {/* Notes Modal */}
+      {openNotesModal && (
+        <NotesModal
+          bookmark={openNotesModal}
+          isOpen={!!openNotesModal}
+          onClose={() => setOpenNotesModal(null)}
+        />
       )}
     </div>
   );

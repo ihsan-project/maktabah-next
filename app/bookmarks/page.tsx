@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef } from 'react';
+import ProtectedRoute from '@/app/components/ProtectedRoute';
 import SearchResults from '@/app/components/SearchResults';
 import { useBookmarks } from '@/lib/bookmarks';
 import { SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
 
-export default function BookmarksPage(): JSX.Element {
+function BookmarksPageContent(): JSX.Element {
   const { bookmarks, loading } = useBookmarks();
   const hasTrackedCount = useRef(false);
 
@@ -104,5 +105,13 @@ export default function BookmarksPage(): JSX.Element {
         )}
       </div>
     </div>
+  );
+}
+
+export default function BookmarksPage(): JSX.Element {
+  return (
+    <ProtectedRoute>
+      <BookmarksPageContent />
+    </ProtectedRoute>
   );
 }

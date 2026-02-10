@@ -1,12 +1,11 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { FiFileText, FiEdit3 } from 'react-icons/fi';
 
 interface NoteIconProps {
-  verseId: string;
   hasNotes: boolean;
+  onClick: (e: React.MouseEvent) => void;
   className?: string;
 }
 
@@ -14,19 +13,19 @@ interface NoteIconProps {
  * Icon component for accessing notes on bookmarked verses
  * Shows filled icon if notes exist, outline icon if empty
  */
-export default function NoteIcon({ verseId, hasNotes, className = '' }: NoteIconProps): JSX.Element {
+export default function NoteIcon({ hasNotes, onClick, className = '' }: NoteIconProps): JSX.Element {
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent triggering parent click handlers
+    onClick(e);
   };
 
   return (
-    <Link
-      href={`/bookmarks/notes/${verseId}`}
+    <button
       onClick={handleClick}
       className={`flex items-center justify-center transition-all duration-200 hover:scale-110 cursor-pointer ${className}`}
       aria-label={hasNotes ? 'Edit notes' : 'Add notes'}
       title={hasNotes ? 'Edit notes' : 'Add notes'}
-      prefetch={true}
+      type="button"
     >
       {hasNotes ? (
         <FiFileText 
@@ -38,6 +37,6 @@ export default function NoteIcon({ verseId, hasNotes, className = '' }: NoteIcon
           className="w-5 h-5 text-gray-400 hover:text-primary" 
         />
       )}
-    </Link>
+    </button>
   );
 }
