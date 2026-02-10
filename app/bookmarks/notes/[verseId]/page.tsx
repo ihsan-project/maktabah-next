@@ -2,14 +2,13 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import ProtectedRoute from '@/app/components/ProtectedRoute';
 import QuillEditor from '@/app/components/QuillEditor';
 import { useBookmarks } from '@/lib/bookmarks';
 import { Bookmark } from '@/types';
 import { FiArrowLeft, FiSave } from 'react-icons/fi';
 import MixpanelTracking from '@/lib/mixpanel';
 
-function NotesPageContent(): JSX.Element {
+export default function NotesPage(): JSX.Element {
   const params = useParams();
   const router = useRouter();
   const verseId = params.verseId as string;
@@ -161,13 +160,5 @@ function NotesPageContent(): JSX.Element {
         </div>
       </div>
     </div>
-  );
-}
-
-export default function NotesPage(): JSX.Element {
-  return (
-    <ProtectedRoute>
-      <NotesPageContent />
-    </ProtectedRoute>
   );
 }
