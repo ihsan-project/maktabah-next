@@ -36,6 +36,14 @@ export default function AuthProvider({ children }: AuthProviderProps) {
 
   // Listen for authentication state changes
   useEffect(() => {
+    // Use authStateReady() to wait for Firebase to fully determine the
+    // initial auth state (including checking persisted credentials in IndexedDB).
+    // Without this, onAuthStateChanged can fire with null prematurely before
+    // the persisted session is restored, causing false redirects.
+    auth.authStateReady().then(() => {
+      setLoading(false);
+    });
+
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser: FirebaseUser | null) => {
       if (firebaseUser) {
         const userData = {
@@ -47,11 +55,6 @@ export default function AuthProvider({ children }: AuthProviderProps) {
         
         setUser(userData);
         
-        // Set session marker
-        if (typeof window !== 'undefined') {
-          sessionStorage.setItem('maktabah_auth_status', 'true');
-        }
-        
         // Set Mixpanel user identity
         if (firebaseUser.email) {
           MixpanelTracking.identify(firebaseUser.email, {
@@ -62,12 +65,12 @@ export default function AuthProvider({ children }: AuthProviderProps) {
         }
       } else {
         setUser(null);
-        // Note: We don't clear sessionStorage here because
-        // ProtectedRoute handles that after waiting for auth to settle
         // Reset Mixpanel identity on logout
         MixpanelTracking.reset();
       }
-      setLoading(false);
+      // Note: We intentionally do NOT call setLoading(false) here.
+      // The initial loading state is managed by authStateReady() above,
+      // which waits for the full persistence check to complete.
     });
 
     return () => unsubscribe();
@@ -103,11 +106,6 @@ export default function AuthProvider({ children }: AuthProviderProps) {
         MixpanelTracking.track('User Logout', {
           userId: user.uid,
         });
-      }
-      
-      // Clear auth session marker
-      if (typeof window !== 'undefined') {
-        sessionStorage.removeItem('maktabah_auth_status');
       }
       
       await signOut(auth);
