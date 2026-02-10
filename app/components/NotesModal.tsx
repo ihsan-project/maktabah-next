@@ -132,6 +132,23 @@ export default function NotesModal({ bookmark, isOpen, onClose }: NotesModalProp
 
           {/* Content - Scrollable */}
           <div className="flex-1 overflow-y-auto p-6">
+            {/* Notes Editor */}
+            <div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">Your Notes</h3>
+              <QuillEditor
+                value={notesHtml}
+                onChange={handleNotesChange}
+                placeholder="Take notes about this verse..."
+              />
+              
+              {hasUnsavedChanges && (
+                <div className="mt-3 text-sm text-amber-600 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-amber-600 rounded-full"></span>
+                  <span>You have unsaved changes</span>
+                </div>
+              )}
+            </div>
+
             {/* Verse Text */}
             <div className="bg-gray-50 rounded-lg p-4 mb-6">
               <div className="flex items-center gap-3 mb-2">
@@ -149,23 +166,6 @@ export default function NotesModal({ bookmark, isOpen, onClose }: NotesModalProp
               <p className="text-gray-800 leading-relaxed whitespace-pre-wrap">
                 {bookmark.text}
               </p>
-            </div>
-
-            {/* Notes Editor */}
-            <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Your Notes</h3>
-              <QuillEditor
-                value={notesHtml}
-                onChange={handleNotesChange}
-                placeholder="Take notes about this verse..."
-              />
-              
-              {hasUnsavedChanges && (
-                <div className="mt-3 text-sm text-amber-600 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-amber-600 rounded-full"></span>
-                  <span>You have unsaved changes</span>
-                </div>
-              )}
             </div>
           </div>
 
