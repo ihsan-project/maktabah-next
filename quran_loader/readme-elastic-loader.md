@@ -1,10 +1,10 @@
-# Quran XML to Elasticsearch Loader
+# Quran XML to OpenSearch Loader
 
-This tool imports Quran translations from XML files into Elasticsearch for efficient text search. It processes XML files in the Tanzil project format and indexes verses with chapter, verse, and translator information.
+This tool imports Quran translations from XML files into OpenSearch for efficient text search. It processes XML files in the Tanzil project format and indexes verses with chapter, verse, and translator information.
 
 ## Features
 
-- Imports XML files containing Quran translations into Elasticsearch
+- Imports XML files containing Quran translations into OpenSearch
 - Supports multiple translations with the translator parameter
 - Creates proper mapping for Arabic and English text search
 - Handles the Tanzil XML format with sura and aya elements
@@ -39,11 +39,12 @@ Where:
 npm install
 ```
 
-3. Create a `.env` file based on `.env.example` with your Elasticsearch credentials:
+3. Create a `.env` file based on `.env.example` with your OpenSearch credentials:
 
 ```
-ELASTICSEARCH_URL=https://your-elasticsearch-instance.com
-ELASTICSEARCH_APIKEY=your_elasticsearch_api_key
+OPENSEARCH_URL=https://your-opensearch-domain.us-east-1.es.amazonaws.com
+OPENSEARCH_USERNAME=admin
+OPENSEARCH_PASSWORD=your_opensearch_password
 NODE_ENV=development
 ```
 
@@ -90,9 +91,9 @@ node load-quran-to-elasticsearch.js translations/en.bukhari.vol08.xml --title="b
 node load-quran-to-elasticsearch.js translations/en.bukhari.vol09.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol09"  --volume=9
 ```
 
-## Elasticsearch Mapping
+## OpenSearch Mapping
 
-The script creates an Elasticsearch index named `kitaab` with the following features:
+The script creates an OpenSearch index named `kitaab` with the following features:
 
 - Dual analyzers for both Arabic and English text
 - Proper field mappings for efficient search
@@ -101,7 +102,7 @@ The script creates an Elasticsearch index named `kitaab` with the following feat
 
 ## Adding More Translations
 
-You can run the script multiple times with different XML files and translator names. Each translation will be added to the same Elasticsearch index but with its own translator field, allowing you to:
+You can run the script multiple times with different XML files and translator names. Each translation will be added to the same OpenSearch index but with its own translator field, allowing you to:
 
 1. Search across all translations
 2. Search within a specific translation
@@ -130,7 +131,7 @@ GET /maktabah/_search
 If you encounter errors:
 
 1. **XML Parsing Issues**: Check your XML format. The XML must be well-formed and follow the expected structure.
-2. **Elasticsearch Connection Errors**: Verify your Elasticsearch credentials and URL in the `.env` file.
+2. **OpenSearch Connection Errors**: Verify your OpenSearch credentials and URL in the `.env` file.
 3. **Memory Issues**: For very large files, adjust the `BATCH_SIZE` constant in the code.
 
 ## License

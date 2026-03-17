@@ -9,11 +9,11 @@ This app uses **Next.js with static export** (`output: 'export'` in `next-config
 
 - Firebase Hosting serves the static build and rewrites `/api/**` paths to Cloud Functions (see `firebase.json`).
 - Cloud Functions code lives in `/functions/index.js` (single file, plain JS with `firebase-functions`).
-- Secrets (e.g. ElasticSearch credentials) are managed via Firebase Functions secrets, not env files.
+- Secrets (e.g. OpenSearch credentials) are managed via Firebase Functions secrets, not env files.
 
 ## Current Cloud Functions
 
-1. **`nextApiHandler`** — Handles `/api/search` requests. Queries ElasticSearch (`kitaab` index) with Arabic text search, author/chapter/title filtering, and chapter-verse aggregation. Uses secrets: `ELASTICSEARCH_URL`, `ELASTICSEARCH_APIKEY`.
+1. **`nextApiHandler`** — Handles `/api/search` requests. Queries OpenSearch (`kitaab` index) with Arabic text search, author/chapter/title filtering, and chapter-verse aggregation. Uses secrets: `OPENSEARCH_URL`, `OPENSEARCH_USERNAME`, `OPENSEARCH_PASSWORD`.
 
 2. **`proxyStorage`** — Handles `/api/storage/**` requests. Proxies file downloads from Firebase Storage bucket (`maktabah-8ac04.firebasestorage.app`) to avoid CORS issues. Read-only (GET only).
 
@@ -44,4 +44,4 @@ npm run deploy:functions  # Deploy functions only
 - **Firebase Auth** — Google Sign-in (client-side)
 - **Firestore** — User bookmarks and notes
 - **Firebase Storage** — Content files (accessed only via `proxyStorage` function)
-- **ElasticSearch** — Full-text search with Arabic analyzer support
+- **OpenSearch** — Full-text search with Arabic analyzer support

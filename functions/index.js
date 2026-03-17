@@ -1,6 +1,6 @@
 const functions = require('firebase-functions');
 const logger = require('firebase-functions/logger');
-const { Client } = require('@elastic/elasticsearch');
+const { Client } = require('@opensearch-project/opensearch');
 const admin = require('firebase-admin');
 
 // Initialize Firebase if not already initialized
@@ -8,22 +8,23 @@ if (!admin.apps.length) {
   admin.initializeApp();
 }
 
-// Search function to query ElasticSearch with terms aggregation partitioning
+// Search function to query OpenSearch with terms aggregation partitioning
 async function searchDocuments(query, page = 1, size = 10, author = null, chapter = null, titles = null) {
   try {
-    // Initialize ElasticSearch client with API key authentication
+    // Initialize OpenSearch client with basic authentication
     const client = new Client({
-      node: process.env.ELASTICSEARCH_URL,
+      node: process.env.OPENSEARCH_URL,
       auth: {
-        apiKey: process.env.ELASTICSEARCH_APIKEY
+        username: process.env.OPENSEARCH_USERNAME,
+        password: process.env.OPENSEARCH_PASSWORD
       },
-      tls: {
-        rejectUnauthorized: false // Set to true in production
+      ssl: {
+        rejectUnauthorized: process.env.NODE_ENV === 'production'
       }
     });
     
     // Hardcoded index name
-    const elasticsearchIndex = 'kitaab';
+    const opensearchIndex = 'kitaab';
     
     // Build the search query based on the mapping
     const searchQuery = {
@@ -89,7 +90,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
     // First, get all matching documents with their chapter-verse combinations
     // This approach finds all matching documents and groups them by chapter-verse
     const response = await client.search({
-      index: elasticsearchIndex,
+      index: opensearchIndex,
       body: {
         size: 0, // We don't need the documents at this stage, just the aggregation
         query: searchQuery,
@@ -125,7 +126,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
     });
     
     // Process the nested aggregation results
-    const chapterBuckets = response.aggregations.chapters.buckets || [];
+    const chapterBuckets = response.body.aggregations.chapters.buckets || [];
     
     // Flatten the structure to get a single array of verse results
     let allResults = [];
@@ -164,7 +165,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
 
 // Create a function to handle API requests
 exports.nextApiHandler = functions.https.onRequest(
-  { secrets: ['ELASTICSEARCH_URL', 'ELASTICSEARCH_APIKEY'] },
+  { secrets: ['OPENSEARCH_URL', 'OPENSEARCH_USERNAME', 'OPENSEARCH_PASSWORD'] },
   async (req, res) => {
     // Set CORS headers
     res.set('Access-Control-Allow-Origin', '*');

@@ -1,10 +1,10 @@
 # Generate Story Script
 
-This tool connects to Elasticsearch to run a search query and generate an XML file of all matching verses with all their translations.
+This tool connects to OpenSearch to run a search query and generate an XML file of all matching verses with all their translations.
 
 ## Purpose
 
-Searches the Elasticsearch 'kitaab' index and generates a story XML file containing:
+Searches the OpenSearch 'kitaab' index and generates a story XML file containing:
 - All verses matching your search query
 - All available translations for each matching verse
 - Metadata about the search and results
@@ -18,11 +18,12 @@ cd quran_loader
 npm install
 ```
 
-2. Create a `.env` file in the `quran_loader` directory with your Elasticsearch credentials:
+2. Create a `.env` file in the `quran_loader` directory with your OpenSearch credentials:
 
 ```env
-ELASTICSEARCH_URL=https://your-elasticsearch-instance.com
-ELASTICSEARCH_APIKEY=your_elasticsearch_api_key
+OPENSEARCH_URL=https://your-opensearch-domain.us-east-1.es.amazonaws.com
+OPENSEARCH_USERNAME=admin
+OPENSEARCH_PASSWORD=your_opensearch_password
 NODE_ENV=development
 ```
 
@@ -103,14 +104,14 @@ The script generates an XML file with the following structure:
 ## Features
 
 - **Multiple translations**: Automatically fetches all available translations for each matching verse
-- **Deduplication**: Uses Elasticsearch aggregations to ensure each unique chapter/verse combination appears only once
+- **Deduplication**: Uses OpenSearch aggregations to ensure each unique chapter/verse combination appears only once
 - **Comprehensive search**: Searches using multiple analyzers (standard, Arabic-specific, prefix matching)
 - **Sorted results**: Results are sorted by relevance score, then by chapter and verse number
 - **Metadata tracking**: Includes verse count and translation count in output
 
 ## How It Works
 
-1. Connects to Elasticsearch using credentials from `.env`
+1. Connects to OpenSearch using credentials from `.env`
 2. Builds a search query with multiple search strategies (match, Arabic match, prefix)
 3. Uses aggregations to group results by chapter/verse and get all translations
 4. Sorts results by score and chapter/verse order

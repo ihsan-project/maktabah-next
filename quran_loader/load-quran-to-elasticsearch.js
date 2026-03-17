@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { Client } = require('@elastic/elasticsearch');
+const { Client } = require('@opensearch-project/opensearch');
 const { DOMParser } = require('@xmldom/xmldom');
 const xpath = require('xpath');
 require('dotenv').config();
@@ -41,13 +41,13 @@ const volume = volumeArg
 // Determine content type based on title or auto-detect
 const contentType = title !== 'auto' ? 'auto' : 'auto';
 
-// Initialize Elasticsearch client
-const elasticClient = new Client({
-  node: process.env.ELASTICSEARCH_URL || 'http://localhost:9200',
-  auth: process.env.ELASTICSEARCH_APIKEY 
-    ? { apiKey: process.env.ELASTICSEARCH_APIKEY }
+// Initialize OpenSearch client
+const opensearchClient = new Client({
+  node: process.env.OPENSEARCH_URL || 'http://localhost:9200',
+  auth: (process.env.OPENSEARCH_USERNAME && process.env.OPENSEARCH_PASSWORD)
+    ? { username: process.env.OPENSEARCH_USERNAME, password: process.env.OPENSEARCH_PASSWORD }
     : undefined,
-  tls: {
+  ssl: {
     rejectUnauthorized: process.env.NODE_ENV === 'production'
   }
 });
@@ -214,16 +214,16 @@ function parseHadithXML(filePath, author, bookId) {
 }
 
 /**
- * Create Elasticsearch index with appropriate mappings
+ * Create OpenSearch index with appropriate mappings
  */
 async function createIndex() {
   try {
-    const indexExists = await elasticClient.indices.exists({ index: INDEX_NAME });
-    
+    const { body: indexExists } = await opensearchClient.indices.exists({ index: INDEX_NAME });
+
     if (!indexExists) {
       console.log(`Creating index: ${INDEX_NAME}`);
       
-      await elasticClient.indices.create({
+      await opensearchClient.indices.create({
         index: INDEX_NAME,
         body: {
           settings: {
@@ -296,7 +296,7 @@ async function createIndex() {
 }
 
 /**
- * Index data to Elasticsearch in batches
+ * Index data to OpenSearch in batches
  * @param {Array} verses Array of verse objects
  */
 async function indexData(verses) {
@@ -305,7 +305,7 @@ async function indexData(verses) {
     return;
   }
   
-  console.log(`Indexing ${verses.length} verses to Elasticsearch...`);
+  console.log(`Indexing ${verses.length} verses to OpenSearch...`);
   
   try {
     // Process in batches to avoid memory issues with large datasets
@@ -332,11 +332,11 @@ async function indexData(verses) {
       }
       
       // Execute bulk operation
-      const result = await elasticClient.bulk({ 
+      const { body: result } = await opensearchClient.bulk({
         refresh: true,
-        operations: operations
+        body: operations
       });
-      
+
       if (result.errors) {
         console.error('Errors occurred during bulk indexing');
         const errorItems = result.items.filter(item => item.index && item.index.error);
@@ -384,7 +384,7 @@ async function testSearch(author, bookId, contentType) {
       must.push({ term: { volume: volume } });
     }
     
-    const result = await elasticClient.search({
+    const result = await opensearchClient.search({
       index: INDEX_NAME,
       body: {
         query: {
@@ -396,10 +396,10 @@ async function testSearch(author, bookId, contentType) {
       }
     });
     
-    const hits = result.hits.hits;
-    const totalHits = typeof result.hits.total === 'number' 
-      ? result.hits.total 
-      : result.hits.total?.value || 0;
+    const hits = result.body.hits.hits;
+    const totalHits = typeof result.body.hits.total === 'number'
+      ? result.body.hits.total
+      : result.body.hits.total?.value || 0;
     
     const volumeInfo = volume !== null ? `, Volume: ${volume}` : '';
     console.log(`Found ${totalHits} matches for "${searchTerm}" by ${author} (Book ID: ${bookId}, Title: ${titleValue}${volumeInfo}). Sample results:`);
@@ -454,7 +454,7 @@ async function main() {
     }
     
     if (verses.length > 0) {
-      // Index data to Elasticsearch
+      // Index data to OpenSearch
       await indexData(verses);
       
       // Test search functionality
@@ -467,7 +467,7 @@ async function main() {
   } catch (error) {
     console.error('Error in main process:', error);
   } finally {
-    await elasticClient.close();
+    await opensearchClient.close();
   }
 }
 

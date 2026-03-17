@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@elastic/elasticsearch": "^8.10.0",
+    "@opensearch-project/opensearch": "^2.6.0",
     "@google-cloud/storage": "^7.15.2",
     "@xmldom/xmldom": "^0.8.10",
     "csv-parse": "^5.5.3",

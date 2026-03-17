@@ -1,29 +1,29 @@
-import { Client } from '@elastic/elasticsearch';
+import { Client } from '@opensearch-project/opensearch';
 import { SearchResponse } from '@/types';
 
-// Initialize ElasticSearch client
+// Initialize OpenSearch client
 const client = new Client({
-  node: process.env.ELASTICSEARCH_URL as string,
+  node: process.env.OPENSEARCH_URL as string,
   auth: {
-    username: process.env.ELASTICSEARCH_USERNAME as string,
-    password: process.env.ELASTICSEARCH_PASSWORD as string
+    username: process.env.OPENSEARCH_USERNAME as string,
+    password: process.env.OPENSEARCH_PASSWORD as string
   },
-  tls: {
-    rejectUnauthorized: false // Set to true in production
+  ssl: {
+    rejectUnauthorized: process.env.NODE_ENV === 'production'
   }
 });
 
-// Search function to query ElasticSearch
+// Search function to query OpenSearch
 export async function searchDocuments(
-  query: string, 
-  page: number = 1, 
+  query: string,
+  page: number = 1,
   size: number = 10
 ): Promise<SearchResponse> {
   try {
     const startIndex = (page - 1) * size;
-    
+
     const response = await client.search({
-      index: process.env.ELASTICSEARCH_INDEX as string,
+      index: process.env.OPENSEARCH_INDEX as string,
       body: {
         from: startIndex,
         size: size,
@@ -43,12 +43,12 @@ export async function searchDocuments(
       }
     });
 
-    const hits = response.hits.hits;
-    const total = typeof response.hits.total === 'number' 
-      ? response.hits.total 
-      : response.hits.total?.value || 0;
-    
-    const results = hits.map(hit => ({
+    const hits = response.body.hits.hits;
+    const total = typeof response.body.hits.total === 'number'
+      ? response.body.hits.total
+      : response.body.hits.total?.value || 0;
+
+    const results = hits.map((hit: any) => ({
       id: hit._id,
       score: hit._score || 0,
       ...hit._source as any,

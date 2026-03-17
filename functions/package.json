@@ -14,7 +14,7 @@
         "node": "20"
     },
     "dependencies": {
-        "@elastic/elasticsearch": "^8.10.0",
+        "@opensearch-project/opensearch": "^2.6.0",
         "firebase-admin": "^11.11.0",
         "firebase-functions": "^6.3.2"
     }

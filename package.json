@@ -12,7 +12,7 @@
     "functions": "npm run serve -w maktabah-functions",
     "functions:deploy": "npm run deploy -w maktabah-functions",
     "functions:logs": "npm run logs -w maktabah-functions",
-    "loader:load-elastic": "npm run load-elastic -w quran-elasticsearch-loader",
+    "loader:load-opensearch": "npm run load-elastic -w quran-elasticsearch-loader",
     "loader:load-storage": "npm run load-storage -w quran-elasticsearch-loader",
     "loader:reorder": "npm run reorder -w quran-elasticsearch-loader",
     "loader:decode": "npm run decode -w quran-elasticsearch-loader",
@@ -24,7 +24,7 @@
     "deploy:functions": "npm run build:firebase && firebase deploy --only functions"
   },
   "dependencies": {
-    "@elastic/elasticsearch": "^8.10.0",
+    "@opensearch-project/opensearch": "^2.6.0",
     "firebase": "^10.6.0",
     "mixpanel-browser": "^2.47.0",
     "next": "^14.0.3",
