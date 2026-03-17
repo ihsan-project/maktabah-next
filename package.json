@@ -2,10 +2,20 @@
   "name": "maktabah",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "functions",
+    "quran_loader"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "functions": "cd functions && npm run serve",
+    "functions": "npm run serve -w maktabah-functions",
+    "functions:deploy": "npm run deploy -w maktabah-functions",
+    "functions:logs": "npm run logs -w maktabah-functions",
+    "loader:load-elastic": "npm run load-elastic -w quran-elasticsearch-loader",
+    "loader:load-storage": "npm run load-storage -w quran-elasticsearch-loader",
+    "loader:reorder": "npm run reorder -w quran-elasticsearch-loader",
+    "loader:decode": "npm run decode -w quran-elasticsearch-loader",
     "build:firebase": "next build && cp -r .next functions/",
     "start": "next start",
     "lint": "next lint",
