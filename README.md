@@ -6,7 +6,7 @@ A search application for Quran translations and Hadith collections, built with N
 
 - **Type Safety**: Full TypeScript implementation
 - **Authentication**: Google Sign-in with Firebase Authentication
-- **Search**: OpenSearch integration with Arabic/English analyzers, highlighting, and pagination
+- **Search**: OpenSearch integration with Arabic/English analyzers, semantic vector search (Cohere via Bedrock), and hybrid search with RRF
 - **Responsive Design**: Mobile-friendly interface with sliding menu
 - **Protected Routes**: Authentication-required routes
 
@@ -14,7 +14,7 @@ A search application for Quran translations and Hadith collections, built with N
 
 - **Frontend**: Next.js, React, TypeScript, Tailwind CSS
 - **Authentication**: Firebase Authentication
-- **Search**: AWS OpenSearch
+- **Search**: AWS OpenSearch + Cohere Embeddings via Amazon Bedrock
 - **Hosting**: Firebase Hosting
 - **API**: Firebase Cloud Functions
 
@@ -22,7 +22,7 @@ A search application for Quran translations and Hadith collections, built with N
 
 - Node.js 20+
 - Firebase CLI (`npm install -g firebase-tools`)
-- AWS account with OpenSearch access
+- AWS account with OpenSearch and Bedrock access
 
 ## AWS OpenSearch Setup
 
@@ -38,7 +38,7 @@ A search application for Quran translations and Hadith collections, built with N
    - **Number of nodes:** 1
    - **Storage:** 10 GB EBS (General Purpose SSD gp3)
 
-   > **Instance sizing notes:** The `t3.small.search` is the smallest current-generation instance and is ideal for dev/testing or small production workloads like this one. If you need more memory for larger datasets or vector search later, step up to `t3.medium.search`. Avoid previous-generation `t2` instances — they don't support fine-grained access control or encryption at rest. T3 instances require Multi-AZ without Standby and do not support UltraWarm/cold storage or Auto-Tune.
+   > **Instance sizing notes:** Vector search (KNN) uses additional memory (~4 bytes x 1024 dimensions x doc count). For ~120k documents this adds ~500MB. Use `t3.medium.search` (4 GB RAM) or larger to accommodate both text and vector indices. Avoid previous-generation `t2` instances — they don't support fine-grained access control or encryption at rest.
 4. Under **Network:**
    - Choose **Public access** for simplicity, or **VPC access** for production
 5. Under **Fine-grained access control:**
@@ -50,14 +50,31 @@ A search application for Quran translations and Hadith collections, built with N
 
 Wait for the domain status to become **Active** (takes ~15 minutes).
 
-### 2. Get Your Domain Endpoint
+### 2. Enable Cohere Embeddings on Amazon Bedrock
+
+The semantic search feature uses Cohere's multilingual embedding model via Amazon Bedrock.
+
+1. Go to the [Amazon Bedrock Console](https://console.aws.amazon.com/bedrock/home)
+2. In the left nav, click **Model access**
+3. Click **Manage model access**
+4. Find **Cohere** → **Embed Multilingual v3** and check the box
+5. Click **Save changes**
+
+Model access is granted instantly — no approval wait time.
+
+> **Note:** Bedrock model access is per-region. Make sure you enable it in the same region as your OpenSearch domain (default: `us-east-1`).
+
+6. Create an IAM user (or use an existing one) with the `AmazonBedrockFullAccess` policy attached
+7. Generate an **Access Key ID** and **Secret Access Key** for this user — you'll need these for both the loader and Firebase Functions
+
+### 3. Get Your Domain Endpoint
 
 Once active, copy the **Domain endpoint** from the AWS console. It looks like:
 ```
 https://search-maktabah-xxxxxxxxxx.us-east-1.es.amazonaws.com
 ```
 
-### 3. Configure Environment Variables
+### 4. Configure Environment Variables
 
 Create a `.env.local` file in the root directory:
 
@@ -87,9 +104,14 @@ For the quran_loader, create `quran_loader/.env`:
 OPENSEARCH_URL=https://search-maktabah-xxxxxxxxxx.us-east-1.es.amazonaws.com
 OPENSEARCH_USERNAME=your_master_username
 OPENSEARCH_PASSWORD=your_master_password
+
+# AWS Bedrock (for generating embeddings during indexing)
+AWS_REGION=us-east-1
+AWS_ACCESS_KEY_ID=your_access_key_id
+AWS_SECRET_ACCESS_KEY=your_secret_access_key
 ```
 
-### 4. Set Firebase Function Secrets
+### 5. Set Firebase Function Secrets
 
 ```bash
 firebase functions:secrets:set OPENSEARCH_URL
@@ -100,9 +122,13 @@ firebase functions:secrets:set OPENSEARCH_USERNAME
 
 firebase functions:secrets:set OPENSEARCH_PASSWORD
 # Enter your master password when prompted
+
+# AWS Bedrock credentials (for semantic/hybrid search at query time)
+firebase functions:secrets:set AWS_ACCESS_KEY_ID
+firebase functions:secrets:set AWS_SECRET_ACCESS_KEY
 ```
 
-### 5. Load Data into OpenSearch
+### 6. Load Data into OpenSearch
 
 ```bash
 # Install dependencies
@@ -115,7 +141,19 @@ npm run loader:load-opensearch -- <xml-file> --author="Author Name" --id="unique
 npm run loader:load-opensearch -- <xml-file> --author="Author Name" --id="unique-id" --title="bukhari" --volume=1
 ```
 
-The loader creates the `kitaab` index with custom Arabic and English analyzers and bulk-indexes the data.
+The loader creates the `kitaab` index with custom Arabic/English analyzers and a `knn_vector` field for semantic search. Each document's text is embedded using Cohere Embed Multilingual v3 (1024 dimensions) via Bedrock during indexing.
+
+### Search Modes
+
+The search API supports three modes via the `mode` query parameter:
+
+| Mode | Description | When to use |
+|------|-------------|-------------|
+| `text` | Classic BM25 keyword search | Exact word/phrase matching |
+| `semantic` | KNN vector search using Cohere embeddings | Conceptual queries like "verses about patience" |
+| `hybrid` | BM25 + KNN merged with Reciprocal Rank Fusion | Best of both — the default for most use cases |
+
+Example: `/api/search?q=mercy+and+compassion&mode=hybrid`
 
 ## Development
 
