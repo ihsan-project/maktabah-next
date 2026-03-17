@@ -33,10 +33,12 @@ A search application for Quran translations and Hadith collections, built with N
 3. Configure:
    - **Domain name:** `maktabah`
    - **Deployment type:** Development and testing
-   - **Engine version:** OpenSearch 2.x (latest)
-   - **Instance type:** `t3.small.search` (sufficient for this workload)
+   - **Engine version:** OpenSearch 3.3 (latest)
+   - **Instance type:** `t3.small.search` (2 vCPU, 2 GB RAM — sufficient for this workload)
    - **Number of nodes:** 1
-   - **Storage:** 10 GB EBS (General Purpose SSD)
+   - **Storage:** 10 GB EBS (General Purpose SSD gp3)
+
+   > **Instance sizing notes:** The `t3.small.search` is the smallest current-generation instance and is ideal for dev/testing or small production workloads like this one. If you need more memory for larger datasets or vector search later, step up to `t3.medium.search`. Avoid previous-generation `t2` instances — they don't support fine-grained access control or encryption at rest. T3 instances require Multi-AZ without Standby and do not support UltraWarm/cold storage or Auto-Tune.
 4. Under **Network:**
    - Choose **Public access** for simplicity, or **VPC access** for production
 5. Under **Fine-grained access control:**
