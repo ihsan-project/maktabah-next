@@ -50,10 +50,13 @@ A search application for Quran translations and Hadith collections, built with N
 
 Wait for the domain status to become **Active** (takes ~15 minutes).
 
+The value for `OPENSEARCH_URL` can be found under the "Domain endpoint v2 (dual stack)"
+
 ### 2. Enable Cohere Embeddings on Amazon Bedrock
 
 The semantic search feature uses Cohere's multilingual embedding model via Amazon Bedrock.
 
+**Below steps for managing access is outdated**
 1. Go to the [Amazon Bedrock Console](https://console.aws.amazon.com/bedrock/home)
 2. In the left nav, click **Model access**
 3. Click **Manage model access**
