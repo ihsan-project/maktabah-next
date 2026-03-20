@@ -8,7 +8,8 @@
     "loader:load-storage": "node load-quran-to-storage.js",
     "loader:reorder": "node reorder-story.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "loader:decode": "node decode-quran-xml.js"
+    "loader:decode": "node decode-quran-xml.js",
+    "loader:search": "node search-opensearch.js"
   },
   "keywords": [
     "quran",

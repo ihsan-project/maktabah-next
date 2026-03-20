@@ -112,21 +112,63 @@ You can run the script multiple times with different XML files and translator na
 
 ## Searching the Index
 
-After loading, you can search the index with queries like:
+Use the search script to test keyword, semantic, and hybrid searches against the index.
 
+### Debug / Inspect the Index
+
+Check what's in the index (authors, titles, document counts, sample doc):
+
+```bash
+npm run loader:search -- --debug
 ```
-GET /kitaab/_search
-{
-  "query": {
-    "bool": {
-      "must": [
-        { "match": { "text": "mercy" } },
-        { "term": { "translator": "Ahmed Ali" } }
-      ]
-    }
-  }
-}
+
+### Keyword Search
+
+Standard text-based search using OpenSearch's BM25 ranking:
+
+```bash
+npm run loader:search -- --query="Allah" --mode=keyword
+npm run loader:search -- --query="mercy" --mode=keyword --author="Ahmed Ali" --title="quran"
+npm run loader:search -- --query="Narrated" --mode=keyword --title="bukhari" --size=10
 ```
+
+### Semantic Search
+
+Vector-based search using Cohere multilingual embeddings via AWS Bedrock. Finds conceptually similar results even if exact words don't match:
+
+```bash
+npm run loader:search -- --query="verses about mercy and compassion" --mode=semantic
+npm run loader:search -- --query="stories about prayer" --mode=semantic --title="bukhari"
+npm run loader:search -- --query="guidance for mankind" --mode=semantic --author="Arberry"
+```
+
+### Hybrid Search
+
+Combines keyword and semantic search for best results — matches on both exact terms and meaning:
+
+```bash
+npm run loader:search -- --query="paradise" --mode=hybrid
+npm run loader:search -- --query="patience in hardship" --mode=hybrid --author="Arberry" --title="quran"
+```
+
+### Run All Three Modes
+
+Omit `--mode` (or use `--mode=all`) to run keyword, semantic, and hybrid searches together:
+
+```bash
+npm run loader:search -- --query="Allah" --author="Arberry" --title="quran"
+```
+
+### Options
+
+| Option | Description | Default |
+|---|---|---|
+| `--query="term"` | Search query (required unless `--debug`) | — |
+| `--author="name"` | Filter by author (e.g., `"Arberry"`, `"Ahmed Ali"`) | none |
+| `--title="quran"` | Filter by title (`"quran"` or `"bukhari"`) | none |
+| `--mode="all"` | Search mode: `keyword`, `semantic`, `hybrid`, or `all` | `all` |
+| `--size=5` | Number of results per search | `5` |
+| `--debug` | Show index stats, authors, titles, and a sample document | off |
 
 ## Troubleshooting
 

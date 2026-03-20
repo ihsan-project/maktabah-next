@@ -13,6 +13,7 @@
     "functions:deploy": "npm run deploy -w maktabah-functions",
     "functions:logs": "npm run logs -w maktabah-functions",
     "loader:load-opensearch": "npm run loader:load-opensearch -w quran-opensearch-loader",
+    "loader:search": "node quran_loader/search-opensearch.js",
     "loader:load-storage": "npm run loader:load-storage -w quran-opensearch-loader",
     "loader:reorder": "npm run loader:reorder -w quran-opensearch-loader",
     "loader:decode": "npm run loader:decode -w quran-opensearch-loader",

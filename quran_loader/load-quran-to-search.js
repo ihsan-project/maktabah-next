@@ -6,7 +6,7 @@ const { Client } = require('@opensearch-project/opensearch');
 const { BedrockRuntimeClient, InvokeModelCommand } = require('@aws-sdk/client-bedrock-runtime');
 const { DOMParser } = require('@xmldom/xmldom');
 const xpath = require('xpath');
-require('dotenv').config();
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
 // Parse command line arguments
 const args = process.argv.slice(2);
