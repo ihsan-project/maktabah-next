@@ -369,8 +369,9 @@ async function indexData(verses) {
   console.log(`Indexing ${verses.length} verses to OpenSearch (with embeddings)...`);
 
   try {
-    // Process in batches to avoid memory issues with large datasets
-    const BATCH_SIZE = 500;
+    // Smaller batch size to avoid 429 rate-limiting (each doc has a large embedding vector)
+    const BATCH_SIZE = 50;
+    const MAX_RETRIES = 5;
     let successCount = 0;
     let errorCount = 0;
 
@@ -403,26 +404,44 @@ async function indexData(verses) {
         });
       }
 
-      // Execute bulk operation
-      const { body: result } = await opensearchClient.bulk({
-        refresh: true,
-        body: operations
-      });
+      // Execute bulk operation with retry and exponential backoff
+      for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+        try {
+          const { body: result } = await opensearchClient.bulk({
+            refresh: false,
+            body: operations
+          });
 
-      if (result.errors) {
-        console.error('Errors occurred during bulk indexing');
-        const errorItems = result.items.filter(item => item.index && item.index.error);
-        errorCount += errorItems.length;
-        successCount += (batch.length - errorItems.length);
+          if (result.errors) {
+            const errorItems = result.items.filter(item => item.index && item.index.error);
+            errorCount += errorItems.length;
+            successCount += (batch.length - errorItems.length);
 
-        // Log a sample of errors
-        if (errorItems.length > 0) {
-          console.error(`Sample error: ${JSON.stringify(errorItems[0].index.error)}`);
+            if (errorItems.length > 0) {
+              console.error(`  Batch ${batchNum}: ${errorItems.length} errors. Sample: ${JSON.stringify(errorItems[0].index.error)}`);
+            }
+          } else {
+            successCount += batch.length;
+          }
+          break; // Success, exit retry loop
+        } catch (bulkError) {
+          const statusCode = bulkError?.meta?.statusCode;
+          if (statusCode === 429 && attempt < MAX_RETRIES - 1) {
+            const delay = Math.pow(2, attempt) * 1000; // 1s, 2s, 4s, 8s, 16s
+            console.log(`  Rate limited (429). Retrying batch ${batchNum} in ${delay/1000}s (attempt ${attempt + 1}/${MAX_RETRIES})...`);
+            await new Promise(resolve => setTimeout(resolve, delay));
+          } else {
+            throw bulkError; // Non-retryable error or max retries exceeded
+          }
         }
-      } else {
-        successCount += batch.length;
       }
+
+      // Small delay between batches to avoid overwhelming OpenSearch
+      await new Promise(resolve => setTimeout(resolve, 500));
     }
+
+    // Final refresh after all batches are indexed
+    await opensearchClient.indices.refresh({ index: INDEX_NAME });
 
     console.log(`Indexing complete: ${successCount} successful, ${errorCount} failed`);
   } catch (error) {
