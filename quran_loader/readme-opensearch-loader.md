@@ -65,6 +65,8 @@ If you don't specify an ID, one will be automatically generated based on the aut
 npm run loader:load-opensearch -- translations/en.ahmedali.xml --author="Ahmed Ali" --id="en.ahmedali" --title="quran"
 npm run loader:load-opensearch -- translations/en.ahmedraza.xml --author="Ahmed Raza Khan" --id="en.ahmedraza" --title="quran"
 npm run loader:load-opensearch -- translations/en.arberry.xml --author="Arberry" --id="en.arberry" --title="quran"
+
+# not yet loaded:
 npm run loader:load-opensearch -- translations/en.daryabadi.xml --author="Daryabadi" --id="en.daryabadi" --title="quran"
 npm run loader:load-opensearch -- translations/en.hilali.xml --author="Hilali & Khan" --id="en.hilali" --title="quran"
 npm run loader:load-opensearch -- translations/en.itani.xml --author="Itani" --id="en.itani" --title="quran"

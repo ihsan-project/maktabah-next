@@ -11,7 +11,7 @@ require('dotenv').config();
 // Parse command line arguments
 const args = process.argv.slice(2);
 if (args.length < 1) {
-  console.error('Usage: node load-quran-to-elasticsearch.js <xml-file> --author="Author Name" --id="unique-identifier" [--title="quran|bukhari"] [--volume=1]');
+  console.error('Usage: node load-quran-to-search.js <xml-file> --author="Author Name" --id="unique-identifier" [--title="quran|bukhari"] [--volume=1]');
   process.exit(1);
 }
 

@@ -2,9 +2,9 @@
   "name": "quran-opensearch-loader",
   "version": "1.0.0",
   "description": "Tool to load Quran translations from XML files into OpenSearch",
-  "main": "load-quran-to-elasticsearch.js",
+  "main": "load-quran-to-search.js",
   "scripts": {
-    "loader:load-opensearch": "node load-quran-to-elasticsearch.js",
+    "loader:load-opensearch": "node load-quran-to-search.js",
     "loader:load-storage": "node load-quran-to-storage.js",
     "loader:reorder": "node reorder-story.js",
     "test": "echo \"Error: no test specified\" && exit 1",
