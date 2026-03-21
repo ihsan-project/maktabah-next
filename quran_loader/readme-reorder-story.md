@@ -123,7 +123,7 @@ Use the `--no-fetch-missing` flag if you only want verses from the source XML
 2. **Match Verses**: For each row in the CSV:
    - Parses the verse range (e.g., "51-67" becomes verses 51, 52, ..., 67)
    - Finds matching verses in the XML by chapter, verse number, and type
-   - If `--fetch-missing` is enabled and verse not found, fetches from OpenSearch
+   - If a verse is not found in the source XML, it is fetched from OpenSearch (unless `--no-fetch-missing` is used)
    - Type matching:
      - `type: quran` → matches verses where `chapter_name` is empty
      - `type: hadith` → matches verses where `chapter_name` has a value
