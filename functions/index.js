@@ -67,9 +67,11 @@ function deduplicateResults(hits) {
  * @param {Array} textHits Hits from BM25 text search
  * @param {Array} knnHits Hits from KNN vector search
  * @param {number} k RRF constant (default 60)
- * @returns {Array} Merged hits sorted by RRF score
+ * @param {number} textWeight Weight for keyword/BM25 results (default 1.0)
+ * @param {number} semanticWeight Weight for semantic/KNN results (default 1.5)
+ * @returns {Array} Merged hits sorted by weighted RRF score
  */
-function reciprocalRankFusion(textHits, knnHits, k = 60) {
+function reciprocalRankFusion(textHits, knnHits, k = 60, textWeight = 1.0, semanticWeight = 1.5) {
   const scores = new Map();
 
   textHits.forEach((hit, rank) => {
@@ -77,7 +79,7 @@ function reciprocalRankFusion(textHits, knnHits, k = 60) {
     if (!scores.has(key)) {
       scores.set(key, { score: 0, hit });
     }
-    scores.get(key).score += 1 / (k + rank + 1);
+    scores.get(key).score += textWeight * (1 / (k + rank + 1));
   });
 
   knnHits.forEach((hit, rank) => {
@@ -85,7 +87,7 @@ function reciprocalRankFusion(textHits, knnHits, k = 60) {
     if (!scores.has(key)) {
       scores.set(key, { score: 0, hit });
     }
-    scores.get(key).score += 1 / (k + rank + 1);
+    scores.get(key).score += semanticWeight * (1 / (k + rank + 1));
   });
 
   return Array.from(scores.values())
