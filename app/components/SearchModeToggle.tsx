@@ -17,11 +17,12 @@ const modes: { id: SearchMode; label: string }[] = [
 
 export default function SearchModeToggle({ mode, onChange }: SearchModeToggleProps): JSX.Element {
   return (
-    <div className="flex rounded-md border border-gray-300 overflow-hidden">
+    <div role="group" aria-label="Search mode" className="flex rounded-md border border-gray-300 overflow-hidden">
       {modes.map((m) => (
         <button
           key={m.id}
           type="button"
+          aria-pressed={mode === m.id}
           onClick={() => onChange(m.id)}
           className={`px-3 py-2 text-sm font-medium transition-colors ${
             mode === m.id
