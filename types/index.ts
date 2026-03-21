@@ -25,6 +25,7 @@ export interface SearchResult {
   book_id?: string;
   title?: string; // Added title field
   volume?: number; // Added volume field
+  source?: 'keyword' | 'semantic' | 'both';
 }
 
 export interface SearchResponse {

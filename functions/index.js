@@ -77,22 +77,27 @@ function reciprocalRankFusion(textHits, knnHits, k = 60, textWeight = 1.0, seman
   textHits.forEach((hit, rank) => {
     const key = hit._id;
     if (!scores.has(key)) {
-      scores.set(key, { score: 0, hit });
+      scores.set(key, { score: 0, hit, sources: new Set() });
     }
     scores.get(key).score += textWeight * (1 / (k + rank + 1));
+    scores.get(key).sources.add('keyword');
   });
 
   knnHits.forEach((hit, rank) => {
     const key = hit._id;
     if (!scores.has(key)) {
-      scores.set(key, { score: 0, hit });
+      scores.set(key, { score: 0, hit, sources: new Set() });
     }
     scores.get(key).score += semanticWeight * (1 / (k + rank + 1));
+    scores.get(key).sources.add('semantic');
   });
 
   return Array.from(scores.values())
     .sort((a, b) => b.score - a.score)
-    .map(({ score, hit }) => ({ ...hit, _score: score }));
+    .map(({ score, hit, sources }) => {
+      const source = sources.size === 2 ? 'both' : [...sources][0];
+      return { ...hit, _score: score, _source: { ...hit._source, source } };
+    });
 }
 
 /**
@@ -346,6 +351,12 @@ exports.nextApiHandler = functions.https.onRequest(
 
           // Search documents
           const searchResults = await searchDocuments(query, page, size, author, chapter, titles, mode);
+
+          // Only include source debug info when explicitly requested
+          if (req.query.debug !== 'true') {
+            searchResults.results = searchResults.results.map(({ source, ...rest }) => rest);
+          }
+
           res.json(searchResults);
           return;
         }

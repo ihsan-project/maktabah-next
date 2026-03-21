@@ -32,7 +32,7 @@ export default function SearchPage(): JSX.Element {
       ? 'http://127.0.0.1:5001/maktabah-8ac04/us-central1/nextApiHandler/api/search'
       : `/api/search`;
 
-    let url = `${baseUrl}?q=${encodeURIComponent(query)}&page=${page}&size=10&mode=${searchMode}`;
+    let url = `${baseUrl}?q=${encodeURIComponent(query)}&page=${page}&size=10&mode=${searchMode}${isDevelopment ? '&debug=true' : ''}`;
 
     // Add book filters if provided
     if (bookFilters && bookFilters.length > 0) {
