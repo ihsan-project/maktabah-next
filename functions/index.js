@@ -49,7 +49,7 @@ function deduplicateResults(hits) {
   const seen = new Map();
   for (const hit of hits) {
     const s = hit._source;
-    const key = `${s.title}_${s.volume || ''}_${s.book_id || ''}_${s.chapter}_${s.verse}`;
+    const key = `${s.chapter}_${s.verse}`;
     const score = hit._score || 0;
     if (!seen.has(key) || score > seen.get(key)._score) {
       seen.set(key, { ...hit, _score: score });
