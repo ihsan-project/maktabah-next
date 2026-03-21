@@ -11,19 +11,45 @@ if (!admin.apps.length) {
 
 const EMBEDDING_MODEL_ID = 'cohere.embed-multilingual-v3';
 
+// Reuse clients across requests to avoid repeated TCP/TLS handshakes
+let bedrockClient;
+function getBedrockClient() {
+  if (!bedrockClient) {
+    bedrockClient = new BedrockRuntimeClient({
+      region: process.env.AWS_REGION || 'us-east-1',
+      credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      },
+    });
+  }
+  return bedrockClient;
+}
+
+let opensearchClient;
+function getOpenSearchClient() {
+  if (!opensearchClient) {
+    opensearchClient = new Client({
+      node: process.env.OPENSEARCH_URL,
+      auth: {
+        username: process.env.OPENSEARCH_USERNAME,
+        password: process.env.OPENSEARCH_PASSWORD
+      },
+      ssl: {
+        rejectUnauthorized: process.env.NODE_ENV === 'production'
+      }
+    });
+  }
+  return opensearchClient;
+}
+
 /**
  * Generate embedding for a search query using Cohere via Bedrock
  * @param {string} text The query text to embed
  * @returns {Promise<number[]>} Embedding vector
  */
 async function embedQuery(text) {
-  const client = new BedrockRuntimeClient({
-    region: process.env.AWS_REGION || 'us-east-1',
-    credentials: {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    },
-  });
+  const client = getBedrockClient();
 
   const response = await client.send(new InvokeModelCommand({
     modelId: EMBEDDING_MODEL_ID,
@@ -105,17 +131,7 @@ function reciprocalRankFusion(textHits, knnHits, k = 60, textWeight = 1.0, seman
  */
 async function searchDocuments(query, page = 1, size = 10, author = null, chapter = null, titles = null, mode = 'text') {
   try {
-    // Initialize OpenSearch client with basic authentication
-    const client = new Client({
-      node: process.env.OPENSEARCH_URL,
-      auth: {
-        username: process.env.OPENSEARCH_USERNAME,
-        password: process.env.OPENSEARCH_PASSWORD
-      },
-      ssl: {
-        rejectUnauthorized: process.env.NODE_ENV === 'production'
-      }
-    });
+    const client = getOpenSearchClient();
 
     const opensearchIndex = 'kitaab';
     const from = (page - 1) * size;
@@ -216,7 +232,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
         knn: {
           text_embedding: {
             vector: embedding,
-            k: 200,
+            k: 100,
           },
         },
       };
@@ -227,7 +243,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
 
       const response = await client.search({
         index: opensearchIndex,
-        body: { size: 200, query: finalQuery },
+        body: { size: 100, query: finalQuery },
       });
 
       const allResults = deduplicateResults(response.body.hits.hits);
@@ -262,7 +278,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
         knn: {
           text_embedding: {
             vector: embedding,
-            k: 200,
+            k: 100,
           },
         },
       };
@@ -275,11 +291,11 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       const [textResponse, knnResponse] = await Promise.all([
         client.search({
           index: opensearchIndex,
-          body: { size: 200, query: textQuery },
+          body: { size: 100, query: textQuery },
         }),
         client.search({
           index: opensearchIndex,
-          body: { size: 200, query: knnQuery },
+          body: { size: 100, query: knnQuery },
         }),
       ]);
 
