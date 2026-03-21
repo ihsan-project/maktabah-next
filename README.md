@@ -56,19 +56,10 @@ The value for `OPENSEARCH_URL` can be found under the "Domain endpoint v2 (dual 
 
 The semantic search feature uses Cohere's multilingual embedding model via Amazon Bedrock.
 
-**Below steps for managing access is outdated**
-1. Go to the [Amazon Bedrock Console](https://console.aws.amazon.com/bedrock/home)
-2. In the left nav, click **Model access**
-3. Click **Manage model access**
-4. Find **Cohere** → **Embed Multilingual v3** and check the box
-5. Click **Save changes**
-
-Model access is granted instantly — no approval wait time.
-
 > **Note:** Bedrock model access is per-region. Make sure you enable it in the same region as your OpenSearch domain (default: `us-east-1`).
 
-6. Create an IAM user (or use an existing one) with the `AmazonBedrockFullAccess` policy attached
-7. Generate an **Access Key ID** and **Secret Access Key** for this user — you'll need these for both the loader and Firebase Functions
+1. Create an IAM user (or use an existing one) with the `AmazonBedrockFullAccess` policy attached
+2. Generate an **Access Key ID** and **Secret Access Key** for this user — you'll need these for both the loader and Firebase Functions
 
 ### 3. Get Your Domain Endpoint
 

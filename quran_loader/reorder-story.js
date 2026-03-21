@@ -148,7 +148,7 @@ async function fetchVerseFromOpenSearch(chapter, verseNum, isQuran) {
         };
       } else {
         // Debug: show what we found but couldn't match
-        const typeFound = response.hits.hits[0]._source.chapter_name ? 'hadith' : 'quran';
+        const typeFound = response.body.hits.hits[0]._source.chapter_name ? 'hadith' : 'quran';
         console.log(`    Found verse but wrong type (found: ${typeFound}, wanted: ${isQuran ? 'quran' : 'hadith'})`);
       }
     } else {

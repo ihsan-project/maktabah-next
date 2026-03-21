@@ -63,15 +63,17 @@ If you don't specify an ID, one will be automatically generated based on the aut
 
 ```bash
 # loaded:
-
-# loading:
 npm run loader:load-opensearch -- translations/en.ahmedali.xml --author="Ahmed Ali" --id="en.ahmedali" --title="quran"
-
-# not yet loaded:
 npm run loader:load-opensearch -- translations/en.ahmedraza.xml --author="Ahmed Raza Khan" --id="en.ahmedraza" --title="quran"
 npm run loader:load-opensearch -- translations/en.arberry.xml --author="Arberry" --id="en.arberry" --title="quran"
 npm run loader:load-opensearch -- translations/en.daryabadi.xml --author="Daryabadi" --id="en.daryabadi" --title="quran"
 npm run loader:load-opensearch -- translations/en.hilali.xml --author="Hilali & Khan" --id="en.hilali" --title="quran"
+
+# loading:
+
+# not yet loaded:
+
+
 npm run loader:load-opensearch -- translations/en.itani.xml --author="Itani" --id="en.itani" --title="quran"
 npm run loader:load-opensearch -- translations/en.maududi.xml --author="Maududi" --id="en.maududi" --title="quran"
 npm run loader:load-opensearch -- translations/en.mubarakpuri.xml --author="Mubarakpuri" --id="en.mubarakpuri" --title="quran"

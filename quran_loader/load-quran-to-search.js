@@ -39,9 +39,6 @@ const volume = volumeArg
   ? parseInt(volumeArg.split('=')[1], 10)
   : null; // No volume by default
 
-// Determine content type based on title or auto-detect
-const contentType = title !== 'auto' ? 'auto' : 'auto';
-
 // Initialize OpenSearch client
 const opensearchClient = new Client({
   node: process.env.OPENSEARCH_URL || 'http://localhost:9200',
@@ -510,6 +507,15 @@ async function testSearch(author, bookId, contentType) {
     const semanticTerm = contentType === 'hadith' ? 'stories about prayer' : 'verses about mercy and compassion';
     const queryEmbedding = await generateEmbeddings([semanticTerm], 'search_query');
 
+    // Build the same filters used by the BM25 test
+    const knnFilter = [
+      { term: { author: author } },
+      { term: { title: titleValue } }
+    ];
+    if (volume !== null) {
+      knnFilter.push({ term: { volume: volume } });
+    }
+
     const knnResult = await opensearchClient.search({
       index: INDEX_NAME,
       body: {
@@ -519,6 +525,11 @@ async function testSearch(author, bookId, contentType) {
             text_embedding: {
               vector: queryEmbedding[0],
               k: 3,
+              filter: {
+                bool: {
+                  must: knnFilter
+                }
+              }
             },
           },
         },
