@@ -48,7 +48,8 @@ async function embedQuery(text) {
 function deduplicateResults(hits) {
   const seen = new Map();
   for (const hit of hits) {
-    const key = `${hit._source.chapter}_${hit._source.verse}`;
+    const s = hit._source;
+    const key = `${s.title}_${s.volume || ''}_${s.book_id || ''}_${s.chapter}_${s.verse}`;
     const score = hit._score || 0;
     if (!seen.has(key) || score > seen.get(key)._score) {
       seen.set(key, { ...hit, _score: score });
@@ -208,7 +209,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
         knn: {
           text_embedding: {
             vector: embedding,
-            k: 100,
+            k: 200,
           },
         },
       };
@@ -254,7 +255,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
         knn: {
           text_embedding: {
             vector: embedding,
-            k: 100,
+            k: 200,
           },
         },
       };
@@ -326,7 +327,7 @@ exports.nextApiHandler = functions.https.onRequest(
           const size = parseInt(req.query.size || '10', 10);
           const author = req.query.author || null;
           const chapter = req.query.chapter || null;
-          const titles = req.query['title'] || null;
+          const titles = req.query['title'] || req.query['title[]'] || null;
           const mode = req.query.mode || 'text'; // 'text', 'semantic', or 'hybrid'
 
           // Validate the query
