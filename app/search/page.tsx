@@ -20,19 +20,20 @@ export default function SearchPage(): JSX.Element {
 
   // Initialize with both book types selected
   const [selectedBooks, setSelectedBooks] = useState<string[]>(['quran', 'bukhari']);
-  const [searchMode, setSearchMode] = useState<SearchMode>('text');
+  const isDevelopment = process.env.NODE_ENV === 'development';
+  const [searchMode, setSearchMode] = useState<SearchMode>('hybrid');
 
   // Get the appropriate API URL based on environment
   const getApiUrl = (query: string, page: number, bookFilters?: string[]): string => {
-    // Check if we're in development mode and running locally
-    const isDevelopment = process.env.NODE_ENV === 'development';
-
     // Use Firebase emulator URL in development, API route in production
     const baseUrl = isDevelopment
       ? 'http://127.0.0.1:5001/maktabah-8ac04/us-central1/nextApiHandler/api/search'
       : `/api/search`;
 
-    let url = `${baseUrl}?q=${encodeURIComponent(query)}&page=${page}&size=10&mode=${searchMode}${isDevelopment ? '&debug=true' : ''}`;
+    let url = `${baseUrl}?q=${encodeURIComponent(query)}&page=${page}&size=10`;
+    if (isDevelopment) {
+      url += `&mode=${searchMode}&debug=true`;
+    }
 
     // Add book filters if provided
     if (bookFilters && bookFilters.length > 0) {
@@ -120,10 +121,12 @@ export default function SearchPage(): JSX.Element {
                   selectedBooks={selectedBooks}
                   onChange={setSelectedBooks}
                 />
-                <SearchModeToggle
-                  mode={searchMode}
-                  onChange={setSearchMode}
-                />
+                {isDevelopment && (
+                  <SearchModeToggle
+                    mode={searchMode}
+                    onChange={setSearchMode}
+                  />
+                )}
               </div>
               <div className="w-full">
                 <SearchForm onSearch={handleSearch} />

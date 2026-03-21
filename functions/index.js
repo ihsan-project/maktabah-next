@@ -351,7 +351,7 @@ exports.nextApiHandler = functions.https.onRequest(
           const author = req.query.author || null;
           const chapter = req.query.chapter || null;
           const titles = req.query['title'] || req.query['title[]'] || null;
-          const mode = req.query.mode || 'text'; // 'text', 'semantic', or 'hybrid'
+          const mode = req.query.mode || 'hybrid'; // 'text', 'semantic', or 'hybrid'
 
           // Validate the query
           if (!query) {
