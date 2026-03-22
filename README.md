@@ -124,6 +124,7 @@ firebase functions:secrets:set AWS_SECRET_ACCESS_KEY
 
 ### 6. Load Data into OpenSearch
 
+From `/quran-loader` directory (due to using node parameters):
 ```bash
 # Install dependencies
 npm install
