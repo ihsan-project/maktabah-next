@@ -10,7 +10,6 @@
     "dev": "next dev",
     "build": "next build",
     "functions": "npm run serve -w maktabah-functions",
-    "functions:deploy": "npm run deploy -w maktabah-functions",
     "functions:logs": "npm run logs -w maktabah-functions",
     "loader:load-opensearch": "node quran_loader/load-quran-to-search.js",
     "loader:search": "node quran_loader/search-opensearch.js",
