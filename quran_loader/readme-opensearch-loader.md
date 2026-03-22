@@ -68,12 +68,6 @@ npm run loader:load-opensearch -- translations/en.ahmedraza.xml --author="Ahmed 
 npm run loader:load-opensearch -- translations/en.arberry.xml --author="Arberry" --id="en.arberry" --title="quran"
 npm run loader:load-opensearch -- translations/en.daryabadi.xml --author="Daryabadi" --id="en.daryabadi" --title="quran"
 npm run loader:load-opensearch -- translations/en.hilali.xml --author="Hilali & Khan" --id="en.hilali" --title="quran"
-
-# loading:
-
-# not yet loaded:
-
-
 npm run loader:load-opensearch -- translations/en.itani.xml --author="Itani" --id="en.itani" --title="quran"
 npm run loader:load-opensearch -- translations/en.maududi.xml --author="Maududi" --id="en.maududi" --title="quran"
 npm run loader:load-opensearch -- translations/en.mubarakpuri.xml --author="Mubarakpuri" --id="en.mubarakpuri" --title="quran"
@@ -86,9 +80,13 @@ npm run loader:load-opensearch -- translations/en.shakir.xml --author="Shakir" -
 npm run loader:load-opensearch -- translations/en.wahiduddin.xml --author="Wahiduddin Khan" --id="en.wahiduddin" --title="quran"
 npm run loader:load-opensearch -- translations/en.yusufali.xml --author="Yusuf Ali" --id="en.yusufali" --title="quran"
 npm run loader:load-opensearch -- translations/en.transliteration.clean.xml --author="Transliteration" --id="en.transliteration" --title="quran"
-
 npm run loader:load-opensearch -- translations/en.bukhari.vol01.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol01"  --volume=1
+
+# loading:
 npm run loader:load-opensearch -- translations/en.bukhari.vol02.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol02"  --volume=2
+
+# not yet loaded:
+
 npm run loader:load-opensearch -- translations/en.bukhari.vol03.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol03"  --volume=3
 npm run loader:load-opensearch -- translations/en.bukhari.vol04.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol04"  --volume=4
 npm run loader:load-opensearch -- translations/en.bukhari.vol05.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol05"  --volume=5

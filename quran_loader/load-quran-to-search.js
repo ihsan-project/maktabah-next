@@ -78,7 +78,7 @@ async function generateEmbeddings(texts, inputType = 'search_document') {
   const allEmbeddings = [];
 
   for (let i = 0; i < texts.length; i += BATCH_SIZE) {
-    const batch = texts.slice(i, i + BATCH_SIZE);
+    const batch = texts.slice(i, i + BATCH_SIZE).map(t => t.length > 2048 ? t.slice(0, 2048) : t);
 
     const response = await bedrockClient.send(new InvokeModelCommand({
       modelId: EMBEDDING_MODEL_ID,
