@@ -2,9 +2,9 @@
 
 ## Current State
 - **SideMenu.tsx** slides from the **right**, has profile info + logout only
-- **Navbar.tsx** has nav links (Search, Stories, Bookmarks) in the header bar on the right side
+- **Navbar.tsx** has nav links (buy me cha, Search, Stories, Bookmarks) in the header bar on the right side
 - Profile icon on the left opens the menu
-- No hamburger icon, no swipe gestures, no focus trapping, no dashboard page, no khatmah feature
+- No hamburger icon, no swipe gestures, no focus trapping, no dashboard page
 
 ## Phase 1: Rework SideMenu to slide from the left with hamburger toggle
 **Goal:** Convert the side menu from right-sliding to left-sliding, replace the profile icon trigger with a hamburger icon, and add overlay + close behaviors (Escape, click outside, hamburger toggle)
@@ -24,16 +24,15 @@
 
 ## Phase 2: Move nav items into the side menu
 **Depends on:** Phase 1
-**Goal:** Move Stories and Bookmarks links from the navbar into the side menu, add Dashboard link, add "+ New Khatmah" button
+**Goal:** Move Buy Me Cha, Stories, and Bookmarks links from the navbar into the side menu, add Dashboard link
 **Changes:**
-- `app/components/SideMenu.tsx` — add nav links section: Dashboard (`/search`), Stories (`/stories`), Bookmarks (`/bookmarks`), and a "+ New Khatmah" button (placeholder action for now)
+- `app/components/SideMenu.tsx` — add nav links section: Dashboard (`/search`), Stories (`/stories`), Bookmarks (`/bookmarks`)
 - `app/components/Navbar.tsx` — remove the right-side `<nav>` links section entirely
 - `types/index.ts` — no changes needed (SideMenuProps already sufficient)
 **Dependencies:** Phase 1 complete
 **Test plan:**
-- Navbar no longer shows Stories/Bookmarks links
-- Side menu shows Dashboard, Stories, Bookmarks with active state highlighting
-- "+ New Khatmah" button visible in menu (PRD-MENU-009)
+- Navbar no longer shows Cha/Stories/Bookmarks links
+- Side menu shows Cha Dashboard, Stories, Bookmarks with active state highlighting
 - Navigate to dashboard from menu (PRD-MENU-008)
 - Menu closes after navigation
 **Deploy notes:** No backend changes. Purely frontend restructuring.

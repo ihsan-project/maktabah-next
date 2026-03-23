@@ -1,41 +1,49 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useAuth } from './AuthProvider';
 import SideMenu from './SideMenu';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { FiMenu } from 'react-icons/fi';
-import { getProfileImageUrl, getUserInitials } from '@/lib/user-utils';
 
+const EDGE_THRESHOLD = 20; // pixels from left edge to start swipe
+const SWIPE_MIN_DISTANCE = 50; // minimum swipe distance to trigger open
 
 export default function Navbar(): JSX.Element {
   const { user } = useAuth();
-  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
-  const toggleMenu = (): void => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const openMenu = useCallback(() => setIsMenuOpen(true), []);
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
+  const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), []);
 
+  // Swipe from left edge to open menu (PRD-MENU-007)
   useEffect(() => {
-    // Create tip button in container
-    const container = document.getElementById('kofi-widget-container');
-    if (!container) return;
+    const handleTouchStart = (e: TouchEvent): void => {
+      const touch = e.touches[0];
+      if (touch.clientX <= EDGE_THRESHOLD) {
+        touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+      }
+    };
 
-    const tipButtonHTML = `
-      <a title="Support me on ko-fi.com" 
-         class="bg-green-700 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors shadow-sm text-sm" 
-         href="https://ko-fi.com/T6T51TDQN2" 
-         target="_blank">
-        <span class="hidden sm:inline">Buy me a chai</span><span class="sm:hidden">Tip</span>
-      </a>
-    `;
+    const handleTouchEnd = (e: TouchEvent): void => {
+      if (!touchStartRef.current) return;
+      const touch = e.changedTouches[0];
+      const dx = touch.clientX - touchStartRef.current.x;
+      const dy = Math.abs(touch.clientY - touchStartRef.current.y);
+      // Must swipe right more than threshold, and not be a vertical scroll
+      if (dx > SWIPE_MIN_DISTANCE && dy < dx) {
+        setIsMenuOpen(true);
+      }
+      touchStartRef.current = null;
+    };
 
-    container.innerHTML = tipButtonHTML;
-
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
+    document.addEventListener('touchend', handleTouchEnd, { passive: true });
     return () => {
-      container.innerHTML = '';
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchend', handleTouchEnd);
     };
   }, []);
 
@@ -43,71 +51,27 @@ export default function Navbar(): JSX.Element {
     <header className="bg-primary text-white shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Left side: Profile Icon and Logo */}
+          {/* Left side: Hamburger and Logo */}
           <div className="flex items-center gap-4">
-            {/* Menu Toggle Button - Profile Icon */}
             {user && (
-              <button 
-                className="flex items-center focus:outline-none" 
+              <button
+                className="flex items-center focus:outline-none focus:ring-2 focus:ring-white rounded p-1"
                 onClick={toggleMenu}
+                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isMenuOpen}
               >
-                <div className="w-8 h-8 rounded-full overflow-hidden bg-primary-light flex items-center justify-center text-white">
-                  {getProfileImageUrl(user.photoURL) ? (
-                    <img 
-                      src={getProfileImageUrl(user.photoURL) as string} 
-                      alt={user.displayName || 'User'} 
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <span className="text-sm font-bold">{getUserInitials(user)}</span>
-                  )}
-                </div>
+                <FiMenu size={24} />
               </button>
             )}
-            
-            {/* Logo */}
+
             <Link href="/" className="font-bold text-xl">
               Maktabah
             </Link>
-            
-            {/* Tip Button */}
-            <div id="kofi-widget-container" className="flex items-center mr-4"></div>
           </div>
-
-          {/* Right side: Navigation Links */}
-          {user && (
-            <nav className="flex items-center gap-4">
-              <Link 
-                href="/search" 
-                className={`text-sm font-medium hover:text-primary-light transition-colors ${
-                  pathname === '/search' ? 'border-b-2 border-white pb-1' : ''
-                }`}
-              >
-                Search
-              </Link>
-              <Link 
-                href="/stories" 
-                className={`text-sm font-medium hover:text-primary-light transition-colors ${
-                  pathname === '/stories' ? 'border-b-2 border-white pb-1' : ''
-                }`}
-              >
-                Stories
-              </Link>
-              <Link 
-                href="/bookmarks" 
-                className={`text-sm font-medium hover:text-primary-light transition-colors ${
-                  pathname === '/bookmarks' ? 'border-b-2 border-white pb-1' : ''
-                }`}
-              >
-                Bookmarks
-              </Link>
-            </nav>
-          )}
         </div>
       </div>
 
-      {/* Side Menu - Used for both mobile and desktop */}
-      <SideMenu isOpen={isMenuOpen} onClose={toggleMenu} />
+      <SideMenu isOpen={isMenuOpen} onClose={closeMenu} />
     </header>
   );
 }
