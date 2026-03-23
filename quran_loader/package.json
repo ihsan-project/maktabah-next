@@ -1,24 +1,27 @@
 {
-  "name": "quran-elasticsearch-loader",
+  "name": "quran-opensearch-loader",
   "version": "1.0.0",
-  "description": "Tool to load Quran translations from XML files into Elasticsearch",
-  "main": "load-quran-to-elasticsearch.js",
+  "description": "Tool to load Quran translations from XML files into OpenSearch",
+  "main": "load-quran-to-search.js",
   "scripts": {
-    "load-elastic": "node load-quran-to-elasticsearch.js",
-    "load-storage": "node load-quran-to-storage.js",
-    "reorder": "node reorder-story.js",
+    "loader:load-opensearch": "node load-quran-to-search.js",
+    "loader:load-storage": "node load-quran-to-storage.js",
+    "loader:reorder": "node reorder-story.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "decode": "node decode-quran-xml.js"
+    "loader:decode": "node decode-quran-xml.js",
+    "loader:search": "node search-opensearch.js",
+    "loader:delete-index": "node delete-index.js"
   },
   "keywords": [
     "quran",
-    "elasticsearch",
+    "opensearch",
     "xml"
   ],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@elastic/elasticsearch": "^8.10.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.750.0",
+    "@opensearch-project/opensearch": "^2.6.0",
     "@google-cloud/storage": "^7.15.2",
     "@xmldom/xmldom": "^0.8.10",
     "csv-parse": "^5.5.3",

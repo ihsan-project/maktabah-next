@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { Client } = require('@elastic/elasticsearch');
+const { Client } = require('@opensearch-project/opensearch');
 const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
@@ -32,7 +32,7 @@ const outputFile = outputArg
   : `story-${Date.now()}.xml`;
 
 /**
- * Search function to query ElasticSearch
+ * Search function to query OpenSearch
  * @param {string} query The search term to look for
  * @param {string|null} author Optional author filter
  * @param {string|null} chapter Optional chapter filter
@@ -40,19 +40,19 @@ const outputFile = outputArg
  */
 async function searchDocuments(query, author = null, chapter = null) {
   try {
-    // Initialize ElasticSearch client with API key authentication using process.env
+    // Initialize OpenSearch client with basic authentication
     const client = new Client({
-      node: process.env.ELASTICSEARCH_URL,
-      auth: process.env.ELASTICSEARCH_APIKEY 
-        ? { apiKey: process.env.ELASTICSEARCH_APIKEY } 
+      node: process.env.OPENSEARCH_URL,
+      auth: (process.env.OPENSEARCH_USERNAME && process.env.OPENSEARCH_PASSWORD)
+        ? { username: process.env.OPENSEARCH_USERNAME, password: process.env.OPENSEARCH_PASSWORD }
         : undefined,
-      tls: {
+      ssl: {
         rejectUnauthorized: process.env.NODE_ENV === 'production'
       }
     });
-    
+
     // Hardcoded index name
-    const elasticsearchIndex = 'kitaab';
+    const opensearchIndex = 'kitaab';
     
     // Build the search query based on the mapping
     const searchQuery = {
@@ -107,9 +107,9 @@ async function searchDocuments(query, author = null, chapter = null) {
     
     console.log(`Searching for "${query}"${author ? ` by ${author}` : ''}${chapter ? ` in chapter ${chapter}` : ''}...`);
     
-    // Execute the search against Elasticsearch
+    // Execute the search against OpenSearch
     const response = await client.search({
-      index: elasticsearchIndex,
+      index: opensearchIndex,
       body: {
         from: 0,
         size: 10000, // Get up to 10000 results to capture all translations
@@ -145,7 +145,7 @@ async function searchDocuments(query, author = null, chapter = null) {
     });
     
     // Aggregated buckets for unique chapter/verse combinations with all translations
-    const buckets = response.aggregations.unique_chapter_verse.buckets;
+    const buckets = response.body.aggregations.unique_chapter_verse.buckets;
     
     // Group results by chapter and verse, with all translations
     const verseGroups = buckets.map(bucket => {

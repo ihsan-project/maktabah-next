@@ -24,11 +24,19 @@ const TextWithLineBreaks = ({ text }: { text: string }) => {
   );
 };
 
-export default function SearchResults({ 
-  results, 
-  loading, 
-  hasMore, 
-  onLoadMore 
+const isDev = process.env.NODE_ENV === 'development';
+
+const sourceColors: Record<string, string> = {
+  keyword: 'bg-orange-100 text-orange-700',
+  semantic: 'bg-blue-100 text-blue-700',
+  both: 'bg-purple-100 text-purple-700',
+};
+
+export default function SearchResults({
+  results,
+  loading,
+  hasMore,
+  onLoadMore
 }: SearchResultsProps): JSX.Element {
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({});
   const [openNotesModal, setOpenNotesModal] = useState<Bookmark | null>(null);
@@ -150,6 +158,11 @@ export default function SearchResults({
                   })()}
                 </div>
                 <div className="flex items-center gap-2">
+                  {isDev && result.source && (
+                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-mono ${sourceColors[result.source]}`}>
+                      {result.source}
+                    </span>
+                  )}
                   <div className="flex items-center text-xs text-gray-500">
                     {result.title === 'bukhari' && (
                       <span className="px-2 py-0.5 mr-2 rounded-full bg-[#8C6564] text-white">

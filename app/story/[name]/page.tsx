@@ -157,6 +157,9 @@ export default async function StoryPage({ params }: StoryPageProps) {
   );
 }
 
+// Disable fallback for unknown story names (returns 404 instead of SSR)
+export const dynamicParams = false;
+
 // Generate static parameters for stories that exist
 export async function generateStaticParams() {
   return ALLOWED_STORIES.map(name => ({

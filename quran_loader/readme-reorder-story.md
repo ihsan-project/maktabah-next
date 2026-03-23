@@ -33,11 +33,12 @@ npm install
 
 ## Configuration
 
-**Important:** By default, the script will fetch missing verses from Elasticsearch. To use this feature, create a `.env` file in the `quran_loader` directory:
+**Important:** By default, the script will fetch missing verses from OpenSearch. To use this feature, create a `.env` file in the `quran_loader` directory:
 
 ```env
-ELASTICSEARCH_URL=https://your-elasticsearch-instance.com
-ELASTICSEARCH_APIKEY=your_elasticsearch_api_key
+OPENSEARCH_URL=https://your-opensearch-domain.us-east-1.es.amazonaws.com
+OPENSEARCH_USERNAME=admin
+OPENSEARCH_PASSWORD=your_opensearch_password
 NODE_ENV=development
 ```
 
@@ -57,7 +58,7 @@ npm run reorder <input-xml> <reorder-csv> <output-xml> [--no-fetch-missing]
 
 ### Examples
 
-**Default usage** (automatically fetches missing verses from Elasticsearch):
+**Default usage** (automatically fetches missing verses from OpenSearch):
 ```bash
 node reorder-story.js ../public/stories/abraham.xml ./stories_reorder/abraham_reorder.csv ../public/stories/abraham_reordered.xml
 ```
@@ -94,12 +95,12 @@ order,section,chapter,verse_range,type
 
 ## Fetching Missing Verses
 
-**By default**, the script automatically fetches verses that aren't in the source XML file from Elasticsearch.
+**By default**, the script automatically fetches verses that aren't in the source XML file from OpenSearch.
 
 ### How it works:
 1. Script first tries to find the verse in the source XML
 2. If not found (and auto-fetch is enabled by default):
-   - Queries Elasticsearch for that specific verse
+   - Queries OpenSearch for that specific verse
    - Matches by chapter, verse number, and type (Quran vs Hadith)
    - Adds the fetched verse to the output
 3. If verse still can't be found, logs a warning and continues
@@ -110,7 +111,7 @@ order,section,chapter,verse_range,type
 - Include specific verses that might not match the original search query
 
 ### Requirements:
-- Elasticsearch credentials must be configured in `.env` (see Configuration section)
+- OpenSearch credentials must be configured in `.env` (see Configuration section)
 - The 'kitaab' index must be accessible and populated
 
 ### To disable:
@@ -122,7 +123,7 @@ Use the `--no-fetch-missing` flag if you only want verses from the source XML
 2. **Match Verses**: For each row in the CSV:
    - Parses the verse range (e.g., "51-67" becomes verses 51, 52, ..., 67)
    - Finds matching verses in the XML by chapter, verse number, and type
-   - If `--fetch-missing` is enabled and verse not found, fetches from Elasticsearch
+   - If a verse is not found in the source XML, it is fetched from OpenSearch (unless `--no-fetch-missing` is used)
    - Type matching:
      - `type: quran` → matches verses where `chapter_name` is empty
      - `type: hadith` → matches verses where `chapter_name` has a value
@@ -159,7 +160,7 @@ The script now supports the new XML format where each verse includes all availab
 </verse>
 ```
 
-When fetching missing verses from Elasticsearch, the script automatically retrieves **all available translations** for that verse and includes them in the output.
+When fetching missing verses from OpenSearch, the script automatically retrieves **all available translations** for that verse and includes them in the output.
 
 ### Unused Verses Report
 
@@ -195,8 +196,8 @@ Unused Hadith verses (3):
 
 ## Notes
 
-- **Auto-fetch is enabled by default**: Missing verses are automatically fetched from Elasticsearch with all their translations
-- **Multiple translations**: Each verse includes all available translations from Elasticsearch
+- **Auto-fetch is enabled by default**: Missing verses are automatically fetched from OpenSearch with all their translations
+- **Multiple translations**: Each verse includes all available translations from OpenSearch
 - **Unused verses report**: At the end of execution, the script shows which verses from the source XML weren't included in the output
 - The script preserves all verse attributes and content (including all translations) from the original XML
 - Verse type matching is based on the `chapter_name` field (empty = Quran, has value = Hadith)
@@ -215,19 +216,19 @@ If you see warnings like:
 Warning: Could not find verse - Chapter 21, Verse 55, Type: quran
 ```
 
-This means the verse couldn't be found in the source XML or in Elasticsearch (auto-fetch is enabled by default).
+This means the verse couldn't be found in the source XML or in OpenSearch (auto-fetch is enabled by default).
 
 **Possible causes:**
-1. The verse doesn't exist in Elasticsearch's 'kitaab' index
+1. The verse doesn't exist in OpenSearch's 'kitaab' index
 2. The chapter and verse numbers in the CSV are incorrect
 3. The type doesn't match:
    - For Quran verses: use `type: quran`
    - For Hadith verses: use `type: hadith`
-4. Elasticsearch credentials are missing or incorrect
+4. OpenSearch credentials are missing or incorrect
 
 **To debug:**
-1. Check that your `.env` file has valid Elasticsearch credentials
-2. Verify the verse exists in your Elasticsearch index
+1. Check that your `.env` file has valid OpenSearch credentials
+2. Verify the verse exists in your OpenSearch index
 3. Double-check the chapter and verse numbers in your CSV
 4. If you only want to use verses from the source XML (no fetching), run with `--no-fetch-missing`
 
@@ -239,23 +240,24 @@ The script determines verse type based on the `chapter_name` field in the XML:
 
 If you're getting "could not find" warnings, open the source XML and check the `chapter_name` field for that verse to determine the correct type.
 
-### Elasticsearch connection issues
+### OpenSearch connection issues
 
 If you see errors like:
 ```
-Error: Elasticsearch credentials not found in .env file
+Error: OpenSearch credentials not found in .env file
 ```
 
 Make sure you have a `.env` file in the `quran_loader` directory with:
 ```env
-ELASTICSEARCH_URL=https://your-elasticsearch-instance.com
-ELASTICSEARCH_APIKEY=your_elasticsearch_api_key
+OPENSEARCH_URL=https://your-opensearch-domain.us-east-1.es.amazonaws.com
+OPENSEARCH_USERNAME=admin
+OPENSEARCH_PASSWORD=your_opensearch_password
 NODE_ENV=development
 ```
 
-If you see "Could not fetch verse from Elasticsearch" warnings:
-1. Check that your Elasticsearch credentials are correct
+If you see "Could not fetch verse from OpenSearch" warnings:
+1. Check that your OpenSearch credentials are correct
 2. Verify the 'kitaab' index exists and is populated
-3. Ensure you have network access to the Elasticsearch instance
-4. Check that the verse actually exists in the Elasticsearch index
+3. Ensure you have network access to the OpenSearch instance
+4. Check that the verse actually exists in the OpenSearch index
 

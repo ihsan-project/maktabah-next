@@ -10,7 +10,7 @@
  *   node reorder-story.js ../public/stories/abraham.xml ../docs/abraham_reorder.csv ../public/stories/abraham_reordered.xml
  *   node reorder-story.js ../public/stories/abraham.xml ../docs/abraham_reorder.csv ../public/stories/abraham_reordered.xml --no-fetch-missing
  * 
- * Note: Fetching missing verses from Elasticsearch is enabled by default.
+ * Note: Fetching missing verses from OpenSearch is enabled by default.
  *       Use --no-fetch-missing to disable this behavior.
  */
 
@@ -18,7 +18,7 @@ const fs = require('fs');
 const path = require('path');
 const xml2js = require('xml2js');
 const { parse } = require('csv-parse/sync');
-const { Client } = require('@elastic/elasticsearch');
+const { Client } = require('@opensearch-project/opensearch');
 require('dotenv').config();
 
 /**
@@ -71,21 +71,21 @@ const EXPECTED_QURAN_AUTHORS = [
 ];
 
 /**
- * Fetch a specific verse from Elasticsearch with all translations
+ * Fetch a specific verse from OpenSearch with all translations
  */
-async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
+async function fetchVerseFromOpenSearch(chapter, verseNum, isQuran) {
   try {
     const client = new Client({
-      node: process.env.ELASTICSEARCH_URL,
-      auth: process.env.ELASTICSEARCH_APIKEY 
-        ? { apiKey: process.env.ELASTICSEARCH_APIKEY } 
+      node: process.env.OPENSEARCH_URL,
+      auth: (process.env.OPENSEARCH_USERNAME && process.env.OPENSEARCH_PASSWORD)
+        ? { username: process.env.OPENSEARCH_USERNAME, password: process.env.OPENSEARCH_PASSWORD }
         : undefined,
-      tls: {
+      ssl: {
         rejectUnauthorized: process.env.NODE_ENV === 'production'
       }
     });
-    
-    const elasticsearchIndex = 'kitaab';
+
+    const opensearchIndex = 'kitaab';
     
     // Build query to find specific verse
     // Fetch all verses with this chapter and verse number, then filter by type
@@ -99,7 +99,7 @@ async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
     };
     
     const response = await client.search({
-      index: elasticsearchIndex,
+      index: opensearchIndex,
       body: {
         query: searchQuery,
         size: 100, // Get multiple results to capture all translations
@@ -109,11 +109,11 @@ async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
       }
     });
     
-    if (response.hits.hits.length > 0) {
-      console.log(`    Found ${response.hits.hits.length} result(s) in Elasticsearch for Chapter ${chapter}, Verse ${verseNum}`);
+    if (response.body.hits.hits.length > 0) {
+      console.log(`    Found ${response.body.hits.hits.length} result(s) in OpenSearch for Chapter ${chapter}, Verse ${verseNum}`);
       
       // Filter results by type (quran vs hadith) in JavaScript
-      const matchingHits = response.hits.hits.filter(hit => {
+      const matchingHits = response.body.hits.hits.filter(hit => {
         const source = hit._source;
         const hasChapterName = source.chapter_name && source.chapter_name.trim() !== '';
         
@@ -148,16 +148,16 @@ async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
         };
       } else {
         // Debug: show what we found but couldn't match
-        const typeFound = response.hits.hits[0]._source.chapter_name ? 'hadith' : 'quran';
+        const typeFound = response.body.hits.hits[0]._source.chapter_name ? 'hadith' : 'quran';
         console.log(`    Found verse but wrong type (found: ${typeFound}, wanted: ${isQuran ? 'quran' : 'hadith'})`);
       }
     } else {
-      console.log(`    No results found in Elasticsearch for Chapter ${chapter}, Verse ${verseNum}`);
+      console.log(`    No results found in OpenSearch for Chapter ${chapter}, Verse ${verseNum}`);
     }
     
     return null;
   } catch (error) {
-    console.error(`Error fetching verse from Elasticsearch: ${error.message}`);
+    console.error(`Error fetching verse from OpenSearch: ${error.message}`);
     return null;
   }
 }
@@ -165,7 +165,7 @@ async function fetchVerseFromElasticsearch(chapter, verseNum, isQuran) {
 /**
  * Backfill missing translations for a Quran verse
  */
-async function backfillMissingTranslations(verse, fetchFromElasticsearch = true) {
+async function backfillMissingTranslations(verse, fetchFromOpenSearch = true) {
   // Only process Quran verses
   if (!isQuranVerse(verse)) {
     return verse;
@@ -187,16 +187,16 @@ async function backfillMissingTranslations(verse, fetchFromElasticsearch = true)
   
   console.log(`  Verse ${chapter}:${verseNum} missing ${missingAuthors.length} translations: ${missingAuthors.join(', ')}`);
   
-  if (!fetchFromElasticsearch) {
-    console.log(`  Skipping backfill (Elasticsearch fetch disabled)`);
+  if (!fetchFromOpenSearch) {
+    console.log(`  Skipping backfill (OpenSearch fetch disabled)`);
     return verse;
   }
   
-  // Fetch complete verse from Elasticsearch
-  const fetchedVerse = await fetchVerseFromElasticsearch(chapter, verseNum, true);
+  // Fetch complete verse from OpenSearch
+  const fetchedVerse = await fetchVerseFromOpenSearch(chapter, verseNum, true);
   
   if (!fetchedVerse) {
-    console.log(`  ✗ Could not fetch verse from Elasticsearch`);
+    console.log(`  ✗ Could not fetch verse from OpenSearch`);
     return verse;
   }
   
@@ -256,17 +256,17 @@ async function findMatchingVerses(xmlVerses, chapter, verseNumbers, type, fetchM
       matchedVerses.push(match);
       usedIndices.push(matchIndex);
     } else {
-      // Try to fetch from Elasticsearch if flag is enabled
+      // Try to fetch from OpenSearch if flag is enabled
       if (fetchMissing) {
-        console.log(`  Fetching from Elasticsearch: Chapter ${chapter}, Verse ${verseNum}, Type: ${type}`);
-        const fetchedVerse = await fetchVerseFromElasticsearch(chapter, verseNum, isQuran);
+        console.log(`  Fetching from OpenSearch: Chapter ${chapter}, Verse ${verseNum}, Type: ${type}`);
+        const fetchedVerse = await fetchVerseFromOpenSearch(chapter, verseNum, isQuran);
         
         if (fetchedVerse) {
           matchedVerses.push(fetchedVerse);
           console.log(`  ✓ Successfully fetched verse`);
           // Don't add to usedIndices since it's not from source XML
         } else {
-          console.warn(`  ✗ Could not fetch verse from Elasticsearch - Chapter ${chapter}, Verse ${verseNum}, Type: ${type}`);
+          console.warn(`  ✗ Could not fetch verse from OpenSearch - Chapter ${chapter}, Verse ${verseNum}, Type: ${type}`);
         }
       } else {
         console.warn(`Warning: Could not find verse - Chapter ${chapter}, Verse ${verseNum}, Type: ${type}`);
@@ -289,7 +289,7 @@ async function main() {
     console.error('Example: node reorder-story.js ../public/stories/abraham.xml ../docs/abraham_reorder.csv ../public/stories/abraham_reordered.xml');
     console.error('         node reorder-story.js ../public/stories/abraham.xml ../docs/abraham_reorder.csv ../public/stories/abraham_reordered.xml --no-fetch-missing');
     console.error('');
-    console.error('Note: Fetching missing verses from Elasticsearch is enabled by default.');
+    console.error('Note: Fetching missing verses from OpenSearch is enabled by default.');
     console.error('      Use --no-fetch-missing to disable this behavior.');
     process.exit(1);
   }
@@ -299,17 +299,17 @@ async function main() {
   const fetchMissing = !args.includes('--no-fetch-missing');
   
   if (fetchMissing) {
-    console.log('Fetch missing verses from Elasticsearch: ENABLED (default)');
+    console.log('Fetch missing verses from OpenSearch: ENABLED (default)');
     
-    // Check if Elasticsearch credentials are configured
-    if (!process.env.ELASTICSEARCH_URL || !process.env.ELASTICSEARCH_APIKEY) {
-      console.error('Error: Elasticsearch credentials not found in .env file');
-      console.error('Please ensure ELASTICSEARCH_URL and ELASTICSEARCH_APIKEY are set');
+    // Check if OpenSearch credentials are configured
+    if (!process.env.OPENSEARCH_URL || !process.env.OPENSEARCH_USERNAME || !process.env.OPENSEARCH_PASSWORD) {
+      console.error('Error: OpenSearch credentials not found in .env file');
+      console.error('Please ensure OPENSEARCH_URL, OPENSEARCH_USERNAME, and OPENSEARCH_PASSWORD are set');
       console.error('Or use --no-fetch-missing to skip fetching missing verses');
       process.exit(1);
     }
   } else {
-    console.log('Fetch missing verses from Elasticsearch: DISABLED');
+    console.log('Fetch missing verses from OpenSearch: DISABLED');
   }
   
   // Check if files exist
