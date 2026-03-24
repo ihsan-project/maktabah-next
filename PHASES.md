@@ -145,20 +145,17 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 ## Phase 6: Homepage Hero Search (Centerstage)
 
-**Goal:** Transform the landing page into a search-forward experience with a large centered search bar, browsable entry points, and search tips.
+**Goal:** Transform the logged in landing page (/search) into a search-forward experience with a large centered search bar, browsable entry points, and search tips.
 
 **Changes:**
-- `app/components/HomeContent.tsx` — redesign to center a large search bar prominently; below it show:
-  - Browsable entry points: top surahs grid (Al-Fatiha, Al-Baqarah, Ya-Sin, Al-Mulk, etc.), hadith collections
+- redesign search page to center a large search bar prominently; below it show:
   - Search tips section (quotes for exact match, verse references like "2:255", Boolean operators)
-  - Popular searches as clickable chips
-- `app/page.tsx` — allow unauthenticated search from homepage (redirect to search page with query in URL from Phase 3)
 - `app/components/SearchForm.tsx` — accept `size="large"` prop for hero variant
 
 **Dependencies:** Phase 3 (URL-based search state for query handoff)
 
 **Test plan:**
-- Load homepage — verify large search bar is prominent and centered
+- Load search page — verify large search bar is prominent and centered
 - Type a query and submit — redirects to `/search?q=...` with results
 - Click a surah entry point — navigates to search or detail view
 - Click a popular search chip — populates and executes search
@@ -166,7 +163,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 **Deploy notes:** Frontend-only. Consider A/B testing hero layout vs current landing page via feature flag or Mixpanel experiment.
 
-**Rollback:** Revert `HomeContent.tsx` to current design.
+**Rollback:** Revert search to current design.
 
 ---
 
@@ -382,18 +379,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 ## Conflicts & Decision Points
 
-### 1. Authentication Wall vs. Public Search
-
-**Conflict:** The research doc recommends homepage search accessible to everyone, but currently `/search` requires authentication (`ProtectedRoute`). The hero search (Phase 6) and nav search (Phase 7) need to work for unauthenticated users.
-
-**Options:**
-- **Option A:** Make search fully public, require auth only for bookmarks/notes/stories. *Tradeoff: broader access, potential cost increase from anonymous search traffic.*
-- **Option B:** Allow 3-5 unauthenticated searches, then prompt sign-in. *Tradeoff: taste-before-commit UX, more complex to implement.*
-- **Option C:** Keep auth wall, but let the homepage hero search redirect to sign-in with the query preserved. *Tradeoff: minimal change, but breaks the "search from anywhere" principle.*
-
-**Recommendation:** Option A aligns best with the research doc and reduces friction.
-
-### 2. Tanzil.net Data: Static Download vs. On-Demand Fetch
+### 1. Tanzil.net Data: Static Download vs. On-Demand Fetch
 
 **Conflict:** Tanzil offers downloadable files but no API. The Quran text and translations need to be sourced.
 
@@ -403,7 +389,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 **Recommendation:** Option A — download once, version in the `quran_loader/data/` directory, re-run loader when Tanzil publishes updates (they version as v1.1, infrequent updates).
 
-### 3. Infinite Scroll vs. Pagination
+### 2. Infinite Scroll vs. Pagination
 
 **Conflict:** Current implementation uses infinite scroll. Research doc recommends pagination for research platforms (URL-addressable pages, backtracking, citation). But mobile research recommends "Load More" buttons.
 
@@ -414,7 +400,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 **Recommendation:** Option B — pagination on desktop (with page numbers in URL), "Load More" on mobile. The responsive breakpoint already exists in Tailwind.
 
-### 4. Phase 4 + Phase 5 Coupling
+### 3. Phase 4 + Phase 5 Coupling
 
 **Conflict:** The skeleton cards (Phase 5) must match the result card layout (Phase 4). If the card layout changes after skeletons are built, skeletons need updating.
 
@@ -423,12 +409,6 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 - **Option B:** Ship Phase 4 first, then Phase 5 immediately after with skeleton cards matching the finalized layout. *Tradeoff: two PRs, but Phase 4 can be reviewed independently.*
 
 **Recommendation:** Option B — the skeleton is a straightforward mirror of the card layout and can ship as a fast follow.
-
-### 5. Hadith Collection Expansion
-
-**Conflict:** Currently only Bukhari is indexed. The research doc references "9+ major hadith collections" with authentication grades and narrator chains. Adding more collections is a data pipeline effort separate from UX.
-
-**Note:** This plan does not include phases for indexing additional hadith collections (Muslim, Abu Dawud, Tirmidhi, etc.). That's a separate data pipeline initiative. The UX phases above are designed to accommodate multiple collections when they're added — the filter UI, source badges, and advanced search fields are all built to be collection-agnostic. Prioritize indexing additional collections as a parallel workstream.
 
 ---
 
