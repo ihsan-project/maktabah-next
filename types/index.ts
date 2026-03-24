@@ -23,9 +23,17 @@ export interface SearchResult {
   author: string;
   chapter_name?: string;
   book_id?: string;
-  title?: string; // Added title field
-  volume?: number; // Added volume field
+  title?: string;
+  volume?: number;
   source?: 'keyword' | 'semantic' | 'both';
+  // Tanzil Arabic text & metadata (Phase 1)
+  text_arabic_uthmani?: string;   // Uthmani script for display
+  surah_name?: string;            // Transliterated name (e.g., "Al-Baqara")
+  surah_name_arabic?: string;     // Arabic name (e.g., "البقرة")
+  surah_name_english?: string;    // English name (e.g., "The Cow")
+  revelation_type?: 'Meccan' | 'Medinan';
+  juz?: number;                   // 1-30
+  hizb?: number;                  // Hizb quarter index
 }
 
 export interface SearchResponse {

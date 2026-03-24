@@ -29,7 +29,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </main>
             <footer className="bg-primary-dark text-white py-4">
               <div className="container mx-auto px-4 text-center text-sm">
-                &copy; {new Date().getFullYear()} Maktabah. All rights reserved.
+                <p>&copy; {new Date().getFullYear()} Maktabah. All rights reserved.</p>
+                <p className="mt-1 text-xs opacity-75">
+                  Quran text courtesy of{' '}
+                  <a href="https://tanzil.net" target="_blank" rel="noopener noreferrer" className="underline">
+                    Tanzil.net
+                  </a>
+                </p>
               </div>
             </footer>
           </div>

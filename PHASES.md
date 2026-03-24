@@ -9,7 +9,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 **Goal:** Download and index Quran Arabic text and surah metadata from tanzil.net into OpenSearch so all downstream features have Arabic content to work with.
 
 **Changes:**
-- `quran_loader/` — new script `load-tanzil-data.js` to download Tanzil XML (Uthmani text + Simple Clean for search), parse `quran-data.xml` metadata (114 surahs with names, verse counts, revelation type, juz/hizb markers)
+- `quran_loader/` — take Uthmani text + Simple Clean for search, parse `quran-data.xml` metadata (114 surahs with names, verse counts, revelation type, juz/hizb markers)
 - `functions/index.js` — update OpenSearch index mapping to add `text.arabic_uthmani` field (display) alongside existing `text.arabic` (search), and `surah_name`, `surah_name_arabic`, `revelation_type`, `juz`, `hizb` metadata fields
 - `quran_loader/` — migration script to backfill existing `kitaab` index documents with Arabic text and metadata from Tanzil XML files
 
