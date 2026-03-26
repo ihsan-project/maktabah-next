@@ -145,11 +145,10 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 ## Phase 6: Homepage Hero Search (Centerstage)
 
-**Goal:** Transform the logged in landing page (/search) into a search-forward experience with a large centered search bar, browsable entry points, and search tips.
+**Goal:** Transform the logged in landing page (/search) into a search-forward experience with a large centered search bar, browsable entry points.
 
 **Changes:**
 - redesign search page to center a large search bar prominently; below it show:
-  - Search tips section (quotes for exact match, verse references like "2:255", Boolean operators)
 - `app/components/SearchForm.tsx` — accept `size="large"` prop for hero variant
 
 **Dependencies:** Phase 3 (URL-based search state for query handoff)
@@ -158,7 +157,6 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 - Load search page — verify large search bar is prominent and centered
 - Type a query and submit — redirects to `/search?q=...` with results
 - Click a surah entry point — navigates to search or detail view
-- Click a popular search chip — populates and executes search
 - Verify responsive layout on mobile (stacked, full-width)
 
 **Deploy notes:** Frontend-only. Consider A/B testing hero layout vs current landing page via feature flag or Mixpanel experiment.

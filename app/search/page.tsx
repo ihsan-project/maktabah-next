@@ -171,11 +171,69 @@ function SearchPageContent(): JSX.Element {
     router.push(`/search?${params}`);
   }, [query, buildSearchParams, router]);
 
+  const quickSearches = [
+    { label: 'Mercy', query: 'mercy' },
+    { label: 'Patience', query: 'patience' },
+    { label: 'Prayer', query: 'prayer' },
+    { label: 'Forgiveness', query: 'forgiveness' },
+    { label: 'Righteousness', query: 'righteousness' },
+    { label: 'Gratitude', query: 'gratitude' },
+  ];
+
+  // Hero centerstage — no query yet
+  if (!query) {
+    return (
+      <ProtectedRoute>
+        <div className="flex flex-col items-center justify-center min-h-[calc(100vh-10rem)] px-4">
+          {/* Hero heading */}
+          <div className="text-center mb-8">
+            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-3">Maktabah</h1>
+            <p className="text-lg md:text-xl text-gray-600">Search the Quran and Hadith collections</p>
+          </div>
+
+          {/* Large search bar */}
+          <div className="w-full max-w-3xl">
+            <SearchForm onSearch={handleSearch} initialQuery={query} size="large" />
+          </div>
+
+          {/* Book filter */}
+          <div className="flex items-center gap-2 mt-6">
+            <BookFilter
+              selectedBooks={selectedBooks}
+              onChange={handleBookFilterChange}
+            />
+            {isDevelopment && (
+              <SearchModeToggle
+                mode={searchMode}
+                onChange={setSearchMode}
+              />
+            )}
+          </div>
+
+          {/* Quick search suggestions */}
+          <div className="mt-10 text-center max-w-2xl">
+            <p className="text-sm text-gray-500 mb-3">Try searching for</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {quickSearches.map(({ label, query: q }) => (
+                <button
+                  key={q}
+                  onClick={() => handleSearch(q)}
+                  className="px-4 py-2 text-sm rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-white transition-colors duration-200"
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </ProtectedRoute>
+    );
+  }
+
+  // Results layout — active query
   return (
     <ProtectedRoute>
       <div className="pb-8">
-        <h1 className="text-3xl font-bold text-center text-primary mb-6 pt-8">Maktabah Search</h1>
-
         {/* Sticky Search Form Container */}
         <div className="sticky top-0 z-10 bg-secondary py-4 shadow-md">
           <div className="container mx-auto px-4">
@@ -201,19 +259,17 @@ function SearchPageContent(): JSX.Element {
 
         {/* Results section with search info */}
         <div className="mt-4 container mx-auto px-4">
-          {query && (
-            <div className="mb-4">
-              <p className="text-gray-600">
-                {totalResults > 0 ? (
-                  <>Found {totalResults} results for &quot;{query}&quot;</>
-                ) : loading ? (
-                  <>Searching for &quot;{query}&quot;...</>
-                ) : (
-                  <>No results found for &quot;{query}&quot;</>
-                )}
-              </p>
-            </div>
-          )}
+          <div className="mb-4">
+            <p className="text-gray-600">
+              {totalResults > 0 ? (
+                <>Found {totalResults} results for &quot;{query}&quot;</>
+              ) : loading ? (
+                <>Searching for &quot;{query}&quot;...</>
+              ) : (
+                <>No results found for &quot;{query}&quot;</>
+              )}
+            </p>
+          </div>
           <SearchResults
             results={results}
             loading={loading}

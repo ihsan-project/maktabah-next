@@ -4,7 +4,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FiSearch, FiHelpCircle, FiX } from 'react-icons/fi';
 import { SearchFormProps } from '@/types';
 
-export default function SearchForm({ onSearch, initialQuery = '' }: SearchFormProps): JSX.Element {
+export default function SearchForm({ onSearch, initialQuery = '', size = 'default' }: SearchFormProps): JSX.Element {
+  const isLarge = size === 'large';
   const [query, setQuery] = useState<string>(initialQuery);
   const [showTips, setShowTips] = useState<boolean>(false);
   const tooltipRef = useRef<HTMLDivElement>(null);
@@ -49,7 +50,7 @@ export default function SearchForm({ onSearch, initialQuery = '' }: SearchFormPr
   }, []);
 
   return (
-    <div className="w-full max-w-2xl mx-auto mb-8">
+    <div className={`w-full mx-auto ${isLarge ? 'max-w-3xl' : 'max-w-2xl mb-8'}`}>
       <form onSubmit={handleSubmit} className="relative">
         <div className="flex items-center">
           <div className="relative flex-grow">
@@ -57,32 +58,36 @@ export default function SearchForm({ onSearch, initialQuery = '' }: SearchFormPr
               type="text"
               value={query}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
-              placeholder="Search for knowledge..."
-              className="input py-3 pl-4 pr-16 text-lg shadow-sm w-full"
+              placeholder="Search the Quran and Hadith..."
+              className={`input w-full shadow-sm ${isLarge
+                ? 'py-4 pl-6 pr-20 text-xl rounded-xl shadow-lg'
+                : 'py-3 pl-4 pr-16 text-lg'
+              }`}
+              autoFocus={isLarge}
             />
-            
+
             {/* Clear input button - only shown when there's text */}
             {query && (
               <button
                 type="button"
                 onClick={handleClearInput}
-                className="absolute right-12 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none p-2"
+                className={`absolute top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none p-2 ${isLarge ? 'right-14' : 'right-12'}`}
                 aria-label="Clear search"
               >
-                <FiX size={20} />
+                <FiX size={isLarge ? 24 : 20} />
               </button>
             )}
-            
+
             <button
               type="submit"
               disabled={!query.trim()}
-              className={`absolute right-3 top-1/2 transform -translate-y-1/2 ${query.trim() ? 'text-primary' : 'text-gray-400'} hover:text-primary-dark focus:outline-none`}
+              className={`absolute top-1/2 transform -translate-y-1/2 ${query.trim() ? 'text-primary' : 'text-gray-400'} hover:text-primary-dark focus:outline-none ${isLarge ? 'right-4' : 'right-3'}`}
               aria-label="Search"
             >
-              <FiSearch size={24} />
+              <FiSearch size={isLarge ? 28 : 24} />
             </button>
           </div>
-          
+
           <button
             type="button"
             ref={helpIconRef}
@@ -90,7 +95,7 @@ export default function SearchForm({ onSearch, initialQuery = '' }: SearchFormPr
             className="ml-4 text-gray-500 hover:text-primary focus:outline-none transition-colors duration-200 p-2"
             aria-label="Search tips"
           >
-            <FiHelpCircle size={24} />
+            <FiHelpCircle size={isLarge ? 28 : 24} />
           </button>
         </div>
         

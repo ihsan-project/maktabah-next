@@ -60,6 +60,7 @@ export interface SearchParams {
 export interface SearchFormProps {
   onSearch: (query: string) => void;
   initialQuery?: string;
+  size?: 'default' | 'large';
 }
 
 export interface SearchResultsProps {
