@@ -89,3 +89,22 @@ function getBasePath(): string {
  */
 export const DEFAULT_START: VerseRef = { surah: 1, verse: 1 };
 export const DEFAULT_END: VerseRef = { surah: 1, verse: 7 };
+
+/**
+ * Build a /quran URL that centers on a specific verse with ±contextSize verses of context.
+ * Clamps start to 1 (verse can't go below 1). End is clamped by the viewer itself.
+ */
+export function buildContextUrl(
+  chapter: number,
+  verse: number,
+  query?: string,
+  contextSize = 5,
+): string {
+  const startVerse = Math.max(1, verse - contextSize);
+  const endVerse = verse + contextSize;
+  const params = new URLSearchParams();
+  params.set('start', `${chapter}:${startVerse}`);
+  params.set('end', `${chapter}:${endVerse}`);
+  if (query) params.set('highlight', query);
+  return `/quran?${params.toString()}`;
+}

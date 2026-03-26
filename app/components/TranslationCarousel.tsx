@@ -14,27 +14,43 @@ interface TranslationCarouselProps {
   chapterName?: string;
   tanzilUrl: string;
   onTanzilClick: () => void;
+  highlightTerm?: string;
 }
 
-// Helper function to render text with newlines
-const TextWithLineBreaks = ({ text }: { text: string }) => {
+/**
+ * Wraps case-insensitive matches of `term` in <mark> tags.
+ * Returns an array of React nodes.
+ */
+function highlightMatches(text: string, term: string): React.ReactNode[] {
+  if (!term) return [text];
+  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp(`(${escaped})`, 'gi');
+  const parts = text.split(regex);
+  return parts.map((part, i) =>
+    regex.test(part) ? <mark key={i}>{part}</mark> : part
+  );
+}
+
+// Helper function to render text with newlines and optional highlighting
+const TextWithLineBreaks = ({ text, highlightTerm }: { text: string; highlightTerm?: string }) => {
   return (
     <>
       {text.split('\n').map((line, index) => (
         <div key={index} className={index > 0 ? "mt-2" : ""}>
-          {line}
+          {highlightTerm ? highlightMatches(line, highlightTerm) : line}
         </div>
       ))}
     </>
   );
 };
 
-export default function TranslationCarousel({ 
-  translations, 
+export default function TranslationCarousel({
+  translations,
   verseRef,
   chapterName,
   tanzilUrl,
-  onTanzilClick
+  onTanzilClick,
+  highlightTerm,
 }: TranslationCarouselProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -142,8 +158,8 @@ export default function TranslationCarousel({
                 tanzil.net
               </a>
             </div>
-            <div className="text-gray-700 text-sm leading-relaxed">
-              <TextWithLineBreaks text={translation.text} />
+            <div className={`text-gray-700 text-sm leading-relaxed${highlightTerm ? ' quran-highlight' : ''}`}>
+              <TextWithLineBreaks text={translation.text} highlightTerm={highlightTerm} />
             </div>
           </div>
         ))}

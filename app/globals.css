@@ -115,7 +115,8 @@ body {
 }
 
 /* Search term highlight (from OpenSearch <mark> tags) */
-.result-card mark {
+.result-card mark,
+.quran-highlight mark {
   @apply bg-yellow-100 text-inherit rounded-sm px-0.5;
   font-style: inherit;
   font-weight: 600;

@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { FiChevronRight, FiChevronDown, FiChevronLeft, FiShare2, FiCopy } from 'react-icons/fi';
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { FiChevronRight, FiChevronDown, FiChevronLeft, FiShare2, FiCopy, FiBookOpen } from 'react-icons/fi';
 import { SearchResultsProps, SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
 import ExpandedSearchResult from './ExpandedSearchResult';
@@ -12,6 +14,7 @@ import ArabicText from './ArabicText';
 import SkeletonResultCard from './SkeletonResultCard';
 import { useBookmarks, generateVerseId } from '@/lib/bookmarks';
 import { Bookmark } from '@/types';
+import { buildContextUrl } from '@/lib/quran-utils';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -151,6 +154,8 @@ export default function SearchResults({
   totalPages,
   onPageChange,
 }: SearchResultsProps): JSX.Element {
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.get('q') || '';
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({});
   const [openNotesModal, setOpenNotesModal] = useState<Bookmark | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -406,6 +411,24 @@ export default function SearchResults({
                 <div onClick={(e) => e.stopPropagation()}>
                   <BookmarkButton result={result} />
                 </div>
+                {(result.title === 'quran' || !result.title) && (
+                  <Link
+                    href={buildContextUrl(result.chapter, result.verse, searchQuery)}
+                    className="action-link"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      MixpanelTracking.track('Read in Context', {
+                        chapter: result.chapter,
+                        verse: result.verse,
+                        query: searchQuery,
+                      });
+                    }}
+                    title="Read in context"
+                  >
+                    <FiBookOpen size={14} />
+                    <span>Read in Context</span>
+                  </Link>
+                )}
                 {bookmarked && hasNotes && (
                   <div onClick={(e) => e.stopPropagation()}>
                     <NoteIcon

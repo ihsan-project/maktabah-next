@@ -3,10 +3,12 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
+import { FiBookOpen } from 'react-icons/fi';
 import MixpanelTracking from '@/lib/mixpanel';
 import { useAuth } from '@/app/components/AuthProvider';
 import TranslatorSelector from '@/app/components/TranslatorSelector';
 import TranslationCarousel from '@/app/components/TranslationCarousel';
+import { buildContextUrl } from '@/lib/quran-utils';
 
 interface Translation {
   author: string;
@@ -225,6 +227,23 @@ export default function StoryClient({ name, verses }: StoryClientProps) {
                   });
                 }}
               />
+              <div className="flex justify-end px-2">
+                <Link
+                  href={buildContextUrl(Number(verse.chapter), Number(verse.verse))}
+                  className="flex items-center gap-1 text-xs text-gray-500 hover:text-primary transition-colors"
+                  onClick={() => {
+                    MixpanelTracking.track('Read in Context', {
+                      chapter: verse.chapter,
+                      verse: verse.verse,
+                      source: 'story_page',
+                      story_name: name,
+                    });
+                  }}
+                >
+                  <FiBookOpen size={12} />
+                  <span>Read in Context</span>
+                </Link>
+              </div>
             </div>
           );
         })}

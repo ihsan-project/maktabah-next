@@ -28,6 +28,7 @@ export default function QuranClient() {
   const startParam = searchParams.get('start');
   const endParam = searchParams.get('end');
   const pageParam = searchParams.get('page');
+  const highlightTerm = searchParams.get('highlight') || undefined;
   const startRef = startParam ? parseVerseRef(startParam) : null;
   const endRef = endParam ? parseVerseRef(endParam) : null;
   const start = startRef || DEFAULT_START;
@@ -265,6 +266,7 @@ export default function QuranClient() {
                     chapterName={verse.surahName}
                     tanzilUrl={`https://tanzil.net/#trans/en.sahih/${verse.surah}:${verse.verse}`}
                     onTanzilClick={() => {}}
+                    highlightTerm={highlightTerm}
                   />
                 </div>
               );
