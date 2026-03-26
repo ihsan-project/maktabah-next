@@ -398,7 +398,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 - **Option B:** Pagination on desktop, "Load More" on mobile. *Tradeoff: best UX per device, but two code paths.*
 - **Option C:** "Load More" everywhere with URL state tracking current depth. *Tradeoff: simpler, but less scholarly on desktop.*
 
-**Recommendation:** Option B — pagination on desktop (with page numbers in URL), "Load More" on mobile. The responsive breakpoint already exists in Tailwind.
+**Choose:** Option A - This allows us to use the url to share and page to the exact spot that's necessary.
 
 ### 3. Phase 4 + Phase 5 Coupling
 

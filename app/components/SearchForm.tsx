@@ -4,31 +4,22 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FiSearch, FiHelpCircle, FiX } from 'react-icons/fi';
 import { SearchFormProps } from '@/types';
 
-// Update the SearchFormProps interface in /types/index.ts
-interface UpdatedSearchFormProps extends SearchFormProps {
-  initialQuery?: string;
-}
-
-export default function SearchForm({ onSearch, initialQuery = '' }: UpdatedSearchFormProps): JSX.Element {
+export default function SearchForm({ onSearch, initialQuery = '' }: SearchFormProps): JSX.Element {
   const [query, setQuery] = useState<string>(initialQuery);
-  const [isSearching, setIsSearching] = useState<boolean>(false);
   const [showTips, setShowTips] = useState<boolean>(false);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const helpIconRef = useRef<HTMLButtonElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  // Sync input with URL query on browser navigation (back/forward)
+  useEffect(() => {
+    setQuery(initialQuery);
+  }, [initialQuery]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    
+
     if (!query.trim()) return;
-    
-    setIsSearching(true);
-    try {
-      await onSearch(query.trim());
-    } catch (error) {
-      console.error('Search error:', error);
-    } finally {
-      setIsSearching(false);
-    }
+    onSearch(query.trim());
   };
 
   const handleClearInput = (): void => {
@@ -68,7 +59,6 @@ export default function SearchForm({ onSearch, initialQuery = '' }: UpdatedSearc
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
               placeholder="Search for knowledge..."
               className="input py-3 pl-4 pr-16 text-lg shadow-sm w-full"
-              disabled={isSearching}
             />
             
             {/* Clear input button - only shown when there's text */}
@@ -85,15 +75,11 @@ export default function SearchForm({ onSearch, initialQuery = '' }: UpdatedSearc
             
             <button
               type="submit"
-              disabled={isSearching || !query.trim()}
+              disabled={!query.trim()}
               className={`absolute right-3 top-1/2 transform -translate-y-1/2 ${query.trim() ? 'text-primary' : 'text-gray-400'} hover:text-primary-dark focus:outline-none`}
               aria-label="Search"
             >
-              {isSearching ? (
-                <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-primary"></div>
-              ) : (
-                <FiSearch size={24} />
-              )}
+              <FiSearch size={24} />
             </button>
           </div>
           

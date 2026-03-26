@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { Suspense, useState, useEffect, useCallback, useRef } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import SearchForm from '@/app/components/SearchForm';
 import SearchResults from '@/app/components/SearchResults';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
@@ -9,51 +10,88 @@ import SearchModeToggle, { SearchMode } from '@/app/components/SearchModeToggle'
 import { SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
 
+const DEFAULT_BOOKS = ['quran', 'bukhari'];
+
 export default function SearchPage(): JSX.Element {
+  return (
+    <Suspense fallback={
+      <div className="flex justify-center py-20">
+        <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    }>
+      <SearchPageContent />
+    </Suspense>
+  );
+}
+
+function SearchPageContent(): JSX.Element {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // Read state from URL
+  const query = searchParams.get('q') || '';
+  const page = parseInt(searchParams.get('page') || '1', 10);
+  const titles = searchParams.getAll('title[]');
+  const selectedBooks = titles.length > 0 ? titles : DEFAULT_BOOKS;
+
+  // Local state for data that doesn't belong in URL
   const [results, setResults] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [searchQuery, setSearchQuery] = useState<string>('');
-  const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalResults, setTotalResults] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
-  const [hasMore, setHasMore] = useState<boolean>(false);
 
-  // Initialize with both book types selected
-  const [selectedBooks, setSelectedBooks] = useState<string[]>(['quran', 'bukhari']);
   const isDevelopment = process.env.NODE_ENV === 'development';
   const [searchMode, setSearchMode] = useState<SearchMode>('hybrid');
 
+  // Track the last fetched params to avoid duplicate fetches
+  const lastFetchRef = useRef<string>('');
+
+  // Build URL search params string
+  const buildSearchParams = useCallback((overrides: {
+    q?: string;
+    page?: number;
+    titles?: string[];
+  } = {}) => {
+    const params = new URLSearchParams();
+    const newQ = overrides.q ?? query;
+    const newPage = overrides.page ?? page;
+    const newTitles = overrides.titles ?? selectedBooks;
+
+    if (newQ) params.set('q', newQ);
+    if (newPage > 1) params.set('page', String(newPage));
+    newTitles.forEach(t => params.append('title[]', t));
+
+    return params.toString();
+  }, [query, page, selectedBooks]);
+
   // Get the appropriate API URL based on environment
-  const getApiUrl = (query: string, page: number, bookFilters?: string[]): string => {
-    // Use Firebase emulator URL in development, API route in production
+  const getApiUrl = useCallback((q: string, p: number, bookFilters: string[]): string => {
     const baseUrl = isDevelopment
       ? 'http://127.0.0.1:5001/maktabah-8ac04/us-central1/nextApiHandler/api/search'
       : `/api/search`;
 
-    let url = `${baseUrl}?q=${encodeURIComponent(query)}&page=${page}&size=10`;
+    let url = `${baseUrl}?q=${encodeURIComponent(q)}&page=${p}&size=10`;
     if (isDevelopment) {
       url += `&mode=${searchMode}&debug=true`;
     }
 
-    // Add book filters if provided
-    if (bookFilters && bookFilters.length > 0) {
-      bookFilters.forEach(book => {
-        url += `&title[]=${encodeURIComponent(book)}`;
-      });
-    }
+    bookFilters.forEach(book => {
+      url += `&title[]=${encodeURIComponent(book)}`;
+    });
 
     return url;
-  };
+  }, [isDevelopment, searchMode]);
 
-  const performSearch = async (query: string, page: number = 1, append: boolean = false): Promise<void> => {
+  // Perform search — always replaces results (no appending)
+  const performSearch = useCallback(async (q: string, p: number, books: string[]) => {
+    if (!q) return;
+
     setLoading(true);
     try {
-      // Pass the full array of selected books
-      const apiUrl = getApiUrl(query, page, selectedBooks);
-      console.log('Searching using API URL:', apiUrl); // Debug log
+      const apiUrl = getApiUrl(q, p, books);
+      console.log('Searching using API URL:', apiUrl);
 
       const response = await fetch(apiUrl);
-
       if (!response.ok) {
         throw new Error('Search request failed');
       }
@@ -62,50 +100,64 @@ export default function SearchPage(): JSX.Element {
 
       setTotalResults(data.total);
       setTotalPages(data.totalPages);
-      setHasMore(page < data.totalPages);
-
-      if (append) {
-        setResults(prev => [...prev, ...data.results]);
-      } else {
-        setResults(data.results);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      setCurrentPage(page);
+      setResults(data.results);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
       console.error('Search error:', error);
     } finally {
       setLoading(false);
     }
-  };
+  }, [getApiUrl]);
 
-  const handleSearch = async (query: string): Promise<void> => {
-    setSearchQuery(query);
+  // React to URL changes — trigger search
+  useEffect(() => {
+    if (!query) {
+      setResults([]);
+      setTotalResults(0);
+      setTotalPages(0);
+      lastFetchRef.current = '';
+      return;
+    }
 
-    // Track search event
+    const fetchKey = `${query}|${page}|${selectedBooks.sort().join(',')}`;
+    if (fetchKey === lastFetchRef.current) return;
+    lastFetchRef.current = fetchKey;
+
+    performSearch(query, page, selectedBooks);
+  }, [query, page, selectedBooks, performSearch]);
+
+  // New search — push to history
+  const handleSearch = useCallback((newQuery: string) => {
+    if (!newQuery.trim()) return;
+
     MixpanelTracking.track('Search', {
-      query: query,
+      query: newQuery,
       page: 1,
       bookFilters: selectedBooks,
-      searchMode: searchMode
+      searchMode: searchMode,
     });
 
-    await performSearch(query);
-  };
+    const params = buildSearchParams({ q: newQuery.trim(), page: 1 });
+    router.push(`/search?${params}`);
+  }, [selectedBooks, searchMode, buildSearchParams, router]);
 
-  const handleLoadMore = async (): Promise<void> => {
-    if (hasMore && !loading) {
-      const nextPage = currentPage + 1;
+  // Filter change — replace (refinement, resets to page 1)
+  const handleBookFilterChange = useCallback((newBooks: string[]) => {
+    const params = buildSearchParams({ titles: newBooks, page: 1 });
+    lastFetchRef.current = '';
+    router.replace(`/search?${params}`);
+  }, [buildSearchParams, router]);
 
-      // Track pagination event
-      MixpanelTracking.track('Load More Results', {
-        query: searchQuery,
-        page: nextPage
-      });
+  // Page change — push to history (so back/forward navigates pages)
+  const handlePageChange = useCallback((newPage: number) => {
+    MixpanelTracking.track('Page Change', {
+      query: query,
+      page: newPage,
+    });
 
-      await performSearch(searchQuery, nextPage, true);
-    }
-  };
+    const params = buildSearchParams({ page: newPage });
+    router.push(`/search?${params}`);
+  }, [query, buildSearchParams, router]);
 
   return (
     <ProtectedRoute>
@@ -119,7 +171,7 @@ export default function SearchPage(): JSX.Element {
               <div className="order-1 md:order-none w-full md:w-auto flex gap-2 items-center">
                 <BookFilter
                   selectedBooks={selectedBooks}
-                  onChange={setSelectedBooks}
+                  onChange={handleBookFilterChange}
                 />
                 {isDevelopment && (
                   <SearchModeToggle
@@ -129,7 +181,7 @@ export default function SearchPage(): JSX.Element {
                 )}
               </div>
               <div className="w-full">
-                <SearchForm onSearch={handleSearch} />
+                <SearchForm onSearch={handleSearch} initialQuery={query} />
               </div>
             </div>
           </div>
@@ -137,15 +189,15 @@ export default function SearchPage(): JSX.Element {
 
         {/* Results section with search info */}
         <div className="mt-4 container mx-auto px-4">
-          {searchQuery && (
+          {query && (
             <div className="mb-4">
               <p className="text-gray-600">
                 {totalResults > 0 ? (
-                  <>Found {totalResults} results for "{searchQuery}"</>
+                  <>Found {totalResults} results for &quot;{query}&quot;</>
                 ) : loading ? (
-                  <>Searching for "{searchQuery}"...</>
+                  <>Searching for &quot;{query}&quot;...</>
                 ) : (
-                  <>No results found for "{searchQuery}"</>
+                  <>No results found for &quot;{query}&quot;</>
                 )}
               </p>
             </div>
@@ -153,8 +205,9 @@ export default function SearchPage(): JSX.Element {
           <SearchResults
             results={results}
             loading={loading}
-            hasMore={hasMore}
-            onLoadMore={handleLoadMore}
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
           />
         </div>
       </div>

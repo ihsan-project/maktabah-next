@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import { FiChevronRight, FiChevronDown } from 'react-icons/fi';
+import React, { useState } from 'react';
+import { FiChevronRight, FiChevronDown, FiChevronLeft } from 'react-icons/fi';
 import { SearchResultsProps, SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
 import ExpandedSearchResult from './ExpandedSearchResult';
@@ -32,16 +32,42 @@ const sourceColors: Record<string, string> = {
   both: 'bg-purple-100 text-purple-700',
 };
 
+/**
+ * Build the list of page numbers to display.
+ * Always shows first, last, current, and neighbors — with ellipsis gaps.
+ */
+function getPageNumbers(current: number, total: number): (number | 'ellipsis')[] {
+  if (total <= 7) {
+    return Array.from({ length: total }, (_, i) => i + 1);
+  }
+
+  const pages: Set<number> = new Set([1, total]);
+  for (let i = Math.max(2, current - 1); i <= Math.min(total - 1, current + 1); i++) {
+    pages.add(i);
+  }
+
+  const sorted = Array.from(pages).sort((a, b) => a - b);
+  const result: (number | 'ellipsis')[] = [];
+
+  for (let i = 0; i < sorted.length; i++) {
+    if (i > 0 && sorted[i] - sorted[i - 1] > 1) {
+      result.push('ellipsis');
+    }
+    result.push(sorted[i]);
+  }
+
+  return result;
+}
+
 export default function SearchResults({
   results,
   loading,
-  hasMore,
-  onLoadMore
+  currentPage,
+  totalPages,
+  onPageChange,
 }: SearchResultsProps): JSX.Element {
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({});
   const [openNotesModal, setOpenNotesModal] = useState<Bookmark | null>(null);
-  const observerRef = useRef<IntersectionObserver | null>(null);
-  const loadMoreRef = useRef<HTMLDivElement | null>(null);
   const { bookmarks, isBookmarked } = useBookmarks();
 
   // Handle opening notes modal
@@ -55,12 +81,12 @@ export default function SearchResults({
   // Toggle expanded state for a result item
   const toggleExpand = (id: string, result: SearchResult): void => {
     const newState = !expandedItems[id];
-    
+
     setExpandedItems(prev => ({
       ...prev,
       [id]: newState
     }));
-    
+
     // Track expand/collapse event
     MixpanelTracking.track(newState ? 'Expand Result' : 'Collapse Result', {
       resultId: id,
@@ -73,31 +99,7 @@ export default function SearchResults({
     });
   };
 
-  // Set up intersection observer for infinite scrolling
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && hasMore && !loading) {
-          onLoadMore();
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    observerRef.current = observer;
-
-    if (loadMoreRef.current && hasMore) {
-      observer.observe(loadMoreRef.current);
-    }
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, [hasMore, loading, onLoadMore]);
-
-  if (loading && !results.length) {
+  if (loading) {
     return (
       <div className="flex justify-center py-8">
         <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary"></div>
@@ -105,7 +107,7 @@ export default function SearchResults({
     );
   }
 
-  if (!loading && !results.length) {
+  if (!results.length) {
     return (
       <div className="text-center py-8">
         <p className="text-gray-500 text-lg">No results found. Try a different search term.</p>
@@ -121,19 +123,21 @@ export default function SearchResults({
     return 'border-l-primary'; // Default green for Quran
   };
 
+  const pageNumbers = getPageNumbers(currentPage, totalPages);
+
   return (
     <div className="space-y-6">
       {results.map((result: SearchResult) => {
         const isExpanded = expandedItems[result.id] || false;
         const borderColor = getBorderColor(result.title);
-        
+
         return (
-          <div 
-            key={result.id} 
+          <div
+            key={result.id}
             className={`card border-l-4 ${borderColor} hover:shadow-lg transition-shadow duration-200`}
           >
-            <div 
-              className="flex flex-col cursor-pointer" 
+            <div
+              className="flex flex-col cursor-pointer"
               onClick={() => toggleExpand(result.id, result)}
             >
               <div className="flex justify-between items-center mb-2">
@@ -148,7 +152,7 @@ export default function SearchResults({
                       const bookmark = bookmarks.find(b => b.verseId === verseId);
                       const hasNotes = bookmark?.notesHtml && bookmark.notesHtml.trim().length > 0;
                       return (
-                        <NoteIcon 
+                        <NoteIcon
                           hasNotes={!!hasNotes}
                           onClick={() => handleOpenNotes(verseId)}
                         />
@@ -175,17 +179,17 @@ export default function SearchResults({
                   <BookmarkButton result={result} />
                 </div>
               </div>
-              
+
               <div className="text-gray-700">
                 {isExpanded ? (
                   <>
                     <div className="mb-4">
                       <TextWithLineBreaks text={result.text} />
                     </div>
-                    
+
                     {result.title === 'bukhari' && result.volume && (
                       <div className="mt-2 mb-2">
-                        <a 
+                        <a
                           href={`https://quranx.com/hadith/Bukhari/USC-MSA/Volume-${result.volume}/Book-${result.chapter}/Hadith-${result.verse}/`}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -206,7 +210,7 @@ export default function SearchResults({
                         </a>
                       </div>
                     )}
-                    
+
                     {result.title !== 'bukhari' && (
                       <ExpandedSearchResult result={result} />
                     )}
@@ -217,7 +221,7 @@ export default function SearchResults({
                   </div>
                 )}
               </div>
-              
+
               <div className="flex justify-end mt-2 text-gray-400">
                 {isExpanded ? (
                   <FiChevronDown size={20} />
@@ -229,18 +233,52 @@ export default function SearchResults({
           </div>
         );
       })}
-      
-      {hasMore && (
-        <div 
-          ref={loadMoreRef} 
-          className="flex justify-center py-4"
-        >
-          {loading ? (
-            <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary"></div>
-          ) : (
-            <p className="text-gray-500">Loading more results...</p>
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <nav aria-label="Search results pagination" className="flex justify-center items-center gap-1 pt-4 pb-2">
+          {/* Previous */}
+          <button
+            onClick={() => onPageChange(currentPage - 1)}
+            disabled={currentPage <= 1}
+            className="p-2 rounded-md text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed"
+            aria-label="Previous page"
+          >
+            <FiChevronLeft size={20} />
+          </button>
+
+          {/* Page numbers */}
+          {pageNumbers.map((item, idx) =>
+            item === 'ellipsis' ? (
+              <span key={`ellipsis-${idx}`} className="px-2 text-gray-400 select-none">...</span>
+            ) : (
+              <button
+                key={item}
+                onClick={() => onPageChange(item)}
+                disabled={item === currentPage}
+                className={`min-w-[36px] h-9 rounded-md text-sm font-medium transition-colors ${
+                  item === currentPage
+                    ? 'bg-primary text-white cursor-default'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`}
+                aria-label={`Page ${item}`}
+                aria-current={item === currentPage ? 'page' : undefined}
+              >
+                {item}
+              </button>
+            )
           )}
-        </div>
+
+          {/* Next */}
+          <button
+            onClick={() => onPageChange(currentPage + 1)}
+            disabled={currentPage >= totalPages}
+            className="p-2 rounded-md text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed"
+            aria-label="Next page"
+          >
+            <FiChevronRight size={20} />
+          </button>
+        </nav>
       )}
 
       {/* Notes Modal */}

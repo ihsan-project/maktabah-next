@@ -44,17 +44,26 @@ export interface SearchResponse {
   totalPages: number;
 }
 
+// URL-based search state (Phase 3)
+export interface SearchParams {
+  q: string;
+  page: number;
+  titles: string[];       // book filters (e.g., ['quran', 'bukhari'])
+  mode: string;           // search mode (text | semantic | hybrid)
+}
+
 // Component props
 export interface SearchFormProps {
-  onSearch: (query: string) => Promise<void>;
+  onSearch: (query: string) => void;
   initialQuery?: string;
 }
 
 export interface SearchResultsProps {
   results: SearchResult[];
   loading: boolean;
-  hasMore: boolean;
-  onLoadMore: () => void;
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
 }
 
 export interface SideMenuProps {
