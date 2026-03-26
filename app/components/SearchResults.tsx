@@ -392,6 +392,9 @@ export default function SearchResults({
             {/* Footer: action links */}
             <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
               <div className="flex items-center gap-3">
+                <div onClick={(e) => e.stopPropagation()}>
+                  <BookmarkButton result={result} />
+                </div>
                 <button
                   className="action-link"
                   onClick={(e) => { e.stopPropagation(); handleShare(result); }}
@@ -400,17 +403,6 @@ export default function SearchResults({
                   <FiShare2 size={14} />
                   <span>{copiedId === `share-${result.id}` ? 'Copied!' : 'Share'}</span>
                 </button>
-                <button
-                  className="action-link"
-                  onClick={(e) => { e.stopPropagation(); handleCopyReference(result); }}
-                  title="Copy reference"
-                >
-                  <FiCopy size={14} />
-                  <span>{copiedId === result.id ? 'Copied!' : 'Copy Ref'}</span>
-                </button>
-                <div onClick={(e) => e.stopPropagation()}>
-                  <BookmarkButton result={result} />
-                </div>
                 {(result.title === 'quran' || !result.title) && (
                   <Link
                     href={buildContextUrl(result.chapter, result.verse, searchQuery)}
@@ -423,10 +415,10 @@ export default function SearchResults({
                         query: searchQuery,
                       });
                     }}
-                    title="Read in context"
+                    title="Read"
                   >
                     <FiBookOpen size={14} />
-                    <span>Read in Context</span>
+                    <span>Read</span>
                   </Link>
                 )}
                 {bookmarked && hasNotes && (
