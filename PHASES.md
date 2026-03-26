@@ -222,10 +222,9 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 ## Phase 9: Mobile Search Optimizations
 
-**Goal:** Implement mobile-specific UX: full-screen search takeover, card-based results with progressive disclosure, adjustable font sizes, and "Load More" pagination.
+**Goal:** Implement mobile-specific UX: full-screen search takeover, card-based results with progressive disclosure, adjustable font sizes.
 
 **Changes:**
-- `app/components/SearchResults.tsx` — replace infinite scroll with "Load More" button on mobile; keep pagination info in URL
 - `app/components/SearchForm.tsx` — full-screen search overlay on mobile tap (if not already done in Phase 7)
 - `app/globals.css` — mobile-specific result card styles (2-3 line snippets, stacked Arabic/English), user-adjustable font size control (stored in localStorage)
 - `app/search/page.tsx` — font size toggle component (A-/A+) affecting result text and Arabic text
@@ -236,7 +235,6 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 **Test plan:**
 - Test on iOS Safari and Android Chrome (or emulator)
 - Verify full-screen search overlay works with virtual keyboard
-- Tap "Load More" — next page loads, scroll position preserved
 - Adjust font size — Arabic text scales proportionally (2-4pt larger than English)
 - Verify sticky search bar stays visible on scroll
 

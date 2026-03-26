@@ -126,6 +126,73 @@ body {
   @apply flex items-center gap-1 text-xs text-gray-500 hover:text-primary transition-colors cursor-pointer;
 }
 
+/* Phased loading: progress bar */
+.search-progress-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(var(--primary-color)) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: progress-slide 1.2s ease-in-out infinite;
+}
+
+@keyframes progress-slide {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Shimmer skeleton placeholder */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #f3f4f6 50%,
+    #e5e7eb 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Result card staggered fade-in */
+.result-fade-in {
+  animation: fadeInUp 300ms ease-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .shimmer,
+  .search-progress-bar {
+    animation: none;
+    background: #e5e7eb;
+  }
+
+  .result-fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Quill Editor Styles */
 .quill-editor-wrapper .ql-container {
   min-height: 300px;

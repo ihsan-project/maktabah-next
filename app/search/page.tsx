@@ -45,6 +45,8 @@ function SearchPageContent(): JSX.Element {
 
   // Track the last fetched params to avoid duplicate fetches
   const lastFetchRef = useRef<string>('');
+  // AbortController to cancel in-flight requests
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   // Build URL search params string
   const buildSearchParams = useCallback((overrides: {
@@ -86,12 +88,19 @@ function SearchPageContent(): JSX.Element {
   const performSearch = useCallback(async (q: string, p: number, books: string[]) => {
     if (!q) return;
 
+    // Cancel any in-flight request
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
     setLoading(true);
     try {
       const apiUrl = getApiUrl(q, p, books);
       console.log('Searching using API URL:', apiUrl);
 
-      const response = await fetch(apiUrl);
+      const response = await fetch(apiUrl, { signal: controller.signal });
       if (!response.ok) {
         throw new Error('Search request failed');
       }
@@ -103,9 +112,12 @@ function SearchPageContent(): JSX.Element {
       setResults(data.results);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
+      if (error instanceof DOMException && error.name === 'AbortError') return;
       console.error('Search error:', error);
     } finally {
-      setLoading(false);
+      if (!controller.signal.aborted) {
+        setLoading(false);
+      }
     }
   }, [getApiUrl]);
 

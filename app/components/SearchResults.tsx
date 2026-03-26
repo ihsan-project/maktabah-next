@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FiChevronRight, FiChevronDown, FiChevronLeft, FiShare2, FiCopy } from 'react-icons/fi';
 import { SearchResultsProps, SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
@@ -9,6 +9,7 @@ import BookmarkButton from './BookmarkButton';
 import NoteIcon from './NoteIcon';
 import NotesModal from './NotesModal';
 import ArabicText from './ArabicText';
+import SkeletonResultCard from './SkeletonResultCard';
 import { useBookmarks, generateVerseId } from '@/lib/bookmarks';
 import { Bookmark } from '@/types';
 
@@ -135,6 +136,14 @@ async function copyToClipboard(text: string) {
   }
 }
 
+const CONTEXTUAL_MESSAGES = [
+  'Searching across Quran and Hadith collections...',
+  'Looking through the sources...',
+  'Finding the best matches...',
+];
+
+type LoadingPhase = 'idle' | 'acknowledge' | 'skeleton';
+
 export default function SearchResults({
   results,
   loading,
@@ -146,6 +155,43 @@ export default function SearchResults({
   const [openNotesModal, setOpenNotesModal] = useState<Bookmark | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const { bookmarks, isBookmarked } = useBookmarks();
+
+  // Phased loading state
+  const [loadingPhase, setLoadingPhase] = useState<LoadingPhase>('idle');
+  const [contextMessage, setContextMessage] = useState(CONTEXTUAL_MESSAGES[0]);
+  const [showResults, setShowResults] = useState(true);
+  const phaseTimersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  // Manage loading phase transitions
+  useEffect(() => {
+    // Clear any pending timers
+    phaseTimersRef.current.forEach(clearTimeout);
+    phaseTimersRef.current = [];
+
+    if (loading) {
+      // Phase 1: immediate acknowledgment
+      setLoadingPhase('acknowledge');
+      setShowResults(false);
+      setContextMessage(CONTEXTUAL_MESSAGES[Math.floor(Math.random() * CONTEXTUAL_MESSAGES.length)]);
+
+      // Phase 2: after 300ms, show skeletons
+      const skeletonTimer = setTimeout(() => {
+        setLoadingPhase('skeleton');
+      }, 300);
+      phaseTimersRef.current.push(skeletonTimer);
+    } else {
+      // Phase 3: loading done — fade in results
+      setLoadingPhase('idle');
+      // Small delay before showing so the fade-in class applies
+      const fadeTimer = setTimeout(() => setShowResults(true), 50);
+      phaseTimersRef.current.push(fadeTimer);
+    }
+
+    return () => {
+      phaseTimersRef.current.forEach(clearTimeout);
+      phaseTimersRef.current = [];
+    };
+  }, [loading]);
 
   const handleOpenNotes = (verseId: string) => {
     const bookmark = bookmarks.find(b => b.verseId === verseId);
@@ -184,10 +230,42 @@ export default function SearchResults({
     setTimeout(() => setCopiedId(null), 1500);
   };
 
-  if (loading) {
+  // Phase 1: acknowledge — progress bar + dimmed old results
+  if (loadingPhase === 'acknowledge') {
     return (
-      <div className="flex justify-center py-8">
-        <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary"></div>
+      <div>
+        <div className="search-progress-bar mb-4" />
+        <p className="text-sm text-gray-500 mb-4">{contextMessage}</p>
+        {results.length > 0 && (
+          <div className="space-y-4 opacity-40 pointer-events-none transition-opacity duration-200">
+            {results.map((result) => (
+              <div key={result.id} className="card result-card">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${(SOURCE_CONFIG[result.title || ''] || SOURCE_CONFIG.quran).badgeClass}`}>
+                    {(SOURCE_CONFIG[result.title || ''] || SOURCE_CONFIG.quran).label}
+                  </span>
+                  <span className="font-semibold text-primary text-base">{getReference(result)}</span>
+                </div>
+                <div className="text-gray-700 leading-relaxed line-clamp-3">{result.text}</div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // Phase 2: skeleton cards
+  if (loadingPhase === 'skeleton') {
+    return (
+      <div>
+        <div className="search-progress-bar mb-4" />
+        <p className="text-sm text-gray-500 mb-4">{contextMessage}</p>
+        <div className="space-y-4">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <SkeletonResultCard key={i} />
+          ))}
+        </div>
       </div>
     );
   }
@@ -204,7 +282,7 @@ export default function SearchResults({
 
   return (
     <div className="space-y-4">
-      {results.map((result: SearchResult) => {
+      {results.map((result: SearchResult, index: number) => {
         const isExpanded = expandedItems[result.id] || false;
         const sourceConfig = SOURCE_CONFIG[result.title || ''] || SOURCE_CONFIG.quran;
         const breadcrumb = getBreadcrumb(result);
@@ -217,7 +295,8 @@ export default function SearchResults({
         return (
           <div
             key={result.id}
-            className="card result-card hover:shadow-lg transition-shadow duration-200"
+            className={`card result-card hover:shadow-lg transition-shadow duration-200 ${showResults ? 'result-fade-in' : 'opacity-0'}`}
+            style={{ animationDelay: showResults ? `${index * 50}ms` : undefined }}
           >
             {/* Header: source badge + reference + breadcrumb */}
             <div className="flex flex-wrap items-center gap-2 mb-3">
