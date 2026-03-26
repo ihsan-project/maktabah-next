@@ -109,6 +109,28 @@ body {
   font-size: 2.25rem; /* 36px — 4pt larger than 2xl 30px */
 }
 
+/* Result card styles */
+.result-card {
+  @apply bg-white rounded-lg shadow-md p-5;
+}
+
+/* Search term highlight (from OpenSearch <mark> tags) */
+.result-card mark {
+  @apply bg-yellow-100 text-inherit rounded-sm px-0.5;
+  font-style: inherit;
+  font-weight: 600;
+}
+
+/* Arabic text highlight — softer background for RTL text */
+.result-card [dir="rtl"] mark {
+  @apply bg-amber-100;
+}
+
+/* Action links in card footer */
+.action-link {
+  @apply flex items-center gap-1 text-xs text-gray-500 hover:text-primary transition-colors cursor-pointer;
+}
+
 /* Quill Editor Styles */
 .quill-editor-wrapper .ql-container {
   min-height: 300px;

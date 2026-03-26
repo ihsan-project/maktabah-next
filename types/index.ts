@@ -34,6 +34,11 @@ export interface SearchResult {
   revelation_type?: 'Meccan' | 'Medinan';
   juz?: number;                   // 1-30
   hizb?: number;                  // Hizb quarter index
+  // Highlight fragments from OpenSearch (Phase 4)
+  highlight?: {
+    text?: string[];              // English text with <mark> tags
+    'text.arabic'?: string[];     // Arabic text with <mark> tags
+  };
 }
 
 export interface SearchResponse {

@@ -127,6 +127,60 @@ function reciprocalRankFusion(textHits, knnHits, k = 60, textWeight = 1.0, seman
 }
 
 /**
+ * Fetch highlight fragments for a page of results using OpenSearch highlight API.
+ * Runs a targeted query for just the document IDs on the current page.
+ * @param {string} query The original search query
+ * @param {Array} results Paginated result objects (must have .id)
+ * @returns {Promise<Map<string, object>>} Map of doc ID → highlight fragments
+ */
+async function fetchHighlights(query, results) {
+  if (!results.length || !query) return new Map();
+
+  const client = getOpenSearchClient();
+  const docIds = results.map(r => r.id);
+
+  try {
+    const response = await client.search({
+      index: 'kitaab',
+      body: {
+        size: docIds.length,
+        query: {
+          bool: {
+            must: {
+              ids: { values: docIds }
+            },
+            should: [
+              { match: { text: { query } } },
+              { match: { 'text.arabic': { query } } }
+            ]
+          }
+        },
+        highlight: {
+          pre_tags: ['<mark>'],
+          post_tags: ['</mark>'],
+          fields: {
+            text: { fragment_size: 0, number_of_fragments: 0 },
+            'text.arabic': { fragment_size: 0, number_of_fragments: 0 }
+          }
+        },
+        _source: false
+      }
+    });
+
+    const highlightMap = new Map();
+    for (const hit of response.body.hits.hits) {
+      if (hit.highlight) {
+        highlightMap.set(hit._id, hit.highlight);
+      }
+    }
+    return highlightMap;
+  } catch (error) {
+    logger.warn('Highlight fetch failed, returning results without highlights:', error.message);
+    return new Map();
+  }
+}
+
+/**
  * Search documents using text, semantic, or hybrid mode
  */
 async function searchDocuments(query, page = 1, size = 10, author = null, chapter = null, titles = null, mode = 'text') {
@@ -150,6 +204,8 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
         filters.push({ terms: { title: titleArray } });
       }
     }
+
+    let searchResult;
 
     if (mode === 'text') {
       // --- BM25 text search with aggregations (original behavior) ---
@@ -215,7 +271,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       const totalResults = allResults.length;
       const paginatedResults = allResults.slice(from, from + size);
 
-      return {
+      searchResult = {
         results: paginatedResults,
         total: totalResults,
         page,
@@ -250,7 +306,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       const totalResults = allResults.length;
       const paginatedResults = allResults.slice(from, from + size);
 
-      return {
+      searchResult = {
         results: paginatedResults,
         total: totalResults,
         page,
@@ -308,7 +364,7 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
       const totalResults = allResults.length;
       const paginatedResults = allResults.slice(from, from + size);
 
-      return {
+      searchResult = {
         results: paginatedResults,
         total: totalResults,
         page,
@@ -316,10 +372,22 @@ async function searchDocuments(query, page = 1, size = 10, author = null, chapte
         totalPages: Math.ceil(totalResults / size),
         hasMore: from + size < totalResults
       };
+    } else {
+      // Fallback — shouldn't reach here
+      return { results: [], total: 0, page, size, totalPages: 0, hasMore: false };
     }
 
-    // Fallback — shouldn't reach here
-    return { results: [], total: 0, page, size, totalPages: 0, hasMore: false };
+    // Fetch highlights for the current page of results
+    const highlightMap = await fetchHighlights(query, searchResult.results);
+    searchResult.results = searchResult.results.map(result => {
+      const hl = highlightMap.get(result.id);
+      if (hl) {
+        result.highlight = hl;
+      }
+      return result;
+    });
+
+    return searchResult;
   } catch (error) {
     logger.error('Error searching documents:', error);
     throw new Error('Failed to search documents');
