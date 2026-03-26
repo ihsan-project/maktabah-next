@@ -46,21 +46,67 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  
+
   /* Carousel container with scroll snap */
   .carousel-container {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   /* Carousel card snap alignment */
   .carousel-card {
     scroll-snap-align: start;
   }
+
+  /* RTL layout utilities */
+  .rtl {
+    direction: rtl;
+    text-align: right;
+  }
+
+  .ltr {
+    direction: ltr;
+    text-align: left;
+  }
+}
+
+/* Arabic text styles */
+[dir="rtl"] {
+  font-family: var(--font-amiri), 'Amiri', serif;
+  line-height: 2;
+}
+
+/* Arabic text sizing — render 2-4pt larger than surrounding Latin text */
+.arabic-text {
+  font-family: var(--font-amiri), 'Amiri', serif;
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: isolate;
+  line-height: 2;
+}
+
+.arabic-text-sm {
+  font-size: 1.125rem; /* 18px — 2pt larger than base 16px */
+}
+
+.arabic-text-base {
+  font-size: 1.25rem; /* 20px — 4pt larger than base 16px */
+}
+
+.arabic-text-lg {
+  font-size: 1.5rem; /* 24px — 4pt larger than lg 20px */
+}
+
+.arabic-text-xl {
+  font-size: 1.75rem; /* 28px — 4pt larger than xl 24px */
+}
+
+.arabic-text-2xl {
+  font-size: 2.25rem; /* 36px — 4pt larger than 2xl 30px */
 }
 
 /* Quill Editor Styles */
