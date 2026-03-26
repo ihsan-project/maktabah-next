@@ -133,12 +133,13 @@ function SearchPageContent(): JSX.Element {
       return;
     }
 
-    const fetchKey = `${query}|${page}|${selectedBooks.sort().join(',')}`;
+    const sortedBooks = [...selectedBooks].sort();
+    const fetchKey = `${query}|${page}|${searchMode}|${sortedBooks.join(',')}`;
     if (fetchKey === lastFetchRef.current) return;
     lastFetchRef.current = fetchKey;
 
-    performSearch(query, page, selectedBooks);
-  }, [query, page, selectedBooks, performSearch]);
+    performSearch(query, page, sortedBooks);
+  }, [query, page, selectedBooks, searchMode, performSearch]);
 
   // New search — push to history
   const handleSearch = useCallback((newQuery: string) => {
