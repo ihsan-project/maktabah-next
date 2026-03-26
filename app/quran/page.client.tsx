@@ -5,7 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import TranslatorSelector from '@/app/components/TranslatorSelector';
 import TranslationCarousel from '@/app/components/TranslationCarousel';
-import ArabicText from '@/app/components/ArabicText';
+import InteractiveArabicText from '@/app/components/InteractiveArabicText';
 import {
   parseVerseRef,
   fetchSurahData,
@@ -255,9 +255,12 @@ export default function QuranClient() {
                 <div key={`${verse.surah}:${verse.verse}`} className="mb-2">
                   {verse.arabic && (
                     <div className="px-4 pt-4 pb-2">
-                      <ArabicText size="lg" className="text-gray-800" as="p">
-                        <span style={{ textAlign: 'center', display: 'block' }}>{verse.arabic}</span>
-                      </ArabicText>
+                      <InteractiveArabicText
+                        chapter={verse.surah}
+                        verse={verse.verse}
+                        uthmaniText={verse.arabic}
+                        className="text-gray-800 text-center"
+                      />
                     </div>
                   )}
                   <TranslationCarousel

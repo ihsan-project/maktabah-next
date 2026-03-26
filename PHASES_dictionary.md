@@ -103,77 +103,47 @@ The existing hybrid search (BM25 + Cohere embeddings + RRF) is already well-suit
 
 ---
 
-## Phase 2: Clickable Arabic Words Component
+## Phase 2 + 3: Clickable Arabic Words & Word Definition Popup ✅ DONE
 
-**Goal:** Replace the plain-text `ArabicText` display in search results with an interactive word-by-word rendering where each Arabic word is a clickable `<span>`.
+**Goal:** Replace plain-text Arabic display with interactive word-by-word rendering where each word is clickable and shows a definition popover. Applied to **both** the `/search` results page and the `/quran` reader page via a shared `InteractiveArabicText` component.
 
-**Changes:**
-- `app/components/InteractiveArabicText.tsx` — new component that:
+**Shared component architecture:**
+- `app/components/InteractiveArabicText.tsx` — single shared component used by both screens:
   - Accepts `chapter`, `verse`, and optional `uthmaniText` (fallback) props
-  - Lazy-loads the word-by-word JSON for the surah (`/quran/words/{chapter}.json`)
-  - Renders each word as a `<span>` with `cursor: pointer`, hover highlight, RTL layout
+  - Lazy-loads the word-by-word JSON for the surah (`/quran/words/{chapter}.json`) with an in-memory `Map` cache
+  - Renders each word as a clickable `<span>` with hover highlight and active state
   - Falls back to plain `ArabicText` if word data isn't available (e.g., hadith, loading state)
-  - Emits `onWordClick(word)` callback with the word object (text, translation, root, position)
-  - Uses `React.memo` to avoid re-renders when parent search results update
-- `app/components/SearchResults.tsx` — swap `<ArabicText>` for `<InteractiveArabicText>` in the result card's Arabic section (lines ~340-344), only for `title === 'quran'` results
-- `app/components/ArabicText.tsx` — unchanged (still used as fallback and for non-Quran text)
-- `app/globals.css` — hover styles for interactive Arabic words (subtle underline/highlight on hover, active state)
-
-**Dependencies:** Phase 1 (word data must exist)
-
-**Test plan:**
-- Load search results with Quran results — Arabic text renders as individual clickable words
-- Hover over a word — visual feedback (highlight/underline) appears
-- Click a word — `onWordClick` fires with correct word object (verify in React DevTools or console)
-- Hadith results still show plain `ArabicText` (no regression)
-- RTL layout is correct — words flow right-to-left, wrapping behaves correctly
-- Performance: word JSON loads lazily and is cached (no re-fetch on scroll/pagination)
-
-**Deploy notes:**
-- Feature is purely frontend. The `onWordClick` handler is a no-op in this phase (popup comes in Phase 3).
-- Word data loading is lazy — initial page load is not affected
-- Cache word JSON in a React context or SWR/in-memory cache to avoid redundant fetches
-
-**Rollback:** Revert `SearchResults.tsx` to use `<ArabicText>` directly. `InteractiveArabicText` is additive and can be removed without data loss.
-
----
-
-## Phase 3: Word Definition Popup
-
-**Goal:** When a user clicks an Arabic word, show a popover/tooltip displaying the word's translation, transliteration, root, and basic morphological info.
-
-**Changes:**
-- `app/components/WordPopover.tsx` — new popover component showing:
+  - Integrates `WordPopover` — on word click, shows popover anchored to the clicked span
+  - Only one popover open at a time; click outside or press Escape to dismiss
+- `app/components/WordPopover.tsx` — popover component (via `@floating-ui/react`) showing:
   - **Arabic word** (large, Uthmani script) with transliteration underneath
   - **Translation** — the word-by-word English meaning from Quran.com data
-  - **Root** — the 3-letter root displayed in Arabic with transliteration (e.g., `ر ح م` — r-ḥ-m)
+  - **Root** — the 3-letter root displayed in Arabic (e.g., `ر ح م`)
+  - **Lemma** — base word form
   - **Part of speech** — Noun, Verb, Particle, etc. (decoded from morphology string)
   - **Verb form** — if applicable, which of the 10 verb forms (Form I, II, etc.)
-  - Close button / click-outside-to-dismiss behavior
-  - Positioned relative to clicked word (using Floating UI / `@floating-ui/react` for smart positioning)
-- `app/components/InteractiveArabicText.tsx` — integrate `WordPopover`:
-  - On word click, render `WordPopover` anchored to the clicked `<span>`
-  - Only one popover open at a time (clicking another word moves it)
-  - Click outside or press Escape to dismiss
-- `types/index.ts` — add `QuranWord` type definition
-- `package.json` — add `@floating-ui/react` dependency (lightweight positioning library)
 
-**Dependencies:** Phase 2 (clickable words must exist)
+**Integration points (both use `InteractiveArabicText`):**
+- `app/components/SearchResults.tsx` — Quran search results use `InteractiveArabicText`; hadith results still use plain `ArabicText`
+- `app/quran/page.client.tsx` — Quran reader page uses `InteractiveArabicText` for every verse
+
+**Other changes:**
+- `types/index.ts` — added `QuranWord` and `SurahWordData` type definitions
+- `app/globals.css` — `.interactive-word` hover/active styles, `.word-popover-enter` animation
+- `package.json` — added `@floating-ui/react` dependency
 
 **Test plan:**
-- Click an Arabic word → popover appears near the word with correct content
+- `/search` — Quran results show clickable words; clicking shows popover with correct data
+- `/quran` — every verse renders as clickable words with the same popover behavior
+- Hadith results still show plain `ArabicText` (no regression)
 - Click a different word → popover moves to new word
-- Click outside popover → dismisses
-- Press Escape → dismisses
+- Click outside or Escape → dismisses popover
 - Popover doesn't overflow viewport (Floating UI handles repositioning)
-- Mobile: popover is usable on touch (positioned in reachable area)
-- Verify translation matches quran.com for spot-checked words
+- Mobile: popover is usable on touch
+- RTL layout correct on both screens
+- Performance: word JSON loads lazily and is cached across verses in the same surah
 
-**Deploy notes:**
-- Frontend-only change. `@floating-ui/react` is ~3KB gzipped.
-- No feature flag needed — the popover is the natural result of clicking a word introduced in Phase 2
-
-**Rollback:** Remove `WordPopover` integration from `InteractiveArabicText`. Words remain clickable but do nothing.
+**Rollback:** Revert `SearchResults.tsx` and `page.client.tsx` to use `<ArabicText>` directly. `InteractiveArabicText` and `WordPopover` are additive.
 
 ---
 
@@ -192,10 +162,12 @@ The existing hybrid search (BM25 + Cohere embeddings + RRF) is already well-suit
   - `getRootOccurrences(root: string): { surah: number, verse: number, position: number }[]`
   - `getRootCount(root: string): number`
 
-**Dependencies:** Phase 3 (popover must exist), Phase 1 (roots.json must exist)
+**Dependencies:** Phase 2+3 (shared `WordPopover` must exist), Phase 1 (roots.json must exist)
+
+**Scope:** Changes to `WordPopover.tsx` automatically apply to **both** `/search` and `/quran` screens since they share `InteractiveArabicText`.
 
 **Test plan:**
-- Click a common root word (e.g., any word from root ر ح م "mercy") — popover shows occurrence count and sample verses
+- Click a common root word (e.g., any word from root ر ح م "mercy") — popover shows occurrence count and sample verses on **both** `/search` and `/quran` pages
 - Click "See all N verses" — navigates to search page with the root as query
 - Verify occurrence counts match known values (e.g., root ر ح م appears ~339 times in the Quran)
 - Performance: roots.json loads once and is cached; no lag on subsequent word clicks
@@ -224,10 +196,12 @@ The existing hybrid search (BM25 + Cohere embeddings + RRF) is already well-suit
   - Attribution: "Definition from Lane's Arabic-English Lexicon"
 - `lib/lanes-lexicon.ts` — utility to lazy-load and cache Lane's data, with lookup by root
 
-**Dependencies:** Phase 3 (popover must exist)
+**Dependencies:** Phase 2+3 (shared `WordPopover` must exist)
+
+**Scope:** Changes to `WordPopover.tsx` automatically apply to **both** `/search` and `/quran` screens since they share `InteractiveArabicText`.
 
 **Test plan:**
-- Click a word → Lane's Lexicon section appears with relevant definition
+- Click a word on **both** `/search` and `/quran` pages → Lane's Lexicon section appears with relevant definition
 - Verify definitions match the actual Lane's Lexicon for 5-10 sample roots
 - "Read more" expands correctly
 - Words with roots not in Lane's → section gracefully hidden (no error)
@@ -298,8 +272,10 @@ The existing hybrid search (BM25 + Cohere embeddings + RRF) is already well-suit
 
 **Dependencies:** Phase 6 (root field in OpenSearch), existing semantic search infrastructure
 
+**Scope:** Changes to `WordPopover.tsx` automatically apply to **both** `/search` and `/quran` screens since they share `InteractiveArabicText`.
+
 **Test plan:**
-- Test with known ambiguous roots (عين, عمل, قلب)
+- Test with known ambiguous roots (عين, عمل, قلب) on **both** `/search` and `/quran` pages
 - Verify clusters represent meaningfully different usages
 - Verify non-ambiguous roots (roots with consistent meaning) show a single cluster
 - API response time is acceptable (<2s for clustering)
@@ -333,13 +309,15 @@ The existing hybrid search (BM25 + Cohere embeddings + RRF) is already well-suit
   - For hadith results, fetch word analysis from API (instead of static JSON)
   - Same clickable word UI and popover as Quran text
 
-**Dependencies:** Phase 3 (popover UI), Phase 6 (root field concept)
+**Dependencies:** Phase 2+3 (shared `InteractiveArabicText` + `WordPopover`), Phase 6 (root field concept)
+
+**Scope:** `InteractiveArabicText` already supports a fallback mode. Phase 8 extends it with an API-based word data source for hadith, reusing the same clickable word UI and `WordPopover` across all screens.
 
 **Test plan:**
 - Send sample hadith Arabic text to `/analyze` endpoint — verify root extraction accuracy
 - Compare CAMeL Tools output against known morphological analyses
-- Hadith search results show clickable Arabic words with popover
-- Quran word lookup still uses static JSON (no regression, no API call)
+- Hadith search results show clickable Arabic words with the same popover as Quran
+- Quran word lookup still uses static JSON on **both** `/search` and `/quran` (no regression, no API call)
 - Microservice handles edge cases: Arabic text with no diacritics, mixed Arabic/English, empty strings
 
 **Deploy notes:**
