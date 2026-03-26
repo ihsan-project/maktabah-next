@@ -11,6 +11,7 @@ import BookmarkButton from './BookmarkButton';
 import NoteIcon from './NoteIcon';
 import NotesModal from './NotesModal';
 import ArabicText from './ArabicText';
+import InteractiveArabicText from './InteractiveArabicText';
 import SkeletonResultCard from './SkeletonResultCard';
 import { useBookmarks, generateVerseId } from '@/lib/bookmarks';
 import { Bookmark } from '@/types';
@@ -341,12 +342,21 @@ export default function SearchResults({
                 />
               </div>
 
-              {/* Arabic text (when available from Phase 1 data) */}
+              {/* Arabic text — interactive word-by-word for Quran, plain for others */}
               {result.text_arabic_uthmani && (
                 <div className="mt-3 pt-3 border-t border-gray-100">
-                  <ArabicText size="lg" className="text-gray-800">
-                    {result.text_arabic_uthmani}
-                  </ArabicText>
+                  {result.title === 'quran' || !result.title ? (
+                    <InteractiveArabicText
+                      chapter={result.chapter}
+                      verse={result.verse}
+                      uthmaniText={result.text_arabic_uthmani}
+                      className="text-gray-800"
+                    />
+                  ) : (
+                    <ArabicText size="lg" className="text-gray-800">
+                      {result.text_arabic_uthmani}
+                    </ArabicText>
+                  )}
                 </div>
               )}
 

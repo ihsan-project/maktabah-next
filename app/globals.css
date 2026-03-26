@@ -204,6 +204,50 @@ body {
   to { opacity: 1; }
 }
 
+/* Interactive Arabic words (Dictionary feature) */
+.interactive-word {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 1px 2px;
+  transition: background-color 150ms ease, color 150ms ease;
+  text-decoration-color: transparent;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+.interactive-word:hover {
+  background-color: rgba(44, 110, 73, 0.08);
+  text-decoration-color: rgb(var(--primary-color));
+}
+
+.interactive-word-active {
+  background-color: rgba(44, 110, 73, 0.12);
+  text-decoration-color: rgb(var(--primary-color));
+}
+
+/* Word popover entrance animation */
+.word-popover-enter {
+  animation: popoverFadeIn 150ms ease-out;
+}
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-popover-enter {
+    animation: none;
+  }
+}
+
 /* Quill Editor Styles */
 .quill-editor-wrapper .ql-container {
   min-height: 300px;
