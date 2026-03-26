@@ -5,12 +5,9 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import SearchForm from '@/app/components/SearchForm';
 import SearchResults from '@/app/components/SearchResults';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
-import BookFilter from '@/app/components/BookFilter';
 import SearchModeToggle, { SearchMode } from '@/app/components/SearchModeToggle';
 import { SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
-
-const DEFAULT_BOOKS = ['quran', 'bukhari'];
 
 export default function SearchPage(): JSX.Element {
   return (
@@ -33,9 +30,6 @@ function SearchPageContent(): JSX.Element {
   const rawPage = searchParams.get('page');
   const parsedPage = rawPage !== null ? Number.parseInt(rawPage, 10) : 1;
   const page = Number.isNaN(parsedPage) ? 1 : Math.max(parsedPage, 1);
-  const titles = searchParams.getAll('title[]');
-  const selectedBooks = titles.length > 0 ? titles : DEFAULT_BOOKS;
-
   // Local state for data that doesn't belong in URL
   const [results, setResults] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -54,22 +48,19 @@ function SearchPageContent(): JSX.Element {
   const buildSearchParams = useCallback((overrides: {
     q?: string;
     page?: number;
-    titles?: string[];
   } = {}) => {
     const params = new URLSearchParams();
     const newQ = overrides.q ?? query;
     const newPage = overrides.page ?? page;
-    const newTitles = overrides.titles ?? selectedBooks;
 
     if (newQ) params.set('q', newQ);
     if (newPage > 1) params.set('page', String(newPage));
-    newTitles.forEach(t => params.append('title[]', t));
 
     return params.toString();
-  }, [query, page, selectedBooks]);
+  }, [query, page]);
 
   // Get the appropriate API URL based on environment
-  const getApiUrl = useCallback((q: string, p: number, bookFilters: string[]): string => {
+  const getApiUrl = useCallback((q: string, p: number): string => {
     const baseUrl = isDevelopment
       ? 'http://127.0.0.1:5001/maktabah-8ac04/us-central1/nextApiHandler/api/search'
       : `/api/search`;
@@ -79,15 +70,11 @@ function SearchPageContent(): JSX.Element {
       url += `&mode=${searchMode}&debug=true`;
     }
 
-    bookFilters.forEach(book => {
-      url += `&title[]=${encodeURIComponent(book)}`;
-    });
-
     return url;
   }, [isDevelopment, searchMode]);
 
   // Perform search — always replaces results (no appending)
-  const performSearch = useCallback(async (q: string, p: number, books: string[]) => {
+  const performSearch = useCallback(async (q: string, p: number) => {
     if (!q) return;
 
     // Cancel any in-flight request
@@ -99,7 +86,7 @@ function SearchPageContent(): JSX.Element {
 
     setLoading(true);
     try {
-      const apiUrl = getApiUrl(q, p, books);
+      const apiUrl = getApiUrl(q, p);
       console.log('Searching using API URL:', apiUrl);
 
       const response = await fetch(apiUrl, { signal: controller.signal });
@@ -133,13 +120,12 @@ function SearchPageContent(): JSX.Element {
       return;
     }
 
-    const sortedBooks = [...selectedBooks].sort();
-    const fetchKey = `${query}|${page}|${searchMode}|${sortedBooks.join(',')}`;
+    const fetchKey = `${query}|${page}|${searchMode}`;
     if (fetchKey === lastFetchRef.current) return;
     lastFetchRef.current = fetchKey;
 
-    performSearch(query, page, sortedBooks);
-  }, [query, page, selectedBooks, searchMode, performSearch]);
+    performSearch(query, page);
+  }, [query, page, searchMode, performSearch]);
 
   // New search — push to history
   const handleSearch = useCallback((newQuery: string) => {
@@ -148,20 +134,12 @@ function SearchPageContent(): JSX.Element {
     MixpanelTracking.track('Search', {
       query: newQuery,
       page: 1,
-      bookFilters: selectedBooks,
       searchMode: searchMode,
     });
 
     const params = buildSearchParams({ q: newQuery.trim(), page: 1 });
     router.push(`/search?${params}`);
-  }, [selectedBooks, searchMode, buildSearchParams, router]);
-
-  // Filter change — replace (refinement, resets to page 1)
-  const handleBookFilterChange = useCallback((newBooks: string[]) => {
-    const params = buildSearchParams({ titles: newBooks, page: 1 });
-    lastFetchRef.current = '';
-    router.replace(`/search?${params}`);
-  }, [buildSearchParams, router]);
+  }, [searchMode, buildSearchParams, router]);
 
   // Page change — push to history (so back/forward navigates pages)
   const handlePageChange = useCallback((newPage: number) => {
@@ -199,19 +177,14 @@ function SearchPageContent(): JSX.Element {
             <SearchForm onSearch={handleSearch} initialQuery={query} size="large" />
           </div>
 
-          {/* Book filter */}
-          <div className="flex items-center gap-2 mt-6">
-            <BookFilter
-              selectedBooks={selectedBooks}
-              onChange={handleBookFilterChange}
-            />
-            {isDevelopment && (
+          {isDevelopment && (
+            <div className="flex items-center gap-2 mt-6">
               <SearchModeToggle
                 mode={searchMode}
                 onChange={setSearchMode}
               />
-            )}
-          </div>
+            </div>
+          )}
 
           {/* Quick search suggestions */}
           <div className="mt-10 text-center max-w-2xl">
@@ -241,18 +214,14 @@ function SearchPageContent(): JSX.Element {
         <div className="sticky top-0 z-10 bg-secondary py-4 shadow-md">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap md:flex-nowrap gap-4 items-center">
-              <div className="order-1 md:order-none w-full md:w-auto flex gap-2 items-center">
-                <BookFilter
-                  selectedBooks={selectedBooks}
-                  onChange={handleBookFilterChange}
-                />
-                {isDevelopment && (
+              {isDevelopment && (
+                <div className="order-1 md:order-none w-full md:w-auto flex gap-2 items-center">
                   <SearchModeToggle
                     mode={searchMode}
                     onChange={setSearchMode}
                   />
-                )}
-              </div>
+                </div>
+              )}
               <div className="w-full">
                 <SearchForm onSearch={handleSearch} initialQuery={query} />
               </div>
