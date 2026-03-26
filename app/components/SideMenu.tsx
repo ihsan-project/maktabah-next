@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useCallback } from 'react';
 import { useAuth } from './AuthProvider';
-import { FiX, FiLogOut, FiSearch, FiBook, FiBookmark, FiCoffee } from 'react-icons/fi';
+import { FiX, FiLogOut, FiBook, FiBookmark, FiCoffee } from 'react-icons/fi';
 import { SideMenuProps } from '@/types';
 import { getProfileImageUrl, getUserInitials } from '@/lib/user-utils';
 import Link from 'next/link';
@@ -79,7 +79,6 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps): JSX.Elemen
   };
 
   const navItems = [
-    { href: '/search', label: 'Search', icon: FiSearch },
     { href: '/stories', label: 'Stories', icon: FiBook },
     { href: '/bookmarks', label: 'Bookmarks', icon: FiBookmark },
   ];

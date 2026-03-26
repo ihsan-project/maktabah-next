@@ -4,7 +4,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 ---
 
-## Phase 1: Tanzil.net Data Pipeline — Arabic Text & Metadata
+## Phase 1 [IMPLEMENTED]: Tanzil.net Data Pipeline — Arabic Text & Metadata
 
 **Goal:** Download and index Quran Arabic text and surah metadata from tanzil.net into OpenSearch so all downstream features have Arabic content to work with.
 
@@ -31,7 +31,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 ---
 
-## Phase 2: Arabic Display Infrastructure
+## Phase 2 [IMPLEMENTED]: Arabic Display Infrastructure
 
 **Goal:** Add RTL rendering, Arabic web fonts, and bidirectional text utilities so the app can properly display Arabic script.
 
@@ -57,7 +57,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 ---
 
-## Phase 3: URL-Based Search State
+## Phase 3 [IMPLEMENTED]: URL-Based Search State
 
 **Goal:** Encode all search parameters in the URL so searches are shareable, bookmarkable, and browser-navigable (back/forward).
 
@@ -82,7 +82,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 ---
 
-## Phase 4: Result Card Redesign with Arabic Text
+## Phase 4 [IMPLEMENTED]: Result Card Redesign with Arabic Text
 
 **Goal:** Implement structured visual hierarchy on result cards: source badge, reference number, breadcrumb, English text, Arabic text, narrator line, grade badge, action links.
 
@@ -115,7 +115,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 ---
 
-## Phase 5: Phased Loading Strategy
+## Phase 5 [IMPLEMENTED]: Phased Loading Strategy
 
 **Goal:** Replace current loading state with a three-phase approach: immediate acknowledgment (0-100ms), shimmer skeletons (300ms+), fade-in results (1-3s).
 
@@ -143,7 +143,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 ---
 
-## Phase 6: Homepage Hero Search (Centerstage)
+## Phase 6 [IMPLEMENTED]: Homepage Hero Search (Centerstage)
 
 **Goal:** Transform the logged in landing page (/search) into a search-forward experience with a large centered search bar, browsable entry points.
 
