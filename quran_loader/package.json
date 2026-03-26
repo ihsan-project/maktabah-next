@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "loader:decode": "node decode-quran-xml.js",
     "loader:search": "node search-opensearch.js",
-    "loader:delete-index": "node delete-index.js"
+    "loader:delete-index": "node delete-index.js",
+    "loader:migrate-arabic": "node migrate-arabic-metadata.js"
   },
   "keywords": [
     "quran",

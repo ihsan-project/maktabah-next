@@ -330,14 +330,31 @@ async function createIndex() {
                   engine: "lucene"
                 }
               },
+              text_arabic_uthmani: {
+                type: "text",
+                analyzer: "arabic_analyzer",
+                index: false // Display only — not searchable (search uses text.arabic)
+              },
               author: { type: "keyword" },
               chapter_name: { type: "keyword" },
               book_id: {
                 type: "keyword",
                 index: false // Not searchable, just returned as metadata
               },
-              title: { type: "keyword" }, // Added to store the work title (Quran, Bukhari, etc.)
-              volume: { type: "integer" }  // Added to store the volume number
+              title: { type: "keyword" },
+              volume: { type: "integer" },
+              surah_name: { type: "keyword" },        // Transliterated surah name (e.g., "Al-Baqara")
+              surah_name_arabic: {                     // Arabic surah name (e.g., "البقرة")
+                type: "keyword",
+                index: false
+              },
+              surah_name_english: {                    // English surah name (e.g., "The Cow")
+                type: "keyword",
+                index: false
+              },
+              revelation_type: { type: "keyword" },    // "Meccan" or "Medinan"
+              juz: { type: "integer" },                 // Juz number (1-30)
+              hizb: { type: "integer" }                 // Hizb quarter index
             }
           }
         }

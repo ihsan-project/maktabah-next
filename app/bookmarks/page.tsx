@@ -99,8 +99,9 @@ function BookmarksPageContent(): JSX.Element {
           <SearchResults
             results={searchResults}
             loading={loading}
-            hasMore={false}
-            onLoadMore={() => {}}
+            currentPage={1}
+            totalPages={1}
+            onPageChange={() => {}}
           />
         )}
       </div>

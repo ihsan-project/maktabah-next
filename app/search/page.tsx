@@ -1,59 +1,95 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { Suspense, useState, useEffect, useCallback, useRef } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import SearchForm from '@/app/components/SearchForm';
 import SearchResults from '@/app/components/SearchResults';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
-import BookFilter from '@/app/components/BookFilter';
 import SearchModeToggle, { SearchMode } from '@/app/components/SearchModeToggle';
 import { SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
 
 export default function SearchPage(): JSX.Element {
+  return (
+    <Suspense fallback={
+      <div className="flex justify-center py-20">
+        <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    }>
+      <SearchPageContent />
+    </Suspense>
+  );
+}
+
+function SearchPageContent(): JSX.Element {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // Read state from URL
+  const query = searchParams.get('q') || '';
+  const rawPage = searchParams.get('page');
+  const parsedPage = rawPage !== null ? Number.parseInt(rawPage, 10) : 1;
+  const page = Number.isNaN(parsedPage) ? 1 : Math.max(parsedPage, 1);
+  // Local state for data that doesn't belong in URL
   const [results, setResults] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [searchQuery, setSearchQuery] = useState<string>('');
-  const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalResults, setTotalResults] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
-  const [hasMore, setHasMore] = useState<boolean>(false);
 
-  // Initialize with both book types selected
-  const [selectedBooks, setSelectedBooks] = useState<string[]>(['quran', 'bukhari']);
   const isDevelopment = process.env.NODE_ENV === 'development';
   const [searchMode, setSearchMode] = useState<SearchMode>('hybrid');
 
+  // Track the last fetched params to avoid duplicate fetches
+  const lastFetchRef = useRef<string>('');
+  // AbortController to cancel in-flight requests
+  const abortControllerRef = useRef<AbortController | null>(null);
+
+  // Build URL search params string
+  const buildSearchParams = useCallback((overrides: {
+    q?: string;
+    page?: number;
+  } = {}) => {
+    const params = new URLSearchParams();
+    const newQ = overrides.q ?? query;
+    const newPage = overrides.page ?? page;
+
+    if (newQ) params.set('q', newQ);
+    if (newPage > 1) params.set('page', String(newPage));
+
+    return params.toString();
+  }, [query, page]);
+
   // Get the appropriate API URL based on environment
-  const getApiUrl = (query: string, page: number, bookFilters?: string[]): string => {
-    // Use Firebase emulator URL in development, API route in production
+  const getApiUrl = useCallback((q: string, p: number): string => {
     const baseUrl = isDevelopment
       ? 'http://127.0.0.1:5001/maktabah-8ac04/us-central1/nextApiHandler/api/search'
       : `/api/search`;
 
-    let url = `${baseUrl}?q=${encodeURIComponent(query)}&page=${page}&size=10`;
+    let url = `${baseUrl}?q=${encodeURIComponent(q)}&page=${p}&size=10`;
     if (isDevelopment) {
       url += `&mode=${searchMode}&debug=true`;
     }
 
-    // Add book filters if provided
-    if (bookFilters && bookFilters.length > 0) {
-      bookFilters.forEach(book => {
-        url += `&title[]=${encodeURIComponent(book)}`;
-      });
-    }
-
     return url;
-  };
+  }, [isDevelopment, searchMode]);
 
-  const performSearch = async (query: string, page: number = 1, append: boolean = false): Promise<void> => {
+  // Perform search — always replaces results (no appending)
+  const performSearch = useCallback(async (q: string, p: number) => {
+    if (!q) return;
+
+    // Cancel any in-flight request
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
     setLoading(true);
     try {
-      // Pass the full array of selected books
-      const apiUrl = getApiUrl(query, page, selectedBooks);
-      console.log('Searching using API URL:', apiUrl); // Debug log
+      const apiUrl = getApiUrl(q, p);
+      console.log('Searching using API URL:', apiUrl);
 
-      const response = await fetch(apiUrl);
-
+      const response = await fetch(apiUrl, { signal: controller.signal });
       if (!response.ok) {
         throw new Error('Search request failed');
       }
@@ -62,74 +98,132 @@ export default function SearchPage(): JSX.Element {
 
       setTotalResults(data.total);
       setTotalPages(data.totalPages);
-      setHasMore(page < data.totalPages);
-
-      if (append) {
-        setResults(prev => [...prev, ...data.results]);
-      } else {
-        setResults(data.results);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      setCurrentPage(page);
+      setResults(data.results);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
+      if (error instanceof DOMException && error.name === 'AbortError') return;
       console.error('Search error:', error);
     } finally {
-      setLoading(false);
+      if (!controller.signal.aborted) {
+        setLoading(false);
+      }
     }
-  };
+  }, [getApiUrl]);
 
-  const handleSearch = async (query: string): Promise<void> => {
-    setSearchQuery(query);
+  // React to URL changes — trigger search
+  useEffect(() => {
+    if (!query) {
+      setResults([]);
+      setTotalResults(0);
+      setTotalPages(0);
+      lastFetchRef.current = '';
+      return;
+    }
 
-    // Track search event
+    const fetchKey = `${query}|${page}|${searchMode}`;
+    if (fetchKey === lastFetchRef.current) return;
+    lastFetchRef.current = fetchKey;
+
+    performSearch(query, page);
+  }, [query, page, searchMode, performSearch]);
+
+  // New search — push to history
+  const handleSearch = useCallback((newQuery: string) => {
+    if (!newQuery.trim()) return;
+
     MixpanelTracking.track('Search', {
-      query: query,
+      query: newQuery,
       page: 1,
-      bookFilters: selectedBooks,
-      searchMode: searchMode
+      searchMode: searchMode,
     });
 
-    await performSearch(query);
-  };
+    const params = buildSearchParams({ q: newQuery.trim(), page: 1 });
+    router.push(`/search?${params}`);
+  }, [searchMode, buildSearchParams, router]);
 
-  const handleLoadMore = async (): Promise<void> => {
-    if (hasMore && !loading) {
-      const nextPage = currentPage + 1;
+  // Page change — push to history (so back/forward navigates pages)
+  const handlePageChange = useCallback((newPage: number) => {
+    MixpanelTracking.track('Page Change', {
+      query: query,
+      page: newPage,
+    });
 
-      // Track pagination event
-      MixpanelTracking.track('Load More Results', {
-        query: searchQuery,
-        page: nextPage
-      });
+    const params = buildSearchParams({ page: newPage });
+    router.push(`/search?${params}`);
+  }, [query, buildSearchParams, router]);
 
-      await performSearch(searchQuery, nextPage, true);
-    }
-  };
+  const quickSearches = [
+    { label: 'Mercy', query: 'mercy' },
+    { label: 'Patience', query: 'patience' },
+    { label: 'Prayer', query: 'prayer' },
+    { label: 'Forgiveness', query: 'forgiveness' },
+    { label: 'Righteousness', query: 'righteousness' },
+    { label: 'Gratitude', query: 'gratitude' },
+  ];
 
+  // Hero centerstage — no query yet
+  if (!query) {
+    return (
+      <ProtectedRoute>
+        <div className="flex flex-col items-center justify-center min-h-[calc(100vh-10rem)] px-4">
+          {/* Hero heading */}
+          <div className="text-center mb-8">
+            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-3">Maktabah</h1>
+            <p className="text-lg md:text-xl text-gray-600">Search the Quran and Hadith collections</p>
+          </div>
+
+          {/* Large search bar */}
+          <div className="w-full max-w-3xl">
+            <SearchForm onSearch={handleSearch} initialQuery={query} size="large" />
+          </div>
+
+          {isDevelopment && (
+            <div className="flex items-center gap-2 mt-6">
+              <SearchModeToggle
+                mode={searchMode}
+                onChange={setSearchMode}
+              />
+            </div>
+          )}
+
+          {/* Quick search suggestions */}
+          <div className="mt-10 text-center max-w-2xl">
+            <p className="text-sm text-gray-500 mb-3">Try searching for</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {quickSearches.map(({ label, query: q }) => (
+                <button
+                  key={q}
+                  onClick={() => handleSearch(q)}
+                  className="px-4 py-2 text-sm rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-white transition-colors duration-200"
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </ProtectedRoute>
+    );
+  }
+
+  // Results layout — active query
   return (
     <ProtectedRoute>
       <div className="pb-8">
-        <h1 className="text-3xl font-bold text-center text-primary mb-6 pt-8">Maktabah Search</h1>
-
         {/* Sticky Search Form Container */}
         <div className="sticky top-0 z-10 bg-secondary py-4 shadow-md">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap md:flex-nowrap gap-4 items-center">
-              <div className="order-1 md:order-none w-full md:w-auto flex gap-2 items-center">
-                <BookFilter
-                  selectedBooks={selectedBooks}
-                  onChange={setSelectedBooks}
-                />
-                {isDevelopment && (
+              {isDevelopment && (
+                <div className="order-1 md:order-none w-full md:w-auto flex gap-2 items-center">
                   <SearchModeToggle
                     mode={searchMode}
                     onChange={setSearchMode}
                   />
-                )}
-              </div>
+                </div>
+              )}
               <div className="w-full">
-                <SearchForm onSearch={handleSearch} />
+                <SearchForm onSearch={handleSearch} initialQuery={query} />
               </div>
             </div>
           </div>
@@ -137,24 +231,23 @@ export default function SearchPage(): JSX.Element {
 
         {/* Results section with search info */}
         <div className="mt-4 container mx-auto px-4">
-          {searchQuery && (
-            <div className="mb-4">
-              <p className="text-gray-600">
-                {totalResults > 0 ? (
-                  <>Found {totalResults} results for "{searchQuery}"</>
-                ) : loading ? (
-                  <>Searching for "{searchQuery}"...</>
-                ) : (
-                  <>No results found for "{searchQuery}"</>
-                )}
-              </p>
-            </div>
-          )}
+          <div className="mb-4">
+            <p className="text-gray-600">
+              {totalResults > 0 ? (
+                <>Found {totalResults} results for &quot;{query}&quot;</>
+              ) : loading ? (
+                <>Searching for &quot;{query}&quot;...</>
+              ) : (
+                <>No results found for &quot;{query}&quot;</>
+              )}
+            </p>
+          </div>
           <SearchResults
             results={results}
             loading={loading}
-            hasMore={hasMore}
-            onLoadMore={handleLoadMore}
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
           />
         </div>
       </div>

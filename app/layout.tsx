@@ -1,12 +1,17 @@
 import '@/app/globals.css';
 import 'react-quill/dist/quill.snow.css';
-import { Inter } from 'next/font/google';
+import { Inter, Amiri } from 'next/font/google';
 import AuthProvider from './components/AuthProvider';
 import Navbar from './components/Navbar';
 import type { Metadata } from 'next';
 import React from 'react';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const amiri = Amiri({
+  subsets: ['arabic', 'latin'],
+  weight: ['400', '700'],
+  variable: '--font-amiri',
+});
 
 export const metadata: Metadata = {
   title: 'Maktabah - Search for Knowledge',
@@ -20,7 +25,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans`}>
+      <body className={`${inter.variable} ${amiri.variable} font-sans`}>
         <AuthProvider>
           <div className="flex flex-col min-h-screen">
             <Navbar />
@@ -29,7 +34,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </main>
             <footer className="bg-primary-dark text-white py-4">
               <div className="container mx-auto px-4 text-center text-sm">
-                &copy; {new Date().getFullYear()} Maktabah. All rights reserved.
+                <p>&copy; {new Date().getFullYear()} Maktabah. All rights reserved.</p>
+                <p className="mt-1 text-xs opacity-75">
+                  Quran text courtesy of{' '}
+                  <a href="https://tanzil.net" target="_blank" rel="noopener noreferrer" className="underline">
+                    Tanzil.net
+                  </a>
+                </p>
               </div>
             </footer>
           </div>

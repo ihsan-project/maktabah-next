@@ -4,31 +4,23 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FiSearch, FiHelpCircle, FiX } from 'react-icons/fi';
 import { SearchFormProps } from '@/types';
 
-// Update the SearchFormProps interface in /types/index.ts
-interface UpdatedSearchFormProps extends SearchFormProps {
-  initialQuery?: string;
-}
-
-export default function SearchForm({ onSearch, initialQuery = '' }: UpdatedSearchFormProps): JSX.Element {
+export default function SearchForm({ onSearch, initialQuery = '', size = 'default' }: SearchFormProps): JSX.Element {
+  const isLarge = size === 'large';
   const [query, setQuery] = useState<string>(initialQuery);
-  const [isSearching, setIsSearching] = useState<boolean>(false);
   const [showTips, setShowTips] = useState<boolean>(false);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const helpIconRef = useRef<HTMLButtonElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  // Sync input with URL query on browser navigation (back/forward)
+  useEffect(() => {
+    setQuery(initialQuery);
+  }, [initialQuery]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    
+
     if (!query.trim()) return;
-    
-    setIsSearching(true);
-    try {
-      await onSearch(query.trim());
-    } catch (error) {
-      console.error('Search error:', error);
-    } finally {
-      setIsSearching(false);
-    }
+    onSearch(query.trim());
   };
 
   const handleClearInput = (): void => {
@@ -58,7 +50,7 @@ export default function SearchForm({ onSearch, initialQuery = '' }: UpdatedSearc
   }, []);
 
   return (
-    <div className="w-full max-w-2xl mx-auto mb-8">
+    <div className={`w-full mx-auto ${isLarge ? 'max-w-3xl' : 'max-w-2xl mb-8'}`}>
       <form onSubmit={handleSubmit} className="relative">
         <div className="flex items-center">
           <div className="relative flex-grow">
@@ -66,37 +58,36 @@ export default function SearchForm({ onSearch, initialQuery = '' }: UpdatedSearc
               type="text"
               value={query}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
-              placeholder="Search for knowledge..."
-              className="input py-3 pl-4 pr-16 text-lg shadow-sm w-full"
-              disabled={isSearching}
+              placeholder="Search the Quran and Hadith..."
+              className={`input w-full shadow-sm ${isLarge
+                ? 'py-4 pl-6 pr-20 text-xl rounded-xl shadow-lg'
+                : 'py-3 pl-4 pr-16 text-lg'
+              }`}
+              autoFocus={isLarge}
             />
-            
+
             {/* Clear input button - only shown when there's text */}
             {query && (
               <button
                 type="button"
                 onClick={handleClearInput}
-                className="absolute right-12 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none p-2"
+                className={`absolute top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none p-2 ${isLarge ? 'right-14' : 'right-12'}`}
                 aria-label="Clear search"
               >
-                <FiX size={20} />
+                <FiX size={isLarge ? 24 : 20} />
               </button>
             )}
-            
+
             <button
               type="submit"
-              disabled={isSearching || !query.trim()}
-              className={`absolute right-3 top-1/2 transform -translate-y-1/2 ${query.trim() ? 'text-primary' : 'text-gray-400'} hover:text-primary-dark focus:outline-none`}
+              disabled={!query.trim()}
+              className={`absolute top-1/2 transform -translate-y-1/2 ${query.trim() ? 'text-primary' : 'text-gray-400'} hover:text-primary-dark focus:outline-none ${isLarge ? 'right-4' : 'right-3'}`}
               aria-label="Search"
             >
-              {isSearching ? (
-                <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-primary"></div>
-              ) : (
-                <FiSearch size={24} />
-              )}
+              <FiSearch size={isLarge ? 28 : 24} />
             </button>
           </div>
-          
+
           <button
             type="button"
             ref={helpIconRef}
@@ -104,7 +95,7 @@ export default function SearchForm({ onSearch, initialQuery = '' }: UpdatedSearc
             className="ml-4 text-gray-500 hover:text-primary focus:outline-none transition-colors duration-200 p-2"
             aria-label="Search tips"
           >
-            <FiHelpCircle size={24} />
+            <FiHelpCircle size={isLarge ? 28 : 24} />
           </button>
         </div>
         

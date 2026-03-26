@@ -46,21 +46,161 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  
+
   /* Carousel container with scroll snap */
   .carousel-container {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   /* Carousel card snap alignment */
   .carousel-card {
     scroll-snap-align: start;
   }
+
+  /* RTL layout utilities */
+  .rtl {
+    direction: rtl;
+    text-align: right;
+  }
+
+  .ltr {
+    direction: ltr;
+    text-align: left;
+  }
+}
+
+/* Arabic text styles */
+[dir="rtl"] {
+  font-family: var(--font-amiri), 'Amiri', serif;
+  line-height: 2;
+}
+
+/* Arabic text sizing — render 2-4pt larger than surrounding Latin text */
+.arabic-text {
+  font-family: var(--font-amiri), 'Amiri', serif;
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: isolate;
+  line-height: 2;
+}
+
+.arabic-text-sm {
+  font-size: 1.125rem; /* 18px — 2pt larger than base 16px */
+}
+
+.arabic-text-base {
+  font-size: 1.25rem; /* 20px — 4pt larger than base 16px */
+}
+
+.arabic-text-lg {
+  font-size: 1.5rem; /* 24px — 4pt larger than lg 20px */
+}
+
+.arabic-text-xl {
+  font-size: 1.75rem; /* 28px — 4pt larger than xl 24px */
+}
+
+.arabic-text-2xl {
+  font-size: 2.25rem; /* 36px — 4pt larger than 2xl 30px */
+}
+
+/* Result card styles */
+.result-card {
+  @apply bg-white rounded-lg shadow-md p-5;
+}
+
+/* Search term highlight (from OpenSearch <mark> tags) */
+.result-card mark {
+  @apply bg-yellow-100 text-inherit rounded-sm px-0.5;
+  font-style: inherit;
+  font-weight: 600;
+}
+
+/* Action links in card footer */
+.action-link {
+  @apply flex items-center gap-1 text-xs text-gray-500 hover:text-primary transition-colors cursor-pointer;
+}
+
+/* Phased loading: progress bar */
+.search-progress-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(var(--primary-color)) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: progress-slide 1.2s ease-in-out infinite;
+}
+
+@keyframes progress-slide {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Shimmer skeleton placeholder */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #f3f4f6 50%,
+    #e5e7eb 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Result card staggered fade-in */
+.result-fade-in {
+  animation: fadeInUp 300ms ease-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .shimmer,
+  .search-progress-bar {
+    animation: none;
+    background: #e5e7eb;
+  }
+
+  .result-fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Mobile search overlay */
+.mobile-search-overlay {
+  animation: fadeIn 150ms ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Quill Editor Styles */

@@ -23,9 +23,21 @@ export interface SearchResult {
   author: string;
   chapter_name?: string;
   book_id?: string;
-  title?: string; // Added title field
-  volume?: number; // Added volume field
+  title?: string;
+  volume?: number;
   source?: 'keyword' | 'semantic' | 'both';
+  // Tanzil Arabic text & metadata (Phase 1)
+  text_arabic_uthmani?: string;   // Uthmani script for display
+  surah_name?: string;            // Transliterated name (e.g., "Al-Baqara")
+  surah_name_arabic?: string;     // Arabic name (e.g., "البقرة")
+  surah_name_english?: string;    // English name (e.g., "The Cow")
+  revelation_type?: 'Meccan' | 'Medinan';
+  juz?: number;                   // 1-30
+  hizb?: number;                  // Hizb quarter index
+  // Highlight fragments from OpenSearch (Phase 4)
+  highlight?: {
+    text?: string[];              // Text with <mark> tags around matched terms
+  };
 }
 
 export interface SearchResponse {
@@ -36,17 +48,27 @@ export interface SearchResponse {
   totalPages: number;
 }
 
+// URL-based search state (Phase 3)
+export interface SearchParams {
+  q: string;
+  page: number;
+  titles: string[];       // book filters (e.g., ['quran', 'bukhari'])
+  mode: string;           // search mode (text | semantic | hybrid)
+}
+
 // Component props
 export interface SearchFormProps {
-  onSearch: (query: string) => Promise<void>;
+  onSearch: (query: string) => void;
   initialQuery?: string;
+  size?: 'default' | 'large';
 }
 
 export interface SearchResultsProps {
   results: SearchResult[];
   loading: boolean;
-  hasMore: boolean;
-  onLoadMore: () => void;
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
 }
 
 export interface SideMenuProps {
