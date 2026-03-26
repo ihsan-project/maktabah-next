@@ -121,11 +121,6 @@ body {
   font-weight: 600;
 }
 
-/* Arabic text highlight — softer background for RTL text */
-.result-card [dir="rtl"] mark {
-  @apply bg-amber-100;
-}
-
 /* Action links in card footer */
 .action-link {
   @apply flex items-center gap-1 text-xs text-gray-500 hover:text-primary transition-colors cursor-pointer;

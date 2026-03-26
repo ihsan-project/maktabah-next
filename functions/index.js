@@ -150,8 +150,7 @@ async function fetchHighlights(query, results) {
               ids: { values: docIds }
             },
             should: [
-              { match: { text: { query } } },
-              { match: { 'text.arabic': { query } } }
+              { match: { text: { query } } }
             ]
           }
         },
@@ -159,8 +158,7 @@ async function fetchHighlights(query, results) {
           pre_tags: ['<mark>'],
           post_tags: ['</mark>'],
           fields: {
-            text: { fragment_size: 0, number_of_fragments: 0 },
-            'text.arabic': { fragment_size: 0, number_of_fragments: 0 }
+            text: { fragment_size: 0, number_of_fragments: 0 }
           }
         },
         _source: false

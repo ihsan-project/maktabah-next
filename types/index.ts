@@ -36,8 +36,7 @@ export interface SearchResult {
   hizb?: number;                  // Hizb quarter index
   // Highlight fragments from OpenSearch (Phase 4)
   highlight?: {
-    text?: string[];              // English text with <mark> tags
-    'text.arabic'?: string[];     // Arabic text with <mark> tags
+    text?: string[];              // Text with <mark> tags around matched terms
   };
 }
 

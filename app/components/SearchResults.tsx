@@ -261,11 +261,7 @@ export default function SearchResults({
               {result.text_arabic_uthmani && (
                 <div className="mt-3 pt-3 border-t border-gray-100">
                   <ArabicText size="lg" className="text-gray-800">
-                    {result.highlight?.['text.arabic'] ? (
-                      <HighlightedText html={result.highlight['text.arabic'][0]} />
-                    ) : (
-                      result.text_arabic_uthmani
-                    )}
+                    {result.text_arabic_uthmani}
                   </ArabicText>
                 </div>
               )}
