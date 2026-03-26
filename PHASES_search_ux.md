@@ -165,7 +165,7 @@ Phased plan based on [search UX research](./docs/search-ux-research.md), tailore
 
 ---
 
-## Phase 7: Persistent Nav Bar Search
+## Phase 7 [IMPLEMENTED]: Persistent Nav Bar Search
 
 **Goal:** Add a compact search field to the global navigation bar so users can search from any page without returning to the homepage.
 
