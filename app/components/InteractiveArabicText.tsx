@@ -109,6 +109,8 @@ export default function InteractiveArabicText({
         <WordPopover
           word={selectedWord}
           anchorEl={anchorEl}
+          currentSurah={chapter}
+          currentVerse={verse}
           onClose={handleClose}
         />
       )}
