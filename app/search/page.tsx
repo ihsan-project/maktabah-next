@@ -30,7 +30,9 @@ function SearchPageContent(): JSX.Element {
 
   // Read state from URL
   const query = searchParams.get('q') || '';
-  const page = parseInt(searchParams.get('page') || '1', 10);
+  const rawPage = searchParams.get('page');
+  const parsedPage = rawPage !== null ? Number.parseInt(rawPage, 10) : 1;
+  const page = Number.isNaN(parsedPage) ? 1 : Math.max(parsedPage, 1);
   const titles = searchParams.getAll('title[]');
   const selectedBooks = titles.length > 0 ? titles : DEFAULT_BOOKS;
 
