@@ -53,6 +53,22 @@ export default function HomeContent(): JSX.Element {
         </div>
       </div>
 
+      {/* Quran Reader Section */}
+      <div className="w-full max-w-2xl bg-white rounded-lg shadow-md p-6 mb-8">
+        <h2 className="text-xl font-semibold text-primary mb-2 text-center">Quran Reader</h2>
+        <p className="text-gray-600 text-center mb-4">
+          Browse the Quran with 17 English translations side by side.
+        </p>
+        <div className="flex justify-center">
+          <Link
+            href="/quran"
+            className="px-6 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors text-sm font-medium"
+          >
+            Open Quran Reader
+          </Link>
+        </div>
+      </div>
+
       {/* Stories Section */}
       <StoriesList source="home_page" />
 
