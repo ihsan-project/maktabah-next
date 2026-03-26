@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import TranslatorSelector from '@/app/components/TranslatorSelector';
 import TranslationCarousel from '@/app/components/TranslationCarousel';
+import ArabicText from '@/app/components/ArabicText';
 import {
   parseVerseRef,
   fetchSurahData,
@@ -84,13 +85,14 @@ export default function QuranClient() {
         : surahData.verseCount;
 
       while (current.verse <= maxVerse) {
-        const translations = surahData.verses[String(current.verse)];
-        if (translations) {
+        const verseData = surahData.verses[String(current.verse)];
+        if (verseData) {
           verses.push({
             surah: current.surah,
             verse: current.verse,
             surahName: surahData.name,
-            translations,
+            arabic: verseData.arabic,
+            translations: verseData.translations,
           });
         }
         current.verse++;
@@ -250,6 +252,13 @@ export default function QuranClient() {
 
               return (
                 <div key={`${verse.surah}:${verse.verse}`} className="mb-2">
+                  {verse.arabic && (
+                    <div className="bg-white rounded-t-lg border border-b-0 border-gray-200 px-4 pt-4 pb-2">
+                      <ArabicText size="lg" className="text-gray-800">
+                        {verse.arabic}
+                      </ArabicText>
+                    </div>
+                  )}
                   <TranslationCarousel
                     translations={filteredTranslations}
                     verseRef={`${verse.surah}:${verse.verse}`}

@@ -14,6 +14,7 @@ const { DOMParser } = require('@xmldom/xmldom');
 const xpath = require('xpath');
 
 const TRANSLATIONS_DIR = path.join(__dirname, 'translations');
+const ARABIC_FILE = path.join(__dirname, 'data', 'quran-uthmani.txt');
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'quran');
 
 // Quran translation files to include (excluding Bukhari hadith and raw transliteration)
@@ -103,7 +104,31 @@ function parseTranslationFile(filename) {
   return { translatorName, surahs };
 }
 
+/**
+ * Parse the Uthmani Arabic text file (pipe-delimited: surah|verse|text).
+ * Returns: { [surahIndex]: { [verseIndex]: arabicText } }
+ */
+function parseArabicText() {
+  const content = fs.readFileSync(ARABIC_FILE, 'utf8');
+  const arabic = {};
+  for (const line of content.split('\n')) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    const parts = trimmed.split('|');
+    if (parts.length < 3) continue;
+    const surah = parseInt(parts[0], 10);
+    const verse = parseInt(parts[1], 10);
+    const text = parts.slice(2).join('|'); // rejoin in case text contains |
+    if (!arabic[surah]) arabic[surah] = {};
+    arabic[surah][verse] = text;
+  }
+  return arabic;
+}
+
 function main() {
+  console.log('Parsing Arabic text...');
+  const arabic = parseArabicText();
+
   console.log('Parsing translation files...');
 
   // Parse all translation files
@@ -136,10 +161,14 @@ function main() {
 
     const verses = {};
     for (const verseIndex of verseIndices) {
-      verses[verseIndex] = translations.map(t => ({
-        author: t.translatorName,
-        text: (t.surahs[surahIndex] && t.surahs[surahIndex][verseIndex]) || '',
-      })).filter(t => t.text); // Skip empty translations
+      const arabicText = (arabic[surahIndex] && arabic[surahIndex][verseIndex]) || '';
+      verses[verseIndex] = {
+        arabic: arabicText,
+        translations: translations.map(t => ({
+          author: t.translatorName,
+          text: (t.surahs[surahIndex] && t.surahs[surahIndex][verseIndex]) || '',
+        })).filter(t => t.text),
+      };
     }
 
     const surahData = {

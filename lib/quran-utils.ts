@@ -7,11 +7,16 @@ export interface Translation {
   text: string;
 }
 
+export interface VerseData {
+  arabic: string;
+  translations: Translation[];
+}
+
 export interface SurahData {
   index: number;
   name: string;
   verseCount: number;
-  verses: Record<string, Translation[]>;
+  verses: Record<string, VerseData>;
 }
 
 export interface SurahMeta {
@@ -35,6 +40,7 @@ export interface QuranVerse {
   surah: number;
   verse: number;
   surahName: string;
+  arabic: string;
   translations: Translation[];
 }
 
