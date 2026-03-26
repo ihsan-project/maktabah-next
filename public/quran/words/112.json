@@ -1,0 +1,186 @@
+{
+  "surah": 112,
+  "verses": {
+    "1": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "قُلْ",
+          "text_simple": "قل",
+          "translation": "Say",
+          "transliteration": "qul",
+          "root": "ق و ل",
+          "lemma": "قالَ",
+          "pos": "V",
+          "morphology": "IMPV|VF:1|ROOT:قول|LEM:قالَ|2MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "هُوَ",
+          "text_simple": "هو",
+          "translation": "He",
+          "transliteration": "huwa",
+          "root": null,
+          "lemma": null,
+          "pos": null,
+          "morphology": "PRON|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ٱللَّهُ",
+          "text_simple": "ٱلله",
+          "translation": "(is) Allah",
+          "transliteration": "l-lahu",
+          "root": "أ ل ه",
+          "lemma": "اللَّه",
+          "pos": "N",
+          "morphology": "PN|ROOT:أله|LEM:اللَّه|NOM"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "أَحَدٌ",
+          "text_simple": "أحد",
+          "translation": "the One",
+          "transliteration": "aḥadun",
+          "root": "أ ح د",
+          "lemma": "أَحَد",
+          "pos": "N",
+          "morphology": "ROOT:أحد|LEM:أَحَد|M|INDEF|NOM"
+        }
+      ]
+    },
+    "2": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "ٱللَّهُ",
+          "text_simple": "ٱلله",
+          "translation": "Allah",
+          "transliteration": "al-lahu",
+          "root": "أ ل ه",
+          "lemma": "اللَّه",
+          "pos": "N",
+          "morphology": "PN|ROOT:أله|LEM:اللَّه|NOM"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلصَّمَدُ",
+          "text_simple": "ٱلصمد",
+          "translation": "the Eternal, the Absolute",
+          "transliteration": "l-ṣamadu",
+          "root": "ص م د",
+          "lemma": "صَمَد",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:صمد|LEM:صَمَد|MS|NOM"
+        }
+      ]
+    },
+    "3": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "لَمْ",
+          "text_simple": "لم",
+          "translation": "Not",
+          "transliteration": "lam",
+          "root": null,
+          "lemma": "لَم",
+          "pos": null,
+          "morphology": "NEG|LEM:لَم"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "يَلِدْ",
+          "text_simple": "يلد",
+          "translation": "He begets",
+          "transliteration": "yalid",
+          "root": "و ل د",
+          "lemma": "وَلَدَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:ولد|LEM:وَلَدَ|3MS|MOOD:JUS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "وَلَمْ",
+          "text_simple": "ولم",
+          "translation": "and not",
+          "transliteration": "walam",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|NEG|LEM:لَم"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "يُولَدْ",
+          "text_simple": "يولد",
+          "translation": "He is begotten",
+          "transliteration": "yūlad",
+          "root": "و ل د",
+          "lemma": "وَلَدَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|PASS|ROOT:ولد|LEM:وَلَدَ|3MS|MOOD:JUS"
+        }
+      ]
+    },
+    "4": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَلَمْ",
+          "text_simple": "ولم",
+          "translation": "And not",
+          "transliteration": "walam",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|NEG|LEM:لَم"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "يَكُن",
+          "text_simple": "يكن",
+          "translation": "is",
+          "transliteration": "yakun",
+          "root": "ك و ن",
+          "lemma": "كانَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:كون|LEM:كانَ|FAM:كَان|3MS|MOOD:JUS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "لَّهُۥ",
+          "text_simple": "له",
+          "translation": "for Him",
+          "transliteration": "lahu",
+          "root": null,
+          "lemma": "ل",
+          "pos": null,
+          "morphology": "P|PREF|LEM:ل|PRON|3MS"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "كُفُوًا",
+          "text_simple": "كفوا",
+          "translation": "equivalent",
+          "transliteration": "kufuwan",
+          "root": "ك ف أ",
+          "lemma": "كُفُو",
+          "pos": "N",
+          "morphology": "ROOT:كفأ|LEM:كُفُو|M|INDEF|ACC"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "أَحَدٌۢ",
+          "text_simple": "أحد",
+          "translation": "any [one]",
+          "transliteration": "aḥadun",
+          "root": "أ ح د",
+          "lemma": "أَحَد",
+          "pos": "N",
+          "morphology": "ROOT:أحد|LEM:أَحَد|M|INDEF|NOM"
+        }
+      ]
+    }
+  }
+}

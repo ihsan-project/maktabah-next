@@ -1,0 +1,208 @@
+{
+  "surah": 106,
+  "verses": {
+    "1": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "لِإِيلَـٰفِ",
+          "text_simple": "لإيلـف",
+          "translation": "For (the) familiarity",
+          "transliteration": "liīlāfi",
+          "root": "أ ل ف",
+          "lemma": "إِلاف",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ل|VN|VF:4|ROOT:ألف|LEM:إِلاف|M|GEN"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "قُرَيْشٍ",
+          "text_simple": "قريش",
+          "translation": "(of the) Quraish",
+          "transliteration": "qurayshin",
+          "root": "ق ر ش",
+          "lemma": "قُرَيْش",
+          "pos": "N",
+          "morphology": "PN|ROOT:قرش|LEM:قُرَيْش|P|GEN"
+        }
+      ]
+    },
+    "2": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "إِۦلَـٰفِهِمْ",
+          "text_simple": "إلـفهم",
+          "translation": "Their familiarity",
+          "transliteration": "īlāfihim",
+          "root": "أ ل ف",
+          "lemma": "إِلاف",
+          "pos": "N",
+          "morphology": "VN|VF:4|ROOT:ألف|LEM:إِلاف|M|GEN|PRON|SUFF|3MP"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "رِحْلَةَ",
+          "text_simple": "رحلة",
+          "translation": "(with the) journey",
+          "transliteration": "riḥ'lata",
+          "root": "ر ح ل",
+          "lemma": "رِحْلَة",
+          "pos": "N",
+          "morphology": "ROOT:رحل|LEM:رِحْلَة|F|ACC"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ٱلشِّتَآءِ",
+          "text_simple": "ٱلشتاء",
+          "translation": "(of) winter",
+          "transliteration": "l-shitāi",
+          "root": "ش ت و",
+          "lemma": "شِتاء",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:شتو|LEM:شِتاء|M|GEN"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "وَٱلصَّيْفِ",
+          "text_simple": "وٱلصيف",
+          "translation": "and summer",
+          "transliteration": "wal-ṣayfi",
+          "root": "ص ي ف",
+          "lemma": "صَيْف",
+          "pos": "N",
+          "morphology": "CONJ|PREF|LEM:و|DET|PREF|LEM:ال|ROOT:صيف|LEM:صَيْف|M|GEN"
+        }
+      ]
+    },
+    "3": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "فَلْيَعْبُدُوا۟",
+          "text_simple": "فليعبدوا",
+          "translation": "So let them worship",
+          "transliteration": "falyaʿbudū",
+          "root": "ع ب د",
+          "lemma": "عَبَدَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:ف|IMPV|PREF|LEM:ل|IMPF|VF:1|ROOT:عبد|LEM:عَبَدَ|3MP|MOOD:JUS|PRON|SUFF|3MP"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "رَبَّ",
+          "text_simple": "رب",
+          "translation": "(the) Lord",
+          "transliteration": "rabba",
+          "root": "ر ب ب",
+          "lemma": "رَبّ",
+          "pos": "N",
+          "morphology": "ROOT:ربب|LEM:رَبّ|M|ACC"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "هَـٰذَا",
+          "text_simple": "هـذا",
+          "translation": "(of) this",
+          "transliteration": "hādhā",
+          "root": null,
+          "lemma": "ه",
+          "pos": null,
+          "morphology": "ATT|PREF|LEM:ه|DEM|LEM:ذا|MS"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱلْبَيْتِ",
+          "text_simple": "ٱلبيت",
+          "translation": "House",
+          "transliteration": "l-bayti",
+          "root": "ب ي ت",
+          "lemma": "بَيْت",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:بيت|LEM:بَيْت|M|GEN"
+        }
+      ]
+    },
+    "4": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "ٱلَّذِىٓ",
+          "text_simple": "ٱلذى",
+          "translation": "The One Who",
+          "transliteration": "alladhī",
+          "root": null,
+          "lemma": "الَّذِي",
+          "pos": null,
+          "morphology": "REL|LEM:الَّذِي|MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَطْعَمَهُم",
+          "text_simple": "أطعمهم",
+          "translation": "feeds them",
+          "transliteration": "aṭʿamahum",
+          "root": "ط ع م",
+          "lemma": "أَطْعَمَ",
+          "pos": "V",
+          "morphology": "PERF|VF:4|ROOT:طعم|LEM:أَطْعَمَ|3MS|PRON|SUFF|3MP"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "مِّن",
+          "text_simple": "من",
+          "translation": "[from]",
+          "transliteration": "min",
+          "root": null,
+          "lemma": "مِن",
+          "pos": null,
+          "morphology": "P|LEM:مِن"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "جُوعٍۢ",
+          "text_simple": "جوع",
+          "translation": "(against) hunger",
+          "transliteration": "jūʿin",
+          "root": "ج و ع",
+          "lemma": "جُوع",
+          "pos": "N",
+          "morphology": "ROOT:جوع|LEM:جُوع|M|INDEF|GEN"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "وَءَامَنَهُم",
+          "text_simple": "وءامنهم",
+          "translation": "and gives them security",
+          "transliteration": "waāmanahum",
+          "root": "أ م ن",
+          "lemma": "آمَنَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:4|ROOT:أمن|LEM:آمَنَ|3MS|PRON|SUFF|3MP"
+        },
+        {
+          "position": 6,
+          "text_uthmani": "مِّنْ",
+          "text_simple": "من",
+          "translation": "from",
+          "transliteration": "min",
+          "root": null,
+          "lemma": "مِن",
+          "pos": null,
+          "morphology": "P|LEM:مِن"
+        },
+        {
+          "position": 7,
+          "text_uthmani": "خَوْفٍۭ",
+          "text_simple": "خوف",
+          "translation": "fear",
+          "transliteration": "khawfin",
+          "root": "خ و ف",
+          "lemma": "خَوْف",
+          "pos": "N",
+          "morphology": "ROOT:خوف|LEM:خَوْف|M|INDEF|GEN"
+        }
+      ]
+    }
+  }
+}

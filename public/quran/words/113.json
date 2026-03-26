@@ -1,0 +1,278 @@
+{
+  "surah": 113,
+  "verses": {
+    "1": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "قُلْ",
+          "text_simple": "قل",
+          "translation": "Say",
+          "transliteration": "qul",
+          "root": "ق و ل",
+          "lemma": "قالَ",
+          "pos": "V",
+          "morphology": "IMPV|VF:1|ROOT:قول|LEM:قالَ|2MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَعُوذُ",
+          "text_simple": "أعوذ",
+          "translation": "I seek refuge",
+          "transliteration": "aʿūdhu",
+          "root": "ع و ذ",
+          "lemma": "عُذْ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:عوذ|LEM:عُذْ|1S|MOOD:IND"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "بِرَبِّ",
+          "text_simple": "برب",
+          "translation": "in (the) Lord",
+          "transliteration": "birabbi",
+          "root": "ر ب ب",
+          "lemma": "رَبّ",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ب|ROOT:ربب|LEM:رَبّ|M|GEN"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱلْفَلَقِ",
+          "text_simple": "ٱلفلق",
+          "translation": "(of) the dawn",
+          "transliteration": "l-falaqi",
+          "root": "ف ل ق",
+          "lemma": "فَلَق",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:فلق|LEM:فَلَق|M|GEN"
+        }
+      ]
+    },
+    "2": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "مِن",
+          "text_simple": "من",
+          "translation": "From",
+          "transliteration": "min",
+          "root": null,
+          "lemma": "مِن",
+          "pos": null,
+          "morphology": "P|LEM:مِن"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "شَرِّ",
+          "text_simple": "شر",
+          "translation": "(the) evil",
+          "transliteration": "sharri",
+          "root": "ش ر ر",
+          "lemma": "شَرّ",
+          "pos": "N",
+          "morphology": "ROOT:شرر|LEM:شَرّ|MS|GEN"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "مَا",
+          "text_simple": "ما",
+          "translation": "(of) what",
+          "transliteration": "mā",
+          "root": null,
+          "lemma": "ما",
+          "pos": null,
+          "morphology": "REL|LEM:ما"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "خَلَقَ",
+          "text_simple": "خلق",
+          "translation": "He created",
+          "transliteration": "khalaqa",
+          "root": "خ ل ق",
+          "lemma": "خَلَقَ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:خلق|LEM:خَلَقَ|3MS"
+        }
+      ]
+    },
+    "3": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَمِن",
+          "text_simple": "ومن",
+          "translation": "And from",
+          "transliteration": "wamin",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|P|LEM:مِن"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "شَرِّ",
+          "text_simple": "شر",
+          "translation": "(the) evil",
+          "transliteration": "sharri",
+          "root": "ش ر ر",
+          "lemma": "شَرّ",
+          "pos": "N",
+          "morphology": "ROOT:شرر|LEM:شَرّ|MS|GEN"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "غَاسِقٍ",
+          "text_simple": "غاسق",
+          "translation": "(of) darkness",
+          "transliteration": "ghāsiqin",
+          "root": "غ س ق",
+          "lemma": "غاسِق",
+          "pos": "N",
+          "morphology": "ACT_PCPL|VF:1|ROOT:غسق|LEM:غاسِق|M|INDEF|GEN"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "إِذَا",
+          "text_simple": "إذا",
+          "translation": "when",
+          "transliteration": "idhā",
+          "root": null,
+          "lemma": "إِذا",
+          "pos": null,
+          "morphology": "T|LEM:إِذا"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "وَقَبَ",
+          "text_simple": "وقب",
+          "translation": "it spreads",
+          "transliteration": "waqaba",
+          "root": "و ق ب",
+          "lemma": "وَقَبَ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:وقب|LEM:وَقَبَ|3MS"
+        }
+      ]
+    },
+    "4": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَمِن",
+          "text_simple": "ومن",
+          "translation": "And from",
+          "transliteration": "wamin",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|P|LEM:مِن"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "شَرِّ",
+          "text_simple": "شر",
+          "translation": "(the) evil",
+          "transliteration": "sharri",
+          "root": "ش ر ر",
+          "lemma": "شَرّ",
+          "pos": "N",
+          "morphology": "ROOT:شرر|LEM:شَرّ|MS|GEN"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ٱلنَّفَّـٰثَـٰتِ",
+          "text_simple": "ٱلنفـثـت",
+          "translation": "(of) the blowers",
+          "transliteration": "l-nafāthāti",
+          "root": "ن ف ث",
+          "lemma": "نَفّاثَة",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:نفث|LEM:نَفّاثَة|FP|GEN"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "فِى",
+          "text_simple": "فى",
+          "translation": "in",
+          "transliteration": "fī",
+          "root": null,
+          "lemma": "فِي",
+          "pos": null,
+          "morphology": "P|LEM:فِي"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "ٱلْعُقَدِ",
+          "text_simple": "ٱلعقد",
+          "translation": "the knots",
+          "transliteration": "l-ʿuqadi",
+          "root": "ع ق د",
+          "lemma": "عُقْدَة",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:عقد|LEM:عُقْدَة|MP|GEN"
+        }
+      ]
+    },
+    "5": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَمِن",
+          "text_simple": "ومن",
+          "translation": "And from",
+          "transliteration": "wamin",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|P|LEM:مِن"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "شَرِّ",
+          "text_simple": "شر",
+          "translation": "(the) evil",
+          "transliteration": "sharri",
+          "root": "ش ر ر",
+          "lemma": "شَرّ",
+          "pos": "N",
+          "morphology": "ROOT:شرر|LEM:شَرّ|MS|GEN"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "حَاسِدٍ",
+          "text_simple": "حاسد",
+          "translation": "(of) an envier",
+          "transliteration": "ḥāsidin",
+          "root": "ح س د",
+          "lemma": "حاسِد",
+          "pos": "N",
+          "morphology": "ACT_PCPL|VF:1|ROOT:حسد|LEM:حاسِد|M|INDEF|GEN"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "إِذَا",
+          "text_simple": "إذا",
+          "translation": "when",
+          "transliteration": "idhā",
+          "root": null,
+          "lemma": "إِذا",
+          "pos": null,
+          "morphology": "T|LEM:إِذا"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "حَسَدَ",
+          "text_simple": "حسد",
+          "translation": "he envies",
+          "transliteration": "ḥasada",
+          "root": "ح س د",
+          "lemma": "حَسَدَ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:حسد|LEM:حَسَدَ|3MS"
+        }
+      ]
+    }
+  }
+}

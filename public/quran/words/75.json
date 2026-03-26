@@ -1,0 +1,1969 @@
+{
+  "surah": 75,
+  "verses": {
+    "1": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "لَآ",
+          "text_simple": "لا",
+          "translation": "Nay",
+          "transliteration": "lā",
+          "root": null,
+          "lemma": "لا",
+          "pos": null,
+          "morphology": "NEG|LEM:لا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أُقْسِمُ",
+          "text_simple": "أقسم",
+          "translation": "I swear",
+          "transliteration": "uq'simu",
+          "root": "ق س م",
+          "lemma": "أَقْسَمُ",
+          "pos": "V",
+          "morphology": "IMPF|VF:4|ROOT:قسم|LEM:أَقْسَمُ|1S|MOOD:IND"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "بِيَوْمِ",
+          "text_simple": "بيوم",
+          "translation": "by (the) Day",
+          "transliteration": "biyawmi",
+          "root": "ي و م",
+          "lemma": "يَوْم",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ب|ROOT:يوم|LEM:يَوْم|M|GEN"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱلْقِيَـٰمَةِ",
+          "text_simple": "ٱلقيـمة",
+          "translation": "(of) the Resurrection",
+          "transliteration": "l-qiyāmati",
+          "root": "ق و م",
+          "lemma": "قِيامَة",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:قوم|LEM:قِيامَة|F|GEN"
+        }
+      ]
+    },
+    "2": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَلَآ",
+          "text_simple": "ولا",
+          "translation": "And nay",
+          "transliteration": "walā",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|NEG|LEM:لا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أُقْسِمُ",
+          "text_simple": "أقسم",
+          "translation": "I swear",
+          "transliteration": "uq'simu",
+          "root": "ق س م",
+          "lemma": "أَقْسَمُ",
+          "pos": "V",
+          "morphology": "IMPF|VF:4|ROOT:قسم|LEM:أَقْسَمُ|1S|MOOD:IND"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "بِٱلنَّفْسِ",
+          "text_simple": "بٱلنفس",
+          "translation": "by the soul",
+          "transliteration": "bil-nafsi",
+          "root": "ن ف س",
+          "lemma": "نَفْس",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ب|DET|PREF|LEM:ال|ROOT:نفس|LEM:نَفْس|FS|GEN"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱللَّوَّامَةِ",
+          "text_simple": "ٱللوامة",
+          "translation": "self-accusing",
+          "transliteration": "l-lawāmati",
+          "root": "ل و م",
+          "lemma": "لَوّامَة",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:لوم|LEM:لَوّامَة|F|GEN|ADJ"
+        }
+      ]
+    },
+    "3": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "أَيَحْسَبُ",
+          "text_simple": "أيحسب",
+          "translation": "Does think",
+          "transliteration": "ayaḥsabu",
+          "root": "ح س ب",
+          "lemma": "حَسِبَ",
+          "pos": "V",
+          "morphology": "INTG|PREF|LEM:أ|IMPF|VF:1|ROOT:حسب|LEM:حَسِبَ|3MS|MOOD:IND"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلْإِنسَـٰنُ",
+          "text_simple": "ٱلإنسـن",
+          "translation": "[the] man",
+          "transliteration": "l-insānu",
+          "root": "أ ن س",
+          "lemma": "إِنسان",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أنس|LEM:إِنسان|M|NOM"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "أَلَّن",
+          "text_simple": "ألن",
+          "translation": "that not",
+          "transliteration": "allan",
+          "root": null,
+          "lemma": "أَن",
+          "pos": null,
+          "morphology": "SUB|LEM:أَن|NEG|LEM:لَن"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "نَّجْمَعَ",
+          "text_simple": "نجمع",
+          "translation": "We will assemble",
+          "transliteration": "najmaʿa",
+          "root": "ج م ع",
+          "lemma": "جَمَعَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:جمع|LEM:جَمَعَ|1P|MOOD:SUBJ"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "عِظَامَهُۥ",
+          "text_simple": "عظامه",
+          "translation": "his bones",
+          "transliteration": "ʿiẓāmahu",
+          "root": "ع ظ م",
+          "lemma": "عِظام",
+          "pos": "N",
+          "morphology": "ROOT:عظم|LEM:عِظام|MP|ACC|PRON|SUFF|3MS"
+        }
+      ]
+    },
+    "4": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "بَلَىٰ",
+          "text_simple": "بلى",
+          "translation": "Nay",
+          "transliteration": "balā",
+          "root": null,
+          "lemma": "بَلَى",
+          "pos": null,
+          "morphology": "ANS|LEM:بَلَى"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "قَـٰدِرِينَ",
+          "text_simple": "قـدرين",
+          "translation": "(We are) Able",
+          "transliteration": "qādirīna",
+          "root": "ق د ر",
+          "lemma": "قادِر",
+          "pos": "N",
+          "morphology": "ACT_PCPL|VF:1|ROOT:قدر|LEM:قادِر|MP|ACC"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "عَلَىٰٓ",
+          "text_simple": "على",
+          "translation": "on",
+          "transliteration": "ʿalā",
+          "root": null,
+          "lemma": "عَلَى",
+          "pos": null,
+          "morphology": "P|LEM:عَلَى"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "أَن",
+          "text_simple": "أن",
+          "translation": "that",
+          "transliteration": "an",
+          "root": null,
+          "lemma": "أَن",
+          "pos": null,
+          "morphology": "SUB|LEM:أَن"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "نُّسَوِّىَ",
+          "text_simple": "نسوى",
+          "translation": "We can restore",
+          "transliteration": "nusawwiya",
+          "root": "س و ي",
+          "lemma": "سَوَّى",
+          "pos": "V",
+          "morphology": "IMPF|VF:2|ROOT:سوي|LEM:سَوَّى|1P|MOOD:SUBJ"
+        },
+        {
+          "position": 6,
+          "text_uthmani": "بَنَانَهُۥ",
+          "text_simple": "بنانه",
+          "translation": "his fingertips",
+          "transliteration": "banānahu",
+          "root": "ب ن ن",
+          "lemma": "بَنان",
+          "pos": "N",
+          "morphology": "ROOT:بنن|LEM:بَنان|M|ACC|PRON|SUFF|3MS"
+        }
+      ]
+    },
+    "5": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "بَلْ",
+          "text_simple": "بل",
+          "translation": "Nay",
+          "transliteration": "bal",
+          "root": null,
+          "lemma": "بَل",
+          "pos": null,
+          "morphology": "RET|LEM:بَل"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "يُرِيدُ",
+          "text_simple": "يريد",
+          "translation": "Desires",
+          "transliteration": "yurīdu",
+          "root": "ر و د",
+          "lemma": "أَرادَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:4|ROOT:رود|LEM:أَرادَ|3MS|MOOD:IND"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ٱلْإِنسَـٰنُ",
+          "text_simple": "ٱلإنسـن",
+          "translation": "[the] man",
+          "transliteration": "l-insānu",
+          "root": "أ ن س",
+          "lemma": "إِنسان",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أنس|LEM:إِنسان|M|NOM"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "لِيَفْجُرَ",
+          "text_simple": "ليفجر",
+          "translation": "to give (the) lie",
+          "transliteration": "liyafjura",
+          "root": "ف ج ر",
+          "lemma": "يَفْجُرَ",
+          "pos": "V",
+          "morphology": "PRP|PREF|LEM:ل|IMPF|VF:1|ROOT:فجر|LEM:يَفْجُرَ|3MS|MOOD:SUBJ"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "أَمَامَهُۥ",
+          "text_simple": "أمامه",
+          "translation": "(to) what is before him",
+          "transliteration": "amāmahu",
+          "root": "أ م م",
+          "lemma": "أَمام",
+          "pos": "N",
+          "morphology": "T|ROOT:أمم|LEM:أَمام|ACC|PRON|SUFF|3MS"
+        }
+      ]
+    },
+    "6": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "يَسْـَٔلُ",
+          "text_simple": "يسـل",
+          "translation": "He asks",
+          "transliteration": "yasalu",
+          "root": "س أ ل",
+          "lemma": "سَأَلَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:سأل|LEM:سَأَلَ|3MS|MOOD:IND"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَيَّانَ",
+          "text_simple": "أيان",
+          "translation": "When",
+          "transliteration": "ayyāna",
+          "root": null,
+          "lemma": "أَيّان",
+          "pos": null,
+          "morphology": "INTG|LEM:أَيّان"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "يَوْمُ",
+          "text_simple": "يوم",
+          "translation": "(is the) Day",
+          "transliteration": "yawmu",
+          "root": "ي و م",
+          "lemma": "يَوْم",
+          "pos": "N",
+          "morphology": "ROOT:يوم|LEM:يَوْم|M|NOM"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱلْقِيَـٰمَةِ",
+          "text_simple": "ٱلقيـمة",
+          "translation": "(of) the Resurrection",
+          "transliteration": "l-qiyāmati",
+          "root": "ق و م",
+          "lemma": "قِيامَة",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:قوم|LEM:قِيامَة|F|GEN"
+        }
+      ]
+    },
+    "7": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "فَإِذَا",
+          "text_simple": "فإذا",
+          "translation": "So when",
+          "transliteration": "fa-idhā",
+          "root": null,
+          "lemma": "ف",
+          "pos": null,
+          "morphology": "REM|PREF|LEM:ف|T|LEM:إِذا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "بَرِقَ",
+          "text_simple": "برق",
+          "translation": "is dazzled",
+          "transliteration": "bariqa",
+          "root": "ب ر ق",
+          "lemma": "بَرِقَ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:برق|LEM:بَرِقَ|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ٱلْبَصَرُ",
+          "text_simple": "ٱلبصر",
+          "translation": "the vision",
+          "transliteration": "l-baṣaru",
+          "root": "ب ص ر",
+          "lemma": "بَصَر",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:بصر|LEM:بَصَر|M|NOM"
+        }
+      ]
+    },
+    "8": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَخَسَفَ",
+          "text_simple": "وخسف",
+          "translation": "And becomes dark",
+          "transliteration": "wakhasafa",
+          "root": "خ س ف",
+          "lemma": "خَسَفَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:1|ROOT:خسف|LEM:خَسَفَ|3MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلْقَمَرُ",
+          "text_simple": "ٱلقمر",
+          "translation": "the moon",
+          "transliteration": "l-qamaru",
+          "root": "ق م ر",
+          "lemma": "قَمَر",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:قمر|LEM:قَمَر|M|NOM"
+        }
+      ]
+    },
+    "9": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَجُمِعَ",
+          "text_simple": "وجمع",
+          "translation": "And are joined",
+          "transliteration": "wajumiʿa",
+          "root": "ج م ع",
+          "lemma": "جَمَعَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:1|PASS|ROOT:جمع|LEM:جَمَعَ|3MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلشَّمْسُ",
+          "text_simple": "ٱلشمس",
+          "translation": "the sun",
+          "transliteration": "l-shamsu",
+          "root": "ش م س",
+          "lemma": "شَمْس",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:شمس|LEM:شَمْس|F|NOM"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "وَٱلْقَمَرُ",
+          "text_simple": "وٱلقمر",
+          "translation": "and the moon",
+          "transliteration": "wal-qamaru",
+          "root": "ق م ر",
+          "lemma": "قَمَر",
+          "pos": "N",
+          "morphology": "CONJ|PREF|LEM:و|DET|PREF|LEM:ال|ROOT:قمر|LEM:قَمَر|M|NOM"
+        }
+      ]
+    },
+    "10": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "يَقُولُ",
+          "text_simple": "يقول",
+          "translation": "Will say",
+          "transliteration": "yaqūlu",
+          "root": "ق و ل",
+          "lemma": "قالَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:قول|LEM:قالَ|3MS|MOOD:IND"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلْإِنسَـٰنُ",
+          "text_simple": "ٱلإنسـن",
+          "translation": "[the] man",
+          "transliteration": "l-insānu",
+          "root": "أ ن س",
+          "lemma": "إِنسان",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أنس|LEM:إِنسان|M|NOM"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "يَوْمَئِذٍ",
+          "text_simple": "يومئذ",
+          "translation": "that Day",
+          "transliteration": "yawma-idhin",
+          "root": "ي و م",
+          "lemma": "يَوْم",
+          "pos": "N",
+          "morphology": "T|ROOT:يوم|LEM:يَوْم|T|LEM:إِذ"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "أَيْنَ",
+          "text_simple": "أين",
+          "translation": "Where",
+          "transliteration": "ayna",
+          "root": null,
+          "lemma": "أَيْن",
+          "pos": null,
+          "morphology": "INTG|LEM:أَيْن"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "ٱلْمَفَرُّ",
+          "text_simple": "ٱلمفر",
+          "translation": "(is) the escape",
+          "transliteration": "l-mafaru",
+          "root": "ف ر ر",
+          "lemma": "مَفَرّ",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:فرر|LEM:مَفَرّ|M|NOM"
+        }
+      ]
+    },
+    "11": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "كَلَّا",
+          "text_simple": "كلا",
+          "translation": "By no means",
+          "transliteration": "kallā",
+          "root": null,
+          "lemma": "كَلّا",
+          "pos": null,
+          "morphology": "AVR|LEM:كَلّا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "لَا",
+          "text_simple": "لا",
+          "translation": "(There is) no",
+          "transliteration": "lā",
+          "root": null,
+          "lemma": "لا",
+          "pos": null,
+          "morphology": "NEG|LEM:لا|FAM:إِنّ"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "وَزَرَ",
+          "text_simple": "وزر",
+          "translation": "refuge",
+          "transliteration": "wazara",
+          "root": "و ز ر",
+          "lemma": "وَزَر",
+          "pos": "N",
+          "morphology": "ROOT:وزر|LEM:وَزَر|M|ACC"
+        }
+      ]
+    },
+    "12": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "إِلَىٰ",
+          "text_simple": "إلى",
+          "translation": "To",
+          "transliteration": "ilā",
+          "root": null,
+          "lemma": "إِلَى",
+          "pos": null,
+          "morphology": "P|LEM:إِلَى"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "رَبِّكَ",
+          "text_simple": "ربك",
+          "translation": "your Lord",
+          "transliteration": "rabbika",
+          "root": "ر ب ب",
+          "lemma": "رَبّ",
+          "pos": "N",
+          "morphology": "ROOT:ربب|LEM:رَبّ|M|GEN|PRON|SUFF|2MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "يَوْمَئِذٍ",
+          "text_simple": "يومئذ",
+          "translation": "that Day",
+          "transliteration": "yawma-idhin",
+          "root": "ي و م",
+          "lemma": "يَوْم",
+          "pos": "N",
+          "morphology": "T|ROOT:يوم|LEM:يَوْم|T|LEM:إِذ"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱلْمُسْتَقَرُّ",
+          "text_simple": "ٱلمستقر",
+          "translation": "(is) the place of rest",
+          "transliteration": "l-mus'taqaru",
+          "root": "ق ر ر",
+          "lemma": "مُسْتَقَرّ",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|PASS_PCPL|VF:10|ROOT:قرر|LEM:مُسْتَقَرّ|M|NOM"
+        }
+      ]
+    },
+    "13": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "يُنَبَّؤُا۟",
+          "text_simple": "ينبؤا",
+          "translation": "Will be informed",
+          "transliteration": "yunabba-u",
+          "root": "ن ب أ",
+          "lemma": "نَبَّأَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:2|PASS|ROOT:نبأ|LEM:نَبَّأَ|3MS|MOOD:IND"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلْإِنسَـٰنُ",
+          "text_simple": "ٱلإنسـن",
+          "translation": "[the] man",
+          "transliteration": "l-insānu",
+          "root": "أ ن س",
+          "lemma": "إِنسان",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أنس|LEM:إِنسان|M|NOM"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "يَوْمَئِذٍۭ",
+          "text_simple": "يومئذ",
+          "translation": "that Day",
+          "transliteration": "yawma-idhin",
+          "root": "ي و م",
+          "lemma": "يَوْم",
+          "pos": "N",
+          "morphology": "T|ROOT:يوم|LEM:يَوْم|T|LEM:إِذ"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "بِمَا",
+          "text_simple": "بما",
+          "translation": "of what",
+          "transliteration": "bimā",
+          "root": null,
+          "lemma": "ب",
+          "pos": null,
+          "morphology": "P|PREF|LEM:ب|REL|LEM:ما"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "قَدَّمَ",
+          "text_simple": "قدم",
+          "translation": "he sent forth",
+          "transliteration": "qaddama",
+          "root": "ق د م",
+          "lemma": "قَدَّمَ",
+          "pos": "V",
+          "morphology": "PERF|VF:2|ROOT:قدم|LEM:قَدَّمَ|3MS"
+        },
+        {
+          "position": 6,
+          "text_uthmani": "وَأَخَّرَ",
+          "text_simple": "وأخر",
+          "translation": "and kept back",
+          "transliteration": "wa-akhara",
+          "root": "أ خ ر",
+          "lemma": "أَخَّرَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:2|ROOT:أخر|LEM:أَخَّرَ|3MS"
+        }
+      ]
+    },
+    "14": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "بَلِ",
+          "text_simple": "بل",
+          "translation": "Nay",
+          "transliteration": "bali",
+          "root": null,
+          "lemma": "بَل",
+          "pos": null,
+          "morphology": "RET|LEM:بَل"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلْإِنسَـٰنُ",
+          "text_simple": "ٱلإنسـن",
+          "translation": "[The] man",
+          "transliteration": "l-insānu",
+          "root": "أ ن س",
+          "lemma": "إِنسان",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أنس|LEM:إِنسان|M|NOM"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "عَلَىٰ",
+          "text_simple": "على",
+          "translation": "against",
+          "transliteration": "ʿalā",
+          "root": null,
+          "lemma": "عَلَى",
+          "pos": null,
+          "morphology": "P|LEM:عَلَى"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "نَفْسِهِۦ",
+          "text_simple": "نفسه",
+          "translation": "himself",
+          "transliteration": "nafsihi",
+          "root": "ن ف س",
+          "lemma": "نَفْس",
+          "pos": "N",
+          "morphology": "ROOT:نفس|LEM:نَفْس|FS|GEN|PRON|SUFF|3MS"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "بَصِيرَةٌۭ",
+          "text_simple": "بصيرة",
+          "translation": "(will be) a witness",
+          "transliteration": "baṣīratun",
+          "root": "ب ص ر",
+          "lemma": "بَصِيرَة",
+          "pos": "N",
+          "morphology": "ROOT:بصر|LEM:بَصِيرَة|F|INDEF|NOM"
+        }
+      ]
+    },
+    "15": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَلَوْ",
+          "text_simple": "ولو",
+          "translation": "Even if",
+          "transliteration": "walaw",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CIRC|PREF|LEM:و|COND|LEM:لَو"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَلْقَىٰ",
+          "text_simple": "ألقى",
+          "translation": "he presents",
+          "transliteration": "alqā",
+          "root": "ل ق ي",
+          "lemma": "أَلْقَى",
+          "pos": "V",
+          "morphology": "PERF|VF:4|ROOT:لقي|LEM:أَلْقَى|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "مَعَاذِيرَهُۥ",
+          "text_simple": "معاذيره",
+          "translation": "his excuses",
+          "transliteration": "maʿādhīrahu",
+          "root": "ع ذ ر",
+          "lemma": "مَعاذِير",
+          "pos": "N",
+          "morphology": "ROOT:عذر|LEM:مَعاذِير|M|ACC|PRON|SUFF|3MS"
+        }
+      ]
+    },
+    "16": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "لَا",
+          "text_simple": "لا",
+          "translation": "Not",
+          "transliteration": "lā",
+          "root": null,
+          "lemma": "لا",
+          "pos": null,
+          "morphology": "PRO|LEM:لا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "تُحَرِّكْ",
+          "text_simple": "تحرك",
+          "translation": "move",
+          "transliteration": "tuḥarrik",
+          "root": "ح ر ك",
+          "lemma": "تُحَرِّكْ",
+          "pos": "V",
+          "morphology": "IMPF|VF:2|ROOT:حرك|LEM:تُحَرِّكْ|2MS|MOOD:JUS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "بِهِۦ",
+          "text_simple": "به",
+          "translation": "with it",
+          "transliteration": "bihi",
+          "root": null,
+          "lemma": "ب",
+          "pos": null,
+          "morphology": "P|PREF|LEM:ب|PRON|3MS"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "لِسَانَكَ",
+          "text_simple": "لسانك",
+          "translation": "your tongue",
+          "transliteration": "lisānaka",
+          "root": "ل س ن",
+          "lemma": "لِسان",
+          "pos": "N",
+          "morphology": "ROOT:لسن|LEM:لِسان|M|ACC|PRON|SUFF|2MS"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "لِتَعْجَلَ",
+          "text_simple": "لتعجل",
+          "translation": "to hasten",
+          "transliteration": "litaʿjala",
+          "root": "ع ج ل",
+          "lemma": "عَجِلَ",
+          "pos": "V",
+          "morphology": "PRP|PREF|LEM:ل|IMPF|VF:1|ROOT:عجل|LEM:عَجِلَ|2MS|MOOD:SUBJ"
+        },
+        {
+          "position": 6,
+          "text_uthmani": "بِهِۦٓ",
+          "text_simple": "به",
+          "translation": "with it",
+          "transliteration": "bihi",
+          "root": null,
+          "lemma": "ب",
+          "pos": null,
+          "morphology": "P|PREF|LEM:ب|PRON|3MS"
+        }
+      ]
+    },
+    "17": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "إِنَّ",
+          "text_simple": "إن",
+          "translation": "Indeed",
+          "transliteration": "inna",
+          "root": null,
+          "lemma": "إِنّ",
+          "pos": null,
+          "morphology": "ACC|LEM:إِنّ|FAM:إِنّ"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "عَلَيْنَا",
+          "text_simple": "علينا",
+          "translation": "upon Us",
+          "transliteration": "ʿalaynā",
+          "root": null,
+          "lemma": "عَلَى",
+          "pos": null,
+          "morphology": "P|LEM:عَلَى|PRON|SUFF|1P"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "جَمْعَهُۥ",
+          "text_simple": "جمعه",
+          "translation": "(is) its collection",
+          "transliteration": "jamʿahu",
+          "root": "ج م ع",
+          "lemma": "جَمْع",
+          "pos": "N",
+          "morphology": "ROOT:جمع|LEM:جَمْع|M|ACC|PRON|SUFF|3MS"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "وَقُرْءَانَهُۥ",
+          "text_simple": "وقرءانه",
+          "translation": "and its recitation",
+          "transliteration": "waqur'ānahu",
+          "root": "ق ر أ",
+          "lemma": "قُرْءان",
+          "pos": "N",
+          "morphology": "CONJ|PREF|LEM:و|ROOT:قرأ|LEM:قُرْءان|M|ACC|PRON|SUFF|3MS"
+        }
+      ]
+    },
+    "18": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "فَإِذَا",
+          "text_simple": "فإذا",
+          "translation": "And when",
+          "transliteration": "fa-idhā",
+          "root": null,
+          "lemma": "ف",
+          "pos": null,
+          "morphology": "REM|PREF|LEM:ف|T|LEM:إِذا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "قَرَأْنَـٰهُ",
+          "text_simple": "قرأنـه",
+          "translation": "We have recited it",
+          "transliteration": "qaranāhu",
+          "root": "ق ر أ",
+          "lemma": "قَرَأَ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:قرأ|LEM:قَرَأَ|1P|PRON|SUFF|1P|PRON|SUFF|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "فَٱتَّبِعْ",
+          "text_simple": "فٱتبع",
+          "translation": "then follow",
+          "transliteration": "fa-ittabiʿ",
+          "root": "ت ب ع",
+          "lemma": "اتَّبَعَ",
+          "pos": "V",
+          "morphology": "RSLT|PREF|LEM:ف|IMPV|VF:8|ROOT:تبع|LEM:اتَّبَعَ|2MS"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "قُرْءَانَهُۥ",
+          "text_simple": "قرءانه",
+          "translation": "its recitation",
+          "transliteration": "qur'ānahu",
+          "root": "ق ر أ",
+          "lemma": "قُرْءان",
+          "pos": "N",
+          "morphology": "ROOT:قرأ|LEM:قُرْءان|M|ACC|PRON|SUFF|3MS"
+        }
+      ]
+    },
+    "19": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "ثُمَّ",
+          "text_simple": "ثم",
+          "translation": "Then",
+          "transliteration": "thumma",
+          "root": null,
+          "lemma": "ثُمّ",
+          "pos": null,
+          "morphology": "CONJ|LEM:ثُمّ"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "إِنَّ",
+          "text_simple": "إن",
+          "translation": "indeed",
+          "transliteration": "inna",
+          "root": null,
+          "lemma": "إِنّ",
+          "pos": null,
+          "morphology": "ACC|LEM:إِنّ|FAM:إِنّ"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "عَلَيْنَا",
+          "text_simple": "علينا",
+          "translation": "upon Us",
+          "transliteration": "ʿalaynā",
+          "root": null,
+          "lemma": "عَلَى",
+          "pos": null,
+          "morphology": "P|LEM:عَلَى|PRON|SUFF|1P"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "بَيَانَهُۥ",
+          "text_simple": "بيانه",
+          "translation": "(is) its explanation",
+          "transliteration": "bayānahu",
+          "root": "ب ي ن",
+          "lemma": "بَيان",
+          "pos": "N",
+          "morphology": "ROOT:بين|LEM:بَيان|M|ACC|PRON|SUFF|3MS"
+        }
+      ]
+    },
+    "20": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "كَلَّا",
+          "text_simple": "كلا",
+          "translation": "No",
+          "transliteration": "kallā",
+          "root": null,
+          "lemma": "كَلّا",
+          "pos": null,
+          "morphology": "AVR|LEM:كَلّا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "بَلْ",
+          "text_simple": "بل",
+          "translation": "But",
+          "transliteration": "bal",
+          "root": null,
+          "lemma": "بَل",
+          "pos": null,
+          "morphology": "RET|LEM:بَل"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "تُحِبُّونَ",
+          "text_simple": "تحبون",
+          "translation": "you love",
+          "transliteration": "tuḥibbūna",
+          "root": "ح ب ب",
+          "lemma": "أَحْبَبْ",
+          "pos": "V",
+          "morphology": "IMPF|VF:4|ROOT:حبب|LEM:أَحْبَبْ|2MP|MOOD:IND|PRON|SUFF|2MP"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱلْعَاجِلَةَ",
+          "text_simple": "ٱلعاجلة",
+          "translation": "the immediate",
+          "transliteration": "l-ʿājilata",
+          "root": "ع ج ل",
+          "lemma": "عاجِلَة",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ACT_PCPL|VF:1|ROOT:عجل|LEM:عاجِلَة|F|ACC"
+        }
+      ]
+    },
+    "21": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَتَذَرُونَ",
+          "text_simple": "وتذرون",
+          "translation": "And leave",
+          "transliteration": "watadharūna",
+          "root": "و ذ ر",
+          "lemma": "يَذَرَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|IMPF|VF:1|ROOT:وذر|LEM:يَذَرَ|2MP|MOOD:IND|PRON|SUFF|2MP"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلْـَٔاخِرَةَ",
+          "text_simple": "ٱلـاخرة",
+          "translation": "the Hereafter",
+          "transliteration": "l-ākhirata",
+          "root": "أ خ � �",
+          "lemma": "آخِر",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أخ��|LEM:آخِر|FS|ACC"
+        }
+      ]
+    },
+    "22": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وُجُوهٌۭ",
+          "text_simple": "وجوه",
+          "translation": "Faces",
+          "transliteration": "wujūhun",
+          "root": "و ج ه",
+          "lemma": "وَجْه",
+          "pos": "N",
+          "morphology": "ROOT:وجه|LEM:وَجْه|MP|INDEF|NOM"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "يَوْمَئِذٍۢ",
+          "text_simple": "يومئذ",
+          "translation": "that Day",
+          "transliteration": "yawma-idhin",
+          "root": "ي و م",
+          "lemma": "يَوْم",
+          "pos": "N",
+          "morphology": "T|ROOT:يوم|LEM:يَوْم|T|LEM:إِذ"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "نَّاضِرَةٌ",
+          "text_simple": "ناضرة",
+          "translation": "(will be) radiant",
+          "transliteration": "nāḍiratun",
+          "root": "ن ض ر",
+          "lemma": "ناضِرَة",
+          "pos": "N",
+          "morphology": "ACT_PCPL|VF:1|ROOT:نضر|LEM:ناضِرَة|F|INDEF|NOM"
+        }
+      ]
+    },
+    "23": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "إِلَىٰ",
+          "text_simple": "إلى",
+          "translation": "Towards",
+          "transliteration": "ilā",
+          "root": null,
+          "lemma": "إِلَى",
+          "pos": null,
+          "morphology": "P|LEM:إِلَى"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "رَبِّهَا",
+          "text_simple": "ربها",
+          "translation": "their Lord",
+          "transliteration": "rabbihā",
+          "root": "ر ب ب",
+          "lemma": "رَبّ",
+          "pos": "N",
+          "morphology": "ROOT:ربب|LEM:رَبّ|M|GEN|PRON|SUFF|3FS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "نَاظِرَةٌۭ",
+          "text_simple": "ناظرة",
+          "translation": "looking",
+          "transliteration": "nāẓiratun",
+          "root": "ن ظ ر",
+          "lemma": "ناظِرَة",
+          "pos": "N",
+          "morphology": "ACT_PCPL|VF:1|ROOT:نظر|LEM:ناظِرَة|F|INDEF|NOM"
+        }
+      ]
+    },
+    "24": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَوُجُوهٌۭ",
+          "text_simple": "ووجوه",
+          "translation": "And faces",
+          "transliteration": "wawujūhun",
+          "root": "و ج ه",
+          "lemma": "وَجْه",
+          "pos": "N",
+          "morphology": "CONJ|PREF|LEM:و|ROOT:وجه|LEM:وَجْه|MP|INDEF|NOM"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "يَوْمَئِذٍۭ",
+          "text_simple": "يومئذ",
+          "translation": "that Day",
+          "transliteration": "yawma-idhin",
+          "root": "ي و م",
+          "lemma": "يَوْم",
+          "pos": "N",
+          "morphology": "T|ROOT:يوم|LEM:يَوْم|T|LEM:إِذ"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "بَاسِرَةٌۭ",
+          "text_simple": "باسرة",
+          "translation": "(will be) distorted",
+          "transliteration": "bāsiratun",
+          "root": "ب س ر",
+          "lemma": "باسِرَة",
+          "pos": "N",
+          "morphology": "ACT_PCPL|VF:1|ROOT:بسر|LEM:باسِرَة|F|INDEF|NOM"
+        }
+      ]
+    },
+    "25": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "تَظُنُّ",
+          "text_simple": "تظن",
+          "translation": "Thinking",
+          "transliteration": "taẓunnu",
+          "root": "ظ ن ن",
+          "lemma": "ظَنَّ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:ظنن|LEM:ظَنَّ|3FS|MOOD:IND"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَن",
+          "text_simple": "أن",
+          "translation": "that",
+          "transliteration": "an",
+          "root": null,
+          "lemma": "أَن",
+          "pos": null,
+          "morphology": "SUB|LEM:أَن"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "يُفْعَلَ",
+          "text_simple": "يفعل",
+          "translation": "will be done",
+          "transliteration": "yuf'ʿala",
+          "root": "ف ع ل",
+          "lemma": "فَعَلَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|PASS|ROOT:فعل|LEM:فَعَلَ|3MS|MOOD:SUBJ"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "بِهَا",
+          "text_simple": "بها",
+          "translation": "to them",
+          "transliteration": "bihā",
+          "root": null,
+          "lemma": "ب",
+          "pos": null,
+          "morphology": "P|PREF|LEM:ب|PRON|3FS"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "فَاقِرَةٌۭ",
+          "text_simple": "فاقرة",
+          "translation": "backbreaking",
+          "transliteration": "fāqiratun",
+          "root": "ف ق ر",
+          "lemma": "فاقِرَة",
+          "pos": "N",
+          "morphology": "ACT_PCPL|VF:1|ROOT:فقر|LEM:فاقِرَة|F|INDEF|NOM"
+        }
+      ]
+    },
+    "26": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "كَلَّآ",
+          "text_simple": "كلا",
+          "translation": "No",
+          "transliteration": "kallā",
+          "root": null,
+          "lemma": "كَلّا",
+          "pos": null,
+          "morphology": "AVR|LEM:كَلّا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "إِذَا",
+          "text_simple": "إذا",
+          "translation": "When",
+          "transliteration": "idhā",
+          "root": null,
+          "lemma": "إِذا",
+          "pos": null,
+          "morphology": "T|LEM:إِذا"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "بَلَغَتِ",
+          "text_simple": "بلغت",
+          "translation": "it reaches",
+          "transliteration": "balaghati",
+          "root": "ب ل غ",
+          "lemma": "بَلَغَ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:بلغ|LEM:بَلَغَ|3FS"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱلتَّرَاقِىَ",
+          "text_simple": "ٱلتراقى",
+          "translation": "the collar bones",
+          "transliteration": "l-tarāqiya",
+          "root": "ت ر ق",
+          "lemma": "تَراقِي",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|VN|VF:6|ROOT:ترق|LEM:تَراقِي|M|ACC"
+        }
+      ]
+    },
+    "27": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَقِيلَ",
+          "text_simple": "وقيل",
+          "translation": "And it is said",
+          "transliteration": "waqīla",
+          "root": "ق و ل",
+          "lemma": "قالَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:1|PASS|ROOT:قول|LEM:قالَ|3MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "مَنْ ۜ",
+          "text_simple": "من ",
+          "translation": "Who",
+          "transliteration": "man",
+          "root": null,
+          "lemma": "مَن",
+          "pos": null,
+          "morphology": "INTG|LEM:مَن"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "رَاقٍۢ",
+          "text_simple": "راق",
+          "translation": "(will) cure",
+          "transliteration": "rāqin",
+          "root": "ر ق ي",
+          "lemma": "راق",
+          "pos": "N",
+          "morphology": "ACT_PCPL|VF:1|ROOT:رقي|LEM:راق|M|INDEF|NOM"
+        }
+      ]
+    },
+    "28": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَظَنَّ",
+          "text_simple": "وظن",
+          "translation": "And he is certain",
+          "transliteration": "waẓanna",
+          "root": "ظ ن ن",
+          "lemma": "ظَنَّ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:1|ROOT:ظنن|LEM:ظَنَّ|3MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَنَّهُ",
+          "text_simple": "أنه",
+          "translation": "that it",
+          "transliteration": "annahu",
+          "root": null,
+          "lemma": "أَنّ",
+          "pos": null,
+          "morphology": "ACC|LEM:أَنّ|FAM:إِنّ|PRON|SUFF|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ٱلْفِرَاقُ",
+          "text_simple": "ٱلفراق",
+          "translation": "(is) the parting",
+          "transliteration": "l-firāqu",
+          "root": "ف ر ق",
+          "lemma": "فِراق",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|VN|VF:3|ROOT:فرق|LEM:فِراق|M|NOM"
+        }
+      ]
+    },
+    "29": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَٱلْتَفَّتِ",
+          "text_simple": "وٱلتفت",
+          "translation": "And is wound",
+          "transliteration": "wal-tafati",
+          "root": "ل ف ف",
+          "lemma": "الْتَفَّتِ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:8|ROOT:لفف|LEM:الْتَفَّتِ|3FS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلسَّاقُ",
+          "text_simple": "ٱلساق",
+          "translation": "the leg",
+          "transliteration": "l-sāqu",
+          "root": "س و ق",
+          "lemma": "ساق",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:سوق|LEM:ساق|M|NOM"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "بِٱلسَّاقِ",
+          "text_simple": "بٱلساق",
+          "translation": "about the leg",
+          "transliteration": "bil-sāqi",
+          "root": "س و ق",
+          "lemma": "ساق",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ب|DET|PREF|LEM:ال|ROOT:سوق|LEM:ساق|M|GEN"
+        }
+      ]
+    },
+    "30": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "إِلَىٰ",
+          "text_simple": "إلى",
+          "translation": "To",
+          "transliteration": "ilā",
+          "root": null,
+          "lemma": "إِلَى",
+          "pos": null,
+          "morphology": "P|LEM:إِلَى"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "رَبِّكَ",
+          "text_simple": "ربك",
+          "translation": "your Lord",
+          "transliteration": "rabbika",
+          "root": "ر ب ب",
+          "lemma": "رَبّ",
+          "pos": "N",
+          "morphology": "ROOT:ربب|LEM:رَبّ|M|GEN|PRON|SUFF|2MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "يَوْمَئِذٍ",
+          "text_simple": "يومئذ",
+          "translation": "that Day",
+          "transliteration": "yawma-idhin",
+          "root": "ي و م",
+          "lemma": "يَوْم",
+          "pos": "N",
+          "morphology": "T|ROOT:يوم|LEM:يَوْم|T|LEM:إِذ"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱلْمَسَاقُ",
+          "text_simple": "ٱلمساق",
+          "translation": "(will be) the driving",
+          "transliteration": "l-masāqu",
+          "root": "س و ق",
+          "lemma": "مَساق",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:سوق|LEM:مَساق|M|NOM"
+        }
+      ]
+    },
+    "31": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "فَلَا",
+          "text_simple": "فلا",
+          "translation": "And not",
+          "transliteration": "falā",
+          "root": null,
+          "lemma": "ف",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:ف|NEG|LEM:لا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "صَدَّقَ",
+          "text_simple": "صدق",
+          "translation": "he accepted (the) truth",
+          "transliteration": "ṣaddaqa",
+          "root": "ص د ق",
+          "lemma": "صَدَّقَ",
+          "pos": "V",
+          "morphology": "PERF|VF:2|ROOT:صدق|LEM:صَدَّقَ|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "وَلَا",
+          "text_simple": "ولا",
+          "translation": "and not",
+          "transliteration": "walā",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|NEG|LEM:لا"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "صَلَّىٰ",
+          "text_simple": "صلى",
+          "translation": "he prayed",
+          "transliteration": "ṣallā",
+          "root": "ص ل و",
+          "lemma": "صَلَّى",
+          "pos": "V",
+          "morphology": "PERF|VF:2|ROOT:صلو|LEM:صَلَّى|3MS"
+        }
+      ]
+    },
+    "32": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَلَـٰكِن",
+          "text_simple": "ولـكن",
+          "translation": "But",
+          "transliteration": "walākin",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "REM|PREF|LEM:و|AMD|LEM:لٰكِن"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "كَذَّبَ",
+          "text_simple": "كذب",
+          "translation": "he denied",
+          "transliteration": "kadhaba",
+          "root": "ك ذ ب",
+          "lemma": "كَذَّبَ",
+          "pos": "V",
+          "morphology": "PERF|VF:2|ROOT:كذب|LEM:كَذَّبَ|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "وَتَوَلَّىٰ",
+          "text_simple": "وتولى",
+          "translation": "and turned away",
+          "transliteration": "watawallā",
+          "root": "و ل ي",
+          "lemma": "تَوَلَّى",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:5|ROOT:ولي|LEM:تَوَلَّى|3MS"
+        }
+      ]
+    },
+    "33": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "ثُمَّ",
+          "text_simple": "ثم",
+          "translation": "Then",
+          "transliteration": "thumma",
+          "root": null,
+          "lemma": "ثُمّ",
+          "pos": null,
+          "morphology": "CONJ|LEM:ثُمّ"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ذَهَبَ",
+          "text_simple": "ذهب",
+          "translation": "he went",
+          "transliteration": "dhahaba",
+          "root": "ذ ه ب",
+          "lemma": "ذَهَبَ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:ذهب|LEM:ذَهَبَ|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "إِلَىٰٓ",
+          "text_simple": "إلى",
+          "translation": "to",
+          "transliteration": "ilā",
+          "root": null,
+          "lemma": "إِلَى",
+          "pos": null,
+          "morphology": "P|LEM:إِلَى"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "أَهْلِهِۦ",
+          "text_simple": "أهله",
+          "translation": "his family",
+          "transliteration": "ahlihi",
+          "root": "أ ه ل",
+          "lemma": "أَهْل",
+          "pos": "N",
+          "morphology": "ROOT:أهل|LEM:أَهْل|M|GEN|PRON|SUFF|3MS"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "يَتَمَطَّىٰٓ",
+          "text_simple": "يتمطى",
+          "translation": "swaggering",
+          "transliteration": "yatamaṭṭā",
+          "root": "م ط و",
+          "lemma": "يَتَمَطَّى",
+          "pos": "V",
+          "morphology": "IMPF|VF:5|ROOT:مطو|LEM:يَتَمَطَّى|3MS|MOOD:IND"
+        }
+      ]
+    },
+    "34": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "أَوْلَىٰ",
+          "text_simple": "أولى",
+          "translation": "Woe",
+          "transliteration": "awlā",
+          "root": "و ل ي",
+          "lemma": "أَوْلَى",
+          "pos": "N",
+          "morphology": "ROOT:ولي|LEM:أَوْلَى|MS|NOM"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "لَكَ",
+          "text_simple": "لك",
+          "translation": "to you",
+          "transliteration": "laka",
+          "root": null,
+          "lemma": "ل",
+          "pos": null,
+          "morphology": "P|PREF|LEM:ل|PRON|2MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "فَأَوْلَىٰ",
+          "text_simple": "فأولى",
+          "translation": "and woe",
+          "transliteration": "fa-awlā",
+          "root": "و ل ي",
+          "lemma": "أَوْلَى",
+          "pos": "N",
+          "morphology": "CONJ|PREF|LEM:ف|ROOT:ولي|LEM:أَوْلَى|MS|NOM"
+        }
+      ]
+    },
+    "35": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "ثُمَّ",
+          "text_simple": "ثم",
+          "translation": "Then",
+          "transliteration": "thumma",
+          "root": null,
+          "lemma": "ثُمّ",
+          "pos": null,
+          "morphology": "CONJ|LEM:ثُمّ"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَوْلَىٰ",
+          "text_simple": "أولى",
+          "translation": "woe",
+          "transliteration": "awlā",
+          "root": "و ل ي",
+          "lemma": "أَوْلَى",
+          "pos": "N",
+          "morphology": "ROOT:ولي|LEM:أَوْلَى|MS|NOM"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "لَكَ",
+          "text_simple": "لك",
+          "translation": "to you",
+          "transliteration": "laka",
+          "root": null,
+          "lemma": "ل",
+          "pos": null,
+          "morphology": "P|PREF|LEM:ل|PRON|2MS"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "فَأَوْلَىٰٓ",
+          "text_simple": "فأولى",
+          "translation": "and woe",
+          "transliteration": "fa-awlā",
+          "root": "و ل ي",
+          "lemma": "أَوْلَى",
+          "pos": "N",
+          "morphology": "CONJ|PREF|LEM:ف|ROOT:ولي|LEM:أَوْلَى|MS|NOM"
+        }
+      ]
+    },
+    "36": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "أَيَحْسَبُ",
+          "text_simple": "أيحسب",
+          "translation": "Does think",
+          "transliteration": "ayaḥsabu",
+          "root": "ح س ب",
+          "lemma": "حَسِبَ",
+          "pos": "V",
+          "morphology": "INTG|PREF|LEM:أ|IMPF|VF:1|ROOT:حسب|LEM:حَسِبَ|3MS|MOOD:IND"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلْإِنسَـٰنُ",
+          "text_simple": "ٱلإنسـن",
+          "translation": "man",
+          "transliteration": "l-insānu",
+          "root": "أ ن س",
+          "lemma": "إِنسان",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أنس|LEM:إِنسان|M|NOM"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "أَن",
+          "text_simple": "أن",
+          "translation": "that",
+          "transliteration": "an",
+          "root": null,
+          "lemma": "أَن",
+          "pos": null,
+          "morphology": "SUB|LEM:أَن"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "يُتْرَكَ",
+          "text_simple": "يترك",
+          "translation": "he will be left",
+          "transliteration": "yut'raka",
+          "root": "ت ر ك",
+          "lemma": "تَرَكَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|PASS|ROOT:ترك|LEM:تَرَكَ|3MS|MOOD:SUBJ"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "سُدًى",
+          "text_simple": "سدى",
+          "translation": "neglected",
+          "transliteration": "sudan",
+          "root": "س د ي",
+          "lemma": "سُدًى",
+          "pos": "N",
+          "morphology": "ROOT:سدي|LEM:سُدًى|M|INDEF|ACC"
+        }
+      ]
+    },
+    "37": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "أَلَمْ",
+          "text_simple": "ألم",
+          "translation": "Was not",
+          "transliteration": "alam",
+          "root": null,
+          "lemma": "أ",
+          "pos": null,
+          "morphology": "INTG|PREF|LEM:أ|NEG|LEM:لَم"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "يَكُ",
+          "text_simple": "يك",
+          "translation": "he",
+          "transliteration": "yaku",
+          "root": "ك و ن",
+          "lemma": "كانَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:كون|LEM:كانَ|FAM:كَان|3MS|MOOD:JUS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "نُطْفَةًۭ",
+          "text_simple": "نطفة",
+          "translation": "a semen-drop",
+          "transliteration": "nuṭ'fatan",
+          "root": "ن ط ف",
+          "lemma": "نُطْفَة",
+          "pos": "N",
+          "morphology": "ROOT:نطف|LEM:نُطْفَة|F|INDEF|ACC"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "مِّن",
+          "text_simple": "من",
+          "translation": "of",
+          "transliteration": "min",
+          "root": null,
+          "lemma": "مِن",
+          "pos": null,
+          "morphology": "P|LEM:مِن"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "مَّنِىٍّۢ",
+          "text_simple": "منى",
+          "translation": "semen",
+          "transliteration": "maniyyin",
+          "root": "م ن ي",
+          "lemma": "مَنِيّ",
+          "pos": "N",
+          "morphology": "ROOT:مني|LEM:مَنِيّ|M|INDEF|GEN"
+        },
+        {
+          "position": 6,
+          "text_uthmani": "يُمْنَىٰ",
+          "text_simple": "يمنى",
+          "translation": "emitted",
+          "transliteration": "yum'nā",
+          "root": "م ن ي",
+          "lemma": "يُمْنَى",
+          "pos": "V",
+          "morphology": "IMPF|VF:4|PASS|ROOT:مني|LEM:يُمْنَى|3MS|MOOD:IND"
+        }
+      ]
+    },
+    "38": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "ثُمَّ",
+          "text_simple": "ثم",
+          "translation": "Then",
+          "transliteration": "thumma",
+          "root": null,
+          "lemma": "ثُمّ",
+          "pos": null,
+          "morphology": "CONJ|LEM:ثُمّ"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "كَانَ",
+          "text_simple": "كان",
+          "translation": "he was",
+          "transliteration": "kāna",
+          "root": "ك و ن",
+          "lemma": "كانَ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:كون|LEM:كانَ|FAM:كَان|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "عَلَقَةًۭ",
+          "text_simple": "علقة",
+          "translation": "a clinging substance",
+          "transliteration": "ʿalaqatan",
+          "root": "ع ل ق",
+          "lemma": "عَلَقَة",
+          "pos": "N",
+          "morphology": "ROOT:علق|LEM:عَلَقَة|F|INDEF|ACC"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "فَخَلَقَ",
+          "text_simple": "فخلق",
+          "translation": "then He created",
+          "transliteration": "fakhalaqa",
+          "root": "خ ل ق",
+          "lemma": "خَلَقَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:ف|PERF|VF:1|ROOT:خلق|LEM:خَلَقَ|3MS"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "فَسَوَّىٰ",
+          "text_simple": "فسوى",
+          "translation": "and proportioned",
+          "transliteration": "fasawwā",
+          "root": "س و ي",
+          "lemma": "سَوَّى",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:ف|PERF|VF:2|ROOT:سوي|LEM:سَوَّى|3MS"
+        }
+      ]
+    },
+    "39": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "فَجَعَلَ",
+          "text_simple": "فجعل",
+          "translation": "Then made",
+          "transliteration": "fajaʿala",
+          "root": "ج ع ل",
+          "lemma": "جَعَلَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:ف|PERF|VF:1|ROOT:جعل|LEM:جَعَلَ|3MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "مِنْهُ",
+          "text_simple": "منه",
+          "translation": "of him",
+          "transliteration": "min'hu",
+          "root": null,
+          "lemma": "مِن",
+          "pos": null,
+          "morphology": "P|LEM:مِن|PRON|SUFF|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ٱلزَّوْجَيْنِ",
+          "text_simple": "ٱلزوجين",
+          "translation": "two kinds",
+          "transliteration": "l-zawjayni",
+          "root": "ز و ج",
+          "lemma": "زَوْج",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:زوج|LEM:زَوْج|MD|ACC"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱلذَّكَرَ",
+          "text_simple": "ٱلذكر",
+          "translation": "(the) male",
+          "transliteration": "l-dhakara",
+          "root": "ذ ك ر",
+          "lemma": "ذَكَر",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:ذكر|LEM:ذَكَر|M|ACC"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "وَٱلْأُنثَىٰٓ",
+          "text_simple": "وٱلأنثى",
+          "translation": "and the female",
+          "transliteration": "wal-unthā",
+          "root": "أ ن ث",
+          "lemma": "أُنثَى",
+          "pos": "N",
+          "morphology": "CONJ|PREF|LEM:و|DET|PREF|LEM:ال|ROOT:أنث|LEM:أُنثَى|F|ACC"
+        }
+      ]
+    },
+    "40": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "أَلَيْسَ",
+          "text_simple": "أليس",
+          "translation": "Is not",
+          "transliteration": "alaysa",
+          "root": "ل ي س",
+          "lemma": "لَيْسَ",
+          "pos": "V",
+          "morphology": "INTG|PREF|LEM:أ|PERF|VF:1|ROOT:ليس|LEM:لَيْسَ|FAM:كَان|3MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ذَٰلِكَ",
+          "text_simple": "ذلك",
+          "translation": "[that]",
+          "transliteration": "dhālika",
+          "root": null,
+          "lemma": "ذا",
+          "pos": null,
+          "morphology": "DEM|LEM:ذا|MS|DIST|SUFF|LEM:ل|ADDR|SUFF|M"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "بِقَـٰدِرٍ",
+          "text_simple": "بقـدر",
+          "translation": "(He) Able",
+          "transliteration": "biqādirin",
+          "root": "ق د ر",
+          "lemma": "قادِر",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ب|ACT_PCPL|VF:1|ROOT:قدر|LEM:قادِر|M|INDEF|GEN"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "عَلَىٰٓ",
+          "text_simple": "على",
+          "translation": "[over]",
+          "transliteration": "ʿalā",
+          "root": null,
+          "lemma": "عَلَى",
+          "pos": null,
+          "morphology": "P|LEM:عَلَى"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "أَن",
+          "text_simple": "أن",
+          "translation": "to",
+          "transliteration": "an",
+          "root": null,
+          "lemma": "أَن",
+          "pos": null,
+          "morphology": "SUB|LEM:أَن"
+        },
+        {
+          "position": 6,
+          "text_uthmani": "يُحْـِۧىَ",
+          "text_simple": "يحـى",
+          "translation": "give life",
+          "transliteration": "yuḥ'yiya",
+          "root": "ح ي ي",
+          "lemma": "أَحْيا",
+          "pos": "V",
+          "morphology": "IMPF|VF:4|ROOT:حيي|LEM:أَحْيا|3MS|MOOD:SUBJ"
+        },
+        {
+          "position": 7,
+          "text_uthmani": "ٱلْمَوْتَىٰ",
+          "text_simple": "ٱلموتى",
+          "translation": "(to) the dead",
+          "transliteration": "l-mawtā",
+          "root": "م و ت",
+          "lemma": "مَيِّت",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:موت|LEM:مَيِّت|P|ACC"
+        }
+      ]
+    }
+  }
+}

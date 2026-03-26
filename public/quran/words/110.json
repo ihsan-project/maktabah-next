@@ -1,0 +1,226 @@
+{
+  "surah": 110,
+  "verses": {
+    "1": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "إِذَا",
+          "text_simple": "إذا",
+          "translation": "When",
+          "transliteration": "idhā",
+          "root": null,
+          "lemma": "إِذا",
+          "pos": null,
+          "morphology": "T|LEM:إِذا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "جَآءَ",
+          "text_simple": "جاء",
+          "translation": "comes",
+          "transliteration": "jāa",
+          "root": "ج ي أ",
+          "lemma": "جاءَ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:جيأ|LEM:جاءَ|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "نَصْرُ",
+          "text_simple": "نصر",
+          "translation": "(the) Help",
+          "transliteration": "naṣru",
+          "root": "ن ص ر",
+          "lemma": "نَصْر",
+          "pos": "N",
+          "morphology": "ROOT:نصر|LEM:نَصْر|M|NOM"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱللَّهِ",
+          "text_simple": "ٱلله",
+          "translation": "(of) Allah",
+          "transliteration": "l-lahi",
+          "root": "أ ل ه",
+          "lemma": "اللَّه",
+          "pos": "N",
+          "morphology": "PN|ROOT:أله|LEM:اللَّه|GEN"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "وَٱلْفَتْحُ",
+          "text_simple": "وٱلفتح",
+          "translation": "and the Victory",
+          "transliteration": "wal-fatḥu",
+          "root": "ف ت ح",
+          "lemma": "فَتْح",
+          "pos": "N",
+          "morphology": "CONJ|PREF|LEM:و|DET|PREF|LEM:ال|ROOT:فتح|LEM:فَتْح|M|NOM"
+        }
+      ]
+    },
+    "2": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَرَأَيْتَ",
+          "text_simple": "ورأيت",
+          "translation": "And you see",
+          "transliteration": "wara-ayta",
+          "root": "ر أ ي",
+          "lemma": "رَأَى",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:1|ROOT:رأي|LEM:رَأَى|2MS|PRON|SUFF|2MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلنَّاسَ",
+          "text_simple": "ٱلناس",
+          "translation": "the people",
+          "transliteration": "l-nāsa",
+          "root": "أ ن س",
+          "lemma": "ناس",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أنس|LEM:ناس|MP|ACC"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "يَدْخُلُونَ",
+          "text_simple": "يدخلون",
+          "translation": "entering",
+          "transliteration": "yadkhulūna",
+          "root": "د خ ل",
+          "lemma": "دَخَلَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:دخل|LEM:دَخَلَ|3MP|MOOD:IND|PRON|SUFF|3MP"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "فِى",
+          "text_simple": "فى",
+          "translation": "into",
+          "transliteration": "fī",
+          "root": null,
+          "lemma": "فِي",
+          "pos": null,
+          "morphology": "P|LEM:فِي"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "دِينِ",
+          "text_simple": "دين",
+          "translation": "(the) religion",
+          "transliteration": "dīni",
+          "root": "د ي ن",
+          "lemma": "دِين",
+          "pos": "N",
+          "morphology": "ROOT:دين|LEM:دِين|GEN"
+        },
+        {
+          "position": 6,
+          "text_uthmani": "ٱللَّهِ",
+          "text_simple": "ٱلله",
+          "translation": "(of) Allah",
+          "transliteration": "l-lahi",
+          "root": "أ ل ه",
+          "lemma": "اللَّه",
+          "pos": "N",
+          "morphology": "PN|ROOT:أله|LEM:اللَّه|GEN"
+        },
+        {
+          "position": 7,
+          "text_uthmani": "أَفْوَاجًۭا",
+          "text_simple": "أفواجا",
+          "translation": "(in) multitudes",
+          "transliteration": "afwājan",
+          "root": "ف و ج",
+          "lemma": "فَوْج",
+          "pos": "N",
+          "morphology": "ROOT:فوج|LEM:فَوْج|P|INDEF|ACC"
+        }
+      ]
+    },
+    "3": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "فَسَبِّحْ",
+          "text_simple": "فسبح",
+          "translation": "Then glorify",
+          "transliteration": "fasabbiḥ",
+          "root": "س ب ح",
+          "lemma": "سَبَّحَ",
+          "pos": "V",
+          "morphology": "RSLT|PREF|LEM:ف|IMPV|VF:2|ROOT:سبح|LEM:سَبَّحَ|2MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "بِحَمْدِ",
+          "text_simple": "بحمد",
+          "translation": "with (the) praises",
+          "transliteration": "biḥamdi",
+          "root": "ح م د",
+          "lemma": "حَمْد",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ب|ROOT:حمد|LEM:حَمْد|M|GEN"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "رَبِّكَ",
+          "text_simple": "ربك",
+          "translation": "(of) your Lord",
+          "transliteration": "rabbika",
+          "root": "ر ب ب",
+          "lemma": "رَبّ",
+          "pos": "N",
+          "morphology": "ROOT:ربب|LEM:رَبّ|M|GEN|PRON|SUFF|2MS"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "وَٱسْتَغْفِرْهُ ۚ",
+          "text_simple": "وٱستغفره ",
+          "translation": "and ask His forgiveness",
+          "transliteration": "wa-is'taghfir'hu",
+          "root": "غ ف ر",
+          "lemma": "اسْتَغْفَرَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|IMPV|VF:10|ROOT:غفر|LEM:اسْتَغْفَرَ|2MS|PRON|SUFF|3MS"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "إِنَّهُۥ",
+          "text_simple": "إنه",
+          "translation": "Indeed, He",
+          "transliteration": "innahu",
+          "root": null,
+          "lemma": "إِنّ",
+          "pos": null,
+          "morphology": "ACC|LEM:إِنّ|FAM:إِنّ|PRON|SUFF|3MS"
+        },
+        {
+          "position": 6,
+          "text_uthmani": "كَانَ",
+          "text_simple": "كان",
+          "translation": "is",
+          "transliteration": "kāna",
+          "root": "ك و ن",
+          "lemma": "كانَ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:كون|LEM:كانَ|FAM:كَان|3MS"
+        },
+        {
+          "position": 7,
+          "text_uthmani": "تَوَّابًۢا",
+          "text_simple": "توابا",
+          "translation": "Oft-Returning",
+          "transliteration": "tawwāban",
+          "root": "ت و ب",
+          "lemma": "تَوّاب",
+          "pos": "N",
+          "morphology": "ACT_PCPL|VF:1|ROOT:توب|LEM:تَوّاب|MS|INDEF|ACC"
+        }
+      ]
+    }
+  }
+}
