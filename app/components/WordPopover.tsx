@@ -133,12 +133,20 @@ async function collectDerivedForms(
   // Deduplicate by lemma
   const byLemma = new Map<string, { word: QuranWord; count: number; surah: number; verse: number }>();
 
-  for (const s of sampled) {
-    const data = await fetchWordData(s);
+  // Fetch all sampled surahs in parallel
+  const surahDataPairs = await Promise.all(
+    sampled.map(async (s) => [s, await fetchWordData(s)] as const),
+  );
+
+  for (const [s, data] of surahDataPairs) {
     if (!data) continue;
     for (const occ of bySurah.get(s)!) {
       const verseWords = data.verses?.[String(occ.v)]?.words;
-      const w = verseWords?.find((x) => x.position === occ.p);
+      if (!verseWords) continue;
+      // Index by position for O(1) lookup instead of linear scan
+      const w = verseWords[occ.p - 1]?.position === occ.p
+        ? verseWords[occ.p - 1]
+        : verseWords.find((x) => x.position === occ.p);
       if (!w || !w.lemma) continue;
       const existing = byLemma.get(w.lemma);
       if (existing) {
