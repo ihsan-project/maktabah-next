@@ -47,7 +47,7 @@ The existing hybrid search (BM25 + Cohere embeddings + RRF) is already well-suit
 
 ---
 
-## Phase 1: Quran Word-by-Word Data Ingestion
+## Phase 1 [IMPLEMENTED]: Quran Word-by-Word Data Ingestion
 
 **Goal:** Download and store word-by-word data (Arabic word, translation, transliteration, morphology, root) for all 6,236 Quran verses, making it available as static JSON files for the frontend.
 
@@ -103,7 +103,7 @@ The existing hybrid search (BM25 + Cohere embeddings + RRF) is already well-suit
 
 ---
 
-## Phase 2 + 3: Clickable Arabic Words & Word Definition Popup ✅ DONE
+## Phase 2 + 3 [IMPLEMENTED]: Clickable Arabic Words & Word Definition Popup ✅ DONE
 
 **Goal:** Replace plain-text Arabic display with interactive word-by-word rendering where each word is clickable and shows a definition popover. Applied to **both** the `/search` results page and the `/quran` reader page via a shared `InteractiveArabicText` component.
 
@@ -147,7 +147,7 @@ The existing hybrid search (BM25 + Cohere embeddings + RRF) is already well-suit
 
 ---
 
-## Phase 4: Root Cross-References ("Other words from this root")
+## Phase 4 [IMPLEMENTED]: Root Cross-References ("Other words from this root")
 
 **Goal:** Extend the word popover to show other Quran verses that use words from the same root, enabling cross-reference exploration.
 
@@ -180,7 +180,7 @@ The existing hybrid search (BM25 + Cohere embeddings + RRF) is already well-suit
 
 ---
 
-## Phase 5: Lane's Lexicon Integration — Deep Definitions ✅ DONE
+## Phase 5 [IMPLEMENTED]: Lane's Lexicon Integration — Deep Definitions ✅ DONE
 
 **Goal:** Enrich the word popover with scholarly Lane's Lexicon definitions for deeper etymological understanding of each root.
 
@@ -218,7 +218,7 @@ The existing hybrid search (BM25 + Cohere embeddings + RRF) is already well-suit
 
 ## Phase 6: OpenSearch Root Field — Root-Based Search
 
-**Goal:** Add a `root` field to the OpenSearch `kitaab` index so users can search by Arabic root, and the "See all verses" link from Phase 4 returns precise results.
+**Goal:** Add a `root` field to the OpenSearch `kitaab` index so users can search by Arabic root.
 
 **Changes:**
 - `quran_loader/migrate-root-field.js` — new migration script that:
