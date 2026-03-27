@@ -40,6 +40,9 @@ export default function InteractiveArabicText({
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    setWords(null);
+    setSelectedWord(null);
+    setAnchorEl(null);
     let cancelled = false;
     loadSurahWords(chapter).then((data) => {
       if (cancelled) return;

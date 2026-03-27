@@ -32,12 +32,13 @@ export async function loadRootsIndex(): Promise<RootsIndex | null> {
       return res.json() as Promise<RootsIndex>;
     })
     .then((data) => {
-      rootsData = data;
+      if (data) {
+        rootsData = data;
+      }
       return data;
     })
-    .catch(() => {
+    .finally(() => {
       loadingPromise = null;
-      return null;
     });
 
   return loadingPromise;
