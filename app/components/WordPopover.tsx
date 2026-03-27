@@ -6,6 +6,7 @@ import {
   offset,
   flip,
   shift,
+  size,
   autoUpdate,
   FloatingPortal,
 } from '@floating-ui/react';
@@ -206,7 +207,19 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
 
   const { refs, floatingStyles } = useFloating({
     placement: 'top',
-    middleware: [offset(8), flip(), shift({ padding: 12 })],
+    middleware: [
+      offset(8),
+      flip(),
+      shift({ padding: 12 }),
+      size({
+        padding: 12,
+        apply({ availableHeight, elements }) {
+          Object.assign(elements.floating.style, {
+            maxHeight: `${Math.min(availableHeight, window.innerHeight * 0.7)}px`,
+          });
+        },
+      }),
+    ],
     whileElementsMounted: autoUpdate,
     elements: { reference: anchorEl },
   });
@@ -512,7 +525,7 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
       <div
         ref={refs.setFloating}
         style={floatingStyles}
-        className="z-50 bg-white rounded-lg shadow-xl border border-gray-200 p-4 w-80 word-popover-enter max-h-[70vh] overflow-y-auto"
+        className="z-50 bg-white rounded-lg shadow-xl border border-gray-200 p-4 w-80 word-popover-enter overflow-y-auto"
         dir="ltr"
       >
         {content}
