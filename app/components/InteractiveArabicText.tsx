@@ -49,19 +49,35 @@ export default function InteractiveArabicText({
     return () => { cancelled = true; };
   }, [chapter, verse]);
 
-  const handleWordClick = useCallback(
-    (e: React.MouseEvent<HTMLSpanElement>, word: QuranWord) => {
-      e.stopPropagation();
-      // If clicking the same word, toggle off
+  const activateWord = useCallback(
+    (el: HTMLElement, word: QuranWord) => {
       if (selectedWord?.position === word.position) {
         setSelectedWord(null);
         setAnchorEl(null);
       } else {
         setSelectedWord(word);
-        setAnchorEl(e.currentTarget);
+        setAnchorEl(el);
       }
     },
     [selectedWord],
+  );
+
+  const handleWordClick = useCallback(
+    (e: React.MouseEvent<HTMLSpanElement>, word: QuranWord) => {
+      e.stopPropagation();
+      activateWord(e.currentTarget, word);
+    },
+    [activateWord],
+  );
+
+  const handleWordKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLSpanElement>, word: QuranWord) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activateWord(e.currentTarget, word);
+      }
+    },
+    [activateWord],
   );
 
   const handleClose = useCallback(() => {
@@ -91,12 +107,15 @@ export default function InteractiveArabicText({
             <React.Fragment key={word.position}>
               {i > 0 && ' '}
               <span
+                role="button"
+                tabIndex={0}
                 className={`interactive-word ${
                   selectedWord?.position === word.position
                     ? 'interactive-word-active'
                     : ''
                 }`}
                 onClick={(e) => handleWordClick(e, word)}
+                onKeyDown={(e) => handleWordKeyDown(e, word)}
               >
                 {word.text_uthmani}
               </span>

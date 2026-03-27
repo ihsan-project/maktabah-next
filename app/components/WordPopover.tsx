@@ -219,15 +219,16 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
 
   // Load root derived forms
   useEffect(() => {
+    setRootCount(null);
+    setFormGroups([]);
     if (!word.root) return;
     let cancelled = false;
     setLoadingRefs(true);
-    setFormGroups([]);
 
     loadRootsIndex().then(async (index) => {
-      if (cancelled || !index) { setLoadingRefs(false); return; }
+      if (cancelled || !index) { setRootCount(null); setLoadingRefs(false); return; }
       const entry = index[word.root!];
-      if (!entry) { setLoadingRefs(false); return; }
+      if (!entry) { setRootCount(null); setLoadingRefs(false); return; }
 
       setRootCount(entry.occurrences);
 
