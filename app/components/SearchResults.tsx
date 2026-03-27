@@ -344,7 +344,7 @@ export default function SearchResults({
 
               {/* Arabic text — interactive word-by-word for Quran, plain for others */}
               {result.text_arabic_uthmani && (
-                <div className="mt-3 pt-3 border-t border-gray-100">
+                <div className="mt-3 pt-3 border-t border-gray-100" onClick={(e) => e.stopPropagation()}>
                   {result.title === 'quran' || !result.title ? (
                     <InteractiveArabicText
                       chapter={result.chapter}
@@ -440,12 +440,13 @@ export default function SearchResults({
                   </div>
                 )}
               </div>
-              <div
-                className="text-gray-400 cursor-pointer"
+              <button
+                className="flex items-center gap-1 text-gray-400 hover:text-gray-600 cursor-pointer transition-colors"
                 onClick={() => toggleExpand(result.id, result)}
               >
-                {isExpanded ? <FiChevronDown size={20} /> : <FiChevronRight size={20} />}
-              </div>
+                <span className="text-xs">{isExpanded ? 'Less' : 'More'}</span>
+                {isExpanded ? <FiChevronDown size={18} /> : <FiChevronRight size={18} />}
+              </button>
             </div>
           </div>
         );
