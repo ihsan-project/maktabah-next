@@ -47,36 +47,21 @@ function extractVerbForm(morphology: string): string | null {
   return forms[match[1]] || null;
 }
 
-/** Surah names for displaying cross-references */
-const SURAH_NAMES = [
-  '', 'Al-Fatiha', 'Al-Baqarah', 'Aal-E-Imran', 'An-Nisa', 'Al-Maida',
-  'Al-Anam', 'Al-Araf', 'Al-Anfal', 'At-Tawbah', 'Yunus', 'Hud', 'Yusuf',
-  'Ar-Ra\'d', 'Ibrahim', 'Al-Hijr', 'An-Nahl', 'Al-Isra', 'Al-Kahf',
-  'Maryam', 'Ta-Ha', 'Al-Anbiya', 'Al-Hajj', 'Al-Mu\'minun', 'An-Nur',
-  'Al-Furqan', 'Ash-Shu\'ara', 'An-Naml', 'Al-Qasas', 'Al-Ankabut',
-  'Ar-Rum', 'Luqman', 'As-Sajdah', 'Al-Ahzab', 'Saba', 'Fatir', 'Ya-Sin',
-  'As-Saffat', 'Sad', 'Az-Zumar', 'Ghafir', 'Fussilat', 'Ash-Shura',
-  'Az-Zukhruf', 'Ad-Dukhan', 'Al-Jathiyah', 'Al-Ahqaf', 'Muhammad',
-  'Al-Fath', 'Al-Hujurat', 'Qaf', 'Adh-Dhariyat', 'At-Tur', 'An-Najm',
-  'Al-Qamar', 'Ar-Rahman', 'Al-Waqiah', 'Al-Hadid', 'Al-Mujadila',
-  'Al-Hashr', 'Al-Mumtahanah', 'As-Saff', 'Al-Jumuah', 'Al-Munafiqun',
-  'At-Taghabun', 'At-Talaq', 'At-Tahrim', 'Al-Mulk', 'Al-Qalam',
-  'Al-Haqqah', 'Al-Ma\'arij', 'Nuh', 'Al-Jinn', 'Al-Muzzammil',
-  'Al-Muddaththir', 'Al-Qiyamah', 'Al-Insan', 'Al-Mursalat', 'An-Naba',
-  'An-Nazi\'at', 'Abasa', 'At-Takwir', 'Al-Infitar', 'Al-Mutaffifin',
-  'Al-Inshiqaq', 'Al-Buruj', 'At-Tariq', 'Al-A\'la', 'Al-Ghashiyah',
-  'Al-Fajr', 'Al-Balad', 'Ash-Shams', 'Al-Layl', 'Ad-Duha', 'Ash-Sharh',
-  'At-Tin', 'Al-Alaq', 'Al-Qadr', 'Al-Bayyinah', 'Az-Zalzalah',
-  'Al-Adiyat', 'Al-Qariah', 'At-Takathur', 'Al-Asr', 'Al-Humazah',
-  'Al-Fil', 'Quraysh', 'Al-Ma\'un', 'Al-Kawthar', 'Al-Kafirun', 'An-Nasr',
-  'Al-Masad', 'Al-Ikhlas', 'Al-Falaq', 'An-Nas',
-];
+/** A unique derived form from a root, with example verse */
+interface DerivedForm {
+  lemma: string;           // base form (Arabic)
+  translation: string;     // English meaning
+  pos: string;             // decoded POS label
+  verbForm: string | null; // Form I-X if verb
+  count: number;           // how many times this form appears
+  exampleSurah: number;
+  exampleVerse: number;
+}
 
-interface CrossRefVerse {
-  surah: number;
-  verse: number;
-  word: string;        // the Arabic word from this root in this verse
-  translation: string; // its translation
+/** Group derived forms by POS category for display */
+interface FormGroup {
+  label: string;    // "Nouns", "Verbs", etc.
+  forms: DerivedForm[];
 }
 
 /** In-memory cache for surah word data used by cross-references */
@@ -95,39 +80,106 @@ async function fetchWordData(surah: number): Promise<SurahWordData | null> {
   }
 }
 
-/** Pick up to `count` diverse sample occurrences (spread across different surahs) */
-function pickSamples(occurrences: RootOccurrence[], currentSurah: number, currentVerse: number, count: number): RootOccurrence[] {
-  // Filter out the current verse, then pick samples from different surahs
-  const filtered = occurrences.filter((o) => !(o.s === currentSurah && o.v === currentVerse));
-  if (filtered.length <= count) return filtered;
+/** POS category for grouping */
+function posCategory(pos: string | null): string {
+  if (!pos) return 'Particles';
+  const categories: Record<string, string> = {
+    N: 'Nouns', PN: 'Nouns', ADJ: 'Adjectives',
+    V: 'Verbs',
+    PRON: 'Pronouns', DEM: 'Pronouns', REL: 'Pronouns',
+    ADV: 'Particles', CONJ: 'Particles', P: 'Particles',
+    NEG: 'Particles', INTG: 'Particles', COND: 'Particles',
+    T: 'Particles', LOC: 'Particles', INL: 'Other',
+  };
+  return categories[pos] || 'Other';
+}
 
-  // Try to pick from different surahs for diversity
+/** Category display order */
+const CATEGORY_ORDER = ['Verbs', 'Nouns', 'Adjectives', 'Pronouns', 'Particles', 'Other'];
+
+/**
+ * Collect unique derived forms from a sample of occurrences.
+ * Samples up to `maxSurahs` different surahs to get diverse forms without loading all data.
+ */
+async function collectDerivedForms(
+  occurrences: RootOccurrence[],
+  maxSurahs: number,
+): Promise<DerivedForm[]> {
+  // Group occurrences by surah, pick a spread of surahs
   const bySurah = new Map<number, RootOccurrence[]>();
-  for (const o of filtered) {
+  for (const o of occurrences) {
     if (!bySurah.has(o.s)) bySurah.set(o.s, []);
     bySurah.get(o.s)!.push(o);
   }
-
-  const samples: RootOccurrence[] = [];
   const surahKeys = Array.from(bySurah.keys());
-  let i = 0;
-  while (samples.length < count && i < surahKeys.length) {
-    const surahOccs = bySurah.get(surahKeys[i])!;
-    samples.push(surahOccs[0]);
-    i++;
+  const sampled = surahKeys.length <= maxSurahs
+    ? surahKeys
+    : surahKeys.filter((_, i) => i % Math.ceil(surahKeys.length / maxSurahs) === 0).slice(0, maxSurahs);
+
+  // Deduplicate by lemma
+  const byLemma = new Map<string, { word: QuranWord; count: number; surah: number; verse: number }>();
+
+  for (const s of sampled) {
+    const data = await fetchWordData(s);
+    if (!data) continue;
+    for (const occ of bySurah.get(s)!) {
+      const verseWords = data.verses?.[String(occ.v)]?.words;
+      const w = verseWords?.find((x) => x.position === occ.p);
+      if (!w || !w.lemma) continue;
+      const existing = byLemma.get(w.lemma);
+      if (existing) {
+        existing.count++;
+      } else {
+        byLemma.set(w.lemma, { word: w, count: 1, surah: occ.s, verse: occ.v });
+      }
+    }
   }
-  return samples;
+
+  return Array.from(byLemma.values()).map(({ word, count, surah, verse }) => ({
+    lemma: word.lemma,
+    translation: word.translation,
+    pos: decodePos(word.pos),
+    verbForm: extractVerbForm(word.morphology),
+    count,
+    exampleSurah: surah,
+    exampleVerse: verse,
+  }));
+}
+
+/** Group derived forms by POS category and sort */
+function groupByCategory(forms: DerivedForm[]): FormGroup[] {
+  const groups = new Map<string, DerivedForm[]>();
+  for (const f of forms) {
+    const cat = posCategory(
+      Object.entries({
+        N: 'Noun', PN: 'Proper Noun', ADJ: 'Adjective', V: 'Verb',
+        PRON: 'Pronoun', DEM: 'Demonstrative', REL: 'Relative Pronoun',
+        ADV: 'Adverb', CONJ: 'Conjunction', P: 'Preposition',
+        NEG: 'Negative Particle', INTG: 'Interrogative', COND: 'Conditional',
+        T: 'Time Adverb', LOC: 'Location Adverb', INL: 'Initials',
+      }).find(([, v]) => v === f.pos)?.[0] ?? null,
+    );
+    if (!groups.has(cat)) groups.set(cat, []);
+    groups.get(cat)!.push(f);
+  }
+
+  // Sort forms within each group by count descending
+  Array.from(groups.keys()).forEach((key) => {
+    groups.get(key)!.sort((a, b) => b.count - a.count);
+  });
+
+  return CATEGORY_ORDER
+    .filter((cat) => groups.has(cat))
+    .map((cat) => ({ label: cat, forms: groups.get(cat)! }));
 }
 
 interface WordPopoverProps {
   word: QuranWord;
   anchorEl: HTMLElement | null;
-  currentSurah: number;
-  currentVerse: number;
   onClose: () => void;
 }
 
-export default function WordPopover({ word, anchorEl, currentSurah, currentVerse, onClose }: WordPopoverProps) {
+export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProps) {
   const { refs, floatingStyles } = useFloating({
     placement: 'top',
     middleware: [offset(8), flip(), shift({ padding: 12 })],
@@ -136,14 +188,15 @@ export default function WordPopover({ word, anchorEl, currentSurah, currentVerse
   });
 
   const [rootCount, setRootCount] = useState<number | null>(null);
-  const [crossRefs, setCrossRefs] = useState<CrossRefVerse[]>([]);
+  const [formGroups, setFormGroups] = useState<FormGroup[]>([]);
   const [loadingRefs, setLoadingRefs] = useState(false);
 
-  // Load root cross-references
+  // Load root derived forms
   useEffect(() => {
     if (!word.root) return;
     let cancelled = false;
     setLoadingRefs(true);
+    setFormGroups([]);
 
     loadRootsIndex().then(async (index) => {
       if (cancelled || !index) { setLoadingRefs(false); return; }
@@ -152,33 +205,16 @@ export default function WordPopover({ word, anchorEl, currentSurah, currentVerse
 
       setRootCount(entry.occurrences);
 
-      // Pick sample verses and load their word data
-      const samples = pickSamples(entry.verses, currentSurah, currentVerse, 4);
-      const refs: CrossRefVerse[] = [];
+      // Sample up to 15 surahs to discover diverse derived forms
+      const forms = await collectDerivedForms(entry.verses, 15);
+      if (cancelled) return;
 
-      for (const occ of samples) {
-        const data = await fetchWordData(occ.s);
-        if (cancelled) return;
-        const verseWords = data?.verses?.[String(occ.v)]?.words;
-        const matchedWord = verseWords?.find((w) => w.position === occ.p);
-        if (matchedWord) {
-          refs.push({
-            surah: occ.s,
-            verse: occ.v,
-            word: matchedWord.text_uthmani,
-            translation: matchedWord.translation,
-          });
-        }
-      }
-
-      if (!cancelled) {
-        setCrossRefs(refs);
-        setLoadingRefs(false);
-      }
+      setFormGroups(groupByCategory(forms));
+      setLoadingRefs(false);
     });
 
     return () => { cancelled = true; };
-  }, [word.root, currentSurah, currentVerse]);
+  }, [word.root]);
 
   // Close on Escape
   useEffect(() => {
@@ -214,14 +250,7 @@ export default function WordPopover({ word, anchorEl, currentSurah, currentVerse
 
   const verbForm = extractVerbForm(word.morphology);
 
-  // Deduplicate verses for the "unique verses" count
-  const uniqueVerseCount = rootCount !== null
-    ? (() => {
-        // rootCount is total word occurrences; we show it as-is since
-        // the roots.json already tracks per-word occurrences
-        return rootCount;
-      })()
-    : null;
+  const totalForms = formGroups.reduce((sum, g) => sum + g.forms.length, 0);
 
   return (
     <FloatingPortal>
@@ -283,56 +312,55 @@ export default function WordPopover({ word, anchorEl, currentSurah, currentVerse
           )}
         </div>
 
-        {/* Root Cross-References */}
+        {/* Root Exploration — derived forms grouped by POS */}
         {word.root && (
           <div className="mt-3 pt-3 border-t border-gray-100">
             <div className="flex items-center justify-between mb-2">
               <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                Root Exploration
+                Words from this root
               </h4>
-              {uniqueVerseCount !== null && (
+              {rootCount !== null && (
                 <span className="text-[10px] text-gray-400 bg-gray-50 rounded-full px-2 py-0.5">
-                  {uniqueVerseCount.toLocaleString()} occurrences
+                  {rootCount.toLocaleString()} uses &middot; {totalForms} forms
                 </span>
               )}
             </div>
 
-            {loadingRefs && crossRefs.length === 0 && (
-              <p className="text-xs text-gray-400 italic">Loading cross-references...</p>
+            {loadingRefs && formGroups.length === 0 && (
+              <p className="text-xs text-gray-400 italic">Discovering word forms...</p>
             )}
 
-            {crossRefs.length > 0 && (
-              <div className="space-y-1.5">
-                {crossRefs.map((ref) => (
-                  <a
-                    key={`${ref.surah}:${ref.verse}`}
-                    href={`/quran?start=${ref.surah}:${Math.max(1, ref.verse - 3)}&end=${ref.surah}:${ref.verse + 3}`}
-                    className="flex items-center gap-2 text-xs p-1.5 rounded hover:bg-gray-50 transition-colors group"
-                  >
-                    <span className="text-gray-400 font-mono shrink-0">
-                      {ref.surah}:{ref.verse}
-                    </span>
-                    <span dir="rtl" lang="ar" className="font-arabic text-sm text-gray-700 shrink-0">
-                      {ref.word}
-                    </span>
-                    <span className="text-gray-500 truncate">
-                      {ref.translation}
-                    </span>
-                    <span className="text-[10px] text-gray-300 ml-auto shrink-0 hidden group-hover:inline">
-                      {SURAH_NAMES[ref.surah] || ''}
-                    </span>
-                  </a>
+            {formGroups.length > 0 && (
+              <div className="space-y-2.5">
+                {formGroups.map((group) => (
+                  <div key={group.label}>
+                    <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-1">
+                      {group.label}
+                    </p>
+                    <div className="space-y-1">
+                      {group.forms.map((form) => (
+                        <a
+                          key={form.lemma}
+                          href={`/quran?start=${form.exampleSurah}:${Math.max(1, form.exampleVerse - 3)}&end=${form.exampleSurah}:${form.exampleVerse + 3}`}
+                          className="flex items-center gap-2 text-xs p-1.5 rounded hover:bg-gray-50 transition-colors"
+                        >
+                          <span dir="rtl" lang="ar" className="font-arabic text-base text-gray-800 shrink-0">
+                            {form.lemma}
+                          </span>
+                          <span className="text-gray-500 truncate flex-1">
+                            {form.translation}
+                          </span>
+                          <span className="shrink-0 flex items-center gap-1">
+                            <span className="text-[10px] text-gray-300 bg-gray-50 rounded px-1">
+                              {form.pos}{form.verbForm ? ` ${form.verbForm}` : ''}
+                            </span>
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
-            )}
-
-            {uniqueVerseCount !== null && uniqueVerseCount > 4 && (
-              <a
-                href={`/search?q=${encodeURIComponent(word.root!)}&titles=quran`}
-                className="block text-center text-xs text-primary hover:text-primary-dark font-medium mt-2 py-1 rounded hover:bg-primary/5 transition-colors"
-              >
-                See all verses with this root &rarr;
-              </a>
             )}
           </div>
         )}
