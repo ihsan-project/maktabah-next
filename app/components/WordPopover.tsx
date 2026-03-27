@@ -11,6 +11,7 @@ import {
 } from '@floating-ui/react';
 import { QuranWord, SurahWordData } from '@/types';
 import { loadRootsIndex, RootOccurrence } from '@/lib/roots';
+import { getLanesEntry, LanesEntry } from '@/lib/lanes-lexicon';
 
 /** Decode the short POS code into a readable label */
 function decodePos(pos: string | null): string {
@@ -190,6 +191,8 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
   const [rootCount, setRootCount] = useState<number | null>(null);
   const [formGroups, setFormGroups] = useState<FormGroup[]>([]);
   const [loadingRefs, setLoadingRefs] = useState(false);
+  const [lanesEntry, setLanesEntry] = useState<LanesEntry | null>(null);
+  const [lanesExpanded, setLanesExpanded] = useState(false);
 
   // Load root derived forms
   useEffect(() => {
@@ -211,6 +214,20 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
 
       setFormGroups(groupByCategory(forms));
       setLoadingRefs(false);
+    });
+
+    return () => { cancelled = true; };
+  }, [word.root]);
+
+  // Load Lane's Lexicon entry
+  useEffect(() => {
+    if (!word.root) return;
+    let cancelled = false;
+    setLanesEntry(null);
+    setLanesExpanded(false);
+
+    getLanesEntry(word.root).then((entry) => {
+      if (!cancelled) setLanesEntry(entry);
     });
 
     return () => { cancelled = true; };
@@ -362,6 +379,59 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
                 ))}
               </div>
             )}
+          </div>
+        )}
+
+        {/* Lane's Lexicon — scholarly definition */}
+        {lanesEntry && (lanesEntry.summary || lanesEntry.definition) && (
+          <div className="mt-3 pt-3 border-t border-gray-100">
+            <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
+              Lane&apos;s Lexicon
+            </h4>
+
+            {/* Summary (always shown if available) */}
+            {lanesEntry.summary && (
+              <p className="text-xs text-gray-600 leading-relaxed font-serif italic">
+                {lanesEntry.summary}
+              </p>
+            )}
+
+            {/* Full definition (expandable) */}
+            {lanesEntry.definition && (
+              <div className={lanesEntry.summary ? 'mt-1.5' : ''}>
+                {!lanesExpanded ? (
+                  <>
+                    {lanesEntry.preview && lanesEntry.preview !== lanesEntry.definition && (
+                      <p className="text-[11px] text-gray-500 leading-relaxed font-serif">
+                        {lanesEntry.preview}
+                      </p>
+                    )}
+                    <button
+                      onClick={() => setLanesExpanded(true)}
+                      className="text-[11px] text-primary hover:text-primary-dark font-medium mt-1"
+                    >
+                      Read full definition
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-[11px] text-gray-500 leading-relaxed font-serif whitespace-pre-wrap">
+                      {lanesEntry.definition}
+                    </p>
+                    <button
+                      onClick={() => setLanesExpanded(false)}
+                      className="text-[11px] text-primary hover:text-primary-dark font-medium mt-1"
+                    >
+                      Show less
+                    </button>
+                  </>
+                )}
+              </div>
+            )}
+
+            <p className="text-[9px] text-gray-300 mt-1.5">
+              Definition from Lane&apos;s Arabic-English Lexicon
+            </p>
           </div>
         )}
       </div>

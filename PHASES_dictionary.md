@@ -180,7 +180,7 @@ The existing hybrid search (BM25 + Cohere embeddings + RRF) is already well-suit
 
 ---
 
-## Phase 5: Lane's Lexicon Integration — Deep Definitions
+## Phase 5: Lane's Lexicon Integration — Deep Definitions ✅ DONE
 
 **Goal:** Enrich the word popover with scholarly Lane's Lexicon definitions for deeper etymological understanding of each root.
 
