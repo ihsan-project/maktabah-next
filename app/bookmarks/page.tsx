@@ -38,7 +38,12 @@ function BookmarksPageContent(): JSX.Element {
       chapter_name: bookmark.chapter_name,
       book_id: bookmark.book_id,
       title: bookmark.title,
-      volume: bookmark.volume
+      volume: bookmark.volume,
+      text_arabic_uthmani: bookmark.text_arabic_uthmani,
+      surah_name: bookmark.surah_name,
+      surah_name_arabic: bookmark.surah_name_arabic,
+      surah_name_english: bookmark.surah_name_english,
+      juz: bookmark.juz,
     }));
   }, [bookmarks]);
 
