@@ -241,8 +241,28 @@ body {
   }
 }
 
+/* Word modal — mobile bottom sheet */
+.word-modal-backdrop {
+  animation: fadeIn 150ms ease-out;
+}
+
+.word-modal-sheet {
+  animation: sheetSlideUp 250ms ease-out;
+}
+
+@keyframes sheetSlideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .word-popover-enter {
+  .word-popover-enter,
+  .word-modal-backdrop,
+  .word-modal-sheet {
     animation: none;
   }
 }

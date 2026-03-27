@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   useFloating,
   offset,
@@ -9,6 +9,19 @@ import {
   autoUpdate,
   FloatingPortal,
 } from '@floating-ui/react';
+
+/** Detect mobile viewport (matches Tailwind's sm breakpoint) */
+function useIsMobile(breakpoint = 640) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, [breakpoint]);
+  return isMobile;
+}
 import { QuranWord, SurahWordData } from '@/types';
 import { loadRootsIndex, RootOccurrence } from '@/lib/roots';
 import { getLanesEntry, LanesEntry } from '@/lib/lanes-lexicon';
@@ -181,6 +194,8 @@ interface WordPopoverProps {
 }
 
 export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProps) {
+  const isMobile = useIsMobile();
+
   const { refs, floatingStyles } = useFloating({
     placement: 'top',
     middleware: [offset(8), flip(), shift({ padding: 12 })],
@@ -242,8 +257,9 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
-  // Close on click outside
+  // Close on click outside (desktop only)
   useEffect(() => {
+    if (isMobile) return;
     const handleClickOutside = (e: MouseEvent) => {
       const floating = refs.floating.current;
       if (
@@ -263,20 +279,28 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
       clearTimeout(timer);
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [onClose, anchorEl, refs.floating]);
+  }, [onClose, anchorEl, refs.floating, isMobile]);
+
+  // Lock body scroll on mobile when modal is open
+  useEffect(() => {
+    if (!isMobile) return;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobile]);
 
   const verbForm = extractVerbForm(word.morphology);
 
   const totalForms = formGroups.reduce((sum, g) => sum + g.forms.length, 0);
 
-  return (
-    <FloatingPortal>
-      <div
-        ref={refs.setFloating}
-        style={floatingStyles}
-        className="z-50 bg-white rounded-lg shadow-xl border border-gray-200 p-4 w-80 word-popover-enter max-h-[70vh] overflow-y-auto"
-        dir="ltr"
-      >
+  // Handle backdrop click for mobile modal
+  const handleBackdropClick = useCallback((e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) onClose();
+  }, [onClose]);
+
+  // Shared content rendered inside both desktop popover and mobile modal
+  const content = (
+    <>
+
         {/* Arabic word — large display */}
         <div className="text-center mb-3">
           <p
@@ -434,6 +458,55 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
             </p>
           </div>
         )}
+    </>
+  );
+
+  // Mobile: bottom-sheet modal with backdrop
+  if (isMobile) {
+    return (
+      <FloatingPortal>
+        {/* Backdrop */}
+        <div
+          className="fixed inset-0 z-50 bg-black/40 word-modal-backdrop"
+          onClick={handleBackdropClick}
+        >
+          {/* Bottom sheet */}
+          <div
+            className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-2xl word-modal-sheet max-h-[85vh] flex flex-col"
+            dir="ltr"
+          >
+            {/* Drag handle */}
+            <div className="flex justify-center pt-3 pb-1 shrink-0">
+              <div className="w-10 h-1 rounded-full bg-gray-300" />
+            </div>
+            {/* Close button */}
+            <button
+              onClick={onClose}
+              className="absolute top-3 right-4 text-gray-400 hover:text-gray-600 text-xl leading-none"
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            {/* Scrollable content */}
+            <div className="overflow-y-auto px-5 pb-6 pt-1">
+              {content}
+            </div>
+          </div>
+        </div>
+      </FloatingPortal>
+    );
+  }
+
+  // Desktop: floating popover
+  return (
+    <FloatingPortal>
+      <div
+        ref={refs.setFloating}
+        style={floatingStyles}
+        className="z-50 bg-white rounded-lg shadow-xl border border-gray-200 p-4 w-80 word-popover-enter max-h-[70vh] overflow-y-auto"
+        dir="ltr"
+      >
+        {content}
       </div>
     </FloatingPortal>
   );
