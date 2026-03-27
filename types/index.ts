@@ -13,6 +13,24 @@ export interface AuthContextType {
   logout: () => Promise<void>;
 }
 
+// Quran word-by-word types (Dictionary feature)
+export interface QuranWord {
+  position: number;
+  text_uthmani: string;
+  text_simple: string;
+  translation: string;
+  transliteration: string;
+  root: string | null;
+  lemma: string;
+  pos: string | null;
+  morphology: string;
+}
+
+export interface SurahWordData {
+  surah: number;
+  verses: Record<string, { words: QuranWord[] }>;
+}
+
 // Search-related types
 export interface SearchResult {
   id: string;

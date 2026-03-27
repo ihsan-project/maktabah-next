@@ -1,0 +1,249 @@
+{
+  "surah": 114,
+  "verses": {
+    "1": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "قُلْ",
+          "text_simple": "قل",
+          "translation": "Say",
+          "transliteration": "qul",
+          "root": "ق و ل",
+          "lemma": "قالَ",
+          "pos": "V",
+          "morphology": "IMPV|VF:1|ROOT:قول|LEM:قالَ|2MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَعُوذُ",
+          "text_simple": "أعوذ",
+          "translation": "I seek refuge",
+          "transliteration": "aʿūdhu",
+          "root": "ع و ذ",
+          "lemma": "عُذْ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:عوذ|LEM:عُذْ|1S|MOOD:IND"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "بِرَبِّ",
+          "text_simple": "برب",
+          "translation": "in (the) Lord",
+          "transliteration": "birabbi",
+          "root": "ر ب ب",
+          "lemma": "رَبّ",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ب|ROOT:ربب|LEM:رَبّ|M|GEN"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱلنَّاسِ",
+          "text_simple": "ٱلناس",
+          "translation": "(of) mankind",
+          "transliteration": "l-nāsi",
+          "root": "أ ن س",
+          "lemma": "ناس",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أنس|LEM:ناس|MP|GEN"
+        }
+      ]
+    },
+    "2": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "مَلِكِ",
+          "text_simple": "ملك",
+          "translation": "(The) King",
+          "transliteration": "maliki",
+          "root": "م ل ك",
+          "lemma": "مَلِك",
+          "pos": "N",
+          "morphology": "ROOT:ملك|LEM:مَلِك|MS|GEN"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلنَّاسِ",
+          "text_simple": "ٱلناس",
+          "translation": "(of) mankind",
+          "transliteration": "l-nāsi",
+          "root": "أ ن س",
+          "lemma": "ناس",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أنس|LEM:ناس|MP|GEN"
+        }
+      ]
+    },
+    "3": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "إِلَـٰهِ",
+          "text_simple": "إلـه",
+          "translation": "(The) God",
+          "transliteration": "ilāhi",
+          "root": "أ ل ه",
+          "lemma": "إِلٰه",
+          "pos": "N",
+          "morphology": "ROOT:أله|LEM:إِلٰه|MS|GEN"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلنَّاسِ",
+          "text_simple": "ٱلناس",
+          "translation": "(of) mankind",
+          "transliteration": "l-nāsi",
+          "root": "أ ن س",
+          "lemma": "ناس",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أنس|LEM:ناس|MP|GEN"
+        }
+      ]
+    },
+    "4": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "مِن",
+          "text_simple": "من",
+          "translation": "From",
+          "transliteration": "min",
+          "root": null,
+          "lemma": "مِن",
+          "pos": null,
+          "morphology": "P|LEM:مِن"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "شَرِّ",
+          "text_simple": "شر",
+          "translation": "(the) evil",
+          "transliteration": "sharri",
+          "root": "ش ر ر",
+          "lemma": "شَرّ",
+          "pos": "N",
+          "morphology": "ROOT:شرر|LEM:شَرّ|MS|GEN"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ٱلْوَسْوَاسِ",
+          "text_simple": "ٱلوسواس",
+          "translation": "(of) the whisperer",
+          "transliteration": "l-waswāsi",
+          "root": "و س و س",
+          "lemma": "وَسْواس",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:وسوس|LEM:وَسْواس|MS|GEN"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "ٱلْخَنَّاسِ",
+          "text_simple": "ٱلخناس",
+          "translation": "the one who withdraws",
+          "transliteration": "l-khanāsi",
+          "root": "خ ن س",
+          "lemma": "خَنّاس",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:خنس|LEM:خَنّاس|MS|GEN|ADJ"
+        }
+      ]
+    },
+    "5": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "ٱلَّذِى",
+          "text_simple": "ٱلذى",
+          "translation": "The one who",
+          "transliteration": "alladhī",
+          "root": null,
+          "lemma": "الَّذِي",
+          "pos": null,
+          "morphology": "REL|LEM:الَّذِي|MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "يُوَسْوِسُ",
+          "text_simple": "يوسوس",
+          "translation": "whispers",
+          "transliteration": "yuwaswisu",
+          "root": "و س و س",
+          "lemma": "وَسْوَسَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:وسوس|LEM:وَسْوَسَ|3MS|MOOD:IND"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "فِى",
+          "text_simple": "فى",
+          "translation": "in",
+          "transliteration": "fī",
+          "root": null,
+          "lemma": "فِي",
+          "pos": null,
+          "morphology": "P|LEM:فِي"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "صُدُورِ",
+          "text_simple": "صدور",
+          "translation": "(the) breasts",
+          "transliteration": "ṣudūri",
+          "root": "ص د ر",
+          "lemma": "صَدْر",
+          "pos": "N",
+          "morphology": "ROOT:صدر|LEM:صَدْر|MP|GEN"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "ٱلنَّاسِ",
+          "text_simple": "ٱلناس",
+          "translation": "(of) mankind",
+          "transliteration": "l-nāsi",
+          "root": "أ ن س",
+          "lemma": "ناس",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أنس|LEM:ناس|MP|GEN"
+        }
+      ]
+    },
+    "6": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "مِنَ",
+          "text_simple": "من",
+          "translation": "From",
+          "transliteration": "mina",
+          "root": null,
+          "lemma": "مِن",
+          "pos": null,
+          "morphology": "P|LEM:مِن"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلْجِنَّةِ",
+          "text_simple": "ٱلجنة",
+          "translation": "the jinn",
+          "transliteration": "l-jinati",
+          "root": "ج ن ن",
+          "lemma": "جِنَّة",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:جنن|LEM:جِنَّة|F|GEN"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "وَٱلنَّاسِ",
+          "text_simple": "وٱلناس",
+          "translation": "and men",
+          "transliteration": "wal-nāsi",
+          "root": "أ ن س",
+          "lemma": "ناس",
+          "pos": "N",
+          "morphology": "CONJ|PREF|LEM:و|DET|PREF|LEM:ال|ROOT:أنس|LEM:ناس|MP|GEN"
+        }
+      ]
+    }
+  }
+}

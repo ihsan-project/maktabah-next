@@ -1,0 +1,334 @@
+{
+  "surah": 94,
+  "verses": {
+    "1": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "أَلَمْ",
+          "text_simple": "ألم",
+          "translation": "Have not",
+          "transliteration": "alam",
+          "root": null,
+          "lemma": "أ",
+          "pos": null,
+          "morphology": "INTG|PREF|LEM:أ|NEG|LEM:لَم"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "نَشْرَحْ",
+          "text_simple": "نشرح",
+          "translation": "We expanded",
+          "transliteration": "nashraḥ",
+          "root": "ش ر ح",
+          "lemma": "شَرَحَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:شرح|LEM:شَرَحَ|1P|MOOD:JUS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "لَكَ",
+          "text_simple": "لك",
+          "translation": "for you",
+          "transliteration": "laka",
+          "root": null,
+          "lemma": "ل",
+          "pos": null,
+          "morphology": "P|PREF|LEM:ل|PRON|2MS"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "صَدْرَكَ",
+          "text_simple": "صدرك",
+          "translation": "your breast",
+          "transliteration": "ṣadraka",
+          "root": "ص د ر",
+          "lemma": "صَدْر",
+          "pos": "N",
+          "morphology": "ROOT:صدر|LEM:صَدْر|M|ACC|PRON|SUFF|2MS"
+        }
+      ]
+    },
+    "2": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَوَضَعْنَا",
+          "text_simple": "ووضعنا",
+          "translation": "And We removed",
+          "transliteration": "wawaḍaʿnā",
+          "root": "و ض ع",
+          "lemma": "وَضَعَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:1|ROOT:وضع|LEM:وَضَعَ|1P|PRON|SUFF|1P"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "عَنكَ",
+          "text_simple": "عنك",
+          "translation": "from you",
+          "transliteration": "ʿanka",
+          "root": null,
+          "lemma": "عَن",
+          "pos": null,
+          "morphology": "P|LEM:عَن|PRON|SUFF|2MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "وِزْرَكَ",
+          "text_simple": "وزرك",
+          "translation": "your burden",
+          "transliteration": "wiz'raka",
+          "root": "و ز ر",
+          "lemma": "وِزْر",
+          "pos": "N",
+          "morphology": "ROOT:وزر|LEM:وِزْر|F|ACC|PRON|SUFF|2MS"
+        }
+      ]
+    },
+    "3": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "ٱلَّذِىٓ",
+          "text_simple": "ٱلذى",
+          "translation": "Which",
+          "transliteration": "alladhī",
+          "root": null,
+          "lemma": "الَّذِي",
+          "pos": null,
+          "morphology": "REL|LEM:الَّذِي|MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَنقَضَ",
+          "text_simple": "أنقض",
+          "translation": "weighed upon",
+          "transliteration": "anqaḍa",
+          "root": "ن ق ض",
+          "lemma": "أَنقَضَ",
+          "pos": "V",
+          "morphology": "PERF|VF:4|ROOT:نقض|LEM:أَنقَضَ|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ظَهْرَكَ",
+          "text_simple": "ظهرك",
+          "translation": "your back",
+          "transliteration": "ẓahraka",
+          "root": "ظ ه ر",
+          "lemma": "ظَهْر",
+          "pos": "N",
+          "morphology": "ROOT:ظهر|LEM:ظَهْر|M|ACC|PRON|SUFF|2MS"
+        }
+      ]
+    },
+    "4": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَرَفَعْنَا",
+          "text_simple": "ورفعنا",
+          "translation": "And We raised high",
+          "transliteration": "warafaʿnā",
+          "root": "ر ف ع",
+          "lemma": "رَفَعَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:1|ROOT:رفع|LEM:رَفَعَ|1P|PRON|SUFF|1P"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "لَكَ",
+          "text_simple": "لك",
+          "translation": "for you",
+          "transliteration": "laka",
+          "root": null,
+          "lemma": "ل",
+          "pos": null,
+          "morphology": "P|PREF|LEM:ل|PRON|2MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ذِكْرَكَ",
+          "text_simple": "ذكرك",
+          "translation": "your reputation",
+          "transliteration": "dhik'raka",
+          "root": "ذ ك ر",
+          "lemma": "ذِكْر",
+          "pos": "N",
+          "morphology": "VN|VF:1|ROOT:ذكر|LEM:ذِكْر|M|ACC|PRON|SUFF|2MS"
+        }
+      ]
+    },
+    "5": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "فَإِنَّ",
+          "text_simple": "فإن",
+          "translation": "So indeed",
+          "transliteration": "fa-inna",
+          "root": null,
+          "lemma": "ف",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:ف|ACC|LEM:إِنّ|FAM:إِنّ"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "مَعَ",
+          "text_simple": "مع",
+          "translation": "with",
+          "transliteration": "maʿa",
+          "root": null,
+          "lemma": "مَع",
+          "pos": null,
+          "morphology": "LOC|LEM:مَع|ACC"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ٱلْعُسْرِ",
+          "text_simple": "ٱلعسر",
+          "translation": "the hardship",
+          "transliteration": "l-ʿus'ri",
+          "root": "ع س ر",
+          "lemma": "عُسْر",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:عسر|LEM:عُسْر|M|GEN"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "يُسْرًا",
+          "text_simple": "يسرا",
+          "translation": "(is) ease",
+          "transliteration": "yus'ran",
+          "root": "ي س ر",
+          "lemma": "يُسْر",
+          "pos": "N",
+          "morphology": "ROOT:يسر|LEM:يُسْر|M|INDEF|ACC"
+        }
+      ]
+    },
+    "6": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "إِنَّ",
+          "text_simple": "إن",
+          "translation": "Indeed",
+          "transliteration": "inna",
+          "root": null,
+          "lemma": "إِنّ",
+          "pos": null,
+          "morphology": "ACC|LEM:إِنّ|FAM:إِنّ"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "مَعَ",
+          "text_simple": "مع",
+          "translation": "with",
+          "transliteration": "maʿa",
+          "root": null,
+          "lemma": "مَع",
+          "pos": null,
+          "morphology": "LOC|LEM:مَع|ACC"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ٱلْعُسْرِ",
+          "text_simple": "ٱلعسر",
+          "translation": "the hardship",
+          "transliteration": "l-ʿus'ri",
+          "root": "ع س ر",
+          "lemma": "عُسْر",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:عسر|LEM:عُسْر|M|GEN"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "يُسْرًۭا",
+          "text_simple": "يسرا",
+          "translation": "(is) ease",
+          "transliteration": "yus'ran",
+          "root": "ي س ر",
+          "lemma": "يُسْر",
+          "pos": "N",
+          "morphology": "ROOT:يسر|LEM:يُسْر|M|INDEF|ACC"
+        }
+      ]
+    },
+    "7": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "فَإِذَا",
+          "text_simple": "فإذا",
+          "translation": "So when",
+          "transliteration": "fa-idhā",
+          "root": null,
+          "lemma": "ف",
+          "pos": null,
+          "morphology": "REM|PREF|LEM:ف|T|LEM:إِذا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "فَرَغْتَ",
+          "text_simple": "فرغت",
+          "translation": "you have finished",
+          "transliteration": "faraghta",
+          "root": "ف ر غ",
+          "lemma": "فَرَغْ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:فرغ|LEM:فَرَغْ|2MS|PRON|SUFF|2MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "فَٱنصَبْ",
+          "text_simple": "فٱنصب",
+          "translation": "then labor hard",
+          "transliteration": "fa-inṣab",
+          "root": "ن ص ب",
+          "lemma": "نُصِبَتْ",
+          "pos": "V",
+          "morphology": "RSLT|PREF|LEM:ف|IMPV|VF:1|ROOT:نصب|LEM:نُصِبَتْ|2MS"
+        }
+      ]
+    },
+    "8": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَإِلَىٰ",
+          "text_simple": "وإلى",
+          "translation": "And to",
+          "transliteration": "wa-ilā",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|P|LEM:إِلَى"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "رَبِّكَ",
+          "text_simple": "ربك",
+          "translation": "your Lord",
+          "transliteration": "rabbika",
+          "root": "ر ب ب",
+          "lemma": "رَبّ",
+          "pos": "N",
+          "morphology": "ROOT:ربب|LEM:رَبّ|M|GEN|PRON|SUFF|2MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "فَٱرْغَب",
+          "text_simple": "فٱرغب",
+          "translation": "turn your attention",
+          "transliteration": "fa-ir'ghab",
+          "root": "ر غ ب",
+          "lemma": "يَرْغَبُ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:��|IMPV|VF:1|ROOT:رغب|LEM:يَرْغَبُ|2MS"
+        }
+      ]
+    }
+  }
+}

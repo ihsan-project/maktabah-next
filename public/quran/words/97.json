@@ -1,0 +1,355 @@
+{
+  "surah": 97,
+  "verses": {
+    "1": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "إِنَّآ",
+          "text_simple": "إنا",
+          "translation": "Indeed, We",
+          "transliteration": "innā",
+          "root": null,
+          "lemma": "إِنّ",
+          "pos": null,
+          "morphology": "ACC|LEM:إِنّ|FAM:إِنّ|PRON|SUFF|1P"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَنزَلْنَـٰهُ",
+          "text_simple": "أنزلنـه",
+          "translation": "revealed it",
+          "transliteration": "anzalnāhu",
+          "root": "ن ز ل",
+          "lemma": "أَنزَلَ",
+          "pos": "V",
+          "morphology": "PERF|VF:4|ROOT:نزل|LEM:أَنزَلَ|1P|PRON|SUFF|1P|PRON|SUFF|3MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "فِى",
+          "text_simple": "فى",
+          "translation": "in",
+          "transliteration": "fī",
+          "root": null,
+          "lemma": "فِي",
+          "pos": null,
+          "morphology": "P|LEM:فِي"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "لَيْلَةِ",
+          "text_simple": "ليلة",
+          "translation": "(the) Night",
+          "transliteration": "laylati",
+          "root": "ل ي ل",
+          "lemma": "لَيْلَة",
+          "pos": "N",
+          "morphology": "ROOT:ليل|LEM:لَيْلَة|F|GEN"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "ٱلْقَدْرِ",
+          "text_simple": "ٱلقدر",
+          "translation": "(of) Power",
+          "transliteration": "l-qadri",
+          "root": "ق د ر",
+          "lemma": "قَدْر",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:قدر|LEM:قَدْر|M|GEN"
+        }
+      ]
+    },
+    "2": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَمَآ",
+          "text_simple": "وما",
+          "translation": "And what",
+          "transliteration": "wamā",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|INTG|LEM:ما"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَدْرَىٰكَ",
+          "text_simple": "أدرىك",
+          "translation": "can make you know",
+          "transliteration": "adrāka",
+          "root": "د ر ي",
+          "lemma": "أَدْرَى",
+          "pos": "V",
+          "morphology": "PERF|VF:4|ROOT:دري|LEM:أَدْرَى|3MS|PRON|SUFF|2MS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "مَا",
+          "text_simple": "ما",
+          "translation": "what",
+          "transliteration": "mā",
+          "root": null,
+          "lemma": "ما",
+          "pos": null,
+          "morphology": "INTG|LEM:ما"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "لَيْلَةُ",
+          "text_simple": "ليلة",
+          "translation": "(the) Night",
+          "transliteration": "laylatu",
+          "root": "ل ي ل",
+          "lemma": "لَيْلَة",
+          "pos": "N",
+          "morphology": "ROOT:ليل|LEM:لَيْلَة|F|NOM"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "ٱلْقَدْرِ",
+          "text_simple": "ٱلقدر",
+          "translation": "(of) Power (is)",
+          "transliteration": "l-qadri",
+          "root": "ق د ر",
+          "lemma": "قَدْر",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:قدر|LEM:قَدْر|M|GEN"
+        }
+      ]
+    },
+    "3": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "لَيْلَةُ",
+          "text_simple": "ليلة",
+          "translation": "(The) Night",
+          "transliteration": "laylatu",
+          "root": "ل ي ل",
+          "lemma": "لَيْلَة",
+          "pos": "N",
+          "morphology": "ROOT:ليل|LEM:لَيْلَة|F|NOM"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلْقَدْرِ",
+          "text_simple": "ٱلقدر",
+          "translation": "(of) Power",
+          "transliteration": "l-qadri",
+          "root": "ق د ر",
+          "lemma": "قَدْر",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:قدر|LEM:قَدْر|M|GEN"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "خَيْرٌۭ",
+          "text_simple": "خير",
+          "translation": "(is) better",
+          "transliteration": "khayrun",
+          "root": "خ ي ر",
+          "lemma": "خَيْر",
+          "pos": "N",
+          "morphology": "ROOT:خير|LEM:خَيْر|MS|INDEF|NOM"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "مِّنْ",
+          "text_simple": "من",
+          "translation": "than",
+          "transliteration": "min",
+          "root": null,
+          "lemma": "مِن",
+          "pos": null,
+          "morphology": "P|LEM:مِن"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "أَلْفِ",
+          "text_simple": "ألف",
+          "translation": "a thousand",
+          "transliteration": "alfi",
+          "root": "أ ل ف",
+          "lemma": "أَلْف",
+          "pos": "N",
+          "morphology": "ROOT:ألف|LEM:أَلْف|M|GEN"
+        },
+        {
+          "position": 6,
+          "text_uthmani": "شَهْرٍۢ",
+          "text_simple": "شهر",
+          "translation": "month(s)",
+          "transliteration": "shahrin",
+          "root": "ش ه ر",
+          "lemma": "شَهْر",
+          "pos": "N",
+          "morphology": "ROOT:شهر|LEM:شَهْر|M|INDEF|GEN"
+        }
+      ]
+    },
+    "4": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "تَنَزَّلُ",
+          "text_simple": "تنزل",
+          "translation": "Descend",
+          "transliteration": "tanazzalu",
+          "root": "ن ز ل",
+          "lemma": "تَنَزَّلَتْ",
+          "pos": "V",
+          "morphology": "IMPF|VF:5|ROOT:نزل|LEM:تَنَزَّلَتْ|3FS|MOOD:IND"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلْمَلَـٰٓئِكَةُ",
+          "text_simple": "ٱلملـئكة",
+          "translation": "the Angels",
+          "transliteration": "l-malāikatu",
+          "root": "م ل ك",
+          "lemma": "مَلَك",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:ملك|LEM:مَلَك|MP|NOM"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "وَٱلرُّوحُ",
+          "text_simple": "وٱلروح",
+          "translation": "and the Spirit",
+          "transliteration": "wal-rūḥu",
+          "root": "ر و ح",
+          "lemma": "رُوح",
+          "pos": "N",
+          "morphology": "CONJ|PREF|LEM:و|DET|PREF|LEM:ال|ROOT:روح|LEM:رُوح|M|NOM"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "فِيهَا",
+          "text_simple": "فيها",
+          "translation": "therein",
+          "transliteration": "fīhā",
+          "root": null,
+          "lemma": "فِي",
+          "pos": null,
+          "morphology": "P|LEM:فِي|PRON|SUFF|3FS"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "بِإِذْنِ",
+          "text_simple": "بإذن",
+          "translation": "by (the) permission",
+          "transliteration": "bi-idh'ni",
+          "root": "أ ذ ن",
+          "lemma": "إِذْن",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ب|ROOT:أذن|LEM:إِذْن|M|GEN"
+        },
+        {
+          "position": 6,
+          "text_uthmani": "رَبِّهِم",
+          "text_simple": "ربهم",
+          "translation": "(of) their Lord",
+          "transliteration": "rabbihim",
+          "root": "ر ب ب",
+          "lemma": "رَبّ",
+          "pos": "N",
+          "morphology": "ROOT:ربب|LEM:رَبّ|M|GEN|PRON|SUFF|3MP"
+        },
+        {
+          "position": 7,
+          "text_uthmani": "مِّن",
+          "text_simple": "من",
+          "translation": "for",
+          "transliteration": "min",
+          "root": null,
+          "lemma": "مِن",
+          "pos": null,
+          "morphology": "P|LEM:مِن"
+        },
+        {
+          "position": 8,
+          "text_uthmani": "كُلِّ",
+          "text_simple": "كل",
+          "translation": "every",
+          "transliteration": "kulli",
+          "root": "ك ل ل",
+          "lemma": "كُلّ",
+          "pos": "N",
+          "morphology": "ROOT:كلل|LEM:كُلّ|M|GEN"
+        },
+        {
+          "position": 9,
+          "text_uthmani": "أَمْرٍۢ",
+          "text_simple": "أمر",
+          "translation": "affair",
+          "transliteration": "amrin",
+          "root": "أ م ر",
+          "lemma": "أَمْر",
+          "pos": "N",
+          "morphology": "ROOT:أمر|LEM:أَمْر|M|INDEF|GEN"
+        }
+      ]
+    },
+    "5": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "سَلَـٰمٌ",
+          "text_simple": "سلـم",
+          "translation": "Peace",
+          "transliteration": "salāmun",
+          "root": "س ل م",
+          "lemma": "سَلام",
+          "pos": "N",
+          "morphology": "ROOT:سلم|LEM:سَلام|M|INDEF|NOM"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "هِىَ",
+          "text_simple": "هى",
+          "translation": "it (is)",
+          "transliteration": "hiya",
+          "root": null,
+          "lemma": null,
+          "pos": null,
+          "morphology": "PRON|3FS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "حَتَّىٰ",
+          "text_simple": "حتى",
+          "translation": "until",
+          "transliteration": "ḥattā",
+          "root": null,
+          "lemma": "حَتَّى",
+          "pos": null,
+          "morphology": "P|LEM:حَتَّى"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "مَطْلَعِ",
+          "text_simple": "مطلع",
+          "translation": "(the) emergence",
+          "transliteration": "maṭlaʿi",
+          "root": "ط ل ع",
+          "lemma": "مَطْلَع",
+          "pos": "N",
+          "morphology": "ROOT:طلع|LEM:مَطْلَع|M|GEN"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "ٱلْفَجْرِ",
+          "text_simple": "ٱلفجر",
+          "translation": "(of) the dawn",
+          "transliteration": "l-fajri",
+          "root": "ف ج ر",
+          "lemma": "فَجْر",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:فجر|LEM:فَجْر|M|GEN"
+        }
+      ]
+    }
+  }
+}

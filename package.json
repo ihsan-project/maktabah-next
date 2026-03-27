@@ -25,6 +25,7 @@
     "deploy:functions": "npm run build:firebase && firebase deploy --only functions"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.27.19",
     "@opensearch-project/opensearch": "^2.6.0",
     "firebase": "^10.6.0",
     "mixpanel-browser": "^2.47.0",

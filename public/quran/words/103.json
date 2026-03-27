@@ -1,0 +1,171 @@
+{
+  "surah": 103,
+  "verses": {
+    "1": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَٱلْعَصْرِ",
+          "text_simple": "وٱلعصر",
+          "translation": "By the time",
+          "transliteration": "wal-ʿaṣri",
+          "root": "ع ص ر",
+          "lemma": "عَصْر",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:و|DET|PREF|LEM:ال|ROOT:عصر|LEM:عَصْر|M|GEN"
+        }
+      ]
+    },
+    "2": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "إِنَّ",
+          "text_simple": "إن",
+          "translation": "Indeed",
+          "transliteration": "inna",
+          "root": null,
+          "lemma": "إِنّ",
+          "pos": null,
+          "morphology": "ACC|LEM:إِنّ|FAM:إِنّ"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلْإِنسَـٰنَ",
+          "text_simple": "ٱلإنسـن",
+          "translation": "mankind",
+          "transliteration": "l-insāna",
+          "root": "أ ن س",
+          "lemma": "إِنسان",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:أنس|LEM:إِنسان|M|ACC"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "لَفِى",
+          "text_simple": "لفى",
+          "translation": "(is) surely, in",
+          "transliteration": "lafī",
+          "root": null,
+          "lemma": "ل",
+          "pos": null,
+          "morphology": "EMPH|PREF|LEM:ل|P|LEM:فِي"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "خُسْرٍ",
+          "text_simple": "خسر",
+          "translation": "loss",
+          "transliteration": "khus'rin",
+          "root": "خ س ر",
+          "lemma": "خُسْر",
+          "pos": "N",
+          "morphology": "ROOT:خسر|LEM:خُسْر|M|INDEF|GEN"
+        }
+      ]
+    },
+    "3": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "إِلَّا",
+          "text_simple": "إلا",
+          "translation": "Except",
+          "transliteration": "illā",
+          "root": null,
+          "lemma": "إِلّا",
+          "pos": null,
+          "morphology": "EXP|LEM:إِلّا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "ٱلَّذِينَ",
+          "text_simple": "ٱلذين",
+          "translation": "those who",
+          "transliteration": "alladhīna",
+          "root": null,
+          "lemma": "الَّذِي",
+          "pos": null,
+          "morphology": "REL|LEM:الَّذِي|MP"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ءَامَنُوا۟",
+          "text_simple": "ءامنوا",
+          "translation": "believe",
+          "transliteration": "āmanū",
+          "root": "أ م ن",
+          "lemma": "آمَنَ",
+          "pos": "V",
+          "morphology": "PERF|VF:4|ROOT:أمن|LEM:آمَنَ|3MP|PRON|SUFF|3MP"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "وَعَمِلُوا۟",
+          "text_simple": "وعملوا",
+          "translation": "and do",
+          "transliteration": "waʿamilū",
+          "root": "ع م ل",
+          "lemma": "عَمِلَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:1|ROOT:عمل|LEM:عَمِلَ|3MP|PRON|SUFF|3MP"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "ٱلصَّـٰلِحَـٰتِ",
+          "text_simple": "ٱلصـلحـت",
+          "translation": "righteous deeds",
+          "transliteration": "l-ṣāliḥāti",
+          "root": "ص ل ح",
+          "lemma": "صالِحَة",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ACT_PCPL|VF:1|ROOT:صلح|LEM:صالِحَة|FP|ACC"
+        },
+        {
+          "position": 6,
+          "text_uthmani": "وَتَوَاصَوْا۟",
+          "text_simple": "وتواصوا",
+          "translation": "and enjoin (each other)",
+          "transliteration": "watawāṣaw",
+          "root": "و ص ي",
+          "lemma": "تَواصَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:6|ROOT:وصي|LEM:تَواصَ|3MP|PRON|SUFF|3MP"
+        },
+        {
+          "position": 7,
+          "text_uthmani": "بِٱلْحَقِّ",
+          "text_simple": "بٱلحق",
+          "translation": "to the truth",
+          "transliteration": "bil-ḥaqi",
+          "root": "ح ق ق",
+          "lemma": "حَقّ",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ب|DET|PREF|LEM:ال|ROOT:حقق|LEM:حَقّ|M|GEN"
+        },
+        {
+          "position": 8,
+          "text_uthmani": "وَتَوَاصَوْا۟",
+          "text_simple": "وتواصوا",
+          "translation": "and enjoin (each other)",
+          "transliteration": "watawāṣaw",
+          "root": "و ص ي",
+          "lemma": "تَواصَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:6|ROOT:وصي|LEM:تَواصَ|3MP|PRON|SUFF|3MP"
+        },
+        {
+          "position": 9,
+          "text_uthmani": "بِٱلصَّبْرِ",
+          "text_simple": "بٱلصبر",
+          "translation": "to [the] patience",
+          "transliteration": "bil-ṣabri",
+          "root": "ص ب ر",
+          "lemma": "صَبْر",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ب|DET|PREF|LEM:ال|ROOT:صبر|LEM:صَبْر|M|GEN"
+        }
+      ]
+    }
+  }
+}

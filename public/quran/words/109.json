@@ -1,0 +1,315 @@
+{
+  "surah": 109,
+  "verses": {
+    "1": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "قُلْ",
+          "text_simple": "قل",
+          "translation": "Say",
+          "transliteration": "qul",
+          "root": "ق و ل",
+          "lemma": "قالَ",
+          "pos": "V",
+          "morphology": "IMPV|VF:1|ROOT:قول|LEM:قالَ|2MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "يَـٰٓأَيُّهَا",
+          "text_simple": "يـأيها",
+          "translation": "O",
+          "transliteration": "yāayyuhā",
+          "root": "أ ي ي",
+          "lemma": "أَيّ",
+          "pos": "N",
+          "morphology": "VOC|PREF|LEM:ي|ROOT:أيي|LEM:أَيّ|ACC|ATT|SUFF|LEM:ه"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "ٱلْكَـٰفِرُونَ",
+          "text_simple": "ٱلكـفرون",
+          "translation": "disbelievers",
+          "transliteration": "l-kāfirūna",
+          "root": "ك ف ر",
+          "lemma": "كافِر",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ACT_PCPL|VF:1|ROOT:كفر|LEM:كافِر|MP|NOM"
+        }
+      ]
+    },
+    "2": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "لَآ",
+          "text_simple": "لا",
+          "translation": "Not",
+          "transliteration": "lā",
+          "root": null,
+          "lemma": "لا",
+          "pos": null,
+          "morphology": "NEG|LEM:لا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَعْبُدُ",
+          "text_simple": "أعبد",
+          "translation": "I worship",
+          "transliteration": "aʿbudu",
+          "root": "ع ب د",
+          "lemma": "عَبَدَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:عبد|LEM:عَبَدَ|1S|MOOD:IND"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "مَا",
+          "text_simple": "ما",
+          "translation": "what",
+          "transliteration": "mā",
+          "root": null,
+          "lemma": "ما",
+          "pos": null,
+          "morphology": "REL|LEM:ما"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "تَعْبُدُونَ",
+          "text_simple": "تعبدون",
+          "translation": "you worship",
+          "transliteration": "taʿbudūna",
+          "root": "ع ب د",
+          "lemma": "عَبَدَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:عبد|LEM:عَبَدَ|2MP|MOOD:IND|PRON|SUFF|2MP"
+        }
+      ]
+    },
+    "3": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَلَآ",
+          "text_simple": "ولا",
+          "translation": "And not",
+          "transliteration": "walā",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|NEG|LEM:لا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَنتُمْ",
+          "text_simple": "أنتم",
+          "translation": "you",
+          "transliteration": "antum",
+          "root": null,
+          "lemma": null,
+          "pos": null,
+          "morphology": "PRON|2MP"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "عَـٰبِدُونَ",
+          "text_simple": "عـبدون",
+          "translation": "(are) worshippers",
+          "transliteration": "ʿābidūna",
+          "root": "ع ب د",
+          "lemma": "عابِد",
+          "pos": "N",
+          "morphology": "ACT_PCPL|VF:1|ROOT:عبد|LEM:عابِد|MP|NOM"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "مَآ",
+          "text_simple": "ما",
+          "translation": "(of) what",
+          "transliteration": "mā",
+          "root": null,
+          "lemma": "ما",
+          "pos": null,
+          "morphology": "REL|LEM:ما"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "أَعْبُدُ",
+          "text_simple": "أعبد",
+          "translation": "I worship",
+          "transliteration": "aʿbudu",
+          "root": "ع ب د",
+          "lemma": "عَبَدَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:عبد|LEM:عَبَدَ|1S|MOOD:IND"
+        }
+      ]
+    },
+    "4": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَلَآ",
+          "text_simple": "ولا",
+          "translation": "And not",
+          "transliteration": "walā",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|NEG|LEM:لا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَنَا۠",
+          "text_simple": "أنا",
+          "translation": "I am",
+          "transliteration": "anā",
+          "root": null,
+          "lemma": null,
+          "pos": null,
+          "morphology": "PRON|1S"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "عَابِدٌۭ",
+          "text_simple": "عابد",
+          "translation": "a worshipper",
+          "transliteration": "ʿābidun",
+          "root": "ع ب د",
+          "lemma": "عابِد",
+          "pos": "N",
+          "morphology": "ACT_PCPL|VF:1|ROOT:عبد|LEM:عابِد|M|INDEF|NOM"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "مَّا",
+          "text_simple": "ما",
+          "translation": "(of) what",
+          "transliteration": "mā",
+          "root": null,
+          "lemma": "ما",
+          "pos": null,
+          "morphology": "REL|LEM:ما"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "عَبَدتُّمْ",
+          "text_simple": "عبدتم",
+          "translation": "you worship",
+          "transliteration": "ʿabadttum",
+          "root": "ع ب د",
+          "lemma": "عَبَدَ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:عبد|LEM:عَبَدَ|2MP|PRON|SUFF|2MP"
+        }
+      ]
+    },
+    "5": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَلَآ",
+          "text_simple": "ولا",
+          "translation": "And not",
+          "transliteration": "walā",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|NEG|LEM:لا"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "أَنتُمْ",
+          "text_simple": "أنتم",
+          "translation": "you",
+          "transliteration": "antum",
+          "root": null,
+          "lemma": null,
+          "pos": null,
+          "morphology": "PRON|2MP"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "عَـٰبِدُونَ",
+          "text_simple": "عـبدون",
+          "translation": "(are) worshippers",
+          "transliteration": "ʿābidūna",
+          "root": "ع ب د",
+          "lemma": "عابِد",
+          "pos": "N",
+          "morphology": "ACT_PCPL|VF:1|ROOT:عبد|LEM:عابِد|MP|NOM"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "مَآ",
+          "text_simple": "ما",
+          "translation": "(of) what",
+          "transliteration": "mā",
+          "root": null,
+          "lemma": "ما",
+          "pos": null,
+          "morphology": "REL|LEM:ما"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "أَعْبُدُ",
+          "text_simple": "أعبد",
+          "translation": "I worship",
+          "transliteration": "aʿbudu",
+          "root": "ع ب د",
+          "lemma": "عَبَدَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:عبد|LEM:عَبَدَ|1S|MOOD:IND"
+        }
+      ]
+    },
+    "6": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "لَكُمْ",
+          "text_simple": "لكم",
+          "translation": "For you",
+          "transliteration": "lakum",
+          "root": null,
+          "lemma": "ل",
+          "pos": null,
+          "morphology": "P|PREF|LEM:ل|PRON|2MP"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "دِينُكُمْ",
+          "text_simple": "دينكم",
+          "translation": "(is) your religion",
+          "transliteration": "dīnukum",
+          "root": "د ي ن",
+          "lemma": "دِين",
+          "pos": "N",
+          "morphology": "ROOT:دين|LEM:دِين|M|NOM|PRON|SUFF|2MP"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "وَلِىَ",
+          "text_simple": "ولى",
+          "translation": "and for me",
+          "transliteration": "waliya",
+          "root": null,
+          "lemma": "و",
+          "pos": null,
+          "morphology": "CONJ|PREF|LEM:و|P|PREF|LEM:ل|PRON|1S"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "دِينِ",
+          "text_simple": "دين",
+          "translation": "(is) my religion",
+          "transliteration": "dīni",
+          "root": "د ي ن",
+          "lemma": "دِين",
+          "pos": "N",
+          "morphology": "ROOT:دين|LEM:دِين|M|NOM|PRON|SUFF|1S"
+        }
+      ]
+    }
+  }
+}

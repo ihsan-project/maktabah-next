@@ -1,0 +1,278 @@
+{
+  "surah": 105,
+  "verses": {
+    "1": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "أَلَمْ",
+          "text_simple": "ألم",
+          "translation": "Have not",
+          "transliteration": "alam",
+          "root": null,
+          "lemma": "أ",
+          "pos": null,
+          "morphology": "INTG|PREF|LEM:أ|NEG|LEM:لَم"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "تَرَ",
+          "text_simple": "تر",
+          "translation": "you seen",
+          "transliteration": "tara",
+          "root": "ر أ ي",
+          "lemma": "رَأَى",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:رأي|LEM:رَأَى|2MS|MOOD:JUS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "كَيْفَ",
+          "text_simple": "كيف",
+          "translation": "how",
+          "transliteration": "kayfa",
+          "root": "ك ي ف",
+          "lemma": "كَيْف",
+          "pos": "N",
+          "morphology": "ROOT:كيف|LEM:كَيْف"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "فَعَلَ",
+          "text_simple": "فعل",
+          "translation": "dealt",
+          "transliteration": "faʿala",
+          "root": "ف ع ل",
+          "lemma": "فَعَلَ",
+          "pos": "V",
+          "morphology": "PERF|VF:1|ROOT:فعل|LEM:فَعَلَ|3MS"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "رَبُّكَ",
+          "text_simple": "ربك",
+          "translation": "your Lord",
+          "transliteration": "rabbuka",
+          "root": "ر ب ب",
+          "lemma": "رَبّ",
+          "pos": "N",
+          "morphology": "ROOT:ربب|LEM:رَبّ|M|NOM|PRON|SUFF|2MS"
+        },
+        {
+          "position": 6,
+          "text_uthmani": "بِأَصْحَـٰبِ",
+          "text_simple": "بأصحـب",
+          "translation": "with (the) Companions",
+          "transliteration": "bi-aṣḥābi",
+          "root": "ص ح ب",
+          "lemma": "أَصْحاب",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ب|ROOT:صحب|LEM:أَصْحاب|MP|GEN"
+        },
+        {
+          "position": 7,
+          "text_uthmani": "ٱلْفِيلِ",
+          "text_simple": "ٱلفيل",
+          "translation": "(of the) Elephant",
+          "transliteration": "l-fīli",
+          "root": "ف ي ل",
+          "lemma": "فِيل",
+          "pos": "N",
+          "morphology": "DET|PREF|LEM:ال|ROOT:فيل|LEM:فِيل|M|GEN"
+        }
+      ]
+    },
+    "2": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "أَلَمْ",
+          "text_simple": "ألم",
+          "translation": "Did not",
+          "transliteration": "alam",
+          "root": null,
+          "lemma": "أ",
+          "pos": null,
+          "morphology": "INTG|PREF|LEM:أ|NEG|LEM:لَم"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "يَجْعَلْ",
+          "text_simple": "يجعل",
+          "translation": "He make",
+          "transliteration": "yajʿal",
+          "root": "ج ع ل",
+          "lemma": "جَعَلَ",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:جعل|LEM:جَعَلَ|3MS|MOOD:JUS"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "كَيْدَهُمْ",
+          "text_simple": "كيدهم",
+          "translation": "their plan",
+          "transliteration": "kaydahum",
+          "root": "ك ي د",
+          "lemma": "كَيْد",
+          "pos": "N",
+          "morphology": "ROOT:كيد|LEM:كَيْد|M|ACC|PRON|SUFF|3MP"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "فِى",
+          "text_simple": "فى",
+          "translation": "go",
+          "transliteration": "fī",
+          "root": null,
+          "lemma": "فِي",
+          "pos": null,
+          "morphology": "P|LEM:فِي"
+        },
+        {
+          "position": 5,
+          "text_uthmani": "تَضْلِيلٍۢ",
+          "text_simple": "تضليل",
+          "translation": "astray",
+          "transliteration": "taḍlīlin",
+          "root": "ض ل ل",
+          "lemma": "تَضْلِيل",
+          "pos": "N",
+          "morphology": "VN|VF:2|ROOT:ضلل|LEM:تَضْلِيل|M|INDEF|GEN"
+        }
+      ]
+    },
+    "3": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "وَأَرْسَلَ",
+          "text_simple": "وأرسل",
+          "translation": "And He sent",
+          "transliteration": "wa-arsala",
+          "root": "ر س ل",
+          "lemma": "أَرْسَلَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:و|PERF|VF:4|ROOT:رسل|LEM:أَرْسَلَ|3MS"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "عَلَيْهِمْ",
+          "text_simple": "عليهم",
+          "translation": "against them",
+          "transliteration": "ʿalayhim",
+          "root": null,
+          "lemma": "عَلَى",
+          "pos": null,
+          "morphology": "P|LEM:عَلَى|PRON|SUFF|3MP"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "طَيْرًا",
+          "text_simple": "طيرا",
+          "translation": "birds",
+          "transliteration": "ṭayran",
+          "root": "ط ي ر",
+          "lemma": "طَيْر",
+          "pos": "N",
+          "morphology": "ROOT:طير|LEM:طَيْر|MP|INDEF|ACC"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "أَبَابِيلَ",
+          "text_simple": "أبابيل",
+          "translation": "(in) flocks",
+          "transliteration": "abābīla",
+          "root": "أ ب ل",
+          "lemma": "أَبابِيل",
+          "pos": "N",
+          "morphology": "ROOT:أبل|LEM:أَبابِيل|MP|INDEF|ACC|ADJ"
+        }
+      ]
+    },
+    "4": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "تَرْمِيهِم",
+          "text_simple": "ترميهم",
+          "translation": "Striking them",
+          "transliteration": "tarmīhim",
+          "root": "ر م ي",
+          "lemma": "رَمَى",
+          "pos": "V",
+          "morphology": "IMPF|VF:1|ROOT:رمي|LEM:رَمَى|3FS|MOOD:IND|PRON|SUFF|3MP"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "بِحِجَارَةٍۢ",
+          "text_simple": "بحجارة",
+          "translation": "with stones",
+          "transliteration": "biḥijāratin",
+          "root": "ح ج ر",
+          "lemma": "حِجارَة",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ب|ROOT:حجر|LEM:حِجارَة|F|INDEF|GEN"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "مِّن",
+          "text_simple": "من",
+          "translation": "of",
+          "transliteration": "min",
+          "root": null,
+          "lemma": "مِن",
+          "pos": null,
+          "morphology": "P|LEM:مِن"
+        },
+        {
+          "position": 4,
+          "text_uthmani": "سِجِّيلٍۢ",
+          "text_simple": "سجيل",
+          "translation": "baked clay",
+          "transliteration": "sijjīlin",
+          "root": "س ج ل",
+          "lemma": "سِجِّيل",
+          "pos": "N",
+          "morphology": "ROOT:سجل|LEM:سِجِّيل|M|INDEF|GEN"
+        }
+      ]
+    },
+    "5": {
+      "words": [
+        {
+          "position": 1,
+          "text_uthmani": "فَجَعَلَهُمْ",
+          "text_simple": "فجعلهم",
+          "translation": "Then He made them",
+          "transliteration": "fajaʿalahum",
+          "root": "ج ع ل",
+          "lemma": "جَعَلَ",
+          "pos": "V",
+          "morphology": "CONJ|PREF|LEM:ف|PERF|VF:1|ROOT:جعل|LEM:جَعَلَ|3MS|PRON|SUFF|3MP"
+        },
+        {
+          "position": 2,
+          "text_uthmani": "كَعَصْفٍۢ",
+          "text_simple": "كعصف",
+          "translation": "like straw",
+          "transliteration": "kaʿaṣfin",
+          "root": "ع ص ف",
+          "lemma": "عَصْف",
+          "pos": "N",
+          "morphology": "P|PREF|LEM:ك|ROOT:عصف|LEM:عَصْف|M|INDEF|GEN"
+        },
+        {
+          "position": 3,
+          "text_uthmani": "مَّأْكُولٍۭ",
+          "text_simple": "مأكول",
+          "translation": "eaten up",
+          "transliteration": "makūlin",
+          "root": "أ ك ل",
+          "lemma": "مَأْكُول",
+          "pos": "N",
+          "morphology": "PASS_PCPL|VF:1|ROOT:أكل|LEM:مَأْكُول|M|INDEF|GEN|ADJ"
+        }
+      ]
+    }
+  }
+}

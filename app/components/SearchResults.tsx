@@ -11,6 +11,7 @@ import BookmarkButton from './BookmarkButton';
 import NoteIcon from './NoteIcon';
 import NotesModal from './NotesModal';
 import ArabicText from './ArabicText';
+import InteractiveArabicText from './InteractiveArabicText';
 import SkeletonResultCard from './SkeletonResultCard';
 import { useBookmarks, generateVerseId } from '@/lib/bookmarks';
 import { Bookmark } from '@/types';
@@ -341,12 +342,21 @@ export default function SearchResults({
                 />
               </div>
 
-              {/* Arabic text (when available from Phase 1 data) */}
+              {/* Arabic text — interactive word-by-word for Quran, plain for others */}
               {result.text_arabic_uthmani && (
-                <div className="mt-3 pt-3 border-t border-gray-100">
-                  <ArabicText size="lg" className="text-gray-800">
-                    {result.text_arabic_uthmani}
-                  </ArabicText>
+                <div className="mt-3 pt-3 border-t border-gray-100" onClick={(e) => e.stopPropagation()}>
+                  {result.title === 'quran' || !result.title ? (
+                    <InteractiveArabicText
+                      chapter={result.chapter}
+                      verse={result.verse}
+                      uthmaniText={result.text_arabic_uthmani}
+                      className="text-gray-800"
+                    />
+                  ) : (
+                    <ArabicText size="lg" className="text-gray-800">
+                      {result.text_arabic_uthmani}
+                    </ArabicText>
+                  )}
                 </div>
               )}
 
@@ -430,12 +440,13 @@ export default function SearchResults({
                   </div>
                 )}
               </div>
-              <div
-                className="text-gray-400 cursor-pointer"
+              <button
+                className="flex items-center gap-1 text-gray-400 hover:text-gray-600 cursor-pointer transition-colors"
                 onClick={() => toggleExpand(result.id, result)}
               >
-                {isExpanded ? <FiChevronDown size={20} /> : <FiChevronRight size={20} />}
-              </div>
+                <span className="text-xs">{isExpanded ? 'Less' : 'More'}</span>
+                {isExpanded ? <FiChevronDown size={18} /> : <FiChevronRight size={18} />}
+              </button>
             </div>
           </div>
         );

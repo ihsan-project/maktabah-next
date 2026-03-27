@@ -11,7 +11,10 @@
     "loader:decode": "node decode-quran-xml.js",
     "loader:search": "node search-opensearch.js",
     "loader:delete-index": "node delete-index.js",
-    "loader:migrate-arabic": "node migrate-arabic-metadata.js"
+    "loader:migrate-arabic": "node migrate-arabic-metadata.js",
+    "loader:fetch-words": "node fetch-word-by-word.js",
+    "loader:build-roots": "node build-root-index.js",
+    "loader:ingest-lanes": "node ingest-lanes-lexicon.js"
   },
   "keywords": [
     "quran",

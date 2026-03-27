@@ -79,7 +79,6 @@ npm run loader:load-opensearch -- translations/en.sarwar.xml --author="Sarwar" -
 npm run loader:load-opensearch -- translations/en.shakir.xml --author="Shakir" --id="en.shakir" --title="quran"
 npm run loader:load-opensearch -- translations/en.wahiduddin.xml --author="Wahiduddin Khan" --id="en.wahiduddin" --title="quran"
 npm run loader:load-opensearch -- translations/en.yusufali.xml --author="Yusuf Ali" --id="en.yusufali" --title="quran"
-npm run loader:load-opensearch -- translations/en.transliteration.clean.xml --author="Transliteration" --id="en.transliteration" --title="quran"
 
 
 npm run loader:load-opensearch -- translations/en.bukhari.vol01.xml --title="bukhari" --author="Dr. Muhammad Muhsin" --id="en.bukhari.vol01"  --volume=1
