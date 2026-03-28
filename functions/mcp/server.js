@@ -1,5 +1,9 @@
 const { McpServer } = require('@modelcontextprotocol/sdk/server/mcp.js');
-const { z } = require('zod');
+const { registerSearchTool } = require('./tools/search');
+const { registerGetVerseTool } = require('./tools/get-verse');
+const { registerGetHadithTool } = require('./tools/get-hadith');
+const { registerLookupRootTool } = require('./tools/lookup-root');
+const { registerGetMorphologyTool } = require('./tools/get-morphology');
 
 /**
  * Create and configure the Maktabah MCP server with all tools registered.
@@ -30,6 +34,13 @@ function createMcpServer() {
       };
     }
   );
+
+  // Core tools
+  registerSearchTool(server);
+  registerGetVerseTool(server);
+  registerGetHadithTool(server);
+  registerLookupRootTool(server);
+  registerGetMorphologyTool(server);
 
   return server;
 }

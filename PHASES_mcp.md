@@ -4,7 +4,7 @@ Expose Maktabah's Islamic research data (Quran, Hadith, Arabic dictionary) as a 
 
 ---
 
-## Phase 1: Firestore Schema & API Key Management Backend
+## Phase 1: Firestore Schema & API Key Management Backend ✅
 
 **Goal:** Create the Firestore collections and Cloud Functions for generating, validating, and revoking API keys.
 
@@ -81,61 +81,31 @@ users/{uid}/apiKeys/{keyId}
 
 ---
 
-## Phase 3: MCP Tools — Search & Lookups
+## Phase 3: MCP Tools — Search & Lookups ✅
 
 **Goal:** Implement the five core MCP tools that expose Maktabah's data to LLM agents.
 
 **Changes:**
-- `functions/mcp/tools/search.js` — `search` tool:
-  - Params: `query` (required), `mode` (text|semantic|hybrid, default hybrid), `collection` (quran|bukhari|all), `translator`, `chapter`, `limit` (max 20, default 10)
-  - Reuses existing search logic from `functions/index.js` (extract into shared module)
-  - Returns: results array with verse text, Arabic, reference, translator, score
-
-- `functions/mcp/tools/get-verse.js` — `get_verse` tool:
-  - Params: `surah` (1-114), `ayah` (number), `translator` (optional, default all)
-  - Direct OpenSearch lookup by chapter + verse
-  - Returns: all translations, Arabic text, surah metadata
-
-- `functions/mcp/tools/get-hadith.js` — `get_hadith` tool:
-  - Params: `volume` (1-9), `hadith` (number)
-  - Direct OpenSearch lookup by volume + verse + title=bukhari
-  - Returns: hadith text, volume, chapter name
-
-- `functions/mcp/tools/lookup-root.js` — `lookup_root` tool:
-  - Params: `root` (Arabic 3-letter root, e.g. "ر ح م")
-  - Fetches roots.json + lanes/{letter}.json from Firebase Storage (cached in-memory across warm invocations)
-  - Returns: Lane's Lexicon definition, occurrence count, sample verses, morphological forms
-
-- `functions/mcp/tools/get-morphology.js` — `get_word_morphology` tool:
-  - Params: `surah` (1-114), `ayah` (number)
-  - Fetches words/{surah}.json from Firebase Storage (cached in-memory)
-  - Returns: word-by-word breakdown (Arabic, transliteration, translation, root, POS, morphology)
-
-- `functions/lib/storage-cache.js` — Firebase Storage fetch utility with in-memory LRU cache:
-  - `getCachedJson(path)` — Fetches JSON from Storage bucket, caches in memory
-  - Cache persists across warm Cloud Function invocations
-  - TTL of 1 hour to pick up data updates without redeploying
-
-- `functions/lib/search-core.js` — Extract shared search logic (BM25, KNN, hybrid, dedup, highlight) from `functions/index.js` so both the existing API and MCP tools use the same code
+- `functions/lib/search-core.js` — Extracted shared search logic (clients, embedding, BM25, KNN, hybrid, dedup, highlight, RRF) from `functions/index.js`. Both the existing `/api/search` and MCP tools now use the same module. Added `lookupDocuments()` for direct chapter+verse lookups.
+- `functions/index.js` — Refactored to import from `search-core.js`, removed ~320 lines of duplicated code. Added OpenSearch/AWS secrets to `mcpServer` function.
+- `functions/lib/storage-cache.js` — Firebase Storage fetch with in-memory cache (1hr TTL). Persists across warm invocations.
+- `functions/mcp/tools/search.js` — `search` tool: hybrid/keyword/semantic across Quran + Bukhari with filters
+- `functions/mcp/tools/get-verse.js` — `get_verse` tool: all translations + Arabic + metadata for a specific ayah
+- `functions/mcp/tools/get-hadith.js` — `get_hadith` tool: lookup by volume + hadith number
+- `functions/mcp/tools/lookup-root.js` — `lookup_root` tool: Lane's Lexicon + occurrence data from Storage
+- `functions/mcp/tools/get-morphology.js` — `get_word_morphology` tool: word-by-word breakdown from Storage
+- `functions/mcp/server.js` — Registers all 6 tools (ping + 5 core)
+- `quran_loader/upload-words-to-storage.js` — One-time script to upload word/root/lanes data to Firebase Storage
 
 **Dependencies:** Phase 2
 
-**Test plan:**
-- For each tool: call via MCP protocol with valid params → verify correct results
-- `search` — query "patience" → returns relevant Quran/Bukhari results
-- `get_verse` — surah 1, ayah 1 → returns Al-Fatiha opening with all translations
-- `get_hadith` — volume 1, hadith 1 → returns first Bukhari hadith
-- `lookup_root` — "ر ح م" → returns mercy-related definition and 339 occurrences
-- `get_morphology` — surah 1, ayah 1 → returns 4 words with full breakdown
-- Test with Claude Desktop: add server config, ask "What does the Quran say about patience?" → agent calls search tool
-
 **Deploy notes:**
-- Static JSON files (roots.json, lanes/*.json, words/*.json) are fetched from Firebase Storage at runtime with in-memory caching. No need to bundle ~35MB of data with the function deploy — keeps deploys lean and allows data updates without redeploying
-- Ensure all static JSON is uploaded to Firebase Storage (already there via existing loader scripts)
-- First request for each file incurs a cold-cache penalty (~100-200ms); subsequent requests served from memory
-- Secrets: same as Phase 2
+- **Before first deploy:** run `node quran_loader/upload-words-to-storage.js` to upload word/root/lanes JSON files to Firebase Storage. This is a one-time operation.
+- Static JSON fetched from Storage at runtime with in-memory caching (1hr TTL)
+- `mcpServer` function now needs OpenSearch/AWS secrets (added to function config)
+- First request for each file has ~100-200ms cold-cache penalty; subsequent requests are instant
 
-**Rollback:** Remove tool registrations. MCP server still works, just returns empty tool list.
+**Rollback:** Remove tool registrations from `server.js`. MCP server returns only `ping` tool.
 
 ---
 
