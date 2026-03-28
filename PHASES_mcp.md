@@ -100,7 +100,11 @@ users/{uid}/apiKeys/{keyId}
 **Dependencies:** Phase 2
 
 **Deploy notes:**
-- **Before first deploy:** run `node quran_loader/upload-words-to-storage.js` to upload word/root/lanes JSON files to Firebase Storage. This is a one-time operation.
+- **Before first deploy:** run to upload word/root/lanes JSON files to Firebase Storage. This is a one-time operation.
+```
+gcloud auth application-default login
+node quran_loader/upload-words-to-storage.js
+```
 - Static JSON fetched from Storage at runtime with in-memory caching (1hr TTL)
 - `mcpServer` function now needs OpenSearch/AWS secrets (added to function config)
 - First request for each file has ~100-200ms cold-cache penalty; subsequent requests are instant
