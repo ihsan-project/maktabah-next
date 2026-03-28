@@ -72,7 +72,7 @@ users/{uid}/apiKeys/{keyId}
 **Deploy notes:**
 - New function `mcpServer` needs same secrets as `nextApiHandler` plus Firestore access
 - SSE requires the function to stay alive — may need `timeoutSeconds: 300` and `minInstances: 0`
-- Consider Cloud Run if SSE keep-alive is problematic on Cloud Functions (decision point below)
+- The 540s max timeout is fine — MCP SDK handles reconnection automatically between requests
 
 **Rollback:** Remove `mcpServer` function and `/mcp/**` rewrite. No impact on existing app.
 
@@ -100,13 +100,18 @@ users/{uid}/apiKeys/{keyId}
 
 - `functions/mcp/tools/lookup-root.js` — `lookup_root` tool:
   - Params: `root` (Arabic 3-letter root, e.g. "ر ح م")
-  - Reads from static roots.json + lanes/{letter}.json (bundle with function or fetch from storage)
+  - Fetches roots.json + lanes/{letter}.json from Firebase Storage (cached in-memory across warm invocations)
   - Returns: Lane's Lexicon definition, occurrence count, sample verses, morphological forms
 
 - `functions/mcp/tools/get-morphology.js` — `get_word_morphology` tool:
   - Params: `surah` (1-114), `ayah` (number)
-  - Reads from static words/{surah}.json
+  - Fetches words/{surah}.json from Firebase Storage (cached in-memory)
   - Returns: word-by-word breakdown (Arabic, transliteration, translation, root, POS, morphology)
+
+- `functions/lib/storage-cache.js` — Firebase Storage fetch utility with in-memory LRU cache:
+  - `getCachedJson(path)` — Fetches JSON from Storage bucket, caches in memory
+  - Cache persists across warm Cloud Function invocations
+  - TTL of 1 hour to pick up data updates without redeploying
 
 - `functions/lib/search-core.js` — Extract shared search logic (BM25, KNN, hybrid, dedup, highlight) from `functions/index.js` so both the existing API and MCP tools use the same code
 
@@ -122,10 +127,9 @@ users/{uid}/apiKeys/{keyId}
 - Test with Claude Desktop: add server config, ask "What does the Quran say about patience?" → agent calls search tool
 
 **Deploy notes:**
-- Static JSON files (roots.json, lanes/, words/) need to be accessible to the function. Options:
-  - Bundle in `functions/` deploy (adds ~35MB) — simplest
-  - Fetch from Firebase Storage at runtime with caching — leaner deploy
-  - Recommend: bundle for now, optimize later
+- Static JSON files (roots.json, lanes/*.json, words/*.json) are fetched from Firebase Storage at runtime with in-memory caching. No need to bundle ~35MB of data with the function deploy — keeps deploys lean and allows data updates without redeploying
+- Ensure all static JSON is uploaded to Firebase Storage (already there via existing loader scripts)
+- First request for each file incurs a cold-cache penalty (~100-200ms); subsequent requests served from memory
 - Secrets: same as Phase 2
 
 **Rollback:** Remove tool registrations. MCP server still works, just returns empty tool list.
@@ -214,37 +218,16 @@ users/{uid}/apiKeys/{keyId}
 
 ---
 
-## Conflicts & Decision Points
+## Decisions Made
 
-### 1. Cloud Functions vs Cloud Run for SSE
+### 1. Cloud Functions for SSE — DECIDED
 
-**Issue:** Firebase Cloud Functions (gen2) have a max timeout of 540 seconds. SSE connections from MCP clients may need to stay open longer. Cloud Functions also have cold starts that could delay initial SSE connection.
+Using Firebase Cloud Functions (gen2) with `timeoutSeconds: 300`. The 540s max timeout is acceptable — the MCP SDK handles automatic reconnection between requests, and most MCP interactions are short-lived request/response cycles. No need for Cloud Run complexity. Revisit only if users report persistent connection issues.
 
-**Options:**
-- **Option A: Start with Cloud Functions.** Simpler, fits existing infra. If timeout is an issue, MCP clients will reconnect automatically (the SDK handles this). Most MCP interactions are short-lived request/response anyway.
-- **Option B: Use Cloud Run from the start.** Supports long-lived connections natively. More config (Dockerfile, service.yaml) but no timeout concerns.
-- **Option C: Start with Cloud Functions (Phase 2), migrate to Cloud Run later if needed.** De-risks the initial build.
+### 2. Firebase Storage with In-Memory Cache for Static Data — DECIDED
 
-**Recommendation:** Option A. The MCP SDK handles reconnection. Start simple, migrate only if users report connection issues.
+Fetching static JSON (roots.json, lanes/*.json, words/*.json, ~35MB total) from Firebase Storage at runtime with an in-memory LRU cache. This keeps function deploys lean and — critically — allows the library data to grow significantly without redeploying functions. New books, dictionaries, or reference data just need to be uploaded to Storage. Cold-cache penalty is ~100-200ms per file on first access; subsequent requests are instant from memory.
 
-### 2. Static Data Bundling vs Storage Fetch
+### 3. Firestore Rate Limiting — DECIDED
 
-**Issue:** MCP tools need access to ~35MB of static JSON (roots.json, lanes/*.json, words/*.json). Bundling inflates the Cloud Function deploy size. Fetching from Storage adds latency.
-
-**Options:**
-- **Option A: Bundle with functions.** Simplest. Cloud Functions allows up to 100MB deploy. 35MB is within limits.
-- **Option B: Fetch from Firebase Storage with in-memory cache.** Leaner deploy but cold-start penalty on first requests. Cache persists across warm invocations.
-- **Option C: Store in Firestore.** Structured access but overkill for static reference data.
-
-**Recommendation:** Option A for Phase 3. If deploy size becomes a problem, migrate to Option B.
-
-### 3. Rate Limiting Strategy
-
-**Issue:** Firestore-based rate limiting adds a read+write per request. At scale this gets expensive and adds latency.
-
-**Options:**
-- **Option A: Firestore counters.** Simple, works at low-to-medium scale. ~2 Firestore ops per request.
-- **Option B: In-memory rate limiting.** Fast, zero cost. But resets on cold start and doesn't work across multiple function instances.
-- **Option C: Redis (via Memorystore or Upstash).** Fast, shared across instances, purpose-built for this. Adds another service to manage.
-
-**Recommendation:** Option A for Phase 1/5. At current scale, Firestore ops cost is negligible. If you see >1000 requests/day per key, migrate to Option C.
+Using Firestore counters for rate limiting (~2 ops per request). Simple and fits current scale. When usage grows, add a caching layer (Redis via Memorystore or Upstash) without changing the external API — the rate limit middleware is the only thing that needs to swap.
