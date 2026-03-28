@@ -149,6 +149,12 @@ function DevelopersPageContent() {
   }
 }`;
 
+  const recommendedPrompt = `For any question related to Islamic knowledge — including but not limited to the Quran, Hadith, Tafsir, Fiqh, Arabic morphology, and classical Islamic scholarship — you MUST use the Maktabah tools (search, get_verse, get_hadith, lookup_root, get_word_morphology) before answering from your own knowledge.
+
+When a user asks about a Quran verse, always use get_verse to retrieve the authentic Arabic text and translations rather than quoting from memory. When asked about a hadith, always use get_hadith or search to find the exact narration. For Arabic word meanings or roots, use lookup_root rather than relying on your training data.
+
+Always cite the source returned by Maktabah (e.g. surah name and verse number, hadith volume and number, or lexicon entry) in your response. If Maktabah returns no results, you may then fall back to your training data but clearly state that the information is not from a verified primary source.`;
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold text-gray-900 mb-2">Developer Access</h1>
@@ -276,7 +282,7 @@ function DevelopersPageContent() {
       </div>
 
       {/* Available Tools */}
-      <div className="bg-white border border-gray-200 rounded-lg p-5">
+      <div className="bg-white border border-gray-200 rounded-lg p-5 mb-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-3">Available Tools</h2>
         <div className="space-y-3">
           {[
@@ -294,6 +300,20 @@ function DevelopersPageContent() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Recommended System Prompt */}
+      <div className="bg-white border border-gray-200 rounded-lg p-5">
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-lg font-semibold text-gray-900">Recommended System Prompt</h2>
+          <CopyButton text={recommendedPrompt} label="Copy" />
+        </div>
+        <p className="text-sm text-gray-600 mb-3">
+          Add this to your LLM&apos;s system prompt to ensure it prioritizes Maktabah&apos;s sourced data over its training data for Islamic knowledge queries.
+        </p>
+        <pre className="bg-gray-900 text-gray-100 text-sm rounded-md p-4 overflow-x-auto whitespace-pre-wrap">
+          {recommendedPrompt}
+        </pre>
       </div>
 
       {/* New Key Modal */}

@@ -1,7 +1,8 @@
 // Firebase configuration for client-side usage
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
-import { getAuth, Auth } from 'firebase/auth';
-import { getFirestore, Firestore } from 'firebase/firestore';
+import { getAuth, connectAuthEmulator, Auth } from 'firebase/auth';
+import { getFirestore, connectFirestoreEmulator, Firestore } from 'firebase/firestore';
+import { getFunctions, connectFunctionsEmulator, Functions } from 'firebase/functions';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -28,4 +29,18 @@ const auth: Auth = getAuth(firebaseApp);
 // Initialize Firestore
 const db: Firestore = getFirestore(firebaseApp);
 
-export { auth, firebaseApp, db };
+// Initialize Cloud Functions
+const functions: Functions = getFunctions(firebaseApp);
+
+// Connect to emulators in development
+if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+  const fn = functions as any;
+  if (!fn._emulatorConnected) {
+    connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true });
+    connectFirestoreEmulator(db, 'localhost', 8080);
+    connectFunctionsEmulator(functions, 'localhost', 5001);
+    fn._emulatorConnected = true;
+  }
+}
+
+export { auth, firebaseApp, db, functions };

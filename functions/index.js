@@ -1,4 +1,5 @@
 const functions = require('firebase-functions');
+const { onCall, HttpsError } = require('firebase-functions/v2/https');
 const logger = require('firebase-functions/logger');
 const admin = require('firebase-admin');
 const { hashApiKey, generateRawApiKey } = require('./lib/api-key-auth');
@@ -82,18 +83,18 @@ exports.nextApiHandler = functions.https.onRequest(
  * Stores a hashed version in apiKeys/{hash} for fast lookup,
  * and a reference in users/{uid}/apiKeys/{keyId} for listing.
  */
-exports.generateApiKey = functions.https.onCall(async (data, context) => {
-  if (!context.auth) {
-    throw new functions.https.HttpsError('unauthenticated', 'Must be logged in to generate an API key');
+exports.generateApiKey = onCall(async (request) => {
+  if (!request.auth) {
+    throw new HttpsError('unauthenticated', 'Must be logged in to generate an API key');
   }
 
-  const uid = context.auth.uid;
-  const name = (data.name || '').trim();
+  const uid = request.auth.uid;
+  const name = (request.data.name || '').trim();
   if (!name) {
-    throw new functions.https.HttpsError('invalid-argument', 'API key name is required');
+    throw new HttpsError('invalid-argument', 'API key name is required');
   }
   if (name.length > 100) {
-    throw new functions.https.HttpsError('invalid-argument', 'API key name must be 100 characters or less');
+    throw new HttpsError('invalid-argument', 'API key name must be 100 characters or less');
   }
 
   const db = admin.firestore();
@@ -102,7 +103,7 @@ exports.generateApiKey = functions.https.onCall(async (data, context) => {
   const existingKeys = await db.collection('users').doc(uid).collection('apiKeys')
     .where('status', '==', 'active').get();
   if (existingKeys.size >= 5) {
-    throw new functions.https.HttpsError('resource-exhausted', 'Maximum of 5 active API keys allowed');
+    throw new HttpsError('resource-exhausted', 'Maximum of 5 active API keys allowed');
   }
 
   const rawKey = generateRawApiKey();
@@ -141,15 +142,15 @@ exports.generateApiKey = functions.https.onCall(async (data, context) => {
 /**
  * Revoke an API key. Sets status to 'revoked' in both collections.
  */
-exports.revokeApiKey = functions.https.onCall(async (data, context) => {
-  if (!context.auth) {
-    throw new functions.https.HttpsError('unauthenticated', 'Must be logged in');
+exports.revokeApiKey = onCall(async (request) => {
+  if (!request.auth) {
+    throw new HttpsError('unauthenticated', 'Must be logged in');
   }
 
-  const uid = context.auth.uid;
-  const keyId = data.keyId;
+  const uid = request.auth.uid;
+  const keyId = request.data.keyId;
   if (!keyId) {
-    throw new functions.https.HttpsError('invalid-argument', 'keyId is required');
+    throw new HttpsError('invalid-argument', 'keyId is required');
   }
 
   const db = admin.firestore();
@@ -157,11 +158,11 @@ exports.revokeApiKey = functions.https.onCall(async (data, context) => {
   // Verify the key belongs to this user
   const keyDoc = await db.collection('apiKeys').doc(keyId).get();
   if (!keyDoc.exists || keyDoc.data().uid !== uid) {
-    throw new functions.https.HttpsError('not-found', 'API key not found');
+    throw new HttpsError('not-found', 'API key not found');
   }
 
   if (keyDoc.data().status === 'revoked') {
-    throw new functions.https.HttpsError('failed-precondition', 'API key is already revoked');
+    throw new HttpsError('failed-precondition', 'API key is already revoked');
   }
 
   const batch = db.batch();
@@ -175,12 +176,12 @@ exports.revokeApiKey = functions.https.onCall(async (data, context) => {
 /**
  * List all API keys for the authenticated user.
  */
-exports.listApiKeys = functions.https.onCall(async (data, context) => {
-  if (!context.auth) {
-    throw new functions.https.HttpsError('unauthenticated', 'Must be logged in');
+exports.listApiKeys = onCall(async (request) => {
+  if (!request.auth) {
+    throw new HttpsError('unauthenticated', 'Must be logged in');
   }
 
-  const uid = context.auth.uid;
+  const uid = request.auth.uid;
   const db = admin.firestore();
 
   const snapshot = await db.collection('users').doc(uid).collection('apiKeys')

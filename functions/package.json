@@ -4,7 +4,7 @@
     "description": "Cloud Functions for Maktabah",
     "main": "index.js",
     "scripts": {
-        "serve": "firebase emulators:start --only functions",
+        "serve": "firebase emulators:start --only auth,functions,firestore",
         "shell": "firebase functions:shell",
         "start": "npm run shell",
         "deploy": "firebase deploy --only functions",

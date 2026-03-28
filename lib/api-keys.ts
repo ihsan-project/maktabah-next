@@ -1,8 +1,6 @@
-import { getFunctions, httpsCallable } from 'firebase/functions';
-import { firebaseApp } from '@/firebaseConfig';
+import { httpsCallable } from 'firebase/functions';
+import { functions } from '@/firebaseConfig';
 import { ApiKey, GenerateApiKeyResponse } from '@/types';
-
-const functions = getFunctions(firebaseApp);
 
 export async function generateApiKey(name: string): Promise<GenerateApiKeyResponse> {
   const fn = httpsCallable<{ name: string }, GenerateApiKeyResponse>(functions, 'generateApiKey');
