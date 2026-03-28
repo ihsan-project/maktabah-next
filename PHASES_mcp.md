@@ -35,7 +35,7 @@ users/{uid}/apiKeys/{keyId}
 - Test rate limiting: send 31 requests in rapid succession → 30 pass, 31st returns 429
 
 **Deploy notes:**
-- Deploy Firestore rules first, then functions
+- Make sure to Deploy Firestore rules updates
 - No frontend changes yet — test via Firebase shell or curl
 
 **Rollback:** Delete the new functions and revert Firestore rules. No existing data affected.
