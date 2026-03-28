@@ -4,6 +4,7 @@ const { Client } = require('@opensearch-project/opensearch');
 const { BedrockRuntimeClient, InvokeModelCommand } = require('@aws-sdk/client-bedrock-runtime');
 const admin = require('firebase-admin');
 const { hashApiKey, generateRawApiKey } = require('./lib/api-key-auth');
+const { handleMcpRequest } = require('./mcp/handler');
 
 // Initialize Firebase if not already initialized
 if (!admin.apps.length) {
@@ -577,6 +578,18 @@ exports.listApiKeys = functions.https.onCall(async (data, context) => {
 
   return { keys };
 });
+
+// --- MCP Server ---
+
+exports.mcpServer = functions.https.onRequest(
+  {
+    timeoutSeconds: 300,
+    minInstances: 0,
+  },
+  async (req, res) => {
+    await handleMcpRequest(req, res);
+  }
+);
 
 exports.proxyStorage = functions.https.onRequest(async (req, res) => {
   // Enable CORS

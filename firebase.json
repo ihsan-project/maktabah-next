@@ -8,6 +8,10 @@
     ],
     "rewrites": [
       {
+        "source": "/mcp",
+        "function": "mcpServer"
+      },
+      {
         "source": "/api/storage/**",
         "function": "proxyStorage"
       },

@@ -42,39 +42,42 @@ users/{uid}/apiKeys/{keyId}
 
 ---
 
-## Phase 2: MCP Server Core (Transport + Auth)
+## Phase 2: MCP Server Core (Transport + Auth) ✅
 
-**Goal:** Stand up a working MCP server over SSE/HTTP with API key authentication, deployed as a Firebase Cloud Function. Expose one basic `ping` tool to verify end-to-end connectivity.
+**Goal:** Stand up a working MCP server over Streamable HTTP with API key authentication, deployed as a Firebase Cloud Function. Expose one basic `ping` tool to verify end-to-end connectivity.
 
 **Changes:**
-- `functions/package.json` — Add `@modelcontextprotocol/sdk` dependency
-- `functions/mcp/server.js` — MCP server setup using `McpServer` from the SDK:
-  - Server info: name `maktabah`, version from package.json
-  - Capabilities: tools (no resources/prompts initially)
-  - Register a `ping` tool that returns server status
-- `functions/mcp/transport.js` — SSE transport adapter for Firebase Cloud Functions:
-  - Handle `GET /mcp/sse` → SSE connection (event stream)
-  - Handle `POST /mcp/messages` → JSON-RPC message handling
-  - Wire API key auth middleware before transport
-- `functions/index.js` — Export new `mcpServer` Cloud Function (HTTPS)
-- `firebase.json` — Add rewrite: `/mcp/**` → function `mcpServer`
+- `functions/package.json` — Add `@modelcontextprotocol/sdk` and `zod` dependencies
+- `functions/mcp/server.js` — MCP server factory using `McpServer` from the SDK:
+  - Server info: name `maktabah`, version `1.0.0`
+  - Capabilities: tools (with listChanged)
+  - Register a `ping` tool that returns server status + timestamp
+- `functions/mcp/handler.js` — Stateless Streamable HTTP handler:
+  - Validates API key via Bearer token before MCP protocol layer
+  - Creates fresh server + `StreamableHTTPServerTransport` per request (stateless, Cloud Function friendly)
+  - Sets rate limit headers on response
+  - Returns JSON-RPC errors for auth failures (401/429)
+  - Cleans up transport + server after each request
+- `functions/index.js` — Export `mcpServer` Cloud Function (HTTPS, `timeoutSeconds: 300`)
+- `firebase.json` — Add rewrite: `/mcp` → function `mcpServer`
+
+**Note:** Used Streamable HTTP transport instead of SSE — it's the current MCP standard (replaced SSE as of March 2025) and works better with stateless Cloud Functions.
 
 **Dependencies:** Phase 1
 
 **Test plan:**
-- Deploy and hit `GET /mcp/sse` with valid API key → SSE stream opens
-- Send `tools/list` JSON-RPC message → returns `ping` tool
-- Send `tools/call` for `ping` → returns success response
-- Hit without API key → 401
-- Hit with revoked key → 401
-- Verify `lastUsedAt` and `requestCount` update in Firestore
+- POST to `/mcp` with `initialize` JSON-RPC → returns server info (maktabah v1.0.0)
+- POST `tools/list` → returns `ping` tool
+- POST `tools/call` for `ping` → returns `{ status: "ok", server: "maktabah" }`
+- POST without API key → 401
+- POST with revoked key → 401
+- Verify rate limit headers in response (`X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`)
 
 **Deploy notes:**
-- New function `mcpServer` needs same secrets as `nextApiHandler` plus Firestore access
-- SSE requires the function to stay alive — may need `timeoutSeconds: 300` and `minInstances: 0`
-- The 540s max timeout is fine — MCP SDK handles reconnection automatically between requests
+- Function uses `timeoutSeconds: 300`, `minInstances: 0`
+- No secrets needed on `mcpServer` itself — auth hits Firestore only. Search tools (Phase 3) will need OpenSearch/AWS secrets.
 
-**Rollback:** Remove `mcpServer` function and `/mcp/**` rewrite. No impact on existing app.
+**Rollback:** Remove `mcpServer` function and `/mcp` rewrite. No impact on existing app.
 
 ---
 
