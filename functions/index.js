@@ -3,6 +3,7 @@ const logger = require('firebase-functions/logger');
 const { Client } = require('@opensearch-project/opensearch');
 const { BedrockRuntimeClient, InvokeModelCommand } = require('@aws-sdk/client-bedrock-runtime');
 const admin = require('firebase-admin');
+const { hashApiKey, generateRawApiKey } = require('./lib/api-key-auth');
 
 // Initialize Firebase if not already initialized
 if (!admin.apps.length) {
@@ -457,6 +458,126 @@ exports.nextApiHandler = functions.https.onRequest(
  * Firebase Function to proxy requests to Firebase Storage
  * This avoids CORS issues by serving the files through your own domain
  */
+// --- API Key Management (callable functions) ---
+
+/**
+ * Generate a new MCP API key for the authenticated user.
+ * Stores a hashed version in apiKeys/{hash} for fast lookup,
+ * and a reference in users/{uid}/apiKeys/{keyId} for listing.
+ */
+exports.generateApiKey = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError('unauthenticated', 'Must be logged in to generate an API key');
+  }
+
+  const uid = context.auth.uid;
+  const name = (data.name || '').trim();
+  if (!name) {
+    throw new functions.https.HttpsError('invalid-argument', 'API key name is required');
+  }
+  if (name.length > 100) {
+    throw new functions.https.HttpsError('invalid-argument', 'API key name must be 100 characters or less');
+  }
+
+  const db = admin.firestore();
+
+  // Enforce a max of 5 active keys per user
+  const existingKeys = await db.collection('users').doc(uid).collection('apiKeys')
+    .where('status', '==', 'active').get();
+  if (existingKeys.size >= 5) {
+    throw new functions.https.HttpsError('resource-exhausted', 'Maximum of 5 active API keys allowed');
+  }
+
+  const rawKey = generateRawApiKey();
+  const keyHash = hashApiKey(rawKey);
+  const keyPrefix = rawKey.slice(0, 7) + '...' + rawKey.slice(-4);
+  const now = admin.firestore.FieldValue.serverTimestamp();
+
+  const batch = db.batch();
+
+  // Lookup doc: apiKeys/{hash} — used by auth middleware
+  batch.set(db.collection('apiKeys').doc(keyHash), {
+    uid,
+    name,
+    keyPrefix,
+    createdAt: now,
+    lastUsedAt: null,
+    requestCount: 0,
+    rateLimit: 30,
+    status: 'active',
+  });
+
+  // User's key reference: users/{uid}/apiKeys/{hash} — used for listing
+  batch.set(db.collection('users').doc(uid).collection('apiKeys').doc(keyHash), {
+    keyPrefix,
+    name,
+    createdAt: now,
+    status: 'active',
+  });
+
+  await batch.commit();
+
+  // Return the raw key ONCE — it can never be retrieved again
+  return { key: rawKey, keyId: keyHash, name, keyPrefix };
+});
+
+/**
+ * Revoke an API key. Sets status to 'revoked' in both collections.
+ */
+exports.revokeApiKey = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError('unauthenticated', 'Must be logged in');
+  }
+
+  const uid = context.auth.uid;
+  const keyId = data.keyId;
+  if (!keyId) {
+    throw new functions.https.HttpsError('invalid-argument', 'keyId is required');
+  }
+
+  const db = admin.firestore();
+
+  // Verify the key belongs to this user
+  const keyDoc = await db.collection('apiKeys').doc(keyId).get();
+  if (!keyDoc.exists || keyDoc.data().uid !== uid) {
+    throw new functions.https.HttpsError('not-found', 'API key not found');
+  }
+
+  if (keyDoc.data().status === 'revoked') {
+    throw new functions.https.HttpsError('failed-precondition', 'API key is already revoked');
+  }
+
+  const batch = db.batch();
+  batch.update(db.collection('apiKeys').doc(keyId), { status: 'revoked' });
+  batch.update(db.collection('users').doc(uid).collection('apiKeys').doc(keyId), { status: 'revoked' });
+  await batch.commit();
+
+  return { success: true };
+});
+
+/**
+ * List all API keys for the authenticated user.
+ */
+exports.listApiKeys = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError('unauthenticated', 'Must be logged in');
+  }
+
+  const uid = context.auth.uid;
+  const db = admin.firestore();
+
+  const snapshot = await db.collection('users').doc(uid).collection('apiKeys')
+    .orderBy('createdAt', 'desc').get();
+
+  const keys = snapshot.docs.map(doc => ({
+    keyId: doc.id,
+    ...doc.data(),
+    createdAt: doc.data().createdAt?.toDate?.()?.toISOString() || null,
+  }));
+
+  return { keys };
+});
+
 exports.proxyStorage = functions.https.onRequest(async (req, res) => {
   // Enable CORS
   res.set('Access-Control-Allow-Origin', '*');
