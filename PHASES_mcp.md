@@ -113,40 +113,25 @@ node quran_loader/upload-words-to-storage.js
 
 ---
 
-## Phase 4: Developer Dashboard UI
+## Phase 4: Developer Dashboard UI ✅
 
 **Goal:** Add a `/developers` page accessible from the side menu where authenticated users can generate API keys, see their keys, copy the MCP server URL, and revoke keys.
 
 **Changes:**
-- `app/developers/page.tsx` — New page (wrapped in `ProtectedRoute`):
-  - **Connection info card:** MCP server URL with copy button, example config snippet for Claude Desktop / Cursor
-  - **Generate key form:** Name/label input + "Generate" button → calls `generateApiKey` callable
-  - **Keys table:** List of user's keys showing: name, key prefix (`mk_...abc`), created date, last used, request count, status, revoke button
-  - Show the full key ONCE on generation (modal/alert) — never retrievable again
-
-- `app/components/SideMenu.tsx` — Add "Developers" nav item with `FiCode` icon between Bookmarks and the divider
-
-- `lib/api-keys.ts` — Client-side functions:
-  - `generateApiKey(name)` — calls Firebase callable
-  - `revokeApiKey(keyId)` — calls Firebase callable
-  - `listApiKeys()` — calls Firebase callable
-  - Types: `ApiKey`, `GenerateApiKeyResponse`
-
-- `types/index.ts` — Add `ApiKey` and related interfaces
+- `app/developers/page.tsx` — New protected page with three sections:
+  - **MCP Server card:** Endpoint URL with copy button, full JSON config snippet for Claude Desktop / Cursor with copy button
+  - **API Keys card:** Generate form (name input + button), keys table (name, prefix, date, status, revoke), max 5 active keys enforced by backend
+  - **Available Tools card:** Lists all 5 MCP tools with descriptions
+  - **New Key modal:** Shows full key once on generation with copy button + warning it can't be retrieved again
+- `app/components/SideMenu.tsx` — Added "Developers" nav item with `FiCode` icon after Bookmarks
+- `lib/api-keys.ts` — Client-side wrapper for Firebase callable functions (`generateApiKey`, `revokeApiKey`, `listApiKeys`)
+- `types/index.ts` — Added `ApiKey` and `GenerateApiKeyResponse` interfaces
 
 **Dependencies:** Phase 1 (backend), Phase 2 (MCP URL to display)
 
-**Test plan:**
-- Navigate to `/developers` while logged in → page renders
-- Navigate while logged out → redirected to `/`
-- Generate a key → modal shows full key, key appears in table
-- Copy MCP URL → clipboard contains correct URL
-- Revoke a key → status changes to revoked, row grayed out
-- Side menu shows "Developers" link with active state on `/developers`
-
 **Deploy notes:**
+- MCP URL shown: `https://maktabah-8ac04.web.app/mcp` (Streamable HTTP, not SSE)
 - Frontend-only deploy (`npm run deploy:hosting`) after backend is live
-- The MCP URL shown should be the production URL: `https://maktabah-8ac04.web.app/mcp/sse` (or custom domain if configured)
 
 **Rollback:** Remove the page and side menu link. Backend unaffected.
 
