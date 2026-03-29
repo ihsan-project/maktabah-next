@@ -193,3 +193,133 @@ Fetching static JSON (roots.json, lanes/*.json, words/*.json, ~35MB total) from 
 ### 3. Firestore Rate Limiting — DECIDED
 
 Using Firestore counters for rate limiting (~2 ops per request). Simple and fits current scale. When usage grows, add a caching layer (Redis via Memorystore or Upstash) without changing the external API — the rate limit middleware is the only thing that needs to swap.
+
+---
+
+## Testing MCP Tools via curl
+
+All requests go to the MCP endpoint as JSON-RPC over Streamable HTTP. Replace `mk_YOUR_API_KEY` with a real key from the `/developers` dashboard.
+
+### Initialize (handshake)
+
+```bash
+curl -X POST https://maktabah-8ac04.web.app/mcp \
+  -H "Authorization: Bearer mk_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "initialize",
+    "params": {
+      "protocolVersion": "2025-03-26",
+      "capabilities": {},
+      "clientInfo": { "name": "curl-test", "version": "1.0.0" }
+    }
+  }'
+```
+
+### Ping (health check)
+
+```bash
+curl -X POST https://maktabah-8ac04.web.app/mcp \
+  -H "Authorization: Bearer mk_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 2,
+    "method": "tools/call",
+    "params": {
+      "name": "ping",
+      "arguments": {}
+    }
+  }'
+```
+
+### Search (hybrid search across Quran & Bukhari)
+
+```bash
+curl -X POST https://maktabah-8ac04.web.app/mcp \
+  -H "Authorization: Bearer mk_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 3,
+    "method": "tools/call",
+    "params": {
+      "name": "search",
+      "arguments": {
+        "query": "mercy",
+        "mode": "hybrid",
+        "limit": 5
+      }
+    }
+  }'
+```
+
+### Get Verse
+
+```bash
+curl -X POST https://maktabah-8ac04.web.app/mcp \
+  -H "Authorization: Bearer mk_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 4,
+    "method": "tools/call",
+    "params": {
+      "name": "get_verse",
+      "arguments": { "surah": 1, "ayah": 1 }
+    }
+  }'
+```
+
+### Get Hadith
+
+```bash
+curl -X POST https://maktabah-8ac04.web.app/mcp \
+  -H "Authorization: Bearer mk_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 5,
+    "method": "tools/call",
+    "params": {
+      "name": "get_hadith",
+      "arguments": { "hadithNumber": 1 }
+    }
+  }'
+```
+
+### Lookup Root (Arabic root in Lane's Lexicon)
+
+```bash
+curl -X POST https://maktabah-8ac04.web.app/mcp \
+  -H "Authorization: Bearer mk_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 6,
+    "method": "tools/call",
+    "params": {
+      "name": "lookup_root",
+      "arguments": { "root": "رحم" }
+    }
+  }'
+```
+
+### Get Word Morphology
+
+```bash
+curl -X POST https://maktabah-8ac04.web.app/mcp \
+  -H "Authorization: Bearer mk_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 7,
+    "method": "tools/call",
+    "params": {
+      "name": "get_word_morphology",
+      "arguments": { "surah": 1, "ayah": 1 }
+    }
+  }'
+```
