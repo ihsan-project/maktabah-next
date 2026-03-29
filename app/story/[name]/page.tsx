@@ -82,7 +82,6 @@ export async function generateMetadata({ params }: { params: { name: string } })
     return {
       title,
       description: metadata.description,
-      keywords: metadata.keywords,
       openGraph: {
         title,
         description: metadata.description,
@@ -95,7 +94,6 @@ export async function generateMetadata({ params }: { params: { name: string } })
     return {
       title: metadata.title,
       description: metadata.description,
-      keywords: metadata.keywords,
     };
   }
 }

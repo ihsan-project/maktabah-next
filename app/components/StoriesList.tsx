@@ -38,16 +38,6 @@ export default function StoriesList({ source = 'unknown' }: StoriesListProps): J
                 <p className="text-gray-600 mb-3">
                   {metadata.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {metadata.keywords.slice(0, 3).map((keyword) => (
-                    <span 
-                      key={keyword} 
-                      className="inline-block bg-primary bg-opacity-10 text-primary-dark text-xs px-2 py-1 rounded"
-                    >
-                      {keyword}
-                    </span>
-                  ))}
-                </div>
                 <div className="mt-4 text-primary font-medium flex items-center">
                   <span>Read story</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">

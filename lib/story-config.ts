@@ -19,50 +19,41 @@ export const ALLOWED_STORIES = [
 ];
 
 // Metadata about each story for SEO and display purposes
-export const STORY_METADATA: Record<string, { 
-  title: string; 
+export const STORY_METADATA: Record<string, {
+  title: string;
   description: string;
-  keywords: string[];
 }> = {
   'abraham': {
-    title: 'The Story of Abraham (Ibrahim) in Islamic Texts',
+    title: 'The Story of Abraham (Ibrahim)',
     description: 'Discover verses about Prophet Abraham (Ibrahim) from various Islamic texts and translations of the Quran.',
-    keywords: ['Abraham', 'Ibrahim']
   },
   'moses': {
-    title: 'The Story of Moses (Musa) in Islamic Texts',
+    title: 'The Story of Moses (Musa)',
     description: 'Explore verses about Prophet Moses (Musa) from various Islamic texts and translations of the Quran.',
-    keywords: ['Moses', 'Musa', 'Pharaoh', 'Egypt']
   },
   'jesus': {
-    title: 'The Story of Jesus (Isa) in Islamic Texts',
+    title: 'The Story of Jesus (Isa)',
     description: 'Read verses about Prophet Jesus (Isa) from various Islamic texts and translations of the Quran.',
-    keywords: ['Jesus', 'Isa', 'Mary']
   },
   'khadija': {
-    title: 'The Story of Khadija (the first wife of the Prophet) in Islamic Texts',
+    title: 'The Story of Khadija (the first wife of the Prophet)',
     description: 'Learn about Khadija from various Islamic texts and translations.',
-    keywords: ['Khadija']
   },
   'noah': {
-    title: 'The Story of Noah (Nuh) in Islamic Texts',
+    title: 'The Story of Noah (Nuh)',
     description: 'Learn about Prophet Noah from various Islamic texts and translations of the Quran.',
-    keywords: ['Noah', 'Nuh', 'Ark']
   },
   'adam': {
-    title: 'The Story of Adam in Islamic Texts',
+    title: 'The Story of Adam',
     description: 'Learn about Prophet Adam from various Islamic texts and translations of the Quran.',
-    keywords: ['Adam']
   },
   'yusuf': {
-    title: 'The Story of Joseph (Yusuf) in Islamic Texts',
+    title: 'The Story of Joseph (Yusuf)',
     description: 'Learn about Prophet Joseph (Yusuf) from various Islamic texts and translations of the Quran.',
-    keywords: ['Joseph', 'Yusuf']
   },
   'dawud': {
-    title: 'The Story of David (Dawud) in Islamic Texts',
+    title: 'The Story of David (Dawud)',
     description: 'Learn about Prophet David (Dawud) from various Islamic texts and translations of the Quran.',
-    keywords: ['David', 'Dawud']
   }
 };
 
@@ -76,6 +67,5 @@ export function getStoryMetadata(name: string) {
   return STORY_METADATA[name] || {
     title: `The Story of ${name.charAt(0).toUpperCase() + name.slice(1)}`,
     description: `Discover verses about ${name} from various Islamic texts and translations of the Quran.`,
-    keywords: [name, 'Islam', 'Quran']
   };
 }
