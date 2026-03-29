@@ -8,6 +8,7 @@ import MixpanelTracking from '@/lib/mixpanel';
 import { useAuth } from '@/app/components/AuthProvider';
 import TranslatorSelector from '@/app/components/TranslatorSelector';
 import TranslationCarousel from '@/app/components/TranslationCarousel';
+import InteractiveArabicText from '@/app/components/InteractiveArabicText';
 import { buildContextUrl } from '@/lib/quran-utils';
 
 interface Translation {
@@ -212,6 +213,14 @@ export default function StoryClient({ name, verses }: StoryClientProps) {
           
           return (
             <div key={verse.key} className="mb-2">
+              {/* Interactive Arabic Text with Dictionary */}
+              <div className="px-4 pt-4 pb-2">
+                <InteractiveArabicText
+                  chapter={Number(verse.chapter)}
+                  verse={Number(verse.verse)}
+                  className="text-gray-800 text-center"
+                />
+              </div>
               {/* Translation Carousel */}
               <TranslationCarousel
                 translations={filteredTranslations}
