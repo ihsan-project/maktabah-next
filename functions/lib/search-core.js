@@ -205,13 +205,23 @@ async function searchDocuments(query, { page = 1, size = 10, author = null, chap
           size: 0,
           query: searchQuery,
           aggs: {
-            chapters: {
-              terms: { field: "chapter", size: 1000, order: { _key: "asc" } },
+            titles: {
+              terms: { field: "title", size: 100, order: { _key: "asc" } },
               aggs: {
-                verses: {
-                  terms: { field: "verse", size: 1000, order: { _key: "asc" } },
+                volumes: {
+                  terms: { field: "volume", size: 100, order: { _key: "asc" }, missing: -1 },
                   aggs: {
-                    top_hit: { top_hits: { size: 1, sort: [{ _score: { order: "desc" } }] } }
+                    chapters: {
+                      terms: { field: "chapter", size: 1000, order: { _key: "asc" } },
+                      aggs: {
+                        verses: {
+                          terms: { field: "verse", size: 1000, order: { _key: "asc" } },
+                          aggs: {
+                            top_hit: { top_hits: { size: 1, sort: [{ _score: { order: "desc" } }] } }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -220,15 +230,20 @@ async function searchDocuments(query, { page = 1, size = 10, author = null, chap
         }
       });
 
-      const chapterBuckets = response.body.aggregations.chapters.buckets || [];
+      const titleBuckets = response.body.aggregations.titles.buckets || [];
       let allResults = [];
-      chapterBuckets.forEach(chapterBucket => {
-        (chapterBucket.verses.buckets || []).forEach(verseBucket => {
-          const topHit = verseBucket.top_hit.hits.hits[0];
-          allResults.push({ id: topHit._id, score: topHit._score || 0, ...topHit._source });
+      titleBuckets.forEach(titleBucket => {
+        (titleBucket.volumes.buckets || []).forEach(volumeBucket => {
+          (volumeBucket.chapters.buckets || []).forEach(chapterBucket => {
+            (chapterBucket.verses.buckets || []).forEach(verseBucket => {
+              const topHit = verseBucket.top_hit.hits.hits[0];
+              allResults.push({ id: topHit._id, score: topHit._score || 0, ...topHit._source });
+            });
+          });
         });
       });
 
+      allResults.sort((a, b) => b.score - a.score);
       const totalResults = allResults.length;
       searchResult = {
         results: allResults.slice(from, from + size),
