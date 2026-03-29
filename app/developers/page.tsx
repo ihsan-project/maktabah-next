@@ -6,7 +6,7 @@ import { generateApiKey, revokeApiKey, listApiKeys } from '@/lib/api-keys';
 import { ApiKey, GenerateApiKeyResponse } from '@/types';
 import { FiCopy, FiCheck, FiTrash2, FiPlus, FiKey, FiAlertCircle } from 'react-icons/fi';
 
-const MCP_SERVER_URL = 'https://maktabah-8ac04.web.app/mcp';
+const MCP_SERVER_URL = process.env.NEXT_PUBLIC_MCP_URL || 'https://maktabah-8ac04.web.app/mcp';
 
 function CopyButton({ text, label }: { text: string; label?: string }) {
   const [copied, setCopied] = useState(false);
