@@ -111,6 +111,11 @@ Run these to give access to Google Cloud Run:
 gcloud functions add-invoker-policy-binding generateApiKey --region=us-central1 --member="allUsers" --project=maktabah-8ac04
 gcloud functions add-invoker-policy-binding revokeApiKey --region=us-central1 --member="allUsers" --project=maktabah-8ac04
 gcloud functions add-invoker-policy-binding listApiKeys --region=us-central1 --member="allUsers" --project=maktabah-8ac04
+
+gcloud functions add-invoker-policy-binding mcpServer \
+  --region=us-central1 \
+  --member="allUsers" \
+  --project=maktabah-8ac04
 ```
 
 - Static JSON fetched from Storage at runtime with in-memory caching (1hr TTL)
@@ -214,6 +219,7 @@ All requests go to the MCP endpoint as JSON-RPC over Streamable HTTP. Replace `m
 curl -X POST https://maktabah-8ac04.web.app/mcp \
   -H "Authorization: Bearer mk_YOUR_API_KEY" \
   -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
   -d '{
     "jsonrpc": "2.0",
     "id": 1,
@@ -232,6 +238,7 @@ curl -X POST https://maktabah-8ac04.web.app/mcp \
 curl -X POST https://maktabah-8ac04.web.app/mcp \
   -H "Authorization: Bearer mk_YOUR_API_KEY" \
   -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
   -d '{
     "jsonrpc": "2.0",
     "id": 2,
@@ -249,6 +256,7 @@ curl -X POST https://maktabah-8ac04.web.app/mcp \
 curl -X POST https://maktabah-8ac04.web.app/mcp \
   -H "Authorization: Bearer mk_YOUR_API_KEY" \
   -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
   -d '{
     "jsonrpc": "2.0",
     "id": 3,
@@ -270,6 +278,7 @@ curl -X POST https://maktabah-8ac04.web.app/mcp \
 curl -X POST https://maktabah-8ac04.web.app/mcp \
   -H "Authorization: Bearer mk_YOUR_API_KEY" \
   -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
   -d '{
     "jsonrpc": "2.0",
     "id": 4,
@@ -287,6 +296,7 @@ curl -X POST https://maktabah-8ac04.web.app/mcp \
 curl -X POST https://maktabah-8ac04.web.app/mcp \
   -H "Authorization: Bearer mk_YOUR_API_KEY" \
   -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
   -d '{
     "jsonrpc": "2.0",
     "id": 5,
@@ -303,6 +313,7 @@ curl -X POST https://maktabah-8ac04.web.app/mcp \
 ```bash
 curl -X POST https://maktabah-8ac04.web.app/mcp \
   -H "Authorization: Bearer mk_YOUR_API_KEY" \
+  -H "Accept: application/json, text/event-stream" \
   -H "Content-Type: application/json" \
   -d '{
     "jsonrpc": "2.0",
@@ -320,6 +331,7 @@ curl -X POST https://maktabah-8ac04.web.app/mcp \
 ```bash
 curl -X POST https://maktabah-8ac04.web.app/mcp \
   -H "Authorization: Bearer mk_YOUR_API_KEY" \
+  -H "Accept: application/json, text/event-stream" \
   -H "Content-Type: application/json" \
   -d '{
     "jsonrpc": "2.0",
