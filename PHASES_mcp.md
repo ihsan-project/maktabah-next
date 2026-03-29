@@ -308,7 +308,7 @@ curl -X POST https://maktabah-8ac04.web.app/mcp \
     "method": "tools/call",
     "params": {
       "name": "lookup_root",
-      "arguments": { "root": "رحم" }
+      "arguments": { "root": "ر ح م" }
     }
   }'
 ```
