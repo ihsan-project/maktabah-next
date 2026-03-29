@@ -2,6 +2,7 @@ const functions = require('firebase-functions');
 const { onCall, HttpsError } = require('firebase-functions/v2/https');
 const logger = require('firebase-functions/logger');
 const admin = require('firebase-admin');
+const { FieldValue } = require('firebase-admin/firestore');
 const { hashApiKey, generateRawApiKey } = require('./lib/api-key-auth');
 const { handleMcpRequest } = require('./mcp/handler');
 const { searchDocuments } = require('./lib/search-core');
@@ -109,7 +110,7 @@ exports.generateApiKey = onCall(async (request) => {
   const rawKey = generateRawApiKey();
   const keyHash = hashApiKey(rawKey);
   const keyPrefix = rawKey.slice(0, 7) + '...' + rawKey.slice(-4);
-  const now = admin.firestore.FieldValue.serverTimestamp();
+  const now = FieldValue.serverTimestamp();
 
   const batch = db.batch();
 
