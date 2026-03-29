@@ -66,6 +66,14 @@ node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/abra
 
 node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/noah.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/noah_reorder.csv ../public/stories/noah.xml
 
+node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/adam.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/adam_reorder.csv ../public/stories/adam.xml
+
+node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/dawud.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/dawud_reorder.csv ../public/stories/dawud.xml
+
+node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/yusuf.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/yusuf_reorder.csv ../public/stories/yusuf.xml
+
+node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/khadija.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/khadija_reorder.csv ../public/stories/khadija.xml
+
 **Default usage** (automatically fetches missing verses from OpenSearch):
 ```bash
 node reorder-story.js ../public/stories/abraham.xml ./stories_reorder/abraham_reorder.csv ../public/stories/abraham_reordered.xml

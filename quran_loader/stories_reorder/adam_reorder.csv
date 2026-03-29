@@ -1,106 +1,130 @@
 order,section,chapter,verse_range,type
-1,1 – Adam's Place Among the Prophets,3,33,quran
-2,1 – Adam's Place Among the Prophets,19,58,quran
-3,2 – The Divine Announcement,38,69,quran
-4,2 – The Divine Announcement,15,28-29,quran
-5,3 – Creation of Adam,23,12,quran
-6,3 – Creation of Adam,55,14,quran
-7,3 – Creation of Adam,15,30,quran
-8,3 – Creation of Adam,38,73,quran
-9,3 – Creation of Adam,7,11,quran
-10,3 – Creation of Adam,55,543,hadith
-11,3 – Creation of Adam,74,246,hadith
-12,4 – Teaching Adam the Names,2,31,quran
-13,4 – Teaching Adam the Names,2,33,quran
-14,5 – Command to Prostrate,2,34,quran
-15,5 – Command to Prostrate,17,61,quran
-16,5 – Command to Prostrate,18,50,quran
-17,5 – Command to Prostrate,20,116,quran
-18,6 – Iblis Refuses & His Arrogance,7,12,quran
-19,6 – Iblis Refuses & His Arrogance,38,75,quran
-20,7 – Iblis Vows to Mislead,17,62,quran
-21,7 – Iblis Vows to Mislead,38,82,quran
-22,8 – Honour of Adam & His Children,17,70,quran
-23,8 – Honour of Adam & His Children,91,7,quran
-24,8 – Honour of Adam & His Children,90,3,quran
-25,9 – Adam & Eve in the Garden,2,35,quran
-26,9 – Adam & Eve in the Garden,7,19,quran
-27,9 – Adam & Eve in the Garden,20,117,quran
-28,10 – The Temptation & Fall,20,115,quran
-29,10 – The Temptation & Fall,20,120,quran
-30,10 – The Temptation & Fall,20,121,quran
-31,10 – The Temptation & Fall,2,36,quran
-32,11 – Descent to Earth,7,24,quran
-33,12 – Repentance & Forgiveness,2,37,quran
-34,13 – Lessons for the Children of Adam,7,26,quran
-35,13 – Lessons for the Children of Adam,7,27,quran
-36,13 – Lessons for the Children of Adam,7,31,quran
-37,13 – Lessons for the Children of Adam,7,35,quran
-38,13 – Lessons for the Children of Adam,36,60,quran
-39,14 – The Two Sons of Adam (Cain & Abel),5,27,quran
-40,14 – The Two Sons of Adam (Cain & Abel),55,552,hadith
-41,14 – The Two Sons of Adam (Cain & Abel),83,6,hadith
-42,14 – The Two Sons of Adam (Cain & Abel),92,423,hadith
-43,15 – The Covenant of Adam's Offspring,7,172,quran
-44,16 – Adam the Origin of Mankind,4,1,quran
-45,16 – Adam the Origin of Mankind,6,98,quran
-46,16 – Adam the Origin of Mankind,7,189,quran
-47,16 – Adam the Origin of Mankind,39,6,quran
-48,17 – Creation from Dust as a Sign,22,5,quran
-49,17 – Creation from Dust as a Sign,30,20,quran
-50,17 – Creation from Dust as a Sign,35,11,quran
-51,17 – Creation from Dust as a Sign,40,67,quran
-52,17 – Creation from Dust as a Sign,18,37,quran
-53,17 – Creation from Dust as a Sign,23,13,quran
-54,17 – Creation from Dust as a Sign,56,62,quran
-55,17 – Creation from Dust as a Sign,53,32,quran
-56,18 – Adam & Jesus Compared,3,59,quran
-57,19 – Hadith: Satan's Touch at Birth,55,641,hadith
-58,21 – Hadith: Human Nature - Greed & Desire,76,430,hadith
-59,21 – Hadith: Human Nature - Greed & Desire,76,444,hadith
-60,21 – Hadith: Human Nature - Greed & Desire,76,445,hadith
-61,21 – Hadith: Human Nature - Greed & Desire,76,446,hadith
-62,22 – Hadith: Human Nature - Decree & Fate,77,606,hadith
-63,22 – Hadith: Human Nature - Decree & Fate,78,685,hadith
-64,22 – Hadith: Human Nature - Decree & Fate,77,609,hadith
-65,23 – Hadith: Allah's Words About the Son of Adam,60,9,qudsee
-66,23 – Hadith: Allah's Words About the Son of Adam,60,498,qudsee
-67,23 – Hadith: Allah's Words About the Son of Adam,60,499,qudsee
-68,23 – Hadith: Allah's Words About the Son of Adam,54,415,qudsee
-69,23 – Hadith: Allah's Words About the Son of Adam,60,351,qudsee
-70,23 – Hadith: Allah's Words About the Son of Adam,73,200,qudsee
-71,23 – Hadith: Allah's Words About the Son of Adam,93,583,qudsee
-72,24 – Hadith: Allah's Generosity to the Son of Adam,64,264,hadith
-73,24 – Hadith: Allah's Generosity to the Son of Adam,39,538,hadith
-74,24 – Hadith: Allah's Generosity to the Son of Adam,93,610,hadith
-75,25 – Hadith: Adam & Moses Debate,55,621,hadith
-76,25 – Hadith: Adam & Moses Debate,60,260,hadith
-77,25 – Hadith: Adam & Moses Debate,60,262,hadith
-78,25 – Hadith: Adam & Moses Debate,77,611,hadith
-79,25 – Hadith: Adam & Moses Debate,93,606,hadith
-80,26 – Hadith: Adam on the Day of Resurrection,55,567,hadith
-81,26 – Hadith: Adam on the Day of Resurrection,60,265,hadith
-82,26 – Hadith: Adam on the Day of Resurrection,76,536,hadith
-83,26 – Hadith: Adam on the Day of Resurrection,76,537,hadith
-84,26 – Hadith: Adam on the Day of Resurrection,93,575,hadith
-85,27 – Hadith: The Grand Intercession,60,3,hadith
-86,27 – Hadith: The Grand Intercession,76,570,hadith
-87,27 – Hadith: The Grand Intercession,93,507,hadith
-88,27 – Hadith: The Grand Intercession,93,607,hadith
-89,27 – Hadith: The Grand Intercession,55,556,hadith
-90,27 – Hadith: The Grand Intercession,60,236,hadith
-91,27 – Hadith: The Grand Intercession,93,601,hadith
-92,28 – Hadith: Seeing Allah & the Gathering,12,770,hadith
-93,28 – Hadith: Seeing Allah & the Gathering,93,532,hadith
-94,28 – Hadith: Seeing Allah & the Gathering,76,577,hadith
-95,28 – Hadith: Seeing Allah & the Gathering,24,553,hadith
-96,29 – Hadith: Rewards of Paradise,55,544,hadith
-97,29 – Hadith: Rewards of Paradise,55,551,hadith
-98,29 – Hadith: Rewards of Paradise,76,562,hadith
-99,30 – Hadith: The Night Journey & Meeting Adam,8,345,hadith
-100,30 – Hadith: The Night Journey & Meeting Adam,54,429,hadith
-101,30 – Hadith: The Night Journey & Meeting Adam,58,227,hadith
-102,30 – Hadith: The Night Journey & Meeting Adam,93,608,hadith
-103,31 – Hadith: Daughters of Adam (Menses & Hajj),6,293,hadith
-104,31 – Hadith: Daughters of Adam (Menses & Hajj),6,302,hadith
-105,31 – Hadith: Daughters of Adam (Menses & Hajj),68,466,hadith
+1,1 – Prologue: The Purpose of Creation,51,56,quran
+2,1 – Prologue: The Purpose of Creation,95,4,quran
+3,2 – Adam's Place Among the Prophets,3,33-34,quran
+4,2 – Adam's Place Among the Prophets,19,58,quran
+5,3 – The Divine Announcement,2,30,quran
+6,3 – The Divine Announcement,38,69-72,quran
+7,3 – The Divine Announcement,15,28-29,quran
+8,4 – Creation of Adam from Clay,23,12,quran
+9,4 – Creation of Adam from Clay,15,26,quran
+10,4 – Creation of Adam from Clay,55,14,quran
+11,4 – Creation of Adam from Clay,32,7,quran
+12,4 – Creation of Adam from Clay,32,9,quran
+13,4 – Creation of Adam from Clay,55,543,hadith
+14,4 – Creation of Adam from Clay,74,246,hadith
+15,5 – Teaching Adam the Names,2,31,quran
+16,5 – Teaching Adam the Names,2,32,quran
+17,5 – Teaching Adam the Names,2,33,quran
+18,6 – Command to Prostrate,7,11,quran
+19,6 – Command to Prostrate,2,34,quran
+20,6 – Command to Prostrate,15,30,quran
+21,6 – Command to Prostrate,38,73,quran
+22,6 – Command to Prostrate,17,61,quran
+23,6 – Command to Prostrate,18,50,quran
+24,6 – Command to Prostrate,20,116,quran
+25,7 – Iblis Refuses & His Arrogance,7,12,quran
+26,7 – Iblis Refuses & His Arrogance,15,31-33,quran
+27,7 – Iblis Refuses & His Arrogance,38,74-76,quran
+28,8 – Iblis Asks for Respite,7,14-15,quran
+29,8 – Iblis Asks for Respite,15,36-38,quran
+30,8 – Iblis Asks for Respite,38,79-81,quran
+31,9 – Iblis Vows to Mislead,7,16-17,quran
+32,9 – Iblis Vows to Mislead,15,39-40,quran
+33,9 – Iblis Vows to Mislead,17,62,quran
+34,9 – Iblis Vows to Mislead,38,82-83,quran
+35,10 – God's Warning to Iblis,7,18,quran
+36,10 – God's Warning to Iblis,15,41-43,quran
+37,10 – God's Warning to Iblis,17,63-65,quran
+38,11 – Honour of Adam & His Children,17,70,quran
+39,11 – Honour of Adam & His Children,91,7-8,quran
+40,11 – Honour of Adam & His Children,90,3-4,quran
+41,12 – Adam & Eve in the Garden,2,35,quran
+42,12 – Adam & Eve in the Garden,7,19,quran
+43,12 – Adam & Eve in the Garden,20,117-118,quran
+44,13 – The Temptation & Fall,20,115,quran
+45,13 – The Temptation & Fall,7,20-21,quran
+46,13 – The Temptation & Fall,20,120,quran
+47,13 – The Temptation & Fall,7,22,quran
+48,13 – The Temptation & Fall,20,121,quran
+49,13 – The Temptation & Fall,2,36,quran
+50,14 – Adam & Eve's Prayer of Repentance,7,23,quran
+51,15 – Descent to Earth,7,24-25,quran
+52,16 – Repentance & Forgiveness,2,37,quran
+53,16 – Repentance & Forgiveness,20,122,quran
+54,17 – The Promise of Guidance,2,38-39,quran
+55,17 – The Promise of Guidance,20,123-124,quran
+56,18 – Lessons for the Children of Adam,7,26,quran
+57,18 – Lessons for the Children of Adam,7,27,quran
+58,18 – Lessons for the Children of Adam,7,31,quran
+59,18 – Lessons for the Children of Adam,7,35,quran
+60,18 – Lessons for the Children of Adam,36,60-61,quran
+61,19 – The Two Sons of Adam (Cain & Abel),5,27-32,quran
+62,19 – The Two Sons of Adam (Cain & Abel),55,552,hadith
+63,19 – The Two Sons of Adam (Cain & Abel),83,6,hadith
+64,19 – The Two Sons of Adam (Cain & Abel),92,423,hadith
+65,20 – The Covenant of Adam's Offspring,7,172-173,quran
+66,21 – Adam the Origin of Mankind,4,1,quran
+67,21 – Adam the Origin of Mankind,6,98,quran
+68,21 – Adam the Origin of Mankind,7,189,quran
+69,21 – Adam the Origin of Mankind,39,6,quran
+70,22 – Creation from Dust as a Sign,22,5,quran
+71,22 – Creation from Dust as a Sign,30,20,quran
+72,22 – Creation from Dust as a Sign,35,11,quran
+73,22 – Creation from Dust as a Sign,40,67,quran
+74,22 – Creation from Dust as a Sign,18,37,quran
+75,22 – Creation from Dust as a Sign,23,13-14,quran
+76,22 – Creation from Dust as a Sign,56,62,quran
+77,22 – Creation from Dust as a Sign,53,32,quran
+78,23 – Adam & Jesus Compared,3,59,quran
+79,24 – Hadith: Satan's Touch at Birth,55,641,hadith
+80,25 – Hadith: Human Nature - Greed & Desire,76,430,hadith
+81,25 – Hadith: Human Nature - Greed & Desire,76,444,hadith
+82,25 – Hadith: Human Nature - Greed & Desire,76,445,hadith
+83,25 – Hadith: Human Nature - Greed & Desire,76,446,hadith
+84,26 – Hadith: Human Nature - Decree & Fate,77,606,hadith
+85,26 – Hadith: Human Nature - Decree & Fate,78,685,hadith
+86,26 – Hadith: Human Nature - Decree & Fate,77,609,hadith
+87,27 – Hadith: Allah's Words About the Son of Adam,60,9,qudsee
+88,27 – Hadith: Allah's Words About the Son of Adam,60,498,qudsee
+89,27 – Hadith: Allah's Words About the Son of Adam,60,499,qudsee
+90,27 – Hadith: Allah's Words About the Son of Adam,54,415,qudsee
+91,27 – Hadith: Allah's Words About the Son of Adam,60,351,qudsee
+92,27 – Hadith: Allah's Words About the Son of Adam,73,200,qudsee
+93,27 – Hadith: Allah's Words About the Son of Adam,93,583,qudsee
+94,28 – Hadith: Allah's Generosity to the Son of Adam,64,264,hadith
+95,28 – Hadith: Allah's Generosity to the Son of Adam,39,538,hadith
+96,28 – Hadith: Allah's Generosity to the Son of Adam,93,610,hadith
+97,29 – Hadith: Adam & Moses Debate,55,621,hadith
+98,29 – Hadith: Adam & Moses Debate,60,260,hadith
+99,29 – Hadith: Adam & Moses Debate,60,262,hadith
+100,29 – Hadith: Adam & Moses Debate,77,611,hadith
+101,29 – Hadith: Adam & Moses Debate,93,606,hadith
+102,30 – Hadith: Adam on the Day of Resurrection,55,567,hadith
+103,30 – Hadith: Adam on the Day of Resurrection,60,265,hadith
+104,30 – Hadith: Adam on the Day of Resurrection,76,536,hadith
+105,30 – Hadith: Adam on the Day of Resurrection,76,537,hadith
+106,30 – Hadith: Adam on the Day of Resurrection,93,575,hadith
+107,31 – Hadith: The Grand Intercession,60,3,hadith
+108,31 – Hadith: The Grand Intercession,76,570,hadith
+109,31 – Hadith: The Grand Intercession,93,507,hadith
+110,31 – Hadith: The Grand Intercession,93,607,hadith
+111,31 – Hadith: The Grand Intercession,55,556,hadith
+112,31 – Hadith: The Grand Intercession,60,236,hadith
+113,31 – Hadith: The Grand Intercession,93,601,hadith
+114,32 – Hadith: Seeing Allah & the Gathering,12,770,hadith
+115,32 – Hadith: Seeing Allah & the Gathering,93,532,hadith
+116,32 – Hadith: Seeing Allah & the Gathering,76,577,hadith
+117,32 – Hadith: Seeing Allah & the Gathering,24,553,hadith
+118,33 – Hadith: Rewards of Paradise,55,544,hadith
+119,33 – Hadith: Rewards of Paradise,55,551,hadith
+120,33 – Hadith: Rewards of Paradise,76,562,hadith
+121,34 – Hadith: The Night Journey & Meeting Adam,8,345,hadith
+122,34 – Hadith: The Night Journey & Meeting Adam,54,429,hadith
+123,34 – Hadith: The Night Journey & Meeting Adam,58,227,hadith
+124,34 – Hadith: The Night Journey & Meeting Adam,93,608,hadith
+125,35 – Hadith: Daughters of Adam (Menses & Hajj),6,293,hadith
+126,35 – Hadith: Daughters of Adam (Menses & Hajj),6,302,hadith
+127,35 – Hadith: Daughters of Adam (Menses & Hajj),68,466,hadith
+128,36 – Epilogue: Adam's Legacy – The Prophetic Line,37,77,quran
+129,36 – Epilogue: Adam's Legacy – The Prophetic Line,35,39,quran

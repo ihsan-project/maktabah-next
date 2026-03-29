@@ -1,43 +1,61 @@
 order,section,chapter,verse_range,type
-1,1 – David Among the Prophets,4,163,quran
-2,1 – David Among the Prophets,6,84,quran
-3,1 – David Among the Prophets,17,55,quran
-4,2 – David & Goliath,2,251,quran
-5,3 – God's Favours Upon David,34,10,quran
-6,3 – God's Favours Upon David,38,17,quran
-7,3 – God's Favours Upon David,38,18-19,quran
-8,3 – God's Favours Upon David,27,15,quran
-9,4 – The Trial & Repentance,38,22,quran
-10,4 – The Trial & Repentance,38,24,quran
-11,4 – The Trial & Repentance,38,26,quran
-12,5 – David's Wisdom & Judgment,21,78-79,quran
-13,5 – David's Wisdom & Judgment,80,760,hadith
-14,6 – Cursing the Disbelievers,5,78,quran
-15,7 – Solomon as David's Heir,38,30,quran
-16,7 – Solomon as David's Heir,27,16,quran
-17,7 – Solomon as David's Heir,34,13,quran
-18,8 – Hadith: The Psalms of David,55,628,hadith
-19,8 – Hadith: The Psalms of David,60,237,hadith
-20,9 – Hadith: David's Manual Labor,34,286,hadith
-21,9 – Hadith: David's Manual Labor,34,287,hadith
-22,10 – Hadith: The Fast & Prayer of David,21,231,hadith
-23,10 – Hadith: The Fast & Prayer of David,55,631,hadith
-24,10 – Hadith: The Fast & Prayer of David,31,195,hadith
-25,10 – Hadith: The Fast & Prayer of David,31,196,hadith
-26,10 – Hadith: The Fast & Prayer of David,31,197,hadith
-27,10 – Hadith: The Fast & Prayer of David,31,198,hadith
-28,10 – Hadith: The Fast & Prayer of David,31,200,hadith
-29,10 – Hadith: The Fast & Prayer of David,31,201,hadith
-30,10 – Hadith: The Fast & Prayer of David,55,629,hadith
-31,10 – Hadith: The Fast & Prayer of David,55,630,hadith
-32,10 – Hadith: The Fast & Prayer of David,73,155,hadith
-33,10 – Hadith: The Fast & Prayer of David,74,294,hadith
-34,10 – Hadith: The Fast & Prayer of David,61,572,hadith
-35,11 – Hadith: Prostration of Surat Sad,55,632,hadith
-36,11 – Hadith: Prostration of Surat Sad,55,633,hadith
-37,11 – Hadith: Prostration of Surat Sad,60,156,hadith
-38,11 – Hadith: Prostration of Surat Sad,60,331,hadith
-39,12 – Hadith: Solomon Son of David,52,74,hadith
-40,12 – Hadith: Solomon Son of David,55,635,hadith
-41,12 – Hadith: Solomon Son of David,62,169,hadith
-42,13 – Hadith: Voice of David's Family,61,568,hadith
+1,Prologue — The Chosen Prophetic Lineage,3,33-34,quran
+2,Prologue — The Chosen Prophetic Lineage,19,58,quran
+3,Prologue — The Chosen Prophetic Lineage,6,84,quran
+4,Prologue — The Chosen Prophetic Lineage,6,85-86,quran
+5,1 – David Among the Prophets,4,163,quran
+6,1 – David Among the Prophets,17,55,quran
+7,2 – The Israelites Ask for a King,2,246,quran
+8,2 – The Israelites Ask for a King,2,247,quran
+9,2 – The Israelites Ask for a King,2,248,quran
+10,3 – Talut's Army & the River Trial,2,249,quran
+11,4 – David Slays Goliath,2,250,quran
+12,4 – David Slays Goliath,2,251,quran
+13,4 – David Slays Goliath,2,252,quran
+14,5 – God's Favours Upon David,34,10,quran
+15,5 – God's Favours Upon David,34,11,quran
+16,5 – God's Favours Upon David,38,17,quran
+17,5 – God's Favours Upon David,38,18-19,quran
+18,5 – God's Favours Upon David,38,20,quran
+19,5 – God's Favours Upon David,27,15,quran
+20,6 – David's Armor & Craftsmanship,21,80,quran
+21,7 – The Trial of the Two Disputants,38,21,quran
+22,7 – The Trial of the Two Disputants,38,22,quran
+23,7 – The Trial of the Two Disputants,38,23,quran
+24,7 – The Trial of the Two Disputants,38,24,quran
+25,8 – David's Repentance & Forgiveness,38,25,quran
+26,8 – David's Repentance & Forgiveness,38,26,quran
+27,8 – David's Repentance & Forgiveness,38,27,quran
+28,9 – David & Solomon's Wisdom,21,78-79,quran
+29,9 – David & Solomon's Wisdom,80,760,hadith
+30,10 – Cursing the Disbelievers of Israel,5,78,quran
+31,10 – Cursing the Disbelievers of Israel,5,79,quran
+32,11 – Solomon as David's Heir,38,30,quran
+33,11 – Solomon as David's Heir,27,16,quran
+34,11 – Solomon as David's Heir,34,12,quran
+35,11 – Solomon as David's Heir,34,13,quran
+36,12 – Hadith: The Psalms of David,55,628,hadith
+37,12 – Hadith: The Psalms of David,60,237,hadith
+38,13 – Hadith: David's Manual Labor,34,286,hadith
+39,13 – Hadith: David's Manual Labor,34,287,hadith
+40,14 – Hadith: The Fast & Prayer of David,21,231,hadith
+41,14 – Hadith: The Fast & Prayer of David,55,631,hadith
+42,14 – Hadith: The Fast & Prayer of David,31,195,hadith
+43,14 – Hadith: The Fast & Prayer of David,31,196,hadith
+44,14 – Hadith: The Fast & Prayer of David,31,197,hadith
+45,14 – Hadith: The Fast & Prayer of David,31,198,hadith
+46,14 – Hadith: The Fast & Prayer of David,31,200,hadith
+47,14 – Hadith: The Fast & Prayer of David,31,201,hadith
+48,14 – Hadith: The Fast & Prayer of David,55,629,hadith
+49,14 – Hadith: The Fast & Prayer of David,55,630,hadith
+50,14 – Hadith: The Fast & Prayer of David,73,155,hadith
+51,14 – Hadith: The Fast & Prayer of David,74,294,hadith
+52,14 – Hadith: The Fast & Prayer of David,61,572,hadith
+53,15 – Hadith: Prostration of Surat Sad,55,632,hadith
+54,15 – Hadith: Prostration of Surat Sad,55,633,hadith
+55,15 – Hadith: Prostration of Surat Sad,60,156,hadith
+56,15 – Hadith: Prostration of Surat Sad,60,331,hadith
+57,16 – Hadith: Solomon Son of David,52,74,hadith
+58,16 – Hadith: Solomon Son of David,55,635,hadith
+59,16 – Hadith: Solomon Son of David,62,169,hadith
+60,17 – Hadith: Voice of David's Family,61,568,hadith
