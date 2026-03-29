@@ -338,11 +338,9 @@ async function main() {
     trim: true
   });
   
-  console.log(`Found ${xmlData.story.verses[0].verse.length} verses in XML`);
+  const allXmlVerses = (xmlData.story.verses[0].verse || []);
+  console.log(`Found ${allXmlVerses.length} verses in XML`);
   console.log(`Found ${csvRecords.length} reorder specifications in CSV`);
-  
-  // Get all verses from XML
-  const allXmlVerses = xmlData.story.verses[0].verse;
   
   // Track which verses from source XML are used
   const usedVerseIndices = new Set();

@@ -1,0 +1,2137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<story query="maryam" generated="2026-03-30T00:17:38.010Z">
+  <metadata>
+    <title>Story of Mary (Maryam)</title>
+    <verses_count>44</verses_count>
+    <translations_count>604</translations_count>
+    <reordered>2026-03-30T00:17:38.022Z</reordered>
+    <reorder_source>maryam_reorder.csv</reorder_source>
+  </metadata>
+  <verses>
+    <verse chapter="3" verse="33">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>God had chosen Adam and Noah and the families of Abraham and 'Imran in preference to others.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Indeed Allah chose Adam, and Nooh, and the Family of Ibrahim, and the Family of Imran over the creation.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>God chose Adam and Noah and the House of Abraham and the House of Imran above all beings, the</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Verily did Allah choose Adam and Nuh and the house of lbrahim and the house of 'lmran out of the worlds</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Allah chose Adam, Nuh (Noah), the family of Ibrahim (Abraham) and the family of 'Imran above the 'Alamin (mankind and jinns) (of their times).</text>
+        </translation>
+        <translation author="Itani">
+          <text>God chose Adam, and Noah, and the family of Abraham, and the family of Imran, over all mankind.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Truly Allah chose Adam and Noah and the descendants of Abraham and of 'Imran above all mankind.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Allah chose Adam, Nuh (Noah), the family of Ibrahim and the family of `Imran above the nations.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Lo! Allah preferred Adam and Noah and the Family of Abraham and the Family of 'Imran above (all His) creatures.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Allah chose Adam and Noah, the House of Abraham and the House of Imran above all worlds.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Indeed, Allah chose Adam and Noah and the family of Abraham and the family of 'Imran over the worlds -</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>God chose (and gave distinction to) Adam, Noah, the family of Abraham, and Imran over all the people of the world.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Surely Allah chose Adam and Nuh and the descendants of Ibrahim and the descendants of Imran above the nations.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>God chose Adam and Noah and the family of Abraham and the family of 'Imran above all His creatures.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Allah did choose Adam and Noah, the family of Abraham, and the family of 'Imran above all people,-</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="34">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>They were descendants of one another; and God hears all and knows everything.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>They are the descendants one of another; and Allah is the All Hearing, the All Knowing.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>seed of one another; God hears, and knows.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Progeny, one of the other, and Allah is Hearing, Knowing.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Offspring, one of the other, and Allah is the All-Hearer, All-Knower.</text>
+        </translation>
+        <translation author="Itani">
+          <text>Offspring one of the other. God is Hearer and Knower.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>(for His messengership) - a people alike and the seed of one another. Allah is All-Hearing, All-Knowing.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Offspring, one of the other, and Allah is All-Hearer, All-Knower.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>They were descendants one of another. Allah is Hearer, Knower.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>They were the offspring of one another. Allah is Hearing, and Knowing.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Descendants, some of them from others. And Allah is Hearing and Knowing.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>They were the offspring of one another. God is All-hearing and All-seeing.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Offspring one of the other; and Allah is Hearing, Knowing.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>They are the offspring of one another. God hears all and knows all.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Offspring, one of the other: And Allah heareth and knoweth all things.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="35">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Remember, when the wife of 'Imran prayed: "O Lord, I offer what I carry in my womb in dedication to Your service, accept it, for You hear all and know everything."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>(Remember) When the wife of Imran said, “My Lord! I pledge to you what is in my womb – that it shall be dedicated purely in Your service, so accept it from me; indeed You only are the All Hearing, the All Knowing.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>When the wife of Imran said, 'Lord, I have vowed to Thee, in dedication, what is within my womb. Receive Thou this from me; Thou hearest, and knowest.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Recall what time the wife of 'lmran said my Lord verily have vowed unto Thee that which is in my belly to be dedicated; accept Thou then of me. Verily Thou! Thou art the Hearer, the Knower.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>(Remember) when the wife of 'Imran said: "O my Lord! I have vowed to You what (the child that) is in my womb to be dedicated for Your services (free from all worldly work; to serve Your Place of worship), so accept this, from me. Verily, You are the All-Hearer, the All-Knowing."</text>
+        </translation>
+        <translation author="Itani">
+          <text>The wife of Imran said, “My Lord, I have vowed to You what is in my womb, dedicated, so accept from me; You are the Hearer and Knower.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>(He also heard) when the woman of 'Imran said: 'O Lord! Behold, unto You do I vow that the child in my womb is to be devoted to Your exclusive service. Accept it, then, from me. Surely You alone are All-Hearing, All-Knowing.'</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>(Remember) when the wife of `Imran said: "O my Lord! I have vowed to You what is in my womb to be dedicated for Your services, so accept this from me. Verily, You are the All-Hearer, the All-Knowing."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>(Remember) when the wife of 'Imran said: My Lord! I have vowed unto Thee that which is in my belly as a consecrated (offering). Accept it from me. Lo! Thou, only Thou, art the Hearer, the Knower!</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>(Remember) when the wife of 'Imran said: 'Lord, I have vowed to You in dedication that which is hidden inside me. Accept this from me. You are the Hearer, the Knower'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>[Mention, O Muhammad], when the wife of 'Imran said, "My Lord, indeed I have pledged to You what is in my womb, consecrated [for Your service], so accept this from me. Indeed, You are the Hearing, the Knowing."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Remember when Imran's wife prayed to her Lord saying, "I have made a vow to dedicate to Your service whatever is in my womb. Lord, accept it from me. You are All-hearing and All-knowing".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>When a woman of Imran said: My Lord! surely I vow to Thee what is in my womb, to be devoted (to Thy service); accept therefore from me, surely Thou art the Hearing, the Knowing.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Remember when the wife of 'Imran said, "My Lord, I have dedicated what is in my womb entirely to Your service. So accept this from me. You are the One who hears and knows all."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Behold! a woman of 'Imran said: "O my Lord! I do dedicate unto Thee what is in my womb for Thy special service: So accept this of me: For Thou hearest and knowest all things."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="36">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And when she had given birth to the child, she said: "O Lord, I have delivered but a girl." -- But God knew better what she had delivered: A boy could not be as that girl was. "I have named her Mary," (she said), "and I give her into Your keeping. Preserve her and her children from Satan the ostracized."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>So when she gave birth to it, she said, “My Lord! I have indeed given birth to a girl!” And Allah well knows what she gave birth to; and the boy she had prayed for is not like this girl; “And I have named her Maryam and I give her and her offspring in Your protection, against Satan the outcast.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And when she gave birth to her she said, 'Lord, I have given birth to her, a female.' (And God knew very well what she had given birth to; the male is not as the female.) 'And I have named her Mary, and commend her to Thee with her seed, to protect them from the accursed Satan.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then when she brought her forth, she said: my Lord verily have brought forth a female - and Allah knew best that which she had brought forth, - and the male is not as the female, and verily have named her Maryam, and verily seek refuge for her and her progeny with Thee from the Satan the accursed.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Then when she delivered her [child Maryam (Mary)], she said: "O my Lord! I have delivered a female child," - and Allah knew better what she delivered, - "And the male is not like the female, and I have named her Maryam (Mary), and I seek refuge with You (Allah) for her and for her offspring from Shaitan (Satan), the outcast."</text>
+        </translation>
+        <translation author="Itani">
+          <text>And when she delivered her, she said, “My Lord, I have delivered a female,” and God was well aware of what she has delivered, “and the male is not like the female, and I have named her Mary, and have commended her and her descendants to Your protection, from Satan the outcast.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>But when she gave birth to a female child, she said: 'O Lord! I have given birth to a female' - and Allah knew full well what she had given birth to - 'and a female is not the same as a male. I have named her Mary and commit her and her offspring to You for protection from Satan, the accursed.'</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Then when she gave birth to her, she said: "O my Lord! I have given birth to a female child, ـ and Allah knew better what she bore, ـ "And the male is not like the female, and I have named her Maryam, and I seek refuge with You for her and for her offspring from Shaytan, the outcast."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And when she was delivered she said: My Lord! Lo! I am delivered of a female - Allah knew best of what she was delivered - the male is not as the female; and lo! I have named her Mary, and lo! I crave Thy protection for her and for her offspring from Satan the outcast.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And when she was delivered of her, she said: 'Lord, I have given birth to her, a female' Allah knew of what she had given birth the male is not like the female 'and I have called her Mary. Protect her and all her descendants from satan, the stoned one'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>But when she delivered her, she said, "My Lord, I have delivered a female." And Allah was most knowing of what she delivered, "And the male is not like the female. And I have named her Mary, and I seek refuge for her in You and [for] her descendants from Satan, the expelled [from the mercy of Allah]."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>When the baby was born she said, "Lord, it is a female." God knew this. Male and female are not alike. "I have named her Mary. I pray that You will keep her and her offspring safe from Satan, the condemned one."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>So when she brought forth, she said: My Lord! Surely I have brought it forth a female-- and Allah knew best what she brought forth-- and the male is not like the female, and I have named it Marium, and I commend her and her offspring into Thy protection from the accursed Shaitan.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>When she gave birth, she said, "My Lord, I have given birth to a girl," God knew very well what she had given birth to: a male is not like a female, "I have named her Mary and placed her and her children in Your protection from the rejected Satan."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>When she was delivered, she said: "O my Lord! Behold! I am delivered of a female child!"- and Allah knew best what she brought forth- "And no wise is the male Like the female. I have named her Mary, and I commend her and her offspring to Thy protection from the Evil One, the Rejected."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="37">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Her Lord accepted her graciously, and she grew up with excellence, and was given into the care of Zachariah. Whenever Zachariah came to see her in the chamber, he found her provided with food, and he asked: "Where has this come from, O Mary?" And she said: "From God who gives food in abundance to whomsoever He will."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>So her Lord fully accepted her (Maryam), and gave her an excellent development; and gave her in Zakaria’s guardianship; whenever Zakaria visited her at her place of prayer, he found new food with her; he said, “O Maryam! From where did this come to you?” She answered, “It is from Allah; indeed Allah gives to whomever He wills, without limit account.” (Miracles occur through the friends of Allah.)</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Her Lord received the child with gracious favour, and by His goodness she grew up comely, Zachariah taking charge of her. Whenever Zachariah went in to her in the Sanctuary, he found her provisioned. 'Mary,' he said, 'how comes this to thee?' 'From God,' she said. Truly God provisions whomsoever He will without reckoning.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then her Lord accepted her with goodly acceptance and made her grow up with a goodly growth, and He made Zakariyya take care of her. So oft as Zakariyya entered the apartment to see her, he found provision by her. He said: O Maryam! whence hast thou this! She said this is from before Allah. Verily Allah provideth for whomsoever He will without reckoning.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>So her Lord (Allah) accepted her with goodly acceptance. He made her grow in a good manner and put her under the care of Zakariya (Zachariya). Every time he entered Al-Mihrab to (visit) her, he found her supplied with sustenance. He said: "O Maryam (Mary)! From where have you got this?" She said, "This is from Allah." Verily, Allah provides sustenance to whom He wills, without limit."</text>
+        </translation>
+        <translation author="Itani">
+          <text>Her Lord accepted her with a gracious reception, and brought her a beautiful upbringing, and entrusted her to the care of Zechariah. Whenever Zechariah entered upon her in the sanctuary, he found her with provision. He said, “O Mary, where did you get this from?” She said, “It is from God; God provides to whom He wills without reckoning.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Thereupon her Lord graciously accepted Mary and vouchsafed to her a goodly growth and placed her in the care of Zechariah. Whenever Zechariah visited her in the sanctuary, he found her provided with food. He asked her: 'O Mary, how did this come to you?' She said: 'It is from Allah. Allah provides sustenance to whom He wills beyond all reckoning.'</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>So her Lord (Allah) accepted her with goodly acceptance. He made her grow in a good manner and put her under the care of Zakariyya. Every time he entered the Mihrab to (visit) her, he found her supplied with sustenance. He said: "O Maryam! From where have you gotten this" She said, "This is from Allah." Verily, Allah provides sustenance to whom He wills, without limit.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And her Lord accepted her with full acceptance and vouchsafed to her a goodly growth; and made Zachariah her guardian. Whenever Zachariah went into the sanctuary where she was, he found that she had food. He said: O Mary! Whence cometh unto thee this (food)? She answered: It is from Allah. Allah giveth without stint to whom He will.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Her Lord graciously accepted her. He made her grow with a fine upbringing and entrusted her to the care of Zachariah. Whenever Zachariah went to her in the sanctuary, he found that she had provision with her. 'Mary' he said, 'how does this come to you' 'It is from Allah' she answered. Truly, Allah provides whomsoever He will without reckoning.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So her Lord accepted her with good acceptance and caused her to grow in a good manner and put her in the care of Zechariah. Every time Zechariah entered upon her in the prayer chamber, he found with her provision. He said, "O Mary, from where is this [coming] to you?" She said, "It is from Allah. Indeed, Allah provides for whom He wills without account."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Her Lord graciously accepted the offer and made Mary grow up, pure, and beautiful. Zachariah took custody of her. Whenever he went to visit her in her place of worship, he would find with her some food. He would ask her, "Where did this food come from?" She would reply, "God has sent it." God gives sustenance to whomever He wants without keeping an account.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>So her Lord accepted her with a good acceptance and made her grow up a good growing, and gave her into the charge of Zakariya; whenever Zakariya entered the sanctuary to (see) her, he found with her food. He said: O Marium! whence comes this to you? She said: It is from Allah. Surely Allah gives to whom He pleases without measure.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Her Lord graciously accepted her and made her grow in goodness and entrusted her to the care of Zachariah. Every time Zachariah visited her in her chamber he found some provision with her. He asked, "Mary, where did this provision come from?" She replied, "This is from God. God provides for whoever He wills without measure."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Right graciously did her Lord accept her: He made her grow in purity and beauty: To the care of Zakariya was she assigned. Every time that he entered (Her) chamber to see her, He found her supplied with sustenance. He said: "O Mary! Whence (comes) this to you?" She said: "From Allah: for Allah Provides sustenance to whom He pleases without measure."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="38">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Then prayed Zachariah to his Lord: "O Lord, bestow on me offspring, virtuous and good, for You answer all prayers."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>It is here that Zakaria prayed to his Lord; he said, “My Lord! Give me from Yourself a righteous child; indeed You only are the Listener Of Prayer.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Then Zachariah prayed to his Lord saying, 'Lord, give me of Thy goodness a goodly offspring. Yea, Thou hearest prayer.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Forthwith Zakariyya prayed unto his Lord my Lord bestow on me from Thine presence a goodly offspring; verily Thou! Thou art the Hearer of prayer.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>At that time Zakariya (Zachariya) invoked his Lord, saying: "O my Lord! Grant me from You, a good offspring. You are indeed the All-Hearer of invocation."</text>
+        </translation>
+        <translation author="Itani">
+          <text>Thereupon Zechariah prayed to his Lord; he said, “My Lord, bestow on me good offspring from Your presence; You are the Hearer of Prayers.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Then Zechariah prayed to his Lord: 'O Lord! Grant me from Yourself out of Your grace the gift of a goodly offspring, for indeed You alone heed all Prayers.'</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>At that time Zakariyya invoked his Lord, saying: "O my Lord! Grant me from You, a good offspring. You are indeed the All-Hearer of invocation."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Then Zachariah prayed unto his Lord and said: My Lord! Bestow upon me of Thy bounty goodly offspring. Lo! Thou art the Hearer of Prayer.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Thereupon Zachariah supplicated to his Lord, saying: 'Lord, give me from You a good offspring. You hear all prayers'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>At that, Zechariah called upon his Lord, saying, "My Lord, grant me from Yourself a good offspring. Indeed, You are the Hearer of supplication."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Zachariah prayed to his Lord there, saying, "Lord, grant me, by Your Grace, virtuous offspring. You hear all prayers".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>There did Zakariya pray to his Lord; he said: My Lord! grant me from Thee good offspring; surely Thou art the Hearer of prayer.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Thereupon Zachariah prayed to his Lord, saying, "Lord, grant me by Your own grace virtuous offspring. You are the hearer of all prayers."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>There did Zakariya pray to his Lord, saying: "O my Lord! Grant unto me from Thee a progeny that is pure: for Thou art He that heareth prayer!</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="39">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Then the angels said to him as he stood in the chamber at prayer: "God sends you good tidings of John who will confirm a thing from God and be noble, continent, and a prophet, and one of those who are upright and do good."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And the angels called out to him while he was standing, offering prayer at his place of worship, “Indeed Allah gives you glad tidings of Yahya (John), who will confirm a Word (or sign) from Allah, – a leader, always refraining from women, a Prophet from one of Our devoted ones.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And the angels called to him, standing in the Sanctuary at worship, 'Lo, God gives thee good tidings of John, who shall confirm a Word of God, a chief, and chaste, a Prophet, righteous.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then the angels called unto him even while he stood Praying in the apartment: verily Allah announceth unto thee Yahya confessing to a word from Allah, and a leader, and a chaste and a prophet of the righteous one.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Then the angels called him, while he was standing in prayer in Al-Mihrab (a praying place or a private room), (saying): "Allah gives you glad tidings of Yahya (John), confirming (believing in) the Word from Allah [i.e. the creation of 'Iesa (Jesus), the Word from Allah ("Be!" - and he was!)], noble, keeping away from sexual relations with women, a Prophet, from among the righteous."</text>
+        </translation>
+        <translation author="Itani">
+          <text>Then the angels called out to him, as he stood praying in the sanctuary: “God gives you good news of John; confirming a Word from God, and honorable, and moral, and a prophet; one of the upright.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>As he stood praying in the sanctuary, the angels called out to him: 'Allah gives you good tidings of John (Yahya), who shall confirm a command of Allah, shall be outstanding among men, utterly chaste, and a Prophet from among the righteous.'</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Then the angels called him, while he was standing in prayer in the Mihrab, (saying): "Allah gives you glad tidings of Yahya, believing in the Word from Allah, and Sayyidan, and Hasuran, a Prophet, from among the righteous."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And the angels called to him as he stood praying in the sanctuary: Allah giveth thee glad tidings of (a son whose name is) John, (who cometh) to confirm a word from Allah lordly, chaste, a prophet of the righteous.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And the angels called out to him when he was standing in the sanctuary worshipping, saying: 'Allah gives you glad tidings of John, who shall confirm a Word from Allah. He shall be a master and chaste, a Prophet and from the righteous'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So the angels called him while he was standing in prayer in the chamber, "Indeed, Allah gives you good tidings of John, confirming a word from Allah and [who will be] honorable, abstaining [from women], and a prophet from among the righteous."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>When he was standing during prayer in his place of worship, the angels called him saying, "God gives you the glad news of the birth of your son, John who will be a confirmation of (Jesus) the Word of God. He will become a chaste, noble leader and one of the righteous Prophets.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Then the angels called to him as he stood praying in the sanctuary: That Allah gives you the good news of Yahya verifying a Word from Allah, and honorable and chaste and a prophet from among the good ones.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>As he stood praying in the chamber, the angels called out to him, saying, "God gives you the good news of John, who shall confirm the Word from God, and [shall be] outstanding among men, and utterly chaste, and a prophet from among the righteous."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>While he was standing in prayer in the chamber, the angels called unto him: "Allah doth give thee glad tidings of Yahya, witnessing the truth of a Word from Allah, and (be besides) noble, chaste, and a prophet,- of the (goodly) company of the righteous."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="40">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>"How can I have a son, O Lord," he said, "for I am old and my wife is barren?" "Thus," came the answer, "God does as He wills."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>He said, “My Lord! How can I have a son when old age has reached me and my wife is barren?” He said, “This is how Allah brings about, whatever He wills.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>'Lord,' said Zachariah, 'how shall I have a son, seeing I am an old man and my wife is barren?' 'Even so,' God said, 'God does what He will.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: my Lord! in what wise shall there be unto me a youth whereas age hath overtaken me and my wife is barren. Allah said: even so: Allah doeth whatsoever He listeth.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>He said: "O my Lord! How can I have a son when I am very old, and my wife is barren?" Allah said: "Thus Allah does what He wills."</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “My Lord, how will I have a son, when old age has overtaken me, and my wife is barren?” He said, “Even so, God does whatever He wills.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Zechariah exclaimed: 'My Lord! How shall I have a son when old age has overtaken me and my wife is barren?' He said: Thus shall it be; Allah does what He wills.'</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "O my Lord! How can I have a son when I am very old, and my wife is barren" (Allah) said: "Thus Allah does what He wills."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: My Lord! How can I have a son when age hath overtaken me already and my wife is barren? (The angel) answered: So (it will be). Allah doeth what He will.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He said: 'Lord, how shall I have a son when I am overtaken by old age and my wife is barren' He said: 'Even so, Allah does what He will'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He said, "My Lord, how will I have a boy when I have reached old age and my wife is barren?" The angel said, "Such is Allah; He does what He wills."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He said, "How can there be a son for me when I am already senile and my wife is barren." The angel replied, "God does as He wills."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: My Lord! when shall there be a son (born) to me, and old age has already come upon me, and my wife is barren? He said: even thus does Allah what He pleases.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>"Lord," said Zachariah, "how shall I have a son when I am now overtaken by old age and my wife is barren?" "Such is the will of God," replied [the angel], "He does what He pleases."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "O my Lord! How shall I have son, seeing I am very old, and my wife is barren?" "Thus," was the answer, "Doth Allah accomplish what He willeth."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="41">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And Zachariah said: "Give me a token, O Lord." "The token will be," was the reply, "that you will speak to no man for three days except by signs; and remember your Lord much, and pray at evening and sunrise."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>He said, “My Lord! Determine a sign for me”; He said, “The sign is that you shall not be able to speak to mankind for three days except by signs; and remember your Lord profusely, and proclaim His Purity before sunset and at dawn.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>'Lord,' said Zachariah, 'appoint to me a sign.' 'Thy sign,' God said, 'is that thou shalt not speak, save by tokens, to men for three days. And mention thy Lord oft, and give glory at evening and dawn.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: my Lord! appoint unto me a sign. Allah said: thy sign is that thou shalt not speak unto mankind for three days save by beckoning; and remember thy Lord much and hallow Him in the evening and morning.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>He said: "O my Lord! Make a sign for me." Allah said: "Your sign is that you shall not speak to mankind for three days except with signals. And remember your Lord much (by praising Him again and again), and glorify (Him) in the afternoon and in the morning."</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “My Lord, give me a sign.” He said, “Your sign is that you shall not speak to the people for three days, except by gestures. And remember your Lord much, and praise in the evening and the morning.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Zechariah said: 'O my Lord! Appoint a sign for me.' The angel said: 'The sign for you shall be that you shall not speak to men for three days except by gesture. Remember your Lord and extol His glory by night and by day.'</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "O my Lord! Make a sign for me." (Allah) said: "Your sign is that you shall not speak to the people for three days except by signals. And remember your Lord much, and glorify (Him) in the afternoon and in the morning."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: My Lord! Appoint a token for me. (The angel) said: The token unto thee (shall be) that thou shalt not speak unto mankind three days except by signs. Remember thy Lord much, and praise (Him) in the early hours of night and morning.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He said: 'Lord, appoint for me a sign' He said: 'Your sign is that you shall not speak to people except by signs for three days' And remember your Lord abundantly, exalt Him in the evening and at the dawn'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He said, "My Lord, make for me a sign." He Said, "Your sign is that you will not [be able to] speak to the people for three days except by gesture. And remember your Lord much and exalt [Him with praise] in the evening and the morning."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Zachariah prayed to God saying, "Lord, show me the evidence (that it is Divine revelation)." The Lord replied, "You must not speak to people for three days except with gestures. Commemorate your Lord often and glorify Him in the early mornings and the evenings."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: My Lord! appoint a sign for me. Said He: Your sign is that you should not speak to men for three days except by signs; and remember your Lord much and glorify Him in the evening and the morning.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He said, "My Lord, grant me a sign." [The angel] said, "Your sign is that you will not be able to speak to people for three days except by signs. Remember your Lord much and glorify Him morning and evening."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "O my Lord! Give me a Sign!" "Thy Sign," was the answer, "Shall be that thou shalt speak to no man for three days but with signals. Then celebrate the praises of thy Lord again and again, and glorify Him in the evening and in the morning."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="42">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>The angels said: "O Mary, indeed God has favoured you and made you immaculate, and chosen you from all the women of the world.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And when the angels said, “O Maryam! Indeed Allah has chosen you and purified you, and has this day, chosen you among all the women of the world.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And when the angels said, 'Mary, God has chosen thee, and purified thee; He has chosen thee above all women.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And recall what time the angels said: O Maryam! verily Allah chose thee and purified thee and chose thee above the women of the worlds.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And (remember) when the angels said: "O Maryam (Mary)! Verily, Allah has chosen you, purified you (from polytheism and disbelief), and chosen you above the women of the 'Alamin (mankind and jinns) (of her lifetime)."</text>
+        </translation>
+        <translation author="Itani">
+          <text>The angels said, “O Mary, God has chosen you, and has purified you. He has chosen you over all the women of the world.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Then came the time when the angels said: 'O Mary! Behold, Allah has chosen you, and made you pure, and exalted you above all the women in the world.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And (remember) when the angels said: "O Maryam! Verily, Allah has chosen you, purified you, and chosen you above the women of the nations."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And when the angels said: O Mary! Lo! Allah hath chosen thee and made thee pure, and hath preferred thee above (all) the women of creation.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And when the angels said to Mary: 'Allah has chosen you and purified you. He has chosen you above all women of the worlds.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And [mention] when the angels said, "O Mary, indeed Allah has chosen you and purified you and chosen you above the women of the worlds.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>"Behold," the angels told Mary, "God had chosen you, purified you, and given you distinction over all women.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And when the angels said: O Marium! surely Allah has chosen you and purified you and chosen you above the women of the world.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>The angels said, "Mary, God has selected you and purified you. He has selected you over [all] the women of your time.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Behold! the angels said: "O Mary! Allah hath chosen thee and purified thee- chosen thee above the women of all nations.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="43">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>So adore your Lord, O Mary, and pay homage and bow with those who bow in prayer."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“O Maryam! Stand in reverence before your Lord, prostrate yourself and bow along with those who bow.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Mary; be obedient to thy Lord, prostrating and bowing before Him.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Maryam! be devout unto thy Lord, prostrate thyself, and bow down with them that bow down.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>O Mary! "Submit yourself with obedience to your Lord (Allah, by worshipping none but Him Alone) and prostrate yourself, and Irka'i (bow down etc.) along with Ar-Raki'un (those who bow down etc.)."</text>
+        </translation>
+        <translation author="Itani">
+          <text>“O Mary, be devoted to your Lord, and bow down, and kneel with those who kneel.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>O Mary! Remain devout to your Lord, and prostrate yourself in worship, and bow with those who bow (before Him).'</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"O Maryam! Submit yourself with obedience (Aqnuti) to your Lord and prostrate yourself, and bow down along with Ar-Raki`in."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>O Mary! Be obedient to thy Lord, prostrate thyself and bow with those who bow (in worship).</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Mary, be obedient to your Lord, prostrate and bow with those who bow'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>O Mary, be devoutly obedient to your Lord and prostrate and bow with those who bow [in prayer]."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Mary, pray devotedly to your Lord, prostrate yourself before Him and bow down with those who bow down before Him."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>O Marium! keep to obedience to your Lord and humble yourself, and bow down with those who bow.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>O Mary! Remain truly devout to your Sustainer, and prostrate yourself in worship, and bow down with those who bow down [before Him]."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"O Mary! worship Thy Lord devoutly: Prostrate thyself, and bow down (in prayer) with those who bow down."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="44">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>This is news of the Unknown that We send you, for you were not there when they cast lots with quills (to determine) who should take care of Mary, nor when they disputed it.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>These are tidings of the hidden, which We secretly reveal to you (O dear Prophet Mohammed – peace and blessings be upon him); and you were not present with them when they threw their pens to draw lots, to know who should be the guardian of Maryam; nor were you present with them when they were quarrelling. (Yet you know of these things – this is a proof of your being a Prophet.)</text>
+        </translation>
+        <translation author="Arberry">
+          <text>(That is of the tidings of the Unseen, that We reveal to thee; for thou wast not with them, when they were casting quills which of them should have charge of Mary; thou wast not with them, when they were disputing.)</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>This is of the tidings of things hidden which We reveal unto thee and thou wast not with them when they cast their reeds as to which of them should take care of Maryam, nor wast thou with them when they disputed.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>This is a part of the news of the Ghaib (unseen, i.e. the news of the past nations of which you have no knowledge) which We inspire you with (O Muhammad SAW). You were not with them, when they cast lots with their pens as to which of them should be charged with the care of Maryam (Mary); nor were you with them when they disputed.</text>
+        </translation>
+        <translation author="Itani">
+          <text>These are accounts from the Unseen, which We reveal to you. You were not with them when they cast their lots as to which of them would take charge of Mary; nor were you with them as they quarreled.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>(O Muhammad!) We reveal to you this account from a realm which lies beyond the reach of your perception for you were not with them when they drew lots with their pens about who should be Mary's guardian, and you were not with them when they disputed about it.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>This is a part of the news of the Ghayb (Unseen) which We reveal to you. You were not with them, when they cast lots with their pens as to which of them should be charged with the care of Maryam; nor were you with them when they disputed.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>This is of the tidings of things hidden. We reveal it unto thee (Muhammad). Thou wast not present with them when they threw their pens (to know) which of them should be the guardian of Mary, nor wast thou present with them when they quarrelled (thereupon).</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>This is from the news of the unseen. We reveal it to you (Prophet Muhammad). You were not present when they cast their quills to see which of them should look after Mary, nor were you present when they were disputing.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>That is from the news of the unseen which We reveal to you, [O Muhammad]. And you were not with them when they cast their pens as to which of them should be responsible for Mary. Nor were you with them when they disputed.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>(Muhammad), that was some of the news about the unseen, that We have revealed to you. You were not among those who cast lots by throwing their arrows to find out who would take custody of Mary, nor were you among those who disputed the matter.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>This is of the announcements relating to the unseen which We reveal to you; and you were not with them when they cast their pens (to decide) which of them should have Marium in his charge, and you were not with them when they contended one with another.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>This is an account of the unseen, which We reveal to you. You were not with them when they drew lots as to which of them should be Mary's guardian and you were not with them when they disputed with one another.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>This is part of the tidings of the things unseen, which We reveal unto thee (O Messenger!) by inspiration: Thou wast not with them when they cast lots with arrows, as to which of them should be charged with the care of Mary: Nor wast thou with them when they disputed (the point).</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="55" verse="642">
+      <chapter_name>Sahih Bukhari Vol 4</chapter_name>
+      <book_id>en.bukhari.vol04</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Dr. Muhammad Muhsin">
+          <text>Narrated 'Ali:
+I heard the Prophet saying, "Mary, the daughter of 'Imran, was the best among the women (of the world of her time) and Khadija is the best amongst the women. (of this nation)."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="55" verse="643">
+      <chapter_name>Sahih Bukhari Vol 4</chapter_name>
+      <book_id>en.bukhari.vol04</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Dr. Muhammad Muhsin">
+          <text>Narrated Abu Musa Al-Ashari:
+The Prophet said, "The superiority of 'Aisha to other ladies is like the superiority of Tharid (i.e. meat and bread dish) to other meals. Many men reached the level of perfection, but no woman reached such a level except Mary, the daughter of Imran and Asia, the wife of Pharaoh."
+Narrated Abu Huraira: I heard Allah's Apostle saying, "Amongst all those women who ride camels (i.e. Arabs), the ladies of Quraish are the best. They are merciful and kind to their off-spring and the best guardians of their husbands' properties.' Abu Huraira added, "Mary the daughter of Imran never rode a camel."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="45">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>When the angels said: "O Mary, God gives you news of a thing from Him, for rejoicing, (news of one) whose name will be Messiah, Jesus, son of Mary, illustrious in this world and the next, and one among the honoured,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And remember when the angels said, “O Maryam! Allah gives you glad tidings of a Word from Him, whose name is the Messiah, Eisa the son of Maryam – he will be honourable in this world and in the Hereafter, and among the close ones (to Allah).”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>When the angels said, 'Mary, God gives thee good tidings of a Word from Him whose name is Messiah, Jesus, son of Mary; high honoured shall he be in this world and the next, near stationed to God.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Recall what time the angels said: Maryam! verily Allah announceth unto thee a word from Him: his name Shall be the Masih, Isa, son of Maryam, illustrious in the world and the Hereafter and one of those brought nigh.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>(Remember) when the angels said: "O Maryam (Mary)! Verily, Allah gives you the glad tidings of a Word ["Be!" - and he was! i.e. 'Iesa (Jesus) the son of Maryam (Mary)] from Him, his name will be the Messiah 'Iesa (Jesus), the son of Maryam (Mary), held in honour in this world and in the Hereafter, and will be one of those who are near to Allah."</text>
+        </translation>
+        <translation author="Itani">
+          <text>The Angels said, “O Mary, God gives you good news of a Word from Him. His name is the Messiah, Jesus, son of Mary, well-esteemed in this world and the next, and one of the nearest.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>And when the angels said: 'O Mary! Allah gives you the glad tidings of a command from Him: his name shall be Messiah, Jesus, the son of Mary. He shall be highly honoured in this world and in the Next, and shall be one of those near stationed to Allah.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>(Remember) when the angels said: "O Maryam! Verily, Allah gives you the glad tidings of a Word from Him, his name will be Al-Masih, `Isa, the son of Maryam, held in honor in this world and in the Hereafter, and he will be one of those who are near to Allah."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>(And remember) when the angels said: O Mary! Lo! Allah giveth thee glad tidings of a word from him, whose name is the Messiah, Jesus, son of Mary, illustrious in the world and the Hereafter, and one of those brought near (unto Allah).</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>When the angels said: 'O Mary, Allah gives you glad tidings of a Word (Be) from Him, whose name is Messiah, Jesus, the son of Mary. He shall be honored in this world and in the Everlasting Life and he shall be among those who are close.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>[And mention] when the angels said, "O Mary, indeed Allah gives you good tidings of a word from Him, whose name will be the Messiah, Jesus, the son of Mary - distinguished in this world and the Hereafter and among those brought near [to Allah].</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>"Behold," the angels told Mary, "God has given you the glad news of the coming birth of a son whom He calls His Word, whose name will be Messiah, Jesus, son of Mary, who will be a man of honor in this life and the life to come, and who will be one of the ones nearest to God.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>When the angels said: O Marium, surely Allah gives you good news with a Word from Him (of one) whose name is the '. Messiah, Isa son of Marium, worthy of regard in this world and the hereafter and of those who are made near (to Allah).</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>When the angels said, "O Mary, your Lord gives you good news of a Word from Him. His name is the Messiah, Jesus, son of Mary, honoured in this world and in the next and one of those who are granted nearness to God.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Behold! the angels said: "O Mary! Allah giveth thee glad tidings of a Word from Him: his name will be Christ Jesus, the son of Mary, held in honour in this world and the Hereafter and of (the company of) those nearest to Allah;</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="46">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Who will speak to the people when in the cradle and when in the prime of life, and will be among the upright and doers of good."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“He will speak to people while he is in the cradle and in his adulthood, and will be of the devoted ones.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He shall speak to men in the cradle, and of age, and righteous he shall be.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And he shall speak unto mankind from the cradle and in maturity; and be one of the righteous.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"He will speak to the people in the cradle and in manhood, and he will be one of the righteous."</text>
+        </translation>
+        <translation author="Itani">
+          <text>He will speak to the people from the crib, and in adulthood, and will be one of the righteous.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>And he shall speak to men in the cradle and also later when he grows to maturity and shall indeed be among the righteous.'</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"He will speak to the people, in the cradle and in manhood, and he will be one of the righteous."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He will speak unto mankind in his cradle and in his manhood, and he is of the righteous.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He shall speak to people in his cradle and when he is aged, and shall be among the righteous'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He will speak to the people in the cradle and in maturity and will be of the righteous."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He will speak to the people while in his cradle and preach to them when he will be a man. He will be one of the righteous ones.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And he shall speak to the people when in the cradle and when of old age, and (he shall be) one of the good ones.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>And he shall speak to men in his cradle, and as a grown man, and shall be one of the righteous."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"He shall speak to the people in childhood and in maturity. And he shall be (of the company) of the righteous."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="3" verse="47">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>She said: "How can I have a son, O Lord, when no man has touched me?" He said: "That is how God creates what He wills. When He decrees a thing, He says 'Be', and it is.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>She said, “My Lord! How can I bear a child when no man has ever touched me?” He said, “This is how Allah creates whatever He wills; when He wills a thing, He only says to it, ‘Be’ – and it happens immediately.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>'Lord,' said Mary, 'how shall I have a son seeing no mortal has touched me?' 'Even so,' God said, God creates what He will. When He decrees a thing He does but say to it "Be," and it is.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>She said: my Lord! in what wise shall there be unto me a son whereas no human being hath touched me. Allah said: even so. Allah createth whatsoever He will, When He hath decreed a thing, He only saith to it: Be, and it becometh;</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>She said: "O my Lord! How shall I have a son when no man has touched me." He said: "So (it will be) for Allah creates what He wills. When He has decreed something, He says to it only: "Be!" and it is.</text>
+        </translation>
+        <translation author="Itani">
+          <text>She said, “My Lord, how can I have a child, when no man has touched me?” He said, “It will be so. God creates whatever He wills. To have anything done, He only says to it, ‘Be,’ and it is.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>She said: 'O my Lord! How shall I have a son when no man has ever touched me?' The angel answered: Thus shall it be. Allah creates whatever He wills. When He decides something, He merely says: "Be" and it is.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>She said: "O my Lord! How shall I have a son when no man has touched me." He said: "So (it will be) for Allah creates what He wills. When He has decreed something, He says to it only: `Be! ـ and it is."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>She said: My Lord! How can I have a child when no mortal hath touched me? He said: So (it will be). Allah createth what He will. If He decreeth a thing, He saith unto it only: Be! and it is.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>'Lord' she said, 'how can I bear a child when no human being has touched me' He replied: 'Such is the Will of Allah. He creates whom He will. When He decrees a thing, He only says: "Be," and it is.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>She said, "My Lord, how will I have a child when no man has touched me?" [The angel] said, "Such is Allah; He creates what He wills. When He decrees a matter, He only says to it, 'Be,' and it is.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>(Mary) said, "How can there be a son for me when no mortal has touched me?" The angel replied, "That is how God creates whatever He wants. When He decides to do something He just orders it to exist and it comes into existence."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>She said: My Lord! when shall there be a son (born) to I me, and man has not touched me? He said: Even so, Allah creates what He pleases; when He has decreed a matter, He only says to it, Be, and it is.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>"Lord," she said, "how can I have a child when no man has touched me?" [The angel] replied, "Thus it is: God creates what He wills: when He wills a thing He need only say, "Be," and it is.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>She said: "O my Lord! How shall I have a son when no man hath touched me?" He said: "Even so: Allah createth what He willeth: When He hath decreed a plan, He but saith to it, 'Be,' and it is!</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="16">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Commemorate Mary in the Book. When she withdrew from her family to a place in the East</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And remember Maryam in the Book; when she went away from her family to a place towards east.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And mention in the Book Mary when she withdrew from her people to an eastern place,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And mention thou in the Book Maryam, what time the retired from her people to a place eastward.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And mention in the Book (the Quran, O Muhammad SAW, the story of) Maryam (Mary), when she withdrew in seclusion from her family to a place facing east.</text>
+        </translation>
+        <translation author="Itani">
+          <text>And mention in the Scripture Mary, when she withdrew from her people to an eastern location.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>(O Muhammad), recite in the Book the account of Mary, when she withdrew from her people to a place towards the east;</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And mention in the Book, Maryam, when she withdrew in seclusion from her family to place facing east.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And make mention of Mary in the Scripture, when she had withdrawn from her people to a chamber looking East,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And mention in the Book, Mary, how she withdrew from her people to an eastern place and she took a veil apart from them;</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And mention, [O Muhammad], in the Book [the story of] Mary, when she withdrew from her family to a place toward the east.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>(Muhammad), mention in the Book (the Quran) the story of Mary how she left her family and started living in a solitary place to the East</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And mention Marium in the Book when she drew aside from her family to an eastern place;</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Recount in the Book how Mary withdrew from her people to an eastern place</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Relate in the Book (the story of) Mary, when she withdrew from her family to a place in the East.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="17">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And took cover from them, We sent a spirit of Ours to her who appeared before her in the concrete form of a man.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>So there she screened herself from them; We therefore sent Our Spirit towards her – he appeared before her in the form of a healthy man. (Angel Jibreel – peace be upon him.)</text>
+        </translation>
+        <translation author="Arberry">
+          <text>and she took a veil apart from them; then We sent unto her Our Spirit that presented himself to her a man without fault.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then she took beside them a curtain; then We sent unto her Our Spirit, and he took unto her the form of a human being sound.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>She placed a screen (to screen herself) from them; then We sent to her Our Ruh [angel Jibrael (Gabriel)], and he appeared before her in the form of a man in all respects.</text>
+        </translation>
+        <translation author="Itani">
+          <text>She screened herself away from them, and We sent to her Our spirit, and He appeared to her as an immaculate human.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and drew a curtain, screening herself from people whereupon We sent to her Our spirit and he appeared to her as a well-shaped man.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>She placed a screen before them; then We sent to her Our Ruh, and he appeared before her in the form of a man in all respects.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And had chosen seclusion from them. Then We sent unto her Our Spirit and it assumed for her the likeness of a perfect man.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>We sent to her Our Spirit (Gabriel) in the resemblance of a perfect human.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And she took, in seclusion from them, a screen. Then We sent to her Our Angel, and he represented himself to her as a well-proportioned man.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>out of her people's sight. We sent Our Spirit to her, who stood before her in the shape of a well formed human being.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>So she took a veil (to screen herself) from them; then We sent to her Our spirit, and there appeared to her a well-made man.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>and kept herself in seclusion from them. We sent her Our angel, who presented himself to her as a full-grown human being.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>She placed a screen (to screen herself) from them; then We sent her our angel, and he appeared before her as a man in all respects.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="18">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>"I seek refuge in the Merciful from you, if you fear Him," she said.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>She said, “I seek the refuge of the Most Gracious from you – if you fear God.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>She said, 'I take refuge in the All-merciful from thee!</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>She said: verily seek refuge with the Compassionate from thee if thou art God-fearing.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>She said: "Verily! I seek refuge with the Most Beneficent (Allah) from you, if you do fear Allah."</text>
+        </translation>
+        <translation author="Itani">
+          <text>She said, “I take refuge from you in the Most Merciful, should you be righteous.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Mary exclaimed: "I surely take refuge from you with the Most Compassionate Lord, if you are at all God-fearing."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>She said: "Verily, I seek refuge with the Most Gracious (Allah) from you, if you do fear Allah."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>She said: Lo! I seek refuge in the Beneficent One from thee, if thou art Allah-fearing.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>(And when she saw him) she said: 'I take refuge in the Merciful from you! If you are fearful'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>She said, "Indeed, I seek refuge in the Most Merciful from you, [so leave me], if you should be fearing of Allah."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Mary said, "Would that the Beneficent God would protect me from you. Leave me alone if you are a God fearing person".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>She said: Surely I fly for refuge from you to the Beneficent Allah, if you are one guarding (against evil).</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>When she saw him, she said, "I seek refuge in the compassionate God from you; [do not come near] if you fear the Lord."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>She said: "I seek refuge from thee to (Allah) Most Gracious: (come not near) if thou dost fear Allah."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="19">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>He replied: "I am only a messenger from your Lord (sent) to bestow a good son on you."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>He said, “I am indeed one sent by your Lord; so that I may give you a chaste son.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>If thou fearest God... He said, 'I am but a messenger come from thy Lord, to give thee a boy most pure.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: I am but a meenger from thy Lord that I may bestow on thee a boy pure.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>(The angel) said: "I am only a Messenger from your Lord, (to announce) to you the gift of a righteous son."</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “I am only the messenger of your Lord, to give you the gift of a pure son.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>He said: "I am just a message-bearer of your Lord, I have come to grant you a most pure boy."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>(The angel) said: "I am only a messenger from your Lord, (to announce) to you the gift of a righteous son."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: I am only a messenger of thy Lord, that I may bestow on thee a faultless son.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>'I am the Messenger of your Lord' he replied, 'and have come to give you a pure boy'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He said, "I am only the messenger of your Lord to give you [news of] a pure boy."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He said, "I am the Messengers of your Lord. I have come to give you a purified son".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: I am only a messenger of your Lord: That I will give you a pure boy.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>"I am only the messenger of your Lord," he replied. "I shall bestow upon you the gift of a son endowed with purity."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "Nay, I am only a messenger from thy Lord, (to announce) to thee the gift of a holy son.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="20">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>"How can I have a son," she said, "when no man has touched me, nor am I sinful?"</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>She said, “How can I bear a son? No man has ever touched me, nor am I of poor conduct!”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>She said, 'How shall I have a son whom no mortal has touched, neither have I been unchaste?'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>She said: in what wise shall there be a boy unto me, whereas not a human being hath touched me, nor have I been a harlot?</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>She said: "How can I have a son, when no man has touched me, nor am I unchaste?"</text>
+        </translation>
+        <translation author="Itani">
+          <text>She said, “How can I have a son, when no man has touched me, and I was never unchaste?”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Mary said: "How can a boy be born to me when no man has even touched me, nor have I ever been unchaste?"</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>She said: "How can I have a son when no man has touched me, nor am I Baghiyya"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>She said: How can I have a son when no mortal hath touched me, neither have I been unchaste?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>'How shall I bear a son' she answered, 'when I am not touched by a human and not unchaste'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>She said, "How can I have a boy while no man has touched me and I have not been unchaste?"</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>She said, "How can I have a son when no mortal has touched me nor am I an unchaste woman".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>She said: When shall I have a boy and no mortal has yet touched me, nor have I been unchaste?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>She said, "How can I have a son when no man has touched me; and neither have I been unchaste?"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>She said: "How shall I have a son, seeing that no man has touched me, and I am not unchaste?"</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="21">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>He said: "Thus will it be. Your Lord said: 'It is easy for Me,' and that: 'We shall make him a sign for men and a blessing from Us.' This is a thing already decreed."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>He said, “So it is; your Lord has said, ‘This is easy for Me’; and in order that We make him a sign for mankind and a Mercy from Us; and this matter has been decreed.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He said, 'Even so thy Lord has said: "Easy is that for Me; and that We may appoint him a sign unto men and a mercy from Us; it is a thing decreed."'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: even so! Thy Lord saith: it is With Me easy, and it is in order that We may make him a sign unto mankind and a mercy from Us, and it is an affair decreed.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>He said: "So (it will be), your Lord said: 'That is easy for Me (Allah): And (We wish) to appoint him as a sign to mankind and a mercy from Us (Allah), and it is a matter (already) decreed, (by Allah). </text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “Thus said your Lord, `It is easy for Me, and We will make him a sign for humanity, and a mercy from Us. It is a matter already decided.'“</text>
+        </translation>
+        <translation author="Maududi">
+          <text>The angel said: "Thus shall it be. Your Lord says: 'It is easy for Me; and We shall do so in order to make him a Sign for mankind and a mercy from Us. This has been decreed.' "</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "Thus says your Lord: `That is easy for Me (Allah). And (We wish) to appoint him as a sign to mankind and a mercy from Us (Allah), and it is a matter (already) decreed (by Allah)."'</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: So (it will be). Thy Lord saith: It is easy for Me. And (it will be) that We may make of him a revelation for mankind and a mercy from Us, and it is a thing ordained.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>"Even so" he replied, "as such your Lord has said: 'Easy it is for Me. And We shall make him a sign to mankind and a mercy from Us. It is a matter decreed.'"</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He said, "Thus [it will be]; your Lord says, 'It is easy for Me, and We will make him a sign to the people and a mercy from Us. And it is a matter [already] decreed.' "</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He said, "This is true but your Lord says, "It is very easy for Me. We have decided to give you a son as evidence (of Our existence) for human beings and a mercy from Us. This is a decree already ordained."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: Even so; your Lord says: It is easy to Me: and that We may make him a sign to men and a mercy from Us, and it is a matter which has been decreed.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>[The angel] replied, "So shall it be; your Lord says, 'This is easy for Me; and We shall make him a sign to people and a blessing, from Us. This has been decreed.'"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "So (it will be): Thy Lord saith, 'that is easy for Me: and (We wish) to appoint him as a Sign unto men and a Mercy from Us': It is a matter (so) decreed."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="22">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>When she conceived him she went away to a distant place.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>So she conceived him, and she went away with him to a far place.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>So she conceived him, and withdrew with him to a distant place.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>hen she conceived him, and she retired with him to a place far-off.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>So she conceived him, and she withdrew with him to a far place (i.e. Bethlehem valley about 4-6 miles from Jerusalem).</text>
+        </translation>
+        <translation author="Itani">
+          <text>So she carried him, and secluded herself with him in a remote place.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Then she conceived him and withdrew with him to a far-off place.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>So she conceived him, and she withdrew with him to a remote place.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And she conceived him, and she withdrew with him to a far place.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Thereupon she carried him, and retired to a far off place.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So she conceived him, and she withdrew with him to a remote place.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>She conceived the child and retreated with him to a distant and solitary place.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>So she conceived him; then withdrew herself with him to a remote place.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>So she conceived him and withdrew with him to a distant place.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>So she conceived him, and she retired with him to a remote place.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="23">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>The birth pangs led her to the trunk of a date-palm tree. "Would that I had died before this," she said, "and become a thing forgotten, unremembered."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Then the pangs of childbirth brought her to the base of the palm-tree; she said, “Oh, if only had I died before this and had become forgotten, unremembered.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And the birthpangs surprised her by the trunk of the palm-tree. She said, 'Would I had died ere this, and become a thing forgotten!'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then the birth-pangs drave her to the trunk of a palm- tree; she said: would that had died afore this and become forgotten, lost in oblivion!</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And the pains of childbirth drove her to the trunk of a date-palm. She said: "Would that I had died before this, and had been forgotten and out of sight!"</text>
+        </translation>
+        <translation author="Itani">
+          <text>The labor-pains came upon her, by the trunk of a palm-tree. She said, “I wish I had died before this, and been completely forgotten.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Then the birth pangs drove her to the trunk of a palm-tree and she said: "Oh, would that I had died before this and had been all forgotten."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And the pains of childbirth drove her to the trunk of a date palm. She said: "Would that I had died before this, and had been forgotten and out of sight!"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And the pangs of childbirth drove her unto the trunk of the palm-tree. She said: Oh, would that I had died ere this and had become a thing of naught, forgotten!</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And when the birthpangs came upon her by the trunk of a palmtree, she said: 'Oh, would that I had died before this and become a thing forgotten'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And the pains of childbirth drove her to the trunk of a palm tree. She said, "Oh, I wish I had died before this and was in oblivion, forgotten."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>When she started to experience (the pain of) of childbirth labor, by the trunk of a palm tree in sadness she said, "Would that I had died long before and passed into oblivion."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And the throes (of childbirth) compelled her to betake herself to the trunk of a palm tree. She said: Oh, would that I had died before this, and had been a thing quite forgotten!</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>The pains of labour drove her to the trunk of a date-palm. She said, "Oh, if only I had died before this and passed into oblivion!"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And the pains of childbirth drove her to the trunk of a palm-tree: She cried (in her anguish): "Ah! would that I had died before this! would that I had been a thing forgotten and out of sight!"</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="24">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Then (a voice) called to her from below: "Grieve not; your Lord has made a rivulet gush forth right below you.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>(The angel) Therefore called her from below her, “Do not grieve – your Lord has made a river flow below you.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>But the one that was below her called to her, 'Nay, do not sorrow; see, thy Lord has set below thee a rivulet.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then one cried unto her from underneath her, that grieve not, thy Lord hath placed underneath thou a rivulet.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Then [the babe 'Iesa (Jesus) or Jibrael (Gabriel)] cried unto her from below her, saying: "Grieve not! Your Lord has provided a water stream under you;</text>
+        </translation>
+        <translation author="Itani">
+          <text>Whereupon he called her from beneath her: “Do not worry; your Lord has placed a stream beneath you.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Thereupon the angel below her cried out: "Grieve not, for your Lord has caused a stream of water to flow beneath you.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Then he cried unto her from below her, saying: "Grieve not: your Lord has provided a Sariy under you."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Then (one) cried unto her from below her, saying: Grieve not! Thy Lord hath placed a rivulet beneath thee,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He called from below to her: 'Do not sorrow, look, your Lord has provided a rivulet below you,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>But he called her from below her, "Do not grieve; your Lord has provided beneath you a stream.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Then she heard the baby saying, "Do not be sad. Your Lord has caused a stream to run at your feet.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Then (the child) called out to her from beneath her: Grieve not, surely your Lord has made a stream to flow beneath you;</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>But a voice called out to her from below, "Do not despair. Your Lord has provided a brook that runs at your feet,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>But (a voice) cried to her from beneath the (palm-tree): "Grieve not! for thy Lord hath provided a rivulet beneath thee;</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="25">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Shake the trunk of the date-palm tree, and it will drop ripe dates for you.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“And shake the trunk of the palm-tree towards you – ripe fresh dates will fall upon you.” (This was a miracle – the date palm was dry and it was winter season.)</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Shake also to thee the palm-trunk, and there shall come tumbling upon thee dates fresh and ripe.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And shake toward thee the trunk of the palm-tree it shall drop on thee dates fresh and ripe.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And shake the trunk of date-palm towards you, it will let fall fresh ripe-dates upon you."</text>
+        </translation>
+        <translation author="Itani">
+          <text>And shake the trunk of the palm-tree towards you, and it will drop ripe dates by you.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Shake the trunk of the palm-tree towards yourself and fresh and ripe dates shall fall upon you.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And shake the trunk of date palm towards you, it will let fall fresh ripe dates upon you."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And shake the trunk of the palm-tree toward thee, thou wilt cause ripe dates to fall upon thee.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>and shake the trunk of this palmtree it will drop fresh ripe dates upon you.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And shake toward you the trunk of the palm tree; it will drop upon you ripe, fresh dates.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>If you shake the trunk of the palm tree, it will provide you with fresh ripe dates.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And shake towards you the trunk of the palmtree, it will drop on you fresh ripe dates:</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>and if you shake the trunk of this palm-tree, it will drop fresh ripe dates on you.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"And shake towards thyself the trunk of the palm-tree: It will let fall fresh ripe dates upon thee.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="26">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Eat and drink, and be at peace. If you see any man, tell him: 'I have verily vowed a fast to Ar-Rahman and cannot speak to any one this day.'</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“Therefore eat and drink and appease your eyes; so if you meet any person then say, ‘I have pledged a fast (of silence) to the Most Gracious – I will therefore not speak to any person today.’”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Eat therefore, and drink, and be comforted; and if thou shouldst see any mortal, say, "I have vowed to the All-merciful a fast, and today I will not speak to any man.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>So eat and drink thou, and cool thine eyes; and if thou beholdest the human beings anyone, say: verily I have vowed to the Compassionate a fast, so I shall not speak today to any human being.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"So eat and drink and be glad, and if you see any human being, say: 'Verily! I have vowed a fast unto the Most Beneficent (Allah) so I shall not speak to any human being this day. </text>
+        </translation>
+        <translation author="Itani">
+          <text>“So eat, and drink, and be consoled. And if you see any human, say, ‘I have vowed a fast to the Most Gracious, so I will not speak to any human today.'“</text>
+        </translation>
+        <translation author="Maududi">
+          <text>So eat and drink and cool your eyes; and if you see any person say to him: 'Verily I have vowed a fast to the Most Compassionate Lord, and so I shall not speak to anyone today.' "</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"So eat and drink and rejoice. And if you see any human being, say: `Verily, I have vowed a fast for the Most Gracious so I shall not speak to any human being today.,"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>So eat and drink and be consoled. And if thou meetest any mortal, say: Lo! I have vowed a fast unto the Beneficent, and may not speak this day to any mortal.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Therefore eat and drink and rejoice with your eyes. If you meet any human say to him: "I have vowed a fast to the Merciful and will not speak with anyone today.'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So eat and drink and be contented. And if you see from among humanity anyone, say, 'Indeed, I have vowed to the Most Merciful abstention, so I will not speak today to [any] man.' "</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Eat, drink, and rejoice. Should you see a person going by, tell him that on this day you have promised the Beneficent God to fast and never talk to any human being."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>So eat and drink and refresh the eye. Then if you see any mortal, say: Surely I have vowed a fast to the Beneficent Allah, so I shall not speak to any man today.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Eat and drink and rejoice. And if you see any human being say, 'I have vowed a fast [of silence] to the Gracious God, and will not speak with any human being today.'"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"So eat and drink and cool (thine) eye. And if thou dost see any man, say, 'I have vowed a fast to (Allah) Most Gracious, and this day will I enter into not talk with any human being'"</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="27">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Then she brought the child to her people. They exclaimed: "O Mary, you have done a most astonishing thing!</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>So carrying him in her arms, she brought him to her people; they said, “O Maryam, you have indeed committed a great evil!”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Then she brought the child to her folk carrying him; and they said, 'Mary, thou hast surely committed a monstrous thing!</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then she brought him to her nation carrying him. They said: Maryam! assuredly thou hast brought a thing unheard Of.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Then she brought him (the baby) to her people, carrying him. They said: "O Mary! Indeed you have brought a thing Fariya (an unheard mighty thing).</text>
+        </translation>
+        <translation author="Itani">
+          <text>Then she came to her people, carrying him. They said, “O Mary, you have done something terrible.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Then she came to her people, carrying her baby. They said: "O Mary! You have committed a monstrous thing.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Then she brought him to her people, carrying him. They said: "O Mary! Indeed you have brought a thing Fariy."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Then she brought him to her own folk, carrying him. They said: O Mary! Thou hast come with an amazing thing.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>She came to her nation, carrying him; and they said: 'O Mary, you have committed a monstrous thing.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Then she brought him to her people, carrying him. They said, "O Mary, you have certainly done a thing unprecedented.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>She took him to her people and they said, "Mary, this is indeed an strange thing.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And she came to her people with him, carrying him (with her). They said: O Marium! surely you have done a strange thing.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Carrying her child, she brought him to her people. They said, "O Mary, you have indeed done something terrible!</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>At length she brought the (babe) to her people, carrying him (in her arms). They said: "O Mary! truly an amazing thing hast thou brought!</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="28">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>O sister of Aaron, your father was not a wicked person, nor your mother sinful!"</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“O sister of Haroon, neither was your father an evil man nor was your mother of poor conduct!”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Sister of Aaron, thy father was not a wicked man, nor was thy mother a woman unchaste.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>O sister of Harun: thy father was not a man of evil, nor was thy mother a harlot.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"O sister (i.e. the like) of Harun (Aaron) [not the brother of Musa (Moses), but he was another pious man at the time of Maryam (Mary)]! Your father was not a man who used to commit adultery, nor your mother was an unchaste woman."</text>
+        </translation>
+        <translation author="Itani">
+          <text>O sister of Aaron, your father was not an evil man, and your mother was not a whore.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>O sister of Aaron! Your father was not an evil man, nor was your mother an unchaste woman."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"O sister of Harun! Your father was not a man who used to commit adultery, nor your mother was an unchaste woman."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>O sister of Aaron! Thy father was not a wicked man nor was thy mother a harlot.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>O sister of Aaron, your father was never an evil man, nor was your mother unchaste'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>O sister of Aaron, your father was not a man of evil, nor was your mother unchaste."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Aaron's sister, your father was not a bad man nor was your mother unchaste".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>O sister of Haroun! your father was not a bad man, nor, was your mother an unchaste woman.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Sister of Aaron, your father was not an evil man, nor was your mother an unchaste woman!"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"O sister of Aaron! Thy father was not a man of evil, nor thy mother a woman unchaste!"</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="29">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>But she pointed towards him. "How can we talk to one," they said, "who is only an infant in the cradle?"</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Thereupon she pointed towards the child; they said, “How can we speak to an infant who is in the cradle?”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Mary pointed to the child then; but they said, 'How shall we speak to one who is still in the cradle, a little child?'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then she Pointed to him. They said: how shall we speak to one who is in the cradle, a child?</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Then she pointed to him. They said: "How can we talk to one who is a child in the cradle?"</text>
+        </translation>
+        <translation author="Itani">
+          <text>So she pointed to him. They said, “How can we speak to an infant in the crib?”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Thereupon Mary pointed to the child. They exclaimed: "How can we speak to one who is in the cradle, a mere child?"</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Then she pointed to him. They said: "How can we talk to one who is a child in the cradle"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Then she pointed to him. They said: How can we talk to one who is in the cradle, a young boy?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>So she pointed to him (Prophet Jesus). But they replied: 'How can we speak with a baby in the cradle'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So she pointed to him. They said, "How can we speak to one who is in the cradle a child?"</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>She pointed to the baby (and referred them to him for their answer). They said, "How can we talk to a baby in the cradle?"</text>
+        </translation>
+        <translation author="Shakir">
+          <text>But she pointed to him. They said: How should we speak to one who was a child in the cradle?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>She pointed to the child. They said, "How shall we talk to someone who is a child in the cradle?"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>But she pointed to the babe. They said: "How can we talk to one who is a child in the cradle?"</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="30">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>"I am a servant of God," he answered. "He has given me a Book and made me a prophet,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>The child proclaimed, “I am Allah’s bondman; He has given me the Book and made me a Herald of the Hidden (a Prophet).”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He said, 'Lo, I am God's servant; God has given me the Book, and made me a Prophet.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He Said: verily I am a bondman of Allah; He hath vouchsafed me the Book and made me a prophet.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"He ['Iesa (Jesus)] said: Verily! I am a slave of Allah, He has given me the Scripture and made me a Prophet;"</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “I am the servant of God. He has given me the Scripture, and made me a prophet.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>The child cried out: "Verily I am Allah's servant. He has granted me the Book and has made me a Prophet</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "Verily, I am a servant of Allah, He has given me the Scripture and made me a Prophet;"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He spake: Lo! I am the slave of Allah. He hath given me the Scripture and hath appointed me a Prophet,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He (the baby) said: 'I am the worshiper of Allah. Allah has given me the Book and made me a Prophet.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>[Jesus] said, "Indeed, I am the servant of Allah. He has given me the Scripture and made me a prophet.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He said, "I am the servant of God. He has given me the Book and has appointed me to be a Prophet.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: Surely I am a servant of Allah; He has given me the Book and made me a prophet;</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>[But] he said, "I am God's servant. He has given me the Book and made me a prophet;</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "I am indeed a servant of Allah: He hath given me revelation and made me a prophet;</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="31">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And blessed me wherever I may be, and enjoined on me worship and zakat for as long as I live,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“And He has made me blessed wherever I be; and ordained upon me prayer and charity, as long as I live.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Blessed He has made me, wherever I may be; and He has enjoined me to pray, and to give the alms, so long as I live,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And He hath made me blest wheresoever I may be, and enjoined on me the prayer and the poor-rate as long as I am alive.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And He has made me blessed wheresoever I be, and has enjoined on me Salat (prayer), and Zakat, as long as I live."</text>
+        </translation>
+        <translation author="Itani">
+          <text>And has made me blessed wherever I may be; and has enjoined on me prayer and charity, so long as I live.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and has blessed me wherever I might be and has enjoined upon me Prayer and Zakah (purifying alms) as long as I live;</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And He has made me blessed wherever I be, and has enjoined on me [Awsani] Salah and Zakah, as long as I live."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And hath made me blessed wheresoever I may be, and hath enjoined upon me prayer and almsgiving so long as I remain alive,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He made me to be blessed wherever I am, and He has charged me with prayer and charity for as long as I shall live.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And He has made me blessed wherever I am and has enjoined upon me prayer and zakah as long as I remain alive</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He has blessed me no matter where I dwell, commanded me to worship Him and pay the religious tax for as long as I live.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And He has made me blessed wherever I may be, and He has enjoined on me prayer and poor-rate so long as I live;</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He has made me blessed wherever I may be, and has enjoined upon me prayer and almsgiving throughout my life.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"And He hath made me blessed wheresoever I be, and hath enjoined on me Prayer and Charity as long as I live;</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="32">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And be dutiful to my mother. He has not made me haughty or rebellious.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“And has made me good to my mother and not made me forceful, ill-fated.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>and likewise to cherish my mother; He has not made me arrogant, unprosperous.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And dutecus Unto my mother, and hath not made me high- handed, unblest.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And dutiful to my mother, and made me not arrogant, unblest.</text>
+        </translation>
+        <translation author="Itani">
+          <text>And kind to my mother, and He did not make me a disobedient rebel.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and has made me dutiful to my mother. He has not made me oppressive, nor bereft of God's blessings.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And to be dutiful to my mother, and made me not arrogant, unblessed."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And (hath made me) dutiful toward her who bore me, and hath not made me arrogant, unblest.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>(He has made me) kind to my mother; He has not made me arrogant, unprosperous.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And [made me] dutiful to my mother, and He has not made me a wretched tyrant.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He has commanded me to be good to my parents and has not made me an arrogant rebellious person.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And dutiful to my mother, and He has not made me insolent, unblessed;</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He has made me dutiful toward my mother, and He has not made me arrogant or wicked.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"(He) hath made me kind to my mother, and not overbearing or miserable;</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="33">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>There was peace on me the day I was born, and will be the day I die, and on the day I will be raised from the dead."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“And peace is upon me the day I was born, and on the day I shall taste death, and on the day I will be raised alive.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Peace be upon me, the day I was born, and the day I die, and the day I am raised up alive!'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And peace be on me the day was born and the day die and the day I shall be raised up alive.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And Salam (peace) be upon me the day I was born, and the day I die, and the day I shall be raised alive!"</text>
+        </translation>
+        <translation author="Itani">
+          <text>So Peace is upon me the day I was born, and the day I die, and the Day I get resurrected alive.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Peace be upon me the day I was born and the day I will die, and the day I will be raised up alive."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And Salam (peace) be upon me the day I was born, and the day I die, and the day I shall be raised alive!"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Peace on me the day I was born, and the day I die, and the day I shall be raised alive!</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Peace be upon me on the day I was born, and on the day I die; and on the day when I shall be raised up alive'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And peace is on me the day I was born and the day I will die and the day I am raised alive."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>I was born with peace and I shall die and be brought to life again with peace."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And peace on me on the day I was born, and on the day I die, and on the day I am raised to life.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Blessed was I on the day I was born, and blessed I shall be on the day I die and on the day I am raised to life again."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"So peace is on me the day I was born, the day that I die, and the day that I shall be raised up to life (again)"!</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="34">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>This was Jesus, son of Mary: A true account they contend about.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>This is Eisa (Jesus), the son of Maryam; a true statement, in which they doubt.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>That is Jesus, son of Mary, in word of truth, concerning which they are doubting.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Such is 'lsa, son of Maryam: this Is the word of truth wherein they are doubting.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Such is 'Iesa (Jesus), son of Maryam (Mary). (it is) a statement of truth, about which they doubt (or dispute).</text>
+        </translation>
+        <translation author="Itani">
+          <text>That is Jesus son of Mary—the Word of truth about which they doubt.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>This is Jesus, the son of Mary; and this is the truth about him concerning which they are in doubt.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Such is `Isa, son of Maryam. Qawlal-Haqq [it is a statement of truth] about which they doubt (or dispute).</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Such was Jesus, son of Mary: (this is) a statement of the truth concerning which they doubt.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Such was (Prophet) Jesus, the son of Mary. A saying of truth, concerning what they doubt.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>That is Jesus, the son of Mary - the word of truth about which they are in dispute.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Such was the true story of Jesus, the son of Mary, about which they dispute bitterly.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Such is Isa, son of Marium; (this is) the saying of truth about which they dispute.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Such was Jesus, the son of Mary. That is the whole truth, about which they still dispute:</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Such (was) Jesus the son of Mary: (it is) a statement of truth, about which they (vainly) dispute.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="4" verse="156">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And because they denied and spoke dreadful calumnies of Mary;</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And because they disbelieved and slandered Maryam with a tremendous accusation.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>and for their unbelief, and their uttering against Mary a mighty calumny,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And for their blasphemy and for their speaking against Maryam a mighty calumny.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And because of their (Jews) disbelief and uttering against Maryam (Mary) a grave false charge (that she has committed illegal sexual intercourse);</text>
+        </translation>
+        <translation author="Itani">
+          <text>And for their faithlessness, and their saying against Mary a monstrous slander.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and for their going so far in unbelief as uttering against Mary a mighty calumny,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And because of their disbelief and uttering against Maryam a grave false charge.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And because of their disbelief and of their speaking against Mary a tremendous calumny;</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Also for their disbelief and their saying about Mary a great calumny,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And [We cursed them] for their disbelief and their saying against Mary a great slander,</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Their hearts were also sealed because of their lack of faith, their gravely slanderous accusation against Mary,</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And for their unbelief and for their having uttered against Marium a grievous calumny.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>They denied the truth and uttered a monstrous slander against Mary.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>That they rejected Faith; that they uttered against Mary a grave false charge;</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="21" verse="91">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>(Remember) her who preserved her chastity, into whom We breathed a new life from Us, and made her and her son a token for mankind.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And remember the woman who maintained her chastity, We therefore breathed Our Spirit into her and made her and her son a sign for the entire world.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And she who guarded her virginity, so We breathed into her of Our spirit and appointed her and her son to be a sign unto all beings.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And she who guarded her chastity! Then We breathed into her of Our spirit, and made her and her son a sign unto the worlds.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And (remember) she who guarded her chastity [Virgin Maryam (Mary)], We breathed into (the sleeves of) her (shirt or garment) [through Our Ruh - Jibrael (Gabriel)], and We made her and her son ['Iesa (Jesus)] a sign for Al-'Alamin (the mankind and jinns).</text>
+        </translation>
+        <translation author="Itani">
+          <text>And she who guarded her virginity. We breathed into her of Our spirit, and made her and her son a sign to the world.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>And also recall the woman who guarded her chastity: We breathed into her of Our spirit, and made her and her son a Sign to the whole world.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And she who guarded her chastity, We breathed into her through Our Ruh, and We made her and her son a sign for nations.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And she who was chaste, therefor We breathed into her (something) of Our Spirit and made her and her son a token for (all) peoples.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And she (Mary) who guarded her virginity. We breathed into her of Our spirit (Gabriel), and made her and her son a sign for the worlds.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And [mention] the one who guarded her chastity, so We blew into her [garment] through Our angel [Gabriel], and We made her and her son a sign for the worlds.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Into the woman who maintained her chastity We breathed Our Spirit and made her and her son a miracle for all people.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And she who guarded her chastity, so We breathed into her of Our inspiration and made her and her son a sign for the nations.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Remember the one who guarded her chastity; so We breathed Our Spirit into her, and made her and her son a sign for all people.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And (remember) her who guarded her chastity: We breathed into her of Our spirit, and We made her and her son a sign for all peoples.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="23" verse="50">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And We made the son of Mary and his mother a sign, and gave them shelter on an elevated ground, sequestered, watered by a spring.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And We made the son of Maryam (Prophet Eisa) and his mother a sign, and We gave them shelter on a height, a place to stay and visible springs.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>and We made Mary's son, and his mother, to be a sign, and gave them refuge upon a height, where was a hollow and a spring:</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And We made the son of Maryam and his mother a sign; and We sheltered the twain on a height: a quiet abode and running water.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And We made the son of Maryam (Mary) and his mother as a sign, And We gave them refuge on high ground, a place of rest, security and flowing streams.</text>
+        </translation>
+        <translation author="Itani">
+          <text>And We made Mary’s son and his mother a sign, and We sheltered them on high ground with security and flowing springs.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>And We made Mary's son, and his mother, a Sign, and We gave them refuge on a lofty ground, a peaceful site with springs flowing in it.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And We made the son of Maryam and his mother as a sign, and We gave them refuge on a Rabwah, Dhat Qarar, and Ma`in.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And We made the son of Mary and his mother a portent, and We gave them refuge on a height, a place of flocks and watersprings.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>We made the son of Mary and his mother a sign, and gave them a refuge on a hillside where there was a hollow and a spring.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And We made the son of Mary and his mother a sign and sheltered them within a high ground having level [areas] and flowing water.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>We made the son of Mary and his mother a miracle and settled them on a high land, quite secure and watered by a spring.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And We made the son of Marium and his mother a sign, and We gave them a shelter on a lofty ground having meadows and springs.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>We made the son of Mary and his mother a sign and gave them shelter on a peaceful hillside watered by a fresh spring.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And We made the son of Mary and his mother as a Sign: We gave them both shelter on high ground, affording rest and security and furnished with springs.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="66" verse="11">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And God presents the example of Pharaoh's wife for those who believe, when she said: "O Lord, build me a house in Paradise, and save me from Pharaoh and his deeds, and save me from a wicked people;"</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And Allah illustrates an example of the Muslims – the wife of Firaun; when she prayed, “My Lord! Build a house for me near You, in Paradise, and deliver me from Firaun and his works, and rescue me from the unjust people.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>God has struck a similitude for the believers -- the wife of Pharaoh, when she said, 'My Lord, build for me a house in Paradise, in Thy presence, and deliver me from Pharaoh and his work, and do Thou deliver me from the people of the evildoers.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And Allah propoundeth for those who believe the similitude of the wife Of Fir'awn, when she said: 'my Lord! build me in Thine presence a house in the Garden, and deliver me from Fir'awn and his handiwork, and deliver me from the transgressing people.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And Allah has set forth an example for those who believe, the wife of Fir'aun (Pharaoh), when she said: "My Lord! Build for me a home with You in Paradise, and save me from Fir'aun (Pharaoh) and his work, and save me from the people who are Zalimun (polytheists, wrong-doers and disbelievers in Allah).</text>
+        </translation>
+        <translation author="Itani">
+          <text>And God illustrates an example of those who believe: the wife of Pharaoh, when she said, “My Lord, build for me, with you, a house in Paradise, and save me from Pharaoh and his works, and save me from the wrongdoing people.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Allah has set forth for the believers the parable of Pharaoh's wife. She prayed: “My Lord, build for me a house with You in Paradise and deliver me from Pharaoh and his misdeeds; and deliver me from the iniquitous people.”</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And Allah has set forth an example for those who believe: the wife of Fir`awn, when she said: "My Lord! Build for me a home with You in Paradise, and save me from Fir`awn and his work, and save me from the people who are wrongdoers.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And Allah citeth an example for those who believe: the wife of Pharaoh when she said: My Lord! Build for me a home with thee in the Garden, and deliver me from Pharaoh and his work, and deliver me from evil-doing folk;</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>But to those who believe Allah has given as an example Pharaoh's wife, who said: 'My Lord, build me a house before You in Paradise and save me fromPharaoh and his work, and save me from a harmdoing nation'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And Allah presents an example of those who believed: the wife of Pharaoh, when she said, "My Lord, build for me near You a house in Paradise and save me from Pharaoh and his deeds and save me from the wrongdoing people."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>To the believers, as a parable, God has told the story of the wife of the Pharaoh who said, "Lord, establish for me a house in Paradise in your presence. Rescue me from Pharaoh and his deeds and save me from the unjust people.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And Allah sets forth an example to those who believe the wife of Firon when she said: My Lord! build for me a house with Thee in the garden and deliver me from Firon and his doing, and deliver me from the unjust people:</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>To the believers God has given the example of Pharaoh's wife who said: "My Lord, build me a house in nearness to You in Paradise and save me from Pharaoh and his misdeeds. Save me from all evil-doers."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And Allah sets forth, as an example to those who believe the wife of Pharaoh: Behold she said: "O my Lord! Build for me, in nearness to Thee, a mansion in the Garden, and save me from Pharaoh and his doings, and save me from those that do wrong";</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="66" verse="12">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And of Mary, daughter of 'Imran, who guarded her chastity, so that We breathed into her a new life from Us, and she believed the words of her Lord and His Books, and was among the obedient.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And the example of Maryam the daughter of Imran, who guarded her chastity – We therefore breathed into her a Spirit from Ourselves – and she testified for the Words of her Lord and His Books, and was among the obedient.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And Mary, Imran's daughter, who guarded her virginity, so We breathed into her of Our Spirit, and she confirmed the Words of her Lord and His Books, and became one of the obedient.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And the similitude of Maryram daughter of lmran, who preserved her chastity, wherefore We breathed in it Of Our Spirit. And she testified to the words of her Lord and His Books and she was of the devout.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And Maryam (Mary), the daughter of 'Imran who guarded her chastity; and We breathed into (the sleeve of her shirt or her garment) through Our Ruh [i.e. Jibrael (Gabriel)], and she testified to the truth of the Words of her Lord [i.e. believed in the Words of Allah: "Be!" and he was; that is 'Iesa (Jesus) - son of Maryam (Mary); as a Messenger of Allah], and (also believed in) His Scriptures, and she was of the Qanitin (i.e. obedient to Allah).</text>
+        </translation>
+        <translation author="Itani">
+          <text>And Mary, the daughter of Imran, who guarded her womb, and so We breathed into her of Our Spirit; and she believed in the truth of her Lord’s Words and His Books, and was one of the devout.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Allah has also set forth the parable of Mary, the daughter of Imran, who guarded her chastity, and into whom We breathed of Our Spirit, and who testified to the words of her Lord and His Books. She was among the obedient.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And Maryam, the daughter of `Imran who guarded her chastity (private part). And We breathed into it through Our Ruh, and she testified to the truth of her Lords Kalimat, and His Kutub, and she was of the Qanitin.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And Mary, daughter of 'Imran, whose body was chaste, therefor We breathed therein something of Our Spirit. And she put faith in the words of her Lord and His scriptures, and was of the obedient.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And, Mary, 'Imran's daughter, who guarded her chastity so We breathed into her of Our Spirit (Gabriel); and she put her trust in the Words of her Lord andHis Books, and was among the devout.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And [the example of] Mary, the daughter of 'Imran, who guarded her chastity, so We blew into [her garment] through Our angel, and she believed in the words of her Lord and His scriptures and was of the devoutly obedient.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He has also told, as a parable, the story of Mary, daughter of Imran who preserved her virginity and (into whose womb) We breathed Our spirit. She made the words of her Lord and the predictions in His Books come true. She was an obedient woman.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And Marium, the daughter of Imran, who guarded her chastity, so We breathed into her of Our inspiration and she accepted the truth of the words of her Lord and His books, and she was of, the obedient ones.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>[God gave another example in the story of] Mary, 'Imran's daughter, who preserved her chastity and We breathed Our spirit into her; she testified to the words of her Lord and His Scriptures, and was truly devout.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And Mary the daughter of 'Imran, who guarded her chastity; and We breathed into (her body) of Our spirit; and she testified to the truth of the words of her Lord and of His Revelations, and was one of the devout (servants).</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="5" verse="75">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>The Christ, son of Mary, was but an apostle, and many apostles had (come and) gone before him; and his mother was a woman of truth. They both ate the (same) food (as men). Behold, how We show men clear signs, and behold, how they wander astray!</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>The Messiah, the son of Maryam, is purely a Noble Messenger; many Noble Messengers have passed before him; and his mother is a truthful woman; they both used to eat food; see how We make the signs clear for them, and see how they turn away!</text>
+        </translation>
+        <translation author="Arberry">
+          <text>The Messiah, son of Mary, was only a Messenger; Messengers before him passed away; his mother was a just woman; they both ate food. Behold, how We make clear the signs to them; then behold, how they perverted are!</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>The Masih, son of Maryam, was naught but an apostle; surely there passed away apostles before him and his mother was a saintly woman; both of them were wont to eat food. Behold! how We expound unto them the evidences! Then behold! whither they are deviating!</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>The Messiah ['Iesa (Jesus)], son of Maryam (Mary), was no more than a Messenger; many were the Messengers that passed away before him. His mother [Maryam (Mary)] was a Siddiqah [i.e. she believed in the words of Allah and His Books (see Verse 66:12)]. They both used to eat food (as any other human being, while Allah does not eat). Look how We make the Ayat (proofs, evidences, verses, lessons, signs, revelations, etc.) clear to them, yet look how they are deluded away (from the truth).</text>
+        </translation>
+        <translation author="Itani">
+          <text>The Messiah son of Mary was only a messenger, before whom other Messengers had passed away, and his mother was a woman of truth. They both used to eat food. Note how We make clear the revelations to them; then note how deluded they are.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>The Messiah, son of Mary, was no more than a Messenger before whom many Messengers have passed away; and his mother adhered wholly to truthfulness, and they both ate food (as other mortals do). See how We make Our signs clear to them; and see where they are turning away!</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>The Messiah [`Isa], son of Maryam, was no more than a Messenger; many were the Messengers that passed away before him. His mother [Maryam] was a Siddiqah. They both used to eat food. Look how We make the Ayat clear to them; yet look how they are deluded away (from the truth).</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>The Messiah, son of Mary, was no other than a messenger, messengers (the like of whom) had passed away before him. And his mother was a saintly woman. And they both used to eat (earthly) food. See how We make the revelations clear for them, and see how they are turned away!</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>The Messiah, the son of Mary, was not except a Messenger, other Messengers had gone before him. His mother was in the state of sincerity, they both ate food. See how We make plain to them Our signs. Then, see how perverted they are.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>The Messiah, son of Mary, was not but a messenger; [other] messengers have passed on before him. And his mother was a supporter of truth. They both used to eat food. Look how We make clear to them the signs; then look how they are deluded.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Jesus, the son of Mary, was no more than a Messenger before whom there lived many other Messengers. His mother was a truthful woman and both of them ate earthly food. Consider how We explain the evidence (of the Truth) to them and see where they then turn.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>The Messiah, son of Marium is but an apostle; apostles before him have indeed passed away; and his mother was a truthful woman; they both used to eat food. See how We make the communications clear to them, then behold, how they are turned away.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Christ, son of Mary, was no more than a messenger. Many messengers passed away before him. His mother was a virtuous woman; and they both ate food [like other mortals]. See how We make the signs clear to them! See how they turn away!</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Christ the son of Mary was no more than a messenger; many were the messengers that passed away before him. His mother was a woman of truth. They had both to eat their (daily) food. See how Allah doth make His signs clear to them; yet see in what ways they are deluded away from the truth!</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="58" verse="163">
+      <chapter_name>Sahih Bukhari Vol 5</chapter_name>
+      <book_id>en.bukhari.vol05</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Dr. Muhammad Muhsin">
+          <text>Narrated 'Ali:
+The Prophet said, "The best of the world's women is Mary (at her lifetime), and the best of the world's women is Khadija (at her lifetime)."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="57" verse="113">
+      <chapter_name>Sahih Bukhari Vol 5</chapter_name>
+      <book_id>en.bukhari.vol05</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Dr. Muhammad Muhsin">
+          <text>Narrated Abu Musa Al-Ash'ari:
+Allah's Apostle said, "Many amongst men attained perfection but amongst women none attained the perfection except Mary, the daughter of Imran and Asiya, the wife of Pharaoh. And the superiority of 'Aisha to other women is like the superiority of Tharid (i.e. an Arabic dish) to other meals."</text>
+        </translation>
+      </translations>
+    </verse>
+  </verses>
+</story>

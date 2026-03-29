@@ -58,7 +58,8 @@
       "Bash(gcloud functions logs *)",
       "Bash(gcloud firestore *)",
       "mcp__maktabah__search",
-      "mcp__maktabah__get_hadith"
+      "mcp__maktabah__get_hadith",
+      "Bash(find /Users/mohammedislam/git/maktabah-next -type f \\\\\\(-name story-config* -o -name *config* \\\\\\) ! -path */node_modules/* ! -path */.next/* ! -path */.firebase/*)"
     ],
     "additionalDirectories": [
       "functions/src",

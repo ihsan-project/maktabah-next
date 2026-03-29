@@ -74,6 +74,16 @@ node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/yusu
 
 node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/khadija.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/khadija_reorder.csv ../public/stories/khadija.xml
 
+node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/sulayman.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/sulayman_reorder.csv ../public/stories/sulayman.xml
+
+node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/maryam.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/maryam_reorder.csv ../public/stories/maryam.xml
+
+node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/yunus.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/yunus_reorder.csv ../public/stories/yunus.xml
+
+node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/ismail_ishaq.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/ismail_ishaq_reorder.csv ../public/stories/ismail_ishaq.xml
+
+node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/ayyub.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/ayyub_reorder.csv ../public/stories/ayyub.xml
+
 **Default usage** (automatically fetches missing verses from OpenSearch):
 ```bash
 node reorder-story.js ../public/stories/abraham.xml ./stories_reorder/abraham_reorder.csv ../public/stories/abraham_reordered.xml
