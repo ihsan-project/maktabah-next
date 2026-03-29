@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState, useCallback } from 'react';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
-import { generateApiKey, revokeApiKey, listApiKeys } from '@/lib/api-keys';
-import { ApiKey, GenerateApiKeyResponse } from '@/types';
-import { FiCopy, FiCheck, FiTrash2, FiPlus, FiKey, FiAlertCircle } from 'react-icons/fi';
+import { generateApiKey, revokeApiKey, listApiKeys, getApiKeyUsage } from '@/lib/api-keys';
+import { ApiKey, GenerateApiKeyResponse, ApiKeyUsageResponse, DailyUsage } from '@/types';
+import { FiCopy, FiCheck, FiTrash2, FiPlus, FiKey, FiAlertCircle, FiChevronDown, FiChevronRight, FiActivity } from 'react-icons/fi';
 
 const MCP_SERVER_URL = process.env.NEXT_PUBLIC_MCP_URL || 'https://maktabah-8ac04.web.app/mcp';
 
@@ -78,6 +78,100 @@ function NewKeyModal({ apiKey, onClose }: { apiKey: GenerateApiKeyResponse; onCl
   );
 }
 
+function UsageBar({ value, max }: { value: number; max: number }) {
+  const pct = max > 0 ? Math.min((value / max) * 100, 100) : 0;
+  return (
+    <div className="flex items-center space-x-2">
+      <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+        <div className="h-full bg-primary rounded-full transition-all" style={{ width: `${pct}%` }} />
+      </div>
+      <span className="text-xs text-gray-500 w-8 text-right">{value}</span>
+    </div>
+  );
+}
+
+function UsagePanel({ keyId }: { keyId: string }) {
+  const [usage, setUsage] = useState<ApiKeyUsageResponse | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getApiKeyUsage(keyId, 7).then(setUsage).catch(() => {}).finally(() => setLoading(false));
+  }, [keyId]);
+
+  if (loading) {
+    return (
+      <div className="py-4 flex justify-center">
+        <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
+
+  if (!usage) {
+    return <p className="text-sm text-gray-500 py-2">Failed to load usage data.</p>;
+  }
+
+  const maxRequests = Math.max(...usage.usage.map(d => d.requests), 1);
+
+  // Aggregate tool totals across all days
+  const toolTotals: Record<string, number> = {};
+  usage.usage.forEach(day => {
+    Object.entries(day.tools).forEach(([tool, count]) => {
+      toolTotals[tool] = (toolTotals[tool] || 0) + count;
+    });
+  });
+  const sortedTools = Object.entries(toolTotals).sort((a, b) => b[1] - a[1]);
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-3">
+      {/* Stats */}
+      <div className="space-y-1">
+        <div className="flex justify-between text-xs text-gray-500">
+          <span>Total requests</span>
+          <span className="font-medium text-gray-900">{usage.requestCount.toLocaleString()}</span>
+        </div>
+        <div className="flex justify-between text-xs text-gray-500">
+          <span>Rate limit</span>
+          <span className="font-medium text-gray-900">{usage.rateLimit} req/min</span>
+        </div>
+        <div className="flex justify-between text-xs text-gray-500">
+          <span>Last used</span>
+          <span className="font-medium text-gray-900">
+            {usage.lastUsedAt ? new Date(usage.lastUsedAt).toLocaleDateString() : 'Never'}
+          </span>
+        </div>
+        {sortedTools.length > 0 && (
+          <div className="pt-2">
+            <p className="text-xs font-medium text-gray-500 mb-1">Tools (7 days)</p>
+            {sortedTools.map(([tool, count]) => (
+              <div key={tool} className="flex justify-between text-xs text-gray-500">
+                <code className="text-xs font-mono">{tool}</code>
+                <span>{count}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Daily chart */}
+      <div>
+        <p className="text-xs font-medium text-gray-500 mb-2">Requests (last 7 days)</p>
+        <div className="space-y-1">
+          {usage.usage.map(day => (
+            <div key={day.date} className="flex items-center space-x-2">
+              <span className="text-xs text-gray-400 w-10 flex-shrink-0">
+                {new Date(day.date + 'T00:00:00').toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+              </span>
+              <div className="flex-1">
+                <UsageBar value={day.requests} max={maxRequests} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function DevelopersPageContent() {
   const [keys, setKeys] = useState<ApiKey[]>([]);
   const [loading, setLoading] = useState(true);
@@ -86,6 +180,7 @@ function DevelopersPageContent() {
   const [newKey, setNewKey] = useState<GenerateApiKeyResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [revokingId, setRevokingId] = useState<string | null>(null);
+  const [expandedKeyId, setExpandedKeyId] = useState<string | null>(null);
 
   const loadKeys = useCallback(async () => {
     try {
@@ -238,43 +333,62 @@ Always cite the source returned by Maktabah (e.g. surah name and verse number, h
                 </tr>
               </thead>
               <tbody>
-                {keys.map((key) => (
-                  <tr
-                    key={key.keyId}
-                    className={`border-b border-gray-100 ${key.status === 'revoked' ? 'opacity-50' : ''}`}
-                  >
-                    <td className="py-3 px-2 font-medium text-gray-900">{key.name}</td>
-                    <td className="py-3 px-2">
-                      <code className="text-xs font-mono text-gray-500">{key.keyPrefix}</code>
-                    </td>
-                    <td className="py-3 px-2 text-gray-500">
-                      {key.createdAt ? new Date(key.createdAt).toLocaleDateString() : '—'}
-                    </td>
-                    <td className="py-3 px-2">
-                      {key.status === 'active' ? (
-                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">
-                          Active
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-500">
-                          Revoked
-                        </span>
+                {keys.map((key) => {
+                  const isExpanded = expandedKeyId === key.keyId;
+                  return (
+                    <React.Fragment key={key.keyId}>
+                      <tr
+                        className={`border-b border-gray-100 ${key.status === 'revoked' ? 'opacity-50' : 'cursor-pointer hover:bg-gray-50'}`}
+                        onClick={() => key.status === 'active' && setExpandedKeyId(isExpanded ? null : key.keyId)}
+                      >
+                        <td className="py-3 px-2 font-medium text-gray-900">
+                          <span className="inline-flex items-center space-x-1">
+                            {key.status === 'active' && (
+                              isExpanded ? <FiChevronDown size={14} className="text-gray-400" /> : <FiChevronRight size={14} className="text-gray-400" />
+                            )}
+                            <span>{key.name}</span>
+                          </span>
+                        </td>
+                        <td className="py-3 px-2">
+                          <code className="text-xs font-mono text-gray-500">{key.keyPrefix}</code>
+                        </td>
+                        <td className="py-3 px-2 text-gray-500">
+                          {key.createdAt ? new Date(key.createdAt).toLocaleDateString() : '—'}
+                        </td>
+                        <td className="py-3 px-2">
+                          {key.status === 'active' ? (
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">
+                              Active
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-500">
+                              Revoked
+                            </span>
+                          )}
+                        </td>
+                        <td className="py-3 px-2 text-right">
+                          {key.status === 'active' && (
+                            <button
+                              onClick={(e) => { e.stopPropagation(); handleRevoke(key.keyId); }}
+                              disabled={revokingId === key.keyId}
+                              className="text-red-500 hover:text-red-700 disabled:opacity-50 transition-colors"
+                              title="Revoke key"
+                            >
+                              <FiTrash2 size={16} />
+                            </button>
+                          )}
+                        </td>
+                      </tr>
+                      {isExpanded && (
+                        <tr>
+                          <td colSpan={5} className="px-2 bg-gray-50 border-b border-gray-100">
+                            <UsagePanel keyId={key.keyId} />
+                          </td>
+                        </tr>
                       )}
-                    </td>
-                    <td className="py-3 px-2 text-right">
-                      {key.status === 'active' && (
-                        <button
-                          onClick={() => handleRevoke(key.keyId)}
-                          disabled={revokingId === key.keyId}
-                          className="text-red-500 hover:text-red-700 disabled:opacity-50 transition-colors"
-                          title="Revoke key"
-                        >
-                          <FiTrash2 size={16} />
-                        </button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
+                    </React.Fragment>
+                  );
+                })}
               </tbody>
             </table>
           </div>

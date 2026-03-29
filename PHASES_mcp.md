@@ -150,44 +150,31 @@ gcloud functions add-invoker-policy-binding mcpServer \
 
 ---
 
-## Phase 5: Usage Tracking & Rate Limit Dashboard
+## Phase 5: Usage Tracking & Rate Limit Dashboard ✅
 
 **Goal:** Show per-key usage analytics on the developer dashboard and enforce robust rate limiting.
 
 **Changes:**
-- `functions/lib/usage-tracking.js` — On each MCP request:
-  - Increment `apiKeys/{hash}.requestCount`
-  - Update `apiKeys/{hash}.lastUsedAt`
-  - Write to `apiKeys/{hash}/usage/{YYYY-MM-DD}` daily aggregate doc: `{ requests: increment, tools: { search: increment, get_verse: increment, ... } }`
+- `functions/lib/usage-tracking.js` — Two functions:
+  - `trackToolUsage(keyHash, toolName)` — fire-and-forget write to `apiKeys/{hash}/usage/{YYYY-MM-DD}` with per-tool counters using Firestore increments
+  - `getUsageData(keyHash, days)` — reads daily usage docs, returns array with zero-filled missing days
+- `functions/mcp/handler.js` — Wired tool tracking: inspects JSON-RPC body for `tools/call` method and tracks the tool name before passing to transport
+- `functions/index.js` — Added `getApiKeyUsage` callable: verifies key ownership, returns `requestCount`, `lastUsedAt`, `rateLimit`, and daily usage array
+- `lib/api-keys.ts` — Added `getApiKeyUsage(keyId, days)` client function
+- `types/index.ts` — Added `DailyUsage` and `ApiKeyUsageResponse` interfaces
+- `app/developers/page.tsx` — Enhanced keys table:
+  - Click active key row to expand/collapse usage panel
+  - Usage panel shows: total requests, rate limit, last used, per-tool breakdown (7 days), and daily bar chart
+  - Chevron icons indicate expandability
 
-- `functions/index.js` — Add `getApiKeyUsage` callable:
-  - Params: `keyId`, `days` (default 7)
-  - Returns: daily request counts and per-tool breakdown
-
-- `app/developers/page.tsx` — Enhance with:
-  - Expandable row per key showing daily usage chart (last 7 days)
-  - Per-tool breakdown (which tools are being called most)
-  - Current rate limit status (requests remaining this minute)
-
-- `lib/api-keys.ts` — Add `getApiKeyUsage(keyId, days)` client function
-
-- `functions/lib/api-key-auth.js` — Harden rate limiting:
-  - Use Firestore `apiKeys/{hash}/rateLimit/{minuteWindow}` with TTL
-  - Sliding window counter: increment on each request, reject if over limit
-  - Return `X-RateLimit-Remaining` and `X-RateLimit-Reset` headers
+**Note:** Rate limiting was already implemented in Phase 1 (`api-key-auth.js`) with Firestore sliding window counters and `X-RateLimit-*` headers. No changes needed there.
 
 **Dependencies:** Phase 4
-
-**Test plan:**
-- Make 10 requests with a key → usage doc shows 10 requests for today
-- View dashboard → chart shows today's usage
-- Exceed rate limit → 429 response with correct headers
-- Check per-tool breakdown → shows correct tool distribution
 
 **Deploy notes:**
 - Deploy functions first (usage tracking), then hosting (dashboard)
 - Existing keys start accumulating usage data from deploy time
-- Consider a Firestore TTL policy on rate limit docs to auto-cleanup
+- Consider a Firestore TTL policy on rate limit window docs to auto-cleanup
 
 **Rollback:** Remove usage tracking writes. Dashboard reverts to Phase 4 (no charts). Rate limiting falls back to simple counter.
 

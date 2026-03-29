@@ -6,6 +6,7 @@ const { FieldValue } = require('firebase-admin/firestore');
 const { hashApiKey, generateRawApiKey } = require('./lib/api-key-auth');
 const { handleMcpRequest } = require('./mcp/handler');
 const { searchDocuments } = require('./lib/search-core');
+const { getUsageData } = require('./lib/usage-tracking');
 
 // Initialize Firebase if not already initialized
 if (!admin.apps.length) {
@@ -195,6 +196,42 @@ exports.listApiKeys = onCall({ cors: true }, async (request) => {
   }));
 
   return { keys };
+});
+
+/**
+ * Get usage data for a specific API key over the last N days.
+ */
+exports.getApiKeyUsage = onCall({ cors: true }, async (request) => {
+  if (!request.auth) {
+    throw new HttpsError('unauthenticated', 'Must be logged in');
+  }
+
+  const uid = request.auth.uid;
+  const keyId = request.data.keyId;
+  const days = Math.min(Math.max(request.data.days || 7, 1), 10);
+
+  if (!keyId) {
+    throw new HttpsError('invalid-argument', 'keyId is required');
+  }
+
+  const db = admin.firestore();
+
+  // Verify the key belongs to this user
+  const keyDoc = await db.collection('apiKeys').doc(keyId).get();
+  if (!keyDoc.exists || keyDoc.data().uid !== uid) {
+    throw new HttpsError('not-found', 'API key not found');
+  }
+
+  const keyData = keyDoc.data();
+  const usage = await getUsageData(keyId, days);
+
+  return {
+    keyId,
+    requestCount: keyData.requestCount || 0,
+    lastUsedAt: keyData.lastUsedAt?.toDate?.()?.toISOString() || null,
+    rateLimit: keyData.rateLimit || 30,
+    usage,
+  };
 });
 
 // --- MCP Server ---

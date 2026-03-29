@@ -1,6 +1,7 @@
 const { StreamableHTTPServerTransport } = require('@modelcontextprotocol/sdk/server/streamableHttp.js');
 const { createMcpServer } = require('./server');
 const { validateApiKey, ApiKeyError } = require('../lib/api-key-auth');
+const { trackToolUsage } = require('../lib/usage-tracking');
 const logger = require('firebase-functions/logger');
 
 /**
@@ -52,6 +53,12 @@ async function handleMcpRequest(req, res) {
   res.set('X-RateLimit-Limit', String(authResult.rateLimit));
   res.set('X-RateLimit-Remaining', String(authResult.rateLimitRemaining));
   res.set('X-RateLimit-Reset', String(authResult.rateLimitReset));
+
+  // Track tool usage if this is a tools/call request
+  const body = req.body;
+  if (body && body.method === 'tools/call' && body.params?.name) {
+    trackToolUsage(authResult.keyHash, body.params.name);
+  }
 
   // Create a fresh server + transport per request (stateless)
   const server = createMcpServer();

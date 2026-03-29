@@ -146,3 +146,17 @@ export interface GenerateApiKeyResponse {
   name: string;
   keyPrefix: string;
 }
+
+export interface DailyUsage {
+  date: string;
+  requests: number;
+  tools: Record<string, number>;
+}
+
+export interface ApiKeyUsageResponse {
+  keyId: string;
+  requestCount: number;
+  lastUsedAt: string | null;
+  rateLimit: number;
+  usage: DailyUsage[];
+}
