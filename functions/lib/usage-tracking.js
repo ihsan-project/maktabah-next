@@ -48,13 +48,7 @@ async function getUsageData(keyHash, days = 7) {
   const usageMap = new Map();
   snapshot.docs.forEach(doc => {
     const data = doc.data();
-    // Extract tools from flat fields like "tools.search" -> { search: N }
-    const tools = {};
-    Object.entries(data).forEach(([key, value]) => {
-      if (key.startsWith('tools.')) {
-        tools[key.slice(6)] = value;
-      }
-    });
+    const tools = data.tools || {};
     usageMap.set(data.date, {
       date: data.date,
       requests: data.requests || 0,
