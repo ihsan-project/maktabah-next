@@ -290,7 +290,7 @@ curl -X POST https://maktabah-8ac04.web.app/mcp \
     "method": "tools/call",
     "params": {
       "name": "get_hadith",
-      "arguments": { "hadithNumber": 1 }
+      "arguments": { "volume": 1, "hadith": 1 }
     }
   }'
 ```
