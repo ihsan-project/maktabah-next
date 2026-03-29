@@ -84,7 +84,7 @@ exports.nextApiHandler = functions.https.onRequest(
  * Stores a hashed version in apiKeys/{hash} for fast lookup,
  * and a reference in users/{uid}/apiKeys/{keyId} for listing.
  */
-exports.generateApiKey = onCall(async (request) => {
+exports.generateApiKey = onCall({ cors: true }, async (request) => {
   if (!request.auth) {
     throw new HttpsError('unauthenticated', 'Must be logged in to generate an API key');
   }
@@ -143,7 +143,7 @@ exports.generateApiKey = onCall(async (request) => {
 /**
  * Revoke an API key. Sets status to 'revoked' in both collections.
  */
-exports.revokeApiKey = onCall(async (request) => {
+exports.revokeApiKey = onCall({ cors: true }, async (request) => {
   if (!request.auth) {
     throw new HttpsError('unauthenticated', 'Must be logged in');
   }
@@ -177,7 +177,7 @@ exports.revokeApiKey = onCall(async (request) => {
 /**
  * List all API keys for the authenticated user.
  */
-exports.listApiKeys = onCall(async (request) => {
+exports.listApiKeys = onCall({ cors: true }, async (request) => {
   if (!request.auth) {
     throw new HttpsError('unauthenticated', 'Must be logged in');
   }

@@ -105,6 +105,14 @@ users/{uid}/apiKeys/{keyId}
 gcloud auth application-default login
 node quran_loader/upload-words-to-storage.js
 ```
+
+Run these to give access to Google Cloud Run:
+```
+gcloud functions add-invoker-policy-binding generateApiKey --region=us-central1 --member="allUsers" --project=maktabah-8ac04
+gcloud functions add-invoker-policy-binding revokeApiKey --region=us-central1 --member="allUsers" --project=maktabah-8ac04
+gcloud functions add-invoker-policy-binding listApiKeys --region=us-central1 --member="allUsers" --project=maktabah-8ac04
+```
+
 - Static JSON fetched from Storage at runtime with in-memory caching (1hr TTL)
 - `mcpServer` function now needs OpenSearch/AWS secrets (added to function config)
 - First request for each file has ~100-200ms cold-cache penalty; subsequent requests are instant
