@@ -58,6 +58,10 @@ npm run reorder <input-xml> <reorder-csv> <output-xml> [--no-fetch-missing]
 
 ### Examples
 
+node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/jesus.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/jesus_reorder.csv ../public/stories/jesus.xml
+
+node reorder-story.js /Users/mohammedislam/git/maktabah-next/public/stories/moses.xml /Users/mohammedislam/git/maktabah-next/quran_loader/stories_reorder/moses_reorder.csv ../public/stories/moses.xml
+
 **Default usage** (automatically fetches missing verses from OpenSearch):
 ```bash
 node reorder-story.js ../public/stories/abraham.xml ./stories_reorder/abraham_reorder.csv ../public/stories/abraham_reordered.xml
