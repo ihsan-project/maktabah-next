@@ -56,7 +56,8 @@
       "Bash(firebase functions:log *)",
       "Bash(firebase functions:list)",
       "Bash(gcloud functions logs *)",
-      "Bash(gcloud firestore *)"
+      "Bash(gcloud firestore *)",
+      "mcp__maktabah__search"
     ],
     "additionalDirectories": [
       "functions/src",
