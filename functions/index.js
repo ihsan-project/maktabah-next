@@ -1,395 +1,16 @@
 const functions = require('firebase-functions');
+const { onCall, HttpsError } = require('firebase-functions/v2/https');
 const logger = require('firebase-functions/logger');
-const { Client } = require('@opensearch-project/opensearch');
-const { BedrockRuntimeClient, InvokeModelCommand } = require('@aws-sdk/client-bedrock-runtime');
 const admin = require('firebase-admin');
+const { FieldValue } = require('firebase-admin/firestore');
+const { hashApiKey, generateRawApiKey } = require('./lib/api-key-auth');
+const { handleMcpRequest } = require('./mcp/handler');
+const { searchDocuments } = require('./lib/search-core');
+const { getUsageData } = require('./lib/usage-tracking');
 
 // Initialize Firebase if not already initialized
 if (!admin.apps.length) {
   admin.initializeApp();
-}
-
-const EMBEDDING_MODEL_ID = 'cohere.embed-multilingual-v3';
-
-// Reuse clients across requests to avoid repeated TCP/TLS handshakes
-let bedrockClient;
-function getBedrockClient() {
-  if (!bedrockClient) {
-    bedrockClient = new BedrockRuntimeClient({
-      region: process.env.AWS_REGION || 'us-east-1',
-      credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-      },
-    });
-  }
-  return bedrockClient;
-}
-
-let opensearchClient;
-function getOpenSearchClient() {
-  if (!opensearchClient) {
-    opensearchClient = new Client({
-      node: process.env.OPENSEARCH_URL,
-      auth: {
-        username: process.env.OPENSEARCH_USERNAME,
-        password: process.env.OPENSEARCH_PASSWORD
-      },
-      ssl: {
-        rejectUnauthorized: process.env.NODE_ENV === 'production'
-      }
-    });
-  }
-  return opensearchClient;
-}
-
-/**
- * Generate embedding for a search query using Cohere via Bedrock
- * @param {string} text The query text to embed
- * @returns {Promise<number[]>} Embedding vector
- */
-async function embedQuery(text) {
-  const client = getBedrockClient();
-
-  const response = await client.send(new InvokeModelCommand({
-    modelId: EMBEDDING_MODEL_ID,
-    contentType: 'application/json',
-    accept: 'application/json',
-    body: JSON.stringify({
-      texts: [text],
-      input_type: 'search_query',
-      truncate: 'END',
-    }),
-  }));
-
-  const result = JSON.parse(new TextDecoder().decode(response.body));
-  return result.embeddings[0];
-}
-
-/**
- * Deduplicate search hits by chapter-verse, keeping the highest scoring hit
- * @param {Array} hits Array of OpenSearch hit objects (must have _id, _score, _source)
- * @returns {Array} Deduplicated results
- */
-function deduplicateResults(hits) {
-  const seen = new Map();
-  for (const hit of hits) {
-    const s = hit._source;
-    const key = `${s.chapter}_${s.verse}`;
-    const score = hit._score || 0;
-    if (!seen.has(key) || score > seen.get(key)._score) {
-      seen.set(key, { ...hit, _score: score });
-    }
-  }
-  return Array.from(seen.values()).map(hit => ({
-    id: hit._id,
-    score: hit._score || 0,
-    ...hit._source,
-  }));
-}
-
-/**
- * Merge two ranked result sets using Reciprocal Rank Fusion
- * @param {Array} textHits Hits from BM25 text search
- * @param {Array} knnHits Hits from KNN vector search
- * @param {number} k RRF constant (default 60)
- * @param {number} textWeight Weight for keyword/BM25 results (default 1.0)
- * @param {number} semanticWeight Weight for semantic/KNN results (default 1.5)
- * @returns {Array} Merged hits sorted by weighted RRF score
- */
-function reciprocalRankFusion(textHits, knnHits, k = 60, textWeight = 1.0, semanticWeight = 1.5) {
-  const scores = new Map();
-
-  textHits.forEach((hit, rank) => {
-    const key = hit._id;
-    if (!scores.has(key)) {
-      scores.set(key, { score: 0, hit, sources: new Set() });
-    }
-    scores.get(key).score += textWeight * (1 / (k + rank + 1));
-    scores.get(key).sources.add('keyword');
-  });
-
-  knnHits.forEach((hit, rank) => {
-    const key = hit._id;
-    if (!scores.has(key)) {
-      scores.set(key, { score: 0, hit, sources: new Set() });
-    }
-    scores.get(key).score += semanticWeight * (1 / (k + rank + 1));
-    scores.get(key).sources.add('semantic');
-  });
-
-  return Array.from(scores.values())
-    .sort((a, b) => b.score - a.score)
-    .map(({ score, hit, sources }) => {
-      const source = sources.size === 2 ? 'both' : [...sources][0];
-      return { ...hit, _score: score, _source: { ...hit._source, source } };
-    });
-}
-
-/**
- * Fetch highlight fragments for a page of results using OpenSearch highlight API.
- * Runs a targeted query for just the document IDs on the current page.
- * @param {string} query The original search query
- * @param {Array} results Paginated result objects (must have .id)
- * @returns {Promise<Map<string, object>>} Map of doc ID → highlight fragments
- */
-async function fetchHighlights(query, results) {
-  if (!results.length || !query) return new Map();
-
-  const client = getOpenSearchClient();
-  const docIds = results.map(r => r.id);
-
-  try {
-    const response = await client.search({
-      index: 'kitaab',
-      body: {
-        size: docIds.length,
-        query: {
-          bool: {
-            must: {
-              ids: { values: docIds }
-            },
-            should: [
-              { match: { text: { query } } }
-            ]
-          }
-        },
-        highlight: {
-          pre_tags: ['<mark>'],
-          post_tags: ['</mark>'],
-          fields: {
-            text: { fragment_size: 0, number_of_fragments: 0 }
-          }
-        },
-        _source: false
-      }
-    });
-
-    const highlightMap = new Map();
-    for (const hit of response.body.hits.hits) {
-      if (hit.highlight) {
-        highlightMap.set(hit._id, hit.highlight);
-      }
-    }
-    return highlightMap;
-  } catch (error) {
-    logger.warn('Highlight fetch failed, returning results without highlights:', error.message);
-    return new Map();
-  }
-}
-
-/**
- * Search documents using text, semantic, or hybrid mode
- */
-async function searchDocuments(query, page = 1, size = 10, author = null, chapter = null, titles = null, mode = 'text') {
-  try {
-    const client = getOpenSearchClient();
-
-    const opensearchIndex = 'kitaab';
-    const from = (page - 1) * size;
-
-    // Build filters (shared across all modes)
-    const filters = [];
-    if (author) {
-      filters.push({ term: { "author": author } });
-    }
-    if (chapter) {
-      filters.push({ term: { chapter: parseInt(chapter, 10) } });
-    }
-    if (titles) {
-      const titleArray = Array.isArray(titles) ? titles : [titles];
-      if (titleArray.length > 0) {
-        filters.push({ terms: { title: titleArray } });
-      }
-    }
-
-    let searchResult;
-
-    if (mode === 'text') {
-      // --- BM25 text search with aggregations (original behavior) ---
-      const searchQuery = {
-        bool: {
-          should: [
-            { match: { text: { query: query, boost: 1.0 } } },
-            { match: { "text.arabic": { query: query, boost: 1.2 } } }
-          ],
-          minimum_should_match: 1,
-          filter: filters
-        }
-      };
-
-      const response = await client.search({
-        index: opensearchIndex,
-        body: {
-          size: 0,
-          query: searchQuery,
-          aggs: {
-            chapters: {
-              terms: {
-                field: "chapter",
-                size: 1000,
-                order: { _key: "asc" }
-              },
-              aggs: {
-                verses: {
-                  terms: {
-                    field: "verse",
-                    size: 1000,
-                    order: { _key: "asc" }
-                  },
-                  aggs: {
-                    top_hit: {
-                      top_hits: {
-                        size: 1,
-                        sort: [{ _score: { order: "desc" } }]
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      });
-
-      const chapterBuckets = response.body.aggregations.chapters.buckets || [];
-      let allResults = [];
-      chapterBuckets.forEach(chapterBucket => {
-        const verseBuckets = chapterBucket.verses.buckets || [];
-        verseBuckets.forEach(verseBucket => {
-          const topHit = verseBucket.top_hit.hits.hits[0];
-          allResults.push({
-            id: topHit._id,
-            score: topHit._score || 0,
-            ...topHit._source
-          });
-        });
-      });
-
-      const totalResults = allResults.length;
-      const paginatedResults = allResults.slice(from, from + size);
-
-      searchResult = {
-        results: paginatedResults,
-        total: totalResults,
-        page,
-        size,
-        totalPages: Math.ceil(totalResults / size),
-        hasMore: from + size < totalResults
-      };
-
-    } else if (mode === 'semantic') {
-      // --- Pure KNN vector search ---
-      const embedding = await embedQuery(query);
-
-      const knnClause = {
-        knn: {
-          text_embedding: {
-            vector: embedding,
-            k: 100,
-          },
-        },
-      };
-
-      const finalQuery = filters.length > 0
-        ? { bool: { must: knnClause, filter: filters } }
-        : knnClause;
-
-      const response = await client.search({
-        index: opensearchIndex,
-        body: { size: 100, query: finalQuery },
-      });
-
-      const allResults = deduplicateResults(response.body.hits.hits);
-      const totalResults = allResults.length;
-      const paginatedResults = allResults.slice(from, from + size);
-
-      searchResult = {
-        results: paginatedResults,
-        total: totalResults,
-        page,
-        size,
-        totalPages: Math.ceil(totalResults / size),
-        hasMore: from + size < totalResults
-      };
-
-    } else if (mode === 'hybrid') {
-      // --- Hybrid: BM25 + KNN merged with Reciprocal Rank Fusion ---
-      const embedding = await embedQuery(query);
-
-      const textQuery = {
-        bool: {
-          should: [
-            { match: { text: { query: query, boost: 1.0 } } },
-            { match: { "text.arabic": { query: query, boost: 1.2 } } }
-          ],
-          minimum_should_match: 1,
-          filter: filters
-        }
-      };
-
-      const knnClause = {
-        knn: {
-          text_embedding: {
-            vector: embedding,
-            k: 100,
-          },
-        },
-      };
-
-      const knnQuery = filters.length > 0
-        ? { bool: { must: knnClause, filter: filters } }
-        : knnClause;
-
-      // Run both queries in parallel
-      const [textResponse, knnResponse] = await Promise.all([
-        client.search({
-          index: opensearchIndex,
-          body: { size: 100, query: textQuery },
-        }),
-        client.search({
-          index: opensearchIndex,
-          body: { size: 100, query: knnQuery },
-        }),
-      ]);
-
-      const mergedHits = reciprocalRankFusion(
-        textResponse.body.hits.hits,
-        knnResponse.body.hits.hits
-      );
-
-      const allResults = deduplicateResults(mergedHits);
-      const totalResults = allResults.length;
-      const paginatedResults = allResults.slice(from, from + size);
-
-      searchResult = {
-        results: paginatedResults,
-        total: totalResults,
-        page,
-        size,
-        totalPages: Math.ceil(totalResults / size),
-        hasMore: from + size < totalResults
-      };
-    } else {
-      // Fallback — shouldn't reach here
-      return { results: [], total: 0, page, size, totalPages: 0, hasMore: false };
-    }
-
-    // Fetch highlights for the current page of results
-    const highlightMap = await fetchHighlights(query, searchResult.results);
-    searchResult.results = searchResult.results.map(result => {
-      const hl = highlightMap.get(result.id);
-      if (hl) {
-        result.highlight = hl;
-      }
-      return result;
-    });
-
-    return searchResult;
-  } catch (error) {
-    logger.error('Error searching documents:', error);
-    throw new Error('Failed to search documents');
-  }
 }
 
 // Create a function to handle API requests
@@ -432,7 +53,7 @@ exports.nextApiHandler = functions.https.onRequest(
           }
 
           // Search documents
-          const searchResults = await searchDocuments(query, page, size, author, chapter, titles, mode);
+          const searchResults = await searchDocuments(query, { page, size, author, chapter, titles, mode });
 
           // Only include source debug info when explicitly requested
           if (req.query.debug !== 'true') {
@@ -457,6 +78,175 @@ exports.nextApiHandler = functions.https.onRequest(
  * Firebase Function to proxy requests to Firebase Storage
  * This avoids CORS issues by serving the files through your own domain
  */
+// --- API Key Management (callable functions) ---
+
+/**
+ * Generate a new MCP API key for the authenticated user.
+ * Stores a hashed version in apiKeys/{hash} for fast lookup,
+ * and a reference in users/{uid}/apiKeys/{keyId} for listing.
+ */
+exports.generateApiKey = onCall({ cors: true }, async (request) => {
+  if (!request.auth) {
+    throw new HttpsError('unauthenticated', 'Must be logged in to generate an API key');
+  }
+
+  const uid = request.auth.uid;
+  const name = (request.data.name || '').trim();
+  if (!name) {
+    throw new HttpsError('invalid-argument', 'API key name is required');
+  }
+  if (name.length > 100) {
+    throw new HttpsError('invalid-argument', 'API key name must be 100 characters or less');
+  }
+
+  const db = admin.firestore();
+
+  // Enforce a max of 5 active keys per user
+  const existingKeys = await db.collection('users').doc(uid).collection('apiKeys')
+    .where('status', '==', 'active').get();
+  if (existingKeys.size >= 5) {
+    throw new HttpsError('resource-exhausted', 'Maximum of 5 active API keys allowed');
+  }
+
+  const rawKey = generateRawApiKey();
+  const keyHash = hashApiKey(rawKey);
+  const keyPrefix = rawKey.slice(0, 7) + '...' + rawKey.slice(-4);
+  const now = FieldValue.serverTimestamp();
+
+  const batch = db.batch();
+
+  // Lookup doc: apiKeys/{hash} — used by auth middleware
+  batch.set(db.collection('apiKeys').doc(keyHash), {
+    uid,
+    name,
+    keyPrefix,
+    createdAt: now,
+    lastUsedAt: null,
+    requestCount: 0,
+    rateLimit: 30,
+    status: 'active',
+  });
+
+  // User's key reference: users/{uid}/apiKeys/{hash} — used for listing
+  batch.set(db.collection('users').doc(uid).collection('apiKeys').doc(keyHash), {
+    keyPrefix,
+    name,
+    createdAt: now,
+    status: 'active',
+  });
+
+  await batch.commit();
+
+  // Return the raw key ONCE — it can never be retrieved again
+  return { key: rawKey, keyId: keyHash, name, keyPrefix };
+});
+
+/**
+ * Revoke an API key. Sets status to 'revoked' in both collections.
+ */
+exports.revokeApiKey = onCall({ cors: true }, async (request) => {
+  if (!request.auth) {
+    throw new HttpsError('unauthenticated', 'Must be logged in');
+  }
+
+  const uid = request.auth.uid;
+  const keyId = request.data.keyId;
+  if (!keyId) {
+    throw new HttpsError('invalid-argument', 'keyId is required');
+  }
+
+  const db = admin.firestore();
+
+  // Verify the key belongs to this user
+  const keyDoc = await db.collection('apiKeys').doc(keyId).get();
+  if (!keyDoc.exists || keyDoc.data().uid !== uid) {
+    throw new HttpsError('not-found', 'API key not found');
+  }
+
+  if (keyDoc.data().status === 'revoked') {
+    throw new HttpsError('failed-precondition', 'API key is already revoked');
+  }
+
+  const batch = db.batch();
+  batch.update(db.collection('apiKeys').doc(keyId), { status: 'revoked' });
+  batch.update(db.collection('users').doc(uid).collection('apiKeys').doc(keyId), { status: 'revoked' });
+  await batch.commit();
+
+  return { success: true };
+});
+
+/**
+ * List all API keys for the authenticated user.
+ */
+exports.listApiKeys = onCall({ cors: true }, async (request) => {
+  if (!request.auth) {
+    throw new HttpsError('unauthenticated', 'Must be logged in');
+  }
+
+  const uid = request.auth.uid;
+  const db = admin.firestore();
+
+  const snapshot = await db.collection('users').doc(uid).collection('apiKeys')
+    .orderBy('createdAt', 'desc').get();
+
+  const keys = snapshot.docs.map(doc => ({
+    keyId: doc.id,
+    ...doc.data(),
+    createdAt: doc.data().createdAt?.toDate?.()?.toISOString() || null,
+  }));
+
+  return { keys };
+});
+
+/**
+ * Get usage data for a specific API key over the last N days.
+ */
+exports.getApiKeyUsage = onCall({ cors: true }, async (request) => {
+  if (!request.auth) {
+    throw new HttpsError('unauthenticated', 'Must be logged in');
+  }
+
+  const uid = request.auth.uid;
+  const keyId = request.data.keyId;
+  const days = Math.min(Math.max(request.data.days || 7, 1), 10);
+
+  if (!keyId) {
+    throw new HttpsError('invalid-argument', 'keyId is required');
+  }
+
+  const db = admin.firestore();
+
+  // Verify the key belongs to this user
+  const keyDoc = await db.collection('apiKeys').doc(keyId).get();
+  if (!keyDoc.exists || keyDoc.data().uid !== uid) {
+    throw new HttpsError('not-found', 'API key not found');
+  }
+
+  const keyData = keyDoc.data();
+  const usage = await getUsageData(keyId, days);
+
+  return {
+    keyId,
+    requestCount: keyData.requestCount || 0,
+    lastUsedAt: keyData.lastUsedAt?.toDate?.()?.toISOString() || null,
+    rateLimit: keyData.rateLimit || 30,
+    usage,
+  };
+});
+
+// --- MCP Server ---
+
+exports.mcpServer = functions.https.onRequest(
+  {
+    timeoutSeconds: 300,
+    minInstances: 0,
+    secrets: ['OPENSEARCH_URL', 'OPENSEARCH_USERNAME', 'OPENSEARCH_PASSWORD', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY'],
+  },
+  async (req, res) => {
+    await handleMcpRequest(req, res);
+  }
+);
+
 exports.proxyStorage = functions.https.onRequest(async (req, res) => {
   // Enable CORS
   res.set('Access-Control-Allow-Origin', '*');

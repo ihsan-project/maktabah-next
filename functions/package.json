@@ -4,7 +4,7 @@
     "description": "Cloud Functions for Maktabah",
     "main": "index.js",
     "scripts": {
-        "serve": "firebase emulators:start --only functions",
+        "serve": "firebase emulators:start --only auth,functions,firestore",
         "shell": "firebase functions:shell",
         "start": "npm run shell",
         "deploy": "firebase deploy --only functions",
@@ -15,8 +15,10 @@
     },
     "dependencies": {
         "@aws-sdk/client-bedrock-runtime": "^3.750.0",
+        "@modelcontextprotocol/sdk": "^1.28.0",
         "@opensearch-project/opensearch": "^2.6.0",
         "firebase-admin": "^11.11.0",
-        "firebase-functions": "^6.3.2"
+        "firebase-functions": "^6.3.2",
+        "zod": "^4.3.6"
     }
 }

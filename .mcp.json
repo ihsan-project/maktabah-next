@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "maktabah": {
+      "type": "http",
+      "url": "https://maktabah-8ac04.web.app/mcp",
+      "headers": {
+        "Authorization": "Bearer ${MAKTABAH_API_KEY}"
+      }
+    }
+  }
+}

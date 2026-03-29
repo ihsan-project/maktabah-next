@@ -130,3 +130,33 @@ export interface UseBookmarksReturn {
   updateBookmarkNotes: (verseId: string, notesHtml: string) => Promise<void>;
   loading: boolean;
 }
+
+// API Key types (MCP server)
+export interface ApiKey {
+  keyId: string;
+  keyPrefix: string;
+  name: string;
+  status: 'active' | 'revoked';
+  createdAt: string | null;
+}
+
+export interface GenerateApiKeyResponse {
+  key: string;
+  keyId: string;
+  name: string;
+  keyPrefix: string;
+}
+
+export interface DailyUsage {
+  date: string;
+  requests: number;
+  tools: Record<string, number>;
+}
+
+export interface ApiKeyUsageResponse {
+  keyId: string;
+  requestCount: number;
+  lastUsedAt: string | null;
+  rateLimit: number;
+  usage: DailyUsage[];
+}
