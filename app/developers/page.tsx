@@ -180,7 +180,7 @@ function DevelopersPageContent() {
   const [newKey, setNewKey] = useState<GenerateApiKeyResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [revokingId, setRevokingId] = useState<string | null>(null);
-  const [expandedKeyId, setExpandedKeyId] = useState<string | null>(null);
+  const [collapsedKeys, setCollapsedKeys] = useState<Set<string>>(new Set());
 
   const loadKeys = useCallback(async () => {
     try {
@@ -334,12 +334,20 @@ Always cite the source returned by Maktabah (e.g. surah name and verse number, h
               </thead>
               <tbody>
                 {keys.map((key) => {
-                  const isExpanded = expandedKeyId === key.keyId;
+                  const isExpanded = key.status === 'active' && !collapsedKeys.has(key.keyId);
+                  const toggleExpanded = () => {
+                    setCollapsedKeys(prev => {
+                      const next = new Set(prev);
+                      if (next.has(key.keyId)) next.delete(key.keyId);
+                      else next.add(key.keyId);
+                      return next;
+                    });
+                  };
                   return (
                     <React.Fragment key={key.keyId}>
                       <tr
                         className={`border-b border-gray-100 ${key.status === 'revoked' ? 'opacity-50' : 'cursor-pointer hover:bg-gray-50'}`}
-                        onClick={() => key.status === 'active' && setExpandedKeyId(isExpanded ? null : key.keyId)}
+                        onClick={() => key.status === 'active' && toggleExpanded()}
                       >
                         <td className="py-3 px-2 font-medium text-gray-900">
                           <span className="inline-flex items-center space-x-1">
