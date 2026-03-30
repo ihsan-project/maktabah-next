@@ -165,9 +165,9 @@ function QuranContent() {
   }
 
   return (
-    <div className="flex dict:gap-3">
+    <div className={`flex dict:flex-row dict:gap-3 ${isDrawerOpen ? 'flex-col fixed inset-0 z-40 bg-[rgb(var(--background-rgb))] dict:relative dict:inset-auto dict:z-auto dict:bg-transparent' : ''}`}>
       {/* Reading pane */}
-      <div className="flex-1 min-w-0 overflow-hidden">
+      <div className={`flex-1 min-w-0 overflow-hidden ${isDrawerOpen ? 'overflow-y-auto p-4 dict:p-0' : ''}`}>
         {/* Range selector */}
         <form onSubmit={handleNavigate} className="mb-6 bg-white rounded-lg shadow-md p-4">
           <div className="flex flex-col sm:flex-row items-center gap-3">

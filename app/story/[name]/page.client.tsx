@@ -172,9 +172,9 @@ function StoryContent({ name, verses }: StoryClientProps) {
   const hasMoreVerses = visibleRange.end < verses.length;
 
   return (
-    <div className="flex dict:gap-3">
+    <div className={`flex dict:flex-row dict:gap-3 ${isDrawerOpen ? 'flex-col fixed inset-0 z-40 bg-[rgb(var(--background-rgb))] dict:relative dict:inset-auto dict:z-auto dict:bg-transparent' : ''}`}>
       {/* Reading pane */}
-      <div className="flex-1 min-w-0 overflow-hidden">
+      <div className={`flex-1 min-w-0 overflow-hidden ${isDrawerOpen ? 'overflow-y-auto p-4 dict:p-0' : ''}`}>
         {/* Login promotion section - only shown if not logged in */}
         {!user && !loading && (
           <div className="mb-8 p-6 bg-primary-light bg-opacity-10 rounded-lg text-center">

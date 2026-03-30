@@ -275,11 +275,28 @@ body {
   }
 }
 
+/* Word bottom panel — mobile split view */
+.word-bottom-panel-enter {
+  animation: bottomPanelSlideUp 250ms ease-out;
+}
+
+@keyframes bottomPanelSlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .word-popover-enter,
   .word-modal-backdrop,
   .word-modal-sheet,
-  .word-drawer-enter {
+  .word-drawer-enter,
+  .word-bottom-panel-enter {
     animation: none;
   }
 }
