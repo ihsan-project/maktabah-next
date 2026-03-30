@@ -130,7 +130,7 @@ export default function TranslationCarousel({
         {translations.map((translation, index) => (
           <div
             key={index}
-            className="carousel-card snap-start flex-shrink-0 w-1/2 lg:w-1/3 bg-white rounded-lg shadow-md p-4 border border-gray-200"
+            className={`carousel-card snap-start flex-shrink-0 ${translations.length === 1 ? 'w-full' : 'w-1/2 lg:w-1/3'} bg-white rounded-lg shadow-md p-4 border border-gray-200`}
           >
             <div className="flex justify-between items-start mb-3 gap-2">
               <div className="flex flex-col gap-1">
