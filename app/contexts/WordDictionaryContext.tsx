@@ -9,13 +9,6 @@ export interface WordLocation {
   position: number;
 }
 
-export interface RegisteredWord {
-  chapter: number;
-  verse: number;
-  word: QuranWord;
-  element: HTMLElement | null;
-}
-
 interface WordDictionaryContextValue {
   selectedWord: QuranWord | null;
   selectedLocation: WordLocation | null;
@@ -49,40 +42,20 @@ interface RegisteredGroup {
   elements: Map<number, HTMLElement>;
 }
 
-/** Build a sorted flat list from groups on demand (no state needed) */
-function buildFlatList(groups: RegisteredGroup[]): RegisteredWord[] {
-  const sorted = [...groups].sort((a, b) => {
-    if (a.chapter !== b.chapter) return a.chapter - b.chapter;
-    return a.verse - b.verse;
-  });
-  const flat: RegisteredWord[] = [];
-  for (const group of sorted) {
-    for (const word of group.words) {
-      flat.push({
-        chapter: group.chapter,
-        verse: group.verse,
-        word,
-        element: group.elements.get(word.position) ?? null,
-      });
-    }
-  }
-  return flat;
-}
-
-function findWordIndex(flat: RegisteredWord[], loc: WordLocation | null): number {
-  if (!loc) return -1;
-  return flat.findIndex(w =>
-    w.chapter === loc.chapter &&
-    w.verse === loc.verse &&
-    w.word.position === loc.position
-  );
+/** Find the group matching a location and the word's index within it */
+function findInGroup(groups: RegisteredGroup[], loc: WordLocation | null): { group: RegisteredGroup; index: number } | null {
+  if (!loc) return null;
+  const group = groups.find(g => g.chapter === loc.chapter && g.verse === loc.verse);
+  if (!group) return null;
+  const index = group.words.findIndex(w => w.position === loc.position);
+  if (index < 0) return null;
+  return { group, index };
 }
 
 export function WordDictionaryProvider({ children }: { children: React.ReactNode }) {
   const [selectedWord, setSelectedWord] = useState<QuranWord | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<WordLocation | null>(null);
   const groupsRef = useRef<RegisteredGroup[]>([]);
-  // Bump this to force re-render when groups change
   const [, setGroupVersion] = useState(0);
 
   const registerWords = useCallback((id: string, chapter: number, verse: number, words: QuranWord[], elements: Map<number, HTMLElement>) => {
@@ -100,11 +73,10 @@ export function WordDictionaryProvider({ children }: { children: React.ReactNode
     setGroupVersion(v => v + 1);
   }, []);
 
-  // Compute navigation state from ref directly (always fresh)
-  const flatWords = buildFlatList(groupsRef.current);
-  const currentWordIndex = findWordIndex(flatWords, selectedLocation);
-  const canGoPrev = currentWordIndex > 0;
-  const canGoNext = currentWordIndex >= 0 && currentWordIndex < flatWords.length - 1;
+  // Navigation scoped to the current verse
+  const match = findInGroup(groupsRef.current, selectedLocation);
+  const canGoPrev = match !== null && match.index > 0;
+  const canGoNext = match !== null && match.index < match.group.words.length - 1;
 
   const selectWord = useCallback((chapter: number, verse: number, word: QuranWord) => {
     setSelectedLocation(prev => {
@@ -124,17 +96,18 @@ export function WordDictionaryProvider({ children }: { children: React.ReactNode
 
   const navigateWord = useCallback((direction: 'prev' | 'next') => {
     setSelectedLocation(prev => {
-      const flat = buildFlatList(groupsRef.current);
-      const idx = findWordIndex(flat, prev);
-      if (idx < 0) return prev;
-      const newIndex = direction === 'next' ? idx + 1 : idx - 1;
-      if (newIndex < 0 || newIndex >= flat.length) return prev;
-      const target = flat[newIndex];
-      setSelectedWord(target.word);
-      if (target.element) {
-        target.element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+      const result = findInGroup(groupsRef.current, prev);
+      if (!result) return prev;
+      const { group, index } = result;
+      const newIndex = direction === 'next' ? index + 1 : index - 1;
+      if (newIndex < 0 || newIndex >= group.words.length) return prev;
+      const target = group.words[newIndex];
+      setSelectedWord(target);
+      const el = group.elements.get(target.position);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
       }
-      return { chapter: target.chapter, verse: target.verse, position: target.word.position };
+      return { chapter: group.chapter, verse: group.verse, position: target.position };
     });
   }, []);
 
