@@ -16,6 +16,7 @@ import {
   type QuranVerse,
   type QuranMetadata,
   type SurahData,
+  getBookIdForAuthor,
 } from '@/lib/quran-utils';
 
 const VERSES_PER_PAGE = 20;
@@ -267,7 +268,7 @@ export default function QuranClient() {
                     translations={filteredTranslations}
                     verseRef={`${verse.surah}:${verse.verse}`}
                     chapterName={verse.surahName}
-                    tanzilUrl={`https://tanzil.net/#trans/en.sahih/${verse.surah}:${verse.verse}`}
+                    buildTanzilUrl={(author: string) => `https://tanzil.net/#trans/${getBookIdForAuthor(author)}/${verse.surah}:${verse.verse}`}
                     onTanzilClick={() => {}}
                     highlightTerm={highlightTerm}
                   />

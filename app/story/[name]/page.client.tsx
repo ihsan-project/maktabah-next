@@ -9,7 +9,7 @@ import { useAuth } from '@/app/components/AuthProvider';
 import TranslatorSelector from '@/app/components/TranslatorSelector';
 import TranslationCarousel from '@/app/components/TranslationCarousel';
 import InteractiveArabicText from '@/app/components/InteractiveArabicText';
-import { buildContextUrl } from '@/lib/quran-utils';
+import { buildContextUrl, getBookIdForAuthor } from '@/lib/quran-utils';
 
 interface Translation {
   author: string;
@@ -226,11 +226,12 @@ export default function StoryClient({ name, verses }: StoryClientProps) {
                 translations={filteredTranslations}
                 verseRef={`${verse.chapter}:${verse.verse}`}
                 chapterName={verse.chapterName}
-                tanzilUrl={!verse.bookId.includes('bukhari') ? `https://tanzil.net/#trans/${verse.bookId}/${verse.chapter}:${verse.verse}` : undefined}
-                onTanzilClick={!verse.bookId.includes('bukhari') ? () => {
+                buildTanzilUrl={!verse.bookId.includes('bukhari') ? (author: string) => `https://tanzil.net/#trans/${getBookIdForAuthor(author)}/${verse.chapter}:${verse.verse}` : undefined}
+                onTanzilClick={!verse.bookId.includes('bukhari') ? (author: string) => {
                   MixpanelTracking.track('Tanzil Link Click', {
                     chapter: verse.chapter,
                     verse: verse.verse,
+                    author,
                     source: 'story_page',
                     story_name: name
                   });

@@ -12,8 +12,8 @@ interface TranslationCarouselProps {
   translations: Translation[];
   verseRef: string; // e.g., "19:51" for display
   chapterName?: string;
-  tanzilUrl?: string;
-  onTanzilClick?: () => void;
+  buildTanzilUrl?: (author: string) => string;
+  onTanzilClick?: (author: string) => void;
   highlightTerm?: string;
 }
 
@@ -48,7 +48,7 @@ export default function TranslationCarousel({
   translations,
   verseRef,
   chapterName,
-  tanzilUrl,
+  buildTanzilUrl,
   onTanzilClick,
   highlightTerm,
 }: TranslationCarouselProps) {
@@ -148,13 +148,13 @@ export default function TranslationCarousel({
                   )}
                 </div>
               </div>
-              {tanzilUrl && (
+              {buildTanzilUrl && (
                 <a
-                  href={tanzilUrl}
+                  href={buildTanzilUrl(translation.author)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs text-primary hover:underline whitespace-nowrap flex-shrink-0"
-                  onClick={onTanzilClick}
+                  onClick={() => onTanzilClick?.(translation.author)}
                 >
                   tanzil.net
                 </a>
