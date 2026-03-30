@@ -1,13 +1,441 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<story query="khadija, khadijah, khadeejah" generated="2026-02-01T20:59:21.386Z">
+<story query="khadija, khadijah, khadeejah" generated="2026-03-29T23:36:52.430Z">
   <metadata>
-    <title>Story generated from search: "khadija, khadijah, khadeejah"</title>
-    <verses_count>20</verses_count>
-    <translations_count>20</translations_count>
-    <reordered>2026-02-01T20:59:21.391Z</reordered>
+    <title>Story of Khadija (Khadijah, or Khadeejah)</title>
+    <verses_count>48</verses_count>
+    <translations_count>384</translations_count>
+    <reordered>2026-03-29T23:36:52.446Z</reordered>
     <reorder_source>khadija_reorder.csv</reorder_source>
   </metadata>
   <verses>
+    <verse chapter="93" verse="6">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Did He not find you an orphan and take care of you?</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Did He not find you an orphan, so provided you shelter?</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Did He not find thee an orphan, and shelter thee?</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Found He not thee an orphan, so He sheltered thee?</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Did He not find you (O Muhammad (Peace be upon him)) an orphan and gave you a refuge?</text>
+        </translation>
+        <translation author="Itani">
+          <text>Did He not find you orphaned, and sheltered you?</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Did He not find you an orphan and then gave you shelter?</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Did He not find you an orphan and gave you a refuge</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Did He not find thee an orphan and protect (thee)?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Did He not find you an orphan and give you shelter?</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Did He not find you an orphan and give [you] refuge?</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Did He not find you as an orphan and give you shelter?</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Did He not find you an orphan and give you shelter?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Did He not find you orphaned and shelter you?</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Did He not find thee an orphan and give thee shelter (and care)?</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="93" verse="7">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Did He not find you perplexed, and show you the way?</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And found you deeply engrossed in His love, so directed you?</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Did He not find thee erring, and guide thee?</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And He found thee wandering, so He guided thee,</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And He found you unaware (of the Quran, its legal laws, and Prophethood, etc.) and guided you?</text>
+        </translation>
+        <translation author="Itani">
+          <text>And found you wandering, and guided you.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Did He not find you unaware of the Right Way, and then directed you to it?</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And He found you unaware and guided you</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Did He not find thee wandering and direct (thee)?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Did He not find you a wanderer so He guided you?</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And He found you lost and guided [you],</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Did He not find you wandering about and give you guidance?</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And find you lost (that is, unrecognized by men) and guide (them to you)?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Did He not find you wandering, and give you guidance?</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And He found thee wandering, and He gave thee guidance.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="93" verse="8">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Did He not find you poor and enrich you?</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And found you in need, so made you prosperous?</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Did He not find thee needy, and suffice thee?</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And He found thee destitute, so He enriched thee.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And He found you poor, and made you rich (selfsufficient with selfcontentment, etc.)?</text>
+        </translation>
+        <translation author="Itani">
+          <text>And found you in need, and enriched you?</text>
+        </translation>
+        <translation author="Maududi">
+          <text>And did He not find you in want, and then enriched you?</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And He found you poor and made you rich</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Did He not find thee destitute and enrich (thee)?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Did He not find you poor and suffice you?</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And He found you poor and made [you] self-sufficient.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>And did He not find you in need and make you rich?</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And find you in want and make you to be free from want?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Did He not find you in want, and make you free from want?</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And He found thee in need, and made thee independent.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="60" verse="187">
+      <chapter_name>Sahih Bukhari Vol 6</chapter_name>
+      <book_id>en.bukhari.vol06</book_id>
+      <title>bukhari</title>
+      <score>0</score>
+      <translations>
+        <translation author="Dr. Muhammad Muhsin">
+          <text>Narrated Ibn Abi Mulaika:
+There was a disagreement between them (i.e. Ibn 'Abbas and Ibn Az-Zubair) so I went to Ibn 'Abbas in the morning and said (to him), "Do you want to fight against Ibn Zubair and thus make lawful what Allah has made unlawful (i.e. fighting in Meccas?" Ibn 'Abbas said, "Allah forbid! Allah ordained that Ibn Zubair and Bani Umaiya would permit (fighting in Mecca), but by Allah, I will never regard it as permissible." Ibn Abbas added. "The people asked me to take the oath of allegiance to Ibn AzZubair. I said, 'He is really entitled to assume authority for his father, Az-Zubair was the helper of the Prophet, his (maternal) grandfather, Abu Bakr was (the Prophet's) companion in the cave, his mother, Asma' was 'Dhatun-Nitaq', his aunt, 'Aisha was the mother of the Believers, his paternal aunt, Khadija was the wife of the Prophet , and the paternal aunt of the Prophet was his grandmother. He himself is pious and chaste in Islam, well versed in the Knowledge of the Quran. By Allah! (Really, I left my relatives, Bani Umaiya for his sake though) they are my close relatives, and if they should be my rulers, they are equally apt to be so and are descended from a noble family.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="96" verse="1">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>READ IN THE name of your Lord who created,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Read with the name of your Lord Who created,</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Recite: In the Name of thy Lord who created,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Recite thou in the name of thy Lord Who hath created -</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Read! In the Name of your Lord, Who has created (all that exists),</text>
+        </translation>
+        <translation author="Itani">
+          <text>Read: In the Name of your Lord who created.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Recite in the name of your Lord Who created,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Read! In the Name of your Lord Who created.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Read: In the name of thy Lord Who createth,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Read (Prophet Muhammad) in the Name of your Lord who created,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Recite in the name of your Lord who created -</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>(Muhammad), read in the name of your Lord who created (all things).</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Read in the name of your Lord Who created.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Read! In the name of your Lord, who created:</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Proclaim! (or read!) in the name of thy Lord and Cherisher, Who created-</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="96" verse="2">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Created man from an embryo;</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Created man from a clot.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>created Man of a blood-clot.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Hath created man from a clot!</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Has created man from a clot (a piece of thick coagulated blood).</text>
+        </translation>
+        <translation author="Itani">
+          <text>Created man from a clot.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>created man from a clot of congealed blood.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He has created man from a clot.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Createth man from a clot.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>created the human from a (blood) clot.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Created man from a clinging substance.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He created man from a clot of blood.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He created man from a clot.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>created man from a clot [of blood].</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Created man, out of a (mere) clot of congealed blood:</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="96" verse="3">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Read, for your Lord is most beneficent,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Read, and your Lord only is the Most Beneficent,</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Recite: And thy Lord is the Most Generous,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Recite thou: And thy Lord is the Most Bounteous,</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Read! And your Lord is the Most Generous,</text>
+        </translation>
+        <translation author="Itani">
+          <text>Read: And your Lord is the Most Generous.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Recite: and your Lord is Most Generous,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Read! And your Lord is the Most Generous.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Read: And thy Lord is the Most Bounteous,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Read! Your Lord is the Most Generous,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Recite, and your Lord is the most Generous -</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Recite! Your Lord is the most Honorable One,</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Read and your Lord is Most Honorable,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Read! Your Lord is the Most Bountiful One</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Proclaim! And thy Lord is Most Bountiful,-</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="96" verse="4">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Who taught by the pen,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>The One Who taught to write with the pen.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>who taught by the Pen,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Who hath taught mankind by the pen -</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Who has taught (the writing) by the pen [the first person to write was Prophet Idrees (Enoch)].</text>
+        </translation>
+        <translation author="Itani">
+          <text>He who taught by the pen.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Who taught by the pen,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Who has taught by the pen.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Who teacheth by the pen,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>who taught by the pen,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Who taught by the pen -</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>who, by the pen, taught the human being:</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Who taught (to write) with the pen</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>who taught by the pen,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He Who taught (the use of) the pen,-</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="96" verse="5">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Taught man what he did not know.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>The One Who taught man all what he did not know.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>taught Man that he knew not.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Hath taught man that which he knew not.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Has taught man that which he knew not.</text>
+        </translation>
+        <translation author="Itani">
+          <text>Taught man what he never knew.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>taught man what he did not know.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He has taught man that which he knew not.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Teacheth man that which he knew not.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>taught the human what he did not know.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Taught man that which he knew not.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He taught the human being what he did not know.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Taught man what he knew not.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>taught man what he did not know.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Taught man that which he knew not.</text>
+        </translation>
+      </translations>
+    </verse>
     <verse chapter="1" verse="3">
       <chapter_name>Sahih Bukhari Vol 1</chapter_name>
       <book_id>en.bukhari.vol01</book_id>
@@ -90,15 +518,367 @@ I asked Aba Salama bin 'Abdur-Rahman about the first Sura revealed of the Qur'an
         </translation>
       </translations>
     </verse>
-    <verse chapter="60" verse="187">
-      <chapter_name>Sahih Bukhari Vol 6</chapter_name>
-      <book_id>en.bukhari.vol06</book_id>
-      <title>bukhari</title>
+    <verse chapter="74" verse="1">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
       <score>0</score>
       <translations>
-        <translation author="Dr. Muhammad Muhsin">
-          <text>Narrated Ibn Abi Mulaika:
-There was a disagreement between them (i.e. Ibn 'Abbas and Ibn Az-Zubair) so I went to Ibn 'Abbas in the morning and said (to him), "Do you want to fight against Ibn Zubair and thus make lawful what Allah has made unlawful (i.e. fighting in Meccas?" Ibn 'Abbas said, "Allah forbid! Allah ordained that Ibn Zubair and Bani Umaiya would permit (fighting in Mecca), but by Allah, I will never regard it as permissible." Ibn Abbas added. "The people asked me to take the oath of allegiance to Ibn AzZubair. I said, 'He is really entitled to assume authority for his father, Az-Zubair was the helper of the Prophet, his (maternal) grandfather, Abu Bakr was (the Prophet's) companion in the cave, his mother, Asma' was 'Dhatun-Nitaq', his aunt, 'Aisha was the mother of the Believers, his paternal aunt, Khadija was the wife of the Prophet , and the paternal aunt of the Prophet was his grandmother. He himself is pious and chaste in Islam, well versed in the Knowledge of the Quran. By Allah! (Really, I left my relatives, Bani Umaiya for his sake though) they are my close relatives, and if they should be my rulers, they are equally apt to be so and are descended from a noble family.</text>
+        <translation author="Ahmed Ali">
+          <text>O YOU ENFOLDED in your mantle (of reform),</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>O the Cloaked One! (Prophet Mohammed – peace and blessings be upon him)</text>
+        </translation>
+        <translation author="Arberry">
+          <text>O thou shrouded in thy mantle,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>O thou enveloped?</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>O you (Muhammad SAW) enveloped (in garments)!</text>
+        </translation>
+        <translation author="Itani">
+          <text>O you Enrobed one.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>O you enveloped in your cloak!</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>O you enveloped in garments!</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>O thou enveloped in thy cloak,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>O you (Prophet Muhamad), the cloaked,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>O you who covers himself [with a garment],</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Cloaked one,</text>
+        </translation>
+        <translation author="Shakir">
+          <text>O you who are clothed!</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>O, you, wrapped in your cloak,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>O thou wrapped up (in the mantle)!</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="74" verse="2">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Arise and warn,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Rise up and warn!</text>
+        </translation>
+        <translation author="Arberry">
+          <text>arise, and warn!</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Arise, and warn.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Arise and warn!</text>
+        </translation>
+        <translation author="Itani">
+          <text>Arise and warn.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Arise, and warn,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Arise and warn!</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Arise and warn!</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>arise and warn,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Arise and warn</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>stand up, deliver your warning,</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Arise and warn,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>arise and give warning!</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Arise and deliver thy warning!</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="74" verse="3">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Glorify your Lord,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And proclaim the Purity of your Lord.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Thy Lord magnify</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And thine Lord magnify!</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And your Lord (Allah) magnify!</text>
+        </translation>
+        <translation author="Itani">
+          <text>And magnify your Lord.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and magnify the glory of your Lord,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And magnify your Lord!</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Thy Lord magnify,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>and exalt your Lord,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And your Lord glorify</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>proclaim the greatness of your Lord,</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And your Lord do magnify,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Proclaim the glory of your Lord;</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And thy Lord do thou magnify!</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="74" verse="4">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Purify your inner self,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And keep your clothes clean.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>thy robes purify</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And thine raiment purify.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And your garments purify!</text>
+        </translation>
+        <translation author="Itani">
+          <text>And purify your clothes.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and purify your robes,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And purify your garments!</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Thy raiment purify,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>and purify your clothing,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And your clothing purify</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>cleanse your clothes,</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And your garments do purify,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>purify your garments;</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And thy garments keep free from stain!</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="74" verse="5">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And banish all trepidation.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And stay away from idols.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>and defilement flee!</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And pollution shun.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And keep away from Ar-Rujz (the idols)!</text>
+        </translation>
+        <translation author="Itani">
+          <text>And abandon abominations.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and shun uncleanness,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And keep away from Ar-Rujz!</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Pollution shun!</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>and flee from the statues!</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And uncleanliness avoid</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>stay away from sins</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And uncleanness do shun,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>shun uncleanness;</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And all abomination shun!</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="93" verse="1">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>I CALL TO witness the early hours of morning,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>By oath of the late morning,</text>
+        </translation>
+        <translation author="Arberry">
+          <text>By the white forenoon</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>By the morning brightness,</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>By the forenoon (after sun-rise);</text>
+        </translation>
+        <translation author="Itani">
+          <text>By the morning light.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>By the bright forenoon,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>By the forenoon.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>By the morning hours</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>By the midmorning,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>By the morning brightness</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>By the midday brightness</text>
+        </translation>
+        <translation author="Shakir">
+          <text>I swear by the early hours of the day,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>By the glorious morning light;</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>By the Glorious Morning Light,</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="93" verse="3">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Your Lord has neither left you, nor despises you.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Your Lord has not forsaken you nor does He dislike you!</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Thy Lord has neither forsaken thee nor hates thee</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Thy Lord hath not forsaken thee, nor is He displeased.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Your Lord (O Muhammad (Peace be upon him)) has neither forsaken you nor hated you.</text>
+        </translation>
+        <translation author="Itani">
+          <text>Your Lord did not abandon you, nor did He forget.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>(O Prophet), your Lord has neither forsaken you, nor is He displeased.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Your Lord has neither forsaken you nor hates you.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Thy Lord hath not forsaken thee nor doth He hate thee,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>your Lord has not forsaken you (Prophet Muhammad), nor does He hate you.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Your Lord has not taken leave of you, [O Muhammad], nor has He detested [you].</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>(Muhammad), your Lord has not abandoned you (by not sending you His revelation), nor is He displeased with you.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Your Lord has not forsaken you, nor has He become displeased,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>your Lord has not forsaken you, nor is He displeased with you,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Thy Guardian-Lord hath not forsaken thee, nor is He displeased.</text>
         </translation>
       </translations>
     </verse>
@@ -151,18 +931,6 @@ I asked 'Abdullah bin Abi Aufa, "Did the Prophet give glad tidings to Khadija?" 
         </translation>
       </translations>
     </verse>
-    <verse chapter="58" verse="236">
-      <chapter_name>Sahih Bukhari Vol 5</chapter_name>
-      <book_id>en.bukhari.vol05</book_id>
-      <title>bukhari</title>
-      <score>0</score>
-      <translations>
-        <translation author="Dr. Muhammad Muhsin">
-          <text>Narrated Hisham's father:
-Khadija died three years before the Prophet departed to Medina. He stayed there for two years or so and then he married 'Aisha when she was a girl of six years of age, and he consumed that marriage when she was nine years old.</text>
-        </translation>
-      </translations>
-    </verse>
     <verse chapter="55" verse="642">
       <chapter_name>Sahih Bukhari Vol 4</chapter_name>
       <book_id>en.bukhari.vol04</book_id>
@@ -184,6 +952,77 @@ I heard the Prophet saying, "Mary, the daughter of 'Imran, was the best among th
         <translation author="Dr. Muhammad Muhsin">
           <text>Narrated 'Ali:
 The Prophet said, "The best of the world's women is Mary (at her lifetime), and the best of the world's women is Khadija (at her lifetime)."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="55" verse="643">
+      <chapter_name>Sahih Bukhari Vol 4</chapter_name>
+      <book_id>en.bukhari.vol04</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Dr. Muhammad Muhsin">
+          <text>Narrated Abu Musa Al-Ashari:
+The Prophet said, "The superiority of 'Aisha to other ladies is like the superiority of Tharid (i.e. meat and bread dish) to other meals. Many men reached the level of perfection, but no woman reached such a level except Mary, the daughter of Imran and Asia, the wife of Pharaoh."
+Narrated Abu Huraira: I heard Allah's Apostle saying, "Amongst all those women who ride camels (i.e. Arabs), the ladies of Quraish are the best. They are merciful and kind to their off-spring and the best guardians of their husbands' properties.' Abu Huraira added, "Mary the daughter of Imran never rode a camel."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="58" verse="166">
+      <chapter_name>Sahih Bukhari Vol 5</chapter_name>
+      <book_id>en.bukhari.vol05</book_id>
+      <title>bukhari</title>
+      <score>0</score>
+      <translations>
+        <translation author="Dr. Muhammad Muhsin">
+          <text>Narrated 'Aisha:
+I did not feel jealous of any of the wives of the Prophet as much as I did of Khadija though I did not see her, but the Prophet used to mention her very often, and when ever he slaughtered a sheep, he would cut its parts and send them to the women friends of Khadija. When I sometimes said to him, "(You treat Khadija in such a way) as if there is no woman on earth except Khadija," he would say, "Khadija was such-and-such, and from her I had children."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="62" verse="157">
+      <chapter_name>Sahih Bukhari Vol 7</chapter_name>
+      <book_id>en.bukhari.vol07</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Dr. Muhammad Muhsin">
+          <text>Narrated Al-Miswar bin Makhrama:
+I heard Allah's Apostle who was on the pulpit, saying, "Banu Hisham bin Al-Mughira have requested me to allow them to marry their daughter to Ali bin Abu Talib, but I don't give permission, and will not give permission unless 'Ali bin Abi Talib divorces my daughter in order to marry their daughter, because Fatima is a part of my body, and I hate what she hates to see, and what hurts her, hurts me."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="57" verse="62">
+      <chapter_name>Sahih Bukhari Vol 5</chapter_name>
+      <book_id>en.bukhari.vol05</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Dr. Muhammad Muhsin">
+          <text>Narrated 'Aisha:
+The Prophet called his daughter Fatima during his illness in which he died, and told her a secret whereupon she wept. Then he called her again and told her a secret whereupon she laughed. When I asked her about that, she replied, "The Prophet spoke to me in secret and informed me that he would die in the course of the illness during which he died, so I wept. He again spoke to me in secret and informed me that I would be the first of his family to follow him (after his death) and on that I laughed."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="58" verse="236">
+      <chapter_name>Sahih Bukhari Vol 5</chapter_name>
+      <book_id>en.bukhari.vol05</book_id>
+      <title>bukhari</title>
+      <score>0</score>
+      <translations>
+        <translation author="Dr. Muhammad Muhsin">
+          <text>Narrated Hisham's father:
+Khadija died three years before the Prophet departed to Medina. He stayed there for two years or so and then he married 'Aisha when she was a girl of six years of age, and he consumed that marriage when she was nine years old.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="58" verse="223">
+      <chapter_name>Sahih Bukhari Vol 5</chapter_name>
+      <book_id>en.bukhari.vol05</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Dr. Muhammad Muhsin">
+          <text>Narrated Al-Musaiyab:
+When Abu Talib was in his death bed, the Prophet went to him while Abu Jahl was sitting beside him. The Prophet said, "O my uncle! Say: None has the right to be worshipped except Allah, an expression I will defend your case with, before Allah." Abu Jahl and 'Abdullah bin Umaya said, "O Abu Talib! Will you leave the religion of 'Abdul Muttalib?" So they kept on saying this to him so that the last statement he said to them (before he died) was: "I am on the religion of 'Abdul Muttalib." Then the Prophet said, " I will keep on asking for Allah's Forgiveness for you unless I am forbidden to do so." Then the following Verse was revealed:--
+"It is not fitting for the Prophet and the believers to ask Allah's Forgiveness for the pagans, even if they were their near relatives, after it has become clear to them that they are the dwellers of the (Hell) Fire." (9.113)
+The other Verse was also revealed:-- "(O Prophet!) Verily, you guide not whom you like, but Allah guides whom He will ......." (28.56)</text>
         </translation>
       </translations>
     </verse>
@@ -223,18 +1062,6 @@ I never felt so jealous of any wife of Allah's Apostle as I did of Khadija becau
         </translation>
       </translations>
     </verse>
-    <verse chapter="58" verse="166">
-      <chapter_name>Sahih Bukhari Vol 5</chapter_name>
-      <book_id>en.bukhari.vol05</book_id>
-      <title>bukhari</title>
-      <score>0</score>
-      <translations>
-        <translation author="Dr. Muhammad Muhsin">
-          <text>Narrated 'Aisha:
-I did not feel jealous of any of the wives of the Prophet as much as I did of Khadija though I did not see her, but the Prophet used to mention her very often, and when ever he slaughtered a sheep, he would cut its parts and send them to the women friends of Khadija. When I sometimes said to him, "(You treat Khadija in such a way) as if there is no woman on earth except Khadija," he would say, "Khadija was such-and-such, and from her I had children."</text>
-        </translation>
-      </translations>
-    </verse>
     <verse chapter="73" verse="33">
       <chapter_name>Sahih Bukhari Vol 8</chapter_name>
       <book_id>en.bukhari.vol08</book_id>
@@ -256,6 +1083,474 @@ I never felt so jealous of any woman as I did of Khadija, though she had died th
         <translation author="Dr. Muhammad Muhsin">
           <text>Narrated 'Aisha:
 I never felt so jealous of any woman as I felt of Khadija, for Allah ordered him (the Prophet ) to give Khadija the glad tidings of a palace in Paradise (for her).</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="94" verse="1">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>HAVE WE NOT opened up your breast</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Did We not widen your bosom?</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Did We not expand thy breast for thee</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Have We not opened forth for thee thy breast?</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Have We not opened your breast for you (O Muhammad (Peace be upon him))?</text>
+        </translation>
+        <translation author="Itani">
+          <text>Did We not soothe your heart?</text>
+        </translation>
+        <translation author="Maududi">
+          <text>(O Prophet), Did We not lay open your breast</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Have We not opened your breast for you</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Have We not caused thy bosom to dilate,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Have We not expanded your chest for you (Prophet Muhammad),</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Did We not expand for you, [O Muhammad], your breast?</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>(Muhammad), have We not comforted your heart,</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Have We not expanded for you your breast,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Have We not lifted up your heart,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Have We not expanded thee thy breast?-</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="94" verse="2">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And removed your burden</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And relieve you of the burden –</text>
+        </translation>
+        <translation author="Arberry">
+          <text>and lift from thee thy burden,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And We have taken off from thee thy burthen,</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And removed from you your burden,</text>
+        </translation>
+        <translation author="Itani">
+          <text>And lift from you your burden.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and relieve you of the burden</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And removed from you your burden.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And eased thee of the burden</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>and relieved you of your burden</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And We removed from you your burden</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>relieved you of the burden</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And taken off from you your burden,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>and removed your burden</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And removed from thee thy burden</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="94" verse="3">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Which had left you devoid of hope,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Which had broken your back?</text>
+        </translation>
+        <translation author="Arberry">
+          <text>the burden that weighed down thy back?</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Which weighed down thy back.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Which weighed down your back?</text>
+        </translation>
+        <translation author="Itani">
+          <text>Which weighed down your back?</text>
+        </translation>
+        <translation author="Maududi">
+          <text>that had well-nigh broken your back?</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Which weighed down your back</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Which weighed down thy back;</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>that weighed down your back?</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Which had weighed upon your back</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>which had been a heavy weight upon your back</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Which pressed heavily upon your back,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>that weighed so heavily on your back, and</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>The which did gall thy back?-</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="94" verse="4">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And exalted your fame?</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And We have exalted your remembrance for you.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Did We not exalt thy fame?</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And We have upraised for thee thy renown.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And raised high your fame?</text>
+        </translation>
+        <translation author="Itani">
+          <text>And raised for you your reputation?</text>
+        </translation>
+        <translation author="Maududi">
+          <text>And did We not exalt your fame?</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And have We not raised high your fame</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And exalted thy fame?</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Have We not raised your remembrance?</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And raised high for you your repute.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>and granted you an exalted reputation?</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And exalted for you your esteem?</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>have We not given you high renown?</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And raised high the esteem (in which) thou (art held)?</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="94" verse="5">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Surely with hardship there is ease.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>So indeed with hardship is ease.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>So truly with hardship comes ease,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then verily along with every hardship is ease.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>So verily, with the hardship, there is relief,</text>
+        </translation>
+        <translation author="Itani">
+          <text>With hardship comes ease.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Indeed, there is ease with hardship.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Verily, along with every hardship is relief,</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>But lo! with hardship goeth ease,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Indeed, hardship is followed by ease,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>For indeed, with hardship [will be] ease.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>After every difficulty there is relief.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Surely with difficulty is ease.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>So, surely with every hardship there is ease;</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>So, verily, with every difficulty, there is relief:</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="94" verse="6">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>With hardship indeed there is ease.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Indeed with hardship is ease.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>truly with hardship comes ease.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Verily along with every hardship is ease.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Verily, with the hardship, there is relief (i.e. there is one hardship with two reliefs, so one hardship cannot overcome two reliefs).</text>
+        </translation>
+        <translation author="Itani">
+          <text>With hardship comes ease.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Most certainly, there is ease with hardship.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Verily, along with every hardship is relief.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Lo! with hardship goeth ease;</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>indeed, hardship is followed by ease!</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Indeed, with hardship [will be] ease.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Certainly, after every difficulty there comes relief.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>With difficulty is surely ease.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>surely, with every hardship there is ease.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Verily, with every difficulty there is relief.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="93" verse="9">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>So do not oppress the orphan,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Therefore do not oppress the orphan.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>As for the orphan, do not oppress him,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Wherefore as to the orphan, be thou not Unto him overbearing.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Therefore, treat not the orphan with oppression,</text>
+        </translation>
+        <translation author="Itani">
+          <text>Therefore, do not mistreat the orphan.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Therefore, be not harsh with the orphan;</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Therefore, treat not the orphan with oppression.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Therefor the orphan oppress not,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Do not oppress the orphan,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So as for the orphan, do not oppress [him].</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Do not oppress the orphans</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Therefore, as for the orphan, do not oppress (him).</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Therefore do not treat the orphan with harshness,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Therefore, treat not the orphan with harshness,</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="93" verse="10">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And do not drive the beggar away,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And do not rebuke the beggar.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>and as for the beggar, scold him not;</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And as to the beggar, chide thou him not.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And repulse not the beggar;</text>
+        </translation>
+        <translation author="Itani">
+          <text>Nor rebuff the seeker.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and chide not him who asks,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And repulse not the one who asks.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Therefor the beggar drive not away,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>nor drive away the one who asks.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And as for the petitioner, do not repel [him].</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>and do not reject the beggars</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And as for him who asks, do not chide (him),</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>and do not chide the one who asks for help;</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Nor repulse the petitioner (unheard);</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="93" verse="11">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And keep recounting the favours of your Lord.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And abundantly proclaim the favours of your Lord.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>and as for thy Lord's blessing, declare it.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And as to the favour of thine Lord discourse thou thereof.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And proclaim the Grace of your Lord (i.e. the Prophethood and all other Graces).</text>
+        </translation>
+        <translation author="Itani">
+          <text>But proclaim the blessings of your Lord.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and proclaim the bounty of your Lord.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And proclaim the grace of your Lord.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Therefor of the bounty of thy Lord be thy discourse.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>But tell of the favors of your Lord!</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>But as for the favor of your Lord, report [it].</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>and proclaim the bounties of your Lord.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And as for the favor of your Lord, do announce (it).</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>but proclaim the blessings of your Lord.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>But the bounty of the Lord - rehearse and proclaim!</text>
         </translation>
       </translations>
     </verse>

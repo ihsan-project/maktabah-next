@@ -87,6 +87,29 @@ function getBasePath(): string {
 /**
  * Default range: Al-Fatiha (1:1-1:7).
  */
+const AUTHOR_TO_BOOK_ID: Record<string, string> = {
+  'Ahmed Ali': 'en.ahmedali',
+  'Ahmed Raza Khan': 'en.ahmedraza',
+  'Arberry': 'en.arberry',
+  'Daryabadi': 'en.daryabadi',
+  'Hilali & Khan': 'en.hilali',
+  'Itani': 'en.itani',
+  'Maududi': 'en.maududi',
+  'Mubarakpuri': 'en.mubarakpuri',
+  'Pickthall': 'en.pickthall',
+  'Qarai': 'en.qarai',
+  'Qaribullah & Darwish': 'en.qaribullah',
+  'Saheeh International': 'en.sahih',
+  'Sarwar': 'en.sarwar',
+  'Shakir': 'en.shakir',
+  'Wahiduddin Khan': 'en.wahiduddin',
+  'Yusuf Ali': 'en.yusufali',
+};
+
+export function getBookIdForAuthor(author: string): string {
+  return AUTHOR_TO_BOOK_ID[author] || 'en.sahih';
+}
+
 export const DEFAULT_START: VerseRef = { surah: 1, verse: 1 };
 export const DEFAULT_END: VerseRef = { surah: 1, verse: 7 };
 

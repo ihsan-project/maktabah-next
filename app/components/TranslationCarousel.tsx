@@ -12,8 +12,8 @@ interface TranslationCarouselProps {
   translations: Translation[];
   verseRef: string; // e.g., "19:51" for display
   chapterName?: string;
-  tanzilUrl: string;
-  onTanzilClick: () => void;
+  buildTanzilUrl?: (author: string) => string;
+  onTanzilClick?: (author: string) => void;
   highlightTerm?: string;
 }
 
@@ -48,7 +48,7 @@ export default function TranslationCarousel({
   translations,
   verseRef,
   chapterName,
-  tanzilUrl,
+  buildTanzilUrl,
   onTanzilClick,
   highlightTerm,
 }: TranslationCarouselProps) {
@@ -130,7 +130,7 @@ export default function TranslationCarousel({
         {translations.map((translation, index) => (
           <div
             key={index}
-            className="carousel-card snap-start flex-shrink-0 w-1/2 lg:w-1/3 bg-white rounded-lg shadow-md p-4 border border-gray-200"
+            className={`carousel-card snap-start flex-shrink-0 ${translations.length === 1 ? 'w-full' : 'w-1/2 lg:w-1/3'} bg-white rounded-lg shadow-md p-4 border border-gray-200`}
           >
             <div className="flex justify-between items-start mb-3 gap-2">
               <div className="flex flex-col gap-1">
@@ -148,15 +148,17 @@ export default function TranslationCarousel({
                   )}
                 </div>
               </div>
-              <a 
-                href={tanzilUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-primary hover:underline whitespace-nowrap flex-shrink-0"
-                onClick={onTanzilClick}
-              >
-                tanzil.net
-              </a>
+              {buildTanzilUrl && (
+                <a
+                  href={buildTanzilUrl(translation.author)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-primary hover:underline whitespace-nowrap flex-shrink-0"
+                  onClick={() => onTanzilClick?.(translation.author)}
+                >
+                  tanzil.net
+                </a>
+              )}
             </div>
             <div className={`text-gray-700 text-sm leading-relaxed${highlightTerm ? ' quran-highlight' : ''}`}>
               <TextWithLineBreaks text={translation.text} highlightTerm={highlightTerm} />

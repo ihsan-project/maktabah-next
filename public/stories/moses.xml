@@ -1,13 +1,221 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<story query="moses, musa, pharaoh', egypt" generated="2026-02-01T01:55:54.415Z">
+<story query="moses, musa, pharaoh', egypt" generated="2026-03-29T22:34:16.075Z">
   <metadata>
-    <title>Story generated from search: "moses, musa, pharaoh', egypt"</title>
-    <verses_count>387</verses_count>
-    <translations_count>4752</translations_count>
-    <reordered>2026-02-01T01:55:54.417Z</reordered>
+    <title>Story of Moses (Musa)</title>
+    <verses_count>422</verses_count>
+    <translations_count>5277</translations_count>
+    <reordered>2026-03-29T22:34:16.092Z</reordered>
     <reorder_source>moses_reorder.csv</reorder_source>
   </metadata>
   <verses>
+    <verse chapter="3" verse="33">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>God had chosen Adam and Noah and the families of Abraham and 'Imran in preference to others.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Indeed Allah chose Adam, and Nooh, and the Family of Ibrahim, and the Family of Imran over the creation.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>God chose Adam and Noah and the House of Abraham and the House of Imran above all beings, the</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Verily did Allah choose Adam and Nuh and the house of lbrahim and the house of 'lmran out of the worlds</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Allah chose Adam, Nuh (Noah), the family of Ibrahim (Abraham) and the family of 'Imran above the 'Alamin (mankind and jinns) (of their times).</text>
+        </translation>
+        <translation author="Itani">
+          <text>God chose Adam, and Noah, and the family of Abraham, and the family of Imran, over all mankind.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Truly Allah chose Adam and Noah and the descendants of Abraham and of 'Imran above all mankind.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Allah chose Adam, Nuh (Noah), the family of Ibrahim and the family of `Imran above the nations.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Lo! Allah preferred Adam and Noah and the Family of Abraham and the Family of 'Imran above (all His) creatures.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Allah chose Adam and Noah, the House of Abraham and the House of Imran above all worlds.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Indeed, Allah chose Adam and Noah and the family of Abraham and the family of 'Imran over the worlds -</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>God chose (and gave distinction to) Adam, Noah, the family of Abraham, and Imran over all the people of the world.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Surely Allah chose Adam and Nuh and the descendants of Ibrahim and the descendants of Imran above the nations.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>God chose Adam and Noah and the family of Abraham and the family of 'Imran above all His creatures.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Allah did choose Adam and Noah, the family of Abraham, and the family of 'Imran above all people,-</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="4" verse="163">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>We have sent revelations to you as We sent revelations to Noah and the prophets (who came) after him; and We sent revelations to Abraham and Ishmael and Isaac and Jacob, and their offspring, and to Jesus and Job, and to Jonah and Aaron and Solomon, and to David We gave the Book of Psalms,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Indeed We sent a divine revelation to you (Prophet Mohammed – peace and blessing be upon him) as We did send divine revelations to Nooh (Noah) and the Prophets after him; and We sent divine revelations to Ibrahim (Abraham) and Ismael (Ishmael) and Ishaq (Isaac) and Yaqub (Jacob) and their offspring, and Eisa (Jesus) and Ayyub (Job) and Yunus (Jonah) and Haroon (Aaron) and Sulaiman (Solomon), and We bestowed the Zaboor (the Holy Book) upon Dawud (David).</text>
+        </translation>
+        <translation author="Arberry">
+          <text>We have revealed to thee as We revealed to Noah, and the Prophets after him, and We revealed to Abraham, Ishmael, Isaac, Jacob, and the Tribes, Jesus and Job, Jonah and Aaron and Solomon, and We gave to David Psalms,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Verily We have revealed unto thee even as We revealed unto Nuh and the prophets after him, and as We revealed unto Ibrahim and Isma'il and Is-haq and Ya'qub and the tribes, and 'Isa and Ayyub and Yunus and Harun and Sulaiman, and unto Daud We vouchsafed a Scripture.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Verily, We have inspired you (O Muhammad SAW) as We inspired Nuh (Noah) and the Prophets after him; We (also) inspired Ibrahim (Abraham), Isma'il (Ishmael), Ishaque (Isaac), Ya'qub (Jacob), and Al-Asbat [the twelve sons of Ya'qub (Jacob)], 'Iesa (Jesus), Ayub (Job), Yunus (Jonah), Harun (Aaron), and Sulaiman (Solomon), and to Dawud (David) We gave the Zabur (Psalms).</text>
+        </translation>
+        <translation author="Itani">
+          <text>We have inspired you, as We had inspired Noah and the prophets after him. And We inspired Abraham, and Ishmael, and Isaac, and Jacob, and the Patriarchs, and Jesus, and Job, and Jonah, and Aaron, and Solomon. And We gave David the Psalms.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>(O Muhammad!) We have revealed to you as We revealed to Noah and the Prophets after him, and We revealed to Abraham, Ishmael, Isaac, Jacob and the offspring of Jacob, and Jesus and Job, and Jonah, and Aaron and Solomon, and We gave to David Psalms.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Verily, We have sent the revelation to you as We sent the revelation to Nuh and the Prophets after him; We (also) sent the revelation to Ibrahim, Isma`il, Ishaq, Ya`qub, and Al-Asbat, (the offspring of the twelve sons of Ya`qub) `Isa, Ayyub, Yunus, Harun, and Sulayman; and to Dawud We gave the Zabur.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Lo! We inspire thee as We inspired Noah and the prophets after him, as We inspired Abraham and Ishmael and Isaac and Jacob and the tribes, and Jesus and Job and Jonah and Aaron and Solomon, and as We imparted unto David the Psalms;</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>We have revealed to you as We revealed to Noah and to the Prophets after him, and We revealed to (Prophets) Abraham, Ishmael, Isaac, Jacob and the tribes, Jesus, Job, Jonah, Aaron, and Solomon, and We gave to David the Psalms.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Indeed, We have revealed to you, [O Muhammad], as We revealed to Noah and the prophets after him. And we revealed to Abraham, Ishmael, Isaac, Jacob, the Descendants, Jesus, Job, Jonah, Aaron, and Solomon, and to David We gave the book [of Psalms].</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>(Muhammad), We have sent revelations to you just as were sent to Noah and the Prophets who lived after him and to Abraham, Ishmael, Isaac, Jacob, his descendants, Jesus, Job, Jonah, Aaron, and Solomon. We gave the Psalms to David.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Surely We have revealed to you as We revealed to Nuh, and the prophets after him, and We revealed to Ibrahim and Ismail and Ishaq and Yaqoub and the tribes, and Isa and Ayub and Yunus and Haroun and Sulaiman and We gave to Dawood</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>We have sent revelation to you [Prophet] as We did to Noah and the prophets who came after him, to Abraham, Ishmael, Isaac, Jacob, and the Tribes, to Jesus, Job, Jonah, Aaron, and Solomon and David, to whom We gave the Psalms.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>We have sent thee inspiration, as We sent it to Noah and the Messengers after him: we sent inspiration to Abraham, Isma'il, Isaac, Jacob and the Tribes, to Jesus, Job, Jonah, Aaron, and solomon, and to David We gave the Psalms.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="12" verse="99">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>When they went back to Joseph he gave his father and mother a place of honour, and said: "Enter Egypt in peace by the will of God."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>So when they all reached in Yusuf’s company, he kept his parents close to him, and said, “Enter Egypt, if Allah wills, in safety.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>So, when they entered unto Joseph, he took his father and mother into his arms saying, 'Enter you into Egypt, if God will, in security.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then when they entered unto Yusuf, he betook his parents unto himself. and said: enter Misr, if Allah will, in security.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Then, when they entered unto Yusuf (Joseph), he betook his parents to himself and said: "Enter Egypt, if Allah wills, in security."</text>
+        </translation>
+        <translation author="Itani">
+          <text>Then, when they entered into the presence of Joseph, he embraced his parents, and said, “Enter Egypt, God willing, safe and secure.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>And when they went to Joseph, he took his parents aside and said (to the members of his family): "Enter the city now, and if Allah wills, you shall be secure."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Then, when they came in before Yusuf, he took his parents to himself and said: "Enter Egypt, if Allah wills, in security."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And when they came in before Joseph, he took his parents unto him, and said: Come into Egypt safe, if Allah will!</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And when they entered before Joseph, he took his father and mother into his arms and said: 'Welcome to Egypt, safe, if Allah wills'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And when they entered upon Joseph, he took his parents to himself and said, "Enter Egypt, Allah willing, safe [and secure]."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>When they all came to Joseph, he welcomed his parents and said, "Enter the town in peace, if God wants it to be so."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Then when they came in to Yusuf, he took his parents to lodge with him and said: Enter safe into Egypt, if Allah please.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Then, when they presented themselves before Joseph, he drew his parents to him and said, "Welcome to Egypt, in safety, if God wills!"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Then when they entered the presence of Joseph, he provided a home for his parents with himself, and said: "Enter ye Egypt (all) in safety if it please Allah."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="12" verse="100">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>He seated his parents by his side on the throne; and they fell down before him in homage. "O my father," said Joseph, "this is the meaning of my earlier dream. My Lord has made it come true. He was gracious in getting me out of the prison, and bringing you out of the desert to me after the discord created by Satan between me and my brothers, for my Lord is gracious to whomsoever He please. He is indeed all-knowing and all-wise.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And he seated his parents on the throne, and they all prostrated before him; and Yusuf said, “O my father! This is the interpretation of my former dream; my Lord has made it true; and indeed He has bestowed favour upon me, when He brought me out of prison and brought you all from the village, after Satan had created a resentment between me and my brothers; indeed my Lord may make easy whatever He wills; undoubtedly He is the All Knowing, the Wise.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And he lifted his father and mother upon the throne; and the others fell down prostrate before him. 'See, father,' he said, 'this is the interpretation of my vision of long ago; my Lord has made it true. He was good to me when He brought me forth from the prison, and again when He brought you out of the desert, after that Satan set at variance me and my brethren. My Lord is gentle to what He will; He is the All-knowing, the All-wise.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And he raised his parents to the throne, and they fell down before him prostrate, And he said: O my father! this is the interpretation of my vision aforetime; My Lord hath now made it come true; and surely He did well by me when he took me forth from the prison, and hath brought you from the desert after the Satan had stirred strife between me and my brethren; verily my Lord is subtilel Unto whomsoever He will. Verily He! only He, is the Knowing, the Wise.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And he raised his parents to the throne and they fell down before him prostrate. And he said: "O my father! This is the interpretation of my dream aforetime! My Lord has made it come true! He was indeed good to me, when He took me out of the prison, and brought you (all here) out of the bedouin-life, after Shaitan (Satan) had sown enmity between me and my brothers. Certainly, my Lord is the Most Courteous and Kind unto whom He will. Truly He! Only He is the All-Knowing, the All-Wise.</text>
+        </translation>
+        <translation author="Itani">
+          <text>And he elevated his parents on the throne, and they fell prostrate before him. He said, “Father, this is the fulfillment of my vision of long ago. My Lord has made it come true. He has blessed me, when he released me from prison, and brought you out of the wilderness, after the devil had sown conflict between me and my brothers. My Lord is Most Kind towards whomever He wills. He is the All-knowing, the Most Wise.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>And after they had entered the city, Joseph raised his parents to the throne beside himself, and they (involuntarily) bowed in prostration before him. Joseph said: "Father! This is the fulfilment of the vision I had before - one that My Lord has caused to come true. He was kind to me when He rescued me from the prison, and brought you from the desert after Satan had stirred discord between me and my brothers. Certainly my Lord is Subtle in the fulfilment of His will; He is All-Knowing, All-Wise.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And he raised his parents to the `Arsh and they fell down before him prostrate. And he said: "O my father! This is the interpretation of my dream aforetime! My Lord has made it come true! He was indeed good to me, when He took me out of the prison, and brought you (all here) out of the bedouin life, after Shaytan had sown enmity between me and my brothers. Certainly, my Lord is the Most Courteous and Kind unto whom He wills. Truly, He! Only He is the All-Knowing, the All-Wise.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And he placed his parents on the dais and they fell down before him prostrate, and he said: O my father! This is the interpretation of my dream of old. My Lord hath made it true, and He hath shown me kindness, since He took me out of the prison and hath brought you from the desert after Satan had made strife between me and my brethren. Lo! my Lord is tender unto whom He will. He is the Knower, the Wise.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He lifted his parents to the throne, and (the others) bowed before him. Joseph said to his father: 'This is the meaning of my vision of long ago, my Lord has verified it. He has been gracious to me. He brought me out of prison and brought you out of the desert after satan had corrupted (the relationship) between me and my brothers. My Lord is Gentle to whom He will. He alone is the Knower, the Wise.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And he raised his parents upon the throne, and they bowed to him in prostration. And he said, "O my father, this is the explanation of my vision of before. My Lord has made it reality. And He was certainly good to me when He took me out of prison and brought you [here] from bedouin life after Satan had induced [estrangement] between me and my brothers. Indeed, my Lord is Subtle in what He wills. Indeed, it is He who is the Knowing, the Wise.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He raised his parents on the throne and they prostrated themselves before him (Joseph). He said, "This is the meaning of my dream which God has made come true. He has granted me many favors. He set me free from prison and brought you to me from the desert after having ended the enmity which satan sowed between my brothers and I. My Lord is certainly kind to whomever He wants. It is He who is All-forgiving and All-wise.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And he raised his parents upon the throne and they fell down in prostration before him, and he said: O my father! this is the significance of my vision of old; my Lord has indeed made it to be true; and He was indeed kind to me when He brought me forth from the prison and brought you from the desert after the Shaitan had sown dissensions between me and my brothers, surely my Lord is benignant to whom He pleases; surely He is the Knowing, the Wise.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He helped his parents to a couch and they all fell down on their knees before him. He said, "My father, this is the interpretation of my dream. My Lord has made it come true! He was kind to me when He let me out of prison and brought you from the desert after Satan had brought about discord between me and my brethren. My Lord is the best planner in achieving what He will; He is All Knowing, and Truly Wise."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And he raised his parents high on the throne (of dignity), and they fell down in prostration, (all) before him. He said: "O my father! this is the fulfilment of my vision of old! Allah hath made it come true! He was indeed good to me when He took me out of prison and brought you (all here) out of the desert, (even) after Satan had sown enmity between me and my brothers. Verily my Lord understandeth best the mysteries of all that He planneth to do, for verily He is full of knowledge and wisdom.</text>
+        </translation>
+      </translations>
+    </verse>
     <verse chapter="19" verse="51">
       <chapter_name/>
       <book_id>en.ahmedali</book_id>
@@ -473,6 +681,110 @@
         </translation>
         <translation author="Yusuf Ali">
           <text>And We gave (Abraham) Isaac and Jacob, and ordained among his progeny Prophethood and Revelation, and We granted him his reward in this life; and he was in the Hereafter (of the company) of the Righteous.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="19" verse="53">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And bestowed on him his brother Aaron, a prophet, through Our benevolence.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And with Our mercy We bestowed upon him his brother Haroon, a Prophet.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>And We gave him his brother Aaron, of Our mercy, a Prophet.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And We bestowed on him, out of Our mercy, his brother Harun, a prophet.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And We bestowed on him his brother Harun (Aaron), (also) a Prophet, out of Our Mercy.</text>
+        </translation>
+        <translation author="Itani">
+          <text>And We granted him, out of Our mercy, his brother Aaron, a prophet.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and out of Our mercy We appointed his brother Aaron, a Prophet (that he may assist him).</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And We granted him his brother Harun, (also) a Prophet, out of Our mercy.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And We bestowed upon him of Our mercy his brother Aaron, a prophet (likewise).</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>From Our Mercy We gave him, his brother Aaron, a Prophet.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And We gave him out of Our mercy his brother Aaron as a prophet.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Out of Our mercy We gave him his brother Aaron who himself was a Prophet.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And We gave to him out of Our mercy his brother Haroun a prophet.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>and We gave him as his helper, out of Our mercy, his brother Aaron, having made him a prophet.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And, out of Our Mercy, We gave him his brother Aaron, (also) a prophet.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="28" verse="5">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>We wished to favour those who were weak in the land and make them leaders and heirs,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And We willed to favour those who were weak in the earth, and to make them leaders and to make them the inheritors (of the land and wealth of Firaun’s people).</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Yet We desired to be gracious to those that were abased in the land, and to make them leaders, and to make them the inheritors,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And We desired that We should be gracious unto those who were weakened in the land, and We should make them leaders and We should make them the inheritors.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And We wished to do a favour to those who were weak (and oppressed) in the land, and to make them rulers and to make them the inheritors,</text>
+        </translation>
+        <translation author="Itani">
+          <text>But We desired to favor those who were oppressed in the land, and to make them leaders, and to make them the inheritors.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>We wanted to bestow favour on those who were oppressed in the land. We wanted to make them leaders and heirs</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And We wished to do a favor to those who were weak in the land, and to make them rulers and to make them the inheritors,</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And We desired to show favour unto those who were oppressed in the earth, and to make them examples and to make them the inheritors,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>But We wanted to be gracious to those abased in the land, and to make them leaders and inheritors,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And We wanted to confer favor upon those who were oppressed in the land and make them leaders and make them inheritors</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>But We have decided to grant a favor to the suppressed ones by appointing them leaders and heirs of the land,</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And We desired to bestow a favor upon those who were deemed weak in the land, and to make them the Imams, and to make them the heirs,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>We wished to favour those who were oppressed in the land, and to make them leaders and make them inheritors [of Our bounties],</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And We wished to be Gracious to those who were being depressed in the land, to make them leaders (in Faith) and make them heirs,</text>
         </translation>
       </translations>
     </verse>
@@ -1828,6 +2140,58 @@
         </translation>
       </translations>
     </verse>
+    <verse chapter="28" verse="23">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And when he came to the waters of Midian he found a crowd of people watering (their flocks), and saw two maidens holding back (their cattle). He asked: "What is the trouble with you?" They said: "We cannot water our flock till the shepherds have driven away theirs, and our father is a very old man."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And when he came to the water of Madyan he found a group of men, watering their animals; and away from them he found two women restraining their animals; he said, “What is the matter with you?” They said, “We do not water our animals till all the shepherds water and take away their animals; and our father is very old.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>On the right way. And when he came to the waters of Midian he found a company of the people there drawing water, and he found, apart from them, two women holding back their flocks. He said, 'What is your business?' They said, 'We may not draw water until the shepherds drive off; and our father is passing old.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And when he arrived at the water of Madyan, he found there a community of the people watering. And he found, apart from them, two women keeping back their flocks. He said: what aileth you twain! The twain said: we water not until the shepherds have driven away their flocks; and our father is a very old man.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And when he arrived at the water of Madyan (Midian) he found there a group of men watering (their flocks), and besides them he found two women who were keeping back (their flocks). He said: "What is the matter with you?" They said: "We cannot water (our flocks) until the shepherds take (their flocks). And our father is a very old man."</text>
+        </translation>
+        <translation author="Itani">
+          <text>And when he arrived at the waters of Median, he found there a crowd of people drawing water, and he noticed two women waiting on the side. He said, “What is the matter with you?” They said, “We cannot draw water until the shepherds depart, and our father is a very old man.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>When he arrived at the spring of Midian, he found there a crowd of people watering their flocks, and he found apart from them two women holding their flocks back. He asked the women: "What is it that troubles you?" They said: "We cannot water our flocks until the shepherds take their flocks away, and our father is a very old man."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And when he arrived at the water of Madyan, he found there a group of men watering, and besides them he found two women who were keeping back (their flocks). He said: "What is the matter with you" They said: "We cannot water (our flocks) until the shepherds take (their flocks). And our father is a very old man."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And when he came unto the water of Midian he found there a whole tribe of men, watering. And he found apart from them two women keeping back (their flocks). He said: What aileth you? The two said: We cannot give (our flocks) to drink till the shepherds return from the water; and our father is a very old man.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>When he came to the water wells of Midian he found there some people drawing water, and he found two women apart from them who were keeping back (their flocks). 'What is your business' he asked. They replied: 'We cannot draw water until the shepherds have driven away (their flocks), and our father is an elderly man'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And when he came to the well of Madyan, he found there a crowd of people watering [their flocks], and he found aside from them two women driving back [their flocks]. He said, "What is your circumstance?" They said, "We do not water until the shepherds dispatch [their flocks]; and our father is an old man."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>When he arrived at the well of Midian, he found some people watering (their sheep) and two women keeping the sheep away from the others. He asked the two women, "What is the matter with you?" They replied, "We cannot water our sheep until all the shepherds have driven away their flocks. Our father is an old man".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And when he came to the water of Madyan, he found on it a group of men watering, and he found besides them two women keeping back (their flocks). He said: What is the matter with you? They said: We cannot water until the shepherds take away (their sheep) from the water, and our father is a very old man.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>And when he arrived at the well of Midian, he found around it a group of men watering their flocks, and he saw two women standing apart from them, who were holding back their flocks, so he asked, "What is the matter with you?" They replied, "We cannot draw water until the shepherds take away their sheep. Our father is a very old man."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And when he arrived at the watering (place) in Madyan, he found there a group of men watering (their flocks), and besides them he found two women who were keeping back (their flocks). He said: "What is the matter with you?" They said: "We cannot water (our flocks) until the shepherds take back (their flocks): And our father is a very old man."</text>
+        </translation>
+      </translations>
+    </verse>
     <verse chapter="28" verse="24">
       <chapter_name/>
       <book_id>en.maududi</book_id>
@@ -1929,6 +2293,58 @@
         </translation>
         <translation author="Yusuf Ali">
           <text>Afterwards one of the (damsels) came (back) to him, walking bashfully. She said: "My father invites thee that he may reward thee for having watered (our flocks) for us." So when he came to him and narrated the story, he said: "Fear thou not: (well) hast thou escaped from unjust people."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="28" verse="26">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Said one of the maidens: "O father, employ him. Surely the best (man) to employ is one who is strong and honest."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>One of the two women said, “O my father! Employ him – indeed a strong and trustworthy employee is better.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Said one of the two women, 'Father, hire him; surely the best man thou canst hire is the one strong and trusty.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And said one of the twain: O my father! hire him, for the best that thou canst hire is the strong and trustworthy one.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And said one of them (the two women): "O my father! Hire him! Verily, the best of men for you to hire is the strong, the trustworthy."</text>
+        </translation>
+        <translation author="Itani">
+          <text>One of the two women said, “Father, hire him; the best employee for you is the strong and trustworthy.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>One of the two women said: "Father, employ this man in your service. The best whom you might employ is he who is strong and trustworthy."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And said one of them (the two women): "O my father! Hire him! Verily, the best of men for you to hire is the strong, the trustworthy."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>One of the two women said: O my father! Hire him! For the best (man) that thou canst hire in the strong, the trustworthy.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>One of the two women said: 'Father, hire him. The best who you can hire, is the strong, the honest'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>One of the women said, "O my father, hire him. Indeed, the best one you can hire is the strong and the trustworthy."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>One of the women said to her father, "Father, hire him; the best whom you may hire is a strong and trustworthy one."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Said one of them: O my father! employ him, surely the best of those that you can employ is the strong man, the faithful one.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>One of the girls said, "Father, hire him! For the best man to hire is someone strong and trustworthy."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Said one of the (damsels): "O my (dear) father! engage him on wages: truly the best of men for thee to employ is the (man) who is strong and trusty"....</text>
         </translation>
       </translations>
     </verse>
@@ -3087,6 +3503,370 @@ A Jew from Hira asked me which one of the two periods Musa (i.e. Prophet Moses) 
         </translation>
       </translations>
     </verse>
+    <verse chapter="20" verse="29">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And give me as assistant from my family</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“And appoint for me a viceroy from among my family.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Appoint for me of my folk a familiar,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And appoint for me a minister from my household.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And appoint for me a helper from my family,</text>
+        </translation>
+        <translation author="Itani">
+          <text>And appoint an assistant for me, from my family.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and appoint for me, from my household, someone who will help me bear my burden -</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And appoint for me a helper from my family,"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Appoint for me a henchman from my folk,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Appoint for me a minister from my family</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And appoint for me a minister from my family -</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Appoint a deputy (for me) from my own people.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And give to me an aider from my family:</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>and appoint for me a helper from among my family,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"And give me a Minister from my family,</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="20" verse="30">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Aaron my brother</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“That is Haroon, my brother.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Aaron, my brother;</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Harun, my brother.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"Harun (Aaron), my brother;</text>
+        </translation>
+        <translation author="Itani">
+          <text>Aaron, my brother.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Aaron, my brother.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"Harun, my brother."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Aaron, my brother.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Aaron, my brother.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Aaron, my brother.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Let it be my brother Aaron</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Haroun, my brother,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Aaron, my brother.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"Aaron, my brother;</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="20" verse="31">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>To strengthen me</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“Back me up with him.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>by him confirm my strength,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Strengthen by him my back.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"Increase my strength with him,</text>
+        </translation>
+        <translation author="Itani">
+          <text>Strengthen me with him.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Strengthen me through him</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"Increase my strength with him,"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Confirm my strength with him</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>By him confirm my strength</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Increase through him my strength</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>to support me.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Strengthen my back by him,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Strengthen me through him,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"Add to my strength through him,</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="20" verse="32">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And share my task,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“And make him a partner in my task.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>and associate him with me in my task.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And associate him in my affair.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And let him share my task (of conveying Allah's Message and Prophethood),</text>
+        </translation>
+        <translation author="Itani">
+          <text>And have him share in my mission.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and let him share my task</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And let him share my task,"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And let him share my task,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>and let him share my task,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And let him share my task</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Let him be my partner in this task</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And associate him (with me) in my affair,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>and let him share my task,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"And make him share my task:</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="20" verse="33">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>That we may sing Your praises much,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“In order that we may profusely proclaim Your Purity.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>So shall we glorify Thee,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>That We may hallow Thee oft.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"That we may glorify You much,</text>
+        </translation>
+        <translation author="Itani">
+          <text>That we may glorify You much.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>that we may abundantly extol Your glory;</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"That we may glorify You much,"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>That we may glorify Thee much</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>so that we exalt You</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>That we may exalt You much</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>so that we may glorify</text>
+        </translation>
+        <translation author="Shakir">
+          <text>So that we should glorify Thee much,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>so that we may glorify You much</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"That we may celebrate Thy praise without stint,</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="20" verse="34">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>And remember you a great deal.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“And profusely remember You.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>and remember Thee abundantly.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And may make mention of Thee oft.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And remember You much,</text>
+        </translation>
+        <translation author="Itani">
+          <text>And remember You much.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and may remember You much.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And remember You much,"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And much remember Thee.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>and remember You abundantly.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And remember You much.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>and remember you often.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And remember Thee oft.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>and remember You much:</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"And remember Thee without stint:</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="20" verse="35">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Surely You know us well."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“Indeed You see us.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Surely Thou seest into us.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Verily Thou! Thou art of us ever a Beholder.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"Verily! You are of us Ever a Well-Seer."</text>
+        </translation>
+        <translation author="Itani">
+          <text>You are always watching over us.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Verily, You have always watched over us."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"Verily, You are ever seeing us."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Lo! Thou art ever Seeing us.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>You are surely seeing us'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Indeed, You are of us ever Seeing."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>You are Well Aware of our situation."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Surely, Thou art seeing us.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>You are surely watching over us.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"For Thou art He that (ever) regardeth us."</text>
+        </translation>
+      </translations>
+    </verse>
     <verse chapter="20" verse="36">
       <chapter_name/>
       <book_id>en.ahmedali</book_id>
@@ -3191,6 +3971,58 @@ A Jew from Hira asked me which one of the two periods Musa (i.e. Prophet Moses) 
         </translation>
       </translations>
     </verse>
+    <verse chapter="26" verse="13">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>My heart is constrained, my tongue falters, so delegate Aaron;</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“I feel hesitant, and my tongue does not speak fast, therefore make Haroon also a Noble Messenger.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>and my breast will be straitened, and my tongue will not be loosed; so send to Aaron.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And my breast straiteneth, and my tongue moveth not quickly: so send for Harun.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And my breast straitens, and my tongue expresses not well. So send for Harun (Aaron) (to come along with me).</text>
+        </translation>
+        <translation author="Itani">
+          <text>And I become stressed, and my tongue is not fluent, so send Aaron too.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>My breast is constricted and my tongue is not fluent, so endow Messengership on Aaron.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And my breast straitens, and my tongue expresses not well. So send for Harun."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And I shall be embarrassed, and my tongue will not speak plainly, therefor send for Aaron (to help me).</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>and my chest will become constricted and my tongue will not be loosed (in my speech), therefore, send to Aaron.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And that my breast will tighten and my tongue will not be fluent, so send for Aaron.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>I feel nervous and my tongue is not fluent, so send Aaron with me.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And by breast straitens, and my tongue is not eloquent, therefore send Thou to Haroun (to help me);</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>and "my breast is straitened and my tongue is not fluent; so send Aaron as well;</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"My breast will be straitened. And my speech may not go (smoothly): so send unto Aaron.</text>
+        </translation>
+      </translations>
+    </verse>
     <verse chapter="28" verse="33">
       <chapter_name/>
       <book_id>en.maududi</book_id>
@@ -3240,6 +4072,58 @@ A Jew from Hira asked me which one of the two periods Musa (i.e. Prophet Moses) 
         </translation>
         <translation author="Yusuf Ali">
           <text>He said: "O my Lord! I have slain a man among them, and I fear lest they slay me.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="28" verse="34">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>So send my brother Aaron with me as helper for he is more fluent than I with words, that he should affirm me, for I fear that they would call me a liar."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“And my brother Haroon – he is more eloquent than I am in speech, therefore in order to help me, appoint him as a Noble Messenger so that he confirms me; I fear that they will deny me.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Moreover my brother Aaron is more eloquent than I. Send him with me as a helper and to confirm I speak truly, for' I fear they will cry me lies.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And My brother Harun! He is more eloquent than I in speech; wherefore send him with me as a support, to corroborate me; verily I fear that they shall belie me.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And my brother Harun (Aaron) he is more eloquent in speech than me so send him with me as a helper to confirm me. Verily! I fear that they will belie me."</text>
+        </translation>
+        <translation author="Itani">
+          <text>And my brother Aaron, he is more eloquent than me, so send him with me, to help me, and to confirm my words, for I fear they will reject me.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>My brother Aaron is more eloquent in speech than I: so send him with me as a helper to confirm my truthfulness for I fear that they will reject me as a liar."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And my brother Harun -- he is more eloquent in speech than me, so send him with me as a helper to confirm me. Verily, I fear that they will deny me."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>My brother Aaron is more eloquent than me in speech. Therefor send him with me as a helper to confirm me. Lo! I fear that they will give the lie to me.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Aaron my brother has a more eloquent tongue than I, (please) send him with me as a helper to confirm I speak truly, I fear that they will belie me'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And my brother Aaron is more fluent than me in tongue, so send him with me as support, verifying me. Indeed, I fear that they will deny me."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>My brother Aaron is more fluent then I am. Send him with me to assist me and express my truthfulness; I am afraid they will reject me".</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And my brother, Haroun, he is more eloquent of tongue than I, therefore send him with me as an aider, verifying me: surely I fear that they would reject me.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>My brother Aaron is more eloquent than I am. Send him with me to support me and back me up. For I fear that they will reject me."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"And my brother Aaron - He is more eloquent in speech than I: so send him with me as a helper, to confirm (and strengthen) me: for I fear that they may accuse me of falsehood."</text>
         </translation>
       </translations>
     </verse>
@@ -5583,6 +6467,318 @@ A Jew from Hira asked me which one of the two periods Musa (i.e. Prophet Moses) 
         </translation>
         <translation author="Yusuf Ali">
           <text>"O my People! Yours is the dominion this day: Ye have the upper hand in the land: but who will help us from the Punishment of Allah, should it befall us?" Pharaoh said: "I but point out to you that which I see (myself); Nor do I guide you but to the Path of Right!"</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="40" verse="30">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>But the man of belief said: "O my people, what I fear for you is the like of what befell the communities (of old).</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And the believer said, “O my people! I fear for you a day similar to that of the earlier groups!”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Then said he who believed, 'My people, truly I fear for you the like of the day of the parties,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And he who believed said: O my people. verily I fear for you a fate like the day of the confederates.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And he who believed said: "O my people! Verily, I fear for you a fate like that day (of disaster) of the Confederates (of old)!</text>
+        </translation>
+        <translation author="Itani">
+          <text>The one who had believed said, “O my people, I fear for you the like of the day of the confederates.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>He who had faith said: “My people, I fear that you will confront a day like that which overtook many parties before you,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And he who believed said: "O my people! Verily, I fear for you an end like that day (of disaster) of the groups (of old)!"</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And he who believed said: O my people! Lo! I fear for you a fate like that of the factions (of old);</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>The one who believed said: 'I fear for you the like of the day of the confederates my nation,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And he who believed said, "O my people, indeed I fear for you [a fate] like the day of the companies -</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>The believing man said, "I am afraid that you will face a (terrible) day like that of the groups:</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And he who believed said: O my people! surely I fear for you the like of what befell the parties:</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>The believer said, "My people! I fear for you a fate like that of the people of old:</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Then said the man who believed: "O my people! Truly I do fear for you something like the Day (of disaster) of the Confederates (in sin)!-</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="40" verse="31">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Like the people of Noah, 'Ad and Thamud, and those that came after them. God does not want to be unjust to His creatures.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“Like the tradition of the people of Nooh, and Aad, and Thamud and others after them; and Allah does not will injustice upon bondmen.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>the like of the case of Noah's people, Ad, Thamood, and those after them; and God desires not wrong for His servants.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Like the wont of the people of Nuh and A'ad and Thamud and those after them, and God intendeth not any wrong Unto His bondmen.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"Like the fate of the people of Nuh (Noah), and 'Ad, and Thamud and those who came after them. And Allah wills no injustice for (His) slaves.</text>
+        </translation>
+        <translation author="Itani">
+          <text>Like the fate of the people of Noah, and Aad, and Thamood, and those after them. God wants no injustice for the servants.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>like the day that overtook the people of Noah and Ad and Thamud, and those who came after them. Allah does not wish to subject His servants to any injustice.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"Like the end of the people of Nuh, and `Ad, and Thamud and those who came after them. And Allah wills no injustice for (His) servants."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>A plight like that of Noah's folk, and A'ad and Thamud, and those after them, and Allah willeth no injustice for (His) slaves.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>or, something similar to the circumstances of the nations of Noah, Aad, and Thamood, and those who came after them. Allah does not want to wrong His worshipers.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Like the custom of the people of Noah and of 'Aad and Thamud and those after them. And Allah wants no injustice for [His] servants.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>people of Noah, Ad, Thamud, and those after them. God did not want injustice for His servants.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>The like of what befell the people of Nuh and Ad and Samood and those after them, and Allah does not desire injustice for (His) servants;</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>like the fate of the people of Noah, 'Ad, Thamud, and those who came after them -- God never wills injustice on His creatures.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"Something like the fate of the People of Noah, the 'Ad, and the Thamud, and those who came after them: but Allah never wishes injustice to his Servants.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="40" verse="32">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>O my people, what I fear for you is the day of gathering, crying and calling,</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“O my people! I fear for you a day on which will be a great outcry!”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>O my people, I fear for you the Day of Invocation,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And, O my people! verily fear for you a Day of Mutual Calling.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And, O my people! Verily! I fear for you the Day when there will be mutual calling (between the people of Hell and of Paradise)."</text>
+        </translation>
+        <translation author="Itani">
+          <text>O my people, I fear for you the Day of Calling Out.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>My people, I fear that you will encounter a day when there will be much wailing and you will cry out to one another for help,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And, O my people! Verily, I fear for you the Day when there will be mutual calling."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And, O my people! Lo! I fear for you a Day of Summoning,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And, my nation, I fear for you the Day of Calling,</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And O my people, indeed I fear for you the Day of Calling -</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>My people, I am afraid for you on (the Day of Judgment), when people will cry for help.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And, O my people! I fear for you the day of calling out,</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>My people, I fear for you the Day you will cry out to one another,</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"And O my people! I fear for you a Day when there will be Mutual calling (and wailing),-</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="40" verse="33">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>The day you will turn your backs and flee, with none to defend you against God. Whoever God allows to go astray has none to show him the way.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“A day when you will turn back fleeing; none can save you from Allah; and whomever Allah sends astray, there is no guide for him.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>the day you turn about, retreating, having none to defend you from God; and whomsoever God leads astray, no guide has he.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>A Day whereon ye shall turn away retreating: for you there will be no protector from God; and whomsoever God sendeth astray for him there is no guide.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>A Day when you will turn your backs and flee having no protector from Allah, And whomsoever Allah sends astray, for him there is no guide.</text>
+        </translation>
+        <translation author="Itani">
+          <text>The Day when you will turn and flee, having no defender against God. Whomever God misguides has no guide.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>the day when you will turn around to retreat, there will be none to protect you from Allah. He whom Allah lets go astray, none will be able to show him the Right Way.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>A Day when you will turn your backs and flee having no protector from Allah. And whomsoever Allah sends astray, for him there is no guide.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>A day when ye will turn to flee, having no preserver from Allah: and he whom Allah sendeth astray, for him there is no guide.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>the Day when you will turn in retreat with none to protect you from Allah. He whom Allah leads astray has no guide.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>The Day you will turn your backs fleeing; there is not for you from Allah any protector. And whoever Allah leaves astray - there is not for him any guide.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>On that day you will run away, but no one will be able to protect you from (God's Judgment). No one can guide one whom God has caused to go astray.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>The day on which you will turn back retreating; there shall be no savior for you from Allah, and whomsoever Allah causes to err, there is no guide for him:</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>the Day when you will [wish to] turn your backs and flee, having none to defend you against God: for he whom God lets go astray can never find any guide.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"A Day when ye shall turn your backs and flee: No defender shall ye have from Allah: Any whom Allah leaves to stray, there is none to guide...</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="40" verse="34">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Joseph had indeed come to you before with clear proofs, but you did not cease to doubt what he had brought until he died, when you said: 'God will not send a prophet after him.' That is how God leads the waster, the sceptic astray.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“And indeed Yusuf came to you with clear signs before this, thereupon you remained doubtful concerning what he had brought; to the extent that when he died, you said, ‘Allah will surely not send any Noble Messenger after him’”; this is how Allah sends astray whoever transgresses, is doubtful. –</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Joseph brought you the clear signs before, yet you continued in doubt concerning that he brought you until, when he perished, you said, "God will never send forth a Messenger after him." Even, so God leads astray the prodigal and the doubter.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And assuredly there came Unto you Yusuf aforetime with evidences, yet ye ceased not to be in doubt concerning that which he brought Unto you, until when he died, ye said: God shall by no means raise an apostle after him. Thus Allah keepeth astray one who is extravagant and a doubter.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And indeed Yusuf (Joseph) did come to you, in times gone by, with clear signs, but you ceased not to doubt in that which he did bring to you, till when he died you said: "No Messenger will Allah send after him." Thus Allah leaves astray him who is a Musrif (a polytheist, oppressor, a criminal, sinner who commit great sins) and a Murtab (one who doubts Allah's Warning and His Oneness).</text>
+        </translation>
+        <translation author="Itani">
+          <text>Joseph had come to you with clear revelations, but you continued to doubt what he came to you with. Until, when he perished, you said, “God will never send a messenger after him.” Thus God leads astray the outrageous skeptic.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Verily Joseph came to you with Clear Signs before, yet you continued to doubt his Message. Thereafter when he died, you said: 'Allah shall send no Messenger after him.'” Thus Allah leads astray those who transgress the limits and are given to much doubting;</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And indeed Yusuf did come to you, in times gone by, with clear signs, but you ceased not to doubt in that which he did bring to you, till when he died, you said: "No Messenger will Allah send after him." Thus Allah leaves astray him who is a transgressor and a skeptic.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And verily Joseph brought you of old clear proofs, yet ye ceased not to be in doubt concerning what he brought you till, when he died, ye said: Allah will not send any messenger after him. Thus Allah deceiveth him who is a prodigal, a doubter.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Before this, Joseph brought you clear signs, but you continued to be doubtful of that which he brought. When he passed away you said: "Allah will never send another Messenger after him." As such Allah leads astray the sinner, the doubter.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And Joseph had already come to you before with clear proofs, but you remained in doubt of that which he brought to you, until when he died, you said, 'Never will Allah send a messenger after him.' Thus does Allah leave astray he who is a transgressor and skeptic."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Joseph came to you before with illustrious evidence but you still have doubts about what he brought. When he passed away, you said, "God will never send any Messenger after him." Thus does God causes to go astray the skeptical transgressing people,</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And certainly Yusuf came to you before with clear arguments, but you ever remained in doubt as to what he brought; until when he died, you said: Allah will never raise an apostle after him. Thus does Allah cause him to err who is extravagant, a doubter</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Joseph came to you before with clear signs, but you never ceased to doubt the message he brought you. When he died, you said, 'God will not send another messenger.'"" In this way God leaves the transgressors and doubters to go astray --</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"And to you there came Joseph in times gone by, with Clear Signs, but ye ceased not to doubt of the (Mission) for which he had come: At length, when he died, ye said: 'No messenger will Allah send after him.' thus doth Allah leave to stray such as transgress and live in doubt,-</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="40" verse="35">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Those who dispute God's revelations, with no authority having come to them, (are) greatly odious in the sight of God, and the sight of those who believe. That is how God seals every proud and perverse heart."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>Those who dispute regarding the signs of Allah without any proof having come to them; how very disgusting this is, in the sight of Allah and in the sight of the believers! This is how Allah seals the entire heart of every haughty, rebellious person.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>(Those who dispute concerning the signs of God, without any authority come to them, very hateful is that in the sight of God and the believers; 'so God sets a seal on every heart proud', arrogant.)</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Those who wrangle concerning the signs of Allah without any authority that hath come Unto them. It is greatly abhorrent Unto Allah and Unto those who believe. Thus Allah sealeth up the heart of any stiff-necked, high-handed, person.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>Those who dispute about the Ayat (proofs, evidences, verses, lessons, signs, revelations, etc.) of Allah, without any authority that has come to them, it is greatly hateful and disgusting to Allah and to those who believe. Thus does Allah seal up the heart of every arrogant, tyrant. (So they cannot guide themselves to the Right Path).</text>
+        </translation>
+        <translation author="Itani">
+          <text>Those who argue against God’s revelations, without any proof having come to them—a heinous sin in the sight of God, and of those who believe. Thus God seals the heart of every proud bully.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>those who contend regarding Allah's Signs without any evidence that might have come to them. That is exceedingly loathsome to Allah and to those that believe. Thus does Allah seal the heart of everyone who is proud and high-handed.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>Those who dispute about the Ayat of Allah, without any authority that has come to them, it is greatly hateful and disgusting to Allah and to those who believe. Thus does Allah seal up the heart of every arrogant, tyrant.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Those who wrangle concerning the revelations of Allah without any warrant that hath come unto them, it is greatly hateful in the sight of Allah and in the sight of those who believe. Thus doth Allah print on every arrogant, disdainful heart.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>Those who dispute the signs of Allah without any authority having reached them are very hateful before Allah and the believers. As such Allah sets a seal on every heart that is proud and arrogant.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>Those who dispute concerning the signs of Allah without an authority having come to them - great is hatred [of them] in the sight of Allah and in the sight of those who have believed. Thus does Allah seal over every heart [belonging to] an arrogant tyrant.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>those who dispute the revelations of God without having received clear authority. This act greatly angers God and the believers. Thus does God seal the hearts of every arrogant oppressor."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Those who dispute concerning the communications of Allah without any authority that He has given them; greatly hated is it by Allah and by-those who believe. Thus does Allah set a seal over the heart of every proud, haughty one.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>those who dispute God's revelations without any authority are doing something that is greatly abhorrent to God and to the believers. That is how God seals up the heart of every arrogant oppressor.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"(Such) as dispute about the Signs of Allah, without any authority that hath reached them, grievous and odious (is such conduct) in the sight of Allah and of the Believers. Thus doth Allah, seal up every heart - of arrogant and obstinate Transgressors."</text>
         </translation>
       </translations>
     </verse>
@@ -11382,6 +12578,58 @@ A Jew from Hira asked me which one of the two periods Musa (i.e. Prophet Moses) 
         </translation>
       </translations>
     </verse>
+    <verse chapter="20" verse="85">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>He said: "We have put your people on trial in your absence; and Sameri has led them astray."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>He said, “We have therefore tried your people after you came, and Samri has led them astray.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Said He, 'We have tempted thy people since thou didst leave them. The Samaritan has misled them into error.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: verily We have tempted thy people after thee, and the Samiri hath led them astray.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>(Allah) said: "Verily! We have tried your people in your absence, and As-Samiri has led them astray."</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “We have tested your people in your absence, and the Samarian misled them.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Said He: "Verily We tested your people in your absence and the Samiri led them astray."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>(Allah) said: "Verily, We have tried your people in your absence, and As-Samiri has led them astray."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: Lo! We have tried thy folk in thine absence, and As-Samiri hath misled them.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He (Allah) said: 'We tempted your nation in your absence, and the Samaritan has misled them into error'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>[Allah] said, "But indeed, We have tried your people after you [departed], and the Samiri has led them astray."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>The Lord said, "We tested your people after you left them and the Samiri made them go astray."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: So surely We have tried your people after you, and the Samiri has led them astray.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>But God said, "We have tested your people in your absence. The Samiri has led them astray."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>(Allah) said: "We have tested thy people in thy absence: the Samiri has led them astray."</text>
+        </translation>
+      </translations>
+    </verse>
     <verse chapter="20" verse="86">
       <chapter_name/>
       <book_id>en.ahmedali</book_id>
@@ -13309,6 +14557,266 @@ A Jew from Hira asked me which one of the two periods Musa (i.e. Prophet Moses) 
         </translation>
       </translations>
     </verse>
+    <verse chapter="18" verse="78">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>"This is the parting of our "ways," he said. "But I will now explain the things you could not bear:</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>He said, “This is the parting between you and me; I shall now tell you the interpretation of the matters you could not patiently bear.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>Said he, 'This is the parting between me and thee. Now I will tell thee the interpretation of that thou couldst not bear patiently.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: this shall be the parting between me and thee; now I shall declare unto thee the interpretation of that wherewith thou wast not able to have patience.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>(Khidr) said: "This is the parting between me and you, I will tell you the interpretation of (those) things over which you were unable to hold patience.</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “This is the parting between you and me. I will tell you the interpretation of what you were unable to endure.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>He said: "This brings me and you to a parting of ways. Now I shall explain to you the true meaning of things about which you could not remain patient.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "This is the parting between you and I, I will tell you the interpretation of (those) things over which you were not able to be patient."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: This is the parting between thee and me! I will announce unto thee the interpretation of that thou couldst not bear with patience.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>He said: 'This is the parting between me and you. But now I will tell you the interpretation of that which you could not patiently bear.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>[Al-Khidh r] said, "This is parting between me and you. I will inform you of the interpretation of that about which you could not have patience.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He replied, "This is where we should depart from one another. I shall give an explanation to you for all that I have done for which you could not remain patient.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: This shall be separation between me and you; now I will inform you of the significance of that with which you could not have patience.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>He answered, "This is where you and I must part company. But first I will tell you the meaning of the things you could not bear with patiently.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He answered: "This is the parting between me and thee: now will I tell thee the interpretation of (those things) over which thou wast unable to hold patience.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="18" verse="79">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>That boat belonged to poor people who used to toil on the sea. I damaged it because there was a king after them who used to seize every ship by force.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“In respect of the boat – it belonged to the poor people who worked on the river, so I wished to flaw it – and behind them was a king who would capture every sound ship.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>As for the ship, it belonged to certain poor men, who toiled upon the sea; and I desired to damage it, for behind them there was a king who was seizing every ship by brutal force.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>As for the boat, it belonged to poor men working in the sea, so I intended to damage it, for there was before them a prince taking every boat by force.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"As for the ship, it belonged to Masakin (poor people) working in the sea. So I wished to make a defective damage in it, as there was a king after them who seized every ship by force.</text>
+        </translation>
+        <translation author="Itani">
+          <text>As for the boat, it belonged to paupers working at sea. I wanted to damage it because there was a king coming after them seizing every boat by force.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>As for the boat it belonged to some poor people who worked on the river, and I desired to damage it for beyond them lay the dominion of a king who was wont to seize every boat by force.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"As for the boat, it belonged to poor people working in the sea. So I wished to make a defective damage in it, as there was a king behind them who seized every boat by force."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>As for the ship, it belonged to poor people working on the river, and I wished to mar it, for there was a king behind them who is taking every ship by force.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>As for the ship, it belonged to poor people working on the sea. I rendered it imperfect because behind them there was a king who was taking every ship by brutal force.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>As for the ship, it belonged to poor people working at sea. So I intended to cause defect in it as there was after them a king who seized every [good] ship by force.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>"The boat belonged to some destitute people who were using it as a means of their living in the sea. The king had imposed a certain amount of tax on every undamaged boat. I damaged it so that they would not have to pay the tax.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>As for the boat, it belonged to (some) poor men who worked on the river and I wished that I should damage it, and there was behind them a king who seized every boat by force.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>"The boat belonged to some poor people who made their living from the sea. I wanted to damage it because there was a king coming behind them who was seizing every boat by force.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"As for the boat, it belonged to certain men in dire want: they plied on the water: I but wished to render it unserviceable, for there was after them a certain king who seized on every boat by force.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="18" verse="80">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>As for the boy, his parents were believers, but we feared that he would harass them with defiance and disbelief.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“And in respect of the boy – his parents were Muslims and we feared that he may incite them to rebellion and disbelief.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>As for the lad, his parents were believers; and we were afraid he would impose on them insolence and unbelief;</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And as for the boy, his parents were believers, and we apprehended that he might impose upon the twain exorbitance and infidelity.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And as for the boy, his parents were believers, and we feared lest he should oppress them by rebellion and disbelief.</text>
+        </translation>
+        <translation author="Itani">
+          <text>As for the boy, his parents were believers, and we feared he would overwhelm them with oppression and disbelief.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>As for the lad, his parents were people of faith, and we feared lest he should plague them with transgression and disbelief,</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And as for the boy, his parents were believers, and we feared he would oppress them by rebellion and disbelief."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And as for the lad, his parents were believers and we feared lest he should oppress them by rebellion and disbelief.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>As for the boy, his parents are believers, and we were afraid lest he should impose on them with his insolence and disbelief.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And as for the boy, his parents were believers, and we feared that he would overburden them by transgression and disbelief.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>"The young boy had very faithful parents. We were afraid that out of love for him they would lose their faith in God and commit rebellion</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And as for the boy, his parents were believers and we feared lest he should make disobedience and ingratitude to come upon them:</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>As for the youth, his parents were believers and we feared that he would trouble them by rebellion and denial of truth.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"As for the youth, his parents were people of Faith, and we feared that he would grieve them by obstinate rebellion and ingratitude (to Allah and man).</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="18" verse="81">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>We hoped their Lord would give them a substitute better than him in virtue and goodness.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“So we wished that their Lord may bestow them a child – better, purer and nearer to mercy.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>so we desired that their Lord should give to them in exchange one better than he in purity, and nearer in tenderness.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>So we intended that their Lord should change for the twain one better than he in piety and closer in affection.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"So we intended that their Lord should change him for them for one better in righteousness and near to mercy.</text>
+        </translation>
+        <translation author="Itani">
+          <text>So we wanted their Lord to replace him with someone better in purity, and closer to mercy.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>and we desired that their Lord should grant them another in his place, a son more upright and more tender hearted.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"So we intended that their Lord should exchange him for them for one better in righteousness and nearer to mercy."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And we intended that their Lord should change him for them for one better in purity and nearer to mercy.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>It was our wish that their Lord should grant them another in exchange, another better in purity and tenderness.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So we intended that their Lord should substitute for them one better than him in purity and nearer to mercy.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>so We decided that their Lord should replace him by a better and more virtuous son.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>So we desired that their Lord might give them in his place one better than him in purity and nearer to having compassion.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>We wanted their Lord to replace him with someone purer than him and more compassionate.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"So we desired that their Lord would give them in exchange (a son) better in purity (of conduct) and closer in affection.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="18" verse="82">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>As for that wall, it belonged to two orphan boys of the city, and their treasure was buried under it. Their father was an upright man. So your Lord willed that on reaching the age of maturity they should dig out their treasure as a favour from their Lord. So, I did not do that of my own accord. This is the explanation of things you could not bear with patience."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“And in respect of the wall – it belonged to two orphan boys of the city, and beneath it was their treasure, and their father was a virtuous man; therefore your Lord willed that they should reach their maturity and remove their treasure; by the mercy of your Lord; and I have not done this at my own command; this is the interpretation of the matters you could not patiently bear.” (* Hazrat Khidr was given the knowledge of the hidden – as in all three explanations he gave).</text>
+        </translation>
+        <translation author="Arberry">
+          <text>As for the wall, it belonged to two orphan lads in the city, and under it was a treasure belonging to them. Their father was a righteous man; and thy Lord desired that they should come of age and then bring forth their treasure as a mercy from thy Lord. I did it not of my own bidding. This is the interpretation of that thou couldst not bear patiently.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And as for the wall, it belonged to two orphan boys in the town and underneath it was a treasure belonging to them and their father had been righteous. So thy Lord intended that the twain should attain their maturity and bring forth for themselves their treasure as a mercy from thy Lord. And I did it not of mine own command; that is the interpretation of that wherewith thou wast not able to have patience.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>"And as for the wall, it belonged to two orphan boys in the town; and there was under it a treasure belonging to them; and their father was a righteous man, and your Lord intended that they should attain their age of full strength and take out their treasure as a mercy from your Lord. And I did it not of my own accord. That is the interpretation of those (things) over which you could not hold patience."</text>
+        </translation>
+        <translation author="Itani">
+          <text>And as for the wall, it belonged to two orphaned boys in the town. Beneath it was a treasure that belonged to them. Their father was a righteous man. Your Lord wanted them to reach their maturity, and then extract their treasure—as a mercy from your Lord. I did not do it of my own accord. This is the interpretation of what you were unable to endure.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>As for the wall, it belonged to two orphan boys in the city, and under it there was a treasure that belonged to them. Their father was a righteous man and your Lord intended that they should come of age and then bring forth their treasure as a mercy from your Lord; I did not do this of my own bidding. This is the true meaning of things with which you could not keep your patience."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"And as for the wall, it belonged to two orphan boys in the town; and there was under it a treasure belonging to them; and their father was a righteous man, and your Lord intended that they should attain their age of full strength and take out their treasure as a mercy from your Lord. And I did them not of my own accord. That is the interpretation of those (things) over which you could not be patient.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And as for the wall, it belonged to two orphan boys in the city, and there was beneath it a treasure belonging to them, and their father had been righteous, and thy Lord intended that they should come to their full strength and should bring forth their treasure as a mercy from their Lord; and I did it not upon my own command. Such is the interpretation of that wherewith thou couldst not bear.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>As for the wall, it belonged to two orphan boys in the city. Beneath it was (buried) a treasure which belonged to them. Their father had been a righteous person and your Lord willed that when they reach manhood to bring out their treasure as a mercy from your Lord. What I did was not done by my own command. That is the interpretation of what you could not bear with patience'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And as for the wall, it belonged to two orphan boys in the city, and there was beneath it a treasure for them, and their father had been righteous. So your Lord intended that they reach maturity and extract their treasure, as a mercy from your Lord. And I did it not of my own accord. That is the interpretation of that about which you could not have patience."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>"The tumbling wall belonged to two orphans in the town whose father was a righteous person. Underneath the wall there was a treasure that belonged to them. Your Lord wanted the orphans to find the treasure through the mercy of your Lord when they mature. I did not repair the wall out of my own desire. These were the explanations of my deeds about which you could not remain patient."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And as for the wall, it belonged to two orphan boys in the city, and there was beneath it a treasure belonging to them, and their father was a righteous man; so your Lord desired that they should attain their maturity and take out their treasure, a mercy from your Lord, and I did not do it of my own accord. This is the significance of that with which you could not have patience.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>"The wall belonged to two young orphans in the town whose father had been a righteous man, and a treasure of theirs lay underneath it. So your Lord wanted them to come of age and then to dig up their treasure as a mercy from Him. I did not do [it] of my own accord. That is the explanation of the things about which you were not able to restrain yourself."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"As for the wall, it belonged to two youths, orphans, in the Town; there was, beneath it, a buried treasure, to which they were entitled: their father had been a righteous man: So thy Lord desired that they should attain their age of full strength and get out their treasure - a mercy (and favour) from thy Lord. I did it not of my own accord. Such is the interpretation of (those things) over which thou wast unable to hold patience."</text>
+        </translation>
+      </translations>
+    </verse>
     <verse chapter="28" verse="76">
       <chapter_name/>
       <book_id>en.ahmedali</book_id>
@@ -13358,6 +14866,318 @@ A Jew from Hira asked me which one of the two periods Musa (i.e. Prophet Moses) 
         </translation>
         <translation author="Yusuf Ali">
           <text>Qarun was doubtless, of the people of Moses; but he acted insolently towards them: such were the treasures We had bestowed on him that their very keys would have been a burden to a body of strong men, behold, his people said to him: "Exult not, for Allah loveth not those who exult (in riches).</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="28" verse="77">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>So seek the abode of the Hereafter through what God has given you, and do not forget your part in this world. Do good to others as God has done good to you, and do not try to spread corruption in the land. Surely God does not like corrupters."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>“And seek the abode of the Hereafter with the wealth that Allah has given you, and do not forget your part in this world, and do favours (to others) the way Allah has favoured you, and do not seek to cause turmoil in the earth; indeed Allah does not like the mischievous.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>but seek, amidst that which God has given thee, the Last Abode, and forget not thy portion of the present world; and do good, as God has been good to thee.' And seek not to work corruption in the earth; surely God loves not the workers of corruption.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And seek the abode of the Hereafter with that which God hath vouchsafed thee, and forget not thy portion in the World, and be thou bounteous even as God hath been bounteous unto thee, and seek not corruption in the earth; verily Allah loveth not corrupters.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>But seek, with that (wealth) which Allah has bestowed on you, the home of the Hereafter, and forget not your portion of legal enjoyment in this world, and do good as Allah has been good to you, and seek not mischief in the land. Verily, Allah likes not the Mufsidun (those who commit great crimes and sins, oppressors, tyrants, mischief-makers, corrupts).</text>
+        </translation>
+        <translation author="Itani">
+          <text>But seek, with what God has given you, the Home of the Hereafter, and do not neglect your share of this world. And be charitable, as God has been charitable to you. And do not seek corruption in the land. God does not like the seekers of corruption.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Seek by means of the wealth that Allah has granted you the Abode of the Hereafter, but forget not your share in this world and do good as Allah has been good to you and do not strive to create mischief in the land, for Allah loves not those who create mischief."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>"But seek, with that which Allah has bestowed on you, the home of the Hereafter, and forget not your portion of lawful enjoyment in this world; and be generous as Allah has been generous to you, and seek not mischief in the land. Verily, Allah likes not the mischief-makers."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>But seek the abode of the Hereafter in that which Allah hath given thee and neglect not thy portion of the world, and be thou kind even as Allah hath been kind to thee, and seek not corruption in the earth; lo! Allah loveth not corrupters,</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>But seek, in that which Allah has given you to attain the Everlasting residence. Do not forget your share in this world. Do good, as Allah has been good to you, and do not corrupt in the land, Allah does not love those who corrupt.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>But seek, through that which Allah has given you, the home of the Hereafter; and [yet], do not forget your share of the world. And do good as Allah has done good to you. And desire not corruption in the land. Indeed, Allah does not like corrupters."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Seek the gains of the life to come through your wealth without ignoring your share of this life. Do favors to others just as God has done favors to you. Do not commit evil in the land for God does not love the evil-doers."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And seek by means of what Allah has given you the future abode, and do not neglect your portion of this world, and do good (to others) as Allah has done good to you, and do not seek to make mischief in the land, surely Allah does not love the mischief-makers.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>But seek the Home of the Hereafter by means of that which God has bestowed on you; do not forget to take your portion [of the Hereafter] in this world." Be good to others as God has been good to you and do not strive for evil in the land, for God does not love the evil-doers."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>"But seek, with the (wealth) which Allah has bestowed on thee, the Home of the Hereafter, nor forget thy portion in this world: but do thou good, as Allah has been good to thee, and seek not (occasions for) mischief in the land: for Allah loves not those who do mischief."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="28" verse="78">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>He said: "This has come to me through my own acumen." Did he not know that God had destroyed many generations before him who possessed far more acumen than he, and more wealth? The sinners will not be asked about their sins.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>He said, “I got this only due to a knowledge I have”; and does he not know that before him Allah destroyed the generations who were stronger than him and more in number? And there is no questioning of the guilty regarding their sins.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>He said, 'What I have been given is only because of a knowledge that is in me.' What, did he not know that God bad destroyed before him generations of men stronger than he ill might, and more numerous in multitude? And yet the sinners shall not be questioned concerning their sins.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>He said: I have been vouchsafed this only because of the knowledge that is with me. Knew he not that Allah had destroyed before him, of the generations, those who were stronger than he in might and larger in respect of following? And the culprits shall not be questioned of their sins.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>He said: "This has been given to me only because of knowledge I possess." Did he not know that Allah had destroyed before him generations, men who were stronger than him in might and greater in the amount (of riches) they had collected. But the Mujrimun (criminals, disbelievers, polytheists, sinners, etc.) will not be questioned of their sins (because Allah knows them well, so they will be punished without account).</text>
+        </translation>
+        <translation author="Itani">
+          <text>He said, “I was given all this on account of knowledge I possess.” Did he not know that God destroyed many generations before him, who were stronger than he, and possessed greater riches? But the guilty will not be asked about their sins.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>He replied: "All this has been given to me on account of a certain knowledge that I have." Did he not know that Allah had destroyed before him those who were stronger in might than he and were more numerous in multitude? The wicked are not asked about their acts of sin.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>He said: "This has been given to me only because of the knowledge I possess." Did he not know that Allah had destroyed before him generations, men who were stronger than him in might and greater in the amount they had collected But the criminals will not be questioned of their sins.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>He said: I have been given it only on account of knowledge I possess. Knew he not that Allah had destroyed already of the generations before him men who were mightier than him in strength and greater in respect of following? The guilty are not questioned of their sins.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>But he replied: 'What was given me is only because of the knowledge I possess' Did he not know that from the generations before him Allah had destroyed a mightier and more numerous in multitude? The sinners shall not be questioned about their sins.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>He said, "I was only given it because of knowledge I have." Did he not know that Allah had destroyed before him of generations those who were greater than him in power and greater in accumulation [of wealth]? But the criminals, about their sins, will not be asked.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>He said, "I have received this wealth because of my knowledge." Did he not know that God had destroyed many generations that lived before him who were stronger than him in power and people? (There will be no need) to ask the criminals what sins they have committed, (for the angels already know them)</text>
+        </translation>
+        <translation author="Shakir">
+          <text>He said: I have been given this only on account of the knowledge I have. Did he not know that Allah had destroyed before him of the generations those who were mightier in strength than he and greater in assemblage? And the guilty shall not be asked about their faults.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>But he said, "I have been given it only because of the knowledge I possess." Did he not know that God had destroyed before him people who were stronger than he and possessed even greater resources? The guilty are not required to offer explanations of their sins.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>He said: "This has been given to me because of a certain knowledge which I have." Did he not know that Allah had destroyed, before him, (whole) generations,- which were superior to him in strength and greater in the amount (of riches) they had collected? but the wicked are not called (immediately) to account for their sins.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="28" verse="79">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Then he came before his people in all pomp; and those enamoured of this world, said: "Ah would that we had what Qarun has been given! He indeed possesses great good fortune."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>He therefore came before his people in his pomp; said those who desired the worldly life, “If only we were to get what Qaroon has been given – he is indeed very fortunate.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>So he went forth unto his people in his adornment. Those who desired the present life said, 'Would that we possessed the like of that Korah has been given! Surely he is a man of mighty fortune.</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then he went forth unto his people in his pomp. Those who sought the life of the world said: would that we had the like of that which hath been vouchsafed unto Qarun! Verily he is the owner of a very great fortune.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>So he went forth before his people in his pomp. Those who were desirous of the life of the world, said: "Ah, would that we had the like of what Qarun (Korah) has been given? Verily! He is the owner of a great fortune."</text>
+        </translation>
+        <translation author="Itani">
+          <text>And he went out before his people in his splendor. Those who desired the worldly life said, “If only we possessed the likes of what Quaroon was given. He is indeed very fortunate.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>Once Korah went forth among his people in full glitter. Those seeking the life of this world said: "Would that we had the like of what Korah has! He truly has a great fortune."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>So, he went forth before his people in his finery. Those who were desirous of the life of the world, said: "Ah, would that we had the like of what Qarun has been given! Verily, he is the owner of a great fortune."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>Then went he forth before his people in his pomp. Those who were desirous of the life of the world said: Ah, would that we had the like of what hath been given unto Korah! Lo! he is lord of rare good fortune.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>So he went out in all his finery among his nation, those who desired this life said: 'Would that we had the like of that Korah has been given! He has indeed a mighty fortune'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>So he came out before his people in his adornment. Those who desired the worldly life said, "Oh, would that we had like what was given to Qarun. Indeed, he is one of great fortune."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>Korah would bedeck himself to show off his wealth. Those who wanted worldly gains would say, "Would that we were given that which Korah has received. He has certainly received a great share."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>So he went forth to his people in his finery. Those who desire this world's life said: O would that we had the like of what Qaroun is given; most surely he is possessed of mighty good fortune.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Then he went forth before his people in all his pomp. Those who were eager for the life of this world said, "If only we had the like of Korah's fortune! He really is a very fortunate man,"</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>So he went forth among his people in the (pride of his wordly) glitter. Said those whose aim is the Life of this World: "Oh! that we had the like of what Qarun has got! for he is truly a lord of mighty good fortune!"</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="28" verse="80">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>But those who knew better, said: "Alack-a-day! God's guerdon is better for those who believe and do the right. Only those who persevere will receive it."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And said those who were given the knowledge, “Woe to you – the reward of Allah is better for one who accepts faith and does good deeds; and only those who are patient will receive it.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>But those to whom knowledge had been given said, 'Woe upon you! The reward of God is better for him who believes, and works righteousness; and none shall receive it except the steadfast.'</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And those who had been vouchsafed the knowledge said: woe unto you! the reward of Allah is best for him who believeth and worketh righteously and none shall attain it except the patient.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>But those who had been given (religious) knowledge said: "Woe to you! The Reward of Allah (in the Hereafter) is better for those who believe and do righteous good deeds, and this none shall attain except those who are patient (in following the truth)."</text>
+        </translation>
+        <translation author="Itani">
+          <text>But those who were given knowledge said, “Woe to you! The reward of God is better for those who believe and do righteous deeds.” Yet none attains it except the steadfast.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>But those endowed with true knowledge said: "Woe to you. The reward of Allah is best for those who believe and act righteously. But none except those who are patient shall attain to this."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>But those who had been given knowledge said: "Woe to you! The reward of Allah is better for those who believe and do righteous deeds, and this none shall attain except the patient."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>But those who had been given knowledge said: Woe unto you! The reward of Allah for him who believeth and doeth right is better, and only the steadfast will obtain it.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>But those to whom knowledge had been given said: 'Alas for you! Better is the reward of Allah for him who believes and does good works; but none shall receive it except the patient'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>But those who had been given knowledge said, "Woe to you! The reward of Allah is better for he who believes and does righteousness. And none are granted it except the patient."</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>The people who had received knowledge would tell them, "Woe to you! The reward of God is far better for the righteously striving believers. No one can receive such reward except those who exercise patience."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And those who were given the knowledge said: Woe to you! Allah's reward is better for him who believes and does good, and none is made to receive this except the patient.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>but those who had been given knowledge said, "Woe to you, God's reward is better for those who believe and do good deeds: and it is awarded only to those who are steadfast."</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>But those who had been granted (true) knowledge said: "Alas for you! The reward of Allah (in the Hereafter) is best for those who believe and work righteousness: but this none shall attain, save those who steadfastly persevere (in good)."</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="28" verse="81">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>So We opened up the earth and sunk him and his mansion. There was not a body that could help him against (the will) of God, nor was he able to save himself.</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>We therefore buried him and his house into the earth; so he had no group to help save him from Allah; nor could he take revenge.</text>
+        </translation>
+        <translation author="Arberry">
+          <text>So We made the earth to swallow him and his dwelling and there was no host to help him, apart from God, and he was helpless;</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>Then We sank the earth with him and his dwelling-place. And he had no host to defend him against Allah, nor was he of those who could defend themselves.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>So We caused the earth to swallow him and his dwelling place. Then he had no group or party to help him against Allah, nor was he one of those who could save themselves.</text>
+        </translation>
+        <translation author="Itani">
+          <text>So We caused the earth to cave in on him and his mansion. He had no company to save him from God, and he could not defend himself.</text>
+        </translation>
+        <translation author="Maududi">
+          <text>At last We caused the earth to swallow him and his house. Thereafter there was no group of people that could come to his aid against Allah; nor was he able to come to his own aid.</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>So, We caused the earth to swallow him and his dwelling place. Then he had no group to help him against Allah, nor was he one of those who could save themselves.</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>So We caused the earth to swallow him and his dwelling-place. Then he had no host to help him against Allah, nor was he of those who can save themselves.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>We caused the earth to swallow him, together with his dwelling, and there was no host to help him, other than Allah; and he was not amongst the victorious.</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And We caused the earth to swallow him and his home. And there was for him no company to aid him other than Allah, nor was he of those who [could] defend themselves.</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>We caused the earth to swallow up him and his home. No one besides God could help him nor could he himself achieve victory.</text>
+        </translation>
+        <translation author="Shakir">
+          <text>Thus We made the earth to swallow up him and his abode; so he had no body of helpers to assist him against Allah nor was he of those who can defend themselves.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Then We caused the earth to swallow up him and his home: there was no one to help him against God, nor could he defend himself.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>Then We caused the earth to swallow up him and his house; and he had not (the least little) party to help him against Allah, nor could he defend himself.</text>
+        </translation>
+      </translations>
+    </verse>
+    <verse chapter="28" verse="82">
+      <chapter_name/>
+      <book_id>en.ahmedali</book_id>
+      <score>0</score>
+      <translations>
+        <translation author="Ahmed Ali">
+          <text>Those who were envious of his position only yesterday said on the morrow: "Indeed God increases the fortunes of those of His creatures as He will, and decreases. Had God not been gracious to us He could have (opened up) the earth and made it swallow us. Surely the infidels will not succeed."</text>
+        </translation>
+        <translation author="Ahmed Raza Khan">
+          <text>And those who had the day before desired his status, said in the morning, “It is strange – Allah expands the sustenance for whomever He wills among His bondmen, and restricts it; if Allah had not been gracious to us He would have buried us too; strangely, the disbelievers do not prosper.”</text>
+        </translation>
+        <translation author="Arberry">
+          <text>and in the morning those who had longed to be in his place the day before were saying, 'Ah, God outspreads and straitens His provision to whomsoever He will of His servants. Had God not been gracious to us, He would have made us to be swallowed too. Ah, the unbelievers do not prosper,</text>
+        </translation>
+        <translation author="Daryabadi">
+          <text>And those who had wished for his place but yesterday began to say: Ah! Allah expandeth the provision for whomsoever He will of His bondmen and stinteth, had not Allah been gracious unto us, He would have sunk the earth with us also. Ah! the infidels thrive not.</text>
+        </translation>
+        <translation author="Hilali &amp; Khan">
+          <text>And those who had desired (for a position like) his position the day before, began to say: "Know you not that it is Allah Who enlarges the provision or restricts it to whomsoever He pleases of His slaves. Had it not been that Allah was Gracious to us, He could have caused the earth to swallow us up (also)! Know you not that the disbelievers will never be successful.</text>
+        </translation>
+        <translation author="Itani">
+          <text>Those who had wished they were in his position the day before were saying, “Indeed, it is God who spreads the bounty to whomever He wills of His servants, and restricts it. Had God not been gracious to us, He would have caved in on us. No wonder the ungrateful never prosper.”</text>
+        </translation>
+        <translation author="Maududi">
+          <text>And those who had envied his position the day before began to say on the morrow: "Alas, we had forgotten that it is Allah Who increases the provision of those of His servants whom He will and grants in sparing measure to those whom He will. But for Allah's favour upon us, He could have made us to be swallowed too. Alas, we had forgotten that the unbelievers do not prosper."</text>
+        </translation>
+        <translation author="Mubarakpuri">
+          <text>And those who desired his position the day before, began to say: "Know you not that it is Allah Who expands the provision or restricts it to whomsoever He pleases of His servants. Had it not been that Allah was Gracious to us, He could have caused the earth to swallow us up! Know you not that the disbelievers will never be successful."</text>
+        </translation>
+        <translation author="Pickthall">
+          <text>And morning found those who had coveted his place but yesterday crying: Ah, welladay! Allah enlargeth the provision for whom He will of His slaves and straiteneth it (for whom He will). If Allah had not been gracious unto us He would have caused it to swallow us (also). Ah, welladay! the disbelievers never prosper.</text>
+        </translation>
+        <translation author="Qaribullah &amp; Darwish">
+          <text>And in the morning those who had wished to be in his place the previous evening said: 'Indeed, Allah outspreads to whom He will among His worshipers, and He restrains. Had He not shown us favor, He could have caused the earth to swallow us. Indeed, the unbelievers shall never prosper'</text>
+        </translation>
+        <translation author="Saheeh International">
+          <text>And those who had wished for his position the previous day began to say, "Oh, how Allah extends provision to whom He wills of His servants and restricts it! If not that Allah had conferred favor on us, He would have caused it to swallow us. Oh, how the disbelievers do not succeed!"</text>
+        </translation>
+        <translation author="Sarwar">
+          <text>The people who the other day had wished to be like him, began saying, "Woe to us! God gives abundant wealth only to those of His servants whom He wants and He determines everyone's share. Had it not been for God's favor to us, He would have caused the earth to swallow us up. Woe to the unbelievers who will have no happiness."</text>
+        </translation>
+        <translation author="Shakir">
+          <text>And those who yearned for his place only the day before began to say: Ah! (know) that Allah amplifies and straitens the means of subsistence for whom He pleases of His servants; had not Allah been gracious to us, He would most surely have abased us; ah! (know) that the ungrateful are never successful.</text>
+        </translation>
+        <translation author="Wahiduddin Khan">
+          <text>Those who had coveted his position the day before now began to say, "Ah! It is indeed God alone who gives abundantly to whom He will and sparingly to whom He pleases. Had not God been gracious to us, He would have caused us to be swallowed up also." Alas indeed! Those who deny the truth will never prosper.</text>
+        </translation>
+        <translation author="Yusuf Ali">
+          <text>And those who had envied his position the day before began to say on the morrow: "Ah! it is indeed Allah Who enlarges the provision or restricts it, to any of His servants He pleases! had it not been that Allah was gracious to us, He could have caused the earth to swallow us up! Ah! those who reject Allah will assuredly never prosper."</text>
         </translation>
       </translations>
     </verse>
