@@ -16,8 +16,6 @@ const MAX_HEIGHT_VH = 80;
 export default function WordBottomSheet({ className = '' }: WordBottomSheetProps) {
   const {
     selectedWord,
-    currentWordIndex,
-    totalWords,
     canGoNext,
     canGoPrev,
     isOpen,
@@ -123,9 +121,6 @@ export default function WordBottomSheet({ className = '' }: WordBottomSheetProps
             >
               <FiChevronLeft size={18} />
             </button>
-            <span className="text-xs text-gray-400 tabular-nums min-w-[3rem] text-center">
-              {currentWordIndex + 1} / {totalWords}
-            </span>
             <button
               onClick={() => navigateWord('next')}
               disabled={!canGoNext}

@@ -19,8 +19,6 @@ export interface RegisteredWord {
 interface WordDictionaryContextValue {
   selectedWord: QuranWord | null;
   selectedLocation: WordLocation | null;
-  currentWordIndex: number;
-  totalWords: number;
   canGoNext: boolean;
   canGoPrev: boolean;
   isOpen: boolean;
@@ -51,30 +49,41 @@ interface RegisteredGroup {
   elements: Map<number, HTMLElement>;
 }
 
+/** Build a sorted flat list from groups on demand (no state needed) */
+function buildFlatList(groups: RegisteredGroup[]): RegisteredWord[] {
+  const sorted = [...groups].sort((a, b) => {
+    if (a.chapter !== b.chapter) return a.chapter - b.chapter;
+    return a.verse - b.verse;
+  });
+  const flat: RegisteredWord[] = [];
+  for (const group of sorted) {
+    for (const word of group.words) {
+      flat.push({
+        chapter: group.chapter,
+        verse: group.verse,
+        word,
+        element: group.elements.get(word.position) ?? null,
+      });
+    }
+  }
+  return flat;
+}
+
+function findWordIndex(flat: RegisteredWord[], loc: WordLocation | null): number {
+  if (!loc) return -1;
+  return flat.findIndex(w =>
+    w.chapter === loc.chapter &&
+    w.verse === loc.verse &&
+    w.word.position === loc.position
+  );
+}
+
 export function WordDictionaryProvider({ children }: { children: React.ReactNode }) {
   const [selectedWord, setSelectedWord] = useState<QuranWord | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<WordLocation | null>(null);
   const groupsRef = useRef<RegisteredGroup[]>([]);
-  const [flatWords, setFlatWords] = useState<RegisteredWord[]>([]);
-
-  const rebuildFlatList = useCallback(() => {
-    const sorted = [...groupsRef.current].sort((a, b) => {
-      if (a.chapter !== b.chapter) return a.chapter - b.chapter;
-      return a.verse - b.verse;
-    });
-    const flat: RegisteredWord[] = [];
-    for (const group of sorted) {
-      for (const word of group.words) {
-        flat.push({
-          chapter: group.chapter,
-          verse: group.verse,
-          word,
-          element: group.elements.get(word.position) ?? null,
-        });
-      }
-    }
-    setFlatWords(flat);
-  }, []);
+  // Bump this to force re-render when groups change
+  const [, setGroupVersion] = useState(0);
 
   const registerWords = useCallback((id: string, chapter: number, verse: number, words: QuranWord[], elements: Map<number, HTMLElement>) => {
     const existing = groupsRef.current.findIndex(g => g.id === id);
@@ -83,38 +92,30 @@ export function WordDictionaryProvider({ children }: { children: React.ReactNode
     } else {
       groupsRef.current.push({ id, chapter, verse, words, elements });
     }
-    rebuildFlatList();
-  }, [rebuildFlatList]);
+    setGroupVersion(v => v + 1);
+  }, []);
 
   const unregisterWords = useCallback((id: string) => {
     groupsRef.current = groupsRef.current.filter(g => g.id !== id);
-    rebuildFlatList();
-  }, [rebuildFlatList]);
+    setGroupVersion(v => v + 1);
+  }, []);
 
-  const currentWordIndex = selectedLocation
-    ? flatWords.findIndex(w =>
-        w.chapter === selectedLocation.chapter &&
-        w.verse === selectedLocation.verse &&
-        w.word.position === selectedLocation.position
-      )
-    : -1;
-
+  // Compute navigation state from ref directly (always fresh)
+  const flatWords = buildFlatList(groupsRef.current);
+  const currentWordIndex = findWordIndex(flatWords, selectedLocation);
   const canGoPrev = currentWordIndex > 0;
   const canGoNext = currentWordIndex >= 0 && currentWordIndex < flatWords.length - 1;
 
   const selectWord = useCallback((chapter: number, verse: number, word: QuranWord) => {
-    if (
-      selectedLocation?.chapter === chapter &&
-      selectedLocation?.verse === verse &&
-      selectedLocation?.position === word.position
-    ) {
-      setSelectedWord(null);
-      setSelectedLocation(null);
-    } else {
+    setSelectedLocation(prev => {
+      if (prev?.chapter === chapter && prev?.verse === verse && prev?.position === word.position) {
+        setSelectedWord(null);
+        return null;
+      }
       setSelectedWord(word);
-      setSelectedLocation({ chapter, verse, position: word.position });
-    }
-  }, [selectedLocation]);
+      return { chapter, verse, position: word.position };
+    });
+  }, []);
 
   const clearSelection = useCallback(() => {
     setSelectedWord(null);
@@ -122,17 +123,20 @@ export function WordDictionaryProvider({ children }: { children: React.ReactNode
   }, []);
 
   const navigateWord = useCallback((direction: 'prev' | 'next') => {
-    if (currentWordIndex < 0) return;
-    const newIndex = direction === 'next' ? currentWordIndex + 1 : currentWordIndex - 1;
-    if (newIndex < 0 || newIndex >= flatWords.length) return;
-    const target = flatWords[newIndex];
-    setSelectedWord(target.word);
-    setSelectedLocation({ chapter: target.chapter, verse: target.verse, position: target.word.position });
-    // Auto-scroll to keep the highlighted word visible
-    if (target.element) {
-      target.element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
-    }
-  }, [currentWordIndex, flatWords]);
+    setSelectedLocation(prev => {
+      const flat = buildFlatList(groupsRef.current);
+      const idx = findWordIndex(flat, prev);
+      if (idx < 0) return prev;
+      const newIndex = direction === 'next' ? idx + 1 : idx - 1;
+      if (newIndex < 0 || newIndex >= flat.length) return prev;
+      const target = flat[newIndex];
+      setSelectedWord(target.word);
+      if (target.element) {
+        target.element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+      }
+      return { chapter: target.chapter, verse: target.verse, position: target.word.position };
+    });
+  }, []);
 
   // Keyboard navigation
   useEffect(() => {
@@ -159,8 +163,6 @@ export function WordDictionaryProvider({ children }: { children: React.ReactNode
     <WordDictionaryContext.Provider value={{
       selectedWord,
       selectedLocation,
-      currentWordIndex,
-      totalWords: flatWords.length,
       canGoNext,
       canGoPrev,
       isOpen: selectedWord !== null,

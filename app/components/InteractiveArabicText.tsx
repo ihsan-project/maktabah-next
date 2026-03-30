@@ -68,12 +68,8 @@ export default function InteractiveArabicText({
   // Register words with context when in drawer mode
   useEffect(() => {
     if (!usingDrawer || !words || !dictCtx) return;
-    // Defer registration to after spans have mounted
-    const timer = setTimeout(() => {
-      dictCtx.registerWords(groupId, chapter, verse, words, new Map(wordSpanRefs.current));
-    }, 0);
+    dictCtx.registerWords(groupId, chapter, verse, words, wordSpanRefs.current);
     return () => {
-      clearTimeout(timer);
       dictCtx.unregisterWords(groupId);
     };
   }, [usingDrawer, words, dictCtx, groupId, chapter, verse]);
