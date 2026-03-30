@@ -2,14 +2,14 @@
 
 import React, { useEffect, useRef, useCallback } from 'react';
 import { useAuth } from './AuthProvider';
-import { FiX, FiLogOut, FiBook, FiBookOpen, FiBookmark, FiCode, FiCoffee } from 'react-icons/fi';
+import { FiX, FiLogOut, FiBook, FiBookOpen, FiBookmark, FiCode, FiCoffee, FiSearch, FiLogIn } from 'react-icons/fi';
 import { SideMenuProps } from '@/types';
 import { getProfileImageUrl, getUserInitials } from '@/lib/user-utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function SideMenu({ isOpen, onClose }: SideMenuProps): JSX.Element {
-  const { user, logout } = useAuth();
+  const { user, logout, signInWithGoogle } = useAuth();
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -78,12 +78,22 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps): JSX.Elemen
     onClose();
   };
 
-  const navItems = [
-    { href: '/quran', label: 'Quran', icon: FiBookOpen },
-    { href: '/stories', label: 'Stories', icon: FiBook },
-    { href: '/bookmarks', label: 'Bookmarks', icon: FiBookmark },
-    { href: '/developers', label: 'Developers', icon: FiCode },
+  const allNavItems = [
+    { href: '/search', label: 'Search', icon: FiSearch, requiresAuth: true },
+    { href: '/quran', label: 'Quran', icon: FiBookOpen, requiresAuth: false },
+    { href: '/stories', label: 'Stories', icon: FiBook, requiresAuth: false },
+    { href: '/bookmarks', label: 'Bookmarks', icon: FiBookmark, requiresAuth: true },
+    { href: '/developers', label: 'Developers', icon: FiCode, requiresAuth: true },
   ];
+
+  const navItems = user
+    ? allNavItems
+    : allNavItems.filter((item) => !item.requiresAuth || item.href === '/search');
+
+  const handleSearchLogin = async (): Promise<void> => {
+    onClose();
+    await signInWithGoogle();
+  };
 
   return (
     <div
@@ -119,7 +129,7 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps): JSX.Elemen
             </button>
           </div>
 
-          {user && (
+          {user ? (
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center text-white overflow-hidden flex-shrink-0">
                 {getProfileImageUrl(user.photoURL) ? (
@@ -137,24 +147,48 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps): JSX.Elemen
                 <p className="text-sm text-green-200 truncate">{user.email}</p>
               </div>
             </div>
+          ) : (
+            <button
+              onClick={handleSearchLogin}
+              className="flex items-center space-x-3 w-full py-2 px-2 rounded-md hover:bg-primary-light transition-colors"
+            >
+              <FiLogIn size={20} />
+              <span>Sign in</span>
+            </button>
           )}
         </div>
 
         {/* Navigation links */}
         <nav className="flex-1 py-2 overflow-y-auto">
-          {navItems.map(({ href, label, icon: Icon }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={onClose}
-              className={`flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors ${
-                pathname === href ? 'bg-gray-100 text-primary font-medium border-l-4 border-primary' : ''
-              }`}
-            >
-              <Icon size={20} />
-              <span>{label}</span>
-            </Link>
-          ))}
+          {navItems.map(({ href, label, icon: Icon, requiresAuth }) => {
+            // Search item triggers login for logged-out users
+            if (!user && requiresAuth) {
+              return (
+                <button
+                  key={href}
+                  onClick={handleSearchLogin}
+                  className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors w-full"
+                >
+                  <Icon size={20} />
+                  <span>{label}</span>
+                </button>
+              );
+            }
+
+            return (
+              <Link
+                key={href}
+                href={href}
+                onClick={onClose}
+                className={`flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors ${
+                  pathname === href ? 'bg-gray-100 text-primary font-medium border-l-4 border-primary' : ''
+                }`}
+              >
+                <Icon size={20} />
+                <span>{label}</span>
+              </Link>
+            );
+          })}
 
           <div className="border-t border-gray-200 my-2" />
 

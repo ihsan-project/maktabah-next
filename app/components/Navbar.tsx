@@ -11,6 +11,7 @@ const EDGE_THRESHOLD = 20; // pixels from left edge to start swipe
 const SWIPE_MIN_DISTANCE = 50; // minimum swipe distance to trigger open
 
 function NavbarSearch(): JSX.Element {
+  const { user, signInWithGoogle } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -22,6 +23,19 @@ function NavbarSearch(): JSX.Element {
   // Hide navbar search on the search hero page (search page with no query)
   const isSearchHero = pathname === '/search' && !searchParams.get('q');
   if (isSearchHero) return <></>;
+
+  // If not logged in, show search icon that triggers login
+  if (!user) {
+    return (
+      <button
+        className="flex items-center focus:outline-none focus:ring-2 focus:ring-white rounded p-1"
+        onClick={signInWithGoogle}
+        aria-label="Sign in to search"
+      >
+        <FiSearch size={22} />
+      </button>
+    );
+  }
 
   const handleNavSearch = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -113,7 +127,6 @@ function NavbarSearch(): JSX.Element {
 }
 
 export default function Navbar(): JSX.Element {
-  const { user } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
@@ -155,28 +168,24 @@ export default function Navbar(): JSX.Element {
         <div className="flex items-center justify-between h-16">
           {/* Left side: Hamburger and Logo */}
           <div className="flex items-center gap-4">
-            {user && (
-              <button
-                className="flex items-center focus:outline-none focus:ring-2 focus:ring-white rounded p-1"
-                onClick={toggleMenu}
-                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-                aria-expanded={isMenuOpen}
-              >
-                <FiMenu size={24} />
-              </button>
-            )}
+            <button
+              className="flex items-center focus:outline-none focus:ring-2 focus:ring-white rounded p-1"
+              onClick={toggleMenu}
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
+            >
+              <FiMenu size={24} />
+            </button>
 
             <Link href="/" className="font-bold text-xl flex-shrink-0">
               Maktabah
             </Link>
           </div>
 
-          {/* Right side: Nav search (when logged in) */}
-          {user && (
-            <Suspense fallback={null}>
-              <NavbarSearch />
-            </Suspense>
-          )}
+          {/* Right side: Nav search (functional when logged in, prompts login otherwise) */}
+          <Suspense fallback={null}>
+            <NavbarSearch />
+          </Suspense>
         </div>
       </div>
 
