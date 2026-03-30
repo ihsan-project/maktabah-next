@@ -163,7 +163,7 @@ export default function Navbar(): JSX.Element {
   }, []);
 
   return (
-    <header className="bg-primary text-white shadow-md">
+    <header className="bg-primary text-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Left side: Hamburger and Logo */}
