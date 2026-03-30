@@ -6,6 +6,9 @@ import SearchForm from '@/app/components/SearchForm';
 import SearchResults from '@/app/components/SearchResults';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
 import SearchModeToggle, { SearchMode } from '@/app/components/SearchModeToggle';
+import WordDrawer from '@/app/components/WordDrawer';
+import WordBottomSheet from '@/app/components/WordBottomSheet';
+import { WordDictionaryProvider, useWordDictionaryOptional } from '@/app/contexts/WordDictionaryContext';
 import { SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
 
@@ -209,28 +212,68 @@ function SearchPageContent(): JSX.Element {
   // Results layout — active query
   return (
     <ProtectedRoute>
-      <div className="pb-8">
-        {/* Sticky Search Form Container */}
-        <div className="sticky top-0 z-10 bg-secondary py-4 shadow-md">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap md:flex-nowrap gap-4 items-center">
-              {isDevelopment && (
-                <div className="order-1 md:order-none w-full md:w-auto flex gap-2 items-center">
-                  <SearchModeToggle
-                    mode={searchMode}
-                    onChange={setSearchMode}
-                  />
-                </div>
-              )}
-              <div className="w-full">
-                <SearchForm onSearch={handleSearch} initialQuery={query} />
+      <WordDictionaryProvider>
+        <SearchResultsLayout
+          query={query}
+          loading={loading}
+          totalResults={totalResults}
+          results={results}
+          page={page}
+          totalPages={totalPages}
+          searchMode={searchMode}
+          isDevelopment={isDevelopment}
+          onSearch={handleSearch}
+          onSearchModeChange={setSearchMode}
+          onPageChange={handlePageChange}
+        />
+      </WordDictionaryProvider>
+    </ProtectedRoute>
+  );
+}
+
+function SearchResultsLayout({
+  query, loading, totalResults, results, page, totalPages,
+  searchMode, isDevelopment, onSearch, onSearchModeChange, onPageChange,
+}: {
+  query: string;
+  loading: boolean;
+  totalResults: number;
+  results: SearchResult[];
+  page: number;
+  totalPages: number;
+  searchMode: SearchMode;
+  isDevelopment: boolean;
+  onSearch: (q: string) => void;
+  onSearchModeChange: (m: SearchMode) => void;
+  onPageChange: (p: number) => void;
+}) {
+  const dictCtx = useWordDictionaryOptional();
+  const isDrawerOpen = dictCtx?.isOpen ?? false;
+
+  return (
+    <div className="pb-8">
+      {/* Sticky Search Form Container */}
+      <div className="sticky top-0 z-10 bg-secondary py-4 shadow-md">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap md:flex-nowrap gap-4 items-center">
+            {isDevelopment && (
+              <div className="order-1 md:order-none w-full md:w-auto flex gap-2 items-center">
+                <SearchModeToggle
+                  mode={searchMode}
+                  onChange={onSearchModeChange}
+                />
               </div>
+            )}
+            <div className="w-full">
+              <SearchForm onSearch={onSearch} initialQuery={query} />
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Results section with search info */}
-        <div className="mt-4 container mx-auto px-4">
+      {/* Results + dictionary layout */}
+      <div className={`mt-4 container mx-auto px-4 flex dict:flex-row dict:gap-3 ${isDrawerOpen ? 'flex-col fixed inset-0 z-40 pt-20 bg-[rgb(var(--background-rgb))] dict:relative dict:inset-auto dict:z-auto dict:bg-transparent dict:pt-0' : ''}`}>
+        <div className={`flex-1 min-w-0 overflow-hidden ${isDrawerOpen ? 'overflow-y-auto px-4 dict:px-0' : ''}`}>
           <div className="mb-4">
             <p className="text-gray-600">
               {totalResults > 0 ? (
@@ -247,10 +290,16 @@ function SearchPageContent(): JSX.Element {
             loading={loading}
             currentPage={page}
             totalPages={totalPages}
-            onPageChange={handlePageChange}
+            onPageChange={onPageChange}
           />
         </div>
+
+        {/* Desktop drawer */}
+        <WordDrawer className="hidden dict:flex" />
+
+        {/* Mobile bottom panel */}
+        <WordBottomSheet className="dict:hidden" />
       </div>
-    </ProtectedRoute>
+    </div>
   );
 }

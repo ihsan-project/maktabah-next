@@ -351,6 +351,7 @@ export default function SearchResults({
                       verse={result.verse}
                       uthmaniText={result.text_arabic_uthmani}
                       className="text-gray-800"
+                      useDrawer
                     />
                   ) : (
                     <ArabicText size="lg" className="text-gray-800">

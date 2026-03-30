@@ -3,6 +3,9 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
 import SearchResults from '@/app/components/SearchResults';
+import WordDrawer from '@/app/components/WordDrawer';
+import WordBottomSheet from '@/app/components/WordBottomSheet';
+import { WordDictionaryProvider, useWordDictionaryOptional } from '@/app/contexts/WordDictionaryContext';
 import { useBookmarks } from '@/lib/bookmarks';
 import { SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
@@ -46,6 +49,9 @@ function BookmarksPageContent(): JSX.Element {
       juz: bookmark.juz,
     }));
   }, [bookmarks]);
+
+  const dictCtx = useWordDictionaryOptional();
+  const isDrawerOpen = dictCtx?.isOpen ?? false;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -101,13 +107,19 @@ function BookmarksPageContent(): JSX.Element {
             </div>
           </div>
         ) : (
-          <SearchResults
-            results={searchResults}
-            loading={loading}
-            currentPage={1}
-            totalPages={1}
-            onPageChange={() => {}}
-          />
+          <div className={`flex dict:flex-row dict:gap-3 ${isDrawerOpen ? 'flex-col fixed inset-0 z-40 pt-20 bg-[rgb(var(--background-rgb))] dict:relative dict:inset-auto dict:z-auto dict:bg-transparent dict:pt-0' : ''}`}>
+            <div className={`flex-1 min-w-0 overflow-hidden ${isDrawerOpen ? 'overflow-y-auto px-4 dict:px-0' : ''}`}>
+              <SearchResults
+                results={searchResults}
+                loading={loading}
+                currentPage={1}
+                totalPages={1}
+                onPageChange={() => {}}
+              />
+            </div>
+            <WordDrawer className="hidden dict:flex" />
+            <WordBottomSheet className="dict:hidden" />
+          </div>
         )}
       </div>
     </div>
@@ -117,7 +129,9 @@ function BookmarksPageContent(): JSX.Element {
 export default function BookmarksPage(): JSX.Element {
   return (
     <ProtectedRoute>
-      <BookmarksPageContent />
+      <WordDictionaryProvider>
+        <BookmarksPageContent />
+      </WordDictionaryProvider>
     </ProtectedRoute>
   );
 }
