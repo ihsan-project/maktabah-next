@@ -13,9 +13,48 @@ const amiri = Amiri({
   variable: '--font-amiri',
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://maktabah.app';
+
 export const metadata: Metadata = {
-  title: 'Maktabah - Search for Knowledge',
-  description: 'A search application for your research needs',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'Maktabah - Islamic Encyclopedia & Quran Reader',
+    template: '%s | Maktabah',
+  },
+  description:
+    'Explore the Quran with 17 English translations, read the stories of the Prophets, and search across authentic Islamic sources including Hadith and Tafsir.',
+  keywords: [
+    'quran',
+    'hadith',
+    'islamic encyclopedia',
+    'quran translations',
+    'stories of the prophets',
+    'islamic research',
+    'tafsir',
+    'maktabah',
+  ],
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    title: 'Maktabah - Islamic Encyclopedia & Quran Reader',
+    description:
+      'Explore the Quran with 17 English translations, read the stories of the Prophets, and search across authentic Islamic sources.',
+    type: 'website',
+    url: siteUrl,
+    siteName: 'Maktabah',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Maktabah - Islamic Encyclopedia & Quran Reader',
+    description:
+      'Explore the Quran with 17 English translations, read the stories of the Prophets, and search across authentic Islamic sources.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 interface RootLayoutProps {

@@ -79,15 +79,19 @@ export async function generateMetadata({ params }: { params: { name: string } })
     // Use the title from the XML file if available
     const title = storyData.metadata?.[0]?.title?.[0] || metadata.title;
     
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://maktabah.app';
     return {
       title,
       description: metadata.description,
+      alternates: {
+        canonical: `${siteUrl}/story/${name}`,
+      },
       openGraph: {
         title,
         description: metadata.description,
         type: 'article',
-        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://maktabah.app'}/story/${name}`,
-      }
+        url: `${siteUrl}/story/${name}`,
+      },
     };
   } catch (error) {
     // Fall back to config metadata if file can't be read
@@ -139,13 +143,41 @@ export default async function StoryPage({ params }: StoryPageProps) {
     };
   });
   
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://maktabah.app';
+  const storyMeta = getStoryMetadata(name);
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: storyMeta.description,
+    url: `${siteUrl}/story/${name}`,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Maktabah',
+      url: siteUrl,
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${siteUrl}/story/${name}`,
+    },
+    about: {
+      '@type': 'Thing',
+      name: title,
+      description: storyMeta.description,
+    },
+  };
+
   return (
     <div className="py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <h1 className="text-3xl font-bold text-center text-primary mb-2">{title}</h1>
       <p className="text-center text-gray-600 mb-6">
         A collection of {versesCount} verses{translationsCount ? ` with ${translationsCount} translations` : ''} about {name}
       </p>
-      
+
       {/* Client component that handles auth state and adds sign-in prompts if needed */}
       <StoryClient name={name} verses={processedVerses} />
       
