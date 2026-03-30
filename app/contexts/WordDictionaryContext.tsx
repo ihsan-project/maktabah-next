@@ -85,6 +85,15 @@ export function WordDictionaryProvider({ children }: { children: React.ReactNode
         return null;
       }
       setSelectedWord(word);
+      // After layout reflows (mobile goes from normal flow to fixed split),
+      // scroll the active word into view in the new scroll container
+      requestAnimationFrame(() => {
+        const group = groupsRef.current.find(g => g.chapter === chapter && g.verse === verse);
+        const el = group?.elements.get(word.position);
+        if (el) {
+          el.scrollIntoView({ block: 'center', inline: 'nearest' });
+        }
+      });
       return { chapter, verse, position: word.position };
     });
   }, []);
