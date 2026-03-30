@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useId } from 'react';
 import { QuranWord, SurahWordData } from '@/types';
 import ArabicText from './ArabicText';
 import WordPopover from './WordPopover';
+import { useWordDictionaryOptional } from '@/app/contexts/WordDictionaryContext';
 
 /** In-memory cache for loaded surah word data */
 const surahCache = new Map<number, SurahWordData>();
@@ -26,6 +27,7 @@ interface InteractiveArabicTextProps {
   verse: number;
   uthmaniText?: string;
   className?: string;
+  useDrawer?: boolean;
 }
 
 export default function InteractiveArabicText({
@@ -33,16 +35,27 @@ export default function InteractiveArabicText({
   verse,
   uthmaniText,
   className = '',
+  useDrawer = false,
 }: InteractiveArabicTextProps) {
   const [words, setWords] = useState<QuranWord[] | null>(null);
-  const [selectedWord, setSelectedWord] = useState<QuranWord | null>(null);
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const wordSpanRefs = useRef<Map<number, HTMLElement>>(new Map());
+  const instanceId = useId();
+  const groupId = `${instanceId}-${chapter}:${verse}`;
+
+  // Context-based state (for drawer mode)
+  const dictCtx = useWordDictionaryOptional();
+  const usingDrawer = useDrawer && dictCtx !== null;
+
+  // Self-contained state (for popover mode)
+  const [localSelectedWord, setLocalSelectedWord] = useState<QuranWord | null>(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
     setWords(null);
-    setSelectedWord(null);
+    setLocalSelectedWord(null);
     setAnchorEl(null);
+    wordSpanRefs.current.clear();
     let cancelled = false;
     loadSurahWords(chapter).then((data) => {
       if (cancelled) return;
@@ -52,40 +65,79 @@ export default function InteractiveArabicText({
     return () => { cancelled = true; };
   }, [chapter, verse]);
 
-  const activateWord = useCallback(
-    (el: HTMLElement, word: QuranWord) => {
-      if (selectedWord?.position === word.position) {
-        setSelectedWord(null);
-        setAnchorEl(null);
-      } else {
-        setSelectedWord(word);
-        setAnchorEl(el);
-      }
-    },
-    [selectedWord],
-  );
+  // Register words with context when in drawer mode
+  useEffect(() => {
+    if (!usingDrawer || !words || !dictCtx) return;
+    // Defer registration to after spans have mounted
+    const timer = setTimeout(() => {
+      dictCtx.registerWords(groupId, chapter, verse, words, new Map(wordSpanRefs.current));
+    }, 0);
+    return () => {
+      clearTimeout(timer);
+      dictCtx.unregisterWords(groupId);
+    };
+  }, [usingDrawer, words, dictCtx, groupId, chapter, verse]);
+
+  const isWordActive = useCallback((word: QuranWord) => {
+    if (usingDrawer && dictCtx) {
+      return (
+        dictCtx.selectedLocation?.chapter === chapter &&
+        dictCtx.selectedLocation?.verse === verse &&
+        dictCtx.selectedLocation?.position === word.position
+      );
+    }
+    return localSelectedWord?.position === word.position;
+  }, [usingDrawer, dictCtx, chapter, verse, localSelectedWord]);
 
   const handleWordClick = useCallback(
     (e: React.MouseEvent<HTMLSpanElement>, word: QuranWord) => {
       e.stopPropagation();
-      activateWord(e.currentTarget, word);
+      if (usingDrawer && dictCtx) {
+        dictCtx.selectWord(chapter, verse, word);
+      } else {
+        if (localSelectedWord?.position === word.position) {
+          setLocalSelectedWord(null);
+          setAnchorEl(null);
+        } else {
+          setLocalSelectedWord(word);
+          setAnchorEl(e.currentTarget);
+        }
+      }
     },
-    [activateWord],
+    [usingDrawer, dictCtx, chapter, verse, localSelectedWord],
   );
 
   const handleWordKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLSpanElement>, word: QuranWord) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        activateWord(e.currentTarget, word);
+        if (usingDrawer && dictCtx) {
+          dictCtx.selectWord(chapter, verse, word);
+        } else {
+          if (localSelectedWord?.position === word.position) {
+            setLocalSelectedWord(null);
+            setAnchorEl(null);
+          } else {
+            setLocalSelectedWord(word);
+            setAnchorEl(e.currentTarget);
+          }
+        }
       }
     },
-    [activateWord],
+    [usingDrawer, dictCtx, chapter, verse, localSelectedWord],
   );
 
   const handleClose = useCallback(() => {
-    setSelectedWord(null);
+    setLocalSelectedWord(null);
     setAnchorEl(null);
+  }, []);
+
+  const setWordRef = useCallback((position: number, el: HTMLElement | null) => {
+    if (el) {
+      wordSpanRefs.current.set(position, el);
+    } else {
+      wordSpanRefs.current.delete(position);
+    }
   }, []);
 
   // Fallback: render plain ArabicText while loading or if data unavailable
@@ -110,12 +162,11 @@ export default function InteractiveArabicText({
             <React.Fragment key={word.position}>
               {i > 0 && ' '}
               <span
+                ref={(el) => setWordRef(word.position, el)}
                 role="button"
                 tabIndex={0}
                 className={`interactive-word ${
-                  selectedWord?.position === word.position
-                    ? 'interactive-word-active'
-                    : ''
+                  isWordActive(word) ? 'interactive-word-active' : ''
                 }`}
                 onClick={(e) => handleWordClick(e, word)}
                 onKeyDown={(e) => handleWordKeyDown(e, word)}
@@ -127,9 +178,10 @@ export default function InteractiveArabicText({
         </bdi>
       </p>
 
-      {selectedWord && anchorEl && (
+      {/* Popover mode: render inline popover (for SearchResults) */}
+      {!usingDrawer && localSelectedWord && anchorEl && (
         <WordPopover
-          word={selectedWord}
+          word={localSelectedWord}
           anchorEl={anchorEl}
           onClose={handleClose}
         />

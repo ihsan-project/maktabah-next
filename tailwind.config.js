@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'dict': '900px',
+      },
       colors: {
         primary: {
           light: '#4d8c6f', // Lighter forest green

@@ -6,6 +6,9 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import TranslatorSelector from '@/app/components/TranslatorSelector';
 import TranslationCarousel from '@/app/components/TranslationCarousel';
 import InteractiveArabicText from '@/app/components/InteractiveArabicText';
+import WordDrawer from '@/app/components/WordDrawer';
+import WordBottomSheet from '@/app/components/WordBottomSheet';
+import { WordDictionaryProvider, useWordDictionaryOptional } from '@/app/contexts/WordDictionaryContext';
 import {
   parseVerseRef,
   fetchSurahData,
@@ -21,9 +24,11 @@ import {
 
 const VERSES_PER_PAGE = 20;
 
-export default function QuranClient() {
+function QuranContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const dictCtx = useWordDictionaryOptional();
+  const isDrawerOpen = dictCtx?.isOpen ?? false;
 
   // Parse range from URL
   const startParam = searchParams.get('start');
@@ -160,183 +165,201 @@ export default function QuranClient() {
   }
 
   return (
-    <>
-      {/* Range selector */}
-      <form onSubmit={handleNavigate} className="mb-6 bg-white rounded-lg shadow-md p-4">
-        <div className="flex flex-col sm:flex-row items-center gap-3">
-          <label className="text-sm font-medium text-gray-700 whitespace-nowrap">Verse Range:</label>
-          <div className="flex items-center gap-2 flex-1">
-            <input
-              type="text"
-              value={surahInput}
-              onChange={e => setSurahInput(e.target.value)}
-              placeholder="1:1"
-              className="w-24 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
-            />
-            <span className="text-gray-500">to</span>
-            <input
-              type="text"
-              value={endInput}
-              onChange={e => setEndInput(e.target.value)}
-              placeholder="1:7"
-              className="w-24 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
-            />
-            <button
-              type="submit"
-              className="px-4 py-2 bg-primary text-white rounded-md text-sm hover:bg-primary-dark transition-colors"
-            >
-              Go
-            </button>
-          </div>
-        </div>
-        {metadata && (
-          <div className="mt-2 text-xs text-gray-500">
-            Format: surah:verse (e.g., 2:255 for Ayat al-Kursi). Range: 1:1 to 114:6.
-          </div>
-        )}
-      </form>
-
-      {/* Quick surah links */}
-      {metadata && (
-        <div className="mb-6 bg-white rounded-lg shadow-md p-4">
-          <details>
-            <summary className="cursor-pointer text-sm font-medium text-primary hover:text-primary-dark">
-              Browse by Surah
-            </summary>
-            <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1">
-              {metadata.surahs.map(s => (
-                <button
-                  key={s.index}
-                  onClick={() => {
-                    const newStart = `${s.index}:1`;
-                    const newEnd = `${s.index}:${s.verseCount}`;
-                    setSurahInput(newStart);
-                    setEndInput(newEnd);
-                    router.push(`/quran?start=${newStart}&end=${newEnd}`);
-                  }}
-                  className="text-left px-2 py-1 text-xs rounded hover:bg-gray-100 transition-colors truncate"
-                  title={`${s.index}. ${s.name} (${s.verseCount} verses)`}
-                >
-                  <span className="text-gray-400 mr-1">{s.index}.</span>
-                  {s.name}
-                </button>
-              ))}
+    <div className="flex gap-0">
+      {/* Reading pane */}
+      <div className={`flex-1 min-w-0 transition-all duration-300 ${isDrawerOpen ? 'dict:pr-0' : ''}`}>
+        {/* Range selector */}
+        <form onSubmit={handleNavigate} className="mb-6 bg-white rounded-lg shadow-md p-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <label className="text-sm font-medium text-gray-700 whitespace-nowrap">Verse Range:</label>
+            <div className="flex items-center gap-2 flex-1">
+              <input
+                type="text"
+                value={surahInput}
+                onChange={e => setSurahInput(e.target.value)}
+                placeholder="1:1"
+                className="w-24 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+              />
+              <span className="text-gray-500">to</span>
+              <input
+                type="text"
+                value={endInput}
+                onChange={e => setEndInput(e.target.value)}
+                placeholder="1:7"
+                className="w-24 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 bg-primary text-white rounded-md text-sm hover:bg-primary-dark transition-colors"
+              >
+                Go
+              </button>
             </div>
-          </details>
-        </div>
-      )}
-
-      {/* Translator selector */}
-      <TranslatorSelector
-        availableTranslators={availableTranslators}
-        onSelectionChange={handleTranslatorSelectionChange}
-      />
-
-      {/* Loading state */}
-      {loading && (
-        <div className="text-center py-12 text-gray-500">Loading verses...</div>
-      )}
-
-      {/* Verses */}
-      {!loading && displayedVerses.length > 0 && (
-        <>
-          {/* Page info */}
-          <div className="mb-4 text-sm text-gray-500 text-center">
-            Verses {pageStart + 1}–{pageEnd} of {allVerses.length}
-            {totalPages > 1 && ` · Page ${safePage} of ${totalPages}`}
           </div>
-
-          <div className="space-y-2">
-            {displayedVerses.map(verse => {
-              const filteredTranslations = verse.translations.filter(t =>
-                selectedTranslators.includes(t.author)
-              );
-
-              return (
-                <div key={`${verse.surah}:${verse.verse}`} className="mb-2">
-                  {verse.arabic && (
-                    <div className="px-4 pt-4 pb-2">
-                      <InteractiveArabicText
-                        chapter={verse.surah}
-                        verse={verse.verse}
-                        uthmaniText={verse.arabic}
-                        className="text-gray-800 text-center"
-                      />
-                    </div>
-                  )}
-                  <TranslationCarousel
-                    translations={filteredTranslations}
-                    verseRef={`${verse.surah}:${verse.verse}`}
-                    chapterName={verse.surahName}
-                    buildTanzilUrl={(author: string) => `https://tanzil.net/#trans/${getBookIdForAuthor(author)}/${verse.surah}:${verse.verse}`}
-                    onTanzilClick={() => {}}
-                    highlightTerm={highlightTerm}
-                  />
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Pagination controls */}
-          {totalPages > 1 && (
-            <div className="mt-8 flex items-center justify-center gap-2">
-              <button
-                onClick={() => goToPage(safePage - 1)}
-                disabled={safePage <= 1}
-                className="p-2 rounded-md border border-gray-300 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                aria-label="Previous page"
-              >
-                <FiChevronLeft size={18} />
-              </button>
-
-              {generatePageNumbers(safePage, totalPages).map((p, i) =>
-                p === '...' ? (
-                  <span key={`ellipsis-${i}`} className="px-2 text-gray-400">...</span>
-                ) : (
-                  <button
-                    key={p}
-                    onClick={() => goToPage(p as number)}
-                    className={`px-3 py-1.5 rounded-md text-sm transition-colors ${
-                      p === safePage
-                        ? 'bg-primary text-white shadow-md'
-                        : 'border border-gray-300 hover:bg-gray-100'
-                    }`}
-                  >
-                    {p}
-                  </button>
-                )
-              )}
-
-              <button
-                onClick={() => goToPage(safePage + 1)}
-                disabled={safePage >= totalPages}
-                className="p-2 rounded-md border border-gray-300 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                aria-label="Next page"
-              >
-                <FiChevronRight size={18} />
-              </button>
+          {metadata && (
+            <div className="mt-2 text-xs text-gray-500">
+              Format: surah:verse (e.g., 2:255 for Ayat al-Kursi). Range: 1:1 to 114:6.
             </div>
           )}
+        </form>
 
-          {/* Attribution */}
-          <div className="mt-6 text-center">
-            <p className="text-xs text-gray-400">
-              Quran text courtesy of{' '}
-              <a href="https://tanzil.net" target="_blank" rel="noopener noreferrer" className="underline">
-                Tanzil.net
-              </a>
-            </p>
+        {/* Quick surah links */}
+        {metadata && (
+          <div className="mb-6 bg-white rounded-lg shadow-md p-4">
+            <details>
+              <summary className="cursor-pointer text-sm font-medium text-primary hover:text-primary-dark">
+                Browse by Surah
+              </summary>
+              <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1">
+                {metadata.surahs.map(s => (
+                  <button
+                    key={s.index}
+                    onClick={() => {
+                      const newStart = `${s.index}:1`;
+                      const newEnd = `${s.index}:${s.verseCount}`;
+                      setSurahInput(newStart);
+                      setEndInput(newEnd);
+                      router.push(`/quran?start=${newStart}&end=${newEnd}`);
+                    }}
+                    className="text-left px-2 py-1 text-xs rounded hover:bg-gray-100 transition-colors truncate"
+                    title={`${s.index}. ${s.name} (${s.verseCount} verses)`}
+                  >
+                    <span className="text-gray-400 mr-1">{s.index}.</span>
+                    {s.name}
+                  </button>
+                ))}
+              </div>
+            </details>
           </div>
-        </>
-      )}
+        )}
 
-      {/* No verses found */}
-      {!loading && displayedVerses.length === 0 && (
-        <div className="text-center py-12 text-gray-500">
-          No verses found for this range. Check your start and end references.
-        </div>
-      )}
-    </>
+        {/* Translator selector */}
+        <TranslatorSelector
+          availableTranslators={availableTranslators}
+          onSelectionChange={handleTranslatorSelectionChange}
+        />
+
+        {/* Loading state */}
+        {loading && (
+          <div className="text-center py-12 text-gray-500">Loading verses...</div>
+        )}
+
+        {/* Verses */}
+        {!loading && displayedVerses.length > 0 && (
+          <>
+            {/* Page info */}
+            <div className="mb-4 text-sm text-gray-500 text-center">
+              Verses {pageStart + 1}–{pageEnd} of {allVerses.length}
+              {totalPages > 1 && ` · Page ${safePage} of ${totalPages}`}
+            </div>
+
+            <div className="space-y-2">
+              {displayedVerses.map(verse => {
+                const filteredTranslations = verse.translations.filter(t =>
+                  selectedTranslators.includes(t.author)
+                );
+
+                return (
+                  <div key={`${verse.surah}:${verse.verse}`} className="mb-2">
+                    {verse.arabic && (
+                      <div className="px-4 pt-4 pb-2">
+                        <InteractiveArabicText
+                          chapter={verse.surah}
+                          verse={verse.verse}
+                          uthmaniText={verse.arabic}
+                          className="text-gray-800 text-center"
+                          useDrawer
+                        />
+                      </div>
+                    )}
+                    <TranslationCarousel
+                      translations={filteredTranslations}
+                      verseRef={`${verse.surah}:${verse.verse}`}
+                      chapterName={verse.surahName}
+                      buildTanzilUrl={(author: string) => `https://tanzil.net/#trans/${getBookIdForAuthor(author)}/${verse.surah}:${verse.verse}`}
+                      onTanzilClick={() => {}}
+                      highlightTerm={highlightTerm}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Pagination controls */}
+            {totalPages > 1 && (
+              <div className="mt-8 flex items-center justify-center gap-2">
+                <button
+                  onClick={() => goToPage(safePage - 1)}
+                  disabled={safePage <= 1}
+                  className="p-2 rounded-md border border-gray-300 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                  aria-label="Previous page"
+                >
+                  <FiChevronLeft size={18} />
+                </button>
+
+                {generatePageNumbers(safePage, totalPages).map((p, i) =>
+                  p === '...' ? (
+                    <span key={`ellipsis-${i}`} className="px-2 text-gray-400">...</span>
+                  ) : (
+                    <button
+                      key={p}
+                      onClick={() => goToPage(p as number)}
+                      className={`px-3 py-1.5 rounded-md text-sm transition-colors ${
+                        p === safePage
+                          ? 'bg-primary text-white shadow-md'
+                          : 'border border-gray-300 hover:bg-gray-100'
+                      }`}
+                    >
+                      {p}
+                    </button>
+                  )
+                )}
+
+                <button
+                  onClick={() => goToPage(safePage + 1)}
+                  disabled={safePage >= totalPages}
+                  className="p-2 rounded-md border border-gray-300 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                  aria-label="Next page"
+                >
+                  <FiChevronRight size={18} />
+                </button>
+              </div>
+            )}
+
+            {/* Attribution */}
+            <div className="mt-6 text-center">
+              <p className="text-xs text-gray-400">
+                Quran text courtesy of{' '}
+                <a href="https://tanzil.net" target="_blank" rel="noopener noreferrer" className="underline">
+                  Tanzil.net
+                </a>
+              </p>
+            </div>
+          </>
+        )}
+
+        {/* No verses found */}
+        {!loading && displayedVerses.length === 0 && (
+          <div className="text-center py-12 text-gray-500">
+            No verses found for this range. Check your start and end references.
+          </div>
+        )}
+      </div>
+
+      {/* Desktop drawer (hidden below dict breakpoint) */}
+      <WordDrawer className="hidden dict:flex" />
+
+      {/* Mobile bottom sheet (hidden above dict breakpoint) */}
+      <WordBottomSheet className="dict:hidden" />
+    </div>
+  );
+}
+
+export default function QuranClient() {
+  return (
+    <WordDictionaryProvider>
+      <QuranContent />
+    </WordDictionaryProvider>
   );
 }
 

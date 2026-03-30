@@ -1,0 +1,367 @@
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import { QuranWord, SurahWordData } from '@/types';
+import { loadRootsIndex, RootOccurrence } from '@/lib/roots';
+import { getLanesEntry, LanesEntry } from '@/lib/lanes-lexicon';
+
+/** Decode the short POS code into a readable label */
+function decodePos(pos: string | null): string {
+  if (!pos) return 'Particle';
+  const map: Record<string, string> = {
+    N: 'Noun',
+    V: 'Verb',
+    PN: 'Proper Noun',
+    ADJ: 'Adjective',
+    ADV: 'Adverb',
+    PRON: 'Pronoun',
+    DEM: 'Demonstrative',
+    REL: 'Relative Pronoun',
+    CONJ: 'Conjunction',
+    P: 'Preposition',
+    NEG: 'Negative Particle',
+    INTG: 'Interrogative',
+    COND: 'Conditional',
+    T: 'Time Adverb',
+    LOC: 'Location Adverb',
+    INL: 'Initials',
+  };
+  return map[pos] || pos;
+}
+
+/** Extract verb form (I–X) from morphology string if present */
+function extractVerbForm(morphology: string): string | null {
+  const match = morphology.match(/VF:(\d+)/);
+  if (!match) return null;
+  const forms: Record<string, string> = {
+    '1': 'I', '2': 'II', '3': 'III', '4': 'IV', '5': 'V',
+    '6': 'VI', '7': 'VII', '8': 'VIII', '9': 'IX', '10': 'X',
+  };
+  return forms[match[1]] || null;
+}
+
+interface DerivedForm {
+  lemma: string;
+  translation: string;
+  pos: string;
+  verbForm: string | null;
+  count: number;
+  exampleSurah: number;
+  exampleVerse: number;
+}
+
+interface FormGroup {
+  label: string;
+  forms: DerivedForm[];
+}
+
+const wordDataCache = new Map<number, SurahWordData>();
+
+async function fetchWordData(surah: number): Promise<SurahWordData | null> {
+  if (wordDataCache.has(surah)) return wordDataCache.get(surah)!;
+  try {
+    const res = await fetch(`/quran/words/${surah}.json`);
+    if (!res.ok) return null;
+    const data: SurahWordData = await res.json();
+    wordDataCache.set(surah, data);
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+function posCategory(pos: string | null): string {
+  if (!pos) return 'Particles';
+  const categories: Record<string, string> = {
+    N: 'Nouns', PN: 'Nouns', ADJ: 'Adjectives',
+    V: 'Verbs',
+    PRON: 'Pronouns', DEM: 'Pronouns', REL: 'Pronouns',
+    ADV: 'Particles', CONJ: 'Particles', P: 'Particles',
+    NEG: 'Particles', INTG: 'Particles', COND: 'Particles',
+    T: 'Particles', LOC: 'Particles', INL: 'Other',
+  };
+  return categories[pos] || 'Other';
+}
+
+const CATEGORY_ORDER = ['Verbs', 'Nouns', 'Adjectives', 'Pronouns', 'Particles', 'Other'];
+
+async function collectDerivedForms(
+  occurrences: RootOccurrence[],
+  maxSurahs: number,
+): Promise<DerivedForm[]> {
+  const bySurah = new Map<number, RootOccurrence[]>();
+  for (const o of occurrences) {
+    if (!bySurah.has(o.s)) bySurah.set(o.s, []);
+    bySurah.get(o.s)!.push(o);
+  }
+  const surahKeys = Array.from(bySurah.keys());
+  const sampled = surahKeys.length <= maxSurahs
+    ? surahKeys
+    : surahKeys.filter((_, i) => i % Math.ceil(surahKeys.length / maxSurahs) === 0).slice(0, maxSurahs);
+
+  const byLemma = new Map<string, { word: QuranWord; count: number; surah: number; verse: number }>();
+
+  const surahDataPairs = await Promise.all(
+    sampled.map(async (s) => [s, await fetchWordData(s)] as const),
+  );
+
+  for (const [s, data] of surahDataPairs) {
+    if (!data) continue;
+    for (const occ of bySurah.get(s)!) {
+      const verseWords = data.verses?.[String(occ.v)]?.words;
+      if (!verseWords) continue;
+      const w = verseWords[occ.p - 1]?.position === occ.p
+        ? verseWords[occ.p - 1]
+        : verseWords.find((x) => x.position === occ.p);
+      if (!w || !w.lemma) continue;
+      const existing = byLemma.get(w.lemma);
+      if (existing) {
+        existing.count++;
+      } else {
+        byLemma.set(w.lemma, { word: w, count: 1, surah: occ.s, verse: occ.v });
+      }
+    }
+  }
+
+  return Array.from(byLemma.values()).map(({ word, count, surah, verse }) => ({
+    lemma: word.lemma,
+    translation: word.translation,
+    pos: decodePos(word.pos),
+    verbForm: extractVerbForm(word.morphology),
+    count,
+    exampleSurah: surah,
+    exampleVerse: verse,
+  }));
+}
+
+function groupByCategory(forms: DerivedForm[]): FormGroup[] {
+  const groups = new Map<string, DerivedForm[]>();
+  for (const f of forms) {
+    const cat = posCategory(
+      Object.entries({
+        N: 'Noun', PN: 'Proper Noun', ADJ: 'Adjective', V: 'Verb',
+        PRON: 'Pronoun', DEM: 'Demonstrative', REL: 'Relative Pronoun',
+        ADV: 'Adverb', CONJ: 'Conjunction', P: 'Preposition',
+        NEG: 'Negative Particle', INTG: 'Interrogative', COND: 'Conditional',
+        T: 'Time Adverb', LOC: 'Location Adverb', INL: 'Initials',
+      }).find(([, v]) => v === f.pos)?.[0] ?? null,
+    );
+    if (!groups.has(cat)) groups.set(cat, []);
+    groups.get(cat)!.push(f);
+  }
+
+  Array.from(groups.keys()).forEach((key) => {
+    groups.get(key)!.sort((a, b) => b.count - a.count);
+  });
+
+  return CATEGORY_ORDER
+    .filter((cat) => groups.has(cat))
+    .map((cat) => ({ label: cat, forms: groups.get(cat)! }));
+}
+
+interface WordMorphologyContentProps {
+  word: QuranWord;
+}
+
+export default function WordMorphologyContent({ word }: WordMorphologyContentProps) {
+  const [rootCount, setRootCount] = useState<number | null>(null);
+  const [formGroups, setFormGroups] = useState<FormGroup[]>([]);
+  const [loadingRefs, setLoadingRefs] = useState(false);
+  const [lanesEntry, setLanesEntry] = useState<LanesEntry | null>(null);
+  const [lanesExpanded, setLanesExpanded] = useState(false);
+
+  // Load root derived forms
+  useEffect(() => {
+    setRootCount(null);
+    setFormGroups([]);
+    if (!word.root) return;
+    let cancelled = false;
+    setLoadingRefs(true);
+
+    loadRootsIndex().then(async (index) => {
+      if (cancelled || !index) { setRootCount(null); setLoadingRefs(false); return; }
+      const entry = index[word.root!];
+      if (!entry) { setRootCount(null); setLoadingRefs(false); return; }
+
+      setRootCount(entry.occurrences);
+
+      const forms = await collectDerivedForms(entry.verses, 15);
+      if (cancelled) return;
+
+      setFormGroups(groupByCategory(forms));
+      setLoadingRefs(false);
+    });
+
+    return () => { cancelled = true; };
+  }, [word.root]);
+
+  // Load Lane's Lexicon entry
+  useEffect(() => {
+    if (!word.root) return;
+    let cancelled = false;
+    setLanesEntry(null);
+    setLanesExpanded(false);
+
+    getLanesEntry(word.root).then((entry) => {
+      if (!cancelled) setLanesEntry(entry);
+    });
+
+    return () => { cancelled = true; };
+  }, [word.root]);
+
+  const verbForm = extractVerbForm(word.morphology);
+  const totalForms = formGroups.reduce((sum, g) => sum + g.forms.length, 0);
+
+  return (
+    <>
+      {/* Arabic word — large display */}
+      <div className="text-center mb-3">
+        <p
+          dir="rtl"
+          lang="ar"
+          className="font-arabic text-3xl leading-relaxed text-gray-900"
+        >
+          {word.text_uthmani}
+        </p>
+        <p className="text-sm text-gray-500 mt-0.5 italic">
+          {word.transliteration}
+        </p>
+      </div>
+
+      {/* Translation */}
+      <div className="bg-primary/5 rounded-md px-3 py-2 mb-3">
+        <p className="text-sm font-medium text-primary-dark">
+          {word.translation}
+        </p>
+      </div>
+
+      {/* Details grid */}
+      <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-xs">
+        {word.root && (
+          <>
+            <span className="text-gray-400 font-medium">Root</span>
+            <span dir="rtl" lang="ar" className="font-arabic text-sm text-gray-700">
+              {word.root}
+            </span>
+          </>
+        )}
+        <span className="text-gray-400 font-medium">Lemma</span>
+        <span dir="rtl" lang="ar" className="font-arabic text-sm text-gray-700">
+          {word.lemma}
+        </span>
+        <span className="text-gray-400 font-medium">Type</span>
+        <span className="text-gray-700">{decodePos(word.pos)}</span>
+        {verbForm && (
+          <>
+            <span className="text-gray-400 font-medium">Verb Form</span>
+            <span className="text-gray-700">Form {verbForm}</span>
+          </>
+        )}
+      </div>
+
+      {/* Root Exploration — derived forms grouped by POS */}
+      {word.root && (
+        <div className="mt-3 pt-3 border-t border-gray-100">
+          <div className="flex items-center justify-between mb-2">
+            <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+              Words from this root
+            </h4>
+            {rootCount !== null && (
+              <span className="text-[10px] text-gray-400 bg-gray-50 rounded-full px-2 py-0.5">
+                {rootCount.toLocaleString()} uses &middot; {totalForms} forms
+              </span>
+            )}
+          </div>
+
+          {loadingRefs && formGroups.length === 0 && (
+            <p className="text-xs text-gray-400 italic">Discovering word forms...</p>
+          )}
+
+          {formGroups.length > 0 && (
+            <div className="space-y-2.5">
+              {formGroups.map((group) => (
+                <div key={group.label}>
+                  <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-1">
+                    {group.label}
+                  </p>
+                  <div className="space-y-1">
+                    {group.forms.map((form) => (
+                      <a
+                        key={form.lemma}
+                        href={`/quran?start=${form.exampleSurah}:${Math.max(1, form.exampleVerse - 3)}&end=${form.exampleSurah}:${form.exampleVerse + 3}`}
+                        className="flex items-center gap-2 text-xs p-1.5 rounded hover:bg-gray-50 transition-colors"
+                      >
+                        <span dir="rtl" lang="ar" className="font-arabic text-base text-gray-800 shrink-0">
+                          {form.lemma}
+                        </span>
+                        <span className="text-gray-500 truncate flex-1">
+                          {form.translation}
+                        </span>
+                        <span className="shrink-0 flex items-center gap-1">
+                          <span className="text-[10px] text-gray-300 bg-gray-50 rounded px-1">
+                            {form.pos}{form.verbForm ? ` ${form.verbForm}` : ''}
+                          </span>
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Lane's Lexicon — scholarly definition */}
+      {lanesEntry && (lanesEntry.summary || lanesEntry.definition) && (
+        <div className="mt-3 pt-3 border-t border-gray-100">
+          <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
+            Lane&apos;s Lexicon
+          </h4>
+
+          {lanesEntry.summary && (
+            <p className="text-xs text-gray-600 leading-relaxed font-serif italic">
+              {lanesEntry.summary}
+            </p>
+          )}
+
+          {lanesEntry.definition && (
+            <div className={lanesEntry.summary ? 'mt-1.5' : ''}>
+              {!lanesExpanded ? (
+                <>
+                  {lanesEntry.preview && lanesEntry.preview !== lanesEntry.definition && (
+                    <p className="text-[11px] text-gray-500 leading-relaxed font-serif">
+                      {lanesEntry.preview}
+                    </p>
+                  )}
+                  <button
+                    onClick={() => setLanesExpanded(true)}
+                    className="text-[11px] text-primary hover:text-primary-dark font-medium mt-1"
+                  >
+                    Read full definition
+                  </button>
+                </>
+              ) : (
+                <>
+                  <p className="text-[11px] text-gray-500 leading-relaxed font-serif whitespace-pre-wrap">
+                    {lanesEntry.definition}
+                  </p>
+                  <button
+                    onClick={() => setLanesExpanded(false)}
+                    className="text-[11px] text-primary hover:text-primary-dark font-medium mt-1"
+                  >
+                    Show less
+                  </button>
+                </>
+              )}
+            </div>
+          )}
+
+          <p className="text-[9px] text-gray-300 mt-1.5">
+            Definition from Lane&apos;s Arabic-English Lexicon
+          </p>
+        </div>
+      )}
+    </>
+  );
+}

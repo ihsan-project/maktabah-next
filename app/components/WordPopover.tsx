@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import {
   useFloating,
   offset,
@@ -10,10 +10,12 @@ import {
   autoUpdate,
   FloatingPortal,
 } from '@floating-ui/react';
+import { QuranWord } from '@/types';
+import WordMorphologyContent from './WordMorphologyContent';
 
-/** Detect mobile viewport (matches Tailwind's sm breakpoint) */
+/** Detect mobile viewport */
 function useIsMobile(breakpoint = 640) {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
   useEffect(() => {
     const mq = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
     setIsMobile(mq.matches);
@@ -22,178 +24,6 @@ function useIsMobile(breakpoint = 640) {
     return () => mq.removeEventListener('change', handler);
   }, [breakpoint]);
   return isMobile;
-}
-import { QuranWord, SurahWordData } from '@/types';
-import { loadRootsIndex, RootOccurrence } from '@/lib/roots';
-import { getLanesEntry, LanesEntry } from '@/lib/lanes-lexicon';
-
-/** Decode the short POS code into a readable label */
-function decodePos(pos: string | null): string {
-  if (!pos) return 'Particle';
-  const map: Record<string, string> = {
-    N: 'Noun',
-    V: 'Verb',
-    PN: 'Proper Noun',
-    ADJ: 'Adjective',
-    ADV: 'Adverb',
-    PRON: 'Pronoun',
-    DEM: 'Demonstrative',
-    REL: 'Relative Pronoun',
-    CONJ: 'Conjunction',
-    P: 'Preposition',
-    NEG: 'Negative Particle',
-    INTG: 'Interrogative',
-    COND: 'Conditional',
-    T: 'Time Adverb',
-    LOC: 'Location Adverb',
-    INL: 'Initials',
-  };
-  return map[pos] || pos;
-}
-
-/** Extract verb form (I–X) from morphology string if present */
-function extractVerbForm(morphology: string): string | null {
-  const match = morphology.match(/VF:(\d+)/);
-  if (!match) return null;
-  const forms: Record<string, string> = {
-    '1': 'I', '2': 'II', '3': 'III', '4': 'IV', '5': 'V',
-    '6': 'VI', '7': 'VII', '8': 'VIII', '9': 'IX', '10': 'X',
-  };
-  return forms[match[1]] || null;
-}
-
-/** A unique derived form from a root, with example verse */
-interface DerivedForm {
-  lemma: string;           // base form (Arabic)
-  translation: string;     // English meaning
-  pos: string;             // decoded POS label
-  verbForm: string | null; // Form I-X if verb
-  count: number;           // how many times this form appears
-  exampleSurah: number;
-  exampleVerse: number;
-}
-
-/** Group derived forms by POS category for display */
-interface FormGroup {
-  label: string;    // "Nouns", "Verbs", etc.
-  forms: DerivedForm[];
-}
-
-/** In-memory cache for surah word data used by cross-references */
-const wordDataCache = new Map<number, SurahWordData>();
-
-async function fetchWordData(surah: number): Promise<SurahWordData | null> {
-  if (wordDataCache.has(surah)) return wordDataCache.get(surah)!;
-  try {
-    const res = await fetch(`/quran/words/${surah}.json`);
-    if (!res.ok) return null;
-    const data: SurahWordData = await res.json();
-    wordDataCache.set(surah, data);
-    return data;
-  } catch {
-    return null;
-  }
-}
-
-/** POS category for grouping */
-function posCategory(pos: string | null): string {
-  if (!pos) return 'Particles';
-  const categories: Record<string, string> = {
-    N: 'Nouns', PN: 'Nouns', ADJ: 'Adjectives',
-    V: 'Verbs',
-    PRON: 'Pronouns', DEM: 'Pronouns', REL: 'Pronouns',
-    ADV: 'Particles', CONJ: 'Particles', P: 'Particles',
-    NEG: 'Particles', INTG: 'Particles', COND: 'Particles',
-    T: 'Particles', LOC: 'Particles', INL: 'Other',
-  };
-  return categories[pos] || 'Other';
-}
-
-/** Category display order */
-const CATEGORY_ORDER = ['Verbs', 'Nouns', 'Adjectives', 'Pronouns', 'Particles', 'Other'];
-
-/**
- * Collect unique derived forms from a sample of occurrences.
- * Samples up to `maxSurahs` different surahs to get diverse forms without loading all data.
- */
-async function collectDerivedForms(
-  occurrences: RootOccurrence[],
-  maxSurahs: number,
-): Promise<DerivedForm[]> {
-  // Group occurrences by surah, pick a spread of surahs
-  const bySurah = new Map<number, RootOccurrence[]>();
-  for (const o of occurrences) {
-    if (!bySurah.has(o.s)) bySurah.set(o.s, []);
-    bySurah.get(o.s)!.push(o);
-  }
-  const surahKeys = Array.from(bySurah.keys());
-  const sampled = surahKeys.length <= maxSurahs
-    ? surahKeys
-    : surahKeys.filter((_, i) => i % Math.ceil(surahKeys.length / maxSurahs) === 0).slice(0, maxSurahs);
-
-  // Deduplicate by lemma
-  const byLemma = new Map<string, { word: QuranWord; count: number; surah: number; verse: number }>();
-
-  // Fetch all sampled surahs in parallel
-  const surahDataPairs = await Promise.all(
-    sampled.map(async (s) => [s, await fetchWordData(s)] as const),
-  );
-
-  for (const [s, data] of surahDataPairs) {
-    if (!data) continue;
-    for (const occ of bySurah.get(s)!) {
-      const verseWords = data.verses?.[String(occ.v)]?.words;
-      if (!verseWords) continue;
-      // Index by position for O(1) lookup instead of linear scan
-      const w = verseWords[occ.p - 1]?.position === occ.p
-        ? verseWords[occ.p - 1]
-        : verseWords.find((x) => x.position === occ.p);
-      if (!w || !w.lemma) continue;
-      const existing = byLemma.get(w.lemma);
-      if (existing) {
-        existing.count++;
-      } else {
-        byLemma.set(w.lemma, { word: w, count: 1, surah: occ.s, verse: occ.v });
-      }
-    }
-  }
-
-  return Array.from(byLemma.values()).map(({ word, count, surah, verse }) => ({
-    lemma: word.lemma,
-    translation: word.translation,
-    pos: decodePos(word.pos),
-    verbForm: extractVerbForm(word.morphology),
-    count,
-    exampleSurah: surah,
-    exampleVerse: verse,
-  }));
-}
-
-/** Group derived forms by POS category and sort */
-function groupByCategory(forms: DerivedForm[]): FormGroup[] {
-  const groups = new Map<string, DerivedForm[]>();
-  for (const f of forms) {
-    const cat = posCategory(
-      Object.entries({
-        N: 'Noun', PN: 'Proper Noun', ADJ: 'Adjective', V: 'Verb',
-        PRON: 'Pronoun', DEM: 'Demonstrative', REL: 'Relative Pronoun',
-        ADV: 'Adverb', CONJ: 'Conjunction', P: 'Preposition',
-        NEG: 'Negative Particle', INTG: 'Interrogative', COND: 'Conditional',
-        T: 'Time Adverb', LOC: 'Location Adverb', INL: 'Initials',
-      }).find(([, v]) => v === f.pos)?.[0] ?? null,
-    );
-    if (!groups.has(cat)) groups.set(cat, []);
-    groups.get(cat)!.push(f);
-  }
-
-  // Sort forms within each group by count descending
-  Array.from(groups.keys()).forEach((key) => {
-    groups.get(key)!.sort((a, b) => b.count - a.count);
-  });
-
-  return CATEGORY_ORDER
-    .filter((cat) => groups.has(cat))
-    .map((cat) => ({ label: cat, forms: groups.get(cat)! }));
 }
 
 interface WordPopoverProps {
@@ -224,52 +54,6 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
     elements: { reference: anchorEl },
   });
 
-  const [rootCount, setRootCount] = useState<number | null>(null);
-  const [formGroups, setFormGroups] = useState<FormGroup[]>([]);
-  const [loadingRefs, setLoadingRefs] = useState(false);
-  const [lanesEntry, setLanesEntry] = useState<LanesEntry | null>(null);
-  const [lanesExpanded, setLanesExpanded] = useState(false);
-
-  // Load root derived forms
-  useEffect(() => {
-    setRootCount(null);
-    setFormGroups([]);
-    if (!word.root) return;
-    let cancelled = false;
-    setLoadingRefs(true);
-
-    loadRootsIndex().then(async (index) => {
-      if (cancelled || !index) { setRootCount(null); setLoadingRefs(false); return; }
-      const entry = index[word.root!];
-      if (!entry) { setRootCount(null); setLoadingRefs(false); return; }
-
-      setRootCount(entry.occurrences);
-
-      // Sample up to 15 surahs to discover diverse derived forms
-      const forms = await collectDerivedForms(entry.verses, 15);
-      if (cancelled) return;
-
-      setFormGroups(groupByCategory(forms));
-      setLoadingRefs(false);
-    });
-
-    return () => { cancelled = true; };
-  }, [word.root]);
-
-  // Load Lane's Lexicon entry
-  useEffect(() => {
-    if (!word.root) return;
-    let cancelled = false;
-    setLanesEntry(null);
-    setLanesExpanded(false);
-
-    getLanesEntry(word.root).then((entry) => {
-      if (!cancelled) setLanesEntry(entry);
-    });
-
-    return () => { cancelled = true; };
-  }, [word.root]);
-
   // Close on Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -293,7 +77,6 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
         onClose();
       }
     };
-    // Delay to avoid catching the triggering click
     const timer = setTimeout(() => {
       document.addEventListener('mousedown', handleClickOutside);
     }, 0);
@@ -310,198 +93,25 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
     return () => { document.body.style.overflow = ''; };
   }, [isMobile]);
 
-  const verbForm = extractVerbForm(word.morphology);
-
-  const totalForms = formGroups.reduce((sum, g) => sum + g.forms.length, 0);
-
-  // Handle backdrop click for mobile modal
   const handleBackdropClick = useCallback((e: React.MouseEvent) => {
     if (e.target === e.currentTarget) onClose();
   }, [onClose]);
-
-  // Shared content rendered inside both desktop popover and mobile modal
-  const content = (
-    <>
-
-        {/* Arabic word — large display */}
-        <div className="text-center mb-3">
-          <p
-            dir="rtl"
-            lang="ar"
-            className="font-arabic text-3xl leading-relaxed text-gray-900"
-          >
-            {word.text_uthmani}
-          </p>
-          <p className="text-sm text-gray-500 mt-0.5 italic">
-            {word.transliteration}
-          </p>
-        </div>
-
-        {/* Translation */}
-        <div className="bg-primary/5 rounded-md px-3 py-2 mb-3">
-          <p className="text-sm font-medium text-primary-dark">
-            {word.translation}
-          </p>
-        </div>
-
-        {/* Details grid */}
-        <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-xs">
-          {/* Root */}
-          {word.root && (
-            <>
-              <span className="text-gray-400 font-medium">Root</span>
-              <span dir="rtl" lang="ar" className="font-arabic text-sm text-gray-700">
-                {word.root}
-              </span>
-            </>
-          )}
-
-          {/* Lemma */}
-          <span className="text-gray-400 font-medium">Lemma</span>
-          <span dir="rtl" lang="ar" className="font-arabic text-sm text-gray-700">
-            {word.lemma}
-          </span>
-
-          {/* Part of speech */}
-          <span className="text-gray-400 font-medium">Type</span>
-          <span className="text-gray-700">{decodePos(word.pos)}</span>
-
-          {/* Verb form */}
-          {verbForm && (
-            <>
-              <span className="text-gray-400 font-medium">Verb Form</span>
-              <span className="text-gray-700">Form {verbForm}</span>
-            </>
-          )}
-        </div>
-
-        {/* Root Exploration — derived forms grouped by POS */}
-        {word.root && (
-          <div className="mt-3 pt-3 border-t border-gray-100">
-            <div className="flex items-center justify-between mb-2">
-              <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                Words from this root
-              </h4>
-              {rootCount !== null && (
-                <span className="text-[10px] text-gray-400 bg-gray-50 rounded-full px-2 py-0.5">
-                  {rootCount.toLocaleString()} uses &middot; {totalForms} forms
-                </span>
-              )}
-            </div>
-
-            {loadingRefs && formGroups.length === 0 && (
-              <p className="text-xs text-gray-400 italic">Discovering word forms...</p>
-            )}
-
-            {formGroups.length > 0 && (
-              <div className="space-y-2.5">
-                {formGroups.map((group) => (
-                  <div key={group.label}>
-                    <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-1">
-                      {group.label}
-                    </p>
-                    <div className="space-y-1">
-                      {group.forms.map((form) => (
-                        <a
-                          key={form.lemma}
-                          href={`/quran?start=${form.exampleSurah}:${Math.max(1, form.exampleVerse - 3)}&end=${form.exampleSurah}:${form.exampleVerse + 3}`}
-                          className="flex items-center gap-2 text-xs p-1.5 rounded hover:bg-gray-50 transition-colors"
-                        >
-                          <span dir="rtl" lang="ar" className="font-arabic text-base text-gray-800 shrink-0">
-                            {form.lemma}
-                          </span>
-                          <span className="text-gray-500 truncate flex-1">
-                            {form.translation}
-                          </span>
-                          <span className="shrink-0 flex items-center gap-1">
-                            <span className="text-[10px] text-gray-300 bg-gray-50 rounded px-1">
-                              {form.pos}{form.verbForm ? ` ${form.verbForm}` : ''}
-                            </span>
-                          </span>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Lane's Lexicon — scholarly definition */}
-        {lanesEntry && (lanesEntry.summary || lanesEntry.definition) && (
-          <div className="mt-3 pt-3 border-t border-gray-100">
-            <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
-              Lane&apos;s Lexicon
-            </h4>
-
-            {/* Summary (always shown if available) */}
-            {lanesEntry.summary && (
-              <p className="text-xs text-gray-600 leading-relaxed font-serif italic">
-                {lanesEntry.summary}
-              </p>
-            )}
-
-            {/* Full definition (expandable) */}
-            {lanesEntry.definition && (
-              <div className={lanesEntry.summary ? 'mt-1.5' : ''}>
-                {!lanesExpanded ? (
-                  <>
-                    {lanesEntry.preview && lanesEntry.preview !== lanesEntry.definition && (
-                      <p className="text-[11px] text-gray-500 leading-relaxed font-serif">
-                        {lanesEntry.preview}
-                      </p>
-                    )}
-                    <button
-                      onClick={() => setLanesExpanded(true)}
-                      className="text-[11px] text-primary hover:text-primary-dark font-medium mt-1"
-                    >
-                      Read full definition
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <p className="text-[11px] text-gray-500 leading-relaxed font-serif whitespace-pre-wrap">
-                      {lanesEntry.definition}
-                    </p>
-                    <button
-                      onClick={() => setLanesExpanded(false)}
-                      className="text-[11px] text-primary hover:text-primary-dark font-medium mt-1"
-                    >
-                      Show less
-                    </button>
-                  </>
-                )}
-              </div>
-            )}
-
-            <p className="text-[9px] text-gray-300 mt-1.5">
-              Definition from Lane&apos;s Arabic-English Lexicon
-            </p>
-          </div>
-        )}
-    </>
-  );
 
   // Mobile: bottom-sheet modal with backdrop
   if (isMobile) {
     return (
       <FloatingPortal>
-        {/* Backdrop */}
         <div
           className="fixed inset-0 z-50 bg-black/40 word-modal-backdrop"
           onClick={handleBackdropClick}
         >
-          {/* Bottom sheet */}
           <div
             className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-2xl word-modal-sheet max-h-[85vh] flex flex-col"
             dir="ltr"
           >
-            {/* Drag handle */}
             <div className="flex justify-center pt-3 pb-1 shrink-0">
               <div className="w-10 h-1 rounded-full bg-gray-300" />
             </div>
-            {/* Close button */}
             <button
               onClick={onClose}
               className="absolute top-3 right-4 text-gray-400 hover:text-gray-600 text-xl leading-none"
@@ -509,9 +119,8 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
             >
               &times;
             </button>
-            {/* Scrollable content */}
             <div className="overflow-y-auto px-5 pb-6 pt-1">
-              {content}
+              <WordMorphologyContent word={word} />
             </div>
           </div>
         </div>
@@ -528,7 +137,7 @@ export default function WordPopover({ word, anchorEl, onClose }: WordPopoverProp
         className="z-50 bg-white rounded-lg shadow-xl border border-gray-200 p-4 w-80 word-popover-enter overflow-y-auto"
         dir="ltr"
       >
-        {content}
+        <WordMorphologyContent word={word} />
       </div>
     </FloatingPortal>
   );
