@@ -66,13 +66,15 @@ export default function InteractiveArabicText({
   }, [chapter, verse]);
 
   // Register words with context when in drawer mode
+  const registerWords = dictCtx?.registerWords;
+  const unregisterWords = dictCtx?.unregisterWords;
   useEffect(() => {
-    if (!usingDrawer || !words || !dictCtx) return;
-    dictCtx.registerWords(groupId, chapter, verse, words, wordSpanRefs.current);
+    if (!usingDrawer || !words || !registerWords || !unregisterWords) return;
+    registerWords(groupId, chapter, verse, words, wordSpanRefs.current);
     return () => {
-      dictCtx.unregisterWords(groupId);
+      unregisterWords(groupId);
     };
-  }, [usingDrawer, words, dictCtx, groupId, chapter, verse]);
+  }, [usingDrawer, words, registerWords, unregisterWords, groupId, chapter, verse]);
 
   const isWordActive = useCallback((word: QuranWord) => {
     if (usingDrawer && dictCtx) {

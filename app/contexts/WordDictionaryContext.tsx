@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { QuranWord } from '@/types';
 
 export interface WordLocation {
@@ -141,19 +141,21 @@ export function WordDictionaryProvider({ children }: { children: React.ReactNode
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [selectedWord, clearSelection, navigateWord]);
 
+  const value = useMemo(() => ({
+    selectedWord,
+    selectedLocation,
+    canGoNext,
+    canGoPrev,
+    isOpen: selectedWord !== null,
+    selectWord,
+    navigateWord,
+    clearSelection,
+    registerWords,
+    unregisterWords,
+  }), [selectedWord, selectedLocation, canGoNext, canGoPrev, selectWord, navigateWord, clearSelection, registerWords, unregisterWords]);
+
   return (
-    <WordDictionaryContext.Provider value={{
-      selectedWord,
-      selectedLocation,
-      canGoNext,
-      canGoPrev,
-      isOpen: selectedWord !== null,
-      selectWord,
-      navigateWord,
-      clearSelection,
-      registerWords,
-      unregisterWords,
-    }}>
+    <WordDictionaryContext.Provider value={value}>
       {children}
     </WordDictionaryContext.Provider>
   );
