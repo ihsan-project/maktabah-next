@@ -226,33 +226,35 @@ export default function StoryClient({ name, verses }: StoryClientProps) {
                 translations={filteredTranslations}
                 verseRef={`${verse.chapter}:${verse.verse}`}
                 chapterName={verse.chapterName}
-                tanzilUrl={`https://tanzil.net/#trans/${verse.bookId}/${verse.chapter}:${verse.verse}`}
-                onTanzilClick={() => {
+                tanzilUrl={!verse.bookId.includes('bukhari') ? `https://tanzil.net/#trans/${verse.bookId}/${verse.chapter}:${verse.verse}` : undefined}
+                onTanzilClick={!verse.bookId.includes('bukhari') ? () => {
                   MixpanelTracking.track('Tanzil Link Click', {
                     chapter: verse.chapter,
                     verse: verse.verse,
                     source: 'story_page',
                     story_name: name
                   });
-                }}
+                } : undefined}
               />
-              <div className="flex justify-end px-2">
-                <Link
-                  href={buildContextUrl(Number(verse.chapter), Number(verse.verse))}
-                  className="flex items-center gap-1 text-xs text-gray-500 hover:text-primary transition-colors"
-                  onClick={() => {
-                    MixpanelTracking.track('Read in Context', {
-                      chapter: verse.chapter,
-                      verse: verse.verse,
-                      source: 'story_page',
-                      story_name: name,
-                    });
-                  }}
-                >
-                  <FiBookOpen size={12} />
-                  <span>Read in Context</span>
-                </Link>
-              </div>
+              {!verse.bookId.includes('bukhari') && (
+                <div className="flex justify-end px-2">
+                  <Link
+                    href={buildContextUrl(Number(verse.chapter), Number(verse.verse))}
+                    className="flex items-center gap-1 text-xs text-gray-500 hover:text-primary transition-colors"
+                    onClick={() => {
+                      MixpanelTracking.track('Read in Context', {
+                        chapter: verse.chapter,
+                        verse: verse.verse,
+                        source: 'story_page',
+                        story_name: name,
+                      });
+                    }}
+                  >
+                    <FiBookOpen size={12} />
+                    <span>Read section</span>
+                  </Link>
+                </div>
+              )}
             </div>
           );
         })}

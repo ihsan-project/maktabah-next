@@ -59,7 +59,9 @@
       "Bash(gcloud firestore *)",
       "mcp__maktabah__search",
       "mcp__maktabah__get_hadith",
-      "Bash(find /Users/mohammedislam/git/maktabah-next -type f \\\\\\(-name story-config* -o -name *config* \\\\\\) ! -path */node_modules/* ! -path */.next/* ! -path */.firebase/*)"
+      "Bash(find /Users/mohammedislam/git/maktabah-next -type f \\\\\\(-name story-config* -o -name *config* \\\\\\) ! -path */node_modules/* ! -path */.next/* ! -path */.firebase/*)",
+      "Bash(grep -oP 'book_id>[^<]+' /Users/mohammedislam/git/maktabah-next/public/stories/*.xml)",
+      "Bash(grep -o 'book_id>[^<]*' /Users/mohammedislam/git/maktabah-next/public/stories/*.xml)"
     ],
     "additionalDirectories": [
       "functions/src",
