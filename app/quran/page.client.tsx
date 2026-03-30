@@ -165,9 +165,9 @@ function QuranContent() {
   }
 
   return (
-    <div className="flex gap-0">
+    <div className="flex dict:gap-3">
       {/* Reading pane */}
-      <div className={`flex-1 min-w-0 transition-all duration-300 ${isDrawerOpen ? 'dict:pr-0' : ''}`}>
+      <div className="flex-1 min-w-0 overflow-hidden">
         {/* Range selector */}
         <form onSubmit={handleNavigate} className="mb-6 bg-white rounded-lg shadow-md p-4">
           <div className="flex flex-col sm:flex-row items-center gap-3">

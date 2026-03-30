@@ -172,9 +172,9 @@ function StoryContent({ name, verses }: StoryClientProps) {
   const hasMoreVerses = visibleRange.end < verses.length;
 
   return (
-    <div className="flex gap-0">
+    <div className="flex dict:gap-3">
       {/* Reading pane */}
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 overflow-hidden">
         {/* Login promotion section - only shown if not logged in */}
         {!user && !loading && (
           <div className="mb-8 p-6 bg-primary-light bg-opacity-10 rounded-lg text-center">

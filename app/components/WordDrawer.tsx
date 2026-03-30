@@ -23,7 +23,7 @@ export default function WordDrawer({ className = '' }: WordDrawerProps) {
 
   return (
     <div
-      className={`w-[38%] min-w-[320px] max-w-[480px] border-l border-gray-200 bg-white sticky top-0 h-screen flex flex-col word-drawer-enter ${className}`}
+      className={`w-[38%] min-w-[320px] max-w-[480px] bg-white rounded-lg shadow-md sticky top-0 h-screen flex flex-col word-drawer-enter ${className}`}
       dir="ltr"
     >
       {/* Header with navigation */}
