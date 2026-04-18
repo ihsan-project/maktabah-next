@@ -15,7 +15,7 @@ if (!admin.apps.length) {
 
 // Create a function to handle API requests
 exports.nextApiHandler = functions.https.onRequest(
-  { secrets: ['OPENSEARCH_URL', 'OPENSEARCH_USERNAME', 'OPENSEARCH_PASSWORD', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY'] },
+  { secrets: ['OPENSEARCH_URL', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY'] },
   async (req, res) => {
     // Set CORS headers
     res.set('Access-Control-Allow-Origin', '*');
@@ -240,7 +240,7 @@ exports.mcpServer = functions.https.onRequest(
   {
     timeoutSeconds: 300,
     minInstances: 0,
-    secrets: ['OPENSEARCH_URL', 'OPENSEARCH_USERNAME', 'OPENSEARCH_PASSWORD', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY'],
+    secrets: ['OPENSEARCH_URL', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY'],
   },
   async (req, res) => {
     await handleMcpRequest(req, res);

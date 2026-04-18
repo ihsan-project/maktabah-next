@@ -1,5 +1,6 @@
 const logger = require('firebase-functions/logger');
 const { Client } = require('@opensearch-project/opensearch');
+const { AwsSigv4Signer } = require('@opensearch-project/opensearch/aws');
 const { BedrockRuntimeClient, InvokeModelCommand } = require('@aws-sdk/client-bedrock-runtime');
 
 const EMBEDDING_MODEL_ID = 'cohere.embed-multilingual-v3';
@@ -24,14 +25,15 @@ let opensearchClient;
 function getOpenSearchClient() {
   if (!opensearchClient) {
     opensearchClient = new Client({
+      ...AwsSigv4Signer({
+        region: process.env.AWS_REGION || 'us-east-1',
+        service: 'es',
+        getCredentials: () => Promise.resolve({
+          accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+          secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        }),
+      }),
       node: process.env.OPENSEARCH_URL,
-      auth: {
-        username: process.env.OPENSEARCH_USERNAME,
-        password: process.env.OPENSEARCH_PASSWORD
-      },
-      ssl: {
-        rejectUnauthorized: process.env.NODE_ENV === 'production'
-      }
     });
   }
   return opensearchClient;

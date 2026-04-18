@@ -58,17 +58,59 @@ The semantic search feature uses Cohere's multilingual embedding model via Amazo
 
 > **Note:** Bedrock model access is per-region. Make sure you enable it in the same region as your OpenSearch domain (default: `us-east-1`).
 
-1. Create an IAM user (or use an existing one) with the `AmazonBedrockFullAccess` policy attached
-2. Generate an **Access Key ID** and **Secret Access Key** for this user — you'll need these for both the loader and Firebase Functions
+1. Go to the [AWS Bedrock Console](https://console.aws.amazon.com/bedrock/home) in the same region as your OpenSearch domain.
+2. **Model access** → **Modify model access** → enable **Cohere Embed Multilingual v3** → submit. Access is typically granted within a few minutes.
 
-### 3. Get Your Domain Endpoint
+### 3. Create an IAM User for Firebase Functions
+
+Firebase Functions authenticate to both OpenSearch (via SigV4 request signing) and Bedrock using a single IAM user with narrowly scoped permissions.
+
+1. **IAM Console** → **Users** → **Create user**:
+   - **User name:** `maktabah-functions`
+   - Do **not** enable console access — this user is programmatic-only.
+   - On the permissions step, select **Attach policies directly** but do not select any managed policy. You'll add an inline policy next.
+2. Open the new user → **Permissions** tab → **Add permissions** → **Create inline policy** → **JSON** tab → paste:
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "OpenSearchHttpAccess",
+         "Effect": "Allow",
+         "Action": ["es:ESHttpGet", "es:ESHttpPost", "es:ESHttpHead"],
+         "Resource": "arn:aws:es:us-east-1:<ACCOUNT_ID>:domain/maktabah/*"
+       },
+       {
+         "Sid": "BedrockInvokeEmbedding",
+         "Effect": "Allow",
+         "Action": "bedrock:InvokeModel",
+         "Resource": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3"
+       }
+     ]
+   }
+   ```
+   Replace `<ACCOUNT_ID>` with your AWS account ID (top-right of the console, or `aws sts get-caller-identity --query Account --output text`). Name the policy `maktabah-functions-policy`.
+3. **Security credentials** tab → **Access keys** → **Create access key** → use case **Application running outside AWS**. Save the access key ID and secret — you'll paste them into Firebase secrets in step 7.
+
+> **Why narrow permissions?** `es:ESHttp*` governs the signed HTTP calls to the domain and `bedrock:InvokeModel` is the single action needed for embeddings. Avoid `AmazonBedrockFullAccess` or `es:*` — least privilege.
+
+### 4. Map the IAM User in OpenSearch Dashboards
+
+The IAM policy lets the user *reach* the domain, but OpenSearch's fine-grained access control must also grant it *search* permissions inside the cluster. Skipping this step will cause every request to return `403 security_exception`.
+
+1. Open **OpenSearch Dashboards** for the domain (from the AWS OpenSearch domain page → "OpenSearch Dashboards URL"). Log in with the master user created in step 1.
+2. Hamburger menu → **Security** → **Roles**.
+3. Select a role — `all_access` is simplest for a server-side app; a custom read/write role scoped to the `kitaab` index is tighter.
+4. **Mapped users** tab → **Manage mapping** → under **Backend roles**, paste `arn:aws:iam::<ACCOUNT_ID>:user/maktabah-functions` → **Map**.
+
+### 5. Get Your Domain Endpoint
 
 Once active, copy the **Domain endpoint** from the AWS console. It looks like:
 ```
 https://search-maktabah-xxxxxxxxxx.us-east-1.es.amazonaws.com
 ```
 
-### 4. Configure Environment Variables
+### 6. Configure Environment Variables
 
 Create a `.env.local` file in the root directory:
 
@@ -105,24 +147,22 @@ AWS_ACCESS_KEY_ID=your_access_key_id
 AWS_SECRET_ACCESS_KEY=your_secret_access_key
 ```
 
-### 5. Set Firebase Function Secrets
+### 7. Set Firebase Function Secrets
+
+Firebase Functions authenticate to OpenSearch using SigV4 with the IAM user's credentials — no username/password needed.
 
 ```bash
 firebase functions:secrets:set OPENSEARCH_URL
 # Enter your OpenSearch domain endpoint when prompted
 
-firebase functions:secrets:set OPENSEARCH_USERNAME
-# Enter your master username when prompted
-
-firebase functions:secrets:set OPENSEARCH_PASSWORD
-# Enter your master password when prompted
-
-# AWS Bedrock credentials (for semantic/hybrid search at query time)
 firebase functions:secrets:set AWS_ACCESS_KEY_ID
+# Paste the access key ID for maktabah-functions (from step 3)
+
 firebase functions:secrets:set AWS_SECRET_ACCESS_KEY
+# Paste the secret access key for maktabah-functions
 ```
 
-### 6. Load Data into OpenSearch
+### 8. Load Data into OpenSearch
 
 From `/quran-loader` directory (due to using node parameters):
 ```bash
@@ -191,7 +231,9 @@ maktabah-next/
 
 ## Security Best Practices
 
-1. Use fine-grained access control with a dedicated read-only user for the application
-2. Rotate your master user password periodically
-3. For production, use VPC access instead of public access
-4. Never commit credentials to your source code repository
+1. Firebase Functions authenticate to OpenSearch via SigV4 using a dedicated IAM user (`maktabah-functions`) — no long-lived master passwords in the request path.
+2. Keep the IAM policy narrowly scoped (`es:ESHttp*` on the domain ARN, `bedrock:InvokeModel` on the specific model). Avoid managed policies like `AmazonBedrockFullAccess`.
+3. Rotate the IAM user's access keys periodically — run `firebase functions:secrets:set` and redeploy.
+4. Reserve the OpenSearch master user for admin tasks (Dashboards login, role mapping); don't use it for application traffic.
+5. For production, use VPC access instead of public access on the OpenSearch domain.
+6. Never commit credentials to your source code repository.
