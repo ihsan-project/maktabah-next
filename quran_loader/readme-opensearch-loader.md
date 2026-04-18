@@ -261,6 +261,112 @@ If you encounter errors:
    - Use the connection verification snippet in the Configuration section above to isolate the problem quickly.
 3. **Memory Issues**: For very large files, adjust the `BATCH_SIZE` constant in the code.
 
+## Recovering from a Missing or Deleted `kitaab` Index
+
+AWS OpenSearch Service takes **automatic hourly snapshots** of the domain and retains them for 14 days in a managed S3 repository named `cs-automated-enc`. If `kitaab` is deleted — accidentally, by a rogue script, or by someone clicking the wrong button in Dashboards — you can almost always restore it from a snapshot **without reindexing**, as long as you catch it within 14 days.
+
+### Symptoms
+
+- The search API returns HTTP 500 with `{"error":"Internal server error"}`.
+- Firebase function logs show: `ResponseError: index_not_found_exception: [index_not_found_exception] Reason: no such index [kitaab]`.
+- Direct check — `kitaab` is missing from the index list:
+  ```bash
+  curl -s --aws-sigv4 "aws:amz:us-east-1:es" --user "$AWS_KEY:$AWS_SECRET" \
+    "$DOMAIN/_cat/indices?v"
+  ```
+
+### Early detection
+
+The failure is silent until a user queries the search API. To catch it sooner:
+
+- **Uptime monitor** (UptimeRobot, GCP Cloud Monitoring, etc.) hitting `https://maktabahapp.com/api/search?q=test&size=1&mode=text` every few minutes — alerts on any non-200.
+- **CloudWatch alarm** on the OpenSearch domain's `SearchableDocuments` metric — alerts when doc count drops by more than ~10k.
+- **Enable OpenSearch audit logs** (Domain → Logs → "Audit logs") — index deletes get written to CloudWatch, so you can identify *who* deleted what.
+
+### Recovery steps
+
+Set up shell variables once (the `maktabah-functions` IAM user has the necessary permissions):
+
+```bash
+export AWS_KEY=$(firebase functions:secrets:access AWS_ACCESS_KEY_ID 2>/dev/null)
+export AWS_SECRET=$(firebase functions:secrets:access AWS_SECRET_ACCESS_KEY 2>/dev/null)
+export DOMAIN=https://search-maktabah-ktgtplrd37c2wezyzrk24hhtba.aos.us-east-1.on.aws
+```
+
+**1. Find the most recent snapshot that still contains `kitaab`:**
+
+```bash
+curl -s --aws-sigv4 "aws:amz:us-east-1:es" --user "$AWS_KEY:$AWS_SECRET" \
+  "$DOMAIN/_snapshot/cs-automated-enc/_all" | python3 -c "
+import sys, json
+snaps = json.load(sys.stdin).get('snapshots', [])
+with_kitaab = [s for s in snaps if 'kitaab' in s.get('indices', [])]
+if with_kitaab:
+    s = with_kitaab[-1]
+    print(f'Latest snapshot with kitaab: {s[\"start_time\"]}')
+    print(f'Snapshot name: {s[\"snapshot\"]}')
+else:
+    print('No snapshot in the 14-day window contains kitaab — you will need to reindex.')
+"
+```
+
+**2. Confirm `kitaab` does not currently exist** (a restore cannot overwrite an existing index):
+
+```bash
+curl -s --aws-sigv4 "aws:amz:us-east-1:es" --user "$AWS_KEY:$AWS_SECRET" \
+  "$DOMAIN/_cat/indices/kitaab?v"
+```
+
+If it exists but is corrupted or partial, delete it first:
+
+```bash
+curl -s -X DELETE --aws-sigv4 "aws:amz:us-east-1:es" --user "$AWS_KEY:$AWS_SECRET" \
+  "$DOMAIN/kitaab"
+```
+
+**3. Trigger the restore:**
+
+```bash
+SNAPSHOT=<paste snapshot name from step 1>
+curl -s -X POST --aws-sigv4 "aws:amz:us-east-1:es" --user "$AWS_KEY:$AWS_SECRET" \
+  -H "Content-Type: application/json" \
+  "$DOMAIN/_snapshot/cs-automated-enc/$SNAPSHOT/_restore" \
+  -d '{"indices": "kitaab"}'
+# Expected response: {"accepted":true}
+```
+
+**4. Wait for shards to initialize** (blocks until green, up to 5 min):
+
+```bash
+curl -s --aws-sigv4 "aws:amz:us-east-1:es" --user "$AWS_KEY:$AWS_SECRET" \
+  "$DOMAIN/_cluster/health/kitaab?wait_for_status=green&timeout=5m"
+```
+
+For ~1–2 GB of data this typically completes in 1–3 minutes. Querying the index before it's `green` returns `503 all shards failed` — that's expected during the recovery window, not a real error.
+
+**5. Verify document count:**
+
+```bash
+curl -s --aws-sigv4 "aws:amz:us-east-1:es" --user "$AWS_KEY:$AWS_SECRET" \
+  "$DOMAIN/kitaab/_count"
+# Expected: ~100k docs
+```
+
+**6. Smoke-test the production API:**
+
+```bash
+curl -s -w "\nHTTP: %{http_code}\n" \
+  "https://maktabahapp.com/api/search?q=mercy&page=1&size=2&mode=text"
+```
+
+### Data loss window
+
+Restoring from an automatic snapshot rolls the index back to the snapshot's start time. Any data ingested after that snapshot is lost and must be reloaded from the source XML files. Since AWS snapshots run hourly, the worst-case loss is ~1 hour of ingests — provided the deletion was caught within 14 days.
+
+### Longer-term: manual snapshots
+
+Automatic snapshots only protect against *data-plane* loss (deleted indices on a still-alive domain). If the **domain itself** is deleted, all automatic snapshots vanish with it. For durable disaster recovery, register an S3 bucket you own as a manual snapshot repository and schedule daily snapshots via OpenSearch Dashboards → **Snapshot Management**. Storage cost for the full `kitaab` data is on the order of $0.05/month.
+
 ## License
 
 ISC
