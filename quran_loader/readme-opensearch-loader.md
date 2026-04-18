@@ -39,15 +39,94 @@ Where:
 npm install
 ```
 
-3. Create a `.env` file based on `.env.example` with your OpenSearch and AWS credentials. The loader authenticates to OpenSearch via SigV4, so the IAM user whose keys you provide must be mapped to an OpenSearch role (see the root README for setup):
+## AWS Setup
 
+The loader authenticates to OpenSearch using **AWS SigV4 request signing** (not basic auth) and calls **Amazon Bedrock** for embeddings. Both are reached with a single IAM user's access key. If you already set up the `maktabah-functions` user for the Firebase Functions (see the root [README](../README.md)), you can reuse those same credentials here. If not, the steps below create a loader-ready IAM user from scratch.
+
+### 1. Create an IAM user
+
+[IAM Console](https://console.aws.amazon.com/iam/home#/users) → **Users** → **Create user**:
+
+- **User name:** `maktabah-functions` (or a loader-specific name like `maktabah-loader`)
+- **Do not** enable console access — this user is programmatic-only.
+- On the permissions step, select **Attach policies directly** but do not select a managed policy. You'll add an inline policy in the next step.
+
+### 2. Attach an inline policy
+
+Open the new user → **Permissions** tab → **Add permissions** → **Create inline policy** → **JSON** tab → paste:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "OpenSearchHttpAccess",
+      "Effect": "Allow",
+      "Action": ["es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut", "es:ESHttpDelete", "es:ESHttpHead"],
+      "Resource": "arn:aws:es:us-east-1:<ACCOUNT_ID>:domain/maktabah/*"
+    },
+    {
+      "Sid": "BedrockInvokeEmbedding",
+      "Effect": "Allow",
+      "Action": "bedrock:InvokeModel",
+      "Resource": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3"
+    }
+  ]
+}
 ```
+
+Replace `<ACCOUNT_ID>` with your AWS account ID (top-right of the console, or `aws sts get-caller-identity --query Account --output text`). Save the policy.
+
+> **Loader vs. Firebase Functions permissions:** the loader needs write permissions (`es:ESHttpPut`, `es:ESHttpDelete`) because it creates the index and bulk-writes documents. The Firebase Functions user only needs read permissions (`es:ESHttpGet`, `es:ESHttpPost`, `es:ESHttpHead`). If you're sharing one IAM user between both, use the broader policy shown here.
+
+### 3. Create access keys
+
+User's **Security credentials** tab → **Access keys** → **Create access key** → use case **Application running outside AWS**. Save the access key ID and secret — you'll put them in `.env` below.
+
+### 4. Map the IAM user in OpenSearch Dashboards
+
+The IAM policy lets requests *reach* the domain, but OpenSearch's fine-grained access control must also grant permissions *inside* the cluster. If you skip this step, every request returns `403 security_exception`.
+
+1. Open the [Amazon OpenSearch Service console](https://console.aws.amazon.com/aos/home/) → **Domains** → click your domain.
+2. On **General information**, click the **OpenSearch Dashboards URL** and log in with the domain's master user.
+3. In the left navigation pane, under **Management**, choose **Security** → **Roles**.
+4. Pick a role: `all_access` is simplest for the loader (it needs to create indices and bulk-write); a custom role scoped to the `kitaab` index works too.
+5. **Mapped users** tab → **Manage mapping**. Because this is an IAM **user** (not a role), paste the ARN into the **Users** field:
+   ```
+   arn:aws:iam::<ACCOUNT_ID>:user/maktabah-functions
+   ```
+   Click **Map**.
+
+> **Users vs. Backend roles:** IAM **user** ARNs go in the **Users** field. IAM **role** ARNs go in **Backend roles**. See the [AWS FGAC docs](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-mapping).
+
+## Configuration
+
+Create a `.env` file in the `quran_loader/` directory based on `.env.example`, using the access keys from the AWS Setup above:
+
+```env
 OPENSEARCH_URL=https://your-opensearch-domain.us-east-1.es.amazonaws.com
 AWS_REGION=us-east-1
 AWS_ACCESS_KEY_ID=your_access_key_id
 AWS_SECRET_ACCESS_KEY=your_secret_access_key
 NODE_ENV=development
 ```
+
+### Verify the connection
+
+Before running the loader, confirm the credentials and role mapping work:
+
+```bash
+node -e "
+require('dotenv').config();
+const { getOpenSearchClient } = require('./opensearch-client');
+(async () => {
+  const h = await getOpenSearchClient().cluster.health();
+  console.log('cluster:', h.body.cluster_name, '| status:', h.body.status);
+})().catch(e => { console.error('FAIL:', e.meta?.statusCode || '', e.message); process.exit(1); });
+"
+```
+
+Expected output: `cluster: <name> | status: green`. If you see `FAIL: 403`, revisit step 4 (role mapping) — the most common cause is pasting the IAM user ARN into **Backend roles** instead of **Users**.
 
 ## Usage
 
@@ -175,7 +254,11 @@ npm run loader:search -- --query="Allah" --author="Arberry" --title="quran"
 If you encounter errors:
 
 1. **XML Parsing Issues**: Check your XML format. The XML must be well-formed and follow the expected structure.
-2. **OpenSearch Connection Errors**: Verify your OpenSearch credentials and URL in the `.env` file.
+2. **OpenSearch Connection Errors**:
+   - `403 security_exception` — the IAM user isn't mapped to an OpenSearch role. Revisit AWS Setup step 4; confirm the ARN was pasted into the **Users** field (not Backend roles).
+   - `401 Unauthorized` (raw, no JSON body) — the domain is rejecting SigV4 entirely. Verify `AWS_REGION` matches the domain's region.
+   - `getaddrinfo ENOTFOUND` — `OPENSEARCH_URL` is malformed or unreachable.
+   - Use the connection verification snippet in the Configuration section above to isolate the problem quickly.
 3. **Memory Issues**: For very large files, adjust the `BATCH_SIZE` constant in the code.
 
 ## License
