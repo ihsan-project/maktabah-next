@@ -96,12 +96,19 @@ Firebase Functions authenticate to both OpenSearch (via SigV4 request signing) a
 
 ### 4. Map the IAM User in OpenSearch Dashboards
 
-The IAM policy lets the user *reach* the domain, but OpenSearch's fine-grained access control must also grant it *search* permissions inside the cluster. Skipping this step will cause every request to return `403 security_exception`.
+The IAM policy lets the user *reach* the domain, but OpenSearch's fine-grained access control (FGAC) must also grant it *search* permissions inside the cluster. Skipping this step will cause every request to return `403 security_exception`.
 
-1. Open **OpenSearch Dashboards** for the domain (from the AWS OpenSearch domain page → "OpenSearch Dashboards URL"). Log in with the master user created in step 1.
-2. Hamburger menu → **Security** → **Roles**.
-3. Select a role — `all_access` is simplest for a server-side app; a custom read/write role scoped to the `kitaab` index is tighter.
-4. **Mapped users** tab → **Manage mapping** → under **Backend roles**, paste `arn:aws:iam::<ACCOUNT_ID>:user/maktabah-functions` → **Map**.
+1. Open the [Amazon OpenSearch Service console](https://console.aws.amazon.com/aos/home/) → **Domains** → click your domain name.
+2. On the **General information** panel, click the **OpenSearch Dashboards URL** (looks like `https://<domain-endpoint>/_dashboards/`). Log in with the master user created in step 1.
+3. In the **left navigation pane** (collapse/expand icon at the top-left), under **Management**, choose **Security** → **Roles**.
+4. Select a role — `all_access` is simplest for a server-side app; a custom read/write role scoped to the `kitaab` index is tighter.
+5. **Mapped users** tab → **Manage mapping**. Because `maktabah-functions` is an IAM **user** (not an IAM role), paste its ARN into the **Users** field:
+   ```
+   arn:aws:iam::<ACCOUNT_ID>:user/maktabah-functions
+   ```
+   Click **Map**.
+
+> **Users vs. Backend roles:** IAM **user** ARNs (`.../user/...`) go in the **Users** field. IAM **role** ARNs (`.../role/...`) go in the **Backend roles** field. Putting an IAM user ARN in the wrong field is the most common cause of 403s at this step. See the AWS docs on [mapping roles to users](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-mapping).
 
 ### 5. Get Your Domain Endpoint
 
