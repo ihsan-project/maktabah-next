@@ -1,18 +1,11 @@
 #!/usr/bin/env node
 
-const { Client } = require('@opensearch-project/opensearch');
 const { BedrockRuntimeClient, InvokeModelCommand } = require('@aws-sdk/client-bedrock-runtime');
 const path = require('path');
+const { getOpenSearchClient } = require('./opensearch-client');
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
-// OpenSearch client
-const opensearchClient = new Client({
-  node: process.env.OPENSEARCH_URL || 'http://localhost:9200',
-  auth: (process.env.OPENSEARCH_USERNAME && process.env.OPENSEARCH_PASSWORD)
-    ? { username: process.env.OPENSEARCH_USERNAME, password: process.env.OPENSEARCH_PASSWORD }
-    : undefined,
-  ssl: { rejectUnauthorized: process.env.NODE_ENV === 'production' }
-});
+const opensearchClient = getOpenSearchClient();
 
 // Bedrock client for embeddings
 const bedrockClient = new BedrockRuntimeClient({

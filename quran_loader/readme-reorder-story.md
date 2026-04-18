@@ -37,8 +37,9 @@ npm install
 
 ```env
 OPENSEARCH_URL=https://your-opensearch-domain.us-east-1.es.amazonaws.com
-OPENSEARCH_USERNAME=admin
-OPENSEARCH_PASSWORD=your_opensearch_password
+AWS_REGION=us-east-1
+AWS_ACCESS_KEY_ID=your_access_key_id
+AWS_SECRET_ACCESS_KEY=your_secret_access_key
 NODE_ENV=development
 ```
 
@@ -270,14 +271,15 @@ If you're getting "could not find" warnings, open the source XML and check the `
 
 If you see errors like:
 ```
-Error: OpenSearch credentials not found in .env file
+Error: OpenSearch SigV4 credentials not found in .env file
 ```
 
 Make sure you have a `.env` file in the `quran_loader` directory with:
 ```env
 OPENSEARCH_URL=https://your-opensearch-domain.us-east-1.es.amazonaws.com
-OPENSEARCH_USERNAME=admin
-OPENSEARCH_PASSWORD=your_opensearch_password
+AWS_REGION=us-east-1
+AWS_ACCESS_KEY_ID=your_access_key_id
+AWS_SECRET_ACCESS_KEY=your_secret_access_key
 NODE_ENV=development
 ```
 

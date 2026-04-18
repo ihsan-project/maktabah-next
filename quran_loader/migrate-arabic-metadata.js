@@ -19,24 +19,15 @@
 
 const fs = require('fs');
 const path = require('path');
-const { Client } = require('@opensearch-project/opensearch');
 const { DOMParser } = require('@xmldom/xmldom');
 const xpath = require('xpath');
+const { getOpenSearchClient } = require('./opensearch-client');
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
 const INDEX_NAME = 'kitaab';
 const DRY_RUN = process.argv.includes('--dry-run');
 
-// Initialize OpenSearch client
-const opensearchClient = new Client({
-  node: process.env.OPENSEARCH_URL || 'http://localhost:9200',
-  auth: (process.env.OPENSEARCH_USERNAME && process.env.OPENSEARCH_PASSWORD)
-    ? { username: process.env.OPENSEARCH_USERNAME, password: process.env.OPENSEARCH_PASSWORD }
-    : undefined,
-  ssl: {
-    rejectUnauthorized: process.env.NODE_ENV === 'production'
-  }
-});
+const opensearchClient = getOpenSearchClient();
 
 // ---------------------------------------------------------------------------
 // 1. Parse quran-data.xml for surah metadata and juz/hizb boundaries

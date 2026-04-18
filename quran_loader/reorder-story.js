@@ -18,7 +18,7 @@ const fs = require('fs');
 const path = require('path');
 const xml2js = require('xml2js');
 const { parse } = require('csv-parse/sync');
-const { Client } = require('@opensearch-project/opensearch');
+const { getOpenSearchClient } = require('./opensearch-client');
 require('dotenv').config();
 
 /**
@@ -75,15 +75,7 @@ const EXPECTED_QURAN_AUTHORS = [
  */
 async function fetchVerseFromOpenSearch(chapter, verseNum, isQuran) {
   try {
-    const client = new Client({
-      node: process.env.OPENSEARCH_URL,
-      auth: (process.env.OPENSEARCH_USERNAME && process.env.OPENSEARCH_PASSWORD)
-        ? { username: process.env.OPENSEARCH_USERNAME, password: process.env.OPENSEARCH_PASSWORD }
-        : undefined,
-      ssl: {
-        rejectUnauthorized: process.env.NODE_ENV === 'production'
-      }
-    });
+    const client = getOpenSearchClient();
 
     const opensearchIndex = 'kitaab';
     
@@ -301,10 +293,9 @@ async function main() {
   if (fetchMissing) {
     console.log('Fetch missing verses from OpenSearch: ENABLED (default)');
     
-    // Check if OpenSearch credentials are configured
-    if (!process.env.OPENSEARCH_URL || !process.env.OPENSEARCH_USERNAME || !process.env.OPENSEARCH_PASSWORD) {
-      console.error('Error: OpenSearch credentials not found in .env file');
-      console.error('Please ensure OPENSEARCH_URL, OPENSEARCH_USERNAME, and OPENSEARCH_PASSWORD are set');
+    if (!process.env.OPENSEARCH_URL || !process.env.AWS_ACCESS_KEY_ID || !process.env.AWS_SECRET_ACCESS_KEY) {
+      console.error('Error: OpenSearch SigV4 credentials not found in .env file');
+      console.error('Please ensure OPENSEARCH_URL, AWS_ACCESS_KEY_ID, and AWS_SECRET_ACCESS_KEY are set');
       console.error('Or use --no-fetch-missing to skip fetching missing verses');
       process.exit(1);
     }

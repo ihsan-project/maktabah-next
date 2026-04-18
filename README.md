@@ -141,14 +141,14 @@ OPENSEARCH_INDEX=kitaab
 NEXT_PUBLIC_MIXPANEL_TOKEN=your_mixpanel_token
 ```
 
-For the quran_loader, create `quran_loader/.env`:
+For the quran_loader, create `quran_loader/.env`. The loader also uses SigV4 for OpenSearch and the same AWS credentials for Bedrock embeddings:
 
 ```env
 OPENSEARCH_URL=https://search-maktabah-xxxxxxxxxx.us-east-1.es.amazonaws.com
-OPENSEARCH_USERNAME=your_master_username
-OPENSEARCH_PASSWORD=your_master_password
 
-# AWS Bedrock (for generating embeddings during indexing)
+# AWS credentials for BOTH OpenSearch SigV4 and Bedrock embeddings.
+# Use the maktabah-functions IAM user from step 3 (or a separate IAM user
+# with the same permissions, mapped in OpenSearch Dashboards per step 4).
 AWS_REGION=us-east-1
 AWS_ACCESS_KEY_ID=your_access_key_id
 AWS_SECRET_ACCESS_KEY=your_secret_access_key

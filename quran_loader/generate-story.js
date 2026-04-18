@@ -41,15 +41,7 @@ const outputFile = outputArg
 async function searchDocuments(query, author = null, chapter = null) {
   try {
     // Initialize OpenSearch client with basic authentication
-    const client = new Client({
-      node: process.env.OPENSEARCH_URL,
-      auth: (process.env.OPENSEARCH_USERNAME && process.env.OPENSEARCH_PASSWORD)
-        ? { username: process.env.OPENSEARCH_USERNAME, password: process.env.OPENSEARCH_PASSWORD }
-        : undefined,
-      ssl: {
-        rejectUnauthorized: process.env.NODE_ENV === 'production'
-      }
-    });
+    const client = getOpenSearchClient();
 
     // Hardcoded index name
     const opensearchIndex = 'kitaab';

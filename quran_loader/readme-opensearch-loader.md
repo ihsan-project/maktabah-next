@@ -39,12 +39,13 @@ Where:
 npm install
 ```
 
-3. Create a `.env` file based on `.env.example` with your OpenSearch credentials:
+3. Create a `.env` file based on `.env.example` with your OpenSearch and AWS credentials. The loader authenticates to OpenSearch via SigV4, so the IAM user whose keys you provide must be mapped to an OpenSearch role (see the root README for setup):
 
 ```
 OPENSEARCH_URL=https://your-opensearch-domain.us-east-1.es.amazonaws.com
-OPENSEARCH_USERNAME=admin
-OPENSEARCH_PASSWORD=your_opensearch_password
+AWS_REGION=us-east-1
+AWS_ACCESS_KEY_ID=your_access_key_id
+AWS_SECRET_ACCESS_KEY=your_secret_access_key
 NODE_ENV=development
 ```
 

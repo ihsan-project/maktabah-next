@@ -2,18 +2,12 @@
 
 const path = require('path');
 const readline = require('readline');
-const { Client } = require('@opensearch-project/opensearch');
+const { getOpenSearchClient } = require('./opensearch-client');
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
 const INDEX_NAME = 'kitaab';
 
-const opensearchClient = new Client({
-  node: process.env.OPENSEARCH_URL || 'http://localhost:9200',
-  auth: (process.env.OPENSEARCH_USERNAME && process.env.OPENSEARCH_PASSWORD)
-    ? { username: process.env.OPENSEARCH_USERNAME, password: process.env.OPENSEARCH_PASSWORD }
-    : undefined,
-  ssl: { rejectUnauthorized: process.env.NODE_ENV === 'production' }
-});
+const opensearchClient = getOpenSearchClient();
 
 async function main() {
   try {

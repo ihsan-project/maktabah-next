@@ -2,10 +2,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const { Client } = require('@opensearch-project/opensearch');
 const { BedrockRuntimeClient, InvokeModelCommand } = require('@aws-sdk/client-bedrock-runtime');
 const { DOMParser } = require('@xmldom/xmldom');
 const xpath = require('xpath');
+const { getOpenSearchClient } = require('./opensearch-client');
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
 // Parse command line arguments
@@ -39,16 +39,7 @@ const volume = volumeArg
   ? parseInt(volumeArg.split('=')[1], 10)
   : null; // No volume by default
 
-// Initialize OpenSearch client
-const opensearchClient = new Client({
-  node: process.env.OPENSEARCH_URL || 'http://localhost:9200',
-  auth: (process.env.OPENSEARCH_USERNAME && process.env.OPENSEARCH_PASSWORD)
-    ? { username: process.env.OPENSEARCH_USERNAME, password: process.env.OPENSEARCH_PASSWORD }
-    : undefined,
-  ssl: {
-    rejectUnauthorized: process.env.NODE_ENV === 'production'
-  }
-});
+const opensearchClient = getOpenSearchClient();
 
 // Initialize Bedrock client for Cohere embeddings
 const bedrockClient = new BedrockRuntimeClient({

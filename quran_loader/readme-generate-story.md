@@ -22,8 +22,9 @@ npm install
 
 ```env
 OPENSEARCH_URL=https://your-opensearch-domain.us-east-1.es.amazonaws.com
-OPENSEARCH_USERNAME=admin
-OPENSEARCH_PASSWORD=your_opensearch_password
+AWS_REGION=us-east-1
+AWS_ACCESS_KEY_ID=your_access_key_id
+AWS_SECRET_ACCESS_KEY=your_secret_access_key
 NODE_ENV=development
 ```
 
