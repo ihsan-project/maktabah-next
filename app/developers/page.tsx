@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import DevelopersKeysClient, { CopyButton } from './DevelopersKeysClient';
+import DevelopersKeysClient from './DevelopersKeysClient';
+import { CopyButton } from './CopyButton';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://maktabah.app';
 const MCP_SERVER_URL = process.env.NEXT_PUBLIC_MCP_URL || 'https://maktabah.app/mcp';

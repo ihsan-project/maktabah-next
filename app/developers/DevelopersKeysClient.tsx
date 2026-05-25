@@ -4,26 +4,8 @@ import React, { useEffect, useState, useCallback } from 'react';
 import ProtectedRoute from '@/app/components/ProtectedRoute';
 import { generateApiKey, revokeApiKey, listApiKeys, getApiKeyUsage } from '@/lib/api-keys';
 import { ApiKey, GenerateApiKeyResponse, ApiKeyUsageResponse } from '@/types';
-import { FiCopy, FiCheck, FiTrash2, FiPlus, FiKey, FiAlertCircle, FiChevronDown, FiChevronRight } from 'react-icons/fi';
-
-function CopyButton({ text, label }: { text: string; label?: string }) {
-  const [copied, setCopied] = useState(false);
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-  return (
-    <button
-      onClick={handleCopy}
-      className="inline-flex items-center space-x-1 text-sm text-primary hover:text-primary-dark transition-colors"
-      title="Copy to clipboard"
-    >
-      {copied ? <FiCheck size={14} /> : <FiCopy size={14} />}
-      {label && <span>{copied ? 'Copied!' : label}</span>}
-    </button>
-  );
-}
+import { FiTrash2, FiPlus, FiKey, FiAlertCircle, FiChevronDown, FiChevronRight } from 'react-icons/fi';
+import { CopyButton } from './CopyButton';
 
 function NewKeyModal({ apiKey, onClose }: { apiKey: GenerateApiKeyResponse; onClose: () => void }) {
   const [copied, setCopied] = useState(false);
@@ -271,5 +253,3 @@ export default function DevelopersKeysClient() {
     </ProtectedRoute>
   );
 }
-
-export { CopyButton };
