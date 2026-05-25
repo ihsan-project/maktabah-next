@@ -4,7 +4,7 @@ import { ApiKey, GenerateApiKeyResponse, ApiKeyUsageResponse } from '@/types';
 async function authHeaders(): Promise<HeadersInit> {
   const user = auth.currentUser;
   if (!user) throw new Error('Must be logged in');
-  const token = await user.getIdToken();
+  const token = await user.getIdToken(true);
   return { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' };
 }
 

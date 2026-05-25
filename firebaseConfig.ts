@@ -26,10 +26,10 @@ const db: Firestore = getFirestore(firebaseApp);
 // Connect to emulators in development
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   const w = window as any;
-  if (!w._emulatorConnected) {
+  if (!w.__maktabah_emulatorConnected) {
     connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true });
     connectFirestoreEmulator(db, 'localhost', 8080);
-    w._emulatorConnected = true;
+    w.__maktabah_emulatorConnected = true;
   }
 }
 
