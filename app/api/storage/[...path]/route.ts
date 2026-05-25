@@ -17,12 +17,16 @@ export async function GET(
     const bucket = getAdminStorage().bucket(STORAGE_BUCKET);
     const file = bucket.file(filePath);
 
-    const [exists] = await file.exists();
-    if (!exists) {
-      return new NextResponse('File not found', { status: 404 });
+    let fileContent: Buffer;
+    try {
+      [fileContent] = await file.download();
+    } catch (err: any) {
+      if (err?.code === 404) {
+        return new NextResponse('File not found', { status: 404 });
+      }
+      throw err;
     }
 
-    const [fileContent] = await file.download();
     return new NextResponse(fileContent, {
       status: 200,
       headers: {
