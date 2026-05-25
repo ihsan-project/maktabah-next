@@ -1,22 +1,11 @@
-'use client';
-
-import React, { useEffect } from 'react';
-import { useAuth } from './components/AuthProvider';
-import { useRouter } from 'next/navigation';
+import React from 'react';
 import HomeContent from './components/HomeContent';
+import HomeRedirect from './components/HomeRedirect';
 
-export default function HomePage(): JSX.Element {
-  const { user, loading } = useAuth();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!loading && user) {
-      router.push('/search');
-    }
-  }, [user, loading, router]);
-
+export default function HomePage() {
   return (
     <div className="flex flex-col items-center">
+      <HomeRedirect />
       <HomeContent />
     </div>
   );
