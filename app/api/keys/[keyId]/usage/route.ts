@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAdminDb } from '@/lib/server/firebase-admin';
-import { requireUser, AuthError } from '@/lib/server/api-keys';
+import { requireUser, handleRouteError } from '@/lib/server/api-keys';
 import { getUsageData } from '@/lib/server/usage';
 
 export const runtime = 'nodejs';
@@ -37,10 +37,6 @@ export async function GET(
       usage,
     });
   } catch (error) {
-    if (error instanceof AuthError) {
-      return NextResponse.json({ error: error.message }, { status: error.statusCode });
-    }
-    console.error('getApiKeyUsage error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return handleRouteError(error, 'getApiKeyUsage');
   }
 }

@@ -1,10 +1,5 @@
+import type { DailyUsage } from '@/types';
 import { getAdminDb } from '@/lib/server/firebase-admin';
-
-export interface DailyUsage {
-  date: string;
-  requests: number;
-  tools: Record<string, number>;
-}
 
 export async function getUsageData(keyHash: string, days = 7): Promise<DailyUsage[]> {
   const db = getAdminDb();
@@ -20,7 +15,7 @@ export async function getUsageData(keyHash: string, days = 7): Promise<DailyUsag
     .collection('apiKeys')
     .doc(keyHash)
     .collection('usage')
-    .where('date', 'in', dates.slice(0, 10))
+    .where('date', 'in', dates.slice(0, 10)) // Firestore 'in' operator max 10 values
     .get();
 
   const usageMap = new Map<string, DailyUsage>();

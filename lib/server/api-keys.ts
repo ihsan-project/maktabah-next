@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getAdminAuth } from '@/lib/server/firebase-admin';
 
 export class AuthError extends Error {
@@ -7,6 +7,7 @@ export class AuthError extends Error {
   constructor(statusCode: number, message: string) {
     super(message);
     this.statusCode = statusCode;
+    this.name = 'AuthError';
   }
 }
 
@@ -38,4 +39,16 @@ export async function requireUser(req: NextRequest): Promise<string> {
   } catch {
     throw new AuthError(401, 'Invalid authentication token');
   }
+}
+
+/**
+ * Map an error thrown inside an API-key route to a JSON response.
+ * AuthError → its statusCode; anything else → logged 500 (no internals leaked).
+ */
+export function handleRouteError(error: unknown, label: string): NextResponse {
+  if (error instanceof AuthError) {
+    return NextResponse.json({ error: error.message }, { status: error.statusCode });
+  }
+  console.error(`${label} error:`, error);
+  return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
 }

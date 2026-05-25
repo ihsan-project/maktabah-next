@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from '@/lib/server/firebase-admin';
-import { requireUser, hashApiKey, generateRawApiKey, AuthError } from '@/lib/server/api-keys';
+import { requireUser, hashApiKey, generateRawApiKey, handleRouteError } from '@/lib/server/api-keys';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -25,11 +25,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ keys });
   } catch (error) {
-    if (error instanceof AuthError) {
-      return NextResponse.json({ error: error.message }, { status: error.statusCode });
-    }
-    console.error('listApiKeys error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return handleRouteError(error, 'listApiKeys');
   }
 }
 
@@ -90,10 +86,6 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ key: rawKey, keyId: keyHash, name, keyPrefix });
   } catch (error) {
-    if (error instanceof AuthError) {
-      return NextResponse.json({ error: error.message }, { status: error.statusCode });
-    }
-    console.error('generateApiKey error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return handleRouteError(error, 'generateApiKey');
   }
 }
