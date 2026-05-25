@@ -1,5 +1,5 @@
 import { Client } from '@opensearch-project/opensearch';
-import { AwsSigv4Signer } from '@opensearch-project/opensearch/aws';
+import { AwsSigv4Signer } from '@opensearch-project/opensearch/aws-v3';
 import {
   BedrockRuntimeClient,
   InvokeModelCommand,
