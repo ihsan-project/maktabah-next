@@ -11,6 +11,9 @@ const OPENSEARCH_INDEX = 'kitaab';
 let bedrockClient: BedrockRuntimeClient | undefined;
 function getBedrockClient(): BedrockRuntimeClient {
   if (!bedrockClient) {
+    if (!process.env.AWS_ACCESS_KEY_ID || !process.env.AWS_SECRET_ACCESS_KEY) {
+      throw new Error('AWS credentials not configured (AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY)');
+    }
     bedrockClient = new BedrockRuntimeClient({
       region: process.env.AWS_REGION || 'us-east-1',
       credentials: {
@@ -25,6 +28,12 @@ function getBedrockClient(): BedrockRuntimeClient {
 let opensearchClient: Client | undefined;
 function getOpenSearchClient(): Client {
   if (!opensearchClient) {
+    if (!process.env.OPENSEARCH_URL) {
+      throw new Error('OPENSEARCH_URL is not configured');
+    }
+    if (!process.env.AWS_ACCESS_KEY_ID || !process.env.AWS_SECRET_ACCESS_KEY) {
+      throw new Error('AWS credentials not configured (AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY)');
+    }
     opensearchClient = new Client({
       ...AwsSigv4Signer({
         region: process.env.AWS_REGION || 'us-east-1',

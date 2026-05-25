@@ -7,8 +7,9 @@ export const dynamic = 'force-dynamic';
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
   const query = searchParams.get('q');
-  const page = parseInt(searchParams.get('page') || '1', 10);
-  const size = parseInt(searchParams.get('size') || '10', 10);
+  const page = Math.max(1, parseInt(searchParams.get('page') || '1', 10) || 1);
+  // Cap size at 100 to match the OpenSearch fetch limit in semantic/hybrid modes.
+  const size = Math.min(100, Math.max(1, parseInt(searchParams.get('size') || '10', 10) || 10));
   const author = searchParams.get('author');
   const chapter = searchParams.get('chapter');
   const titles = searchParams.getAll('title');
