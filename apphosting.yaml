@@ -1,23 +1,51 @@
-# Settings for Backend (on Cloud Run).
-# See https://firebase.google.com/docs/app-hosting/configure#cloud-run
 runConfig:
   minInstances: 0
-  # maxInstances: 100
-  # concurrency: 80
-  # cpu: 1
-  # memoryMiB: 512
+  cpu: 1
+  memoryMiB: 512
 
-# Environment variables and secrets.
-# env:
-  # Configure environment variables.
-  # See https://firebase.google.com/docs/app-hosting/configure#user-defined-environment
-  # - variable: MESSAGE
-  #   value: Hello world!
-  #   availability:
-  #     - BUILD
-  #     - RUNTIME
+env:
+  # --- Public web config (BUILD + RUNTIME). Values copied from .env.local. ---
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: "<copy from .env.local>"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: "<copy from .env.local>"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: "<copy from .env.local>"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: "<copy from .env.local>"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: "<copy from .env.local>"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: "<copy from .env.local>"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+    value: "<copy from .env.local>"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_MIXPANEL_TOKEN
+    value: "<copy from .env.local>"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_SITE_URL
+    value: "https://maktabah.app"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_MCP_URL
+    value: "https://maktabah.app/mcp"
+    availability: [BUILD, RUNTIME]
 
-  # Grant access to secrets in Cloud Secret Manager.
-  # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
-  # - variable: MY_SECRET
-  #   secret: mySecretRef
+  # --- Server-only secrets (RUNTIME). Reference existing Secret Manager secrets. ---
+  - variable: OPENSEARCH_URL
+    secret: OPENSEARCH_URL
+    availability: [RUNTIME]
+  - variable: AWS_ACCESS_KEY_ID
+    secret: AWS_ACCESS_KEY_ID
+    availability: [RUNTIME]
+  - variable: AWS_SECRET_ACCESS_KEY
+    secret: AWS_SECRET_ACCESS_KEY
+    availability: [RUNTIME]
+  - variable: AWS_REGION
+    value: "us-east-1"
+    availability: [RUNTIME]
