@@ -5,6 +5,7 @@ runConfig:
 
 env:
   # --- Public web config (BUILD + RUNTIME). Values copied from .env.local. ---
+  # REQUIRED: replace the <copy from .env.local> placeholders before the first deploy.
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
     value: "<copy from .env.local>"
     availability: [BUILD, RUNTIME]
@@ -34,6 +35,9 @@ env:
     availability: [BUILD, RUNTIME]
   - variable: NEXT_PUBLIC_MCP_URL
     value: "https://maktabah.app/mcp"
+    availability: [BUILD, RUNTIME]
+  - variable: MCP_FUNCTION_URL
+    value: "https://us-central1-maktabah-8ac04.cloudfunctions.net/mcpServer"
     availability: [BUILD, RUNTIME]
 
   # --- Server-only secrets (RUNTIME). Reference existing Secret Manager secrets. ---
