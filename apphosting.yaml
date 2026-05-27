@@ -5,30 +5,29 @@ runConfig:
 
 env:
   # --- Public web config (BUILD + RUNTIME). Values copied from .env.local. ---
-  # REQUIRED: replace the <copy from .env.local> placeholders before the first deploy.
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
-    value: "<copy from .env.local>"
+    value: "AIzaSyCuTe-_6C4R8VZ-dRuClG-gWU9UKMXfABM"
     availability: [BUILD, RUNTIME]
   - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
-    value: "<copy from .env.local>"
+    value: "maktabah-8ac04.firebaseapp.com"
     availability: [BUILD, RUNTIME]
   - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
-    value: "<copy from .env.local>"
+    value: "maktabah-8ac04"
     availability: [BUILD, RUNTIME]
   - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
-    value: "<copy from .env.local>"
+    value: "maktabah-8ac04.firebasestorage.app"
     availability: [BUILD, RUNTIME]
   - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
-    value: "<copy from .env.local>"
+    value: "606843654305"
     availability: [BUILD, RUNTIME]
   - variable: NEXT_PUBLIC_FIREBASE_APP_ID
-    value: "<copy from .env.local>"
+    value: "1:606843654305:web:38088df320fc475f81e0e0"
     availability: [BUILD, RUNTIME]
   - variable: NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
-    value: "<copy from .env.local>"
+    value: "G-5XMN30ZCBG"
     availability: [BUILD, RUNTIME]
   - variable: NEXT_PUBLIC_MIXPANEL_TOKEN
-    value: "<copy from .env.local>"
+    value: "b824add633145a92f6ac16716e3f9d72"
     availability: [BUILD, RUNTIME]
   - variable: NEXT_PUBLIC_SITE_URL
     value: "https://maktabah.app"
