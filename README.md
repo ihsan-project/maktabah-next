@@ -15,8 +15,8 @@ A search application for Quran translations and Hadith collections, built with N
 - **Frontend**: Next.js, React, TypeScript, Tailwind CSS
 - **Authentication**: Firebase Authentication
 - **Search**: AWS OpenSearch + Cohere Embeddings via Amazon Bedrock
-- **Hosting**: Firebase Hosting
-- **API**: Firebase Cloud Functions
+- **Hosting**: Firebase App Hosting (managed Next.js SSR on Cloud Run)
+- **API**: Firebase Cloud Functions (MCP server)
 
 ## Prerequisites
 
@@ -212,18 +212,81 @@ npm run functions
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deployment
+## Firebase App Hosting Setup
+
+The Next.js app is deployed to **Firebase App Hosting**, which builds and runs the app on Cloud Run with automatic SSR support. Deploys are triggered by pushing to the tracked branch (no `firebase deploy` for the web app).
+
+### 1. Enable App Hosting and Create a Backend
+
+1. Open the [Firebase Console](https://console.firebase.google.com/) → select your project → **Build** → **App Hosting**.
+2. Click **Get started** (or **Create backend**) and:
+   - **Region:** pick one close to your users (e.g. `us-central1`).
+   - **GitHub repository:** authorize Firebase and select this repo.
+   - **Live branch:** the branch App Hosting will auto-deploy from (e.g. `main`).
+   - **Root directory:** `/` (the `apphosting.yaml` lives at the repo root).
+   - **Backend ID:** a short name, e.g. `maktabah`.
+3. Skip the "associate a domain" step for now — you can attach a custom domain after the first deploy succeeds.
+
+### 2. Review `apphosting.yaml`
+
+[apphosting.yaml](apphosting.yaml) controls the Cloud Run runtime and the environment variables / secrets injected into the build and the running server. It already declares:
+
+- `runConfig`: instance sizing (`cpu`, `memoryMiB`, `minInstances`).
+- `env` entries with `value:` for the public `NEXT_PUBLIC_*` config (available at BUILD and RUNTIME so Next.js can inline them).
+- `env` entries with `secret:` for server-only secrets (`OPENSEARCH_URL`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`) — these reference Google Secret Manager and are only available at RUNTIME.
+
+Update the `NEXT_PUBLIC_*` values to match your Firebase project before deploying.
+
+### 3. Create the Secrets in Google Secret Manager
+
+App Hosting reads secrets via Secret Manager (not via `firebase functions:secrets:set` — that's for Cloud Functions only). Use the Firebase CLI helper, which creates the secret and grants access to the App Hosting service account in one step:
 
 ```bash
-# Deploy everything (hosting + functions)
-npm run deploy
-
-# Deploy only hosting
-npm run deploy:hosting
-
-# Deploy only functions
-npm run deploy:functions
+# Run from the repo root. You'll be prompted for the value.
+firebase apphosting:secrets:set OPENSEARCH_URL
+firebase apphosting:secrets:set AWS_ACCESS_KEY_ID
+firebase apphosting:secrets:set AWS_SECRET_ACCESS_KEY
 ```
+
+Use the **same** `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` from the `maktabah-functions` IAM user created in step 3 of the OpenSearch setup.
+
+If a secret already exists (e.g. you created it earlier for Cloud Functions), grant App Hosting access to it instead:
+
+```bash
+firebase apphosting:secrets:grantaccess OPENSEARCH_URL --backend maktabah
+firebase apphosting:secrets:grantaccess AWS_ACCESS_KEY_ID --backend maktabah
+firebase apphosting:secrets:grantaccess AWS_SECRET_ACCESS_KEY --backend maktabah
+```
+
+### 4. Deploy
+
+App Hosting deploys automatically on push to the live branch:
+
+```bash
+git push origin main
+```
+
+Watch the rollout in **Firebase Console → App Hosting → your backend → Rollouts**. The first build takes a few minutes; subsequent builds reuse cached layers.
+
+To trigger a deploy manually (e.g. to redeploy without a new commit), use **Create rollout** in the console, or:
+
+```bash
+firebase apphosting:rollouts:create maktabah
+```
+
+### 5. (Optional) Attach a Custom Domain
+
+In **App Hosting → your backend → Settings → Domains**, add your domain and follow the DNS verification steps. Update `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_MCP_URL` in `apphosting.yaml` to match, then push to trigger a rebuild.
+
+## Deploying the MCP Cloud Function
+
+The MCP server runs as a separate Firebase Cloud Function (not on App Hosting):
+
+```bash
+npm run deploy:mcp
+```
+
+This deploys only the `mcpServer` function. Its secrets (`OPENSEARCH_URL`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`) are managed via `firebase functions:secrets:set` as described in step 7 of the OpenSearch setup.
 
 ## Project Structure
 

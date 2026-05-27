@@ -64,15 +64,10 @@ function SearchPageContent(): JSX.Element {
 
   // Get the appropriate API URL based on environment
   const getApiUrl = useCallback((q: string, p: number): string => {
-    const baseUrl = isDevelopment
-      ? 'http://127.0.0.1:5001/maktabah-8ac04/us-central1/nextApiHandler/api/search'
-      : `/api/search`;
-
-    let url = `${baseUrl}?q=${encodeURIComponent(q)}&page=${p}&size=10`;
+    let url = `/api/search?q=${encodeURIComponent(q)}&page=${p}&size=10`;
     if (isDevelopment) {
       url += `&mode=${searchMode}&debug=true`;
     }
-
     return url;
   }, [isDevelopment, searchMode]);
 

@@ -1,9 +1,24 @@
-'use client';
-
 import React from 'react';
+import type { Metadata } from 'next';
 import StoriesList from '@/app/components/StoriesList';
 
-export default function StoriesPage(): JSX.Element {
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://maktabah.app';
+
+export const metadata: Metadata = {
+  title: 'Quranic Stories',
+  description:
+    'Explore the profound stories from the Quran — the Prophets and key figures — each curated with relevant verses and context.',
+  alternates: { canonical: `${siteUrl}/stories` },
+  openGraph: {
+    title: 'Quranic Stories - Maktabah',
+    description:
+      'Explore the profound stories from the Quran, each curated with relevant verses and context.',
+    type: 'website',
+    url: `${siteUrl}/stories`,
+  },
+};
+
+export default function StoriesPage() {
   return (
     <div className="pb-8">
       <h1 className="text-3xl font-bold text-center text-primary mb-6 pt-8">Quranic Stories</h1>
@@ -20,4 +35,3 @@ export default function StoriesPage(): JSX.Element {
     </div>
   );
 }
-
