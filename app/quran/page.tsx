@@ -5,7 +5,7 @@ import { getMetadata } from '@/lib/quran-data';
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://maktabah.app';
 
 export const metadata: Metadata = {
-  title: 'Quran Reader — 17 English Translations | Maktabah',
+  title: 'Quran Reader — 17 English Translations',
   description: 'Read the Quran in Arabic with 17 English translations. Browse all 114 surahs verse by verse.',
   alternates: { canonical: `${SITE}/quran` },
   openGraph: { title: 'Quran Reader — Maktabah', description: 'Read the Quran with 17 English translations.', url: `${SITE}/quran`, type: 'website' },

@@ -61,7 +61,7 @@ const wordDataCache = new Map<number, SurahWordData>();
 async function fetchWordData(surah: number): Promise<SurahWordData | null> {
   if (wordDataCache.has(surah)) return wordDataCache.get(surah)!;
   try {
-    const res = await fetch(`/quran/words/${surah}.json`);
+    const res = await fetch(`/api/storage/quran/words/${surah}.json`);
     if (!res.ok) return null;
     const data: SurahWordData = await res.json();
     wordDataCache.set(surah, data);

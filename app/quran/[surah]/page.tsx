@@ -23,7 +23,7 @@ export function generateMetadata({ params }: { params: { surah: string } }): Met
   const s = getMetadata().surahs.find((x) => x.index === idx)!;
   const url = `${SITE}/quran/${idx}`;
   return {
-    title: `Surah ${s.name} (${idx}) — ${s.verseCount} verses | Maktabah`,
+    title: `Surah ${s.name} (${idx}) — ${s.verseCount} verses`,
     description: `Read Surah ${s.name}, the ${idx}th chapter of the Quran (${s.verseCount} verses), in Arabic with 17 English translations.`,
     alternates: { canonical: url },
     openGraph: { title: `Surah ${s.name} — Maktabah`, url, type: 'website' },

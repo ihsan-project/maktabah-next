@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import { useSearchParams } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
 import { TextWithLineBreaks } from '@/lib/highlight';
 import type { Translation } from '@/lib/quran-utils';
 import { getBookIdForAuthor } from '@/lib/quran-utils';
@@ -13,7 +12,11 @@ interface Props {
 }
 
 export default function VerseTranslations({ translations, verseRef, selectedAuthors }: Props) {
-  const highlight = useSearchParams().get('highlight') || undefined;
+  const [highlight, setHighlight] = useState<string | undefined>(undefined);
+  useEffect(() => {
+    const h = new URLSearchParams(window.location.search).get('highlight');
+    setHighlight(h || undefined);
+  }, []);
   const [chapter, verse] = verseRef.split(':');
   return (
     <div className="space-y-3 mt-4">

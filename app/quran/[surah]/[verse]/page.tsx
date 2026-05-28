@@ -31,7 +31,7 @@ export function generateMetadata({ params }: { params: { surah: string; verse: s
   const desc = (sahih?.text || `Quran ${ref.surah}:${ref.verse}`).slice(0, 155);
   const url = `${SITE}/quran/${ref.surah}/${ref.verse}`;
   return {
-    title: `Quran ${ref.surah}:${ref.verse} — ${v.surahName} | Maktabah`,
+    title: `Quran ${ref.surah}:${ref.verse} — ${v.surahName}`,
     description: desc,
     alternates: { canonical: url },
     openGraph: { title: `Quran ${ref.surah}:${ref.verse} — ${v.surahName}`, description: desc, url, type: 'article' },
