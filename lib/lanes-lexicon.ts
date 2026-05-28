@@ -34,7 +34,7 @@ async function loadLetterFile(letter: string): Promise<LetterData | null> {
   if (letterCache.has(letter)) return letterCache.get(letter)!;
   if (loadingPromises.has(letter)) return loadingPromises.get(letter)!;
 
-  const promise = fetch(`/quran/words/lanes/${letter}.json`)
+  const promise = fetch(`/api/storage/quran/words/lanes/${letter}.json`)
     .then((res) => {
       if (!res.ok) return null;
       return res.json() as Promise<LetterData>;
