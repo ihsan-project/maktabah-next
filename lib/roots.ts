@@ -26,7 +26,7 @@ export async function loadRootsIndex(): Promise<RootsIndex | null> {
   if (rootsData) return rootsData;
   if (loadingPromise) return loadingPromise;
 
-  loadingPromise = fetch('/quran/words/roots.json')
+  loadingPromise = fetch('/api/storage/quran/words/roots.json')
     .then((res) => {
       if (!res.ok) return null;
       return res.json() as Promise<RootsIndex>;

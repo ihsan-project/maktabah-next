@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { QuranWord, SurahWordData } from '@/types';
 import { loadRootsIndex, RootOccurrence } from '@/lib/roots';
+import { buildContextUrl } from '@/lib/quran-utils';
 import { getLanesEntry, LanesEntry } from '@/lib/lanes-lexicon';
 
 /** Decode the short POS code into a readable label */
@@ -60,7 +61,7 @@ const wordDataCache = new Map<number, SurahWordData>();
 async function fetchWordData(surah: number): Promise<SurahWordData | null> {
   if (wordDataCache.has(surah)) return wordDataCache.get(surah)!;
   try {
-    const res = await fetch(`/quran/words/${surah}.json`);
+    const res = await fetch(`/api/storage/quran/words/${surah}.json`);
     if (!res.ok) return null;
     const data: SurahWordData = await res.json();
     wordDataCache.set(surah, data);
@@ -288,7 +289,7 @@ export default function WordMorphologyContent({ word }: WordMorphologyContentPro
                     {group.forms.map((form) => (
                       <a
                         key={form.lemma}
-                        href={`/quran?start=${form.exampleSurah}:${Math.max(1, form.exampleVerse - 3)}&end=${form.exampleSurah}:${form.exampleVerse + 3}`}
+                        href={buildContextUrl(form.exampleSurah, form.exampleVerse)}
                         className="flex items-center gap-2 text-xs p-1.5 rounded hover:bg-gray-50 transition-colors"
                       >
                         <span dir="rtl" lang="ar" className="font-arabic text-base text-gray-800 shrink-0">

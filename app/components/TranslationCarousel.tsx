@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { TextWithLineBreaks } from '@/lib/highlight';
 
 interface Translation {
   author: string;
@@ -17,32 +18,6 @@ interface TranslationCarouselProps {
   highlightTerm?: string;
 }
 
-/**
- * Wraps case-insensitive matches of `term` in <mark> tags.
- * Returns an array of React nodes.
- */
-function highlightMatches(text: string, term: string): React.ReactNode[] {
-  if (!term) return [text];
-  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const regex = new RegExp(`(${escaped})`, 'gi');
-  const parts = text.split(regex);
-  return parts.map((part, i) =>
-    regex.test(part) ? <mark key={i}>{part}</mark> : part
-  );
-}
-
-// Helper function to render text with newlines and optional highlighting
-const TextWithLineBreaks = ({ text, highlightTerm }: { text: string; highlightTerm?: string }) => {
-  return (
-    <>
-      {text.split('\n').map((line, index) => (
-        <div key={index} className={index > 0 ? "mt-2" : ""}>
-          {highlightTerm ? highlightMatches(line, highlightTerm) : line}
-        </div>
-      ))}
-    </>
-  );
-};
 
 export default function TranslationCarousel({
   translations,
