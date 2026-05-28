@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /api/
-Allow: /
-
-Sitemap: https://maktabah.app/sitemap.xml
