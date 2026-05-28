@@ -7,7 +7,7 @@
     "quran_loader"
   ],
   "scripts": {
-    "dev": "next dev",
+    "dev": "firebase emulators:start & next dev",
     "prebuild": "node scripts/generate-sitemap.js",
     "build": "next build",
     "start": "next start",
