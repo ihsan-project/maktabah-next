@@ -56,37 +56,6 @@ export function parseVerseRef(ref: string): VerseRef | null {
   return { surah, verse };
 }
 
-/**
- * Fetch a single surah's JSON data from /quran/{index}.json.
- */
-export async function fetchSurahData(surahIndex: number): Promise<SurahData> {
-  const res = await fetch(`${getBasePath()}/quran/${surahIndex}.json`);
-  if (!res.ok) throw new Error(`Failed to fetch surah ${surahIndex}`);
-  return res.json();
-}
-
-/**
- * Fetch the Quran metadata (surah list, translators).
- */
-export async function fetchQuranMetadata(): Promise<QuranMetadata> {
-  const res = await fetch(`${getBasePath()}/quran/metadata.json`);
-  if (!res.ok) throw new Error('Failed to fetch Quran metadata');
-  return res.json();
-}
-
-/**
- * Get the base path for static assets. Handles both dev and production.
- */
-function getBasePath(): string {
-  if (typeof window !== 'undefined') {
-    return window.location.origin;
-  }
-  return '';
-}
-
-/**
- * Default range: Al-Fatiha (1:1-1:7).
- */
 const AUTHOR_TO_BOOK_ID: Record<string, string> = {
   'Ahmed Ali': 'en.ahmedali',
   'Ahmed Raza Khan': 'en.ahmedraza',
@@ -109,9 +78,6 @@ const AUTHOR_TO_BOOK_ID: Record<string, string> = {
 export function getBookIdForAuthor(author: string): string {
   return AUTHOR_TO_BOOK_ID[author] || 'en.sahih';
 }
-
-export const DEFAULT_START: VerseRef = { surah: 1, verse: 1 };
-export const DEFAULT_END: VerseRef = { surah: 1, verse: 7 };
 
 /**
  * Build a /quran verse URL, with an optional highlight term (applied client-side).
