@@ -6,6 +6,11 @@ const MCP_FUNCTION_URL =
 const nextConfig = {
   experimental: {
     forceSwcTransforms: true,
+    outputFileTracingIncludes: {
+      '/quran/[surah]': ['./data/quran/**/*'],
+      '/quran/[surah]/[verse]': ['./data/quran/**/*'],
+      '/sitemap.xml': ['./data/quran/**/*'],
+    },
   },
   reactStrictMode: true,
   images: {
