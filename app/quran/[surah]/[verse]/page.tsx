@@ -19,6 +19,7 @@ function parseRef(params: { surah: string; verse: string }) {
   const surah = Number(params.surah);
   const verse = Number(params.verse);
   if (!Number.isInteger(surah) || !Number.isInteger(verse)) return null;
+  if (surah < 1 || surah > 114 || verse < 1) return null;
   return { surah, verse };
 }
 
