@@ -65,12 +65,12 @@ function StoryContent({ name, verses, defaultTranslator }: Props) {
         />
 
         <div className="space-y-2">
-          {verses.map((verse) => {
+          {verses.map((verse, idx) => {
             const matched = verse.translations.filter((t) => selected.includes(t.author));
             const visible = matched.length > 0 ? matched : verse.translations.slice(0, 1);
             const isQuran = !verse.bookId.includes('bukhari');
             return (
-              <div key={`${verse.chapter}:${verse.verse}`} className="mb-2">
+              <div key={idx} className="mb-2">
                 {verse.arabic && (
                   <div className="px-4 pt-4 pb-2">
                     <InteractiveArabicText
