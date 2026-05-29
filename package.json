@@ -19,7 +19,8 @@
     "loader:load-storage": "npm run loader:load-storage -w quran-opensearch-loader",
     "loader:reorder": "npm run loader:reorder -w quran-opensearch-loader",
     "loader:decode": "npm run loader:decode -w quran-opensearch-loader",
-    "loader:generate-quran": "node quran_loader/generate-quran-json.js"
+    "loader:generate-quran": "node quran_loader/generate-quran-json.js",
+    "stories:convert": "node scripts/convert-stories.js"
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.1053.0",
