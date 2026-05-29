@@ -6,13 +6,15 @@ import { FiCheck } from 'react-icons/fi';
 interface TranslatorSelectorProps {
   availableTranslators: string[];
   onSelectionChange: (selected: string[]) => void;
+  defaultSelection?: string[];
 }
 
 const STORAGE_KEY = 'maktabah_selected_translators';
 
-export default function TranslatorSelector({ 
-  availableTranslators, 
-  onSelectionChange 
+export default function TranslatorSelector({
+  availableTranslators,
+  onSelectionChange,
+  defaultSelection,
 }: TranslatorSelectorProps) {
   const [selectedTranslators, setSelectedTranslators] = useState<string[]>([]);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -35,11 +37,15 @@ export default function TranslatorSelector({
           console.error('Failed to parse stored translators:', e);
         }
       }
-      // Default: all translators selected
-      setSelectedTranslators(availableTranslators);
-      onSelectionChange(availableTranslators);
+      // Default: configured default selection, else all translators
+      const fallback = (defaultSelection ?? availableTranslators).filter((t) =>
+        availableTranslators.includes(t),
+      );
+      const initial = fallback.length > 0 ? fallback : availableTranslators;
+      setSelectedTranslators(initial);
+      onSelectionChange(initial);
     }
-  }, [availableTranslators, onSelectionChange]);
+  }, [availableTranslators, onSelectionChange, defaultSelection]);
 
   const toggleTranslator = (translator: string) => {
     const newSelection = selectedTranslators.includes(translator)
