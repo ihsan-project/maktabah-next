@@ -21,8 +21,8 @@ async function convert(name) {
     chapterName: v.chapter_name?.[0] || '',
     bookId: v.book_id?.[0] || '',
     translations: (v.translations?.[0]?.translation || []).map((t) => ({
-      author: t.$.author,
-      text: t.text[0],
+      author: t.$.author ?? '',
+      text: t.text?.[0] ?? '',
     })),
   }));
   return { name, title, versesCount: verses.length, verses };
