@@ -47,6 +47,14 @@ export interface StorySummary {
 }
 
 const cache = new Map<string, StoryFile>();
+const translatorCache = new Map<string, string>();
+
+const HADITH_BOOK_MARKERS = ['bukhari'];
+
+export function isQuranVerse(bookId: string): boolean {
+  const id = bookId.toLowerCase();
+  return !HADITH_BOOK_MARKERS.some((m) => id.includes(m));
+}
 
 function load(name: string): StoryFile | null {
   if (!ALLOWED_STORIES.includes(name)) return null;
@@ -58,7 +66,8 @@ function load(name: string): StoryFile | null {
     ) as StoryFile;
     cache.set(name, data);
     return data;
-  } catch {
+  } catch (err) {
+    console.error(`[story-data] failed to load ${name}.json:`, err);
     return null;
   }
 }
@@ -100,9 +109,14 @@ export function getStoryPage(name: string, page: number): StoryPageData | null {
   const slice = s.verses.slice(start, start + PAGE_SIZE);
   const verses: StoryPageVerse[] = slice.map((v) => ({
     ...v,
-    arabic: getVerse(v.chapter, v.verse)?.arabic ?? null,
+    arabic: isQuranVerse(v.bookId) ? (getVerse(v.chapter, v.verse)?.arabic ?? null) : null,
   }));
   const meta = getStoryMetadata(name);
+  let defaultTranslator = translatorCache.get(name);
+  if (defaultTranslator === undefined) {
+    defaultTranslator = resolveDefaultTranslator(s.verses);
+    translatorCache.set(name, defaultTranslator);
+  }
   return {
     name,
     title: meta.title,
@@ -110,7 +124,7 @@ export function getStoryPage(name: string, page: number): StoryPageData | null {
     page,
     pageCount,
     totalVerses: s.verses.length,
-    defaultTranslator: resolveDefaultTranslator(s.verses),
+    defaultTranslator,
     verses,
   };
 }
