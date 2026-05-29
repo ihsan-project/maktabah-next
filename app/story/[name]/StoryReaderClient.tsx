@@ -12,7 +12,7 @@ import InteractiveArabicText from '@/app/components/InteractiveArabicText';
 import WordDrawer from '@/app/components/WordDrawer';
 import WordBottomSheet from '@/app/components/WordBottomSheet';
 import { WordDictionaryProvider, useWordDictionaryOptional } from '@/app/contexts/WordDictionaryContext';
-import { buildContextUrl, getBookIdForAuthor } from '@/lib/quran-utils';
+import { buildContextUrl, getBookIdForAuthor, isQuranBookId } from '@/lib/quran-utils';
 import type { StoryPageVerse } from '@/lib/story-data';
 
 interface Props {
@@ -68,7 +68,7 @@ function StoryContent({ name, verses, defaultTranslator }: Props) {
           {verses.map((verse, idx) => {
             const matched = verse.translations.filter((t) => selected.includes(t.author));
             const visible = matched.length > 0 ? matched : verse.translations.slice(0, 1);
-            const isQuran = !verse.bookId.includes('bukhari');
+            const isQuran = isQuranBookId(verse.bookId);
             return (
               <div key={idx} className="mb-2">
                 {verse.arabic && (

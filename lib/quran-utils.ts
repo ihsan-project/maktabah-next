@@ -86,3 +86,14 @@ export function buildContextUrl(chapter: number, verse: number, query?: string):
   const base = `/quran/${chapter}/${verse}`;
   return query ? `${base}?highlight=${encodeURIComponent(query)}` : base;
 }
+
+const HADITH_BOOK_MARKERS = ['bukhari'];
+
+/**
+ * Whether a story verse's bookId refers to a Quran translation (vs a Hadith
+ * collection). Case-insensitive. Used to decide Arabic joins and Quran-only links.
+ */
+export function isQuranBookId(bookId: string): boolean {
+  const id = bookId.toLowerCase();
+  return !HADITH_BOOK_MARKERS.some((m) => id.includes(m));
+}

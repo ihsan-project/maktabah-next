@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { getVerse } from './quran-data';
 import { ALLOWED_STORIES, getStoryMetadata } from './story-config';
+import { isQuranBookId } from './quran-utils';
 import type { Translation } from './quran-utils';
 
 const DATA_DIR = path.join(process.cwd(), 'data', 'stories');
@@ -48,13 +49,6 @@ export interface StorySummary {
 
 const cache = new Map<string, StoryFile>();
 const translatorCache = new Map<string, string>();
-
-const HADITH_BOOK_MARKERS = ['bukhari'];
-
-export function isQuranVerse(bookId: string): boolean {
-  const id = bookId.toLowerCase();
-  return !HADITH_BOOK_MARKERS.some((m) => id.includes(m));
-}
 
 function load(name: string): StoryFile | null {
   if (!ALLOWED_STORIES.includes(name)) return null;
@@ -109,7 +103,7 @@ export function getStoryPage(name: string, page: number): StoryPageData | null {
   const slice = s.verses.slice(start, start + PAGE_SIZE);
   const verses: StoryPageVerse[] = slice.map((v) => ({
     ...v,
-    arabic: isQuranVerse(v.bookId) ? (getVerse(v.chapter, v.verse)?.arabic ?? null) : null,
+    arabic: isQuranBookId(v.bookId) ? (getVerse(v.chapter, v.verse)?.arabic ?? null) : null,
   }));
   const meta = getStoryMetadata(name);
   let defaultTranslator = translatorCache.get(name);
