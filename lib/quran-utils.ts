@@ -75,8 +75,13 @@ const AUTHOR_TO_BOOK_ID: Record<string, string> = {
   'Yusuf Ali': 'en.yusufali',
 };
 
-export function getBookIdForAuthor(author: string): string {
-  return AUTHOR_TO_BOOK_ID[author] || 'en.sahih';
+/**
+ * Tanzil book ID for an author, or null when the author isn't a known Quran
+ * translator (e.g. "Transliteration"). Callers should hide the Tanzil link
+ * for null rather than fall back to an unrelated translation.
+ */
+export function getBookIdForAuthorOrNull(author: string): string | null {
+  return AUTHOR_TO_BOOK_ID[author] ?? null;
 }
 
 /**
@@ -85,4 +90,15 @@ export function getBookIdForAuthor(author: string): string {
 export function buildContextUrl(chapter: number, verse: number, query?: string): string {
   const base = `/quran/${chapter}/${verse}`;
   return query ? `${base}?highlight=${encodeURIComponent(query)}` : base;
+}
+
+const HADITH_BOOK_MARKERS = ['bukhari'];
+
+/**
+ * Whether a story verse's bookId refers to a Quran translation (vs a Hadith
+ * collection). Case-insensitive. Used to decide Arabic joins and Quran-only links.
+ */
+export function isQuranBookId(bookId: string): boolean {
+  const id = bookId.toLowerCase();
+  return !HADITH_BOOK_MARKERS.some((m) => id.includes(m));
 }

@@ -13,7 +13,7 @@ interface TranslationCarouselProps {
   translations: Translation[];
   verseRef: string; // e.g., "19:51" for display
   chapterName?: string;
-  buildTanzilUrl?: (author: string) => string;
+  buildTanzilUrl?: (author: string) => string | null;
   onTanzilClick?: (author: string) => void;
   highlightTerm?: string;
 }
@@ -123,17 +123,20 @@ export default function TranslationCarousel({
                   )}
                 </div>
               </div>
-              {buildTanzilUrl && (
-                <a
-                  href={buildTanzilUrl(translation.author)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-primary hover:underline whitespace-nowrap flex-shrink-0"
-                  onClick={() => onTanzilClick?.(translation.author)}
-                >
-                  tanzil.net
-                </a>
-              )}
+              {(() => {
+                const tanzilUrl = buildTanzilUrl?.(translation.author);
+                return tanzilUrl ? (
+                  <a
+                    href={tanzilUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-primary hover:underline whitespace-nowrap flex-shrink-0"
+                    onClick={() => onTanzilClick?.(translation.author)}
+                  >
+                    tanzil.net
+                  </a>
+                ) : null;
+              })()}
             </div>
             <div className={`text-gray-700 text-sm leading-relaxed${highlightTerm ? ' quran-highlight' : ''}`}>
               <TextWithLineBreaks text={translation.text} highlightTerm={highlightTerm} />

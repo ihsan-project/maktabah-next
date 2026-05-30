@@ -9,7 +9,7 @@ const nextConfig = {
     outputFileTracingIncludes: {
       '/quran/[surah]': ['./data/quran/**/*'],
       '/quran/[surah]/[verse]': ['./data/quran/**/*'],
-      '/sitemap.xml': ['./data/quran/**/*'],
+      '/sitemap.xml': ['./data/quran/**/*', './data/stories/**/*'],
     },
   },
   reactStrictMode: true,
@@ -39,6 +39,18 @@ const nextConfig = {
     return [
       {
         source: '/quran/:surah/:verse',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=0, s-maxage=31536000, stale-while-revalidate=86400' },
+        ],
+      },
+      {
+        source: '/story/:name',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=0, s-maxage=31536000, stale-while-revalidate=86400' },
+        ],
+      },
+      {
+        source: '/story/:name/:page',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=0, s-maxage=31536000, stale-while-revalidate=86400' },
         ],
