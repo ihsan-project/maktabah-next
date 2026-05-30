@@ -31,6 +31,11 @@ function StoryContent({ name, verses, defaultTranslator }: Props) {
   const [selected, setSelected] = useState<string[]>([defaultTranslator]);
   const onChange = useCallback((s: string[]) => setSelected(s), []);
 
+  // Stable reference for TranslatorSelector's effect dep — an inline
+  // [defaultTranslator] literal would re-run the effect every render and
+  // loop via onSelectionChange → setSelected → re-render.
+  const defaultSelection = React.useMemo(() => [defaultTranslator], [defaultTranslator]);
+
   const availableTranslators = React.useMemo(() => {
     const set = new Set<string>();
     verses.forEach((v) => v.translations.forEach((t) => set.add(t.author)));
@@ -73,7 +78,7 @@ function StoryContent({ name, verses, defaultTranslator }: Props) {
         <TranslatorSelector
           availableTranslators={availableTranslators}
           onSelectionChange={onChange}
-          defaultSelection={[defaultTranslator]}
+          defaultSelection={defaultSelection}
         />
 
         <div className="space-y-2">
