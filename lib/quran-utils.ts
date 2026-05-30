@@ -75,8 +75,13 @@ const AUTHOR_TO_BOOK_ID: Record<string, string> = {
   'Yusuf Ali': 'en.yusufali',
 };
 
-export function getBookIdForAuthor(author: string): string {
-  return AUTHOR_TO_BOOK_ID[author] || 'en.sahih';
+/**
+ * Tanzil book ID for an author, or null when the author isn't a known Quran
+ * translator (e.g. "Transliteration"). Callers should hide the Tanzil link
+ * for null rather than fall back to an unrelated translation.
+ */
+export function getBookIdForAuthorOrNull(author: string): string | null {
+  return AUTHOR_TO_BOOK_ID[author] ?? null;
 }
 
 /**

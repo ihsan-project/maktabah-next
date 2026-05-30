@@ -12,7 +12,7 @@ import InteractiveArabicText from '@/app/components/InteractiveArabicText';
 import WordDrawer from '@/app/components/WordDrawer';
 import WordBottomSheet from '@/app/components/WordBottomSheet';
 import { WordDictionaryProvider, useWordDictionaryOptional } from '@/app/contexts/WordDictionaryContext';
-import { buildContextUrl, getBookIdForAuthor, isQuranBookId } from '@/lib/quran-utils';
+import { buildContextUrl, getBookIdForAuthorOrNull, isQuranBookId } from '@/lib/quran-utils';
 import type { StoryPageVerse } from '@/lib/story-data';
 
 interface Props {
@@ -98,7 +98,10 @@ function StoryContent({ name, verses, defaultTranslator }: Props) {
                   translations={visible}
                   verseRef={`${verse.chapter}:${verse.verse}`}
                   chapterName={verse.chapterName}
-                  buildTanzilUrl={isQuran ? (author) => `https://tanzil.net/#trans/${getBookIdForAuthor(author)}/${verse.chapter}:${verse.verse}` : undefined}
+                  buildTanzilUrl={isQuran ? (author) => {
+                    const id = getBookIdForAuthorOrNull(author);
+                    return id ? `https://tanzil.net/#trans/${id}/${verse.chapter}:${verse.verse}` : null;
+                  } : undefined}
                   onTanzilClick={isQuran ? (author) => MixpanelTracking.track('Tanzil Link Click', { chapter: verse.chapter, verse: verse.verse, author, source: 'story_page', story_name: name }) : undefined}
                 />
                 {isQuran && (
