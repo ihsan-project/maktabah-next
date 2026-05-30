@@ -1,0 +1,1927 @@
+{
+  "name": "khadija",
+  "title": "Story of Khadija (Khadijah, or Khadeejah)",
+  "versesCount": 48,
+  "verses": [
+    {
+      "chapter": 93,
+      "verse": 6,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Did He not find you an orphan and take care of you?"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "Did He not find you an orphan, so provided you shelter?"
+        },
+        {
+          "author": "Arberry",
+          "text": "Did He not find thee an orphan, and shelter thee?"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Found He not thee an orphan, so He sheltered thee?"
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "Did He not find you (O Muhammad (Peace be upon him)) an orphan and gave you a refuge?"
+        },
+        {
+          "author": "Itani",
+          "text": "Did He not find you orphaned, and sheltered you?"
+        },
+        {
+          "author": "Maududi",
+          "text": "Did He not find you an orphan and then gave you shelter?"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "Did He not find you an orphan and gave you a refuge"
+        },
+        {
+          "author": "Pickthall",
+          "text": "Did He not find thee an orphan and protect (thee)?"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "Did He not find you an orphan and give you shelter?"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "Did He not find you an orphan and give [you] refuge?"
+        },
+        {
+          "author": "Sarwar",
+          "text": "Did He not find you as an orphan and give you shelter?"
+        },
+        {
+          "author": "Shakir",
+          "text": "Did He not find you an orphan and give you shelter?"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "Did He not find you orphaned and shelter you?"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "Did He not find thee an orphan and give thee shelter (and care)?"
+        }
+      ]
+    },
+    {
+      "chapter": 93,
+      "verse": 7,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Did He not find you perplexed, and show you the way?"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "And found you deeply engrossed in His love, so directed you?"
+        },
+        {
+          "author": "Arberry",
+          "text": "Did He not find thee erring, and guide thee?"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "And He found thee wandering, so He guided thee,"
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "And He found you unaware (of the Quran, its legal laws, and Prophethood, etc.) and guided you?"
+        },
+        {
+          "author": "Itani",
+          "text": "And found you wandering, and guided you."
+        },
+        {
+          "author": "Maududi",
+          "text": "Did He not find you unaware of the Right Way, and then directed you to it?"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "And He found you unaware and guided you"
+        },
+        {
+          "author": "Pickthall",
+          "text": "Did He not find thee wandering and direct (thee)?"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "Did He not find you a wanderer so He guided you?"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "And He found you lost and guided [you],"
+        },
+        {
+          "author": "Sarwar",
+          "text": "Did He not find you wandering about and give you guidance?"
+        },
+        {
+          "author": "Shakir",
+          "text": "And find you lost (that is, unrecognized by men) and guide (them to you)?"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "Did He not find you wandering, and give you guidance?"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "And He found thee wandering, and He gave thee guidance."
+        }
+      ]
+    },
+    {
+      "chapter": 93,
+      "verse": 8,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Did He not find you poor and enrich you?"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "And found you in need, so made you prosperous?"
+        },
+        {
+          "author": "Arberry",
+          "text": "Did He not find thee needy, and suffice thee?"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "And He found thee destitute, so He enriched thee."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "And He found you poor, and made you rich (selfsufficient with selfcontentment, etc.)?"
+        },
+        {
+          "author": "Itani",
+          "text": "And found you in need, and enriched you?"
+        },
+        {
+          "author": "Maududi",
+          "text": "And did He not find you in want, and then enriched you?"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "And He found you poor and made you rich"
+        },
+        {
+          "author": "Pickthall",
+          "text": "Did He not find thee destitute and enrich (thee)?"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "Did He not find you poor and suffice you?"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "And He found you poor and made [you] self-sufficient."
+        },
+        {
+          "author": "Sarwar",
+          "text": "And did He not find you in need and make you rich?"
+        },
+        {
+          "author": "Shakir",
+          "text": "And find you in want and make you to be free from want?"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "Did He not find you in want, and make you free from want?"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "And He found thee in need, and made thee independent."
+        }
+      ]
+    },
+    {
+      "chapter": 60,
+      "verse": 187,
+      "chapterName": "Sahih Bukhari Vol 6",
+      "bookId": "en.bukhari.vol06",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated Ibn Abi Mulaika:\nThere was a disagreement between them (i.e. Ibn 'Abbas and Ibn Az-Zubair) so I went to Ibn 'Abbas in the morning and said (to him), \"Do you want to fight against Ibn Zubair and thus make lawful what Allah has made unlawful (i.e. fighting in Meccas?\" Ibn 'Abbas said, \"Allah forbid! Allah ordained that Ibn Zubair and Bani Umaiya would permit (fighting in Mecca), but by Allah, I will never regard it as permissible.\" Ibn Abbas added. \"The people asked me to take the oath of allegiance to Ibn AzZubair. I said, 'He is really entitled to assume authority for his father, Az-Zubair was the helper of the Prophet, his (maternal) grandfather, Abu Bakr was (the Prophet's) companion in the cave, his mother, Asma' was 'Dhatun-Nitaq', his aunt, 'Aisha was the mother of the Believers, his paternal aunt, Khadija was the wife of the Prophet , and the paternal aunt of the Prophet was his grandmother. He himself is pious and chaste in Islam, well versed in the Knowledge of the Quran. By Allah! (Really, I left my relatives, Bani Umaiya for his sake though) they are my close relatives, and if they should be my rulers, they are equally apt to be so and are descended from a noble family."
+        }
+      ]
+    },
+    {
+      "chapter": 96,
+      "verse": 1,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "READ IN THE name of your Lord who created,"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "Read with the name of your Lord Who created,"
+        },
+        {
+          "author": "Arberry",
+          "text": "Recite: In the Name of thy Lord who created,"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Recite thou in the name of thy Lord Who hath created -"
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "Read! In the Name of your Lord, Who has created (all that exists),"
+        },
+        {
+          "author": "Itani",
+          "text": "Read: In the Name of your Lord who created."
+        },
+        {
+          "author": "Maududi",
+          "text": "Recite in the name of your Lord Who created,"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "Read! In the Name of your Lord Who created."
+        },
+        {
+          "author": "Pickthall",
+          "text": "Read: In the name of thy Lord Who createth,"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "Read (Prophet Muhammad) in the Name of your Lord who created,"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "Recite in the name of your Lord who created -"
+        },
+        {
+          "author": "Sarwar",
+          "text": "(Muhammad), read in the name of your Lord who created (all things)."
+        },
+        {
+          "author": "Shakir",
+          "text": "Read in the name of your Lord Who created."
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "Read! In the name of your Lord, who created:"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "Proclaim! (or read!) in the name of thy Lord and Cherisher, Who created-"
+        }
+      ]
+    },
+    {
+      "chapter": 96,
+      "verse": 2,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Created man from an embryo;"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "Created man from a clot."
+        },
+        {
+          "author": "Arberry",
+          "text": "created Man of a blood-clot."
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Hath created man from a clot!"
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "Has created man from a clot (a piece of thick coagulated blood)."
+        },
+        {
+          "author": "Itani",
+          "text": "Created man from a clot."
+        },
+        {
+          "author": "Maududi",
+          "text": "created man from a clot of congealed blood."
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "He has created man from a clot."
+        },
+        {
+          "author": "Pickthall",
+          "text": "Createth man from a clot."
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "created the human from a (blood) clot."
+        },
+        {
+          "author": "Saheeh International",
+          "text": "Created man from a clinging substance."
+        },
+        {
+          "author": "Sarwar",
+          "text": "He created man from a clot of blood."
+        },
+        {
+          "author": "Shakir",
+          "text": "He created man from a clot."
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "created man from a clot [of blood]."
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "Created man, out of a (mere) clot of congealed blood:"
+        }
+      ]
+    },
+    {
+      "chapter": 96,
+      "verse": 3,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Read, for your Lord is most beneficent,"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "Read, and your Lord only is the Most Beneficent,"
+        },
+        {
+          "author": "Arberry",
+          "text": "Recite: And thy Lord is the Most Generous,"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Recite thou: And thy Lord is the Most Bounteous,"
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "Read! And your Lord is the Most Generous,"
+        },
+        {
+          "author": "Itani",
+          "text": "Read: And your Lord is the Most Generous."
+        },
+        {
+          "author": "Maududi",
+          "text": "Recite: and your Lord is Most Generous,"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "Read! And your Lord is the Most Generous."
+        },
+        {
+          "author": "Pickthall",
+          "text": "Read: And thy Lord is the Most Bounteous,"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "Read! Your Lord is the Most Generous,"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "Recite, and your Lord is the most Generous -"
+        },
+        {
+          "author": "Sarwar",
+          "text": "Recite! Your Lord is the most Honorable One,"
+        },
+        {
+          "author": "Shakir",
+          "text": "Read and your Lord is Most Honorable,"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "Read! Your Lord is the Most Bountiful One"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "Proclaim! And thy Lord is Most Bountiful,-"
+        }
+      ]
+    },
+    {
+      "chapter": 96,
+      "verse": 4,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Who taught by the pen,"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "The One Who taught to write with the pen."
+        },
+        {
+          "author": "Arberry",
+          "text": "who taught by the Pen,"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Who hath taught mankind by the pen -"
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "Who has taught (the writing) by the pen [the first person to write was Prophet Idrees (Enoch)]."
+        },
+        {
+          "author": "Itani",
+          "text": "He who taught by the pen."
+        },
+        {
+          "author": "Maududi",
+          "text": "Who taught by the pen,"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "Who has taught by the pen."
+        },
+        {
+          "author": "Pickthall",
+          "text": "Who teacheth by the pen,"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "who taught by the pen,"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "Who taught by the pen -"
+        },
+        {
+          "author": "Sarwar",
+          "text": "who, by the pen, taught the human being:"
+        },
+        {
+          "author": "Shakir",
+          "text": "Who taught (to write) with the pen"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "who taught by the pen,"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "He Who taught (the use of) the pen,-"
+        }
+      ]
+    },
+    {
+      "chapter": 96,
+      "verse": 5,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Taught man what he did not know."
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "The One Who taught man all what he did not know."
+        },
+        {
+          "author": "Arberry",
+          "text": "taught Man that he knew not."
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Hath taught man that which he knew not."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "Has taught man that which he knew not."
+        },
+        {
+          "author": "Itani",
+          "text": "Taught man what he never knew."
+        },
+        {
+          "author": "Maududi",
+          "text": "taught man what he did not know."
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "He has taught man that which he knew not."
+        },
+        {
+          "author": "Pickthall",
+          "text": "Teacheth man that which he knew not."
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "taught the human what he did not know."
+        },
+        {
+          "author": "Saheeh International",
+          "text": "Taught man that which he knew not."
+        },
+        {
+          "author": "Sarwar",
+          "text": "He taught the human being what he did not know."
+        },
+        {
+          "author": "Shakir",
+          "text": "Taught man what he knew not."
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "taught man what he did not know."
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "Taught man that which he knew not."
+        }
+      ]
+    },
+    {
+      "chapter": 1,
+      "verse": 3,
+      "chapterName": "Sahih Bukhari Vol 1",
+      "bookId": "en.bukhari.vol01",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated 'Aisha:\n(the mother of the faithful believers) The commencement of the Divine Inspiration to Allah's Apostle was in the form of good dreams which came true like bright day light, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food like-wise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet replied, \"I do not know how to read.\nThe Prophet added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists) has created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Apostle returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, \"Cover me! Cover me!\" They covered him till his fear was over and after that he told her everything that had happened and said, \"I fear that something may happen to me.\" Khadija replied, \"Never! By Allah, Allah will never disgrace you. You keep good relations with your Kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones.\"\nKhadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the PreIslamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, \"Listen to the story of your nephew, O my cousin!\" Waraqa asked, \"O my nephew! What have you seen?\" Allah's Apostle described whatever he had seen. Waraqa said, \"This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out.\" Allah's Apostle asked, \"Will they drive me out?\" Waraqa replied in the affirmative and said, \"Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly.\" But after a few days Waraqa died and the Divine Inspiration was also paused for a while.\nNarrated Jabir bin 'Abdullah Al-Ansari while talking about the period of pause in revelation reporting the speech of the Prophet \"While I was walking, all of a sudden I heard a voice from the sky. I looked up and saw the same angel who had visited me at the cave of Hira' sitting on a chair between the sky and the earth. I got afraid of him and came back home and said, 'Wrap me (in blankets).' And then Allah revealed the following Holy Verses (of Quran):\n'O you (i.e. Muhammad)! wrapped up in garments!' Arise and warn (the people against Allah's Punishment),... up to 'and desert the idols.' (74.1-5) After this the revelation started coming strongly, frequently and regularly.\""
+        }
+      ]
+    },
+    {
+      "chapter": 87,
+      "verse": 111,
+      "chapterName": "Sahih Bukhari Vol 9",
+      "bookId": "en.bukhari.vol09",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated 'Aisha:\nThe commencement of the Divine Inspiration to Allah's Apostle was in the form of good righteous (true) dreams in his sleep. He never had a dream but that it came true like bright day light. He used to go in seclusion (the cave of) Hira where he used to worship(Allah Alone) continuously for many (days) nights. He used to take with him the journey food for that (stay) and then come back to (his wife) Khadija to take his food like-wise again for another period to stay, till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him in it and asked him to read. The Prophet replied, \"I do not know how to read.\" (The Prophet added), \"The angel caught me (forcefully) and pressed me so hard that I could not bear it anymore. He then released me and again asked me to read, and I replied, \"I do not know how to read,\" whereupon he caught me again and pressed me a second time till I could not bear it anymore. He then released me and asked me again to read, but again I replied, \"I do not know how to read (or, what shall I read?).\" Thereupon he caught me for the third time and pressed me and then released me and said, \"Read: In the Name of your Lord, Who has created (all that exists). Has created man from a clot. Read and Your Lord is Most Generous...up to..... ..that which he knew not.\" (96.15)\nThen Allah's Apostle returned with the Inspiration, his neck muscles twitching with terror till he entered upon Khadija and said, \"Cover me! Cover me!\" They covered him till his fear was over and then he said, \"O Khadija, what is wrong with me?\" Then he told her everything that had happened and said, 'I fear that something may happen to me.\" Khadija said, 'Never! But have the glad tidings, for by Allah, Allah will never disgrace you as you keep good reactions with your Kith and kin, speak the truth, help the poor and the destitute, serve your guest generously and assist the deserving, calamity-afflicted ones.\" Khadija then accompanied him to (her cousin) Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza bin Qusai. Waraqa was the son of her paternal uncle, i.e., her father's brother, who during the Pre-Islamic Period became a Christian and used to write the Arabic writing and used to write of the Gospels in Arabic as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to him, \"O my cousin! Listen to the story of your nephew.\" Waraqa asked, \"O my nephew! What have you seen?\" The Prophet described whatever he had seen.\nWaraqa said, \"This is the same Namus (i.e., Gabriel, the Angel who keeps the secrets) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out.\" Allah's Apostle asked, \"Will they turn me out?\" Waraqa replied in the affirmative and said: \"Never did a man come with something similar to what you have brought but was treated with hostility. If I should remain alive till the day when you will be turned out then I would support you strongly.\" But after a few days Waraqa died and the Divine Inspiration was also paused for a while and the Prophet became so sad as we have heard that he intended several times to throw himself from the tops of high mountains and every time he went up the top of a mountain in order to throw himself down, Gabriel would appear before him and say, \"O Muhammad! You are indeed Allah's Apostle in truth\" whereupon his heart would become quiet and he would calm down and would return home. And whenever the period of the coming of the inspiration used to become long, he would do as before, but when he used to reach the top of a mountain, Gabriel would appear before him and say to him what he had said before. (Ibn 'Abbas said regarding the meaning of: 'He it is that Cleaves the daybreak (from the darkness)' (6.96) that Al-Asbah. means the light of the sun during the day and the light of the moon at night)."
+        }
+      ]
+    },
+    {
+      "chapter": 60,
+      "verse": 478,
+      "chapterName": "Sahih Bukhari Vol 6",
+      "bookId": "en.bukhari.vol06",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated Aisha:\n(the wife of the Prophet) The commencement (of the Divine Inspiration) to Allah's Apostle was in the form of true dreams in his sleep, for he never had a dream but it turned out to be true and clear as the bright daylight. Then he began to like seclusions, so he used to go in seclusion in the cave of Hira where he used to worship Allah continuously for many nights before going back to his family to take the necessary provision (of food) for the stay. He come back to (his wife) Khadija again to take his provision (of food) likewise, till one day he received the Guidance while he was in the cave of Hira. An Angel came to him and asked him to read. Allah's Apostle replied, \"I do not know how to read.\" The Prophet added, \"Then the Angel held me (forcibly) and pressed me so hard that I felt distressed. Then he released me and again asked me to read, and I replied, 'I do not know how to read.' Thereupon he held me again and pressed me for the second time till I felt distressed. He then released me and asked me to read, but again I replied. 'I do not know how to read.' Thereupon he held me for the third time and pressed me till I got distressed, and then he released me and said, 'Read, in the Name of your Lord Who has created (all that exists), has created man out of a clot, Read! And your Lord is the Most Generous. Who has taught (the writing) by the pen, has taught man that which he knew not.\" (96.1-5).\nThen Allah's Apostle returned with that experience; and the muscles between his neck and shoulders were trembling till he came upon Khadija (his wife) and said, \"Cover me!\" They covered him, and when the state of fear was over, he said to Khadija, \"O Khadija! What is wrong with me? I was afraid that something bad might happen to me.\" Then he told her the story. Khadija said, \"Nay! But receive the good tidings! By Allah, Allah will never disgrace you, for by Allah, you keep good relations with your Kith and kin, speak the truth, help the poor and the destitute, entertain your guests generously and assist those who are stricken with calamities.\" Khadija then took him to Waraqa bin Naufil, the son of Khadija's paternal uncle. Waraqa had been converted to Christianity in the Pre-lslamic Period and used to write Arabic and write of the Gospel in Arabic as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said (to Waraqa), \"O my cousin! Listen to what your nephew is going to say.\" Waraqa said, \"O my nephew! What have you seen?\" The Prophet then described whatever he had seen. Waraqa said, \"This is the same Angel (Gabriel) who was sent to Moses. I wish I were young.\" He added some other statement. Allah's Apostle asked, \"Will these people drive me out?\" Waraqa said, \"Yes, for nobody brought the like of what you have brought, but was treated with hostility. If I were to remain alive till your day (when you start preaching). then I would support you strongly.\" But a short while later Waraqa died and the Divine Inspiration was paused (stopped) for a while so that Allah's Apostle was very much grieved.\nNarrated Jabir bin 'Abdullah: While Allah's Apostle was talking about the period of pause in revelation. he said in his narration. \"Once while I was walking, all of a sudden I heard a voice from the sky. I looked up and saw to my surprise, the same Angel as had visited me in the cave of Hira.' He was sitting on a chair between the sky and the earth. I got afraid of him and came back home and said, Wrap me! Wrap me!\" So they covered him and then Allah revealed:\n'O you, wrapped up! Arise and warn and your Lord magnify, and your garments purify and dessert the idols.' (74.1-5)\nAbu Salama said, \"(Rijz) are the idols which the people of the Pre-lslamic period used to worship.\" After this the revelation started coming frequently and regularly."
+        }
+      ]
+    },
+    {
+      "chapter": 55,
+      "verse": 605,
+      "chapterName": "Sahih Bukhari Vol 4",
+      "bookId": "en.bukhari.vol04",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated 'Aisha:\nThe Prophet returned to Khadija while his heart was beating rapidly. She took him to Waraqa bin Naufal who was a Christian convert and used to read the Gospels in Arabic Waraqa asked (the Prophet), \"What do you see?\" When he told him, Waraqa said, \"That is the same angel whom Allah sent to the Prophet) Moses. Should I live till you receive the Divine Message, I will support you strongly.\""
+        }
+      ]
+    },
+    {
+      "chapter": 60,
+      "verse": 481,
+      "chapterName": "Sahih Bukhari Vol 6",
+      "bookId": "en.bukhari.vol06",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated Aisha:\nThe Prophet returned to Khadija and said, \"Wrap me! Wrap me!\" (Then the sub-narrator narrated the rest of the narration.)"
+        }
+      ]
+    },
+    {
+      "chapter": 60,
+      "verse": 444,
+      "chapterName": "Sahih Bukhari Vol 6",
+      "bookId": "en.bukhari.vol06",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated Yahya bin Abi Kathir:\nI asked Aba Salama bin 'Abdur-Rahman about the first Sura revealed of the Qur'an. He replied \"O you, wrapped-up (i.e. Al Muddaththir).\" I said, \"They say it was, 'Read, in the Name of your Lord Who created,' (i.e. Surat Al-'Alaq (the Clot).\" On that, Abu Salama said, \"I asked Jabir bin 'Abdullah about that, saying the same as you have said, whereupon he said, 'I will not tell you except what Allah's Apostle had told us. Allah's Apostle said, \"I was in seclusion in the cave of Hiram', and after I completed the limited period of my seclusion. I came down (from the cave) and heard a voice calling me. I looked to my right, but saw nothing. Then I looked up and saw something. So I went to Khadija (the Prophet's wife) and told her to wrap me up and pour cold water on me. So they wrapped me up and poured cold water on me.\" Then, 'O you, (Muhammad) wrapped up! Arise and warn,' (Surat Al Muddaththir) was revealed.\" (74.1)"
+        }
+      ]
+    },
+    {
+      "chapter": 74,
+      "verse": 1,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "O YOU ENFOLDED in your mantle (of reform),"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "O the Cloaked One! (Prophet Mohammed – peace and blessings be upon him)"
+        },
+        {
+          "author": "Arberry",
+          "text": "O thou shrouded in thy mantle,"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "O thou enveloped?"
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "O you (Muhammad SAW) enveloped (in garments)!"
+        },
+        {
+          "author": "Itani",
+          "text": "O you Enrobed one."
+        },
+        {
+          "author": "Maududi",
+          "text": "O you enveloped in your cloak!"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "O you enveloped in garments!"
+        },
+        {
+          "author": "Pickthall",
+          "text": "O thou enveloped in thy cloak,"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "O you (Prophet Muhamad), the cloaked,"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "O you who covers himself [with a garment],"
+        },
+        {
+          "author": "Sarwar",
+          "text": "Cloaked one,"
+        },
+        {
+          "author": "Shakir",
+          "text": "O you who are clothed!"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "O, you, wrapped in your cloak,"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "O thou wrapped up (in the mantle)!"
+        }
+      ]
+    },
+    {
+      "chapter": 74,
+      "verse": 2,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Arise and warn,"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "Rise up and warn!"
+        },
+        {
+          "author": "Arberry",
+          "text": "arise, and warn!"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Arise, and warn."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "Arise and warn!"
+        },
+        {
+          "author": "Itani",
+          "text": "Arise and warn."
+        },
+        {
+          "author": "Maududi",
+          "text": "Arise, and warn,"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "Arise and warn!"
+        },
+        {
+          "author": "Pickthall",
+          "text": "Arise and warn!"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "arise and warn,"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "Arise and warn"
+        },
+        {
+          "author": "Sarwar",
+          "text": "stand up, deliver your warning,"
+        },
+        {
+          "author": "Shakir",
+          "text": "Arise and warn,"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "arise and give warning!"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "Arise and deliver thy warning!"
+        }
+      ]
+    },
+    {
+      "chapter": 74,
+      "verse": 3,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Glorify your Lord,"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "And proclaim the Purity of your Lord."
+        },
+        {
+          "author": "Arberry",
+          "text": "Thy Lord magnify"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "And thine Lord magnify!"
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "And your Lord (Allah) magnify!"
+        },
+        {
+          "author": "Itani",
+          "text": "And magnify your Lord."
+        },
+        {
+          "author": "Maududi",
+          "text": "and magnify the glory of your Lord,"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "And magnify your Lord!"
+        },
+        {
+          "author": "Pickthall",
+          "text": "Thy Lord magnify,"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "and exalt your Lord,"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "And your Lord glorify"
+        },
+        {
+          "author": "Sarwar",
+          "text": "proclaim the greatness of your Lord,"
+        },
+        {
+          "author": "Shakir",
+          "text": "And your Lord do magnify,"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "Proclaim the glory of your Lord;"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "And thy Lord do thou magnify!"
+        }
+      ]
+    },
+    {
+      "chapter": 74,
+      "verse": 4,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Purify your inner self,"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "And keep your clothes clean."
+        },
+        {
+          "author": "Arberry",
+          "text": "thy robes purify"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "And thine raiment purify."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "And your garments purify!"
+        },
+        {
+          "author": "Itani",
+          "text": "And purify your clothes."
+        },
+        {
+          "author": "Maududi",
+          "text": "and purify your robes,"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "And purify your garments!"
+        },
+        {
+          "author": "Pickthall",
+          "text": "Thy raiment purify,"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "and purify your clothing,"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "And your clothing purify"
+        },
+        {
+          "author": "Sarwar",
+          "text": "cleanse your clothes,"
+        },
+        {
+          "author": "Shakir",
+          "text": "And your garments do purify,"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "purify your garments;"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "And thy garments keep free from stain!"
+        }
+      ]
+    },
+    {
+      "chapter": 74,
+      "verse": 5,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "And banish all trepidation."
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "And stay away from idols."
+        },
+        {
+          "author": "Arberry",
+          "text": "and defilement flee!"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "And pollution shun."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "And keep away from Ar-Rujz (the idols)!"
+        },
+        {
+          "author": "Itani",
+          "text": "And abandon abominations."
+        },
+        {
+          "author": "Maududi",
+          "text": "and shun uncleanness,"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "And keep away from Ar-Rujz!"
+        },
+        {
+          "author": "Pickthall",
+          "text": "Pollution shun!"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "and flee from the statues!"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "And uncleanliness avoid"
+        },
+        {
+          "author": "Sarwar",
+          "text": "stay away from sins"
+        },
+        {
+          "author": "Shakir",
+          "text": "And uncleanness do shun,"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "shun uncleanness;"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "And all abomination shun!"
+        }
+      ]
+    },
+    {
+      "chapter": 93,
+      "verse": 1,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "I CALL TO witness the early hours of morning,"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "By oath of the late morning,"
+        },
+        {
+          "author": "Arberry",
+          "text": "By the white forenoon"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "By the morning brightness,"
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "By the forenoon (after sun-rise);"
+        },
+        {
+          "author": "Itani",
+          "text": "By the morning light."
+        },
+        {
+          "author": "Maududi",
+          "text": "By the bright forenoon,"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "By the forenoon."
+        },
+        {
+          "author": "Pickthall",
+          "text": "By the morning hours"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "By the midmorning,"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "By the morning brightness"
+        },
+        {
+          "author": "Sarwar",
+          "text": "By the midday brightness"
+        },
+        {
+          "author": "Shakir",
+          "text": "I swear by the early hours of the day,"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "By the glorious morning light;"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "By the Glorious Morning Light,"
+        }
+      ]
+    },
+    {
+      "chapter": 93,
+      "verse": 3,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Your Lord has neither left you, nor despises you."
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "Your Lord has not forsaken you nor does He dislike you!"
+        },
+        {
+          "author": "Arberry",
+          "text": "Thy Lord has neither forsaken thee nor hates thee"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Thy Lord hath not forsaken thee, nor is He displeased."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "Your Lord (O Muhammad (Peace be upon him)) has neither forsaken you nor hated you."
+        },
+        {
+          "author": "Itani",
+          "text": "Your Lord did not abandon you, nor did He forget."
+        },
+        {
+          "author": "Maududi",
+          "text": "(O Prophet), your Lord has neither forsaken you, nor is He displeased."
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "Your Lord has neither forsaken you nor hates you."
+        },
+        {
+          "author": "Pickthall",
+          "text": "Thy Lord hath not forsaken thee nor doth He hate thee,"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "your Lord has not forsaken you (Prophet Muhammad), nor does He hate you."
+        },
+        {
+          "author": "Saheeh International",
+          "text": "Your Lord has not taken leave of you, [O Muhammad], nor has He detested [you]."
+        },
+        {
+          "author": "Sarwar",
+          "text": "(Muhammad), your Lord has not abandoned you (by not sending you His revelation), nor is He displeased with you."
+        },
+        {
+          "author": "Shakir",
+          "text": "Your Lord has not forsaken you, nor has He become displeased,"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "your Lord has not forsaken you, nor is He displeased with you,"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "Thy Guardian-Lord hath not forsaken thee, nor is He displeased."
+        }
+      ]
+    },
+    {
+      "chapter": 58,
+      "verse": 168,
+      "chapterName": "Sahih Bukhari Vol 5",
+      "bookId": "en.bukhari.vol05",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated Abu Huraira:\nGabriel came to the Prophet and said, \"O Allah's Apostle! This is Khadija coming to you with a dish having meat soup (or some food or drink). When she reaches you, greet her on behalf of her Lord (i.e. Allah) and on my behalf, and give her the glad tidings of having a Qasab palace in Paradise wherein there will be neither any noise nor any fatigue (trouble) . \"\nNarrated 'Aisha: Once Hala bint Khuwailid, Khadija's sister, asked the permission of the Prophet to enter. On that, the Prophet remembered the way Khadija used to ask permission, and that upset him. He said, \"O Allah! Hala!\" So I became jealous and said, \"What makes you remember an old woman amongst the old women of Quraish an old woman (with a teethless mouth) of red gums who died long ago, and in whose place Allah has given you somebody better than her?\""
+        }
+      ]
+    },
+    {
+      "chapter": 93,
+      "verse": 588,
+      "chapterName": "Sahih Bukhari Vol 9",
+      "bookId": "en.bukhari.vol09",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated Abu Huraira:\nThe Prophet said that Gabriel said, \"Here is Khadija coming to you with a dish of food or a tumbler containing something to drink. Convey to her a greeting from her Lord (Allah) and give her the glad tidings that she will have a palace in Paradise built of Qasab wherein there will be neither any noise nor any fatigue (trouble).\" (See Hadith No. 168, Vol. 5)"
+        }
+      ]
+    },
+    {
+      "chapter": 27,
+      "verse": 19,
+      "chapterName": "Sahih Bukhari Vol 3",
+      "bookId": "en.bukhari.vol03",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated Isma'il:\nAbdullah bin Abu Aufa said: \"Allah's Apostle performed 'Umra and we too performed 'Umra along with him. When he entered Mecca he performed the Tawaf (of Ka'ba) and we too performed it along with him, and then he came to the As-Safa and Al-Marwa (i.e. performed the Sai) and we also came to them along with him. We were shielding him from the people of Mecca lest they may hit him with an arrow.\" A friend of his asked him (i.e. 'Abdullah bin Aufa), \"Did the Prophet enter the Ka'ba (during that 'Umra)?\" He replied in the negative. Then he said, \"What did he (the Prophet ) say about Khadija?\" He (Abdullah bin Aufa) said, \"(He said) 'Give Khadija the good tidings that she will have a palace made of Qasab in Paradise and there will be neither noise nor any trouble in it.\""
+        }
+      ]
+    },
+    {
+      "chapter": 58,
+      "verse": 167,
+      "chapterName": "Sahih Bukhari Vol 5",
+      "bookId": "en.bukhari.vol05",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated Ismail:\nI asked 'Abdullah bin Abi Aufa, \"Did the Prophet give glad tidings to Khadija?\" He said, \"Yes, of a palace of Qasab (in Paradise) where there will be neither any noise nor any fatigue.\""
+        }
+      ]
+    },
+    {
+      "chapter": 55,
+      "verse": 642,
+      "chapterName": "Sahih Bukhari Vol 4",
+      "bookId": "en.bukhari.vol04",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated 'Ali:\nI heard the Prophet saying, \"Mary, the daughter of 'Imran, was the best among the women (of the world of her time) and Khadija is the best amongst the women. (of this nation).\""
+        }
+      ]
+    },
+    {
+      "chapter": 58,
+      "verse": 163,
+      "chapterName": "Sahih Bukhari Vol 5",
+      "bookId": "en.bukhari.vol05",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated 'Ali:\nThe Prophet said, \"The best of the world's women is Mary (at her lifetime), and the best of the world's women is Khadija (at her lifetime).\""
+        }
+      ]
+    },
+    {
+      "chapter": 55,
+      "verse": 643,
+      "chapterName": "Sahih Bukhari Vol 4",
+      "bookId": "en.bukhari.vol04",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated Abu Musa Al-Ashari:\nThe Prophet said, \"The superiority of 'Aisha to other ladies is like the superiority of Tharid (i.e. meat and bread dish) to other meals. Many men reached the level of perfection, but no woman reached such a level except Mary, the daughter of Imran and Asia, the wife of Pharaoh.\"\nNarrated Abu Huraira: I heard Allah's Apostle saying, \"Amongst all those women who ride camels (i.e. Arabs), the ladies of Quraish are the best. They are merciful and kind to their off-spring and the best guardians of their husbands' properties.' Abu Huraira added, \"Mary the daughter of Imran never rode a camel.\""
+        }
+      ]
+    },
+    {
+      "chapter": 58,
+      "verse": 166,
+      "chapterName": "Sahih Bukhari Vol 5",
+      "bookId": "en.bukhari.vol05",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated 'Aisha:\nI did not feel jealous of any of the wives of the Prophet as much as I did of Khadija though I did not see her, but the Prophet used to mention her very often, and when ever he slaughtered a sheep, he would cut its parts and send them to the women friends of Khadija. When I sometimes said to him, \"(You treat Khadija in such a way) as if there is no woman on earth except Khadija,\" he would say, \"Khadija was such-and-such, and from her I had children.\""
+        }
+      ]
+    },
+    {
+      "chapter": 62,
+      "verse": 157,
+      "chapterName": "Sahih Bukhari Vol 7",
+      "bookId": "en.bukhari.vol07",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated Al-Miswar bin Makhrama:\nI heard Allah's Apostle who was on the pulpit, saying, \"Banu Hisham bin Al-Mughira have requested me to allow them to marry their daughter to Ali bin Abu Talib, but I don't give permission, and will not give permission unless 'Ali bin Abi Talib divorces my daughter in order to marry their daughter, because Fatima is a part of my body, and I hate what she hates to see, and what hurts her, hurts me.\""
+        }
+      ]
+    },
+    {
+      "chapter": 57,
+      "verse": 62,
+      "chapterName": "Sahih Bukhari Vol 5",
+      "bookId": "en.bukhari.vol05",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated 'Aisha:\nThe Prophet called his daughter Fatima during his illness in which he died, and told her a secret whereupon she wept. Then he called her again and told her a secret whereupon she laughed. When I asked her about that, she replied, \"The Prophet spoke to me in secret and informed me that he would die in the course of the illness during which he died, so I wept. He again spoke to me in secret and informed me that I would be the first of his family to follow him (after his death) and on that I laughed.\""
+        }
+      ]
+    },
+    {
+      "chapter": 58,
+      "verse": 236,
+      "chapterName": "Sahih Bukhari Vol 5",
+      "bookId": "en.bukhari.vol05",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated Hisham's father:\nKhadija died three years before the Prophet departed to Medina. He stayed there for two years or so and then he married 'Aisha when she was a girl of six years of age, and he consumed that marriage when she was nine years old."
+        }
+      ]
+    },
+    {
+      "chapter": 58,
+      "verse": 223,
+      "chapterName": "Sahih Bukhari Vol 5",
+      "bookId": "en.bukhari.vol05",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated Al-Musaiyab:\nWhen Abu Talib was in his death bed, the Prophet went to him while Abu Jahl was sitting beside him. The Prophet said, \"O my uncle! Say: None has the right to be worshipped except Allah, an expression I will defend your case with, before Allah.\" Abu Jahl and 'Abdullah bin Umaya said, \"O Abu Talib! Will you leave the religion of 'Abdul Muttalib?\" So they kept on saying this to him so that the last statement he said to them (before he died) was: \"I am on the religion of 'Abdul Muttalib.\" Then the Prophet said, \" I will keep on asking for Allah's Forgiveness for you unless I am forbidden to do so.\" Then the following Verse was revealed:--\n\"It is not fitting for the Prophet and the believers to ask Allah's Forgiveness for the pagans, even if they were their near relatives, after it has become clear to them that they are the dwellers of the (Hell) Fire.\" (9.113)\nThe other Verse was also revealed:-- \"(O Prophet!) Verily, you guide not whom you like, but Allah guides whom He will .......\" (28.56)"
+        }
+      ]
+    },
+    {
+      "chapter": 58,
+      "verse": 164,
+      "chapterName": "Sahih Bukhari Vol 5",
+      "bookId": "en.bukhari.vol05",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated\n'Aisha: I did not feel jealous of any of the wives of the Prophet as much as I did of Khadija (although) she died before he married me, for I often heard him mentioning her, and Allah had told him to give her the good tidings that she would have a palace of Qasab (i.e. pipes of precious stones and pearls in Paradise), and whenever he slaughtered a sheep, he would send her women-friends a good share of it."
+        }
+      ]
+    },
+    {
+      "chapter": 58,
+      "verse": 165,
+      "chapterName": "Sahih Bukhari Vol 5",
+      "bookId": "en.bukhari.vol05",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated 'Aisha:\nI did not feel jealous of any woman as much as I did of Khadija because Allah's Apostle used to mention her very often. He married me after three years of her death, and his Lord (or Gabriel) ordered him to give her the good news of having a palace of Qasab in Paradise."
+        }
+      ]
+    },
+    {
+      "chapter": 62,
+      "verse": 156,
+      "chapterName": "Sahih Bukhari Vol 7",
+      "bookId": "en.bukhari.vol07",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated 'Aisha:\nI never felt so jealous of any wife of Allah's Apostle as I did of Khadija because Allah's Apostle used to remember and praise her too often and because it was revealed to Allah's Apostle that he should give her (Khadija) the glad tidings of her having a palace of Qasab in Paradise ."
+        }
+      ]
+    },
+    {
+      "chapter": 73,
+      "verse": 33,
+      "chapterName": "Sahih Bukhari Vol 8",
+      "bookId": "en.bukhari.vol08",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated 'Aisha:\nI never felt so jealous of any woman as I did of Khadija, though she had died three years before the Prophet married me, and that was because I heard him mentioning her too often, and because his Lord had ordered him to give her the glad tidings that she would have a palace in Paradise, made of Qasab and because he used to slaughter a sheep and distribute its meat among her friends."
+        }
+      ]
+    },
+    {
+      "chapter": 93,
+      "verse": 576,
+      "chapterName": "Sahih Bukhari Vol 9",
+      "bookId": "en.bukhari.vol09",
+      "translations": [
+        {
+          "author": "Dr. Muhammad Muhsin",
+          "text": "Narrated 'Aisha:\nI never felt so jealous of any woman as I felt of Khadija, for Allah ordered him (the Prophet ) to give Khadija the glad tidings of a palace in Paradise (for her)."
+        }
+      ]
+    },
+    {
+      "chapter": 94,
+      "verse": 1,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "HAVE WE NOT opened up your breast"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "Did We not widen your bosom?"
+        },
+        {
+          "author": "Arberry",
+          "text": "Did We not expand thy breast for thee"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Have We not opened forth for thee thy breast?"
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "Have We not opened your breast for you (O Muhammad (Peace be upon him))?"
+        },
+        {
+          "author": "Itani",
+          "text": "Did We not soothe your heart?"
+        },
+        {
+          "author": "Maududi",
+          "text": "(O Prophet), Did We not lay open your breast"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "Have We not opened your breast for you"
+        },
+        {
+          "author": "Pickthall",
+          "text": "Have We not caused thy bosom to dilate,"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "Have We not expanded your chest for you (Prophet Muhammad),"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "Did We not expand for you, [O Muhammad], your breast?"
+        },
+        {
+          "author": "Sarwar",
+          "text": "(Muhammad), have We not comforted your heart,"
+        },
+        {
+          "author": "Shakir",
+          "text": "Have We not expanded for you your breast,"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "Have We not lifted up your heart,"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "Have We not expanded thee thy breast?-"
+        }
+      ]
+    },
+    {
+      "chapter": 94,
+      "verse": 2,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "And removed your burden"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "And relieve you of the burden –"
+        },
+        {
+          "author": "Arberry",
+          "text": "and lift from thee thy burden,"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "And We have taken off from thee thy burthen,"
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "And removed from you your burden,"
+        },
+        {
+          "author": "Itani",
+          "text": "And lift from you your burden."
+        },
+        {
+          "author": "Maududi",
+          "text": "and relieve you of the burden"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "And removed from you your burden."
+        },
+        {
+          "author": "Pickthall",
+          "text": "And eased thee of the burden"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "and relieved you of your burden"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "And We removed from you your burden"
+        },
+        {
+          "author": "Sarwar",
+          "text": "relieved you of the burden"
+        },
+        {
+          "author": "Shakir",
+          "text": "And taken off from you your burden,"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "and removed your burden"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "And removed from thee thy burden"
+        }
+      ]
+    },
+    {
+      "chapter": 94,
+      "verse": 3,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Which had left you devoid of hope,"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "Which had broken your back?"
+        },
+        {
+          "author": "Arberry",
+          "text": "the burden that weighed down thy back?"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Which weighed down thy back."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "Which weighed down your back?"
+        },
+        {
+          "author": "Itani",
+          "text": "Which weighed down your back?"
+        },
+        {
+          "author": "Maududi",
+          "text": "that had well-nigh broken your back?"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "Which weighed down your back"
+        },
+        {
+          "author": "Pickthall",
+          "text": "Which weighed down thy back;"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "that weighed down your back?"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "Which had weighed upon your back"
+        },
+        {
+          "author": "Sarwar",
+          "text": "which had been a heavy weight upon your back"
+        },
+        {
+          "author": "Shakir",
+          "text": "Which pressed heavily upon your back,"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "that weighed so heavily on your back, and"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "The which did gall thy back?-"
+        }
+      ]
+    },
+    {
+      "chapter": 94,
+      "verse": 4,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "And exalted your fame?"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "And We have exalted your remembrance for you."
+        },
+        {
+          "author": "Arberry",
+          "text": "Did We not exalt thy fame?"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "And We have upraised for thee thy renown."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "And raised high your fame?"
+        },
+        {
+          "author": "Itani",
+          "text": "And raised for you your reputation?"
+        },
+        {
+          "author": "Maududi",
+          "text": "And did We not exalt your fame?"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "And have We not raised high your fame"
+        },
+        {
+          "author": "Pickthall",
+          "text": "And exalted thy fame?"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "Have We not raised your remembrance?"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "And raised high for you your repute."
+        },
+        {
+          "author": "Sarwar",
+          "text": "and granted you an exalted reputation?"
+        },
+        {
+          "author": "Shakir",
+          "text": "And exalted for you your esteem?"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "have We not given you high renown?"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "And raised high the esteem (in which) thou (art held)?"
+        }
+      ]
+    },
+    {
+      "chapter": 94,
+      "verse": 5,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "Surely with hardship there is ease."
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "So indeed with hardship is ease."
+        },
+        {
+          "author": "Arberry",
+          "text": "So truly with hardship comes ease,"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Then verily along with every hardship is ease."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "So verily, with the hardship, there is relief,"
+        },
+        {
+          "author": "Itani",
+          "text": "With hardship comes ease."
+        },
+        {
+          "author": "Maududi",
+          "text": "Indeed, there is ease with hardship."
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "Verily, along with every hardship is relief,"
+        },
+        {
+          "author": "Pickthall",
+          "text": "But lo! with hardship goeth ease,"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "Indeed, hardship is followed by ease,"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "For indeed, with hardship [will be] ease."
+        },
+        {
+          "author": "Sarwar",
+          "text": "After every difficulty there is relief."
+        },
+        {
+          "author": "Shakir",
+          "text": "Surely with difficulty is ease."
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "So, surely with every hardship there is ease;"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "So, verily, with every difficulty, there is relief:"
+        }
+      ]
+    },
+    {
+      "chapter": 94,
+      "verse": 6,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "With hardship indeed there is ease."
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "Indeed with hardship is ease."
+        },
+        {
+          "author": "Arberry",
+          "text": "truly with hardship comes ease.'"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Verily along with every hardship is ease."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "Verily, with the hardship, there is relief (i.e. there is one hardship with two reliefs, so one hardship cannot overcome two reliefs)."
+        },
+        {
+          "author": "Itani",
+          "text": "With hardship comes ease."
+        },
+        {
+          "author": "Maududi",
+          "text": "Most certainly, there is ease with hardship."
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "Verily, along with every hardship is relief."
+        },
+        {
+          "author": "Pickthall",
+          "text": "Lo! with hardship goeth ease;"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "indeed, hardship is followed by ease!"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "Indeed, with hardship [will be] ease."
+        },
+        {
+          "author": "Sarwar",
+          "text": "Certainly, after every difficulty there comes relief."
+        },
+        {
+          "author": "Shakir",
+          "text": "With difficulty is surely ease."
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "surely, with every hardship there is ease."
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "Verily, with every difficulty there is relief."
+        }
+      ]
+    },
+    {
+      "chapter": 93,
+      "verse": 9,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "So do not oppress the orphan,"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "Therefore do not oppress the orphan."
+        },
+        {
+          "author": "Arberry",
+          "text": "As for the orphan, do not oppress him,"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "Wherefore as to the orphan, be thou not Unto him overbearing."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "Therefore, treat not the orphan with oppression,"
+        },
+        {
+          "author": "Itani",
+          "text": "Therefore, do not mistreat the orphan."
+        },
+        {
+          "author": "Maududi",
+          "text": "Therefore, be not harsh with the orphan;"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "Therefore, treat not the orphan with oppression."
+        },
+        {
+          "author": "Pickthall",
+          "text": "Therefor the orphan oppress not,"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "Do not oppress the orphan,"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "So as for the orphan, do not oppress [him]."
+        },
+        {
+          "author": "Sarwar",
+          "text": "Do not oppress the orphans"
+        },
+        {
+          "author": "Shakir",
+          "text": "Therefore, as for the orphan, do not oppress (him)."
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "Therefore do not treat the orphan with harshness,"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "Therefore, treat not the orphan with harshness,"
+        }
+      ]
+    },
+    {
+      "chapter": 93,
+      "verse": 10,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "And do not drive the beggar away,"
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "And do not rebuke the beggar."
+        },
+        {
+          "author": "Arberry",
+          "text": "and as for the beggar, scold him not;"
+        },
+        {
+          "author": "Daryabadi",
+          "text": "And as to the beggar, chide thou him not."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "And repulse not the beggar;"
+        },
+        {
+          "author": "Itani",
+          "text": "Nor rebuff the seeker."
+        },
+        {
+          "author": "Maududi",
+          "text": "and chide not him who asks,"
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "And repulse not the one who asks."
+        },
+        {
+          "author": "Pickthall",
+          "text": "Therefor the beggar drive not away,"
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "nor drive away the one who asks."
+        },
+        {
+          "author": "Saheeh International",
+          "text": "And as for the petitioner, do not repel [him]."
+        },
+        {
+          "author": "Sarwar",
+          "text": "and do not reject the beggars"
+        },
+        {
+          "author": "Shakir",
+          "text": "And as for him who asks, do not chide (him),"
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "and do not chide the one who asks for help;"
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "Nor repulse the petitioner (unheard);"
+        }
+      ]
+    },
+    {
+      "chapter": 93,
+      "verse": 11,
+      "chapterName": "",
+      "bookId": "en.ahmedali",
+      "translations": [
+        {
+          "author": "Ahmed Ali",
+          "text": "And keep recounting the favours of your Lord."
+        },
+        {
+          "author": "Ahmed Raza Khan",
+          "text": "And abundantly proclaim the favours of your Lord."
+        },
+        {
+          "author": "Arberry",
+          "text": "and as for thy Lord's blessing, declare it."
+        },
+        {
+          "author": "Daryabadi",
+          "text": "And as to the favour of thine Lord discourse thou thereof."
+        },
+        {
+          "author": "Hilali & Khan",
+          "text": "And proclaim the Grace of your Lord (i.e. the Prophethood and all other Graces)."
+        },
+        {
+          "author": "Itani",
+          "text": "But proclaim the blessings of your Lord."
+        },
+        {
+          "author": "Maududi",
+          "text": "and proclaim the bounty of your Lord."
+        },
+        {
+          "author": "Mubarakpuri",
+          "text": "And proclaim the grace of your Lord."
+        },
+        {
+          "author": "Pickthall",
+          "text": "Therefor of the bounty of thy Lord be thy discourse."
+        },
+        {
+          "author": "Qaribullah & Darwish",
+          "text": "But tell of the favors of your Lord!"
+        },
+        {
+          "author": "Saheeh International",
+          "text": "But as for the favor of your Lord, report [it]."
+        },
+        {
+          "author": "Sarwar",
+          "text": "and proclaim the bounties of your Lord."
+        },
+        {
+          "author": "Shakir",
+          "text": "And as for the favor of your Lord, do announce (it)."
+        },
+        {
+          "author": "Wahiduddin Khan",
+          "text": "but proclaim the blessings of your Lord."
+        },
+        {
+          "author": "Yusuf Ali",
+          "text": "But the bounty of the Lord - rehearse and proclaim!"
+        }
+      ]
+    }
+  ]
+}

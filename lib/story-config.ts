@@ -2,7 +2,8 @@
  * Configuration for story pages
  * This file contains the allowlist of stories that can be accessed via the /story/[name] route
  * To add a new story, add its name to the ALLOWED_STORIES array
- * The corresponding XML file should be placed in the public/stories/ directory with the name [name].xml
+ * and add its build-time data as data/stories/[name].json
+ * (generated from source XML via `npm run stories:convert`).
  */
 
 // Allowlist of story names that can be accessed

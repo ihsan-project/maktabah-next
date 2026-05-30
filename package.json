@@ -19,7 +19,8 @@
     "loader:load-storage": "npm run loader:load-storage -w quran-opensearch-loader",
     "loader:reorder": "npm run loader:reorder -w quran-opensearch-loader",
     "loader:decode": "npm run loader:decode -w quran-opensearch-loader",
-    "loader:generate-quran": "node quran_loader/generate-quran-json.js"
+    "loader:generate-quran": "node quran_loader/generate-quran-json.js",
+    "stories:convert": "node scripts/convert-stories.js"
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.1053.0",
@@ -32,8 +33,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
-    "react-quill": "^2.0.0",
-    "xml2js": "^0.6.2"
+    "react-quill": "^2.0.0"
   },
   "devDependencies": {
     "@types/mixpanel-browser": "^2.38.1",
@@ -41,6 +41,7 @@
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@types/xml2js": "^0.4.14",
+    "xml2js": "^0.6.2",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.53.0",
     "eslint-config-next": "^14.0.3",
