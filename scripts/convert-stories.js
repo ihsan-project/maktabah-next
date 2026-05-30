@@ -6,8 +6,24 @@ const ALLOWED = [
   'adam', 'noah', 'abraham', 'ismail_ishaq', 'yusuf', 'ayyub', 'moses',
   'dawud', 'sulayman', 'yunus', 'maryam', 'jesus', 'khadija',
 ];
-const SRC = path.join(process.cwd(), 'public', 'stories');
+const SRC = process.env.STORIES_SRC
+  ? path.resolve(process.env.STORIES_SRC)
+  : path.join(process.cwd(), 'public', 'stories');
 const OUT = path.join(process.cwd(), 'data', 'stories');
+
+function assertSrcExists() {
+  if (fs.existsSync(SRC) && fs.statSync(SRC).isDirectory()) return;
+  console.error(
+    `Story XML source not found: ${SRC}\n\n` +
+      `The repo no longer ships public/stories/ — the committed source of truth is data/stories/*.json.\n` +
+      `To regenerate from XML, either:\n` +
+      `  • set STORIES_SRC to the directory holding <name>.xml files\n` +
+      `      e.g. STORIES_SRC=/path/to/xml npm run stories:convert\n` +
+      `  • or restore the XML from git history into public/stories/\n` +
+      `      e.g. git checkout <commit-before-cleanup> -- public/stories/`,
+  );
+  process.exit(1);
+}
 
 async function convert(name) {
   const xml = fs.readFileSync(path.join(SRC, `${name}.xml`), 'utf8');
@@ -29,6 +45,7 @@ async function convert(name) {
 }
 
 async function main() {
+  assertSrcExists();
   fs.mkdirSync(OUT, { recursive: true });
   for (const name of ALLOWED) {
     const data = await convert(name);
