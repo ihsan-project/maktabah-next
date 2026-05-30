@@ -37,6 +37,18 @@ function StoryContent({ name, verses, defaultTranslator }: Props) {
     return Array.from(set).sort();
   }, [verses]);
 
+  // Stable identity keys; a curated story may quote the same verse twice
+  // (e.g. "7:130" then "7:130#2"), so we disambiguate per page-occurrence.
+  const versesWithKeys = React.useMemo(() => {
+    const seen = new Map<string, number>();
+    return verses.map((v) => {
+      const ref = `${v.chapter}:${v.verse}`;
+      const n = (seen.get(ref) ?? 0) + 1;
+      seen.set(ref, n);
+      return { verse: v, id: n === 1 ? ref : `${ref}#${n}` };
+    });
+  }, [verses]);
+
   const trackSignIn = (location: string) =>
     MixpanelTracking.track('Click Sign In', { source: 'story_page', story_name: name, location });
 
@@ -65,12 +77,12 @@ function StoryContent({ name, verses, defaultTranslator }: Props) {
         />
 
         <div className="space-y-2">
-          {verses.map((verse, idx) => {
+          {versesWithKeys.map(({ verse, id }) => {
             const matched = verse.translations.filter((t) => selected.includes(t.author));
             const visible = matched.length > 0 ? matched : verse.translations.slice(0, 1);
             const isQuran = isQuranBookId(verse.bookId);
             return (
-              <div key={idx} className="mb-2">
+              <div key={id} className="mb-2">
                 {verse.arabic && (
                   <div className="px-4 pt-4 pb-2">
                     <InteractiveArabicText
