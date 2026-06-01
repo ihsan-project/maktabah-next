@@ -5,6 +5,7 @@ import { QuranWord, SurahWordData } from '@/types';
 import { loadRootsIndex, RootOccurrence } from '@/lib/roots';
 import { buildContextUrl } from '@/lib/quran-utils';
 import { getLanesEntry, LanesEntry } from '@/lib/lanes-lexicon';
+import { appCheckFetch } from '@/lib/appCheckFetch';
 
 /** Decode the short POS code into a readable label */
 function decodePos(pos: string | null): string {
@@ -61,7 +62,7 @@ const wordDataCache = new Map<number, SurahWordData>();
 async function fetchWordData(surah: number): Promise<SurahWordData | null> {
   if (wordDataCache.has(surah)) return wordDataCache.get(surah)!;
   try {
-    const res = await fetch(`/api/storage/quran/words/${surah}.json`);
+    const res = await appCheckFetch(`/api/storage/quran/words/${surah}.json`);
     if (!res.ok) return null;
     const data: SurahWordData = await res.json();
     wordDataCache.set(surah, data);

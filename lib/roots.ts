@@ -1,6 +1,7 @@
 /**
  * Utility to load and cache the Quran roots index for cross-reference lookups.
  */
+import { appCheckFetch } from '@/lib/appCheckFetch';
 
 export interface RootOccurrence {
   s: number; // surah
@@ -26,7 +27,7 @@ export async function loadRootsIndex(): Promise<RootsIndex | null> {
   if (rootsData) return rootsData;
   if (loadingPromise) return loadingPromise;
 
-  loadingPromise = fetch('/api/storage/quran/words/roots.json')
+  loadingPromise = appCheckFetch('/api/storage/quran/words/roots.json')
     .then((res) => {
       if (!res.ok) return null;
       return res.json() as Promise<RootsIndex>;

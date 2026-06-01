@@ -1,9 +1,10 @@
 /**
  * Utility to fetch verses from Firebase Storage via the /api/storage proxy route.
  */
+import { appCheckFetch } from '@/lib/appCheckFetch';
 
 async function fetchStorageJson(apiPath: string) {
-  const response = await fetch(`/${apiPath}`);
+  const response = await appCheckFetch(`/${apiPath}`);
   if (!response.ok) {
     throw new Error(`Error fetching ${apiPath}: ${response.statusText}`);
   }
