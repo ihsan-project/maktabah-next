@@ -7,6 +7,7 @@ import {
 import { getAuth, Auth } from 'firebase-admin/auth';
 import { getFirestore, Firestore } from 'firebase-admin/firestore';
 import { getStorage, Storage } from 'firebase-admin/storage';
+import { getAppCheck, AppCheck } from 'firebase-admin/app-check';
 
 const STORAGE_BUCKET = 'maktabah-8ac04.firebasestorage.app';
 
@@ -29,6 +30,10 @@ export function getAdminDb(): Firestore {
 
 export function getAdminStorage(): Storage {
   return getStorage(getAdminApp());
+}
+
+export function getAdminAppCheck(): AppCheck {
+  return getAppCheck(getAdminApp());
 }
 
 export { STORAGE_BUCKET };
