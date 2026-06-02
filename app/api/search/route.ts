@@ -1,10 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { searchDocuments } from '@/lib/server/search';
+import { requireAppCheck, AppCheckError } from '@/lib/server/app-check';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest) {
+  try {
+    await requireAppCheck(req);
+  } catch (err) {
+    if (err instanceof AppCheckError) {
+      return NextResponse.json({ error: err.message }, { status: err.statusCode });
+    }
+    throw err;
+  }
+
   const { searchParams } = req.nextUrl;
   const query = searchParams.get('q');
   const page = Math.max(1, parseInt(searchParams.get('page') || '1', 10) || 1);

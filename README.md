@@ -137,6 +137,13 @@ OPENSEARCH_USERNAME=your_master_username
 OPENSEARCH_PASSWORD=your_master_password
 OPENSEARCH_INDEX=kitaab
 
+# Firebase App Check (bot protection for /api/search and /api/storage)
+# See "Firebase App Check Setup" section below for how to create the site key
+# and register a debug token.
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your-recaptcha-enterprise-site-key
+NEXT_PUBLIC_APP_CHECK_DEBUG=true
+APP_CHECK_ENFORCE=false
+
 # Analytics
 NEXT_PUBLIC_MIXPANEL_TOKEN=your_mixpanel_token
 ```
@@ -196,6 +203,75 @@ The search API supports three modes via the `mode` query parameter:
 | `hybrid` | BM25 + KNN merged with Reciprocal Rank Fusion | Best of both — the default for most use cases |
 
 Example: `/api/search?q=mercy+and+compassion&mode=hybrid`
+
+## Firebase App Check Setup
+
+### 1. Why App Check
+
+`/api/search` and `/api/storage` are gated by Firebase App Check to prevent abuse (scraping, bot traffic) on these expensive endpoints. The server-side helper `requireAppCheck` (in `lib/server/app-check.ts`) verifies a `X-Firebase-AppCheck` JWT on every request. The client wrapper `appCheckFetch` (in `lib/appCheckFetch.ts`) attaches the token automatically. Enforcement is gated by the `APP_CHECK_ENFORCE` env var so it can be flipped off without a code change.
+
+### 2. Enable reCAPTCHA Enterprise in GCP
+
+- Open the [reCAPTCHA Enterprise Console](https://console.cloud.google.com/security/recaptcha) for your Firebase/GCP project.
+- If prompted, enable the **reCAPTCHA Enterprise API**.
+- The free tier is 10,000 assessments per month — comfortable for typical traffic; set a billing alert if you expect to exceed it.
+
+### 3. Create a Site Key
+
+- Click **Create key**.
+- **Platform type:** Website.
+- **Domains:** add your production domain (e.g. `maktabah.app`) and `localhost` for local dev.
+- **Use checkbox challenge:** No (we want score-based, invisible).
+- Save and copy the **site key**. (Important: if you also see a "legacy secret key", **ignore it** — Firebase App Check does not use it; that field is only for standalone reCAPTCHA Enterprise integrations.)
+
+### 4. Register the Site Key with Firebase App Check
+
+- Firebase Console → your project → **App Check** → **Apps** tab → click your web app.
+- Choose **reCAPTCHA Enterprise** as the provider.
+- Paste the site key from step 3. Save.
+
+### 5. Local Dev — Register a Debug Token
+
+Localhost can't pass reCAPTCHA on its own, so App Check supports per-developer debug tokens.
+
+1. Add to your `.env.local` (see the example block in the AWS OpenSearch Setup, step 6):
+   ```env
+   NEXT_PUBLIC_RECAPTCHA_SITE_KEY=<the site key from step 3>
+   NEXT_PUBLIC_APP_CHECK_DEBUG=true
+   APP_CHECK_ENFORCE=false
+   ```
+2. Start the dev server: `npm run dev`.
+3. Open `http://localhost:3000` in your browser → DevTools Console.
+4. Look for a line like `App Check debug token: <UUID>`. Copy the UUID.
+5. Firebase Console → **App Check** → **Apps** → web app → **Manage debug tokens** → **Add debug token** → paste the UUID → name it (e.g. `local dev <your-name>`) → save.
+6. Reload the page. You should now see `{"kind":"app-check","route":"/api/...","enforced":false,"result":"pass"}` lines in the dev server terminal when you exercise search or visit Quran pages.
+
+> **Why `APP_CHECK_ENFORCE=false` locally?** The kill switch (off) lets requests through even if verification fails — useful while you're setting up the debug token. Once it works, you can flip to `APP_CHECK_ENFORCE=true` locally to match production behavior.
+
+> **Note:** Debug tokens accumulate over time as devs come and go. Periodically prune the list in the Firebase Console.
+
+### 6. Production — App Hosting Env Vars
+
+The production deploy needs the site key (so the client SDK can attest) and the enforcement flag (so the server rejects unauthenticated calls). These live in `apphosting.yaml`:
+
+```yaml
+- variable: NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+  value: "<the same site key from step 3>"
+  availability: [BUILD, RUNTIME]
+- variable: APP_CHECK_ENFORCE
+  value: "true"
+  availability: [RUNTIME]
+```
+
+The site key is a **public** credential by design (it's baked into the client bundle) — safe to commit, like the `NEXT_PUBLIC_FIREBASE_*` vars already in the file.
+
+### 7. Kill Switch
+
+If something breaks in production (false positives blocking real users, debug-token issues, etc.), flip the kill switch:
+
+1. Edit `apphosting.yaml`: change `APP_CHECK_ENFORCE` from `"true"` to `"false"`.
+2. Commit and push to the live branch.
+3. App Hosting redeploys (~3–5 min). Verification still runs and logs (so you can diagnose), but requests are no longer blocked.
 
 ## Development
 

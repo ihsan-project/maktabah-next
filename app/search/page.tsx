@@ -11,6 +11,7 @@ import WordBottomSheet from '@/app/components/WordBottomSheet';
 import { WordDictionaryProvider, useWordDictionaryOptional } from '@/app/contexts/WordDictionaryContext';
 import { SearchResult } from '@/types';
 import MixpanelTracking from '@/lib/mixpanel';
+import { appCheckFetch } from '@/lib/appCheckFetch';
 
 export default function SearchPage(): JSX.Element {
   return (
@@ -87,7 +88,7 @@ function SearchPageContent(): JSX.Element {
       const apiUrl = getApiUrl(q, p);
       console.log('Searching using API URL:', apiUrl);
 
-      const response = await fetch(apiUrl, { signal: controller.signal });
+      const response = await appCheckFetch(apiUrl, { signal: controller.signal });
       if (!response.ok) {
         throw new Error('Search request failed');
       }

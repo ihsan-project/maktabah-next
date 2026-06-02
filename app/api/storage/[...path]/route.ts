@@ -1,13 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAdminStorage, STORAGE_BUCKET } from '@/lib/server/firebase-admin';
+import { requireAppCheck, AppCheckError } from '@/lib/server/app-check';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: { path: string[] } }
 ) {
+  try {
+    await requireAppCheck(req);
+  } catch (err) {
+    if (err instanceof AppCheckError) {
+      return new NextResponse(err.message, { status: err.statusCode });
+    }
+    throw err;
+  }
+
   const filePath = (params.path || []).join('/');
   if (!filePath) {
     return new NextResponse('Invalid path', { status: 400 });
