@@ -204,6 +204,27 @@ The search API supports three modes via the `mode` query parameter:
 
 Example: `/api/search?q=mercy+and+compassion&mode=hybrid`
 
+### Rate Limiting
+
+`/api/search` is rate-limited to **30 requests per minute per client IP** to prevent abuse on this paid-backend endpoint (OpenSearch + Bedrock).
+
+- **Storage:** Firestore, under the `rateLimits/` root collection. The helper writes an `expiresAt` field on each per-minute bucket doc; a Firestore TTL policy auto-deletes stale buckets after 5 minutes.
+- **Behavior on limit hit:** HTTP `429 Too Many Requests` with body `{"error":"Too many requests"}` and a `Retry-After: <seconds>` header.
+- **Behavior on Firestore outage:** Fail-open — the request proceeds, a `console.warn` is logged. We don't punish users for our infra problems.
+- **Tuning:** Edit the call in [`app/api/search/route.ts`](app/api/search/route.ts) — `requireRateLimit(req, { bucket: 'search', limit: 30, windowMs: 60_000 })`. A `git commit` + push to `main` deploys the change via App Hosting in ~3–5 minutes.
+
+The helper itself is generic (`lib/server/rate-limit.ts`) and can be applied to any other route by passing a different `bucket` name.
+
+#### One-time Firestore TTL setup
+
+The auto-cleanup of stale buckets requires a TTL policy in the Firebase Console:
+
+1. Firebase Console → **Firestore Database** → **TTL** tab → **Add policy**.
+2. **Collection group:** `rateLimits`. **Timestamp field:** `expiresAt`.
+3. Save.
+
+Firestore will start auto-deleting expired bucket docs within ~24h of the policy taking effect. The rate-limit code works without this step (counters just accumulate as small docs); the TTL keeps storage costs near zero.
+
 ## Firebase App Check Setup
 
 ### 1. Why App Check
