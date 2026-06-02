@@ -15,9 +15,13 @@ export function getAdminApp(): App {
   if (getApps().length) {
     return getApp();
   }
-  // No args: uses Application Default Credentials on App Hosting (Cloud Run).
-  // In local dev, the *_EMULATOR_HOST env vars route admin to the emulators.
-  return initializeApp({ storageBucket: STORAGE_BUCKET });
+  // ADC supplies credentials on App Hosting (Cloud Run). Locally, no metadata
+  // server means the SDK can't auto-discover the project — pass it explicitly
+  // so App Check token verification works in `next dev` as well as production.
+  return initializeApp({
+    storageBucket: STORAGE_BUCKET,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  });
 }
 
 export function getAdminAuth(): Auth {
