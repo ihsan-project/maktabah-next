@@ -23,5 +23,13 @@ service cloud.firestore {
     match /apiKeys/{keyHash} {
       allow read, write: if false;
     }
+
+    // Rate-limit counters — server-only via Admin SDK. Hardening: deny all client access.
+    match /rateLimits/{bucketKey} {
+      allow read, write: if false;
+      match /ips/{ipHash} {
+        allow read, write: if false;
+      }
+    }
   }
 }
