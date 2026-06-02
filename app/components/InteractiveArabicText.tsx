@@ -5,6 +5,7 @@ import { QuranWord, SurahWordData } from '@/types';
 import ArabicText from './ArabicText';
 import WordPopover from './WordPopover';
 import { useWordDictionaryOptional } from '@/app/contexts/WordDictionaryContext';
+import { appCheckFetch } from '@/lib/appCheckFetch';
 
 /** In-memory cache for loaded surah word data */
 const surahCache = new Map<number, SurahWordData>();
@@ -12,7 +13,7 @@ const surahCache = new Map<number, SurahWordData>();
 async function loadSurahWords(chapter: number): Promise<SurahWordData | null> {
   if (surahCache.has(chapter)) return surahCache.get(chapter)!;
   try {
-    const res = await fetch(`/api/storage/quran/words/${chapter}.json`);
+    const res = await appCheckFetch(`/api/storage/quran/words/${chapter}.json`);
     if (!res.ok) return null;
     const data: SurahWordData = await res.json();
     surahCache.set(chapter, data);

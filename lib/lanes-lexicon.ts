@@ -2,6 +2,7 @@
  * Utility to lazy-load and cache Lane's Lexicon data, split by first letter of root.
  * Each letter file is loaded on demand and cached in memory.
  */
+import { appCheckFetch } from '@/lib/appCheckFetch';
 
 export interface LaneMorphForm {
   pattern: string;
@@ -34,7 +35,7 @@ async function loadLetterFile(letter: string): Promise<LetterData | null> {
   if (letterCache.has(letter)) return letterCache.get(letter)!;
   if (loadingPromises.has(letter)) return loadingPromises.get(letter)!;
 
-  const promise = fetch(`/api/storage/quran/words/lanes/${letter}.json`)
+  const promise = appCheckFetch(`/api/storage/quran/words/lanes/${letter}.json`)
     .then((res) => {
       if (!res.ok) return null;
       return res.json() as Promise<LetterData>;
