@@ -39,7 +39,7 @@ env:
     value: "6LfzyQQtAAAAALrii31095HRtHUYIeVEC3IuYEi9"
     availability: [BUILD, RUNTIME]
   - variable: APP_CHECK_ENFORCE
-    value: "false"
+    value: "true"
     availability: [RUNTIME]
   - variable: MCP_FUNCTION_URL
     value: "https://us-central1-maktabah-8ac04.cloudfunctions.net/mcpServer"
