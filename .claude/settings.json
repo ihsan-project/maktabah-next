@@ -66,11 +66,17 @@
       "Bash(aws opensearch *)",
       "Bash(aws cloudtrail *)",
       "WebFetch(domain:maktabah-next--maktabah-8ac04.us-east4.hosted.app)",
-      "Read(//Users/mohammedislam/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0/skills/subagent-driven-development/**)"
+      "Read(//Users/mohammedislam/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0/skills/subagent-driven-development/**)",
+      "Bash(cat > *)",
+      "Bash(APP_CHECK_ENFORCE=true npx next dev)",
+      "Bash(APP_CHECK_ENFORCE=false npx next dev)",
+      "Bash(pip install *)",
+      "Bash(pip3 install *)"
     ],
     "additionalDirectories": [
       "functions/src",
-      "app/components"
+      "app/components",
+      "/tmp"
     ]
   }
 }
