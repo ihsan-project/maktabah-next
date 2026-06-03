@@ -208,7 +208,7 @@ Example: `/api/search?q=mercy+and+compassion&mode=hybrid`
 
 `/api/search` is rate-limited to **30 requests per minute per client IP** to prevent abuse on this paid-backend endpoint (OpenSearch + Bedrock).
 
-- **Storage:** Firestore, under the `rateLimits/` root collection. The helper writes an `expiresAt` field on each per-minute bucket doc; a Firestore TTL policy auto-deletes stale buckets after 5 minutes.
+- **Storage:** Firestore, flat under the `rateLimits/` root collection. Each `(bucket, minute, IP)` is its own doc at `rateLimits/{bucket}_{minuteKey}_{ipHash}` with `{ count, expiresAt }`. A Firestore TTL policy on the collection auto-deletes docs ~5 minutes after the window ends. Flat layout (rather than a parent doc with `ips/` subcollection) avoids both the TTL non-cascade issue and the contention hotspot of a single bucket doc.
 - **Behavior on limit hit:** HTTP `429 Too Many Requests` with body `{"error":"Too many requests"}` and a `Retry-After: <seconds>` header.
 - **Behavior on Firestore outage:** Fail-open — the request proceeds, a `console.warn` is logged. We don't punish users for our infra problems.
 - **Tuning:** Edit the call in [`app/api/search/route.ts`](app/api/search/route.ts) — `requireRateLimit(req, { bucket: 'search', limit: 30, windowMs: 60_000 })`. A `git commit` + push to `main` deploys the change via App Hosting in ~3–5 minutes.
@@ -219,7 +219,7 @@ The helper itself is generic (`lib/server/rate-limit.ts`) and can be applied to 
 
 The auto-cleanup of stale buckets requires a TTL policy in the Firebase Console:
 
-1. Firebase Console → **Firestore Database** → **TTL** tab → **Add policy**.
+1. **Google Cloud Console** (console.cloud.google.com) → **Firestore Database** → **TTL** tab → **Add policy**.
 2. **Collection group:** `rateLimits`. **Timestamp field:** `expiresAt`.
 3. Save.
 

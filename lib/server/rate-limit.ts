@@ -31,6 +31,11 @@ function hashIp(ip: string): string {
 
 /**
  * Per-IP sliding-window rate limit, backed by Firestore.
+ * Each (bucket, minute, IP) is a flat doc at rateLimits/{bucket}_{minuteKey}_{ipHash}
+ * with { count, expiresAt }. Flat shape avoids the contention hotspot of a single
+ * bucket-parent doc, and lets the TTL policy on `rateLimits` (field `expiresAt`)
+ * delete every doc — subcollection cleanup does not cascade in Firestore.
+ *
  * Fail-open on Firestore errors: logs a warning, allows the request through.
  * Throws RateLimitError(429) only when the request would actually exceed the limit.
  */
@@ -39,24 +44,22 @@ export async function requireRateLimit(req: NextRequest, opts: RateLimitOpts): P
   const minuteKey = Math.floor(now / opts.windowMs);
   const retryAfterSec = Math.max(1, Math.ceil(((minuteKey + 1) * opts.windowMs - now) / 1000));
   const ipHash = hashIp(clientIp(req));
-  const bucketDocId = `${opts.bucket}_${minuteKey}`;
+  const docId = `${opts.bucket}_${minuteKey}_${ipHash}`;
 
   try {
     const db = getAdminDb();
-    const bucketRef = db.collection('rateLimits').doc(bucketDocId);
-    const ipRef = bucketRef.collection('ips').doc(ipHash);
+    const docRef = db.collection('rateLimits').doc(docId);
 
     const allowed = await db.runTransaction(async (tx) => {
-      const snap = await tx.get(ipRef);
+      const snap = await tx.get(docRef);
       const current = snap.exists ? (snap.data()?.count ?? 0) : 0;
       if (current >= opts.limit) {
         return false;
       }
-      // Mark the parent bucket with an expiresAt for the Firestore TTL policy to clean up.
-      tx.set(bucketRef, {
+      tx.set(docRef, {
+        count: FieldValue.increment(1),
         expiresAt: Timestamp.fromMillis(now + 5 * opts.windowMs),
       }, { merge: true });
-      tx.set(ipRef, { count: FieldValue.increment(1) }, { merge: true });
       return true;
     });
 
