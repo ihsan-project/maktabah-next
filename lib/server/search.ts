@@ -252,14 +252,16 @@ export async function searchDocuments(
 
       const response = await client.search({ index: OPENSEARCH_INDEX, body: { size: 100, query: finalQuery } });
       const allResults = deduplicateResults((response.body as any).hits.hits);
-      const totalResults = allResults.length;
+      // True match count from OpenSearch (not the post-dedup window). Used to be
+      // allResults.length, which under-reported when matches exceeded the fetch cap.
+      const totalMatched = (response.body as any).hits.total?.value ?? allResults.length;
       searchResult = {
         results: allResults.slice(from, from + size),
-        total: totalResults,
+        total: totalMatched,
         page,
         size,
-        totalPages: Math.ceil(totalResults / size),
-        hasMore: from + size < totalResults,
+        totalPages: Math.ceil(totalMatched / size),
+        hasMore: from + size < totalMatched,
       };
     } else if (mode === 'hybrid') {
       const embedding = await embedQuery(query);
@@ -286,14 +288,18 @@ export async function searchDocuments(
         (knnResponse.body as any).hits.hits
       );
       const allResults = deduplicateResults(mergedHits);
-      const totalResults = allResults.length;
+      // Lower-bound estimate of true match count (union is at least as large as max).
+      // Used to be allResults.length, which under-reported when matches exceeded the fetch cap.
+      const textTotal = (textResponse.body as any).hits.total?.value ?? 0;
+      const knnTotal = (knnResponse.body as any).hits.total?.value ?? 0;
+      const totalMatched = Math.max(textTotal, knnTotal, allResults.length);
       searchResult = {
         results: allResults.slice(from, from + size),
-        total: totalResults,
+        total: totalMatched,
         page,
         size,
-        totalPages: Math.ceil(totalResults / size),
-        hasMore: from + size < totalResults,
+        totalPages: Math.ceil(totalMatched / size),
+        hasMore: from + size < totalMatched,
       };
     } else {
       return { results: [], total: 0, page, size, totalPages: 0, hasMore: false };

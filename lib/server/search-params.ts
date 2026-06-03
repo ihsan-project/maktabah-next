@@ -23,6 +23,7 @@ const MAX_QUERY_LEN = 200;
 const MAX_PAGE_SIZE = 25;
 const MAX_PAGE = 50;
 const VALID_MODES: readonly SearchMode[] = ['text', 'semantic', 'hybrid'];
+const SEMANTIC_HYBRID_MAX_OFFSET = 100;
 
 /**
  * Parse a bounded positive integer query param.
@@ -59,6 +60,13 @@ export function parseSearchParams(searchParams: URLSearchParams): SearchParams {
     throw new BadRequestError(`mode: must be one of ${VALID_MODES.join(', ')}`);
   }
   const mode = modeRaw as SearchMode;
+
+  if (mode !== 'text' && (page - 1) * size >= SEMANTIC_HYBRID_MAX_OFFSET) {
+    const maxPage = Math.max(1, Math.floor((SEMANTIC_HYBRID_MAX_OFFSET - 1) / size) + 1);
+    throw new BadRequestError(
+      `page: in ${mode} mode, max page is ${maxPage} for size=${size} (semantic/hybrid fetch is capped at ${SEMANTIC_HYBRID_MAX_OFFSET} results)`
+    );
+  }
 
   return {
     q,
