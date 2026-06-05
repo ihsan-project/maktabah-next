@@ -79,7 +79,7 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps): JSX.Elemen
   };
 
   const allNavItems = [
-    { href: '/search', label: 'Search', icon: FiSearch, requiresAuth: true },
+    { href: '/search', label: 'Search', icon: FiSearch, requiresAuth: false },
     { href: '/quran', label: 'Quran', icon: FiBookOpen, requiresAuth: false },
     { href: '/stories', label: 'Stories', icon: FiBook, requiresAuth: false },
     { href: '/bookmarks', label: 'Bookmarks', icon: FiBookmark, requiresAuth: true },
@@ -88,7 +88,7 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps): JSX.Elemen
 
   const navItems = user
     ? allNavItems
-    : allNavItems.filter((item) => !item.requiresAuth || item.href === '/search');
+    : allNavItems.filter((item) => !item.requiresAuth);
 
   const handleSearchLogin = async (): Promise<void> => {
     onClose();
@@ -160,21 +160,7 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps): JSX.Elemen
 
         {/* Navigation links */}
         <nav className="flex-1 py-2 overflow-y-auto">
-          {navItems.map(({ href, label, icon: Icon, requiresAuth }) => {
-            // Search item triggers login for logged-out users
-            if (!user && requiresAuth) {
-              return (
-                <button
-                  key={href}
-                  onClick={handleSearchLogin}
-                  className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors w-full"
-                >
-                  <Icon size={20} />
-                  <span>{label}</span>
-                </button>
-              );
-            }
-
+          {navItems.map(({ href, label, icon: Icon }) => {
             return (
               <Link
                 key={href}
