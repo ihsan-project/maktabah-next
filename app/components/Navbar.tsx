@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useCallback, useRef, Suspense } from 'react';
-import { useAuth } from './AuthProvider';
 import SideMenu from './SideMenu';
 import Link from 'next/link';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
@@ -11,7 +10,6 @@ const EDGE_THRESHOLD = 20; // pixels from left edge to start swipe
 const SWIPE_MIN_DISTANCE = 50; // minimum swipe distance to trigger open
 
 function NavbarSearch(): JSX.Element {
-  const { user, signInWithGoogle } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -23,19 +21,6 @@ function NavbarSearch(): JSX.Element {
   // Hide navbar search on the search hero page (search page with no query)
   const isSearchHero = pathname === '/search' && !searchParams.get('q');
   if (isSearchHero) return <></>;
-
-  // If not logged in, show search icon that triggers login
-  if (!user) {
-    return (
-      <button
-        className="flex items-center focus:outline-none focus:ring-2 focus:ring-white rounded p-1"
-        onClick={signInWithGoogle}
-        aria-label="Sign in to search"
-      >
-        <FiSearch size={22} />
-      </button>
-    );
-  }
 
   const handleNavSearch = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -182,7 +167,7 @@ export default function Navbar(): JSX.Element {
             </Link>
           </div>
 
-          {/* Right side: Nav search (functional when logged in, prompts login otherwise) */}
+          {/* Right side: Nav search (public) */}
           <Suspense fallback={null}>
             <NavbarSearch />
           </Suspense>
