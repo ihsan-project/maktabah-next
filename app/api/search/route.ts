@@ -1,52 +1,45 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { searchDocuments } from '@/lib/server/search';
 import { requireAppCheck, AppCheckError } from '@/lib/server/app-check';
+import { requireRateLimit, RateLimitError } from '@/lib/server/rate-limit';
+import { parseSearchParams, BadRequestError } from '@/lib/server/search-params';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest) {
+  let params;
   try {
     await requireAppCheck(req);
+    await requireRateLimit(req, { bucket: 'search', limit: 30, windowMs: 60_000 });
+    params = parseSearchParams(req.nextUrl.searchParams);
   } catch (err) {
     if (err instanceof AppCheckError) {
+      return NextResponse.json({ error: err.message }, { status: err.statusCode });
+    }
+    if (err instanceof RateLimitError) {
+      return NextResponse.json({ error: err.message }, {
+        status: err.statusCode,
+        headers: { 'Retry-After': String(err.retryAfterSec) },
+      });
+    }
+    if (err instanceof BadRequestError) {
       return NextResponse.json({ error: err.message }, { status: err.statusCode });
     }
     throw err;
   }
 
-  const { searchParams } = req.nextUrl;
-  const query = searchParams.get('q');
-  const page = Math.max(1, parseInt(searchParams.get('page') || '1', 10) || 1);
-  // Cap size at 100 to match the OpenSearch fetch limit in semantic/hybrid modes.
-  const size = Math.min(100, Math.max(1, parseInt(searchParams.get('size') || '10', 10) || 10));
-  const author = searchParams.get('author');
-  const chapter = searchParams.get('chapter');
-  const titles = searchParams.getAll('title');
-  const mode = (searchParams.get('mode') || 'hybrid') as 'text' | 'semantic' | 'hybrid';
-  const debug = searchParams.get('debug') === 'true';
-
-  if (!query) {
-    return NextResponse.json({ error: 'Missing search query parameter (q)' }, { status: 400 });
-  }
-  if (!['text', 'semantic', 'hybrid'].includes(mode)) {
-    return NextResponse.json(
-      { error: 'Invalid mode. Use "text", "semantic", or "hybrid".' },
-      { status: 400 }
-    );
-  }
-
   try {
-    const searchResults = await searchDocuments(query, {
-      page,
-      size,
-      author,
-      chapter,
-      titles: titles.length ? titles : null,
-      mode,
+    const searchResults = await searchDocuments(params.q, {
+      page: params.page,
+      size: params.size,
+      author: params.author,
+      chapter: params.chapter,
+      titles: params.titles.length ? params.titles : null,
+      mode: params.mode,
     });
 
-    if (!debug) {
+    if (!params.debug) {
       searchResults.results = searchResults.results.map(({ source, ...rest }: any) => rest);
     }
 

@@ -2,55 +2,40 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { FcGoogle } from 'react-icons/fc';
+import { useRouter } from 'next/navigation';
 import MixpanelTracking from '@/lib/mixpanel';
 import { useAuth } from './AuthProvider';
+import SearchHero from './SearchHero';
 import StoriesList from './StoriesList';
 
 export default function HomeContent(): JSX.Element {
+  const router = useRouter();
   const { loading, signInWithGoogle } = useAuth();
 
-  const trackSignIn = (location: string) => {
-    MixpanelTracking.track('Click Sign In', {
+  const handleHeroSearch = (query: string) => {
+    const trimmed = query.trim();
+    if (!trimmed) return;
+    MixpanelTracking.track('Search', {
+      query: trimmed,
+      page: 1,
       source: 'home_page',
-      location: location
     });
-  };
-
-  const handleSignInClick = () => {
-    trackSignIn('top_section');
-    signInWithGoogle();
+    router.push(`/search?q=${encodeURIComponent(trimmed)}`);
   };
 
   const handleBottomSignInClick = () => {
-    trackSignIn('bottom_section');
+    MixpanelTracking.track('Click Sign In', {
+      source: 'home_page',
+      location: 'bottom_section',
+    });
     signInWithGoogle();
   };
 
   return (
     <>
-      {/* Login Section */}
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-md p-8 mb-8 mt-6">
-        <div className="text-center mb-6">
-          <h1 className="text-3xl font-bold text-primary mb-2">Maktabah</h1>
-          <p className="text-gray-600 mb-4">Your Gateway to Islamic Knowledge</p>
-          <p className="mb-6">Sign in to access the complete collection and search through Islamic texts.</p>
-          
-          <button
-            onClick={handleSignInClick}
-            disabled={loading}
-            className="flex items-center justify-center gap-2 w-full max-w-md mx-auto py-3 px-4 bg-white text-gray-700 rounded-md shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-300"
-          >
-            {loading ? (
-              <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-primary"></div>
-            ) : (
-              <>
-                <FcGoogle className="text-xl" />
-                <span>Sign in with Google</span>
-              </>
-            )}
-          </button>
-        </div>
+      {/* Search Hero */}
+      <div className="w-full mt-6 mb-8">
+        <SearchHero onSearch={handleHeroSearch} />
       </div>
 
       {/* Quran Reader Section */}
