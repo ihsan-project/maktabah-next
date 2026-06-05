@@ -6,13 +6,26 @@ import { FiX, FiLogOut, FiBook, FiBookOpen, FiBookmark, FiCode, FiCoffee, FiSear
 import { SideMenuProps } from '@/types';
 import { getProfileImageUrl, getUserInitials } from '@/lib/user-utils';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function SideMenu({ isOpen, onClose }: SideMenuProps): JSX.Element {
   const { user, logout, signInWithGoogle } = useAuth();
   const pathname = usePathname();
+  const router = useRouter();
   const menuRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  // Captures intent to navigate when an anonymous user clicks an auth-gated
+  // nav item. The useEffect below fires the navigation once `user` is truthy.
+  const pendingNavRef = useRef<string | null>(null);
+
+  // After login, complete any pending auth-gated navigation captured by
+  // handleAuthGatedNav. Same pattern as BookmarkButton's deferred add.
+  useEffect(() => {
+    if (!user || !pendingNavRef.current) return;
+    const href = pendingNavRef.current;
+    pendingNavRef.current = null;
+    router.push(href);
+  }, [user, router]);
 
   // Focus trap + Escape key
   useEffect(() => {
@@ -78,19 +91,36 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps): JSX.Elemen
     onClose();
   };
 
-  const allNavItems = [
+  // `showLoggedOut: true` keeps an auth-gated item visible to anonymous users;
+  // clicking it triggers login and (on success) navigates to the item's href.
+  const allNavItems: Array<{
+    href: string;
+    label: string;
+    icon: typeof FiSearch;
+    requiresAuth: boolean;
+    showLoggedOut?: boolean;
+  }> = [
     { href: '/search', label: 'Search', icon: FiSearch, requiresAuth: false },
     { href: '/quran', label: 'Quran', icon: FiBookOpen, requiresAuth: false },
     { href: '/stories', label: 'Stories', icon: FiBook, requiresAuth: false },
-    { href: '/bookmarks', label: 'Bookmarks', icon: FiBookmark, requiresAuth: true },
+    { href: '/bookmarks', label: 'Bookmarks', icon: FiBookmark, requiresAuth: true, showLoggedOut: true },
     { href: '/developers', label: 'Developers', icon: FiCode, requiresAuth: true },
   ];
 
   const navItems = user
     ? allNavItems
-    : allNavItems.filter((item) => !item.requiresAuth);
+    : allNavItems.filter((item) => !item.requiresAuth || item.showLoggedOut);
 
   const handleSearchLogin = async (): Promise<void> => {
+    onClose();
+    await signInWithGoogle();
+  };
+
+  // Anonymous click on an auth-gated nav item: stash the destination, close
+  // the menu, and prompt login. The useEffect on `user` will push to the
+  // destination once auth state updates.
+  const handleAuthGatedNav = async (href: string): Promise<void> => {
+    pendingNavRef.current = href;
     onClose();
     await signInWithGoogle();
   };
@@ -160,7 +190,23 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps): JSX.Elemen
 
         {/* Navigation links */}
         <nav className="flex-1 py-2 overflow-y-auto">
-          {navItems.map(({ href, label, icon: Icon }) => {
+          {navItems.map(({ href, label, icon: Icon, requiresAuth }) => {
+            // Anonymous user on an auth-gated item: render as a button that
+            // triggers login + deferred navigation. handleAuthGatedNav closes
+            // the menu before opening the popup so it doesn't sit on top.
+            if (!user && requiresAuth) {
+              return (
+                <button
+                  key={href}
+                  onClick={() => handleAuthGatedNav(href)}
+                  className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors w-full text-left"
+                >
+                  <Icon size={20} />
+                  <span>{label}</span>
+                </button>
+              );
+            }
+
             return (
               <Link
                 key={href}
