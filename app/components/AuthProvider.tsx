@@ -78,8 +78,9 @@ export default function AuthProvider({ children }: AuthProviderProps) {
         method: 'Google',
         userId: result.user.uid,
       });
-      
-      router.push('/search');
+      // Intentionally no router.push: stay on whatever page the user was on.
+      // Firebase auth state updates trigger re-renders via context, so the UI
+      // updates in place (Sign-in button becomes profile, gated items appear).
     } catch (error) {
       console.error('Error signing in with Google:', error);
     } finally {
